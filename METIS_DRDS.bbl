@@ -1,0 +1,61 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global/E182EBBC166D73366E7986813A7FC5F1/global/global}
+    \entry{DRLS}{manual}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelprefix}{AD}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-11-22}
+      \field{number}{E-SPE-AST-MET-1001}
+      \field{title}{METIS Data Reduction Library Specifications}
+      \field{version}{2-0}
+      \keyw{applicable}
+    \endentry
+  \enddatalist
+  \datalist[entry]{none/global/CD3C9BB8ACB671DBD1FABA3DEAA1E03E/global/global}
+    \entry{DRLS}{manual}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelprefix}{RD}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-11-22}
+      \field{number}{E-SPE-AST-MET-1001}
+      \field{title}{METIS Data Reduction Library Specifications}
+      \field{version}{2-0}
+      \keyw{applicable}
+    \endentry
+  \enddatalist
+  \datalist[entry]{none/global//global/global}
+    \entry{DRLS}{manual}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-11-22}
+      \field{number}{E-SPE-AST-MET-1001}
+      \field{title}{METIS Data Reduction Library Specifications}
+      \field{version}{2-0}
+      \keyw{applicable}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

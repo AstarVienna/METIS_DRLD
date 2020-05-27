@@ -1,0 +1,26 @@
+# LaTeX output
+*.aux
+*.bcf
+*.lot
+*.glo
+*.lof
+*.log
+*.out
+*.run.xml
+*.toc
+*.xdy
+*.blg
+
+# tikz results (should be in figures/)
+tikz/*.pdf
+
+# svg converted to pdf (should be in figures/)
+svg/*.pdf
+
+# our own pdf file
+METIS_DRDS.pdf
+
+# emacs directory
+auto/
+*~
+/figures/metis_lm_sci_modules.png

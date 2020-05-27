@@ -1,0 +1,433 @@
+%% METIS_DRDS.tex
+%%
+%% METIS data reduction pipeline design document
+%%
+%% 2020-05-27: initialised from specification document (OC)
+%%
+\newcommand{\doctitle}{%
+  \parbox[t]{\textwidth}{Data Reduction Library\\Design}}
+\newcommand{\docnumber}	{E-xxx-AST-MET-xxxx}     % Document number
+\newcommand{\issuenumber}{0-1}                % Version
+\newcommand{\issuedate}{2020-05-27}              % Date
+\newcommand{\workpackage}{Science Pipeline}      % Workpackage
+
+\newcommand{\authorname}{%                       % Authors
+  O.~Czoske,\\
+  W.~Kausch,\\
+  N.~Sabha,\\
+  W.~Zeilinger}
+\newcommand{\authorsigndate}  {} % date of signature of author
+
+\newcommand{\reviewername}     {%
+}       % checked by name
+\newcommand{\reviewersigndate} {} % date of signature of checker
+
+\newcommand{\approvername}    {%
+}       % name of the approver
+\newcommand{\approvalsigndate}{} % date of signature of approver
+
+\newcommand{\releasername}{%
+}
+\newcommand{\releasesigndate}{}  % date of release
+
+% Title displayed in the header
+\newcommand{\shorttitle}{Data Reduction Library Design}
+
+\newif\ifshowSVN \showSVNfalse  % flag to show SVN info instead of Issue info
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,oneside,a4paper]{article}
+
+%% Layout  --- TeX commands
+\raggedbottom
+\topmargin=-9mm
+\headsep=0.5cm
+\textheight=246mm
+\textwidth=164mm
+\hoffset=0cm
+\oddsidemargin=-2mm
+\parindent=0mm
+\parskip=0.3em
+
+\renewcommand{\floatpagefraction}{0.98} % separate float page does not work
+\renewcommand{\bottomfraction}{1.0}
+
+%% Fonts
+\usepackage{mathptmx}
+\usepackage[scaled=0.92]{helvet}
+
+\usepackage[pdftex]{graphicx}
+\graphicspath{{./figures/}}
+
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{numprint}
+\usepackage{placeins}
+\usepackage{enumitem}
+
+\usepackage{xcolor}
+\usepackage{colortbl}
+\definecolor{listingbg}{gray}{0.95}
+\definecolor{darkgreen}{rgb}{0.0, 0.7, 0.0}
+\definecolor{darkblue} {rgb}{0.0, 0.0, 0.7}
+\definecolor{darkred}  {rgb}{0.7, 0.0, 0.0}
+\definecolor{darkorange}{rgb}{1.0, 0.49, 0.0}
+
+\usepackage[many]{tcolorbox}
+\usepackage{multirow}
+\usepackage[autokw=true]{svn-multi}
+
+% does not work with my version of biblatex:
+% \usepackage[defernumbers=true,backend=biber,hyperref=true,url=false]{biblatex}
+\usepackage[%
+   defernumbers=true,
+   backend=biber,
+   hyperref=true,
+   url=false,
+   sorting=none]{biblatex}
+
+\usepackage[%
+% pagebackref=true,   % does not work with biblatex
+   pdfpagelabels=true,
+   plainpages=false,
+   colorlinks=false]{hyperref}
+
+% does not work with my version:
+%\usepackage[xindy,nopostdot,nogroupskip]{glossaries}
+\usepackage[xindy]{glossaries}
+%\makeglossaries
+
+\usepackage{lastpage}
+\usepackage{multirow}
+\usepackage[%
+   font=small,
+   format=plain,
+   indention=1.5em,
+   labelfont={small,bf},
+   up,
+   justification=justified,
+   singlelinecheck=true]{caption}
+
+%% for sidewaysfigure and sidewaystable
+\usepackage{rotating}
+
+%% put recipe names, QC parameters, etc., in \lstinline{}
+\usepackage{listings}
+\lstloadlanguages{csh, c}
+
+\usepackage{textcomp}
+
+\usepackage{subfloat}
+
+%% Write recipe names like this: \REC{metis_do_stuff}
+\makeatletter
+\lstdefinestyle{RECstyle}{%
+  basicstyle=\ttfamily\color{darkgreen}%
+  \lst@ifdisplaystyle\scriptsize\fi}
+\makeatother
+\newcommand{\REC}[1]{\lstinline[style=RECstyle]!#1!}
+
+%% Write QC parameters like this: \QC{QC_SOMETHING_OR_OTHER}
+\makeatletter
+\lstdefinestyle{QCstyle}{%
+  basicstyle=\ttfamily\color{darkblue}%
+  \lst@ifdisplaystyle\scriptsize\fi}
+\makeatother
+\newcommand{\QC}[1]{\lstinline[style=QCstyle]!#1!}
+
+%% Write templates like this: \TPL{DARK_LM}
+\makeatletter
+\lstdefinestyle{TPLstyle}{%
+  basicstyle=\ttfamily\color{darkred}%
+  \lst@ifdisplaystyle\scriptsize\fi}
+\makeatother
+\newcommand{\TPL}[1]{\lstinline[style=TPLstyle]!#1!}
+
+%% Write products like this: \PROD{SOME_THING}
+\makeatletter
+\lstdefinestyle{PRODstyle}{%
+  basicstyle=\ttfamily\color{darkorange}%
+  \lst@ifdisplaystyle\scriptsize\fi}
+\makeatother
+\newcommand{\PROD}[1]{\lstinline[style=PRODstyle]!#1!}
+
+%% Write requirements like this: \REQ{METIS-xxxx}
+\newcommand{\REQ}[1]{\textcolor{brown}{#1}}
+
+%% external calib files
+\makeatletter
+\lstdefinestyle{EXTCALIBstyle}{%
+  basicstyle=\ttfamily\color{cyan}%
+  \lst@ifdisplaystyle\scriptsize\fi}
+\makeatother
+\newcommand{\EXTCALIB}[1]{\lstinline[style=EXTCALIBstyle]!#1!}
+
+% static calib files
+\makeatletter
+\lstdefinestyle{STATCALIBstyle}{%
+  basicstyle=\ttfamily\color{teal}%
+  \lst@ifdisplaystyle\scriptsize\fi}
+\makeatother
+\newcommand{\STATCALIB}[1]{\lstinline[style=STATCALIBstyle]!#1!}
+
+%% Write FITS keywords (and values) like this: \FITS{EXPTIME}
+\newcommand{\FITS}[1]{\lstinline[]!#1!}
+
+%% Write code snippets like this: \CODE{SOMETHING==ELSE}
+%% (I know, this is a bit stupid)
+\newcommand{\CODE}[1]{\lstinline[]!#1!}
+
+%% Use environment recipedef to define a new recipe.
+\newenvironment{recipedef}
+{% begin code
+  \begin{tcolorbox}[breakable,enhanced jigsaw]%
+    \begin{longtable}{p{0.24\hsize}p{0.74\hsize}}}
+      {% end code
+    \end{longtable}%
+  \end{tcolorbox}}
+
+%%%%% This is a definition that has the flow diagram within the box:
+%% \newcommand{\theimage}{}  % dummy definition
+%% \newenvironment{recipedef}[1]
+%% {% begin
+%% code
+%% \renewcommand{\theimage}{#1}
+%% \begin{tcolorbox}%
+%%   \begin{tabular}{p{0.24\hsize}p{0.74\hsize}}
+%%   }%
+%%     {% end code
+%%   \end{tabular}%
+%%   \begin{center}%
+%%     \includegraphics[width=0.6\textwidth]{\theimage}%
+%%   \end{center}%
+%% \end{tcolorbox}}
+
+
+%% Proper typography for micrometer
+\newcommand{\micron}{\textmu\mathrm{m}}
+
+%% Ion
+\DeclareRobustCommand{\ion}[2]{%
+  \textup{#1{\mdseries\textsc{#2}}}%
+}
+
+%%%% \la...kleiner als ungef"ahr
+\def\la{\mathrel{\mathchoice {\vcenter{\offinterlineskip\halign{\hfil
+          $\displaystyle##$\hfil\cr<\cr\sim\cr}}}
+    {\vcenter{\offinterlineskip\halign{\hfil$\textstyle##$\hfil\cr
+          <\cr\sim\cr}}}
+    {\vcenter{\offinterlineskip\halign{\hfil$\scriptstyle##$\hfil\cr
+          <\cr\sim\cr}}}
+    {\vcenter{\offinterlineskip\halign{\hfil$\scriptscriptstyle##$\hfil\cr
+          <\cr\sim\cr}}}}}
+
+%%%% \ga...Gr"o"ser als ungef"ahr
+\def\ga{\mathrel{\mathchoice {\vcenter{\offinterlineskip\halign{\hfil
+          $\displaystyle##$\hfil\cr>\cr\sim\cr}}}
+    {\vcenter{\offinterlineskip\halign{\hfil$\textstyle##$\hfil\cr
+          >\cr\sim\cr}}}
+    {\vcenter{\offinterlineskip\halign{\hfil$\scriptstyle##$\hfil\cr
+          >\cr\sim\cr}}}
+    {\vcenter{\offinterlineskip\halign{\hfil$\scriptscriptstyle##$\hfil\cr
+          >\cr\sim\cr}}}}}
+
+%%%% Degrees, arcmin, arcsec
+\def\degr{\hbox{$^\circ$}}
+
+\def\arcmin{\hbox{$^\prime$}}
+
+\def\arcsec{\hbox{$^{\prime\prime}$}}
+
+%% Bright red for things that still need to be looked at. None of
+%% these should appear in the release version
+\newcommand{\TODO}[1]{\textcolor{red}{\bfseries TODO: #1}}
+
+\newcommand{\intentblankpage}{}
+
+%% paragraph column, centred text
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+%=== SUBVERSION INFO ==========================================================
+\svnid{$Id$}
+\newcommand{\svnrevisiondate}{\svnday-\svnmonth-\svnyear}  % <<<<< svn date
+
+%=== Header / Footer definition ===============================================
+\newcommand{\headerformat}{%
+  \lhead{\small\sffamily
+    \begin{tabularx}{\textwidth}{Xlll}
+      \ifshowSVN
+      \shorttitle & \docnumber & SVN \ \svnrev & \svnrevisiondate\\[0.7ex]
+      \else
+      \shorttitle & \docnumber & \issuenumber & \issuedate\\[0.7ex]
+      \fi
+    \end{tabularx}}
+  \rhead{}
+  \cfoot{\small\bfseries\sffamily
+    Page {\textbf{\thepage}}  of {\textbf{\pageref{LastPage}}} }
+  \rfoot{\raisebox{-0.3\height}{\includegraphics[width=25mm]{metis_noText.pdf}} }
+}
+
+\fancypagestyle{plain}{\fancyhf{} \headerformat}
+\headerformat
+\definecolor{brn}{RGB}{99,36,35}
+\definecolor{rd1}{RGB}{229,184,183}
+\definecolor{rd2}{RGB}{242,219,219}
+
+\renewcommand\headrule{%
+  \begingroup
+  \color{brn}
+  \hrule height 0.5pt width\headwidth
+  \endgroup
+}
+
+\renewcommand{\contentsname}{Table of Contents}
+
+%% ---- Format of section titles --------------------------------
+% Combining sffamily and scshape works only for some fonts
+\titleformat{\section}{\LARGE\sffamily\scshape}{\thesection}{1em}{\textsc{}}
+\titleformat{\subsection}{\Large\sffamily}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\sffamily}{\thesubsubsection}{1em}{}
+
+\setlength\heavyrulewidth{1.5pt}
+
+
+% === PDF Definition ==========================================================
+\hypersetup{%
+  setpagesize,
+  bookmarksnumbered=true,
+  pdfborder= 0 0 0,
+  pdftitle={\shorttitle},
+  pdfauthor={\authorname}}
+\pdfinfo{ /CreationDate (D:\svnpdfdate)}
+
+
+% === biblatex Definitions ====================================================
+\bibstyle{apj}
+\addbibresource{references.bib}
+\newbibmacro{string+doiurlisbn}[1]{\iffieldundef{url}{#1}{\href{\thefield{url}}{#1}}}
+\DeclareFieldFormat{title}{\usebibmacro{string+doiurlisbn}{\mkbibemph{#1}}}
+
+
+% === glossaries definitions  =================================================
+% \input{../common/metis_glossary.tex}     % the common glossary file
+\renewcommand{\glossarysection}[2][]{}   % Avoid the heading 'Glossary'
+\setlength{\LTleft}{0pt}                 % make all longtables aligned left
+\setlength{\glsdescwidth}{0.8\textwidth}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Start of document
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{document}
+
+% listings style
+\lstset{basicstyle=\ttfamily\lst@ifdisplaystyle\scriptsize\fi,
+  columns=flexible,
+  frame=single,
+  backgroundcolor=\color{listingbg},
+  captionpos=b,
+  showspaces=false}
+
+
+\input{00-Titlepage}
+
+% === MAIN TEXT================================================================
+
+\clearpage
+\pagestyle{fancy}
+
+% === Revision History =========================================================
+\section*{Revision History}
+
+\renewcommand{\arraystretch}{1.2}
+\arrayrulecolor{brn}
+\begin{tabularx}{\textwidth}{|l|l|l|X|}
+  \hline
+  \rowcolor{rd1}
+  \textbf{Issue}     & \textbf{Date} & \textbf{Owner} & \textbf{Changes}                           \\
+  \hline
+%  $10^{-6}$	     & 28-Feb-2017   &                & initial draft created                      \\
+%  $1.01\cdot10^{-6}$  & 5-Apr-2017    &                & added HDRL-parameters                      \\
+%                     &               &                & filled in recipes for N-band imaging       \\
+%  $2\cdot10^{-6}$     & 9-May-2017    & none           & converted to official template format      \\
+%  $3\cdot10^{-6}$     & 01-Jun-2017   & Kausch         & added Long-slit spectroscopy               \\
+%  $4\cdot10^{-6}$     & 25-Aug-2017   & K\"ohler       & added IFU spectroscopy                     \\
+%  $5\cdot10^{-6}$     & 5-Dec-2017    & K\"ohler       & added draft of instrument data description \\
+  0.1                & 2020-05-27    & Czoske         & initial draft                             \\
+  \hline
+\end{tabularx}
+
+
+%=== Indexes ==================================================================
+\newpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+\clearpage
+\phantom{a}
+\vfill
+\begin{center}
+  This page intentionally left blank
+\end{center}
+\vfill
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% INTRODUCTION
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{Scope}
+
+This document describes the design of the data reduction software for
+METIS, the Mid-infrared ELT Imager and Spectrograph. It is based on
+the Data Reduction Library Specifications document \cite{DRLS} presented
+for PDR.
+
+\subsection{Applicable documents}
+
+\begin{refcontext}[labelprefix=AD]
+  \printbibliography[keyword=applicable, heading=none]
+\end{refcontext}
+
+
+\subsection{Reference documents}
+
+\begin{refcontext}[labelprefix=RD]
+  \printbibliography[keyword=reference, heading=none]
+\end{refcontext}
+
+
+\clearpage
+
+\subsection{Acronyms}
+\label{ssec:acronyms}
+\input{acronyms.tex}
+
+\clearpage
+
+% \subsection{Specifications and requirements}
+% \label{Subsec:polarion}
+% \input{01-Requirements}
+
+
+\end{document}
+
+%%
+%% THE END
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
