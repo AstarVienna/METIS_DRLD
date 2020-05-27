@@ -1,4 +1,4 @@
-# METIS_DRDS
+# METIS_DRLD
 
 ## Special Commands
 
