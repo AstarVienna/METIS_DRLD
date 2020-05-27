@@ -18,7 +18,7 @@ tikz/*.pdf
 svg/*.pdf
 
 # our own pdf file
-METIS_DRDS.pdf
+METIS_DRLD.pdf
 
 # emacs directory
 auto/
