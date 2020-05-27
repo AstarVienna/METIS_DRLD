@@ -1,4 +1,4 @@
-# METIS_DRLD
+# METIS Data Reduction Library Design (DRLD)
 
 ## Special Commands
 
