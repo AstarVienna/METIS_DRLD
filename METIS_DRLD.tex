@@ -70,6 +70,7 @@
 \usepackage{numprint}
 \usepackage{placeins}
 \usepackage{enumitem}
+\usepackage{acronym}
 
 \usepackage{xcolor}
 \usepackage{colortbl}
@@ -411,14 +412,43 @@ for PDR.
   \printbibliography[keyword=reference, heading=none]
 \end{refcontext}
 
-
-\clearpage
-
 \subsection{Acronyms}
 \label{ssec:acronyms}
 \input{acronyms.tex}
 
 \clearpage
+
+
+\section{Data Processing Overview}
+\label{sec:data_processing_overview}
+
+% General part on pipeline and DFS
+% \input{05_0-Data_Processing_Overview}
+
+% Imaging-mode
+% \input{05_1-Overview_Imaging}
+
+% LSS-mode
+\input{Overview_LSS}  % TO BE EDITED BY INNSBRUCK ONLY!!!!!
+
+\clearpage
+% IFU-mode
+% \input{05_3-Overview_IFU}
+
+\section{Pipeline Recipes}
+\label{sec:pipeline_recipes}
+
+% \input{06_1a-Recipes_Detector}
+% \newpage
+% \input{06_1b-Recipes_Imaging_LM}
+% \input{06_2-Recipes_Imaging_NQ}
+\input{Recipes_LSS_LM}
+% \input{06_4-Recipes_LSS_N}
+% \input{06_5-Recipes_IFU}
+% \input{06_6-Recipes_HCI}
+
+\clearpage
+
 
 % \subsection{Specifications and requirements}
 % \label{Subsec:polarion}
