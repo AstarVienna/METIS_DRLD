@@ -11,11 +11,18 @@
 \newcommand{\issuedate}{2020-05-27}              % Date
 \newcommand{\workpackage}{Science Pipeline}      % Workpackage
 
-\newcommand{\authorname}{%                       % Authors
-  O.~Czoske,\\
+% The purpose of texorpdfstring is to provide different
+% strings for the title page (tex string) and for the pdf bookmark
+% (via hyperref, no tex formatting allowed). 
+% The two versions need to be kept in sync. 
+\newcommand{\authorname}{\texorpdfstring{%  % Authors
+  O.~Czoske,\\                        % tex string
   W.~Kausch,\\
   N.~Sabha,\\
   W.~Zeilinger}
+  {Czoske, Kausch, Sabha, Zeilinger}  % pdf string
+  }
+  
 \newcommand{\authorsigndate}  {} % date of signature of author
 
 \newcommand{\reviewername}     {%
@@ -62,6 +69,8 @@
 \graphicspath{{./figures/}}
 
 \usepackage{fancyhdr}
+\setlength{\headheight}{19pt} % ...at least 18.26802pt
+\setlength{\footskip}{31pt}   % ...at least 30.86163pt
 \usepackage{titlesec}
 \usepackage{booktabs}
 \usepackage{tabularx}
@@ -124,7 +133,7 @@
 
 \usepackage{textcomp}
 
-\usepackage{subfloat}
+\usepackage[countmax]{subfloat}
 
 %% Write recipe names like this: \REC{metis_do_stuff}
 \makeatletter

@@ -1,3 +1,6 @@
+\subsection{Long-slit spectroscopy, LM band}
+\label{ssec:recipes_lss_lm}
+
 A draft of the reduction cascade is shown in
 Fig.~\ref{Fig:LMLssAssomap} together with the data processing table
 (Table~\ref{Tab:LssDatProc}). The first part concerns the detector
@@ -48,7 +51,8 @@ recipes after their execution.
 
 \clearpage
 
-\subsubsection{LM-band spectroscopic flatfield / RSRF}\label{subsubsection:LM_LSS_flat}
+\subsubsection{LM-band spectroscopic flatfield / RSRF}
+\label{sssec:LM_LSS_flat}
 
 The main aim of this recipe is to detect the wavelength dependent
 sensitivity of the detectors by means of combining a static \ac{RSRF}
@@ -93,7 +97,8 @@ QC1 parameters: & \QC{QC LM LSS RSRF NOISE} : Mean of the spectroscopic noise le
 \end{figure}
 \clearpage
 
-\subsubsection{LM-band wavelength correction}\label{subsubsection:LM_LSS_wave}
+\subsubsection{LM-band wavelength correction}
+\label{sssec:LM_LSS_wave}
 
 \begin{figure}[ht]
   \centering
@@ -104,7 +109,8 @@ QC1 parameters: & \QC{QC LM LSS RSRF NOISE} : Mean of the spectroscopic noise le
 \end{figure}
 \clearpage
 
-\subsubsection{LM-band main science reduction recipe}\label{subsubsection:LM_LSS_sci}
+\subsubsection{LM-band main science reduction recipe}
+\label{sssec:LM_LSS_sci}
 
 This recipe comprises all required calibration steps. Since the flux
 standard star calibrations are nearly identical to the science data
@@ -215,7 +221,7 @@ QC1 parameters: & \QC{QC LM LSS SCI BACKGD MEAN}: Mean value of background\\
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_flux_v0.62.pdf}
+  \includegraphics[height=0.95\textheight]{figures/metis_lm_lss_flux_v0.62.pdf}
   \caption[Recipe: \REC{metis_LM_lss_flux}]{\REC{metis_LM_lss_flux} --
     Creation of the LM LSS master wavelength correction.}
   \label{Fig:rec_lm_lss_wave}
