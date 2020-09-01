@@ -8,6 +8,15 @@ delimit groups of modes that can be reduced with the same set of
 recipes.  Post-processing recipes may be available for individual
 modes within a group (e.g.\ ADI post-processing for HCI modes).
 
+Exposures or sequences of exposures can be taken in pupil-tracking
+mode or in field-tracking mode. In the first case, the derotator keeps
+the pupil fixed with respect to the detector pixel rows and columns,
+while the field rotates. In the second case, the field is kept fixed,
+while the pupil rotates. For the pipeline, this has consequences when
+it comes to combining several exposures. In pupil-tracking mode,
+images have to be rotated in software before they can be stacked to
+improve signal to noise in scientific data products.
+
 \begin{center}\small
   \captionof{table}[METIS instrument modes]{The five main observing modes of METIS. The acronyms stand for: \textbf{CLC} -- Classical Lyot Coronagraph; \textbf{CVC} -- Classical Vortex Coronagraph; \textbf{RAVC} -- Ring-apodized Vortex Coronagraph; \textbf{APP} -- Apodized Phase Plate; N/A -- not applicable.; \textbf{P/T} -- pupil tracking; \textbf{F/T} -- field tracking.}\label{tab:instrument_mode}
 %  \renewcommand{\arraystretch}{1.15}
@@ -60,50 +69,6 @@ modes within a group (e.g.\ ADI post-processing for HCI modes).
   \end{tabular}
   % \end{tabularx}
 \end{center}
-
-For each observing mode, one or more templates exist, each of which
-triggers a pipeline recipe at the observatory. Templates and recipes
-cover the observational use cases ``Observation'', ``Calibration'' and
-``Maintenance'' (\REQ{METIS-6077}).
-
-%\clearpage
-
-%%%% OLD INSTRUMENT MODE TABLE
-%%\begin{center}\normalsize
-%%%  \caption[Instrument modes]{}
-%% % \label{tab:instrument_modes}
-%%\captionof{table}{Instrument modes}\label{tab:instrument_modes}
-%%\begin{tabularx}{\textwidth}{|l|l|X|}
-%%    \hline
-%%    \textbf{Instrument mode code} & \textbf{HCI mode code} & \textbf{Instrument mode name}                      \\
-%%    \hline\hline
-%%    \CODE{IMG_LM}                 & --                     & LM band imaging                                    \\
-%%    \CODE{IMG_LM_(RA/C)VC}        & \CODE{(RA/C)VC-L/M}    & Ring-apodized or classical vortex coronagraphy L/M \\
-%%    \CODE{IMG_LM_CLC}             & \CODE{CLC-LM}          & Classical Lyot coronagraphy L or M                 \\
-%%    \CODE{IMG_LM_APP}             & \CODE{APP-IMG-LM}      & Classical APP LM                                   \\
-%%    \hline
-%%    \CODE{IMG_NQ}                 & --                     & NQ band imaging                                    \\
-%%    \CODE{IMG_N_CVC}              & \CODE{CVC-N1/N2}       & Classical vortex coronagraphy N1 or N2             \\
-%%    \CODE{IMG_N_CLC}              & \CODE{CLC-N}           & Classical Lyot coronagraphy in N-band              \\
-%%    \hline
-%%    \CODE{SPEC_LM}                & --                     & full L or M band low-resolution spectroscopy       \\
-%%    \hline
-%%    \CODE{SPEC_N_LOW}             & --                     & full N-band low-resolution spectroscopy            \\
-%%    \hline
-%%    \CODE{IFU_nominal}            & --                     & nominal IFU spectroscopy                           \\
-%%    \CODE{IFU_nominal_APP}        & \CODE{APP-LMS}         & nominal IFU spectroscopy with APP                  \\
-%%    \CODE{IFU_nominal_(RA/C)VC}   & \CODE{(RA/C)VC-LMS}    & nominal IFU spectroscopy with (RA/C)VC in L or M   \\
-%%    \CODE{IFU_nominal_CLC}        & \CODE{CLC-LMS}         & nominal IFU spectroscopy with CLC in L or M band   \\
-%%    \CODE{IFU_extended}           & --                     & extended IFU spectroscopy                          \\
-%%    \CODE{IFU_extended_APP}       & \CODE{APP-LMS}         & extended IFU spectroscopy with APP                 \\
-%%    \CODE{IFU_extended_(RA/C)VC}  & \CODE{(RA/C)VC-LMS}    & extended IFU spectroscopy with (RA/C)VC in L or M  \\
-%%    \CODE{IFU_extended_CLC}       & \CODE{CLC-LMS}         & extended IFU spectroscopy with CLC in L or M band  \\
-%%    \hline
-%%%    \CODE{PUP_L}                  & --                     & Pupil imaging L band (engineering mode)            \\
-%%%    \CODE{PUP_N}                  & --                     & Pupil imaging N band (engineering mode)            \\
-%%%    \hline
-%%  \end{tabularx}
-%%\end{center}
 
 
 %%% Local Variables:
