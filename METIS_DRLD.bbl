@@ -30,6 +30,39 @@
       \field{version}{2-0}
       \keyw{applicable}
     \endentry
+    \entry{METIS-operational_concept}{manual}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelprefix}{AD}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-03-02}
+      \field{number}{E-PLA-MPIA-MET-1057}
+      \field{title}{METIS Operational Concept Description}
+      \field{version}{3-0}
+      \keyw{reference}
+    \endentry
+    \entry{METIS-ADC_study}{manual}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelprefix}{AD}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-03-02}
+      \field{number}{E-TNT-MPIA-MET-1002}
+      \field{title}{Atmospheric Differential Dispersion in METIS}
+      \field{version}{1-0}
+      \keyw{reference}
+    \endentry
+    \entry{METIS-calibration_plan}{manual}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelprefix}{AD}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-11-01}
+      \field{number}{E-PLA-NOVA-MET-1066}
+      \field{title}{METIS Calibration Plan}
+      \field{version}{3.0}
+      \keyw{reference}
+    \endentry
   \enddatalist
   \datalist[entry]{none/global/CD3C9BB8ACB671DBD1FABA3DEAA1E03E/global/global}
     \entry{DRLS}{manual}{}
@@ -43,6 +76,39 @@
       \field{version}{2-0}
       \keyw{applicable}
     \endentry
+    \entry{METIS-operational_concept}{manual}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelprefix}{RD}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-03-02}
+      \field{number}{E-PLA-MPIA-MET-1057}
+      \field{title}{METIS Operational Concept Description}
+      \field{version}{3-0}
+      \keyw{reference}
+    \endentry
+    \entry{METIS-ADC_study}{manual}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelprefix}{RD}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-03-02}
+      \field{number}{E-TNT-MPIA-MET-1002}
+      \field{title}{Atmospheric Differential Dispersion in METIS}
+      \field{version}{1-0}
+      \keyw{reference}
+    \endentry
+    \entry{METIS-calibration_plan}{manual}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelprefix}{RD}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-11-01}
+      \field{number}{E-PLA-NOVA-MET-1066}
+      \field{title}{METIS Calibration Plan}
+      \field{version}{3.0}
+      \keyw{reference}
+    \endentry
   \enddatalist
   \datalist[entry]{none/global//global/global}
     \entry{DRLS}{manual}{}
@@ -54,6 +120,36 @@
       \field{title}{METIS Data Reduction Library Specifications}
       \field{version}{2-0}
       \keyw{applicable}
+    \endentry
+    \entry{METIS-operational_concept}{manual}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-03-02}
+      \field{number}{E-PLA-MPIA-MET-1057}
+      \field{title}{METIS Operational Concept Description}
+      \field{version}{3-0}
+      \keyw{reference}
+    \endentry
+    \entry{METIS-ADC_study}{manual}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-03-02}
+      \field{number}{E-TNT-MPIA-MET-1002}
+      \field{title}{Atmospheric Differential Dispersion in METIS}
+      \field{version}{1-0}
+      \keyw{reference}
+    \endentry
+    \entry{METIS-calibration_plan}{manual}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-11-01}
+      \field{number}{E-PLA-NOVA-MET-1066}
+      \field{title}{METIS Calibration Plan}
+      \field{version}{3.0}
+      \keyw{reference}
     \endentry
   \enddatalist
 \endrefsection
