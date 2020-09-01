@@ -3,23 +3,21 @@
 The purpose of the pipeline is to correct or remove contributions from
 the instrument, telescope, and atmosphere and produce science-grade
 data products for the L/M- and N-band long-slit spectroscopy
-mode. Since the type of the detectors are not yet defined, we assume
+mode. Since the detector properties are not fully specified, especially of the new Geosnap, we currently assume
 the same reduction cascade for both spectral ranges LM and
 N. However, to keep flexibility and independence of both branches, we
 define different recipes for the time being, although they will be
-mostly based on the same algorithms.
+mostly based on the same algorithms. We therefore focus here on the LM-band only.
 
-Figures~\ref{Fig:LMLssAssomap} and \ref{Fig:NQLssAssomap} show the reduction cascade and the
-association map for the recipes handling L/M- and N-band long-slit
-spectroscopy data.  Table~\ref{Tab:LssDatProc} contains the data processing table for these
-modes. For the time being it is not clear whether a geometric
+Figure~\ref{Fig:LMLssAssomap} shows the reduction cascade and the association map for the recipes handling L/M-long-slit
+spectroscopy data.  Table~\ref{Tab:LssDatProc} contains the data processing table for this mode. For the time being it is not clear whether a geometric
 distortion correction will be needed. We therefore consider to investigate
 the geometry of atmospheric lines for this purpose. These lines also will
 serve as reference frame for the wavelength calibration.
 
 \begin{sidewaysfigure}[ht]
   \centering
-  \includegraphics[width=0.9\textheight]{figures/LM_LSS_pipeline_wf_draft_latest_v0.62.pdf}
+  \includegraphics[width=0.9\textheight]{figures/LM_LSS_pipeline_wf_draft_latest_v0.64.pdf}
   \caption[Reduction cascade and association map for LM long-slit
   spectroscopy]{Reduction cascade and association map for long-slit
     spectroscopy in the LM bands.  }
@@ -57,7 +55,7 @@ serve as reference frame for the wavelength calibration.
     		& \CODE{DPR.TYPE==FLAT}  &			&		&	& Bad pixel map\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_wave} & Object name & 	 & Science grade spectrum\\
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_wave} & Object name &  Line list & wavelength solution\\
     		& \CODE{DPR.TYPE==LSS}   &			   & Exposure time & &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
@@ -67,7 +65,7 @@ serve as reference frame for the wavelength calibration.
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_flux} & Object name & 	 & Science grade spectrum\\
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_flux} & Object name (Flux STD) & reference flux of STD & Science grade, flux calibrated spectrum\\
     		& \CODE{DPR.TYPE==LSS}   &			   & Exposure time & &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
@@ -77,25 +75,14 @@ serve as reference frame for the wavelength calibration.
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
-%     \hline
-% %     \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \REC{metis_det_dark} & Exposure time	&	& Averaged dark frame\\
-% %     		& \CODE{DPR.TYPE==DARK}  &			&		&	& \\
-% %     		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
-% %     \hline
-%     \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_N_lss_rsrf} & Exposure time	& dark	& Averaged, normalized flatfield\\
-%     		& \CODE{DPR.TYPE==FLAT}  &			&		&	& Bad pixel map\\
-%     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
-%     \hline
-%      \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_sci} & Object name & 	 & Science grade scpectrum\\
-%     		& \CODE{DPR.TYPE==LSS}   &			   & Exposure time & &\\
-%     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
-%     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
-%     \hline
-%       \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_tac} & Object name & 	 & Science grade telluric\\
-%     		& \CODE{DPR.TYPE==LSS}   &			   & Transmission curve & &Absorption corrected spectrum\\
-%     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
-%     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
-%     \hline
     \end{tabular}
   \end{center}
 \end{sidewaystable}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.4\textheight]{figures/legend.pdf}
+  \caption[Legend]{Legend of the coloured boxes in the workflows.}
+  \label{Fig:legend}
+\end{figure}
+\clearpage

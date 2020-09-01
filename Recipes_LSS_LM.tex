@@ -5,13 +5,11 @@ A draft of the reduction cascade is shown in
 Fig.~\ref{Fig:LMLssAssomap} together with the data processing table
 (Table~\ref{Tab:LssDatProc}). The first part concerns the detector
 calibrations, which are independent of the observing mode and already
-described in Section~\ref{Sec:detector_calibration}. This affects the
+described in Section~6.1 in \cite{DRLS}. This affects the
 dark correction, linearity and gain determination and bad pixel
 detection. The second step is the flatfielding, followed by the wavelength
-correction. Subsequently, the main reduction is conducted, which applies
-the previously created master calibration files to the science frames,
-followed by the flux conversion to physical units. Finally, the telluric 
-absorption correction is applied. For the time being we keep the option with the telluric standard star although the modelling approach with molecfit is intended to be the standard method. Note that all steps after the \ac{RSRF} correction is based on the science frames only.
+correction and the determination of the response curve for the flux calibration. Subsequently, the main reduction is conducted, which applies
+the previously created master calibration files to the science frames. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}. 
 
 Special emphasis has to be drawn to the effects of the Earth's
 atmosphere in several respects:
@@ -49,115 +47,34 @@ into dedicated recipes for processing flux standards and a science
 data, since the observing templates directly trigger the corresponding
 recipes after their execution.
 
-\clearpage
+\subsection{\REC{metis_LM_lss_wave}:}
+This recipe aims at deriving the wavelength solution on basis of the sky lines visible in the science data. In a first step, the detector signature is removed by applying the master calibration files derived in the previous steps, following by the background subtraction and the application of the RSRF. The distortion of the lines (i.e. possible tilt, curvature,...) and the wavelength solution is determined by the algorithm described in Sect.\,8.5 in \cite{DRLS}.
 
-\subsubsection{LM-band spectroscopic flatfield / RSRF}
-\label{sssec:LM_LSS_flat}
-
-The main aim of this recipe is to detect the wavelength dependent
-sensitivity of the detectors by means of combining a static \ac{RSRF}
-with a dynamic one taken with a grid (cf.~\cite{METIS-calibration_plan})
-
-\begin{recipedef}
-Name:		& \REC{metis_LM_lss_rsrf} \\
-Purpose:	& determine the scpectroscopic flat field of the LM detector to determine\\
-		& a pixel sensitivity and a bad pixel map.\\
-Type:		& Calibration\\
-Requirements: & METIS-6084, METIS-6698  \\
-Observing templates: & \TPL{METIS_spec_cal_rsrf}  \\
-Input data: 	& WCU Lamp flat field (\FITS{LM_FLAT_RAW})  \\
-                & \EXTCALIB{PERSISTENCE_MAP} \\
-                & \STATCALIB{REF_RSRF} \\
-                & \PROD{BADPIX_MAP_2RG} \\
-                & \PROD{MASTER_DARK_2RG} \\
-Parameters: 	& Taken from HDRL\\
-Algorithm:  	& Standard flat algorithm (see Fig.\,\ref{Fig:rec_lm_lss_flat}):\\
-		& Pixel-by-pixel median / mean filtering of several flatfield frames to compute the sensitivity
-        of the detector; normalisation of the result (to e.g. median = 1.)\\
-Output data:	& Normalised flat field (\FITS{PRO_CATG=LM_LSS_FLAT}) \\
-        & Bad pixel map (\FITS{PRO_CATG=LM_LSS_BPM}) \\
-        & \PROD{MEDIAN_LM_LSS_RSRF_IMG} (\FITS{PRO.CATG=LM_LSS_MEDIAN_RSRF}): median filtered LM flatfield (for QC) \\
-        & \PROD{MEAN_LM_LSS_RSRF_IMG} (\FITS{PRO.CATG=LM_LSS_MEAN_RSRF}): mean filtered LM flatfield (for QC) \\
-        & \PROD{MASTER_LM_LSS_RSRF} (\FITS{PRO.CATG=LM_LSS_MASTER_RSRF}): Master flatfield \\
-Expected accuracies: & TBD\\
-QC1 parameters: & \QC{QC LM LSS RSRF NOISE} : Mean of the spectroscopic noise level\\
-        & \QC{QC LM LSS SENS MEAN}: Mean of the spectroscopic sensitivity (TBDef)\\
-        & \QC{QC LM LSS SENS MEDIAN}: Median of the spectroscopic sensitivity (TBDef)\\
-        & \QC{QC LM LSS SENS SIGMA}: Sigma of the spectroscopic sensitivity (TBDef)\\
-        & \QC{QC LM LSS FLXMIN / FLXMAX}: Min/max of flux level\\
-        & \QC{QC LM LSS NORM LEVEL}: Level for the normalisation (TBDef)\\
-        & (more TBD)\\
-\end{recipedef}
+% \begin{figure}[ht]
+%   \centering
+%   \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_wave_0.62.pdf}
+%   \caption[Recipe for the LM-LSS mode wavelength calibration]{Recipe for the LM-LSS mode wavelength calibration.  }
+%   \label{Fig:rec_lm_lss_wave}
+% \end{figure}
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_flat.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_rsrf}]{\REC{metis_LM_lss_rsrf} --
-    Creation of the LM LSS master flatfield.}
-  \label{Fig:rec_lm_lss_flat}
-\end{figure}
-\clearpage
-
-\subsubsection{LM-band wavelength correction}
-\label{sssec:LM_LSS_wave}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_wave_0.62.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_wave_v0.64.pdf}
   \caption[Recipe: \REC{metis_LM_lss_wave}]{\REC{metis_LM_lss_wave} --
     Creation of the LM LSS master wavelength correction.}
   \label{Fig:rec_lm_lss_wave}
 \end{figure}
 \clearpage
 
-\subsubsection{LM-band main science reduction recipe}
-\label{sssec:LM_LSS_sci}
-
-This recipe comprises all required calibration steps. Since the flux
-standard star calibrations are nearly identical to the science data
-calibrations we process these stars in the \REC{metis_LM_lss_sci}
-recipe (cf.\ Fig.~\ref{Fig:rec_lm_lss_sci}).
-
-Spectrophotometric standard stars calibration: As first step the
-master calibration files derived previously are applied followed by
-the wavelength calibration (cf.\
-Section~\ref{Sec:critalg_wavecal}). Then the recipe extracts the
-standard star spectrum object, removes sky lines, collapses the 2D to
-1D spectra and applies a telluric correction in an automated way to
-the standard star spectrum (in contrast to the science observations,
-which are telluric corrected in a dedicated recipe to achieve the best
-correction). The response curve is obtained by comparing the extracted
-spectrum with a model and/or another reference spectrum of the
-standard star.
-
-Science calibration: The calibration of the science data is done in
-the same way as for the spectrophotometric stars, except that the
-response curve is additionally applied. The telluric correction on the
-science data is done in a dedicated recipe afterwards to achieve best
-quality for the correction.
-
-For the observatory pipeline, this recipe most probably has to be
-split into dedicated recipes for processing flux standards and science
-data, since the observing templates directly trigger the corresponding
-recipes after their execution.
-
-
 \begin{recipedef}
-Name:		& \REC{metis_LM_lss_sci} \\
-Purpose:	& main science reduction recipe: \\
-            & applies master calibration files \\
-            & applies wavelength calibration + distortion solution\\
-            & - determines sky/object pixel\\
-            & - subtracts sky emission\\
-            & - performs coaddition of wavelength calibrated spectra
-            taken during one OB\\
-            & applies the flux calibration\\
-Type:		& Science reduction\\
-Requirements: & METIS-6084, METIS-6074 \\
+Name:		& \REC{metis_LM_lss_wave} \\
+Purpose:	& Wavelength calibration \\
+Type:		& Calibration\\
+Requirements: & METIS-6084, METIS-1371, METIS-6074 \\
 Observing templates: & \TPL{METIS_spec_lm_acq}, \\
                 & \TPL{METIS_spec_lm_obs_AutoNodOnSlit}, \\
                 & \TPL{METIS_spec_lm_obs_GenericOffset} \\
                 & \TPL{METIS_spec_lm_cal_lampwave}\\
-                & \TPL{METIS_spec_lm_cal_standard}\\
+                % & \TPL{METIS_spec_lm_cal_standard}\\
                 & \TPL{METIS_spec_lm_cal_slit_adc}\\
 Input data: 	& raw SCIENCE data (\FITS{LM_SCI_RAW})\\
                 & raw spectrophotometric STANDARD star data (\FITS{LM_FLUX_RAW})\\
@@ -167,16 +84,83 @@ Input data: 	& raw SCIENCE data (\FITS{LM_SCI_RAW})\\
                 & \PROD{MASTER_LM_LSS_RSRF} \\
                 & \PROD{MASTER_DARK_2RG} \\
                 & \PROD{BADPIX_MAP_2RG} \\
+                & \STATCALIB{ATM_LINE_CAT} \\
+%                & \STATCALIB{REF_AIRG_CAT} \\
+Parameters: 	& (TBD)\\
+Algorithm:      & Application of detector master calibration files\\
+                & Sky background removal\\
+                & Determination and application of the distortion correction\\
+                & Determination and application of the wavelength solution\\
+Output data:	& \PROD{LM_LSS_SCI_RSRF}: Flatfielded 2d-Spectrum (QC)\\
+                & \PROD{LM_DIST_SOL} (\FITS{PRO.CATG=LM_DIST_SOL}): Distortion solution\\
+                & \PROD{LM_WAVE_SOL} (\FITS{PRO.CATG=LM_WAVE_SOL}): Wavelength solution\\
+                & \PROD{LM_SCI_SLIT} (\FITS{PRO_CATG=LM_LSS_2D_WAVE}): background corrected 2d spectra \\
+              	& \PROD{LM_LSS_SCI_WAVE}: Wavelength calibrated 2d Spectrum\\
+                % & (\FITS{PRO_CATG}: \FITS{LM_LSS_1d_coadd_wavecal_flux}) \\
+Expected accuracies: & (TBD)\\
+QC1 parameters: & \QC{QC LM LSS SCI BACKGD MEAN}: Mean value of background\\
+                & \QC{QC LM LSS SCI BACKGD MEDIAN}: Median value of background\\
+                & \QC{QC LM LSS SCI BACKGD SIGMA}: Sigma value of background\\
+                & \QC{QC LM LSS WAVECAL DEVMEAN}: Mean deviation from the
+                   wavelength reference frame (TBDef)\\
+                & \QC{QC LM LSS WAVECAL FWHM}: Measured FWHM of lines\\
+                & \QC{QC LM LSS WAVECAL NIDENT}: Number of identified lines\\
+                & \QC{QC LM LSS WAVECAL NMATCH}: Number of lines matched between
+                    catalaogue and spectrum\\
+                & \QC{QC LM LSS WAVECAL POLYDEG}: Degree of the polynomial\\
+                & \QC{QC LM LSS WAVECAL POLYCOEFF\<n\>}: $n$-th coefficient of the polynomial\\
+\end{recipedef}
+
+% 
+
+\subsection{\REC{metis_LM_lss_flux}:}
+Spectrophotometric standard stars calibration: As first step the
+master calibration files derived previously are applied followed by the background subtraction and 
+the wavelength calibration (including distortion correction, if needed). Then the recipe extracts the
+standard star spectrum object, removes sky lines, collapses the 2D to
+1D spectra and applies a telluric correction in an automated way to
+the standard star spectrum (in contrast to the science observations,
+which are telluric corrected in a dedicated recipe to achieve the best
+correction). The response curve is obtained by comparing the extracted
+spectrum with a model and/or another reference spectrum of the
+standard star.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.4\textheight]{figures/metis_lm_lss_flux_v0.64.pdf}
+  \caption[Recipe: \REC{metis_LM_lss_flux}]{\REC{metis_LM_lss_flux} --
+    Flux calibration recipe.}
+  \label{Fig:rec_lm_lss_flux}
+\end{figure}
+\clearpage
+\begin{recipedef}
+Name:		& \REC{metis_LM_lss_flux} \\
+Purpose:	& Flux calibration \\
+Type:		& Calibration\\
+Requirements: & METIS-6084, METIS-6074 \\
+Observing templates: & \TPL{METIS_spec_lm_acq}, \\
+                & \TPL{METIS_spec_lm_obs_AutoNodOnSlit}, \\
+                & \TPL{METIS_spec_lm_obs_GenericOffset} \\
+                % & \TPL{METIS_spec_lm_cal_lampwave}\\
+                & \TPL{METIS_spec_lm_cal_standard}\\
+                & \TPL{METIS_spec_lm_cal_slit_adc}\\
+Input data: 	& raw spectrophotometric STANDARD star data (\FITS{LM_FLUX_RAW})\\
+                & wavelength calibrated science spectra (\PROD{LM_LSS_SCI_1D})\\
+                & WCU grid for first guess distortion correction (TBD) \\
+                & WCU lamp spectrum for first guess wavelength solution (TBD)\\
+                & \EXTCALIB{PERSISTENCE_MAP} \\
+                & \PROD{MASTER_LM_LSS_RSRF} \\
+                & \PROD{MASTER_DARK_2RG} \\
+                & \PROD{BADPIX_MAP_2RG} \\
                 & \EXTCALIB{AO_PSF_MODEL} \\
                 & \STATCALIB{ATM_LINE_CAT} \\
-                & \STATCALIB{REF_AIRG_CAT} \\
+                % & \STATCALIB{REF_AIRG_CAT} \\
 Parameters: 	& (TBD)\\
 Algorithm:      & Application of master calibration files\\
+                & Background removal\\
                 & Determination and application of the distortion correction\\
                 & Determination and application of the wavelength solution\\
                 & Identifying sky/object pixels by applying e.g. Horne 1986, Ritter 2014, or by user \\
                 & Removing sky lines: Creation and Subtraction of 2D sky\\
-                & Coaddition of individual object spectra of one OB\\
                 & Collapsing 2D to 1D spectrum, (see Fig.\,\ref{Fig:rec_lm_lss_sci})\\
                 & Determination and application of response curve\\
 Output data:	& \PROD{LM_STD_OBJ_MAP}: Pixel map of object pixels\\
@@ -187,9 +171,9 @@ Output data:	& \PROD{LM_STD_OBJ_MAP}: Pixel map of object pixels\\
                 & \PROD{LM_SCI_SLIT} (\FITS{PRO_CATG=LM_LSS_2D_WAVE}): background corrected 2d spectra \\
                 & \PROD{LM_SCI_OBJ_MAP}: Pixel map of object pixels\\
             	& \PROD{LM_SCI_SKY_MAP}: Pixel map of sky pixels\\
-                & \PROD{LM_SCI_2D}: coadded, wavelength calibrated 2D spectrum\\
-                & (\FITS{PRO_CATG}: \FITS{LM_LSS_2d_coadd_wavecal}) \\
-                & (\FITS{PRO_CATG}: \FITS{LM_LSS_1d_coadd_wavecal}) \\
+                % & \PROD{LM_SCI_2D}: coadded, wavelength calibrated 2D spectrum\\
+                % & (\FITS{PRO_CATG}: \FITS{LM_LSS_2d_coadd_wavecal}) \\
+                % & (\FITS{PRO_CATG}: \FITS{LM_LSS_1d_coadd_wavecal}) \\
               	& \PROD{LM_SCI_FLUX_2D}: coadded, wavelength and flux calibrated 2D spectrum\\
                 & (\FITS{PRO_CATG}: \FITS{LM_LSS_2d_coadd_wavecal_flux}) \\
               	& \PROD{LM_SCI_FLUX_1D}: coadded, wavelength and flux calibrated 1D spectrum\\
@@ -197,33 +181,61 @@ Output data:	& \PROD{LM_STD_OBJ_MAP}: Pixel map of object pixels\\
                 & \PROD{LM_WAVE_SOL} (\FITS{PRO.CATG=LM_WAVE_SOL}): Wavelength solution\\
                 & \PROD{LM_DIST_SOL} (\FITS{PRO.CATG=LM_DIST_SOL}): Distortion solution\\
 Expected accuracies: & (TBD)\\
-QC1 parameters: & \QC{QC LM LSS SCI BACKGD MEAN}: Mean value of background\\
-                & \QC{QC LM LSS SCI BACKGD MEDIAN}: Median value of background\\
-                & \QC{QC LM LSS SCI BACKGD SIGMA}: Sigma value of background\\
-                & \QC{QC LM LSS SCI SNR}: Signal-to-noise ration of flux standard star spectrum\\
-                & \QC{QC LM LSS SCI SNRNOISE}: Noise level of flux standard star spectrum\\
-                & \QC{QC LM LSS SCI FWHM}: FWHM of flux standard spectrum\\
+QC1 parameters: & \QC{QC LM LSS STD BACKGD MEAN}: Mean value of background\\
+                & \QC{QC LM LSS STD BACKGD MEDIAN}: Median value of background\\
+                & \QC{QC LM LSS STD BACKGD SIGMA}: Sigma value of background\\
+                & \QC{QC LM LSS STD SNR}: Signal-to-noise ration of flux standard star spectrum\\
+                & \QC{QC LM LSS STD SNRNOISE}: Noise level of flux standard star spectrum\\
+                & \QC{QC LM LSS STD FWHM}: FWHM of flux standard spectrum\\
 %                & \QC{LM LSS SCI}: (TBdef) \\
-                & \QC{QC LM LSS WAVECAL DEVMEAN}: Mean deviation from the
-                   wavelength reference frame (TBDef)\\
-                & \QC{QC LM LSS WAVECAL FWHM}: Measured FWHM of lines\\
-                & \QC{QC LM LSS WAVECAL NIDENT}: Number of identified lines\\
-                & \QC{QC LM LSS WAVECAL NMATCH}: Number of lines matched between
-                    catalaogue and spectrum\\
-                & \QC{QC LM LSS WAVECAL POLYDEG}: Degree of the polynomial\\
-                & \QC{QC LM LSS WAVECAL POLYCOEFF\<n\>}: $n$-th coefficient of the polynomial\\
+                % & \QC{QC LM LSS WAVECAL DEVMEAN}: Mean deviation from the
+                %   wavelength reference frame (TBDef)\\
+                % & \QC{QC LM LSS WAVECAL FWHM}: Measured FWHM of lines\\
+                % & \QC{QC LM LSS WAVECAL NIDENT}: Number of identified lines\\
+                % & \QC{QC LM LSS WAVECAL NMATCH}: Number of lines matched between
+                %     catalaogue and spectrum\\
+                % & \QC{QC LM LSS WAVECAL POLYDEG}: Degree of the polynomial\\
+                % & \QC{QC LM LSS WAVECAL POLYCOEFF\<n\>}: $n$-th coefficient of the polynomial\\
                 & \QC{QC LM LSS FLUXCAL SNR}: Signal-to-noise ration of flux standard star spectrum\\
                 & \QC{QC LM LSS FLUXCAL SNRNOISE}: Noise level of flux standard star spectrum\\
                 & \QC{QC LM LSS FLUXCAL FWHM}: FWHM of flux standard spectrum\\
                 & \QC{QC LM LSS FLUXCAL PSFLOSS}: percentage of AO induced slit losses (TBdef)\\
 \end{recipedef}
-\subsubsection{LM-band flux calibration recipe}\label{subsubsection:LM_LSS_flux}
 
+\subsection{\REC{metis_LM_lss_sci}:}
+The science calibration recipe comprises the extraction of the object (i.e. separation of object/sky pixels), removing the sky lines, the application of the response curve previously defined, the 2D to 1D collapse and the coaddition. In contrast to the flux standard star reduction, the telluric correction on the science data is done in a dedicated recipe afterwards to achieve best quality for the correction.
 \begin{figure}[ht]
   \centering
-  \includegraphics[height=0.95\textheight]{figures/metis_lm_lss_flux_v0.62.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_flux}]{\REC{metis_LM_lss_flux} --
-    Creation of the LM LSS master wavelength correction.}
-  \label{Fig:rec_lm_lss_wave}
+  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_sci_v0.64.pdf}
+  \caption[Recipe: \REC{metis_LM_lss_sci}]{\REC{metis_LM_lss_sci} --
+    Science reduction recipe.}
+  \label{Fig:rec_lm_lss_sci}
 \end{figure}
 \clearpage
+
+\begin{recipedef}
+Name:		& \REC{metis_LM_lss_sci} \\
+Purpose:    Science data calibration\\
+Type:		& Science reduction\\
+Requirements: & METIS-6084 \\
+Observing templates: & \TPL{METIS_spec_lm_acq}, \\
+                & \TPL{METIS_spec_lm_obs_AutoNodOnSlit}, \\
+                & \TPL{METIS_spec_lm_obs_GenericOffset} \\
+                & \TPL{METIS_spec_lm_cal_slit_adc}\\
+Input data: 	&  \PROD{LM_LSS_SCI_WAVE}\\
+Parameters: 	& (TBD)\\
+Algorithm:      & Identifying sky/object pixels by applying\\
+                & Removing sky lines: Creation and Subtraction of 2D sky\\
+                & Coaddition of individual object spectra of one OB\\
+                & Collapsing 2D to 1D spectrum, (see Fig.\,\ref{Fig:rec_lm_lss_sci})\\
+                & Application of the response function (flux calibration) \\
+Output data:	& \PROD{LM_SCI_OBJ_MAP}: Pixel map of object pixels\\
+            	& \PROD{LM_SCI_SKY_MAP}: Pixel map of sky pixels\\
+                & \PROD{LM_LSS_SCI_2D}: coadded, wavelength calibrated 2D spectrum\\
+                & (\FITS{PRO_CATG}: \FITS{LM_LSS_2d_coadd_wavecal}) \\
+              	& \PROD{LM_LSS_SCI_1D}: coadded, wavelength 1D spectrum\\
+                & (\FITS{PRO_CATG}: \FITS{LM_LSS_1d_coadd_wavecal}) \\
+Expected accuracies: & (TBD)\\
+QC1 parameters: & \QC{QC LM LSS SCI SNR}: Signal-to-noise ration of science spectrum\\
+                & \QC{QC LM LSS SCI SNRNOISE}: Noise level of science spectrum\\
+\end{recipedef}
