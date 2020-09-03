@@ -5,7 +5,7 @@ the instrument, telescope, and atmosphere and produce science-grade
 data products for the L/M- and N-band long-slit spectroscopy
 mode. Since the detector properties are not fully specified, especially of the new Geosnap, we currently assume
 the same reduction cascade for both spectral ranges LM and
-N. However, to keep flexibility and independence of both branches, we
+N, respectively. However, to keep flexibility and independence of both branches, we
 define different recipes for the time being, although they will be
 mostly based on the same algorithms. We therefore focus here on the LM-band only.
 
@@ -55,17 +55,17 @@ serve as reference frame for the wavelength calibration.
     		& \CODE{DPR.TYPE==FLAT}  &			&		&	& Bad pixel map\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_wave} & Object name &  Line list & wavelength solution\\
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_wave} & Object name &  ATM\_LINE\_CAT & wavelength solution\\
     		& \CODE{DPR.TYPE==LSS}   &			   & Exposure time & &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_sci} & Object name & 	 & Science grade spectrum\\
-    		& \CODE{DPR.TYPE==LSS}   &			   & Exposure time & &\\
+    \TPL{FLUX,STD} & \CODE{DPR.CATG==FLUX,STD} & \REC{metis_LM_lss_flux} & Object name (Flux STD) & reference flux of STD & Science grade, flux calibrated spectrum\\
+    		& \CODE{DPR.TYPE==LSS}   &			   & Exposure time & ATM\_LINE\_CAT &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_flux} & Object name (Flux STD) & reference flux of STD & Science grade, flux calibrated spectrum\\
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_sci} & Object name &  & Science grade spectrum\\
     		& \CODE{DPR.TYPE==LSS}   &			   & Exposure time & &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
