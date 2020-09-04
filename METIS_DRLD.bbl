@@ -96,6 +96,20 @@
       \field{version}{5}
       \keyw{applicable}
     \endentry
+    \entry{1618}{manual}{}
+      \list{organization}{1}{%
+        {ESO}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelprefix}{AD}
+      \field{labeltitlesource}{title}
+      \field{note}{2020-03-02}
+      \field{number}{ESO-037611}
+      \field{title}{Dataflow for ESO Observatories Deliverables Standard}
+      \field{version}{4}
+      \keyw{applicable}
+    \endentry
     \entry{METIS-ADC_study}{manual}{}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
@@ -105,6 +119,17 @@
       \field{number}{E-TNT-MPIA-MET-1002}
       \field{title}{Atmospheric Differential Dispersion in METIS}
       \field{version}{1-0}
+      \keyw{reference}
+    \endentry
+    \entry{METIS-calibration_plan}{manual}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelprefix}{AD}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-11-01}
+      \field{number}{E-PLA-NOVA-MET-1066}
+      \field{title}{METIS Calibration Plan}
+      \field{version}{3.0}
       \keyw{reference}
     \endentry
   \enddatalist
@@ -186,6 +211,20 @@
       \field{version}{5}
       \keyw{applicable}
     \endentry
+    \entry{1618}{manual}{}
+      \list{organization}{1}{%
+        {ESO}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelprefix}{RD}
+      \field{labeltitlesource}{title}
+      \field{note}{2020-03-02}
+      \field{number}{ESO-037611}
+      \field{title}{Dataflow for ESO Observatories Deliverables Standard}
+      \field{version}{4}
+      \keyw{applicable}
+    \endentry
     \entry{METIS-ADC_study}{manual}{}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
@@ -195,6 +234,17 @@
       \field{number}{E-TNT-MPIA-MET-1002}
       \field{title}{Atmospheric Differential Dispersion in METIS}
       \field{version}{1-0}
+      \keyw{reference}
+    \endentry
+    \entry{METIS-calibration_plan}{manual}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelprefix}{RD}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-11-01}
+      \field{number}{E-PLA-NOVA-MET-1066}
+      \field{title}{METIS Calibration Plan}
+      \field{version}{3.0}
       \keyw{reference}
     \endentry
   \enddatalist
@@ -269,6 +319,19 @@
       \field{version}{5}
       \keyw{applicable}
     \endentry
+    \entry{1618}{manual}{}
+      \list{organization}{1}{%
+        {ESO}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labeltitlesource}{title}
+      \field{note}{2020-03-02}
+      \field{number}{ESO-037611}
+      \field{title}{Dataflow for ESO Observatories Deliverables Standard}
+      \field{version}{4}
+      \keyw{applicable}
+    \endentry
     \entry{METIS-ADC_study}{manual}{}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
@@ -279,8 +342,17 @@
       \field{version}{1-0}
       \keyw{reference}
     \endentry
+    \entry{METIS-calibration_plan}{manual}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-11-01}
+      \field{number}{E-PLA-NOVA-MET-1066}
+      \field{title}{METIS Calibration Plan}
+      \field{version}{3.0}
+      \keyw{reference}
+    \endentry
   \enddatalist
-  \missing{DICB}
 \endrefsection
 \endinput
 
