@@ -1,0 +1,61 @@
+\section{Data Processing Overview}
+\label{sec:data_processing_overview}
+
+The METIS data reduction system runs in different environments and
+serves various purposes.  According to the setting, the following
+pipeline levels are distinguished \cite{1618}:
+
+\begin{description}
+\item[Quality Control Level 0 (QC0):] The QC0 pipeline runs
+  automatically in real time on a dedicated pipeline workstation in
+  the instrument control room at the observatory. Its purpose is to
+  analyse every FITS file created by the instrument and produce
+  quality control parameters that allow assessment of whether the
+  observation and instrument performance were within specifications.
+  The appropriate reduction recipe is triggered either when a single
+  FITS file is delivered to the workstation or when a template is
+  finished. The files are classified based on header keywords, grouped
+  and associated to the necessary standard calibration files.
+
+\item[Quality Control Level 1 (QC1):] The goal of the QC1 pipeline is
+  to produce certified calibration products from calibration
+  observations as well as to produce QC parameters that are used to
+  check the quality of observations and to monitor observing
+  conditions and instrument health. Calibration products and QC
+  parameters are ingested into the ESO Science Archive.
+
+\item[Quality Control Level 2 (QC2):] The QC2 pipeline produces
+  Science Data Products compliant with \cite{ESO-products_standard} as
+  well as QC parameters derived from science exposures. It runs
+  offline in an automatic way and uses the best calibration products
+  for the night of observation (produced by the QC1 pipeline). Science
+  data products and QC parameters are ingested into the ESO Science
+  Archive.
+
+\item[Science-Grade Desktop Environment:] The pipeline recipes are
+  delivered to the astronomical community to enable users to reduce
+  data in an optimal and interactive way. Recipes can be run from the
+  command line using the \lstinline{esorex} front-end or in the
+  context of a \lstinline{Reflex} workflow. While the desktop recipes
+  are identical to those used in the QC2 pipeline, the user can change
+  recipe parameters to optimise the reduction. Within the
+  \lstinline{Reflex} environment, interactive tools are provided that
+  allow the user to assess the quality of individual reduction steps
+  and to repeat them with different parameters. The products of this
+  pipeline are compliant with \cite{ESO-products_standard}.
+
+\end{description}
+
+
+The following sections describe the recipes used in the QC1, QC2 and
+desktop pipelines. Recipes used in the QC0 environment may need to be
+streamlined to allow them to run in real time.
+
+%%%
+\input{Overview_LSS.tex}
+
+
+
+%%% Local Variables:
+%%% TeX-master: "METIS_DRLD"
+%%% End:

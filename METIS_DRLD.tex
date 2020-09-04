@@ -257,6 +257,7 @@
 %% Bright red for things that still need to be looked at. None of
 %% these should appear in the release version
 \newcommand{\TODO}[1]{\textcolor{red}{\bfseries TODO: #1}}
+\newcommand{\TBD}{\textcolor{red}{\bfseries TBD}}
 
 \newcommand{\intentblankpage}{}
 
@@ -431,30 +432,25 @@ for PDR.
 \input{02-Instrument_Modes}
 \input{03-Instrument_Data_Description}
 
-\section{Data Processing Overview}
-\label{sec:data_processing_overview}
-
 % General part on pipeline and DFS
-% \input{05_0-Data_Processing_Overview}
+\input{05_0-Data_Processing_Overview}
 
 % Imaging-mode
 % \input{05_1-Overview_Imaging}
 
 % LSS-mode
-\input{Overview_LSS}  % TO BE EDITED BY INNSBRUCK ONLY!!!!!
+% \input{Overview_LSS}  % TO BE EDITED BY INNSBRUCK ONLY!!!!!
 
 \clearpage
 % IFU-mode
 % \input{05_3-Overview_IFU}
 
-\section{Pipeline Recipes}
-\label{sec:pipeline_recipes}
-
+\input{06_0-Pipeline_Recipes}
 % \input{06_1a-Recipes_Detector}
 % \newpage
 % \input{06_1b-Recipes_Imaging_LM}
 % \input{06_2-Recipes_Imaging_NQ}
-\input{Recipes_LSS_LM}
+% \input{Recipes_LSS_LM}
 % \input{06_4-Recipes_LSS_N}
 % \input{06_5-Recipes_IFU}
 % \input{06_6-Recipes_HCI}
