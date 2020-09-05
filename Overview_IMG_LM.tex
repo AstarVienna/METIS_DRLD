@@ -1,0 +1,42 @@
+\subsection{Imaging in LM and N band}
+\label{ssec:overview_imaging}
+
+The purpose of the pipeline is to correct or remove contributions from
+the instrument, telescope, and atmosphere and produce science-grade
+data products.  In the case of the METIS imaging modes the main
+contributions to correct or remove are dark current, flatfield, bad
+pixels, and, most importantly, thermal background emission from the
+sky and the telescope. Further effects include persistence,
+cross-talk, geometric distortions, etc. The final product of the
+imaging pipeline is one or more flux-calibrated image(s) in units of
+photons/s/pixel. Several images can be stacked into a single possibly
+mosaiced image.
+
+Due to the differences in characteristics between the HAWAII2RG
+detector used for imaging in the L and M bands and the GeoSnap
+detector used for the N band, the operational concept for the two
+imager subsystems are quite different. This induces differences in the
+way the data have to be reduced.
+
+The GeoSnap detector has more stable gain than AQUARIUS detector,
+which was still in the baseline at PDR.  Chopping is still necessary,
+albeit at a lower frequency of a few Hz, and the standard chop/nod
+technique will be employed for background subtraction.  As the dark
+signal is automatically removed when the exposures from the different
+chop and nod positions are combined no master dark is required for the
+reduction of science data. Flat fielding may be possible, pending
+further investigation of the detector stability
+
+Observations and reduction of LM band data with the HAWAII2RG detecotr
+can proceed as in the near infrared. After dark subtraction and
+flat-fielding, the background is estimated from a series of dithered
+science exposures or from exposures on a nearby blank patch of sky.
+
+\TODO{Include association maps after possible revision. For HCI data,
+  ADI may need to be part of reduction recipe if individual background
+subtracted images are the goal?}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables:
+%%% TeX-master: "METIS_DRLD"
+%%% End:

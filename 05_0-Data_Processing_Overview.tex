@@ -51,10 +51,54 @@ The following sections describe the recipes used in the QC1, QC2 and
 desktop pipelines. Recipes used in the QC0 environment may need to be
 streamlined to allow them to run in real time.
 
+
+\subsection{Required calibrations}
+\label{ssec:calibrations}
+
+Table~\ref{tab:calibrations_per_mode} (taken from
+\cite{METIS-calibration_plan}) lists the main calibration steps that
+are required for each instrument mode.
+
+\TODO{Do we apply NCPA + PSF to HCI data? For ADI a simple recipe is foreseen.}
+
+\begin{table}
+  \newcommand{\yes}{\tikz\fill[scale=0.35,color=green!50!black](0,.35) -- (.25,0) -- (0.9,.7) -- (.25,.15) -- cycle;}
+  \newcommand{\no}{\textcolor{red!50!black}{---}}
+  \caption{Overview of required calibrations per instrument mode. The IFU modes refer to both the nominal configuration and to the extended wavelength configuration. From \cite{METIS-calibration_plan}.}
+  \label{tab:calibrations_per_mode}
+  \centering\scriptsize
+  \begin{tabularx}{\textwidth}{lcccXccccc}
+    \hline
+                           & Dark & Flat & Wave & Background subtraction & Telluric & Flux & Distortion & NCPA + PSF & RSRF \\
+    \hline\hline
+    \CODE{IMG_LM}          & \yes & \yes & \no  & Dither         & \no      & \yes & \yes       & \no        & \no  \\
+    \CODE{IMG_LM_(RA/C)VC} & \yes & \yes & \no  & ADI            & \no      & \yes & \yes       & \yes       & \no  \\
+    \CODE{IMG_LM_CLC}      & \yes & \yes & \no  & ADI            & \no      & \yes & \yes       & \yes       & \no  \\
+    \CODE{IMG_LM_APP}      & \yes & \yes & \no  & Dither + ADI   & \no      & \yes & \yes       & \yes       & \no  \\
+    \CODE{SPEC_LM}         & \yes & \no  & \yes & Dither along slit & \yes  & \yes & \yes       & \no        & \yes \\
+    \CODE{IFU}             & \yes & \no  & \yes & Dither         & \yes     & \yes & \yes       & \no        & \yes \\
+    \CODE{IFU_APP}         & \yes & \no  & \yes & Dither + ADI   & \yes     & \yes & \yes       & \yes       & \yes \\
+    \CODE{IFU_(RA/C)VC}    & \yes & \no  & \yes & ADI            & \yes     & \yes & \yes       & \yes       & \yes \\
+    \CODE{IFU_CLD}         & \yes & \no  & \yes & Dither + ADI   & \yes     & \yes & \yes       & \yes       & \yes \\
+    \hline
+    \CODE{IMG_N}           & \no  & \yes & \no  & chop/nod       & \no      & \yes & \yes       & \no        & \no  \\
+    \CODE{IMG_N_CVC}       & \no  & \yes & \no  & three-point chopping & \no & \yes & \no       & \yes       & \no  \\
+    \CODE{IMG_N_CLC}       & \no  & \yes & \no  & out-of-field chopping & \no & \yes & \no      & \yes       & \no  \\
+    \CODE{SPEC_N_LOW}      & \no  & \no  & \yes & chop/nod along slit & \yes & \yes & \yes      & \no        & \yes \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\FloatBarrier
+
 %%%
-\input{Overview_LSS.tex}
+\input{Overview_IMG_LM}
 
+%%%
+\input{Overview_LSS}
 
+%%%
+\input{Overview_LMS}
 
 %%% Local Variables:
 %%% TeX-master: "METIS_DRLD"
