@@ -110,17 +110,6 @@
       \field{version}{4}
       \keyw{applicable}
     \endentry
-    \entry{METIS-ADC_study}{manual}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelprefix}{AD}
-      \field{labeltitlesource}{title}
-      \field{note}{2019-03-02}
-      \field{number}{E-TNT-MPIA-MET-1002}
-      \field{title}{Atmospheric Differential Dispersion in METIS}
-      \field{version}{1-0}
-      \keyw{reference}
-    \endentry
     \entry{METIS-calibration_plan}{manual}{}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
@@ -130,6 +119,39 @@
       \field{number}{E-PLA-NOVA-MET-1066}
       \field{title}{METIS Calibration Plan}
       \field{version}{3.0}
+      \keyw{reference}
+    \endentry
+    \entry{detmon-manual}{manual}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelprefix}{AD}
+      \field{labeltitlesource}{title}
+      \field{note}{2014-01-21}
+      \field{number}{VLT-MAN-ESO-19500-4846}
+      \field{title}{Detector Monitoring Recipes User Manual}
+      \field{version}{1.2.5}
+      \keyw{reference}
+    \endentry
+    \entry{matisse_minutes}{manual}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelprefix}{AD}
+      \field{labeltitlesource}{title}
+      \field{note}{2017-05-23}
+      \field{number}{E-MIN-CEA-MET-1005}
+      \field{title}{``METIS meets MATISSE'' detector meeting}
+      \field{version}{0.1}
+      \keyw{reference}
+    \endentry
+    \entry{METIS-ADC_study}{manual}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelprefix}{AD}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-03-02}
+      \field{number}{E-TNT-MPIA-MET-1002}
+      \field{title}{Atmospheric Differential Dispersion in METIS}
+      \field{version}{1-0}
       \keyw{reference}
     \endentry
   \enddatalist
@@ -225,17 +247,6 @@
       \field{version}{4}
       \keyw{applicable}
     \endentry
-    \entry{METIS-ADC_study}{manual}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelprefix}{RD}
-      \field{labeltitlesource}{title}
-      \field{note}{2019-03-02}
-      \field{number}{E-TNT-MPIA-MET-1002}
-      \field{title}{Atmospheric Differential Dispersion in METIS}
-      \field{version}{1-0}
-      \keyw{reference}
-    \endentry
     \entry{METIS-calibration_plan}{manual}{}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
@@ -245,6 +256,39 @@
       \field{number}{E-PLA-NOVA-MET-1066}
       \field{title}{METIS Calibration Plan}
       \field{version}{3.0}
+      \keyw{reference}
+    \endentry
+    \entry{detmon-manual}{manual}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelprefix}{RD}
+      \field{labeltitlesource}{title}
+      \field{note}{2014-01-21}
+      \field{number}{VLT-MAN-ESO-19500-4846}
+      \field{title}{Detector Monitoring Recipes User Manual}
+      \field{version}{1.2.5}
+      \keyw{reference}
+    \endentry
+    \entry{matisse_minutes}{manual}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelprefix}{RD}
+      \field{labeltitlesource}{title}
+      \field{note}{2017-05-23}
+      \field{number}{E-MIN-CEA-MET-1005}
+      \field{title}{``METIS meets MATISSE'' detector meeting}
+      \field{version}{0.1}
+      \keyw{reference}
+    \endentry
+    \entry{METIS-ADC_study}{manual}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelprefix}{RD}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-03-02}
+      \field{number}{E-TNT-MPIA-MET-1002}
+      \field{title}{Atmospheric Differential Dispersion in METIS}
+      \field{version}{1-0}
       \keyw{reference}
     \endentry
   \enddatalist
@@ -332,16 +376,6 @@
       \field{version}{4}
       \keyw{applicable}
     \endentry
-    \entry{METIS-ADC_study}{manual}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labeltitlesource}{title}
-      \field{note}{2019-03-02}
-      \field{number}{E-TNT-MPIA-MET-1002}
-      \field{title}{Atmospheric Differential Dispersion in METIS}
-      \field{version}{1-0}
-      \keyw{reference}
-    \endentry
     \entry{METIS-calibration_plan}{manual}{}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
@@ -350,6 +384,36 @@
       \field{number}{E-PLA-NOVA-MET-1066}
       \field{title}{METIS Calibration Plan}
       \field{version}{3.0}
+      \keyw{reference}
+    \endentry
+    \entry{detmon-manual}{manual}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labeltitlesource}{title}
+      \field{note}{2014-01-21}
+      \field{number}{VLT-MAN-ESO-19500-4846}
+      \field{title}{Detector Monitoring Recipes User Manual}
+      \field{version}{1.2.5}
+      \keyw{reference}
+    \endentry
+    \entry{matisse_minutes}{manual}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labeltitlesource}{title}
+      \field{note}{2017-05-23}
+      \field{number}{E-MIN-CEA-MET-1005}
+      \field{title}{``METIS meets MATISSE'' detector meeting}
+      \field{version}{0.1}
+      \keyw{reference}
+    \endentry
+    \entry{METIS-ADC_study}{manual}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labeltitlesource}{title}
+      \field{note}{2019-03-02}
+      \field{number}{E-TNT-MPIA-MET-1002}
+      \field{title}{Atmospheric Differential Dispersion in METIS}
+      \field{version}{1-0}
       \keyw{reference}
     \endentry
   \enddatalist
