@@ -136,26 +136,20 @@ or coronagraphic masks.
 \subsection{NQ-band Imager and Spectrograph}
 \label{ssec:instrument_data_NQ-IMG}
 
-The NQ-band imager is equipped with a $1\mathrm{k}\times 1\mathrm{k}$
-AQUARIUS detector with a pixel scale of
-$11.3\,\mathrm{mas}$.\footnote{The AQUARIUS may be replaced with a
-  $2\mathrm{k}\times2\mathrm{k}$ GEOSNAP detector, which yields the
-  same pixel scale when using $2\times2$ binned pixels. With the
-  GEOSNAP detector, no Q-band observations will be possible.} A number
-of rows and columns along the edges of the detector will be masked
-(see Sect.\ \ref{Sec:detector_masks}).
+The N-band imager is equipped with a $2\mathrm{k}\times 2\mathrm{k}$
+GeoSnap detector with a pixel scale of $6.8\,\mathrm{mas}$. A number
+of rows and columns along the edges of the detector will be masked.
 
 A grism in the imager pupil wheel in conjunction with a number of slit
 masks in the CFO focal plane provide low-resolution spectroscopy in
 the N~band with $R\ga 400$.
 
-Subtraction of the thermal background in the N~and Q~bands will be
-done using fast chopping ($\sim 10\,\mathrm{Hz}$) using the internal
-chopper and regular nodding using telescope offsets. The basic
-templates for NQ~imaging are
+Subtraction of the thermal background in the N~band will be done using
+chopping at a few Hertz using the internal chopper and regular nodding
+using telescope offsets. The basic templates for N~imaging are
 \begin{itemize}
-\item \lstinline{METIS_img_nq_obs_AutoChopNod}
-\item \lstinline{METIS_img_nq_obs_GenericChopNod}
+\item \lstinline{METIS_img_n_obs_AutoChopNod}
+\item \lstinline{METIS_img_n_obs_GenericChopNod}
 \end{itemize}
 
 At each nod position, a series of exposures are taken at alternating

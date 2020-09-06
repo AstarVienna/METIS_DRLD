@@ -217,7 +217,6 @@ following \cite{visir_manual}.
   Type:                & Calibration                                                                  \\
   Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
   Input data:          & \CODE{LM_STD_BKG_SUBTRACTED}                                                 \\
-                       & \CODE{LM_STD_OBJECT_CAT}                                                     \\
                        & photometric standard catalogue                                               \\
   Matched keywords:    & OBJECT ID                                                                    \\
                        & FILTER ID                                                                    \\
@@ -255,7 +254,7 @@ following \cite{visir_manual}.
 
 \clearpage
 \subsubsection{LM-band imaging calibration}
-\label{sssec:lm_img_fluxcal}
+\label{sssec:lm_img_calibrate}
 
 This recipe applies the flux calibration to the reduced science
 images and adds geometric calibration data to the FITS header. The
@@ -282,8 +281,9 @@ header. The images are not resampled by this recipe, this is left to
 \REC{metis_lm_img_sci_postprocess}.
 
 \begin{recipedef}
-  Name:              & \REC{metis_lm_img_fluxcal}                       \\
+  Name:              & \REC{metis_lm_img_calibrate}                     \\
   Purpose:           & Convert science images to physical units         \\
+                     & Add distortion information                       \\
   Type:              & Calibration                                      \\
   Templates          &                                                  \\
   Input data:        & \CODE{LM_SCI_BKG_SUBTRACTED}                     \\
@@ -302,9 +302,9 @@ header. The images are not resampled by this recipe, this is left to
   \centering
   % \includegraphics[width=0.6\textwidth]{metis_lm_img_std_process}
   \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
-  \caption[Recipe: \REC{metis_lm_img_std_process}]{\REC{metis_lm_img_fluxcal} --
+  \caption[Recipe: \REC{metis_lm_img_std_process}]{\REC{metis_lm_img_calibrate} --
     convert images to physical flux units}
-  \label{fig:metis_lm_img_fluxcal}
+  \label{fig:metis_lm_img_calibrate}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -368,22 +368,23 @@ other pipeline product. In addition to the distortion table, a map of
 pixel scale across the detector will be created.
 
 \begin{recipedef}
-  Name:                & \REC{metis_lm_img_distortion}                                \\
-  Purpose:             & Determine optical distortion coefficients for the LM imager. \\
-  Requirements:        & \REQ{METIS-6087}                                             \\
-  Templates:           & \TPL{METIS_img_lm_cal_distortion}                            \\
-  Type:                & Calibration                                                  \\
-  Input data:          & Images of grid mask in WCU-FP2 or CFO-FP2.                   \\
-                       & Image with WCU window closed (background)                    \\
-  Parameters:          & TBD                                                          \\
-  Algorithm:           & Subtract background image.                                   \\
-                       & Measure location of point source images in frames.           \\
-                       & Fit polynomial coefficients to deviations from grid positions.\\
+  Name:                & \REC{metis_lm_img_distortion}                                   \\
+  Purpose:             & Determine optical distortion coefficients for the LM imager.    \\
+  Requirements:        & \REQ{METIS-6087}                                                \\
+  Templates:           & \TPL{METIS_img_lm_cal_distortion}                               \\
+  Type:                & Calibration                                                     \\
+  Input data:          & Images of grid mask in WCU-FP2 or CFO-FP2.                      \\
+                       & Image with WCU window closed (background)                       \\
+  Parameters:          & TBD                                                             \\
+  Algorithm:           & Subtract background image.                                      \\
+                       & Measure location of point source images in frames.              \\
+                       & Fit polynomial coefficients to deviations from grid positions.  \\
   Output data:         & \PROD{LM_DISTORTION_TABLE} (table with polynomial coefficients) \\
                        & \PROD{LM_DISTORTION_MAP} (pixel scale across detector)          \\
-                       & \PROD{LM_DIST_REDUCED} (reduced grid mask images)            \\
-  Expected accuracies: & TBD                                                          \\
+                       & \PROD{LM_DIST_REDUCED} (reduced grid mask images)               \\
+  Expected accuracies: & TBD                                                             \\
   QC1 parameters:      & \QC{QC LM DISTORT RMS}                                          \\
+  hdrl functions:      & \CODE{hdrl_catalogue_create}                                    \\
 \end{recipedef}
 
 \begin{figure}[hb]
