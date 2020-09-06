@@ -143,6 +143,17 @@
       \field{version}{0.1}
       \keyw{reference}
     \endentry
+    \entry{visir_manual}{manual}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelprefix}{AD}
+      \field{labeltitlesource}{title}
+      \field{note}{2016-09-21}
+      \field{number}{VLT-MAN-ESO-19500-3852}
+      \field{title}{VISIR Pipeline User Manual}
+      \field{version}{1.7}
+      \keyw{reference}
+    \endentry
     \entry{METIS-ADC_study}{manual}{}
       \field{sortinit}{2}
       \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
@@ -280,6 +291,17 @@
       \field{version}{0.1}
       \keyw{reference}
     \endentry
+    \entry{visir_manual}{manual}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelprefix}{RD}
+      \field{labeltitlesource}{title}
+      \field{note}{2016-09-21}
+      \field{number}{VLT-MAN-ESO-19500-3852}
+      \field{title}{VISIR Pipeline User Manual}
+      \field{version}{1.7}
+      \keyw{reference}
+    \endentry
     \entry{METIS-ADC_study}{manual}{}
       \field{sortinit}{2}
       \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
@@ -404,6 +426,16 @@
       \field{number}{E-MIN-CEA-MET-1005}
       \field{title}{``METIS meets MATISSE'' detector meeting}
       \field{version}{0.1}
+      \keyw{reference}
+    \endentry
+    \entry{visir_manual}{manual}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labeltitlesource}{title}
+      \field{note}{2016-09-21}
+      \field{number}{VLT-MAN-ESO-19500-3852}
+      \field{title}{VISIR Pipeline User Manual}
+      \field{version}{1.7}
       \keyw{reference}
     \endentry
     \entry{METIS-ADC_study}{manual}{}

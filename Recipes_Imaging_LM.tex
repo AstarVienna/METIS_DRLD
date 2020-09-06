@@ -151,6 +151,12 @@ robust estimator of the mean (e.g.\ median).
 For extended objects, all out-of-field exposures will be averaged
 (with object rejection) and subtracted off the in-field exposures.
 
+\TODO{Object catalogues of the target exposures could be created within this
+recipe or in a separate recipe. The catalogue should contain for each
+object: pixel coordinates ($x$, $y$), world coordinates ($\alpha$,
+$\delta$) based on telescope pointing and derotator information, total
+counts within an aperture.}
+
 \TODO{Is this good enough for HCI images or do we need more?}
 
 \begin{recipedef}
@@ -165,11 +171,15 @@ For extended objects, all out-of-field exposures will be averaged
   Algorithm:        & Average all or \CODE{SKY} exposures with object rejection \\
                     & Subtract background                                       \\
   Output data:      & \PROD{LM_SCI_BKG}                                         \\
+                    & \PROD{LM_STD_BKG}                                         \\
                     & \PROD{LM_SCI_BKG_SUBTRACTED}                              \\
                     & \PROD{LM_STD_BKG_SUBTRACTED}                              \\
+                    & \PROD{LM_SCI_OBJECT_CAT}                                  \\
+                    & \PROD{LM_STD_OBJECT_CAT}                                  \\
   QC1 parameters:   & \QC{QC LM IMG BKG MEDIAN}                                 \\
   hdrl functions:   & \CODE{hdrl_imagelist_sub_image}                           \\
                     & \CODE{hdrl_imagelist_div_image}                           \\
+                    & \CODE{hdrl_catalogue_compute}                             \\
 \end{recipedef}
 
 \begin{figure}[hb]
@@ -182,6 +192,209 @@ For extended objects, all out-of-field exposures will be averaged
 \end{figure}
 
 
+\clearpage
+
+\subsubsection{LM-band imaging photometric standard analysis}
+\label{sssec:lm_img_photstd}
+
+This recipe determines the conversion from ADU to physical units from
+a set of reduced exposures of a photometric standard star. The flux of
+the star is measured in each exposure in ADU, normalised to an
+exposure time of 1~second and averaged over all exposures. In
+addition, the exposures are stacked (after recentering on the standard
+star, but without derotation) and the flux is measured in the combined
+image. Comparison to the tabulated brightness of the star in the
+observing filter yields the conversion factor from
+$\mathrm{ADU\,s^{-1}}$ to $\mathrm{photons\,\,s^{-1}}$.
+
+QC parameter will include estimates of the sensitivity for the
+detection of point sources and surface brightness sensitivity
+following \cite{visir_manual}.
+
+\begin{recipedef}
+  Name:                & \REC{metis_lm_img_std_process}                                               \\
+  Purpose:             & Determine conversion factor between detector counts and physical source flux \\
+  Type:                & Calibration                                                                  \\
+  Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
+  Input data:          & \CODE{LM_STD_BKG_SUBTRACTED}                                                 \\
+                       & \CODE{LM_STD_OBJECT_CAT}                                                     \\
+                       & photometric standard catalogue                                               \\
+  Matched keywords:    & OBJECT ID                                                                    \\
+                       & FILTER ID                                                                    \\
+  Recipe parameters:   & None (TBD)                                                                   \\
+  Algorithm:           & Measure flux from star in detector units                                     \\
+                       & Compute conversion factor to physical units                                  \\
+                       & Measure background noise (std.\ dev.) and compute detection limits.          \\
+  Output data:         & \PROD{LM_STD_COMBINED}                                                       \\
+                       & \PROD{FLUXCAL_TAB}                                                           \\
+  Expected accuracies: & \TBD                                                                         \\
+  QC1 parameters:      & \QC{QC LM IMG STD BACKGD RNS}                                                \\
+                       & \QC{QC LM STD PEAK CNTS}                                                     \\
+                       & \QC{QC LM STD APERTURE CNTS}                                                 \\
+                       & \QC{QC LM STD STREHL}                                                        \\
+                       & \QC{QC LM STD FLUXCONV}                                                      \\
+                       & \QC{QC LM STD AIRMASS}                                                       \\
+                       & \QC{QC LM SENSITIVITY}                                                       \\
+                       & \QC{QC LM AREA SENSITIVIY}                                                   \\
+  hdrl function:       & \CODE{hdrl_strehl_compute}                                                   \\
+                       & \CODE{hdrl_catalogue_compute}                                                \\
+                       & \CODE{hdrl_efficiency_compute}                                               \\
+                       & \CODE{hdrl_imagelist_collapse}                                               \\
+\end{recipedef}
+
+\begin{figure}[hb]
+  \centering
+  % \includegraphics[width=0.6\textwidth]{metis_lm_img_std_process}
+  \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
+  \caption[Recipe: \REC{metis_lm_img_std_process}]{\REC{metis_lm_img_std_process} --
+    compute conversion between ADU and physical flux units}
+  \label{fig:metis_lm_img_std_process}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\subsubsection{LM-band imaging calibration}
+\label{sssec:lm_img_fluxcal}
+
+This recipe applies the flux calibration to the reduced science
+images and adds geometric calibration data to the FITS header. The
+products of this recipe are fully calibrated individual exposures.
+
+Each image is multiplied by the conversion factor such that pixel
+values are in units of $\mathrm{photons\,\,s^{-1}}$. The header of
+each file receives keyword \FITS{BUNIT} with value %
+\CODE{'ph / s'}.
+
+\TODO{Other units may be possible, although additional information is
+  needed. For instance,\\ \CODE{'ph / (s arcsec2)'} makes values
+  independent of the pixel scale, but requires a distortion map
+  (variation of pixel scale across the detector). Energy units (erg
+  instead of photons) require knowledge of the spectral energy
+  distribution of the sources, in particular for broad-band filters.}
+
+LM-band imaging observations will be performed in pupil-tracking mode
+\cite{METIS-operational_concept}, which means that the field rotates
+from exposure to exposure.  The information about the field
+orientation along with target coordinates, pixel scale and
+higher-order polynomial distortion coefficients is written to the FITS
+header. The images are not resampled by this recipe, this is left to
+\REC{metis_lm_img_sci_postprocess}.
+
+\begin{recipedef}
+  Name:              & \REC{metis_lm_img_fluxcal}                       \\
+  Purpose:           & Convert science images to physical units         \\
+  Type:              & Calibration                                      \\
+  Templates          &                                                  \\
+  Input data:        & \CODE{LM_SCI_BKG_SUBTRACTED}                     \\
+                     & \CODE{FLUXCAL_TAB}                               \\
+                     & \CODE{LM_DISTORTION_TABLE}                       \\
+  Matched keywords:  & Filter ID                                        \\
+  Recipe parameters: & None (TBD)                                       \\
+  Algorithm:         & Scale image data to ph/s                         \\
+                     & Add header information (\FITS{BUNIT}, WCS, etc.) \\
+  Output data:       & \PROD{LM_SCI_CALIBRATED}                         \\
+  QC1 parameters:    & None                                             \\
+  hdrl functions:    & \CODE{hdrl_imagelist_mult_scalar}                \\
+\end{recipedef}
+
+\begin{figure}[hb]
+  \centering
+  % \includegraphics[width=0.6\textwidth]{metis_lm_img_std_process}
+  \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
+  \caption[Recipe: \REC{metis_lm_img_std_process}]{\REC{metis_lm_img_fluxcal} --
+    convert images to physical flux units}
+  \label{fig:metis_lm_img_fluxcal}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\subsubsection{LM-band imaging post-processing}
+\label{sssec:lm_img_postprocess}
+
+This recipe coadds a sequence of flux-calibrated,
+background-subtracted images (possibly from several observing blocks)
+after resampling the images on a common pixel grid defined by a
+standard sky projection. The alignment of the images (\FITS{CRVAL}
+keywords, rotation) may have to be checked and refined through
+cross-correlation of the overlapping images (TBC). The number of input
+images contributing to any pixel in the output image (variable due to
+dither offsets and bad pixels) will be documented in a contribution
+map.
+
+This recipe will only be used in the science-grade pipelines, not at
+the observatory.
+
+\begin{recipedef}
+  Name:                & \REC{metis_lm_img_sci_postprocess}                         \\
+  Purpose:             & Coadd reduced images.                                      \\
+  Requirements:        & \REQ{METIS-6104}                                           \\
+  Templates:           & ---                                                        \\
+  Type:                & Science                                                    \\
+  Input data:          & Calibrated science images (\PROD{LM_SCI_CALIBRATED})       \\
+                       & Associated bad-pixel maps (\PROD{LM_SCI_BADPIX})           \\
+  Parameters:          & None (TBD).                                                \\
+  Algorithm:           & Check and refine WCS of input images by cross-correlation  \\
+                       & \hspace{1em} (on object catalogue or on image).            \\
+                       & Determine output pixel grid encompassing all input images. \\
+                       & Resample images to output pixel grid.                      \\
+                       & Coadd.                                                     \\
+  Output data:         & \PROD{LM_SCI_COADD} (coadded, mosaiced image)              \\
+                       & \PROD{LM_SCI_COADD_ERROR} (coadded, mosaiced error image)  \\
+                       & \PROD{LM_SCI_COADD_CONTRIB} (contribution map)             \\
+  Expected accuracies: & TBD                                                        \\
+  QC1 parameters:      & \QC{QC LM SCI NEXPOSURE}                                   \\
+\end{recipedef}
+
+\begin{figure}[hb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{metis_lm_img_sci_postprocess}
+  \caption[Recipe: \REC{metis_lm_img_sci_postprocess}]{%
+    \REC{metis_lm_img_sci_postprocess} -- post-processing (coaddition)
+    of reduced \CODE{IMG_LM} science frames.}
+  \label{fig:metis_lm_img_sci_postprocess}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\subsubsection{LM-band imaging distortion calibration}
+\label{sssec:lm_img_distortion}
+
+Calibration of the imaging distortion is done on an image of a
+pin-hole grid mask located in a focal plane within the instrument. The
+distortion is described in terms of a polynomial model whose
+coefficients can be transformed to WCS keywords and applied to any
+other pipeline product. In addition to the distortion table, a map of
+pixel scale across the detector will be created.
+
+\begin{recipedef}
+  Name:                & \REC{metis_lm_img_distortion}                                \\
+  Purpose:             & Determine optical distortion coefficients for the LM imager. \\
+  Requirements:        & \REQ{METIS-6087}                                             \\
+  Templates:           & \TPL{METIS_img_lm_cal_distortion}                            \\
+  Type:                & Calibration                                                  \\
+  Input data:          & Images of grid mask in WCU-FP2 or CFO-FP2.                   \\
+                       & Image with WCU window closed (background)                    \\
+  Parameters:          & TBD                                                          \\
+  Algorithm:           & Subtract background image.                                   \\
+                       & Measure location of point source images in frames.           \\
+                       & Fit polynomial coefficients to deviations from grid positions.\\
+  Output data:         & \PROD{LM_DISTORTION_TABLE} (table with polynomial coefficients) \\
+                       & \PROD{LM_DISTORTION_MAP} (pixel scale across detector)          \\
+                       & \PROD{LM_DIST_REDUCED} (reduced grid mask images)            \\
+  Expected accuracies: & TBD                                                          \\
+  QC1 parameters:      & \QC{QC LM DISTORT RMS}                                          \\
+\end{recipedef}
+
+\begin{figure}[hb]
+  \centering
+  \includegraphics[width=0.6\textwidth]{metis_lm_img_distortion}
+  \caption[Recipe: \REC{metis_lm_img_distortion}]{%
+    \REC{metis_lm_img_distortion} -- LM IMG distortion calibration}
+  \label{fig:metis_lm_img_distortion}
+\end{figure}
+
+\FloatBarrier
 
 %%% Local Variables:
 %%% TeX-master: "METIS_DRLD"
