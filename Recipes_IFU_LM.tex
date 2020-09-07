@@ -16,7 +16,7 @@ subtraction for of both science and standard exposures in common
 recipes (\REC{metis_lms_basic}, \REC{metis_lms_background}), then
 having a recipe to analyse the standard observations
 (\REC{metis_lms_photstd}). The science exposures are then fully
-calibrated (\REC{metis_lms_calibrate}. A full set of exposures would
+calibrated (\REC{metis_lms_calibrate}). A full set of exposures would
 then be assembled and restored with a fully sampled PSF in a
 post-processing recipe (\REC{metis_lms_combine}).}
 
@@ -245,7 +245,7 @@ Various levels of output data can be envisaged:
   width.
 \item A spectral cube obtained by combining all exposures taken within
   a template. This step involves the image reconstruction discussed in
-  Sect.~\ref{ssec:image_reconstruction}. Whether this step is included
+  Sect.~8.9 of \cite{DRLS}. Whether this step is included
   in the present recipe \REC{metis_lms_sci_process} or is postponed to
   the more general recipe \REC{metis_lms_sci_postprocess} is TBD. It
   may be formally required to do the image reconstruction here if
@@ -264,7 +264,7 @@ observatory pipeline, a variant of the recipe may be implemented with
 reduced functionality and output. The observatory recipe may also have
 to include features to determine QC parameters for the LM-band images
 that are taken in parallel with the LMS exposures, similar to
-\REC{metis_lm_img_sci_process} (Sect.~\ref{sssec:lm_img_sci}; \REC{METIS-6072}).
+\REC{metis_lm_img_sci_process} (Sect.~\ref{ssec:recipes_img_lm}).
 
 \begin{recipedef}
 Name:                & \REC{metis_lms_sci_process}                                                              \\
@@ -385,7 +385,7 @@ positions and orientations of the exposures may differ as follows:
   with pixel scale given by the detector scale (8.2\,mas). The exact
   procedure remains to be investigated; one of the major challenges is
   to find the exact centre of rotation
-  (Sect.~\ref{ssec:image_reconstruction}).
+  (Sect.~8.9 of \cite{DRLS}).
 \item[Spectral dithering:] Sequences of exposures are taken at various
   echelle angles in order to cover an increased contiguous wavelength
   range. In the extended mode, such a sequence may cover the
