@@ -44,47 +44,6 @@ These recipes are described in Section~\ref{Sec:detector_calibration}.
 
 \subsubsection{\REC{metis_LM_lss_rsrf}:}
 \TODO{Not yet revised (see \cite{DRLS})}\\
-The main aim of this recipe is to detect the wavelength dependent
-sensitivity of the detectors by means of combining a static Relative Spectral Response Function (\ac{RSRF}) with a dynamic one taken with a grid (cf.~\cite{METIS-calibration_plan})
-
-\begin{recipedef}
-Name:		& \REC{metis_LM_lss_rsrf} \\
-Purpose:	& determine the scpectroscopic flat field of the LM detector to determine\\
-		& a pixel sensitivity and a bad pixel map.\\
-Type:		& Calibration\\
-Requirements: & METIS-6084, METIS-6698  \\
-Observing templates: & \TPL{METIS_spec_cal_rsrf}  \\
-Input data: 	& WCU Lamp flat field (\FITS{LM_FLAT_RAW})  \\
-                & \EXTCALIB{PERSISTENCE_MAP} \\
-                & \STATCALIB{REF_RSRF} \\
-                & \PROD{BADPIX_MAP_2RG} \\
-                & \PROD{MASTER_DARK_2RG} \\
-Parameters: 	& Taken from HDRL\\
-Algorithm:  	& Standard flat algorithm (see Fig.\,\ref{Fig:rec_lm_lss_flat}):\\
-		& Pixel-by-pixel median / mean filtering of several flatfield frames to compute the sensitivity
-        of the detector; normalisation of the result (to e.g. median = 1.)\\
-Output data:	& Normalised flat field (\FITS{PRO_CATG=LM_LSS_FLAT}) \\
-        & Bad pixel map (\FITS{PRO_CATG=LM_LSS_BPM}) \\
-        & \PROD{MEDIAN_LM_LSS_RSRF_IMG} (\FITS{PRO.CATG=LM_LSS_MEDIAN_RSRF}): median filtered LM flatfield (for QC) \\
-        & \PROD{MEAN_LM_LSS_RSRF_IMG} (\FITS{PRO.CATG=LM_LSS_MEAN_RSRF}): mean filtered LM flatfield (for QC) \\
-        & \PROD{MASTER_LM_LSS_RSRF} (\FITS{PRO.CATG=LM_LSS_MASTER_RSRF}): Master flatfield \\
-Expected accuracies: & TBD\\
-QC1 parameters: & \QC{QC LM LSS RSRF NOISE} : Mean of the spectroscopic noise level\\
-        & \QC{QC LM LSS SENS MEAN}: Mean of the spectroscopic sensitivity (TBDef)\\
-        & \QC{QC LM LSS SENS MEDIAN}: Median of the spectroscopic sensitivity (TBDef)\\
-        & \QC{QC LM LSS SENS SIGMA}: Sigma of the spectroscopic sensitivity (TBDef)\\
-        & \QC{QC LM LSS FLXMIN / FLXMAX}: Min/max of flux level\\
-        & \QC{QC LM LSS NORM LEVEL}: Level for the normalisation (TBDef)\\
-        & (more TBD)\\
-\end{recipedef}
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_rsrf_v0.65.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_wave}]{\REC{metis_LM_lss_wave} --
-    Creation of the LM LSS spectroscopic flatfield (\ac{RSRF}).}
-  \label{Fig:rec_lm_lss_rsrf}
-\end{figure}
-\clearpage
 
 \subsubsection{\REC{metis_LM_lss_wave}:}
 This recipe aims at deriving a first guess solution for the wavelength calibration on basis of the \ac{WCU} \ac{QCL} (c.f. \cite{METIS-calibration_plan}). Therefore the first steps are the removal of the detector signature of the \FITS{LM_WAVE_RAW} frames by applying the master calibration files derived in the previous steps, following by the background subtraction (if needed, TBD) and the application of the RSRF. The distortion of the lines (i.e. possible tilt, curvature,...) and the wavelength solution is determined by the algorithm described in Sect.\,8.5 in \cite{DRLS} and in \cite{METIS-calibration_plan}. The reference frame is defined by the \ac{QCL} line catalogue (\STATCALIB{QLC_LINE_CAT}).
