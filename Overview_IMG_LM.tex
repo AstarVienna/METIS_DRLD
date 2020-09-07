@@ -1,5 +1,14 @@
-\subsection{Imaging in LM and N band}
+\subsection{LM-band Imaging}
 \label{ssec:overview_imaging}
+
+\textbf{Note: The pipeline layout has been modified compared to the
+  PDR design in order to achieve better modularity. Basic reduction
+  and background subtraction have been split into two recipes that now
+  are applied to both standard and science data. Integration of HCI
+  into this workflow requires more work: HCI images will be treated
+  the same way at least through basic reduction, possibly through
+  background subtraction. ADI combination may require a separate
+  recipe, at least for some HCI configurations.}
 
 The purpose of the pipeline is to correct or remove contributions from
 the instrument, telescope, and atmosphere and produce science-grade
@@ -27,14 +36,13 @@ chop and nod positions are combined no master dark is required for the
 reduction of science data. Flat fielding may be possible, pending
 further investigation of the detector stability
 
-Observations and reduction of LM band data with the HAWAII2RG detecotr
+Observations and reduction of LM band data with the HAWAII2RG detector
 can proceed as in the near infrared. After dark subtraction and
 flat-fielding, the background is estimated from a series of dithered
 science exposures or from exposures on a nearby blank patch of sky.
 
-\TODO{Include association maps after possible revision. For HCI data,
-  ADI may need to be part of reduction recipe if individual background
-subtracted images are the goal?}
+\TODO{For HCI data, ADI may need to be part of reduction recipe if
+  individual background subtracted images are the goal?}
 
 
 \begin{sidewaysfigure}
