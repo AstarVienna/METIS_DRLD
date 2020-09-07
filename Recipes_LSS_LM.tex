@@ -8,7 +8,7 @@ Fig.~\ref{Fig:LMLssAssomap} together with the data processing table
 calibrations, which are independent of the observing mode and 
 described in Section~\ref{Sec:detector_calibration}. This affects the
 dark correction, linearity and gain determination and bad pixel
-detection. The second step is the flatfielding (i.e. the determination and application of the \ac{RSRF}), followed by the wavelength correction and the determination of the response curve for the flux calibration. Subsequently, the main reduction is conducted, which applies the previously created master calibration files to the science frames. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}.
+detection. The second step is the spectroscopic flatfielding (i.e. the determination and application of the \ac{RSRF}), followed by the wavelength correction and the determination of the response curve for the flux calibration. Subsequently, the main reduction is conducted, which applies the previously created master calibration files to the science frames. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}.
 
 Special emphasis has to be drawn to the effects of the Earth's
 atmosphere in several respects:
@@ -73,8 +73,8 @@ Input data: 	& raw QCL spectra (\FITS{LM_WAVE_RAW})\\
                 & WCU lamp spectrum for first guess wavelength solution (TBD)\\
                 & \EXTCALIB{PERSISTENCE_MAP} \\
                 & \PROD{GAIN_MAP_2RG} \\
-                & \PROD{BADPIX_MAP_2RG} \\
                 & \PROD{MASTER_DARK_2RG} \\
+                & \PROD{BADPIX_MAP_2RG} \\
                 & \PROD{MASTER_LM_LSS_RSRF} \\
                 & \STATCALIB{GRISM_TAB} \\
                 & \STATCALIB{QLC_LINE_CAT} \\
@@ -116,6 +116,7 @@ Observing templates: & \TPL{METIS_spec_lm_acq}, \\
                 & \TPL{METIS_spec_lm_cal_slit_adc}\\
 Input data: 	& raw spectrophotometric STANDARD star data (\FITS{LM_FLUX_RAW})\\
                 & \EXTCALIB{PERSISTENCE_MAP} \\
+                & \PROD{GAIN_MAP_2RG} \\
                 & \PROD{BADPIX_MAP_2RG} \\
                 & \PROD{MASTER_DARK_2RG} \\
                 & \PROD{MASTER_LM_LSS_RSRF} \\
@@ -123,6 +124,7 @@ Input data: 	& raw spectrophotometric STANDARD star data (\FITS{LM_FLUX_RAW})\\
                 & \PROD{LM_WAVE_SOL} \\
                 & \EXTCALIB{AO_PSF_MODEL} \\
                 & \STATCALIB{ATM_LINE_CAT} \\
+                & \STATCALIB{HITRAN}, \STATCALIB{LSF_KERNEL}, \EXTCALIB{ATM_PROFILE}\\
                 & \STATCALIB{REF_FLUX_CAT} \\
 Parameters: 	& (TBD)\\
 Algorithm:      & Application of master calibration files\\
