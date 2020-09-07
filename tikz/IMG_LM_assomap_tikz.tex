@@ -1,0 +1,327 @@
+%% IMG_LM_assomap_tikz.tex
+%% Created by Oliver Czoske
+%%
+%% 2019-02-26: Changed to LM only
+%% 2019-02-26: Try to align it with the recipe flow
+%% 2020-09-07: Pipeline redesign
+\documentclass{standalone}
+
+\input{assomap_common}
+
+\begin{document}
+\sffamily
+
+%%% Picture: flow chart
+\begin{tikzpicture}[on grid=false,node distance=0.8cm]
+
+  \matrix (recipes) [column sep=0.1cm, row sep=1cm]{
+    % The matrix has colums
+    % detlin_*, dark_*, flat_*, std_*, sci1_*, sci2_*, adi
+    %
+    % The matrix has rows
+    % *_raw, *_dark, *_flat, *_std, *_sci1, *_sci2, *_prod
+
+    % Row *_raw
+    \node [above] (lin_raw){%
+      \recipebox{DETLIN}{det\_lingain}
+    };
+    &
+    \node [above] (dist_raw){%
+      \recipebox{DISTORTION}{lm\_img\_distortion}
+    };
+    &
+    \node[above] (dark_raw) {%
+      \recipebox{DARK}{det\_dark}
+    };
+    &
+    \node[above] (flat_raw){%
+      \recipebox{FLAT}{lm\_img\_flat}
+    };
+    &
+    \node[above] (all1_raw){%
+      \recipebox{SCIENCE, STD}{lm\_img\_basic}
+    };
+    &
+    \node[above] (all2_raw){%
+      \recipebox{SCIENCE, STD}{lm\_img\_background}
+    };
+    &
+    \node[above] (std_raw){%
+      \recipebox{PHOT STD}{lm\_img\_std\_process}
+    };
+    &
+    \node[above] (sci1_raw){%
+      \recipebox{SCIENCE}{lm\_img\_sci\_calibrate}
+    };
+    &
+    \node[above] (sci2_raw){%
+      \recipebox{SCIENCE}{lm\_img\_sci\_coadd}
+    };
+
+   % \node[above] (sci2_raw){%     % needs width parameter to box
+   %  \begin{tcolorbox}[%
+   %    width=4.5cm,
+   %    colback=recipecolor]
+   %    \centering lm\_img\_sci\_postprocess
+   %  \end{tcolorbox}};
+   %&
+   %\node[above] (adi_raw){%
+   %  \recipenotitlebox{adi\_postprocess}
+   %};
+   \\
+
+    %%% Calibration products
+    % Row *_dark
+    \node (lin_dark) [empty]{};
+    &
+    \node (dist_dark) [empty]{};
+    &
+    \node (dark_dark) [calibproduct]{MASTER\_DARK\_2RG};
+    &
+    \node (flat_dark)[connection]{};
+    &
+    \node (all1_dark)[connection]{};
+    &
+    \node (all2_dark)[empty]{};
+    &
+    \node (std_dark)[empty]{};
+    &
+    \node (sci1_dark)[empty]{};
+    &
+    \node (sci2_dark) [empty]{};
+    \\
+
+    % Row *_lin
+    \node (lin_lin) [statcalfile]{LINEARITY\_2RG};
+    &
+    \node (dist_lin) [empty]{};
+    &
+    \node (dark_lin)[empty]{};
+    &
+    \node (flat_lin) [connection]{};
+    &
+    \node (all1_lin)[connection]{};
+    &
+    \node (all2_lin)[empty]{};
+    &
+    \node (std_lin)[empty]{};
+    &
+    \node (sci1_lin)[empty]{};
+    &
+    \node (sci2_lin) [empty]{}; \\
+
+    % Row *_flat
+    \node (lin_flat) [empty]{};
+    &
+    \node (dist_flat)[empty]{};
+    &
+    \node (dark_flat)[empty]{};
+    &
+    \node (flat_flat) [calibproduct]{MASTER\_FLAT\_2RG};
+    &
+    \node (all1_flat)[connection]{};
+    &
+    \node (all2_flat)[empty]{};
+    &
+    \node (std_flat)[empty]{};
+    &
+    \node (sci1_flat)[empty]{};
+    &
+    \node (sci2_flat) [empty]{}; \\
+
+    % Row *_all1
+    \node (lin_all1)[empty]{};
+    &
+    \node (dist_all1)[empty]{};
+    &
+    \node (dark_all1)[empty]{};
+    &
+    \node (flat_all1)[empty]{};
+    &
+    \node (all1_all1)[calibproduct]{STD\_REDUCED};
+    &
+    \node (all2_all1)[calibproduct]{STD\_BKG\_SUB};
+    &
+    \node (std_all1)[connection]{};
+    &
+    \node (sci1_all1)[empty]{};
+    &
+    \node (sci2_all1) [empty]{}; \\
+
+% Row *_all2
+    \node (lin_all2) [empty]{};
+    &
+    \node (dist_all2)[empty]{};
+    &
+    \node (dark_all2)[empty]{};
+    &
+    \node (flat_all2)[empty]{};
+    &
+    \node (all1_all2)[scienceproduct]{SCI\_REDUCED};
+    &
+    \node (all2_all2)[scienceproduct]{SCI\_BKG\_SUB};
+    &
+    \node (std_all2)[empty]{};
+    &
+    \node (sci1_all2)[connection]{};
+    &
+    \node (sci2_all2) [empty]{}; \\
+
+    % Row *_dist
+    \node (lin_dist) [empty]{};
+    &
+    \node (dist_dist)[statcalfile]{DISTORTION\_TAB};
+    &
+    \node (dark_dist)[empty]{};
+    &
+    \node (flat_dist) [empty]{};
+    &
+    \node (all1_dist)[empty]{};
+    &
+    \node (all2_dist)[empty]{};
+    &
+    \node (std_dist)[empty]{};
+    &
+    \node (sci1_dist)[connection]{};
+    &
+    \node (sci2_dist) [empty]{}; \\
+
+    % Row *_std
+    \node (lin_std) [empty]{};
+    &
+    \node (dist_std)[empty]{};
+    &
+    \node (dark_std)[extcalfile]{FLUXSTD\_CATALOG};
+    &
+    \node (flat_std)[empty]{};
+    &
+    \node (all1_std)[empty]{};
+    &
+    \node (all2_std)[empty]{};
+    &
+    \node (std_std)[connection]{};
+    &
+    \node (sci1_std)[empty]{};
+    &
+    \node (sci2_std) [empty]{}; \\
+
+    % Row *_sci1
+    \node (lin_sci1) [empty]{};
+    &
+    \node (dist_sci1)[empty]{};
+    &
+    \node (dark_sci1)[empty]{};
+    &
+    \node (flat_sci1)[empty]{};
+    &
+    \node (all1_sci1)[empty]{};
+    &
+    \node (all2_sci1)[empty]{};
+    &
+    \node (std_sci1)[calibproduct]{FLUXCAL\_TAB};
+    &
+    \node (sci1_sci1)[connection]{};
+    &
+    \node (sci2_sci1)[empty]{};
+    \\
+
+    % Row *_sci2
+    \node (lin_sci2) [empty]{};
+    &
+    \node (dist_sci2)[empty]{};
+    &
+    \node (dark_sci2)[empty]{};
+    &
+    \node (flat_sci2)[empty]{};
+    &
+    \node (all1_sci2)[empty]{};
+    &
+    \node (all2_sci2)[empty]{};
+    &
+    \node (std_sci2)[empty]{};
+    &
+    \node (sci1_sci2)  [scienceproduct]{LM\_SCI\_CALIBRATED};
+    &
+    \node (sci2_sci2) [connection]{};
+    \\
+
+    % Row *_prod
+    \node (lin_prod) [empty]{};
+    &
+    \node(dist_prod) [empty]{};
+    &
+    \node(dark_prod) [empty]{};
+    &
+    \node(flat_prod) [empty]{};
+    &
+    \node(all1_prod) [empty]{};
+    &
+    \node(all2_prod) [empty]{};
+    &
+    \node(std_prod) [empty]{};
+    &
+    \node(sci1_prod) [empty]{};
+    &
+    \node (sci2_prod)[scienceproduct]{LM\_SCI\_COADD};
+    \\
+  };    % end matrix
+
+  \node (t1) at ($(dist_raw)!0.5!(dark_raw)$){};
+  \node (t2) at ($(dist_prod)!0.5!(dark_prod)$){} ;
+  \draw [thick,dashed] ([yshift=8mm]t1.north) -- ([yshift=-8mm]t2.south);
+
+
+
+  %% Vertical connections
+  \draw [arrow] (lin_raw)  -- (lin_lin);
+  \draw [arrow] (dist_raw) -- (dist_dist);
+  \draw [arrow] (dark_raw) -- (dark_dark);
+  \draw [arrow] (flat_raw) -- (flat_flat);
+  \draw [arrow] (all1_raw) -- (all1_all1);
+  \draw [arrow] (all1_all1) -- (all1_all2);
+  \draw [arrow] (std_all1) -- (std_sci1);
+  \draw [arrow] (sci1_all2) -- (sci1_sci2);
+  \draw [arrow] (sci2_sci2) -- (sci2_prod);
+%  \draw [arrow] (adi_sci2) -- (adi_prod);
+
+  %% Horizontal connections
+  \draw [match] (dark_dark) -- (all1_dark);
+  \draw [match] (lin_lin)   -- (all1_lin);
+  \draw [match] (flat_flat) -- (all1_flat);
+  \draw [match] (all1_all1) -- (all2_all1);
+  \draw [match] (all2_all1) -- (std_all1);
+  \draw [match] (all1_all2) -- (all2_all2);
+  \draw [match] (all2_all2) -- (sci1_all2);
+  \draw [match] (sci1_std) -- (sci1_sci1);
+  \draw [match] (dist_dist) -- (sci1_dist);
+  \draw [match] (dark_std) -- (std_std);
+  \draw [match] (std_sci1) -- (sci1_sci1);
+  \draw [match] (sci1_sci2) -- (sci2_sci2);
+
+  %% Legend
+  \matrix (legend) [draw, fill=gray!15, above right, row sep=0.3cm,
+    column 1/.style={anchor=base},
+    column 2/.style={anchor=base west}]
+    at ([yshift=0ex]current bounding box.south west){%
+      \node (leg_recipe) [recipe] {lm\_img\_flat};
+      & \node {recipe}; \\
+      \node (leg_calproduct) [calibproduct] {MASTER\_DARK\_2RG};
+      & \node {calib.\ product}; \\
+      \node (leg_sciproduct)[scienceproduct] {LM\_SCI\_REDUCED};
+      & \node {science product}; \\
+      \node (leg_statcalfile)[statcalfile] {MASTER\_RSRF};
+      & \node {static calib.\ file};\\
+      \node (leg_calfile)[extcalfile]{FLUXSTD\_CATALOG};
+      & \node {external calib.\ file}; \\
+
+    \draw [arrow,fill=black] (0,0.4) -- (0,-0.3);  %% should be centred relative to column
+    & \node {processing step}; \\
+
+    \draw (-1, 0.5ex) -- (1,0.5ex) node [connection,yshift=0cm]{};
+    & \node {product match}; \\
+  };    %% end matrix (legend)
+
+\end{tikzpicture}
+
+
+\end{document}
