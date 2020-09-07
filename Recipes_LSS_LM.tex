@@ -5,8 +5,8 @@
 A draft of the reduction cascade is shown in
 Fig.~\ref{Fig:LMLssAssomap} together with the data processing table
 (Table~\ref{Tab:LssDatProc}). The first part concerns the detector
-calibrations, which are independent of the observing mode and already
-described in Section~6.1 in \cite{DRLS}. This affects the
+calibrations, which are independent of the observing mode and 
+described in Section~\ref{Sec:detector_calibration}. This affects the
 dark correction, linearity and gain determination and bad pixel
 detection. The second step is the flatfielding (i.e. the determination and application of the \ac{RSRF}), followed by the wavelength correction and the determination of the response curve for the flux calibration. Subsequently, the main reduction is conducted, which applies the previously created master calibration files to the science frames. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}.
 
@@ -39,8 +39,52 @@ It is therefore crucial to have a radiometer (e.g.\ L-HATPRO)
 available at the \ac{ELT}, which provides direct measurements of the \ac{PWV}
 along the observation direction.
 
-\subsubsection{Recipes \REC{metis_det_lingain}, \REC{metis_det_dark}, and \REC{metis_LM_lss_rsrf}:}
-These recipes have not changed and are described in the Data Reduction Library Specifications document \cite{DRLS} in Sections~6.1.1, 6.1.2, and 6.4.1, respectively.
+\subsubsection{Recipes \REC{metis_det_lingain} and \REC{metis_det_dark}}
+These recipes are described in Section~\ref{Sec:detector_calibration}.
+
+\subsubsection{\REC{metis_LM_lss_rsrf}:}
+\TODO{Section revision TBD}\\
+The main aim of this recipe is to detect the wavelength dependent
+sensitivity of the detectors by means of combining a static Relative Spectral Response Function (\ac{RSRF}) with a dynamic one taken with a grid (cf.~\cite{METIS-calibration_plan})
+
+\begin{recipedef}
+Name:		& \REC{metis_LM_lss_rsrf} \\
+Purpose:	& determine the scpectroscopic flat field of the LM detector to determine\\
+		& a pixel sensitivity and a bad pixel map.\\
+Type:		& Calibration\\
+Requirements: & METIS-6084, METIS-6698  \\
+Observing templates: & \TPL{METIS_spec_cal_rsrf}  \\
+Input data: 	& WCU Lamp flat field (\FITS{LM_FLAT_RAW})  \\
+                & \EXTCALIB{PERSISTENCE_MAP} \\
+                & \STATCALIB{REF_RSRF} \\
+                & \PROD{BADPIX_MAP_2RG} \\
+                & \PROD{MASTER_DARK_2RG} \\
+Parameters: 	& Taken from HDRL\\
+Algorithm:  	& Standard flat algorithm (see Fig.\,\ref{Fig:rec_lm_lss_flat}):\\
+		& Pixel-by-pixel median / mean filtering of several flatfield frames to compute the sensitivity
+        of the detector; normalisation of the result (to e.g. median = 1.)\\
+Output data:	& Normalised flat field (\FITS{PRO_CATG=LM_LSS_FLAT}) \\
+        & Bad pixel map (\FITS{PRO_CATG=LM_LSS_BPM}) \\
+        & \PROD{MEDIAN_LM_LSS_RSRF_IMG} (\FITS{PRO.CATG=LM_LSS_MEDIAN_RSRF}): median filtered LM flatfield (for QC) \\
+        & \PROD{MEAN_LM_LSS_RSRF_IMG} (\FITS{PRO.CATG=LM_LSS_MEAN_RSRF}): mean filtered LM flatfield (for QC) \\
+        & \PROD{MASTER_LM_LSS_RSRF} (\FITS{PRO.CATG=LM_LSS_MASTER_RSRF}): Master flatfield \\
+Expected accuracies: & TBD\\
+QC1 parameters: & \QC{QC LM LSS RSRF NOISE} : Mean of the spectroscopic noise level\\
+        & \QC{QC LM LSS SENS MEAN}: Mean of the spectroscopic sensitivity (TBDef)\\
+        & \QC{QC LM LSS SENS MEDIAN}: Median of the spectroscopic sensitivity (TBDef)\\
+        & \QC{QC LM LSS SENS SIGMA}: Sigma of the spectroscopic sensitivity (TBDef)\\
+        & \QC{QC LM LSS FLXMIN / FLXMAX}: Min/max of flux level\\
+        & \QC{QC LM LSS NORM LEVEL}: Level for the normalisation (TBDef)\\
+        & (more TBD)\\
+\end{recipedef}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_rsrf_v0.65.pdf}
+  \caption[Recipe: \REC{metis_LM_lss_wave}]{\REC{metis_LM_lss_wave} --
+    Creation of the LM LSS spectroscopic flatfield (\ac{RSRF}).}
+  \label{Fig:rec_lm_lss_rsrf}
+\end{figure}
+\clearpage
 
 \subsubsection{\REC{metis_LM_lss_wave}:}
 This recipe aims at deriving a first guess solution for the wavelength calibration on basis of the \ac{WCU} \ac{QCL} (c.f. \cite{METIS-calibration_plan}). Therefore the first steps are the removal of the detector signature of the \FITS{LM_WAVE_RAW} frames by applying the master calibration files derived in the previous steps, following by the background subtraction (if needed, TBD) and the application of the RSRF. The distortion of the lines (i.e. possible tilt, curvature,...) and the wavelength solution is determined by the algorithm described in Sect.\,8.5 in \cite{DRLS} and in \cite{METIS-calibration_plan}. The reference frame is defined by the \ac{QCL} line catalogue (\STATCALIB{QLC_LINE_CAT}).
@@ -233,3 +277,11 @@ QC1 parameters: & \QC{QC LM LSS SCI SNR}: Signal-to-noise ration of science spec
                 & \QC{QC LM LSS SCI WAVECAL POLYDEG}: Degree of the polynomial\\
                 & \QC{QC LM LSS SCI WAVECAL POLYCOEFF\<n\>}: $n$-th coefficient of the polynomial\\
 \end{recipedef}
+\subsubsection{\REC{metis_LM_lss_tac}:}
+\TODO{Not yet revised (see \cite{DRLS})}\\
+In case a telluric absorption correction is required, this recipe
+applies a transmission spectrum of the Earth's atmosphere to the
+SCIENCE data. Up to now, we assume that the modelling approach with
+\texttt{molecfit} will be the default method (see
+Fig.~\ref{Fig:rec_lm_lss_tellcorr}) rather than
+dedicated telluric standard star observations. \\
