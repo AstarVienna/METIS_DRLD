@@ -1,5 +1,5 @@
-\subsection{LM-band Imaging}
-\label{ssec:overview_imaging}
+\subsection{Imaging in LM and N}
+\label{ssec:overview_lm_imaging}
 
 \textbf{Note: The pipeline layout has been modified compared to the
   PDR design in order to achieve better modularity. Basic reduction
@@ -41,6 +41,10 @@ can proceed as in the near infrared. After dark subtraction and
 flat-fielding, the background is estimated from a series of dithered
 science exposures or from exposures on a nearby blank patch of sky.
 
+The association maps for the current designs of the imaging pipelines
+in~LM and~N are shown in Figs.~\ref{fig:IMG_LM_Assomap}
+and~\ref{fig:IMG_N_Assomap}, respectively.
+
 \TODO{For HCI data, ADI may need to be part of reduction recipe if
   individual background subtracted images are the goal?}
 
@@ -50,14 +54,32 @@ science exposures or from exposures on a nearby blank patch of sky.
   \centerline{\resizebox{\textwidth}{!}{\includegraphics{IMG_LM_assomap_tikz}}}
   \caption[Reduction cascade and association map for imaing in L and
   M]{Association map for imaging in the LM band. The figure shows only
-  the primary product created from each recipe; for a full list of
-  products refer to the recipe descriptions in
-  Sect.~\ref{ssec:lm_imaging}. The dashed line separates calibration
-  tasks that are done at AIT or infrequently during operations from
-  daily tasks. The prefix ``\REC{metis_}'' has been omitted from the
-  recipe names to improve clarity. The product names omit
-  ``\PROD{LM_}''.}
+    the primary product created from each recipe; for a full list of
+    products refer to the recipe descriptions in
+    Sect.~\ref{ssec:recipes_img_lm}. The dashed line separates
+    calibration tasks that are done at AIT or infrequently during
+    operations from daily tasks. The prefix ``\REC{metis_}'' has been
+    omitted from the recipe names to improve clarity. The product
+    names omit ``\PROD{LM_}''.}
   \label{fig:IMG_LM_Assomap}
+\end{sidewaysfigure}
+
+
+\begin{sidewaysfigure}
+  \centering
+  \centerline{%
+    \resizebox{\textwidth}{!}{\includegraphics{IMG_N_assomap_tikz}}
+  }
+  \caption[Reduction cascade and association map for imaing in N]{%
+    Association map for imaging in the N band. The figure shows
+    only the primary product created from each recipe; for a full
+    list of products refer to the recipe descriptions in
+    Sect.~\ref{ssec:recipes_img_n}. The dashed line separates
+    calibration tasks that are done at AIT or infrequently during
+    operations from daily tasks. The prefix ``\REC{metis_}'' has
+    been omitted from the recipe names to improve clarity. The
+    product names omit ``\PROD{N_}''.}
+  \label{fig:IMG_N_Assomap}
 \end{sidewaysfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
