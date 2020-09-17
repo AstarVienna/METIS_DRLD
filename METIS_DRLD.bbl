@@ -20,8 +20,8 @@
 \refsection{0}
   \datalist[entry]{none/global/E182EBBC166D73366E7986813A7FC5F1/global/global}
     \entry{DRLS}{manual}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelprefix}{AD}
       \field{labeltitlesource}{title}
       \field{note}{2019-11-22}
@@ -31,8 +31,8 @@
       \keyw{applicable}
     \endentry
     \entry{METIS-operational_concept}{manual}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelprefix}{AD}
       \field{labeltitlesource}{title}
       \field{note}{2019-03-02}
@@ -42,8 +42,8 @@
       \keyw{reference}
     \endentry
     \entry{ESO-DICD}{manual}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelprefix}{AD}
       \field{labeltitlesource}{title}
       \field{note}{2016-06-21}
@@ -53,8 +53,8 @@
       \keyw{applicable}
     \endentry
     \entry{METIS-coordinates}{manual}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelprefix}{AD}
       \field{labeltitlesource}{title}
       \field{note}{2019-02-08}
@@ -64,8 +64,8 @@
       \keyw{reference}
     \endentry
     \entry{METIS-DID}{manual}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelprefix}{AD}
       \field{labeltitlesource}{title}
       \field{note}{2018-12-03}
@@ -75,8 +75,8 @@
       \keyw{reference}
     \endentry
     \entry{METIS-template_manual}{manual}{}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelprefix}{AD}
       \field{labeltitlesource}{title}
       \field{note}{2019-03-01}
@@ -90,10 +90,10 @@
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelprefix}{AD}
       \field{labeltitlesource}{title}
-      \field{note}{2013-01-11}
-      \field{number}{GEN-SPE-ESO-33000-5335}
+      \field{note}{2020-06-15}
+      \field{number}{ESO-044286}
       \field{title}{ESO Science Data Products Standard}
-      \field{version}{5}
+      \field{version}{6}
       \keyw{applicable}
     \endentry
     \entry{1618}{manual}{}
@@ -122,8 +122,8 @@
       \keyw{reference}
     \endentry
     \entry{detmon-manual}{manual}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelprefix}{AD}
       \field{labeltitlesource}{title}
       \field{note}{2014-01-21}
@@ -155,8 +155,8 @@
       \keyw{reference}
     \endentry
     \entry{METIS-ADC_study}{manual}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelprefix}{AD}
       \field{labeltitlesource}{title}
       \field{note}{2019-03-02}
@@ -168,8 +168,8 @@
   \enddatalist
   \datalist[entry]{none/global/CD3C9BB8ACB671DBD1FABA3DEAA1E03E/global/global}
     \entry{DRLS}{manual}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelprefix}{RD}
       \field{labeltitlesource}{title}
       \field{note}{2019-11-22}
@@ -179,8 +179,8 @@
       \keyw{applicable}
     \endentry
     \entry{METIS-operational_concept}{manual}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelprefix}{RD}
       \field{labeltitlesource}{title}
       \field{note}{2019-03-02}
@@ -190,8 +190,8 @@
       \keyw{reference}
     \endentry
     \entry{ESO-DICD}{manual}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelprefix}{RD}
       \field{labeltitlesource}{title}
       \field{note}{2016-06-21}
@@ -201,8 +201,8 @@
       \keyw{applicable}
     \endentry
     \entry{METIS-coordinates}{manual}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelprefix}{RD}
       \field{labeltitlesource}{title}
       \field{note}{2019-02-08}
@@ -212,8 +212,8 @@
       \keyw{reference}
     \endentry
     \entry{METIS-DID}{manual}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelprefix}{RD}
       \field{labeltitlesource}{title}
       \field{note}{2018-12-03}
@@ -223,8 +223,8 @@
       \keyw{reference}
     \endentry
     \entry{METIS-template_manual}{manual}{}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelprefix}{RD}
       \field{labeltitlesource}{title}
       \field{note}{2019-03-01}
@@ -238,10 +238,10 @@
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelprefix}{RD}
       \field{labeltitlesource}{title}
-      \field{note}{2013-01-11}
-      \field{number}{GEN-SPE-ESO-33000-5335}
+      \field{note}{2020-06-15}
+      \field{number}{ESO-044286}
       \field{title}{ESO Science Data Products Standard}
-      \field{version}{5}
+      \field{version}{6}
       \keyw{applicable}
     \endentry
     \entry{1618}{manual}{}
@@ -270,8 +270,8 @@
       \keyw{reference}
     \endentry
     \entry{detmon-manual}{manual}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelprefix}{RD}
       \field{labeltitlesource}{title}
       \field{note}{2014-01-21}
@@ -303,8 +303,8 @@
       \keyw{reference}
     \endentry
     \entry{METIS-ADC_study}{manual}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelprefix}{RD}
       \field{labeltitlesource}{title}
       \field{note}{2019-03-02}
@@ -316,8 +316,8 @@
   \enddatalist
   \datalist[entry]{none/global//global/global}
     \entry{DRLS}{manual}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labeltitlesource}{title}
       \field{note}{2019-11-22}
       \field{number}{E-SPE-AST-MET-1001}
@@ -326,8 +326,8 @@
       \keyw{applicable}
     \endentry
     \entry{METIS-operational_concept}{manual}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labeltitlesource}{title}
       \field{note}{2019-03-02}
       \field{number}{E-PLA-MPIA-MET-1057}
@@ -336,8 +336,8 @@
       \keyw{reference}
     \endentry
     \entry{ESO-DICD}{manual}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labeltitlesource}{title}
       \field{note}{2016-06-21}
       \field{number}{ESO-044156}
@@ -346,8 +346,8 @@
       \keyw{applicable}
     \endentry
     \entry{METIS-coordinates}{manual}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labeltitlesource}{title}
       \field{note}{2019-02-08}
       \field{number}{E-SPE-NOVA-MET-1090}
@@ -356,8 +356,8 @@
       \keyw{reference}
     \endentry
     \entry{METIS-DID}{manual}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labeltitlesource}{title}
       \field{note}{2018-12-03}
       \field{number}{E-LIS-KUL-MET-1002}
@@ -366,8 +366,8 @@
       \keyw{reference}
     \endentry
     \entry{METIS-template_manual}{manual}{}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labeltitlesource}{title}
       \field{note}{2019-03-01}
       \field{number}{E-MAN-MPIA-MET-1058}
@@ -379,10 +379,10 @@
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labeltitlesource}{title}
-      \field{note}{2013-01-11}
-      \field{number}{GEN-SPE-ESO-33000-5335}
+      \field{note}{2020-06-15}
+      \field{number}{ESO-044286}
       \field{title}{ESO Science Data Products Standard}
-      \field{version}{5}
+      \field{version}{6}
       \keyw{applicable}
     \endentry
     \entry{1618}{manual}{}
@@ -409,8 +409,8 @@
       \keyw{reference}
     \endentry
     \entry{detmon-manual}{manual}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labeltitlesource}{title}
       \field{note}{2014-01-21}
       \field{number}{VLT-MAN-ESO-19500-4846}
@@ -439,8 +439,8 @@
       \keyw{reference}
     \endentry
     \entry{METIS-ADC_study}{manual}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labeltitlesource}{title}
       \field{note}{2019-03-02}
       \field{number}{E-TNT-MPIA-MET-1002}

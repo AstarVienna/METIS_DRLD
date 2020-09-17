@@ -262,13 +262,13 @@ images and adds geometric calibration data to the FITS header. The
 products of this recipe are fully calibrated individual exposures.
 
 Each image is multiplied by the conversion factor such that pixel
-values are in units of $\mathrm{photons\,\,s^{-1}}$. The header of
-each file receives keyword \FITS{BUNIT} with value %
-\CODE{'ph / s'}.
+values are in units of photons per second. The header of each file
+receives keyword \FITS{BUNIT} with value %
+\CODE{'photon.s**(-1)'}.
 
 \TODO{Other units may be possible, although additional information is
-  needed. For instance,\\ \CODE{'ph / (s arcsec2)'} makes values
-  independent of the pixel scale, but requires a distortion map
+  needed. For instance,\\ \CODE{'photon.s**(-1).arcsec**(-2)'} makes
+  values independent of the pixel scale, but requires a distortion map
   (variation of pixel scale across the detector). Energy units (erg
   instead of photons) require knowledge of the spectral energy
   distribution of the sources, in particular for broad-band filters.}
