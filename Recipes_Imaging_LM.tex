@@ -206,7 +206,7 @@ addition, the exposures are stacked (after recentering on the standard
 star, but without derotation) and the flux is measured in the combined
 image. Comparison to the tabulated brightness of the star in the
 observing filter yields the conversion factor from
-$\mathrm{ADU\,s^{-1}}$ to $\mathrm{photons\,\,s^{-1}}$.
+$\mathrm{ADU\,s^{-1}}$ to $\mathrm{photons\,\,s^{-1}\,cm^{-2}}$.
 
 QC parameter will include estimates of the sensitivity for the
 detection of point sources and surface brightness sensitivity
@@ -262,12 +262,12 @@ images and adds geometric calibration data to the FITS header. The
 products of this recipe are fully calibrated individual exposures.
 
 Each image is multiplied by the conversion factor such that pixel
-values are in units of photons per second. The header of each file
-receives keyword \FITS{BUNIT} with value %
-\CODE{'photon.s**(-1)'}.
+values are in units of photons per second per centimetre squared. The
+header of each file receives keyword \FITS{BUNIT} with value %
+\CODE{'photon.s**(-1).cm**(-2)'}.
 
 \TODO{Other units may be possible, although additional information is
-  needed. For instance,\\ \CODE{'photon.s**(-1).arcsec**(-2)'} makes
+  needed. For instance,\\ \CODE{'photon.s**(-1).cm**(-2).arcsec**(-2)'} makes
   values independent of the pixel scale, but requires a distortion map
   (variation of pixel scale across the detector). Energy units (erg
   instead of photons) require knowledge of the spectral energy
