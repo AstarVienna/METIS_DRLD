@@ -150,7 +150,44 @@ detector.
 \end{figure}
 
 \clearpage
+
+\subsubsection{Persistence correction}
+\label{sssec:metis_det_persistence}
+
+Infrared detectors show persistent signal due to charges trapped on a
+variety of timescales. The correction for a given science or
+calibration exposure is built from a sequence of exposures preceding
+the exposure in question. As these may include exposures taken for
+another proprietary programme, the recipe is run by ESO on data taken
+from the science archive and its products are again ingested into the
+archive.
+
+\begin{recipedef}
+  Name:                & \REC{metis_det_persistence}           \\
+  Purpose:             & compute persistence correction        \\
+  Requirement:         & \REQ{METIS-9145}                      \\
+  Type:                & Calibration                           \\
+  Template:            & --                                    \\
+  Parameters:          & \TBD                                  \\
+  Algorithm:           & see hdrl function                     \\
+  Output data:         & \PROD{PERSISTENCE_MAP}                \\
+  Expected accuracies: & \TBD                                  \\
+  QC1 parameters:      & see hdrl function                     \\
+  hdrl functions:      & \TBD (\CODE{hdrl_persistence_compute} \\
+\end{recipedef}
+
+\begin{figure}[hb]
+  \centering
+  \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
+  \caption[Recipe:
+  \REC{metis_det_persistence}]{\REC{metis_det_persistence} -- creation
+    of persistence correction frames.}
+  \label{Fig:rec_det_dark}
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 %%% Local Variables:
 %%% TeX-master: "METIS_DRLD"
