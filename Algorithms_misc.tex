@@ -1,0 +1,16 @@
+\subsection{Miscellanea}
+\label{ssec:miscellanea}
+
+\subsubsection{Parallactic angle}
+\label{sssec:parallactic_angle}
+
+The parallactic angle is the angle between the meridian (direction to the celestial north pole) and the hour circle (direction to the zenith) through the target at the time of an observation. Given hour angle $h$ and declination $\delta$ of the target, as well as the latitude $\phi$ of the observatory, the parallactic angle $\eta$ is given by
+\begin{equation}
+  \label{eq:parallactic_angle}
+  \tan\eta = \frac{\cos\phi\sin h}{\sin\phi \cos\delta - \cos\phi \sin\delta \cos h}
+\end{equation}
+The hour angle is computed from the telescope's pointing altitude and azimuth, or from the target's right ascension and the sidereal time stamp of the exposure.
+
+%%% Local Variables:
+%%% TeX-master: "METIS_DRLD"
+%%% End:
