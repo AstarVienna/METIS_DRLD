@@ -1,0 +1,139 @@
+%%% This file contains definitions of shapes and nodes used
+%%% for a recipe workflow
+%%% Author       : Oliver Czoske
+%%% Created      : 2021-03-03
+%%% Last Changed : 2021-03-03
+%%% Changes:
+%%%
+
+\usetikzlibrary{
+  shapes.misc,
+  positioning,
+  calc,
+  arrows.meta}
+
+%% All connecting lines have an arrow
+\tikzset{
+  every path/.style={->, >=Latex[open], thick}
+}
+
+%% Start and stop buttons (black disks, stop with ring)
+%% These are pics, use as
+%%         \pic (name) [above of=..] {picname};
+\tikzset{
+  start/.pic = {
+    \node (-m) at (0, 0){};
+    \filldraw [fill=black] (0, 0) circle (0.2);
+  }
+}
+
+\tikzset{
+  stop/.pic = {
+    \node (-m) at (0, 0){};
+    \node (-t) at (0, -0.3){};
+    \filldraw [fill=black] (0, 0) circle(0.2);
+    \draw[black] (0, 0) circle (0.3);
+  }
+}
+
+
+%%%% Various boxes and their colours
+%%%% These are nodes, use as
+%%%% \node (name) [type, location]  {text};
+
+\definecolor{stepcolor}{RGB}{210,169,188}
+\definecolor{rawcolor}{RGB}{235,235,235}
+\definecolor{externalcolor}{RGB}{183,255,255}
+\definecolor{calibcolor}{RGB}{255,250,216}
+\definecolor{calproductcolor}{RGB}{185,184,237}
+\definecolor{qcproductcolor}{RGB}{255,201,165}
+\definecolor{sciproductcolor}{RGB}{197,219,183}
+\definecolor{framecolor}{RGB}{127,13,65}
+
+\tikzset{
+  %% template : the template(s) that trigger(s) the recipe
+  template/.style={
+    rectangle,
+    draw=black,
+    minimum width=4.0cm,
+    minimum height=0.5cm,
+    align=center
+  },
+  %% input : the input files
+  input/.style={
+    rectangle,
+    fill=rawcolor,
+    minimum width=4.0cm,
+    minimum height=0.75cm,
+    text width=3cm,
+    align=center
+  },
+  %% calib : calibration input
+  calib/.style={
+    rectangle,
+    fill=calibcolor,
+    minimum width=4.0cm,
+    minimum height=0.75cm,
+    text width=3cm,
+    align=center
+  },
+  %% external : external input
+  external/.style={
+    rectangle,
+    fill=externalcolor,
+    minimum width=4.0cm,
+    minimum height=0.75cm,
+    text width=3.5cm,
+    align=center
+  },
+  %% params : parameters
+  params/.style={
+    rectangle,
+    draw=red,
+    thick,
+    minimum width=4.0cm,
+    minimum height=0.75cm,
+    text width=3cm,
+    align=center
+  },
+  %% redstep : a reduction step
+  %%      ("step" is predefined and can't be used)
+  redstep/.style={
+    rectangle,
+    rounded corners=0.2cm,
+    fill=stepcolor,   %%% define colour!
+    minimum width=4.0cm,
+    minimum height=1cm,
+    text width=3cm,
+    align=center
+  },
+  %% connection : connection to input or output
+  connection/.style={
+    circle,
+    fill=black,
+    minimum size=0.15cm,
+    inner sep=0pt
+  },
+  %% sciproduct : a science product
+  sciproduct/.style={
+    rectangle,
+    fill=sciproductcolor,
+    minimum width=4.0cm,
+    minimum height=0.75cm,
+    text width=3.5cm,
+    align=center
+  },
+  %% calproduct : a calibration product
+  calproduct/.style={
+    rectangle,
+    fill=calproductcolor,
+    minimum width=4.0cm,
+    minimum height=0.75cm,
+    text width=3.5cm,
+    align=center
+  },
+  %% frame : frame around the recipe
+  %% This is a path, use as
+  %%    \draw [frame] (upper left) rectangle (lower right);
+  frame/.style={framecolor, very thick, dashed}
+}
