@@ -1,0 +1,108 @@
+\documentclass[tikz, margin=5mm]{standalone}
+
+\input{recipe_config}
+
+\begin{document}
+
+\begin{tikzpicture}
+  [x=1cm,
+  y=-1cm,
+  align=center,
+  node distance=2cm and 3cm]
+  \sffamily
+
+  %% Grid for orientation. Comment out for final figure!
+  % \draw[help lines, green](-5, 0) grid (8, 11);
+
+  %%% Put workflow commands here:
+  %% Main reduction workflow
+
+  \node (template) [template]{%
+    METIS\_ifu\_cal\_rsrf
+  };
+
+  \pic (start) [below=0.75cm of template] {start};
+
+  \node (input) [below=0.75cm of start-m, input]{%
+    \textsl{N} LMS\_RSRF\_RAW
+  };
+
+  \node (step1) [below=2.cm of input, redstep]{%
+    detector signature\\
+    removal
+  };
+
+
+  \node (step2) [below=1.cm of step1, redstep]{%
+    continuum\\
+    normalisation
+  };
+
+  \node (step3) [below=1.cm of step2, redstep]{%
+    average/median
+  };
+
+  \pic (stop) [below=3.5cm of step3]{stop};
+
+  %% Connections
+  \draw (template) -- (input);
+  \draw (input) -- (step1);
+  \draw (step1) -- (step2);
+  \draw (step2) -- (step3);
+  \draw (step3) -- (stop-t);
+
+  %% Input
+  \node (connectpersistence) [connection] at
+  ($(input)!0.35!(step1)$) {};
+  \node (persistence) [left=3.95cm of connectpersistence, external]{%
+    PERSISTENCE\_MAP
+  };
+  \draw (persistence) -- (connectpersistence);
+
+  \node (bpmin) [left=2cm of step1, yshift=0.5cm, calproduct]{%
+    BADPIX\_MAP\_LMS
+  };
+  \draw (bpmin.east) -- ++(1.0, 0) -- ++(0., 0.4) -- ++(1.0, 0.);
+
+  \node (darkin) [left=2cm of step1, yshift=-0.5cm, calproduct]{%
+    MASTER\_DARK\_LMS
+  };
+  \draw (darkin.east) -- ++(1.0, 0) -- ++(0., -0.4) -- ++(1.0, 0.);
+
+  \node (wavecal) [left=2cm of step2, calproduct]{%
+    LMS\_WAVECAL
+  };
+  \draw (wavecal) -- (step2);
+
+  %% Output
+  \node (connectrsrf) [connection] at
+  ($(step3)!0.25!(stop-t)$) {};
+  \node (rsrf) [right=of connectrsrf, calproduct]{%
+    RSRF\_LMS
+  };
+  \draw (connectrsrf) -- (rsrf);
+
+  \node (connectflat) [connection] at
+  ($(step3)!0.5!(stop-t)$) {};
+  \node (flat) [right=of connectflat, calproduct]{%
+    MASTER\_FLAT\_LMS
+  };
+  \draw (connectflat) -- (flat);
+
+  \node (connectbpm) [connection] at
+  ($(step3)!0.75!(stop-t)$) {};
+  \node (bpm) [right=of connectbpm, calproduct]{%
+    BADPIX\_MAP\_LMS
+  };
+  \draw (connectbpm) -- (bpm);
+
+  %% Frame around recipe
+  \draw [frame] ($(input)!0.5!(step1) - (3.5,0)$)
+  rectangle ($(step3)!0.85!(stop-t) + (2.5,0)$);
+  \node [framecolor, anchor=north west] at
+  ($(input)!0.5!(step1) - (3.5, 0)$) {%
+    \textsl{metis\_lms\_rsrf}};
+
+\end{tikzpicture}
+
+\end{document}

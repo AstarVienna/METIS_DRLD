@@ -1,0 +1,91 @@
+\documentclass[tikz, margin=5mm]{standalone}
+
+\input{recipe_config}
+
+\begin{document}
+
+\begin{tikzpicture}
+  [x=1cm,
+  y=-1cm,
+  align=center,
+  node distance=2cm and 3.5cm]
+  \sffamily
+
+  %% Grid for orientation. Comment out for final figure!
+  % \draw[help lines, green](-5, 0) grid (8, 11);
+
+  %%% Put workflow commands here:
+  %% Main reduction workflow
+
+  \node (template) [template]{%
+    METIS\_img\_lm\_cal\_DetLin\\
+    METIS\_img\_n\_cal\_DetLin\\
+    METIS\_ifu\_cal\_DetLin};
+
+  \pic (start) [below=0.75cm of template] {start};
+
+  \node (input) [below=0.75cm of start-m, input] {%
+    \textsl{N} FLAT,LAMP\\
+    DARK (FLAT,OFF)};
+
+  \node (step1) [below=1.5cm of input, redstep]{%
+    subtract dark};
+
+  \node (step2) [below of=step1, redstep]{%
+    compute gain};
+
+  \node (step3) [below of=step2, redstep]{%
+    linearity check};
+
+  \node (step4) [below of=step3, redstep]{%
+    thresholding};
+
+  \pic (stop) [below=2.5cm of step4]{stop};
+
+  %% Connections
+  \draw (template) -- (input);
+  \draw (input) -- (step1);
+  \draw (step1) -- (step2);
+  \draw (step2) -- (step3);
+  \draw (step3) -- (step4);
+  \draw (step4) -- (stop-t);
+
+  %% Other input
+  \node (connectpers) [connection] at
+  ($(input)!0.35!(step1)$){};
+  \node (persistence) [left=of connectpers, external]{%
+    PERSISTENCE\_MAP};
+  \draw (persistence) -- (connectpers);
+
+  \node (params) [left=of step4.center, params]{%
+    Recipe params:\\
+    THRESH\_LOWLIM\\
+    THRESH\_UPLIM};
+  \draw (params) -- (step4);
+
+  %% Output
+  \node (connectgain) [connection] at
+  ($(step2)!0.5!(step3)$){};
+  \node (gainmap) [right=of connectgain, calproduct]{%
+    GAIN\_MAP\_det};
+  \draw (connectgain) -- (gainmap);
+
+  \node (connectlin) [connection] at
+  ($(step3)!0.5!(step4)$) {};
+  \node (linearity) [right=of connectlin, calproduct]{%
+    LINEARITY\_det};
+  \draw (connectlin) -- (linearity);
+
+  \node (connectbpm) [connection] at
+  ($(step4)!0.35!(stop-t)$) {};
+  \node (bpm) [right=of connectbpm, calproduct]{%
+    BADPIX\_MAP\_det};
+  \draw (connectbpm) -- (bpm);
+
+  %% Frame around recipe
+  \draw [frame] ($(input)!0.5!(step1) - (2.75cm,0)$) rectangle ($(step4)!0.5!(stop-t) + (2.75cm, 0)$);
+  \node [framecolor, anchor=north west] at
+  ($(input)!0.5!(step1) - (2.75cm,0)$){\textsl{metis\_det\_lingain}};
+\end{tikzpicture}
+
+\end{document}

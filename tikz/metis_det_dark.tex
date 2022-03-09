@@ -1,0 +1,56 @@
+\documentclass[tikz, margin=5mm]{standalone}
+
+\input{recipe_config}
+
+\begin{document}
+
+\begin{tikzpicture}
+  [x=1cm,
+  y=-1cm,
+  align=center,
+  node distance=2cm and 3cm]
+  \sffamily
+
+  %% Grid for orientation. Comment out for final figure!
+  %\draw[help lines, green](-5, 0) grid (8, 11);
+
+  %% Main reduction flow
+  \node (template) [template] {METIS\_all\_cal\_dark};
+  \pic (start) [below=0.75cm of template] {start};
+  \node (input) [below=0.75cm of start-m, input] {\textsl{N} DARK\_RAW};
+  \node (step1) [below of=input, redstep] {%
+    per pixel median/ mean filtering};
+  \node (step2) [below of=step1, redstep] {thresholding};
+  \pic (stop) [below=3.5cm of step2] {stop};
+
+  %% Connections
+  \draw (template) -- (input);
+  \draw (input) -- (step1);
+  \draw (step1) -- (step2);
+  \draw (step2) -- (stop-t);
+
+  %% Output
+  \node (connectdark) [connection] at ($(step1)!0.5!(step2)$){};
+  \node (masterdark) [right=of connectdark, calproduct] {MASTER\_DARK\_det};
+  \draw (connectdark) -- (masterdark);
+
+  \node (connecthot) [connection] at ($(step2)!0.5!(stop-t)$){};
+  \node (hot) [right=of connecthot, calproduct] {BPM\_HOT\_det};
+  \draw (connecthot) -- (hot);
+
+  \node (connectcold) [connection, above=0.06cm of connecthot] {};
+  \node (cold) [above=0.1cm of hot, calproduct] {BPM\_COLD\_det};
+  \draw (connectcold) -- ++(2cm,0) |- (cold);
+
+  \node (connectbpm) [connection, below=0.06cm of connecthot] {};
+  \node (bpm) [below=0.1cm of hot, calproduct] {BADPIX\_MAP\_det};
+  \draw (connectbpm) -- ++(2cm,0) |- (bpm);
+
+  %% frame around recipe
+  \draw [frame] ($(input)!0.4!(step1) - (2.5cm,0)$)
+  rectangle ($(step2)!0.8!(stop-t) + (2.5cm, 0)$);
+  \node [framecolor, anchor=north west] at
+  ($(input)!0.4!(step1) - (2.5cm,0)$) {\textsl{metis\_det\_dark}};
+
+\end{tikzpicture}
+\end{document}

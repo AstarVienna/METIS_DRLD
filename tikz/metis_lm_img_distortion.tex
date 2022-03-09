@@ -1,0 +1,82 @@
+\documentclass[tikz, margin=5mm]{standalone}
+
+\input{recipe_config}
+
+\begin{document}
+
+\begin{tikzpicture}
+  [x=1cm,
+  y=-1cm,
+  align=center,
+  node distance=2cm and 3cm]
+  \sffamily
+
+  %% Grid for orientation. Comment out for final figure!
+  % \draw[help lines, green](-5, 0) grid (8, 11);
+
+  %%% Put workflow commands here:
+  %% Main reduction workflow
+
+  \node (template) [template]{%
+    METIS\_img\_lm\_cal\_distortion};
+
+  \pic (start) [below=0.75cm of template] {start};
+
+  \node (input) [below=0.75cm of start-m, input] {%
+    LM\_DIST\_ON\\
+    LM\_DIST\_OFF
+  };
+
+  \node (step1) [below=1.5cm of input, redstep]{%
+    subtract DIST\_OFF
+  };
+
+  \node (step2) [below=1.5cm of step1, redstep]{%
+    locate images};
+
+  \node (step3) [below=1.5cm of step2, redstep]{%
+    fit polynomial};
+
+  \pic (stop) [below=3cm of step3]{stop};
+
+  %% Input
+  \node (bpmin) [left=of step2, calproduct] {BADPIX\_MAP\_2RG};
+  \draw (bpmin) -- (step2);
+
+  %% Connections
+  \draw (template) -- (input);
+  \draw (input) -- (step1);
+  \draw (step1) -- (step2);
+  \draw (step2) -- (step3);
+  \draw (step3) -- (stop-t);
+
+  %% Output
+  \node (connectdisttable) [connection] at
+  ($(step3)!0.25!(stop-t)$) {};
+  \node (disttable) [right=of connectdisttable, calproduct, minimum width=4cm]{%
+    LM\_DISTORT\_TABLE};
+  \draw (connectdisttable) -- (disttable);
+
+  \node (connectdistmap) [connection] at
+  ($(step3)!0.5!(stop-t)$) {};
+  \node (distmap) [right=of connectdistmap, calproduct, minimum width=4cm]{%
+    LM\_DISTORT\_MAP};
+  \draw (connectdistmap) -- (distmap);
+
+  \node (connectdistreduced) [connection] at
+  ($(step3)!0.75!(stop-t)$) {};
+  \node (distreduced) [right=of connectdistreduced, calproduct, minimum width=4cm]{%
+    LM\_DIST\_REDUCED};
+  \draw (connectdistreduced) -- (distreduced);
+
+  %% Frame around recipe
+  \draw [frame]
+  ($(input)!0.5!(step1) - (3.75,0)$) rectangle
+  ($(step3)!0.85!(stop-t) + (2.5,0)$);
+  \node [framecolor, anchor=north west] at
+  ($(input)!0.5!(step1) - (3.75, 0)$){%
+    \textsl{metis\_lm\_img\_distortion}};
+
+\end{tikzpicture}
+
+\end{document}

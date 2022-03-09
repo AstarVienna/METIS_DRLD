@@ -1,0 +1,85 @@
+\documentclass[tikz, margin=5mm]{standalone}
+
+\input{recipe_config}
+
+\begin{document}
+
+\begin{tikzpicture}
+  [x=1cm,
+  y=-1cm,
+  align=center,
+  node distance=2cm and 3.5cm]
+  \sffamily
+
+  %% Grid for orientation. Comment out for final figure!
+  % \draw[help lines, green](-5, 0) grid (8, 11);
+
+  %%% Put workflow commands here:
+  %% Main reduction workflow
+
+  \node (template) [template] {%
+    METIS\_img\_lm\_cal\_LampFlat\\
+    METIS\_all\_cal\_TwilightFlat};
+
+  \pic (start)[below=0.75cm of template]{start};
+
+  \node (input) [below=0.75cm of start-m, input] {%
+    \textsl{N} LM\_FLAT\_RAW};
+
+  \node (step1) [below=2.5cm of input, redstep]{%
+    detector signature\\ removal};
+
+  \node (step2) [below of=step1, redstep]{%
+    linear fit (slope)};
+
+  \pic (stop) [below=2.5cm of step2] {stop};
+
+  %% Connections
+  \draw (template) -- (input);
+  \draw (input) -- (step1);
+  \draw (step1) -- (step2);
+  \draw (step2) -- (stop-t);
+
+  %% Output
+  \node (connectpers) [connection] at
+  ($(input)!0.25!(step1)$){};
+  \node (persistence) [left=of connectpers, external]{%
+    PERSISTENCE\_MAP};
+  \draw (persistence) -- (connectpers);
+
+  \node (connectparams) [connection] at
+  ($(input)!0.7!(step1.north)$){};
+  \node (params) [left=of connectparams, params]{%
+    Recipe params:\\
+    INS.IMG.SETUP};
+  \draw (params) -- (connectparams);
+
+  \node (bpmin) [left=of step1.center, yshift=0.2cm, calproduct]{%
+    BADPIX\_MAP\_2RG};
+  \draw (bpmin.east) -- ++(1.5,0);
+
+  \node (darkin) [below=0.1cm of bpmin, calproduct]{%
+    MASTER\_DARK\_2RG};
+  \draw (darkin.east) -- ++(1.,0) -- ++(0,-0.6) -- ++(0.5,0);
+
+  \node (connectflat) [connection] at
+  ($(step2)!0.3!(stop-t)$){};
+  \node (flatout) [right=of connectflat,calproduct]{%
+    MASTER\_FLAT\_2RG};
+  \draw (connectflat) -- (flatout);
+
+  \node (connectbpm) [below=0.65cm of connectflat, connection]{};
+  \node (bpmout) [right=of connectbpm, calproduct]{%
+    BADPIX\_MAP\_2RG};
+  \draw (connectbpm) -- (bpmout);
+
+  %% Frame around recipe
+  \draw [frame] ($(input)!0.35!(step1) -(2.85,0)$) rectangle
+  ($(step2)!0.75!(stop-t) + (2.85,0)$);
+  \node [framecolor, anchor=north west] at
+  ($(input)!0.35!(step1) - (2.85,0)$){%
+    \textsl{metis\_lm\_img\_flat}};
+
+\end{tikzpicture}
+
+\end{document}

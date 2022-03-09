@@ -1,0 +1,69 @@
+\documentclass[tikz, margin=5mm]{standalone}
+
+\input{recipe_config}
+
+\begin{document}
+
+\begin{tikzpicture}
+  [x=1cm,
+  y=-1cm,
+  align=center,
+  node distance=2cm and 3cm]
+  \sffamily
+
+  %% Grid for orientation. Comment out for final figure!
+  %\draw[help lines, green](-5, 0) grid (8, 11);
+
+  %%% Put workflow commands here:
+  %% Main reduction workflow
+  \pic (start) {start};
+
+  \node (input) [below=0.75cm of start-m, input, text width=4cm, fill=sciproductcolor]{%
+    \textsl{N}~LM\_SCI\_REDUCED\\
+    \textsl{N}~LM\_SCI\_BADPIX};
+
+  \node (step1) [below=1.5cm of input, redstep]{%
+    determine output grid};
+
+  \node (step2) [below=1.5cm of step1, redstep]{%
+    resample images};
+
+  \node (step3) [below=1.5cm of step2, redstep]{%
+    coadd images};
+
+  \pic (stop) [below=3cm of step3] {stop};
+
+  %% Connections
+  \draw (start-m) -- (input);
+  \draw (input) -- (step1);
+  \draw (step1) -- (step2);
+  \draw (step2) -- (step3);
+  \draw (step3) -- (stop-t);
+
+  %% Output
+  \node (connectcoadd) [connection] at
+  ($(step3)!0.33!(stop-t)$) {};
+  \node (coadd) [right=of connectcoadd, sciproduct,
+  text width=4.5cm]{%
+    LM\_SCI\_COADD};
+  \draw (connectcoadd) -- (coadd);
+
+  \node (connectcontrib) [connection] at
+  ($(step3)!0.6!(stop-t)$) {};
+  \node (contrib) [right=of connectcontrib, sciproduct,
+  text width=4.5cm]{%
+    LM\_SCI\_COADD\_CONTRIB};
+  \draw (connectcontrib) -- (contrib);
+
+
+  %% Frame around recipe
+  \draw [frame]
+  ($(input)!0.5!(step1) - (4.5, 0)$) rectangle
+  ($(step3)!0.85!(stop-t) + (2.5, 0)$);
+  \node [framecolor, anchor=north west] at
+  ($(input)!0.5!(step1) - (4.5, 0)$){%
+    \textsl{metis\_lm\_img\_sci\_postprocess}};
+
+\end{tikzpicture}
+
+\end{document}
