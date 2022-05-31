@@ -165,6 +165,33 @@
       \field{version}{1-0}
       \keyw{reference}
     \endentry
+    \entry{McLean2008}{book}{}
+      \name{author}{1}{}{%
+        {{hash=e243a9fd68ce3282fed643613d4040d7}{%
+           family={McLean},
+           familyi={M\bibinitperiod},
+           given={I.\bibnamedelimi S.},
+           giveni={I\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{fullhash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{bibnamehash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{authorbibnamehash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{authornamehash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{authorfullhash}{e243a9fd68ce3282fed643613d4040d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelprefix}{AD}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Electronic imaging in astronomy: detectors and instrumentation}
+      \field{year}{2008}
+      \keyw{reference}
+    \endentry
   \enddatalist
   \datalist[entry]{none/global/CD3C9BB8ACB671DBD1FABA3DEAA1E03E/global/global}
     \entry{DRLS}{manual}{}
@@ -313,6 +340,33 @@
       \field{version}{1-0}
       \keyw{reference}
     \endentry
+    \entry{McLean2008}{book}{}
+      \name{author}{1}{}{%
+        {{hash=e243a9fd68ce3282fed643613d4040d7}{%
+           family={McLean},
+           familyi={M\bibinitperiod},
+           given={I.\bibnamedelimi S.},
+           giveni={I\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{fullhash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{bibnamehash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{authorbibnamehash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{authornamehash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{authorfullhash}{e243a9fd68ce3282fed643613d4040d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelprefix}{RD}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Electronic imaging in astronomy: detectors and instrumentation}
+      \field{year}{2008}
+      \keyw{reference}
+    \endentry
   \enddatalist
   \datalist[entry]{none/global//global/global}
     \entry{DRLS}{manual}{}
@@ -446,6 +500,32 @@
       \field{number}{E-TNT-MPIA-MET-1002}
       \field{title}{Atmospheric Differential Dispersion in METIS}
       \field{version}{1-0}
+      \keyw{reference}
+    \endentry
+    \entry{McLean2008}{book}{}
+      \name{author}{1}{}{%
+        {{hash=e243a9fd68ce3282fed643613d4040d7}{%
+           family={McLean},
+           familyi={M\bibinitperiod},
+           given={I.\bibnamedelimi S.},
+           giveni={I\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{fullhash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{bibnamehash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{authorbibnamehash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{authornamehash}{e243a9fd68ce3282fed643613d4040d7}
+      \strng{authorfullhash}{e243a9fd68ce3282fed643613d4040d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Electronic imaging in astronomy: detectors and instrumentation}
+      \field{year}{2008}
       \keyw{reference}
     \endentry
   \enddatalist
