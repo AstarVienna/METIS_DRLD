@@ -8,8 +8,8 @@
 \newcommand{\doctitle}{%
   \parbox[t]{\textwidth}{Data Reduction Library\\Design}}
 \newcommand{\docnumber}	{E-REP-AST-MET-1006}     % Document number
-\newcommand{\issuenumber}{0-1}                % Version
-\newcommand{\issuedate}{2021-04-02}              % Date
+\newcommand{\issuenumber}{0-2}                % Version
+\newcommand{\issuedate}{2022-06-30}              % Date
 \newcommand{\workpackage}{8.2}      % Workpackage
 
 % The purpose of texorpdfstring is to provide different
@@ -43,6 +43,12 @@
 
 \newif\ifshowSVN \showSVNfalse  % flag to show SVN info instead of Issue info
 
+\newcommand{\aap}{Astronomy \& Astrophysics}
+\newcommand{\aaps}{Astronomy \& Astrophysics, Supplement}
+\newcommand{\mnras}{Monthly Notices of the Royal Astronomical Society}
+\newcommand{\procspie}{Proceedings of the International Society for Optical Engineering}
+\newcommand{\pasp}{Publications of the Astronomical Society of the Pacific}
+\newcommand{\apjs}{The Astrophysical Journal, Supplement}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -369,6 +375,7 @@
   \hline
                  & 2020-05-27    & Czoske         & initial draft    \\
   0.1            & 2020-09-27    & all            & MTR release      \\
+  0.2            & 2022-06-30    & all            & FDR internal release      \\
   \hline
 \end{tabularx}
 
@@ -440,7 +447,11 @@ presented for \ac{PDR} and supersedes that document for \ac{FDR}.
 % IFU-mode
 % \input{05_3-Overview_IFU}
 
-\input{06_0-Pipeline_Recipes}
+\clearpage
+\input{06_0-Algorithms}
+
+
+\input{07_0-Pipeline_Recipes}
 % \input{06_1a-Recipes_Detector}
 % \newpage
 % \input{06_1b-Recipes_Imaging_LM}
@@ -450,16 +461,23 @@ presented for \ac{PDR} and supersedes that document for \ac{FDR}.
 % \input{06_5-Recipes_IFU}
 % \input{06_6-Recipes_HCI}
 
-\clearpage
-\input{07_0-Algorithms}
 
 % \subsection{Specifications and requirements}
 % \label{Subsec:polarion}
 % \input{01-Requirements}
 
+\input{08_0-DRL-Functions}
+
+\input{09_0-DRL-Data-Structures}
+
+\input{10_0-HDRL_algorithms}
+\input{11_0-critical_algorithms}
+\input{12_0-QC_parameters}
+\input{13_0-Developmentplan}
 
 \appendix
-\input{Product_files}
+\input{App01_Product_files}
+\input{App02_FITS_keywords}
 
 \end{document}
 
