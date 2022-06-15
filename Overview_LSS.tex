@@ -17,7 +17,7 @@ serve as reference frame for the wavelength calibration.
 
 \begin{sidewaysfigure}[ht]
   \centering
-  \includegraphics[width=0.9\textheight]{figures/LM_LSS_pipeline_wf_draft_latest_v0.65.pdf}
+  \includegraphics[width=0.9\textheight]{figures/LM_LSS_pipeline_wf_draft_latest_v0.70.pdf}
   \caption[Reduction cascade and association map for LM long-slit
   spectroscopy]{Reduction cascade and association map for long-slit
     spectroscopy in the LM bands.  }
@@ -51,29 +51,43 @@ serve as reference frame for the wavelength calibration.
     		& \CODE{DPR.TYPE==DARK}  &			&		&	& Bad pixel map\\
     		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
     \hline
-    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_rsrf} & Exposure time	& dark	& Averaged, normalized flatfield\\
+    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_flat}\hyperref{rec:lsslmflat} & Exposure time	& dark	& Averaged, normalized flatfield\\
     		& \CODE{DPR.TYPE==FLAT}  &			&		&	& Bad pixel map\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_wave} & Object name &  ATM\_LINE\_CAT & wavelength solution\\
+         	& \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_trace}\hyperref{rec:lsslmtrace} & Exposure time	& 	& Order location\\
+    		& \CODE{DPR.TYPE==FLAT}  &			&		&	& (polynomial fit)\\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
+    \hline
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_wave}\hyperref{rec:lsslmwave} & Object name &  ATM\_LINE\_CAT & wavelength solution\\
     		& \CODE{DPR.TYPE==LSS}   &			   & Exposure time & &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
-    \TPL{FLUX,STD} & \CODE{DPR.CATG==FLUX,STD} & \REC{metis_LM_lss_flux} & Object name (Flux STD) & reference flux of STD & Science grade, flux calibrated spectrum\\
-    		& \CODE{DPR.TYPE==LSS}   &			   & Exposure time & ATM\_LINE\_CAT &\\
+    \TPL{FLUX,STD} & \CODE{DPR.CATG==FLUX,STD} & \REC{metis_LM_lss_flux}\hyperref{rec:lsslmflux} & Object name (Flux STD) & reference flux of STD & Instrumental\\
+    		& \CODE{DPR.TYPE==LSS}   &			   & Exposure time & ATM\_LINE\_CAT & response function\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_sci} & Object name &  & Science grade spectrum\\
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_sci}\hyperref{rec:lsslmsci} & Object name &  & Science grade spectrum\\
     		& \CODE{DPR.TYPE==LSS}   &			   & Exposure time & &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_tac} & Object name & 	 & Science grade telluric\\
-    		& \CODE{DPR.TYPE==LSS}   &			   & Transmission curve & &Absorption corrected spectrum\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
+            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_model} & Object name & \ac{LSF} Kernel	 & Best-fit \\
+    		& \CODE{DPR.TYPE==LSS}   &			  & & atm. profile  & \texttt{molecfit} parameters\\
+    		& \CODE{DPR.TECH==TBD}  &			&		& Line database	& \\
+    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
+    \hline
+            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_calctrans} & Object name & best-fit parameters	 & synthetic \\
+    		& \CODE{DPR.TYPE==LSS}   &		&	   & atm. profile  & Transmission curve\\
+    		& \CODE{DPR.TECH==TBD}  &			&		& Line database	& \\
+    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
+    \hline
+            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_correct} & Object name & 	 & Absorption corrected\\
+    		& \CODE{DPR.TYPE==LSS}   &			   & synthetic Transmission curve & & science spectrum\\
+    		& \CODE{DPR.TECH==TBD}  &			&		&	& \\
+    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
     \end{tabular}
   \end{center}
