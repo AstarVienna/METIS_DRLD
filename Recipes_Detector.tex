@@ -99,18 +99,19 @@ sequence.
 
 Darks are taken in daytime for all science detectors
 \cite{METIS-calibration_plan}. The data will be classified by detector
-(e.g.~\FITS{DET.ID} and \FITS{DET.CHIP.ID}) and exposure time
-(\FITS{DET.DIT} and \FITS{DET.NDIT}). There will be ``METIS-dark''
+(e.g.~\FITS{DET.ID} and \FITS{DET.CHIP.ID}) and integration time
+(\FITS{DET.DIT}).\footnote{The dark current is not expected to depend on the readout mode of the detectors. Should hardware tests reveal such a dependence, the recipe will be amended to classify on readout mode as well.} There will be ``METIS-dark''
 (with the CLOSED position of the CFO-PP1 wheel) and ``Imager-dark''
 (with the CLOSED position in the subsystem PP1), to be distinguished
 by keyword \TBD. The former will be used for pipeline processing, the
 latter for monitoring purposes.
 
-Each set of raw dark frames is processed into a master dark. The
-recipe also produces bad pixel mask by identifying cold, hot or
-deviant (i.e.~hot or cold) pixels whose dark current differs
-significantly (by more than $\pm 5\sigma$) from the average over the
-detector.
+Each set of raw dark frames is processed into a master dark. For the
+LMS, both raw frames and master dark have four extensions
+corresponding to the four detectors in the focal-plane array. The
+recipe also produces bad pixel masks by identifying hot pixels whose
+dark current differs significantly (by more than $\pm 5\sigma$) from
+the average over the detector.
 
 \begin{recipedef}
   Name:                & \REC{metis_det_dark}                                                        \\
@@ -118,12 +119,14 @@ detector.
   Requirement:         & \REQ{METIS-6063}                                                            \\
   Type:                & Calibration                                                                 \\
   Templates:           & \TPL{METIS_all_cal_dark}                                                    \\
-  Input data:          & A set of DARK frames from the same detector with the same integration time. \\
+  Input data:          & A set of DARK frames from various detectors with various integration times. \\
   Parameters:          & Combination method (\texttt{median}, \texttt{mean},
                          \texttt{sigclip},\dots)                                                  \\
                        & Parameters for combination methods                                          \\
                        & Threshold for bad-pixel identification                                      \\
-  Algorithm:           & Compute median or average of input frames to improve statistics.            \\
+  Algorithm:           & Group files by detector and \texttt{DIT}                                      \\
+                       & Call function \REC{metis_determine_dark} \\
+                     & Compute median or average of input frames to improve statistics.            \\
                        & Flag deviant pixels in master dark.                                         \\
   Output data:         & \PROD{MASTER_DARK_det}                                                      \\
                        & \PROD{BPM_COLD_det}                                                         \\
