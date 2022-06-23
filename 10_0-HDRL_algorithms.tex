@@ -1,2 +1,30 @@
 \clearpage
 \section{HDRL algorithms}\label{sec:hdrl_algorithms}
+%-----------------------------------------------------------------------------------------------------------
+\subsection{HDRL for LMS}\label{ssec:hdrllms}
+
+
+%-----------------------------------------------------------------------------------------------------------
+\subsection{HDRL for IMG}\label{ssec:hdrlimg}
+
+
+
+%-----------------------------------------------------------------------------------------------------------
+\subsection{HDRL for LSS}\label{ssec:hdrllss}
+We are currently intending the usage of the following \ac{HDRL} algorithms for spectroscopy whenever applicable:
+\begin{itemize}
+    \item \texttt{hdrl\_spectrum1D\_resample}: Resampling of 1D spectra
+    \item \texttt{hdrl\_efficiency\_compute}: For monitoring the system's health and performance we intend to use this built-in function to compute the efficiency of the \ac{LSS} spectroscopic mode.
+    \item \texttt{hdrl\_response\_compute()}: This function provides a 1D response as function of the wavelength. 
+    \item \texttt{hdrl\_utils\_airmass()}: To compute the airmass
+\end{itemize}
+
+In the meanwhile there are well developed algorithms available for spectroscopy-specific tasks, which are already in use in ESO pipelines and which can be generalized to be used in the \ac{HDRL}. This especially applies to algorithms developed by Nicolai Piskunov and collaborators (\cite{pis21}, \cite{pis02}). We therefore recommend to include their following algorithms into the \ac{HDRL}:
+\begin{itemize}
+    \item flatfield normalisation
+    \item slit decomposition
+    \item curvature determination
+    \item wavelength calibration
+    \item continuum normalisation
+\end{itemize}
+As some of these algorithms are already implemented in the CRIRES+ pipeline and are therefore already based on \ac{CPL} an inclusion into \ac{HDRL} should be possible.

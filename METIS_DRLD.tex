@@ -141,6 +141,23 @@
 \usepackage{textcomp}
 
 \usepackage[countmax]{subfloat}
+% ADDING NEW DEFINITIONS -------------------------------------------- start
+\usepackage[autokw=true]{svn-multi}
+\definecolor{listingbg}{gray}{0.95}
+\definecolor{darkgreen}{rgb}{0.0, 0.7, 0.0}
+\definecolor{darkblue} {rgb}{0.0, 0.0, 0.7}
+\definecolor{cyan} {rgb}{0.0, 0.4, 0.4}
+\definecolor{darkred}  {rgb}{0.7, 0.0, 0.0}
+\definecolor{darkorange}{rgb}{1.0, 0.49, 0.0}
+\definecolor{violett}{rgb}{255, 0, 255}
+
+%% Write DRL functions names like this: \DRL{function}
+\makeatletter
+\lstdefinestyle{DRLstyle}{%
+  basicstyle=\ttfamily\color{violett}%
+  \lst@ifdisplaystyle\scriptsize\fi}
+\makeatother
+\newcommand{\DRL}[1]{\lstinline[style=DRLstyle]!#1!}
 
 %% Write recipe names like this: \REC{metis_do_stuff}
 \makeatletter
@@ -469,7 +486,6 @@ presented for \ac{PDR} and supersedes that document for \ac{FDR}.
 \input{08_0-DRL-Functions}
 
 \input{09_0-DRL-Data-Structures}
-
 \input{10_0-HDRL_algorithms}
 \input{11_0-critical_algorithms}
 \input{12_0-QC_parameters}

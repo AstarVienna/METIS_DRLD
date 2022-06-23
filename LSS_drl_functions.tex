@@ -1,8 +1,169 @@
 \subsection{LSS observing mode}\label{sec:drl_functions_lss}
+\textcolor{red}{TBD: Up to now mostly only copied from MICADO and crudely adapted -- check for METIS consistence!!!!}
+%---------------------------------------------------------------------
+\subsubsection{Interorder background correction}\label{drl:correctinterorder}
+\begin{recipedef}
+Name: & \hyperref[drl:correctinterorder]{\DRL{correct\_interorder\_bg}} \\
+Purpose: & Removal of interorder light (e.g. stray light)\\
+Used in recipes: & \hyperref[rec:metisspecflat]{\REC{metis\_LM\_lss\_flat}} \newline
+\hyperref[rec:lsslmwave]{\REC{metis\_LM\_lss\_wave}} \newline
+\hyperref[rec:metisspecflux]{\REC{metis\_LM\_lss\_flux}} \newline
+\hyperref[rec:metisspecsci]{\REC{metis\_LM\_lss\_sci}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+%Other inputs: & None \\
+%QC outputs: & None\\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Removal of stray light by a 2D-polynomial fits of the interorder background \\
+Mathematical description: & see Section~\ref{ssec:interorderbg} \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
 
-\subsubsection{first dlr func}\label{ssub:}
+%---------------------------------------------------------------------
+\subsubsection{Slit curvature detection}\label{drl:slitcurvature}
+\begin{recipedef}\label{drl:slitcurvature}
+Name: & \hyperref[drl:slitcurvature]{\DRL{slit\_curvature}} \\
+Purpose: & Determines the slit curvature along the orders \\
+Used in recipes: & \hyperref[rec:lsslmwave]{\REC{metis\_LM\_lss\_wave}} \\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const hdrl\_image * input} \\
+Other inputs: & None\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Determines the tilt and shear of the orders using the sky emission lines \\
+Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
 
+%---------------------------------------------------------------------
+\subsubsection{Create normalised flats}\label{drl:normflat}
+\begin{recipedef}\label{drl:normflat}
+Name: & \hyperref[drl:normflat]{\DRL{norm\_flat}} \\
+Purpose: & Creates normalised flats from \hyperref[dataitem:mastersflat]{\PROD{MASTER\_SFLAT\_IMG}} \\
+Used in recipes: & \hyperref[rec:lsslmwave]{\REC{metis\_LM\_lss\_wave}} \\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const hdrl\_image * input} \\
+%Other inputs: & None\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Creates normalised master flat and determines blaze function \\
+Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
 
+%%---------------------------------------------------------------------
+%\subsubsection{Wavelength calibration}\label{drl:wavecal}
+%\begin{recipedef}\label{drl:wavecal}
+%Name: & \hyperref[drl:wavecal]{\DRL{wave\_cal}} \\
+%Purpose: & Computes wavelength calibration \\
+%Used in recipes: & \hyperref[rec:lsslmwave]{\REC{metis\_LM\_lss\_wave}} \\
+%%Working remarks: & None \\
+%%Function Parameters: & None \\
+%Input: & \texttt{const hdrl\_image * input} \\
+%%Other inputs: & None\\
+%%QC outputs: & None \\
+%%Output FITS files: & None \\
+%Other outputs: & \texttt{cpl\_error\_code} \\
+%General description: & Determines wavelength calibration by means of line lamp spectra \\
+%Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+%Quality assessment: & Through QC parameters \\
+%Error conditions: & See \cite{DRLVT}. \\
+%Unit tests: & See \cite{DRLVT}. \\
+%\end{recipedef}
 
+%---------------------------------------------------------------------
+\subsubsection{Determine response}\label{drl:determineresponse}
+\begin{recipedef}
+Name: & \hyperref[drl:determineresponse]{\DRL{determine\_response}}\\
+Purpose: & Determination of the spectral response function\\
+Used in recipes: & \hyperref[rec:metisspecflat]{\REC{metis\_LM\_lss\_flat}} \newline
+\hyperref[rec:metisspecflat]{\REC{metis\_LM\_lss\_flat}}\newline
+\hyperref[rec:metisspecflux]{\REC{metis\_LM\_lss\_flux}} \newline
+\hyperref[rec:metisspecsci]{\REC{metis\_LM\_lss\_sci}} \\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const hdrl\_LM\_lsstrum1d * input} \\
+Other inputs: & \texttt{const hdrl\_LM\_lsstrum1d * input}\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Determination of the instrumental response function to be used for the absolute flux calibration \\
+Mathematical description: & see HDRL manual \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
 
-%\subsubsection{}\label{ssub:}
+%---------------------------------------------------------------------
+\subsubsection{Object extraction}\label{drl:extractobject}
+\begin{recipedef}
+Name: & \hyperref[drl:extractobject]{\DRL{extract\_object}}\\
+Purpose: & Extract object spectrum from 2D-spectrum\\
+Used in recipes: & \hyperref[rec:metisspecflux]{\REC{metis\_LM\_lss\_flux}} \newline
+\hyperref[rec:metisspecsci]{\REC{metis\_LM\_lss\_sci}} \\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const hdrl\_image * input\newline const hdrl\_image * background\newline hdrl\_image * output}  \\
+%Other inputs: & None\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Routine to extract a 1D spectrum of the target from the 2D spectrum\\
+Mathematical description: & See optimal extraction algorithm \cite{pis02} and \cite{pis21} \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
+
+%---------------------------------------------------------------------
+\subsubsection{Apply flatfield}\label{drl:applyflat}
+\begin{recipedef}
+Name: & \hyperref[drl:applyflat]{\DRL{apply\_flat}}\\
+Purpose: & applies \hyperref[dataitem:mastersflat]{\PROD{MASTER\_SFLAT\_IMG}} to frames\\
+Used in recipes: & \hyperref[rec:metisspecflux]{\REC{metis\_LM\_lss\_flux}} \newline
+\hyperref[rec:metisspecsci]{\REC{metis\_LM\_lss\_sci}} \\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+%Input FITS files: & None \\
+Inputs: & \texttt{const hdrl\_image * input}\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Normal flatfield process for correcting pixel-to-pixel sensitivities \\
+Mathematical description: & Division by \hyperref[dataitem:mastersflat]{\PROD{MASTER\_SFLAT\_IMG}} \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
+
+%---------------------------------------------------------------------
+\subsubsection{Apply flux calibration}\label{drl:applyfluxcal}
+\begin{recipedef}
+Name: & \hyperref[drl:applyfluxcal]{\DRL{apply\_fluxcal}}\\
+Purpose: & applies \hyperref[dataitem:responsespec]{\PROD{RESPONSE\_LM\_lss}} to science frames\\
+Used in recipes: & \hyperref[recipe:metisspecsci]{\REC{metis\_LM\_lss\_sci}} \\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+%Input FITS files: & None \\
+Inputs: & \texttt{const hdrl\_image * input}\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Applies the absolute flux calibration to science frames \\
+%Mathematical description: & Applies projection from detector space to $(y, \lambda)$-space\\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}

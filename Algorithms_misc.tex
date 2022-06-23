@@ -21,6 +21,27 @@ The variance $N_{c}^{2}$ is related to the signal $S_{c}$ via \cite[Section 9.1]
 \end{equation}
 where $g$ is the gain and $R_{c}$ the readout noise. All quantities with subscript $c$ are in counts (ADU).
 
+\subsubsection{Conversion of wavelengths between vacuum and air regime}\label{ssec:vacair}
+For the conversion of $\lambda_\textrm{vac}$ to $\lambda_\textrm{air}$ the \ac{IAU} standard formula provided by Donald Morton \cite{mor00} $\lambda_\textrm{air}=\lambda_\textrm{vac}/n$ is used, where
+
+\begin{eqnarray}\label{eq:air2vac}
+\left.\begin{aligned}
+    s &=10^4 / \lambda_{\textrm{vac}}\\
+    n &= 1+0.0000834254 + \frac{0.02406147}{(130 - s^2)} + \frac{0.00015998}{(38.9 - s^2)}
+\end{aligned}\right.
+\end{eqnarray}
+
+The reverse transform $\lambda_\textrm{air}$ to $\lambda_\textrm{vac}$ was derived by N. Piskunov\footnote{\url{https://www.astro.uu.se/valdwiki/Air-to-vacuum\%20conversion}}, being $\lambda_\textrm{vac}=\lambda_\textrm{air}*n$ with 
+
+\begin{eqnarray}\label{eq:vac2air}
+\left.\begin{aligned}
+    s&=10^4 / \lambda_{\textrm{air}}\\
+    n&=1 + 0.000083366242 + \frac{0.0240892687}{(130.106592452 - s^2)} + \frac{0.00015997409}{(38.925687933 - s^2)}
+\end{aligned}\right.
+\end{eqnarray}
+
+All wavelengths in the \ac{LSS} spectroscopic pipeline are given in the vacuum regime. \textcolor{red}{TBD: Also in LMS?}
+
 
 %%% Local Variables:
 %%% TeX-master: "METIS_DRLD"
