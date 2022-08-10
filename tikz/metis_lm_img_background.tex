@@ -20,7 +20,7 @@
 
 
   %% input box
-  \node (input) [below=0.75cm of start-m, input] {%
+  \node (input) [below=0.75cm of start-m, input, text width=6cm] {%
     \textsl{N} N\_SCI\_BASIC\_REDUCED\\
     \textsl{N} N\_STD\_BASIC\_REDUCED};
 
@@ -49,39 +49,39 @@
   % External output
   \node (dot_sci_bg) [connection] at
     ($(step1)!0.4!(step2)$){};
-  \node (sci_bg) [right=of dot_sci_bg, external]{%
+  \node (sci_bg) [right=of dot_sci_bg, sciproduct, text width=5cm]{%
     LM\_SCI\_BKG};
   \draw (dot_sci_bg) -- (sci_bg);
 
   \node (dot_std_bg) [connection] at
     ($(step1)!0.6!(step2)$){};
-  \node (std_bg) [right=of dot_std_bg, external]{%
+  \node (std_bg) [right=of dot_std_bg, sciproduct, text width=5cm]{%
     LM\_STD\_BKG};
   \draw (dot_std_bg) -- (std_bg);
 
 
   \node (dot_sci_bg_sub) [connection] at
     ($(step2)!0.25!(stop-t)$){};
-  \node (sci_bg_sub) [right=of dot_sci_bg_sub, external]{%
+  \node (sci_bg_sub) [right=of dot_sci_bg_sub, sciproduct, text width=5cm]{%
     LM\_SCI\_BKG\_SUBTRACTED};
   \draw (dot_sci_bg_sub) -- (sci_bg_sub);
 
   \node (dot_std_bg_sub) [connection] at
     ($(step2)!0.4!(stop-t)$){};
-  \node (std_bg_sub) [right=of dot_std_bg_sub, external]{%
+  \node (std_bg_sub) [right=of dot_std_bg_sub, sciproduct, text width=5cm]{%
     LM\_STD\_BKG\_SUBTRACTED};
   \draw (dot_std_bg_sub) -- (std_bg_sub);
 
 
   \node (dot_sci_obj_cat) [connection] at
     ($(step2)!0.6!(stop-t)$){};
-  \node (sci_obj_cat) [right=of dot_sci_obj_cat, external]{%
+  \node (sci_obj_cat) [right=of dot_sci_obj_cat, sciproduct, text width=5cm]{%
     LM\_SCI\_OBJECT\_CAT};
   \draw (dot_sci_obj_cat) -- (sci_obj_cat);
 
   \node (dot_std_obj_cat) [connection] at
     ($(step2)!0.75!(stop-t)$){};
-  \node (std_obj_cat) [right=of dot_std_obj_cat, external]{%
+  \node (std_obj_cat) [right=of dot_std_obj_cat, sciproduct, text width=5cm]{%
     LM\_STD\_OBJECT\_CAT};
   \draw (dot_std_obj_cat) -- (std_obj_cat);
 
