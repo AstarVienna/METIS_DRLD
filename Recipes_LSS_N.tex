@@ -1,15 +1,45 @@
 \clearpage
 \subsection{Long-slit spectroscopy, N band}
 \label{ssec:recipes_lss_n}
-New fancy intro TBWritten....
-
+A draft of the reduction cascade is shown in
+Fig.~\ref{Fig:NLssAssomap} together with the data processing table
+(Table~\ref{Tab:NLssDatProc}). The first part aims to update the static calibration database, in particular the creation of the gain map (\REC{met_det_lingain}) and the determination of the \ac{ADC} slitlosses (\REC{met_LM_adc_slitloss}). Both are executed only when an update is required, e.g. after a major instrument interention or on yearly basis. The second part comprises the basic
+calibrations, e.g. the 
+dark correction and the spectroscopic flatfielding via \ac{RSRF}, followed by the third part, the main calibration steps, incorporating the wavelength calibration (by means of atmospheric lines visible in the respective spectra and the first guess wavelength solution created during \ac{AIT}) and the determination of the response curve for the flux calibration. Therefore the main step of the wavelength calibration is carried out in the recipes \REC{met_LM_lss_flux} and \REC{met_LM_lss_sci}. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}.
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{Recipes \REC{metis_det_lingain} and \REC{metis_det_dark}}
 These recipes are described in Section~\ref{Sec:detector_calibration}.
+%------------------------------------------------------------------------------------------------------------------
+\subsubsection{Recipe \REC{metis_N_adc_slitloss}}
+This recipe aims to determine the slit losses induced by the fixed \ac{ADC} positions. The recipe aims to create a table with slitlosses (\STATCALIB{N_ADC_SLITLOSS}), which is added to the static database and used in the recipes \REC{met_N_lss_flux} and \REC{met_N_lss_sci}. This recipe is to be carried out only when an update of the database is needed.
+
+As the algorithm to determine the slitlosses is still TBD, we do not give more details here. More information can be found in the Section "Calibration of slit losses" in the Calibration Plan \cite{METIS-calibration_plan}. 
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{N-LSS Flatfielding recipe \REC{metis_N_lss_flat}:}\label{rec:lssNflat}
-\TODO{Not yet revised (see \cite{DRLS})}\\
+\subsubsection{N-LSS Flatfielding recipe \REC{metis_N_lss_rsrf}:}\label{rec:lssnrsrf}
+The recipe \REC{metis_N_lss_rsrf} aims to create a spectroscopic master flatfield for determining the pixel-to-pixel sensitivity and to enable the order location algorithm (\REC{metis_N_ss_trace}).
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textheight]{figures/metis_n_lss_rsrf_v0.72.pdf}
+  \caption[Recipe: \REC{metis_N_lss_rsrf}]{\REC{metis_N_lss_rsrf} --
+    Spectroscopic faltfielding with \ac{RSRF}.}
+  \label{Fig:rec_n_lss_rsrf}
+\end{figure}
+
+\begin{recipedef}
+Name:		& \REC{metis_N_lss_rsrf} \\
+Purpose:	& Spectroscopic flatfielding with \ac{RSRF} \\
+Type:		& Calibration\\
+Requirements: & TBD \\
+Observing templates: & None \\
+Input data:     & $N\times$ \FITS{N_RSRF_RAW} \\
+Parameters: 	& TBD\\
+Algorithm:      & median/mean filtering\\
+                & normalisation\\
+Output data:	& \PROD{MASTER_N_LSS_RSRF} (\FITS{PRO.CATG=MASTER_N_LSS_TRSRF}): \\
+Expected accuracies: & (TBD)\\
+QC1 parameters: & \QC{TBD}: TBD\\
+\end{recipedef}
 
 \clearpage
 \subsubsection{N-LSS Order detection \REC{metis_N_lss_trace}:}\label{rec:lssNtrace}

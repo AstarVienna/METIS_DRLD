@@ -5,7 +5,31 @@ the instrument, telescope, and atmosphere and produce science-grade
 data products for the L/M- and N-band \ac{LSS}
 mode. Since the detector properties are not fully specified, especially of the new Geosnap, we currently assume
 basically same reduction cascade for both spectral ranges LM and
-N, respectively. The only major difference at the time being is the absence of \ac{WCU} laser sources in the N-band, which are only avalable during \ac{AIT} phase to generate a first guess of the pixel-to-wavelength relation. Therefore we assume a general first guess wavelength solution based on that \ac{AIT} data. As we assume the instrument to be very stable, that approach should be sufficient for the low-resolution N-band spectroscopy. In the LM range, two fix-frequency lasers ($@3.39$µm and $@5.26$µm) and one tunable ($4.68....4.78$µm) is foreseen in the \ac{WCU} to be taken on daily basis (cf. \cite{METIS-calibration_plan}). Although mainly foreseen to be used for the high-resolution spectroscopy \ac{LMS} mode, we can use these laser sources for the LM-band \ac{LSS} as well.
+N, respectively. The only major difference at the time being is the absence of \ac{WCU} laser sources in the N-band, which are only available during \ac{AIT} phase to generate a first guess of the pixel-to-wavelength relation. Therefore we assume a general first guess wavelength solution in the N-band based on that \ac{AIT} data. As we assume the instrument to be very stable, that approach should be sufficient for the low-resolution N-band spectroscopy. In the LM range, two fix-frequency lasers ($@3.39$µm and $@5.26$µm) and one tuneable ($4.68....4.78$µm) is foreseen in the \ac{WCU} to be taken on daily basis (cf. \cite{METIS-calibration_plan}). Although mainly foreseen to be used for the high-resolution spectroscopy \ac{LMS} mode, we can use these laser sources for the LM-band \ac{LSS} as well.
+
+Special emphasis has to be drawn to the effects of the Earth's
+atmosphere in several respects:
+\begin{itemize}
+\item Wavelength calibration: Absorption/emission features are intended to be
+  used for the wavelength calibration. Thus, a good knowledge on /
+  identification of these features is crucial for the accuracy of the
+  wavelength calibration.
+\item Telluric correction: In the MIR regime telluric absorption is
+  one of the most dominant effects visible in spectra. Modelling
+  approaches like \texttt{molecfit} heavily rely on accurate
+  atmospheric input profiles, which represent the actual state and
+  composition of the Earth's atmosphere. This especially applies to
+  the \ac{PWV} content since this is the most
+  dominant and most variable species.
+\item Atmospheric dispersion: \ac{METIS} will have \ac{ADC}s compensating the
+  effect of atmospheric dispersion. However, for technical reasons
+  these ADCs are fixed at several positions. This means that the
+  compensation is only partially. This leads to two practical effects:
+  (a) wavelength-dependent slit losses, and (b) distortions in both,
+  the spatial and the spectral direction (see \cite{METIS-ADC_study}
+  for more details). For both, the pipeline needs to correct
+  for. It is foreseen to determine these slitlosses on yearly basis with a separate calibration task (cf. \cite{METIS-calibration_plan}) and create a slit-loss table to be included in the static calibration database.
+\end{itemize}
 
 %However, to keep flexibility and independence of both branches, we
 %define different recipes for the time being, although they will be

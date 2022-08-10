@@ -6,36 +6,8 @@ A draft of the reduction cascade is shown in
 Fig.~\ref{Fig:LMLssAssomap} together with the data processing table
 (Table~\ref{Tab:LMLssDatProc}). The first part aims to update the static calibration database, in particular the creation of the gain map (\REC{met_det_lingain}) and the determination of the \ac{ADC} slitlosses (\REC{met_LM_adc_slitloss}). Both are executed only when an update is required, e.g. after a major instrument interention or on yearly basis. The second part comprises the basic
 calibrations, e.g. the 
-dark correction and the spectroscopic flatfielding via \ac{RSRF}. followed by the third part, the main calibration steps, incorporating the determination of the first guess wavelength solution by means of the laser sources in the \ac{WCU} and the determination of the response curve for the flux calibration. Subsequently, the main reduction is conducted, which applies the previously created master calibration files to the science frames. Both, the flux standard and the science observations are wavelength calibrated by means of atmospheric lines visible in the respective spectra. Therefore the main step of the wavelength calibration is carried out in the recipes \REC{met_LM_lss_flux} and \REC{met_LM_lss_sci}. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}.
+dark correction and the spectroscopic flatfielding via \ac{RSRF}, followed by the third part, the main calibration steps, incorporating the determination of the first guess wavelength solution by means of the laser sources in the \ac{WCU} and the determination of the response curve for the flux calibration. Subsequently, the main reduction is conducted, which applies the previously created master calibration files to the science frames. Both, the flux standard and the science observations are wavelength calibrated with the help of the atmospheric lines visible in the respective spectra. Therefore the main step of the wavelength calibration is carried out in the recipes \REC{met_LM_lss_flux} and \REC{met_LM_lss_sci}. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}.
 
-Special emphasis has to be drawn to the effects of the Earth's
-atmosphere in several respects:
-\begin{itemize}
-\item Wavelength calibration: Absorption/emission features are intended to be
-  used for the wavelength calibration. Thus, a good knowledge on /
-  identification of these features is crucial for the accuracy of the
-  wavelength calibration.
-\item Telluric correction: In the MIR regime telluric absorption is
-  one of the most dominant effects visible in spectra. Modelling
-  approaches like \texttt{molecfit} heavily rely on accurate
-  atmospheric input profiles, which represent the actual state and
-  composition of the Earth's atmosphere. This especially applies to
-  the \ac{PWV} content since this is the most
-  dominant and most variable species.
-\item Atmospheric dispersion: \ac{METIS} will have \ac{ADC}s compensating the
-  effect of atmospheric dispersion. However, for technical reasons
-  these ADCs are fixed at several positions. This means that the
-  compensation is only partially. This leads to two practical effects:
-  (a) wavelength-dependent slit losses, and (b) distortions in both,
-  the spatial and the spectral direction (see \cite{METIS-ADC_study}
-  for more details). For both, the pipeline needs to correct
-  for. Since airmass, ambient temperature/pressure, slit orientation,
-  and the properties of the \ac{ADC}s are known, the only required
-  parameter to be determined for the compensation is the \ac{PWV}.
-\end{itemize}
-It is therefore crucial to have a radiometer (e.g.\ L-HATPRO)
-available at the \ac{ELT}, which provides direct measurements of the \ac{PWV}
-along the observation direction.
 
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{Recipes \REC{metis_det_lingain} and \REC{metis_det_dark}}
@@ -49,8 +21,30 @@ As the algorithm to determine the slitlosses is still TBD, we do not give more d
 
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{LM-LSS Flatfielding recipe \REC{metis_LM_lss_flat}:}\label{rec:lsslmflat}
-\TODO{Not yet revised (see \cite{DRLS})}\\
+\subsubsection{LM-LSS Flatfielding recipe \REC{metis_LM_lss_flat}:}\label{rec:lsslmrsrf}
+The recipe \REC{metis_LM_lss_rsrf} aims to create a spectroscopic master flatfield for determining the pixel-to-pixel sensitivity and to enable the order location algorithm (\REC{metis_LM_ss_trace}).
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_rsrf_v0.72.pdf}
+  \caption[Recipe: \REC{metis_LM_lss_rsrf}]{\REC{metis_LM_lss_rsrf} --
+    Spectroscopic faltfielding with \ac{RSRF}.}
+  \label{Fig:rec_lm_lss_rsrf}
+\end{figure}
+
+\begin{recipedef}
+Name:		& \REC{metis_LM_lss_rsrf} \\
+Purpose:	& Spectroscopic flatfielding with \ac{RSRF} \\
+Type:		& Calibration\\
+Requirements: & TBD \\
+Observing templates: & None \\
+Input data:     & $N\times$ \FITS{LM_RSRF_RAW} \\
+Parameters: 	& TBD\\
+Algorithm:      & median/mean filtering\\
+                & normalisation\\
+Output data:	& \PROD{MASTER_LM_LSS_RSRF} (\FITS{PRO.CATG=MASTER_LM_LSS_TRSRF}): \\
+Expected accuracies: & (TBD)\\
+QC1 parameters: & \QC{TBD}: TBD\\
+\end{recipedef}
 
 \clearpage
 \subsubsection{LM-LSS Order detection \REC{metis_LM_lss_trace}:}\label{rec:lsslmtrace}
@@ -61,7 +55,7 @@ The recipe \REC{metis_LM_lss_trace} aims at detecting the orders and a polynomia
   \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_trace_v0.71.pdf}
   \caption[Recipe: \REC{metis_LM_lss_trace}]{\REC{metis_LM_lss_trace} --
     Detection and polynomial fitting of the order location.}
-  \label{Fig:rec_lm_lss_wave}
+  \label{Fig:rec_lm_lss_wtrace}
 \end{figure}
 
 \begin{recipedef}
