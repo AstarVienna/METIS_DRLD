@@ -44,7 +44,7 @@ interpolating. The slice number is then obtained by counting the
 slices according to the optical design of the spectrograph. The
 wavelength of each line is known from the settings of the QCL, the $x$
 coordinate is obtained by linear interpolation along the line (or
-perhaps using the distortion table from \REC{metis_lms_distortion} if
+perhaps using the distortion table from \REC{metis_ifu_distortion} if
 necessary). The functions $f_{i}$ and $g_{i}$ are expected to be
 sufficiently accurately described by low-order polynomials.
 
@@ -428,7 +428,7 @@ observatory.
 
 \clearpage
 \subsubsection{LMS distortion calibration}
-\label{sssec:lms_distortion}
+\label{sssec:ifu_distortion}
 
 Calibration of the geometric distortion of the LMS is done by
 observing a pin hole mask located in a focal plane within the
@@ -438,7 +438,7 @@ array to sky positions. Measurement of the FWHM of the spots gives an
 indication of the variation of spectral resolution across the field of view.
 
 \begin{recipedef}
-  Name:                & \REC{metis_lms_distortion}                                                  \\
+  Name:                & \REC{metis_ifu_distortion}                                                  \\
   Purpose:             & Determine geometric distortion coefficients for the LMS.                    \\
   Requirements:        & \REQ{METIS-6087}, \REQ{METIS-6073}                                          \\
   Type:                & Calibration                                                                 \\
@@ -456,10 +456,10 @@ indication of the variation of spectral resolution across the field of view.
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.6\textwidth]{metis_lms_distortion}
-  \caption[Recipe: \REC{metis_lms_distortion}]{%
-    \REC{metis_lms_distortion} -- LMS distortion calibration}
-  \label{fig:metis_lms_distortion}
+  \includegraphics[width=0.6\textwidth]{metis_ifu_distortion}
+  \caption[Recipe: \REC{metis_ifu_distortion}]{%
+    \REC{metis_ifu_distortion} -- LMS distortion calibration}
+  \label{fig:metis_ifu_distortion}
 \end{figure}
 
 

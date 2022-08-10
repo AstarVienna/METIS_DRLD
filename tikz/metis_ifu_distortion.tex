@@ -18,14 +18,14 @@
   %% Main reduction workflow
 
   \node (template) [template]{%
-    METIS\_lms\_cal\_distortion
+    METIS\_ifu\_cal\_distortion
   };
 
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input]{%
-    LMS\_DIST\_ON \\
-    LMS\_DIST\_OFF
+    IFU\_DIST\_ON \\
+    IFU\_DIST\_OFF
   };
 
   \node (step1) [below=1.5cm of input, redstep]{%
@@ -51,7 +51,7 @@
 
   %% Input
   \node (bpmin) [left=2cm of step2, yshift=0, calproduct]{%
-    BADPIX\_MAP\_LMS
+    BADPIX\_MAP\_IFU
   };
   \draw (bpmin) -- (step2);
 
@@ -59,14 +59,14 @@
   \node (connect dist table) [connection] at
   ($(step3)!0.4!(stop-t)$) {};
   \node (dist table) [right=of connect dist table, calproduct]{%
-    LMS\_DIST\_TABLE
+    IFU\_DIST\_TABLE
   };
   \draw (connect dist table) -- (dist table);
 
   \node (connect dist reduced) [connection] at
   ($(step3)!0.75!(stop-t)$) {};
   \node (dist reduced) [right=of connect dist reduced, calproduct]{%
-    LMS\_DIST\_REDUCED
+    IFU\_DIST\_REDUCED
   };
   \draw (connect dist reduced) -- (dist reduced);
 
@@ -75,7 +75,7 @@
   rectangle ($(step3)!0.275!(stop-t) + (2.75,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.5!(step1) - (3.25, 0)$) {%
-    \textsl{metis\_lms\_distortion}};
+    \textsl{metis\_ifu\_distortion}};
 
 \end{tikzpicture}
 
