@@ -1,0 +1,103 @@
+\documentclass[tikz, margin=5mm]{standalone}
+
+\input{recipe_config}
+
+\begin{document}
+
+\begin{tikzpicture}
+  [x=1cm,
+  y=-1cm,
+  align=center,
+  node distance=2cm and 3.5cm]
+  \sffamily
+
+
+  %% template names
+  \node (template) [template] {%
+    METIS\_img\_lm\_cal\_standard\\
+    METIS\_img\_lm\_*\_obs\_*};
+
+  \pic (start)[below=0.75cm of template]{start};
+
+
+  %% input box
+  \node (input) [below=0.75cm of start-m, input] {%
+    \textsl{N} N\_SCI\_RAW \\
+    \textsl{N} N\_STD\_RAW};
+
+
+  %% algorithm steps
+  \node (step1) [below=2.5cm of input, redstep]{%
+    Subtract dark};
+
+  \node (step2) [below of=step1, redstep]{%
+    Divide by flat};
+
+  \node (step3) [below of=step2, redstep]{%
+    Analyse and remove masked regions};
+
+  \pic (stop) [below=2.5cm of step3] {stop};
+
+
+  %% Connections
+  \draw (template) -- (input);
+  \draw (input) -- (step1);
+  \draw (step1) -- (step2);
+  \draw (step2) -- (step3);
+  \draw (step3) -- (stop-t);
+
+
+  %% External data
+
+  % External input
+  \node (connectpers) [connection] at
+  ($(input)!0.25!(step1)$){};
+  \node (persistence) [left=of connectpers, external]{%
+    PERSISTENCE\_MAP};
+  \draw (persistence) -- (connectpers);
+
+  \node (connectparams) [connection] at
+  ($(input)!0.7!(step1.north)$){};
+  \node (params) [left=of connectparams, params]{%
+    Recipe params:\\
+    INS.IMG.SETUP};
+  \draw (params) -- (connectparams);
+
+  \node (darkin) [left=of step1.center, calproduct]{%
+    MASTER\_DARK\_2RG};
+  \draw (darkin.east) -- (step1.west);
+
+  \node (flatin) [left=of step2.center, calproduct]{%
+    MASTER\_FLAT\_2RG};
+  \draw (flatin.east) -- (step2.west);
+
+  \node (bpmin) [left=of step3.center, calproduct]{%
+    BADPIX\_MAP\_2RG};
+  \draw (bpmin.east) -- (step3.west);
+
+
+  % External output
+  \node (connectscired) [connection] at
+    ($(step3)!0.3!(stop-t)$){};
+  \node (scired) [right=of connectscired, external]{%
+    LM\_SCI\_BASIC\_REDUCED};
+  \draw (connectscired) -- (scired);
+
+  \node (connectstdred) [connection] at
+    ($(connectscired)!0.5!(stop-t)$){};
+  \node (stdred) [right=of connectstdred, external]{%
+    LM\_STD\_BASIC\_REDUCED};
+  \draw (connectstdred) -- (stdred);
+
+
+  %% Frame around recipe
+  \draw [frame] ($(input)!0.35!(step1) -(2.85,0)$) rectangle
+  ($(step3)!0.75!(stop-t) + (2.85,0)$);
+  \node [framecolor, anchor=north west] at
+  ($(input)!0.35!(step1) - (2.85,0)$){%
+    \textsl{metis\_lm\_img\_basic\_reduce}};
+
+
+\end{tikzpicture}
+
+\end{document}

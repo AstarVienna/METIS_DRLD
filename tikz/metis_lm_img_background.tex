@@ -1,0 +1,99 @@
+\documentclass[tikz, margin=5mm]{standalone}
+
+\input{recipe_config}
+
+\begin{document}
+
+\begin{tikzpicture}
+  [x=1cm,
+  y=-1cm,
+  align=center,
+  node distance=2cm and 3.5cm]
+  \sffamily
+
+  %% template names
+  \node (template) [template] {%
+    METIS\_img\_lm\_cal\_standard\\
+    METIS\_img\_lm\_*\_obs\_*};
+
+  \pic (start)[below=0.75cm of template]{start};
+
+
+  %% input box
+  \node (input) [below=0.75cm of start-m, input] {%
+    \textsl{N} N\_SCI\_BASIC\_REDUCED\\
+    \textsl{N} N\_STD\_BASIC\_REDUCED};
+
+
+  %% algorithm steps
+  \node (step1) [below=2.5cm of input, redstep]{%
+    Average all or SKY exposures with object rejection};
+
+  \node (step2) [below=2.5cm of step1, redstep]{%
+    Subtract background};
+
+  \pic (stop) [below=4.5cm of step2] {stop};
+
+
+  %% Connections
+  \draw (template) -- (input);
+  \draw (input) -- (step1);
+  \draw (step1) -- (step2);
+  \draw (step2) -- (stop-t);
+
+
+  %% External data
+
+  % External input
+
+  % External output
+  \node (dot_sci_bg) [connection] at
+    ($(step1)!0.4!(step2)$){};
+  \node (sci_bg) [right=of dot_sci_bg, external]{%
+    LM\_SCI\_BKG};
+  \draw (dot_sci_bg) -- (sci_bg);
+
+  \node (dot_std_bg) [connection] at
+    ($(step1)!0.6!(step2)$){};
+  \node (std_bg) [right=of dot_std_bg, external]{%
+    LM\_STD\_BKG};
+  \draw (dot_std_bg) -- (std_bg);
+
+
+  \node (dot_sci_bg_sub) [connection] at
+    ($(step2)!0.25!(stop-t)$){};
+  \node (sci_bg_sub) [right=of dot_sci_bg_sub, external]{%
+    LM\_SCI\_BKG\_SUBTRACTED};
+  \draw (dot_sci_bg_sub) -- (sci_bg_sub);
+
+  \node (dot_std_bg_sub) [connection] at
+    ($(step2)!0.4!(stop-t)$){};
+  \node (std_bg_sub) [right=of dot_std_bg_sub, external]{%
+    LM\_STD\_BKG\_SUBTRACTED};
+  \draw (dot_std_bg_sub) -- (std_bg_sub);
+
+
+  \node (dot_sci_obj_cat) [connection] at
+    ($(step2)!0.6!(stop-t)$){};
+  \node (sci_obj_cat) [right=of dot_sci_obj_cat, external]{%
+    LM\_SCI\_OBJECT\_CAT};
+  \draw (dot_sci_obj_cat) -- (sci_obj_cat);
+
+  \node (dot_std_obj_cat) [connection] at
+    ($(step2)!0.75!(stop-t)$){};
+  \node (std_obj_cat) [right=of dot_std_obj_cat, external]{%
+    LM\_STD\_OBJECT\_CAT};
+  \draw (dot_std_obj_cat) -- (std_obj_cat);
+
+
+  %% Frame around recipe
+  \draw [frame] ($(input)!0.35!(step1) -(2.85,0)$) rectangle
+  ($(step2)!0.85!(stop-t) + (2.85,0)$);
+  \node [framecolor, anchor=north west] at
+  ($(input)!0.35!(step1) - (2.85,0)$){%
+    \textsl{metis\_lm\_img\_background}};
+
+
+\end{tikzpicture}
+
+\end{document}
