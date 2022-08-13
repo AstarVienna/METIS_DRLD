@@ -13,13 +13,72 @@ This section discusses the progress made on the critical algorithms identified i
     \item Error propagation
     \item N-band image restoration
     \item LMS image and cube reconstruction
-    \item LMS data rate   
+    \item LMS data rate
 \end{enumerate}
 
-The following additional critical algorithms were identified in the period between PDR and FDR. :
+The following additional critical algorithms were identified in the period between PDR and FDR:
 
 \begin{enumerate}
     \item ADI algorithm
 \end{enumerate}
 
+% Export these to individual files if they become too wordy
+\subsection{Persistence correction}
+
+Will have access to a HDRL function from ESO. 
+The interface is TBD.
+Subtraction of persistence image as determined by ESO.
+Need to reference ESO docs for this.
+How does the scaling happen?
+Is there an API endpoint for this?
+
+\subsection{Detector Masks}
+
+Look into the MATISSE docs as to how this was done
+Delivers a bias/dark/ron value?
+
+\subsection{Bad pixel determination}
+
+Surely every other instrument on planet earth has some sort of algo for this.
+Need to determine the format of the bad pixel mask (bool?)
+Take XSHOOTER as example
+
+\subsection{Background subtraction}
+
+N-band: Standard chop and nod using telescope chopper and internal nodder
+See VISIR pipeline
+
+\subsection{Wavelength calibration and distortion correction}
+
+Pyreduce, will be described by Nadeen
+IMG modes are not critical, see recipes
+
+\subsection{Telluric correction}
+
+molecfit standard proceedure as already used in KMOS, will be built into XSHOOTER
+
+\subsection{Error propagation}
+
+HDRL functions do error propogation. Look into docs for these. 
+Understand how HDRL does this and then copy it.
+
+\subsection{N-band image restoration}
+
+Chop-nod inversion and stacking
+Look at how VISIR does this
+Need to look at sub-pixel chop shifts, and whether the images need to be resampled
+Plate scale distortions are not really a issue, because we only care about compact objects
+
+\subsection{LMS image and cube reconstruction}
+
+Completely open and a bit of a beast. 
+Help from Linz?
+Drizzling from HST?
+
+\subsection{LMS data rate}
+
+See data rate document. 
+Hand-wave-y arguments to make this go away.
+
+% Additional critical algos
 \input{CritAlgo_ADI}
