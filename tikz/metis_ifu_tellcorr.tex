@@ -20,7 +20,7 @@
   \pic (start) {start};
 
   \node (input) [below=0.75cm of start-m, input, fill=sciproductcolor]{%
-    LMS\_SCI\_REDUCED
+    IFU\_SCI\_REDUCED
   };
 
   \node (step1) [below=2cm of input, redstep]{%
@@ -42,7 +42,7 @@
   \draw (params.east) -- ++(1, 0) -- ++(0., 0.8) -- ++(0.5, 0);
 
   \node (lsfkernel) [left=1.5cm of step1, calib]{%
-    LSF\_KERNEL
+    IFU\_KERNEL
   };
   \draw (lsfkernel.east) -- (step1);
 
@@ -55,7 +55,7 @@
   \node (connecttac) [connection] at
   ($(step1)!0.5!(stop-t)$) {};
   \node (reduced) [right=of connecttac, sciproduct, text width=4cm]{%
-    LMS\_SCI\_REDUCED\_TAC
+    IFU\_SCI\_REDUCED\_TAC
   };
   \draw (connecttac) -- (reduced);
 
@@ -64,7 +64,7 @@
   rectangle ($(step1)!0.75!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.35!(step1) - (3, 0)$) {%
-    \textsl{metis\_lms\_tellcorr}};
+    \textsl{metis\_ifu\_tellcorr}};
 
 \end{tikzpicture}
 

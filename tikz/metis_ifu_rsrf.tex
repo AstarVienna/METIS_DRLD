@@ -24,7 +24,7 @@
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input]{%
-    \textsl{N} LMS\_RSRF\_RAW
+    \textsl{N} IFU\_RSRF\_RAW
   };
 
   \node (step1) [below=2.cm of input, redstep]{%
@@ -60,17 +60,17 @@
   \draw (persistence) -- (connectpersistence);
 
   \node (bpmin) [left=2cm of step1, yshift=0.5cm, calproduct]{%
-    BADPIX\_MAP\_LMS
+    BADPIX\_MAP\_IFU
   };
   \draw (bpmin.east) -- ++(1.0, 0) -- ++(0., 0.4) -- ++(1.0, 0.);
 
   \node (darkin) [left=2cm of step1, yshift=-0.5cm, calproduct]{%
-    MASTER\_DARK\_LMS
+    MASTER\_DARK\_IFU
   };
   \draw (darkin.east) -- ++(1.0, 0) -- ++(0., -0.4) -- ++(1.0, 0.);
 
   \node (wavecal) [left=2cm of step2, calproduct]{%
-    LMS\_WAVECAL
+    IFU\_WAVECAL
   };
   \draw (wavecal) -- (step2);
 
@@ -78,21 +78,21 @@
   \node (connectrsrf) [connection] at
   ($(step3)!0.25!(stop-t)$) {};
   \node (rsrf) [right=of connectrsrf, calproduct]{%
-    RSRF\_LMS
+    RSRF\_IFU
   };
   \draw (connectrsrf) -- (rsrf);
 
   \node (connectflat) [connection] at
   ($(step3)!0.5!(stop-t)$) {};
   \node (flat) [right=of connectflat, calproduct]{%
-    MASTER\_FLAT\_LMS
+    MASTER\_FLAT\_IFU
   };
   \draw (connectflat) -- (flat);
 
   \node (connectbpm) [connection] at
   ($(step3)!0.75!(stop-t)$) {};
   \node (bpm) [right=of connectbpm, calproduct]{%
-    BADPIX\_MAP\_LMS
+    BADPIX\_MAP\_IFU
   };
   \draw (connectbpm) -- (bpm);
 
@@ -101,7 +101,7 @@
   rectangle ($(step3)!0.85!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.5!(step1) - (3.5, 0)$) {%
-    \textsl{metis\_lms\_rsrf}};
+    \textsl{metis\_ifu\_rsrf}};
 
 \end{tikzpicture}
 

@@ -24,7 +24,7 @@
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input, text width=3.8cm]{%
-    LMS\_WAVECAL\_RAW
+    IFU\_WAVECAL\_RAW
   };
 
   \node (step1) [below=1.5cm of input, redstep]{%
@@ -51,12 +51,12 @@
 
   %% Input
   \node (darkin) [left=2.cm of step1, yshift=0.5cm, calproduct, text width=4cm]{%
-    MASTER\_DARK\_LMS
+    MASTER\_DARK\_IFU
   };
   \draw (darkin.east) -- ++(1.5, 0) -- ++(0, 0.3) -- ++(0.5, 0); % -- (step1);
 
   \node (bpmin) [left=2.cm of step1, yshift=-0.5cm, calproduct, text width=4cm]{%
-    BADPIX\_MAP\_LMS
+    BADPIX\_MAP\_IFU
   };
   \draw (bpmin.east) -- ++(1.5, 0) -- ++(0, -0.3) -- ++(0.5, 0);% -- (step1);
 
@@ -64,7 +64,7 @@
   \node (connectwavecal) [connection] at
   ($(step3.south)!0.35!(stop-t)$) {};
   \node (wavecal) [right=of connectwavecal, calproduct]{%
-    LMS\_WAVECAL
+    IFU\_WAVECAL
   };
   \draw (connectwavecal) -- (wavecal);
 
@@ -73,7 +73,7 @@
   rectangle ($(step3)!0.7!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.4!(step1) - (3, 0)$) {%
-    \textsl{metis\_lms\_wavecal}};
+    \textsl{metis\_ifu\_wavecal}};
 
 \end{tikzpicture}
 

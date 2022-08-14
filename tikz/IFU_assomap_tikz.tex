@@ -1,0 +1,306 @@
+%% IFU_assomap_tikz.tex
+%% Created by Oliver Czoske
+%% Last Change: 2022-08-14
+
+%% 2019-02-26: Try to align it with the recipe flow
+%% 2022-08-14: Rename lms -> ifu
+%%
+\documentclass{standalone}
+
+\input{assomap_common}
+
+
+%%%%%%%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\sffamily
+
+%%% Picture: flow chart
+\begin{tikzpicture}[on grid=false, node distance=0.8cm]
+
+  \matrix (recipes) [column sep=1mm, row sep=1cm]{
+    % The matrix has columns
+    % cal_*, dark_*, flat_*, std_*, sci1_*, sci2_*
+    %
+    % The matrix has rows
+    % \  TBD
+
+    % Row *_raw
+
+    \node[above] (geom_raw){%
+      \recipebox{DISTORTION}{ifu\_distortion}
+    };
+    &
+    \node[above] (rsrf_raw){%
+      \recipebox{RSRF}{ifu\_rsrf}
+    };
+    &
+    \node[above] (dark_raw) {%
+      \recipebox{DARK}{det\_dark}
+    };
+    &
+    \node[above] (wcal_raw){%
+      \recipebox{WAVECAL}{ifu\_wavecal};
+    };
+    &
+    \node[above] (std_raw){%
+      \recipebox{FLUX\_STD}{ifu\_std\_process}
+    };
+    &
+    \node[above] (sci1_raw) {%
+      \recipebox{SCIENCE}{ifu\_sci\_process}
+    };
+    &
+    \node (space) [empty]{}; % horizontal spacing
+    &
+    \node[above] (tac_raw){%
+      \recipenotitlebox{ifu\_tellcorr}
+    };
+    &
+    \node[above] (sci2_raw){%
+      \recipenotitlebox{ifu\_sci\_postprocess}
+    };
+    &
+    \node[above] (adi_raw){%
+      \recipenotitlebox{adi\_postprocess}
+    };
+    \\
+
+    % Row *_dark
+    \node (geom_dark)[empty]{};
+    &
+    \node (rsrf_dark)[empty]{};
+    &
+    \node (dark_dark) [calibproduct]{MASTER\_DARK\_IFU};
+    &
+    \node (wcal_dark)[connection]{};
+    &
+    \node (std_dark)[connection]{};
+    &
+    \node (sci1_dark)[connection]{};
+    & &
+    \node (tac_dark) [empty]{};
+    &
+    \node (sci2_dark)[empty]{};
+    &
+    \node (adi_dark)[empty]{};
+    \\
+
+    % Row *_geom
+    \node (geom_geom) [statcalfile]{DISTORTION\_TABLE};
+    &
+    \node (rsrf_geom)[connection]{};
+    &
+    \node (dark_geom)[empty]{};
+    &
+    \node (wcal_geom)[connection]{};
+    &
+    \node (std_geom)[connection]{};
+    &
+    \node (sci1_geom)[connection]{};
+    & &
+    \node (tac_geom)[empty]{};
+    &
+    \node (sci2_geom)[empty]{};
+    &
+    \node (adi_geom)[empty]{};
+    \\
+
+    % Row *_rsrf
+    \node (geom_rsrf) [empty]{};
+    &
+    \node (rsrf_rsrf) [statcalfile]{MASTER\_RSRF};
+    &
+    \node (dark_rsrf)[empty]{};
+    &
+    \node (wcal_rsrf)[empty]{};
+    &
+    \node (std_rsrf)[connection]{};
+    &
+    \node (sci1_rsrf)[connection]{};
+    & &
+    \node (tac_rsrf)[empty]{};
+    &
+    \node (sci2_rsrf)[empty]{};
+    &
+    \node (adi_rsrf)[empty]{};
+    \\
+
+
+
+    % Row *_wcal
+    \node (geom_wcal)[empty]{};
+    &
+    \node (rsrf_wcal)[empty]{};
+    &
+    \node (dark_wcal)[empty]{};
+    &
+    \node (wcal_wcal) [calibproduct]{IFU\_WAVECAL};
+    &
+    \node (std_wcal)[connection]{};
+    &
+    \node (sci1_wcal)[connection]{};
+    & &
+    \node (tac_wcal)[empty]{};
+    &
+    \node (sci2_wcal)[empty]{};
+    &
+    \node (adi_wcal)[empty]{};
+    \\
+
+    % Row *_std
+    \node (geom_std)[empty]{};
+    &
+    \node (rsrf_std)[empty]{};
+    &
+    \node (dark_std)[extcalfile]{FLUXSTD\_CATALOG};
+    &
+    \node (wcal_std)[empty]{};
+    &
+    \node (std_std)[connection]{};
+    &
+    \node (sci1_std)[empty]{};
+    & &
+    \node (tac_std)[empty]{};
+    &
+    \node (sci2_std)[empty]{};
+    &
+    \node (adi_std)[empty]{};
+    \\
+
+    % Row *_fcal
+    \node (geom_fcal)[empty]{};
+    &
+    \node (rsrf_fcal)[empty]{};
+    &
+    \node (dark_fcal)[empty]{};
+    &
+    \node (wcal_fcal)[empty]{};
+    &
+    \node (std_fcal)[calibproduct]{FlUXCAL\_TAB};
+    &
+    \node (sci1_fcal)[connection]{};
+    & &
+    \node (tac_fcal)[empty]{};
+    &
+    \node (sci2_fcal)[empty]{};
+    &
+    \node (adi_fcal)[empty]{};
+    \\
+
+    % Row *_sci1
+    \node (geom_sci1)[empty]{};
+    &
+    \node (rsrf_sci1)[empty]{};
+    &
+    \node (dark_sci1)[empty]{};
+    &
+    \node (wcal_sci1)[empty]{};
+    &
+    \node (std_sci1)[empty]{};
+    &
+    \node (sci1_sci1) [scienceproduct]{SCI\_REDUCED};
+    & &
+    \node (tac_sci1)[scienceproduct]{SCI\_REDUCED\_TAC};
+    &
+    \node (sci2_sci1)[connection]{};
+    &
+    \node (adi_sci1)[empty]{};
+    \\
+
+    % Row *_sci2
+    \node (geom_sci2)[empty]{};
+    &
+    \node (rsrf_sci2)[empty]{};
+    &
+    \node (dark_sci2)[empty]{};
+    &
+    \node (wcal_sci2)[empty]{};
+    &
+    \node (std_sci2)[empty]{};
+    &
+    \node (sci1_sci2)[scienceproduct]{SCI\_COMBINED};
+    & &
+    \node (tac_sci2)[scienceproduct]{SCI\_COMBINED\_TAC};
+    &
+    \node (sci2_sci2) [empty]{};
+    &
+    \node (adi_sci2) [connection]{};
+    \\
+
+    % Row *_adi
+    \node (geom_adi)[empty]{};
+    &
+    \node (rsrf_adi)[empty]{};
+    &
+    \node (dark_adi)[empty]{};
+    &
+    \node (wcal_adi)[empty]{};
+    &
+    \node (std_adi)[empty]{};
+    &
+    \node (sci1_adi)[empty]{};
+    & &
+    \node (tac_adi)[empty]{};
+    &
+    \node (sci2_adi)[scienceproduct]{SCI\_COADD};
+    &
+    \node (adi_adi)[scienceproduct]{ADI\_SCI\_COADD};
+    \\
+  };    % end matrix
+
+  % dashed line separating daily procedure
+  \node (t1) at ($(rsrf_raw)!0.5!(dark_raw)$){};
+  \node (t2) at ($(rsrf_adi)!0.5!(dark_adi)$){} ;
+  \draw [thick,dashed] ([yshift=4ex]t1.north) -- ([yshift=-0ex]t2.south);
+
+  %% Connections
+  \draw [arrow] (geom_raw) -- (geom_geom);
+  \draw [arrow] (rsrf_raw) -- (rsrf_rsrf);
+  \draw [arrow] (wcal_raw) -- (wcal_wcal);
+  \draw [arrow] (dark_raw) -- (dark_dark);
+  \draw [arrow] (std_raw)  -- (std_fcal);
+  \draw [arrow] (sci1_raw) -- (sci1_sci1);
+  \draw [arrow] (sci1_sci1) -- (sci1_sci2);
+  \draw [arrow] (sci1_sci1) -- (tac_sci1);
+  \draw [arrow] (sci1_sci2) -- (tac_sci2);
+  \draw [arrow] (sci2_sci1) -- (sci2_adi);
+  \draw [arrow] (adi_sci2) -- (adi_adi);
+
+  \draw [match] (dark_dark) -- (sci1_dark);
+  \draw [match] (rsrf_rsrf) -- (sci1_rsrf);
+  \draw [match] (wcal_wcal)  -- (sci1_wcal);
+  \draw [match] (geom_geom)  -- (sci1_geom);
+  \draw [match] (sci1_sci1) -- (tac_sci1);
+  \draw [match] (tac_sci1) -- (sci2_sci1);
+  \draw [match] (tac_sci2) -- (adi_sci2);
+  \draw [match] (dark_std)   -- (std_std);
+  \draw [match] (std_fcal)  -- (sci1_fcal);
+
+  %\draw [very thick,dashed] ($(raw_geometry.north)!0.5!(raw_dark.north)$) -- ++(270:15cm);
+
+  %% Legend
+  \matrix (legend) [draw, fill=gray!15, above right, row sep=0.3cm,
+    column 1/.style={anchor=base},
+    column 2/.style={anchor=base west}]
+  at ([yshift=0cm]current bounding box.south west){%
+    \node (leg_recipe) [recipe] {ifu\_sci\_process};
+    & \node {recipe}; \\
+    \node (leg_calproduct) [calibproduct] {MASTER\_DARK};
+    & \node{calib.\ product}; \\
+    \node (leg_sciproduct)[scienceproduct] {SCI\_REDUCED};
+    & \node {science product}; \\
+    \node (leg_statcalfile)[statcalfile] {MASTER\_RSRF};
+    & \node {static calib.\ file};\\
+    \node (leg_calfile)[extcalfile]{FLUXSTD\_CATALOG};
+    & \node {external file}; \\
+
+    \draw [arrow,fill=black] (0,0.4) -- (0,-0.3);  %% should be centred relative to column
+    & \node {processing step}; \\
+
+    \draw (-1, 0.5ex) -- (1,0.5ex) node [connection,yshift=0cm]{};
+    & \node {product match}; \\
+  };    %% end matrix (legend)
+
+\end{tikzpicture}
+
+\end{document}

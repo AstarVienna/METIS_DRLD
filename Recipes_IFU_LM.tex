@@ -1,27 +1,27 @@
 %% 06_5-Recipes_IFU.tex
 %% Created:     Fri Aug 25 13:14:02 2017 by Koehler@I-Mac
 %%
-%% subsection for LMS recipes
+%% subsection for LMS/IFU recipes
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
-\subsection{LM integral-field spectroscopy (LMS)}
-\label{ssec:LMS_recipes}
+\subsection{LM integral-field spectroscopy (IFU)}
+\label{ssec:IFU_recipes}
 
 \TODO{This section is identical to the PDR document \cite{DRLS}. We
 will consider rearranging the recipes to be in line with the imaging
 pipelines. This would entail handling basic reduction and background
-subtraction for of both science and standard exposures in common
-recipes (\REC{metis_lms_basic}, \REC{metis_lms_background}), then
+subtraction for both science and standard exposures in common
+recipes (\REC{metis_ifu_basic}, \REC{metis_ifu_background}), then
 having a recipe to analyse the standard observations
-(\REC{metis_lms_photstd}). The science exposures are then fully
-calibrated (\REC{metis_lms_calibrate}). A full set of exposures would
+(\REC{metis_ifu_photstd}). The science exposures are then fully
+calibrated (\REC{metis_ifu_calibrate}). A full set of exposures would
 then be assembled and restored with a fully sampled PSF in a
-post-processing recipe (\REC{metis_lms_combine}).}
+post-processing recipe (\REC{metis_ifu_combine}).}
 
-\subsubsection{LMS wavelength calibration}
-\label{sssec:lms_wavecal}
+\subsubsection{IFU wavelength calibration}
+\label{sssec:ifu_wavecal}
 
 This recipe processes daytime wavelength calibration images to derive
 the pixel-to-wavelength relation for the LM integral-field
@@ -53,7 +53,7 @@ extension mapping wavelength across each detector in the array. A
 table extension holds the polynomial coefficients.
 
 \begin{recipedef}
-  Name:                & \REC{metis_lms_wavecal}                                                \\
+  Name:                & \REC{metis_ifu_wavecal}                                                \\
   Purpose:             & Determine pixel-to-wavelength transformation.                          \\
   Requirements:        & \REQ{METIS-6074}                                                       \\
   Type:                & Calibration                                                            \\
@@ -65,26 +65,26 @@ table extension holds the polynomial coefficients.
   Parameters:          & TBD                                                                    \\
   Algorithm:           & Measure line locations (left and right edges, centroid by Gaussian fit)\\
                        & Compute wavelength solution $\xi(x,y, i)$, $\lambda(x, y, i)$          \\
-  Output data:         & \PROD{LMS_WAVECAL}                                                     \\
+  Output data:         & \PROD{IFU_WAVECAL}                                                     \\
   Expected accuracies: & TBD                                                                    \\
-  QC1 parameters:      & \QC{QC LMS WAVECAL RMS}                                                \\
-                       & \QC{QC LMS WAVECAL NLINES}                                             \\
-                       & \QC{QC LMS WAVECAL PEAK CNTS}                                          \\
-                       & \QC{QC LMS WAVECAL LINE WIDTH}                                         \\
+  QC1 parameters:      & \QC{QC IFU WAVECAL RMS}                                                \\
+                       & \QC{QC IFU WAVECAL NLINES}                                             \\
+                       & \QC{QC IFU WAVECAL PEAK CNTS}                                          \\
+                       & \QC{QC IFU WAVECAL LINE WIDTH}                                         \\
   \end{recipedef}
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.7\textwidth]{metis_lms_wavecal}
-  \caption[Recipe: \REC{metis_lms_wavecal}]{\REC{metis_lms_wavecal} --
-    daytime wavelength calibration for the LMS.}
-  \label{fig:metis_lms_wavecal}
+  \includegraphics[width=0.7\textwidth]{metis_ifu_wavecal}
+  \caption[Recipe: \REC{metis_ifu_wavecal}]{\REC{metis_ifu_wavecal} --
+    daytime wavelength calibration for the IFU.}
+  \label{fig:metis_ifu_wavecal}
 \end{figure}
 
 
 \clearpage
-\subsubsection{LMS relative spectral response function}
-\label{sssec:lms_rsrf}
+\subsubsection{IFU relative spectral response function}
+\label{sssec:ifu_rsrf}
 
 This recipe creates a spectroscopic master flat and determines the
 relative spectral response function (RSRF) for the four HAWAII2RG
@@ -99,43 +99,43 @@ function obtained by averaging at constant wavelength as
 that deviate strongly from their neighbours.
 
 \begin{recipedef}
-Name:                & \REC{metis_lms_rsrf}                                                     \\
+Name:                & \REC{metis_ifu_rsrf}                                                     \\
 Purpose:             & Create relative spectral response function for the LMS detector.         \\
 Requirements:        & \REQ{METIS-6131}, \REQ{METIS-6698}                                       \\
 Type:                & Calibration                                                              \\
 Templates:           & \TPL{METIS_ifu_cal_rsrf}                                                 \\
 Input data:          & Raw flats taken with black-body calibration lamp.                        \\
-                     & \CODE{MASTER_DARK_LMS}                                                   \\
-                     & \CODE{BADPIX_MAP_LMS}                                                    \\
-                     & \CODE{LMS_WAVECAL}: image with wavelength at each pixel.                 \\
+                     & \CODE{MASTER_DARK_IFU}                                                   \\
+                     & \CODE{BADPIX_MAP_IFU}                                                    \\
+                     & \CODE{IFU_WAVECAL}: image with wavelength at each pixel.                 \\
 Parameters:          & TBD                                                                      \\
 Algorithm:           & Create continuum image by mapping Planck spectrum at $T_{\mathrm{lamp}}$ to
                        wavelength image.                                                        \\
                      & Divide exposures by continuum image.                                     \\
                      & Average exposures to yield master flat (2D RSRF).                        \\
                      & Average in spatial direction to obtain relative response function        \\
-Output data:         & \PROD{MASTER_FLAT_LMS}                                                   \\
-                     & \PROD{RSRF_LMS}                                                          \\
-                     & \PROD{BADPIX_MAP_LMS}                                                    \\
+Output data:         & \PROD{MASTER_FLAT_IFU}                                                   \\
+                     & \PROD{RSRF_IFU}                                                          \\
+                     & \PROD{BADPIX_MAP_IFU}                                                    \\
 Expected accuracies: & TBD                                                                      \\
-QC1 parameters:      & \QC{QC LMS RSRF NBADPIX}                                                    \\
+QC1 parameters:      & \QC{QC IFU RSRF NBADPIX}                                                    \\
                      & (more TBD)                                                               \\
 \end{recipedef}
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.6\textwidth]{metis_lms_rsrf}
-  \caption[Recipe: \REC{metis_lms_rsrf}]{\REC{metis_lms_rsrf} --
-    creation of LMS relative spectral response function.}
-  \label{fig:metis_lms_rsrf}
+  \includegraphics[width=0.6\textwidth]{metis_ifu_rsrf}
+  \caption[Recipe: \REC{metis_ifu_rsrf}]{\REC{metis_ifu_rsrf} --
+    creation of IFU relative spectral response function.}
+  \label{fig:metis_ifu_rsrf}
 \end{figure}
 
 
 \clearpage
-\subsubsection{LMS flux standard reduction}
-\label{sssec:lms_std_process}
+\subsubsection{IFU flux standard reduction}
+\label{sssec:ifu_std_process}
 
-This recipe reduces and analyses a series of LMS observations of a
+This recipe reduces and analyses a series of IFU observations of a
 spectroscopic flux standard star. The comparison of the measured
 detector counts (ADU) with the tabulated spectrum of the star gives
 the wavelength-dependent conversion from ADU to physical units
@@ -157,7 +157,7 @@ may be refined by measuring telluric emission and/or absorption lines
 (by fitting with \lstinline{molecfit}).
 
 \begin{recipedef}
-  Name:                & \REC{metis_lms_std_process}                                            \\
+  Name:                & \REC{metis_ifu_std_process}                                            \\
   Purpose:             & Determine conversion between detector counts and physical source flux. \\
   Requirements:        & \REQ{METIS-6131}                                                       \\
   Type:                & Calibration                                                            \\
@@ -176,27 +176,27 @@ may be refined by measuring telluric emission and/or absorption lines
                        & Extract 1D spectrum of star                                            \\
                        & Compute and apply telluric correction                                  \\
                        & Compute conversion to physical units as function of wavelength.        \\
-  Output data:         & \PROD{LMS_STD_REDUCED_CUBE}                                            \\
-                       & \PROD{LMS_STD_BACKGROUND_CUBE}                                         \\
-                       & \PROD{LMS_STD_REDUCED_1D}                                              \\
-                       & \PROD{LMS_STD_TELLURIC_1D}                                             \\
+  Output data:         & \PROD{IFU_STD_REDUCED_CUBE}                                            \\
+                       & \PROD{IFU_STD_BACKGROUND_CUBE}                                         \\
+                       & \PROD{IFU_STD_REDUCED_1D}                                              \\
+                       & \PROD{IFU_STD_TELLURIC_1D}                                             \\
                        & \PROD{FLUXCAL_TAB}                                                     \\
   Expected accuracies: & TBD                                                                    \\
-  QC1 parameters:      & \QC{QC LMS STD STRAYLIGHT MEAN}                                        \\
+  QC1 parameters:      & \QC{QC IFU STD STRAYLIGHT MEAN}                                        \\
 \end{recipedef}
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.7\textwidth]{metis_lms_std_process}
-  \caption[Recipe: \REC{metis_lms_std_process}]{%
-    \REC{metis_lms_std_process} -- reduction of LMS flux standard
+  \includegraphics[width=0.7\textwidth]{metis_ifu_std_process}
+  \caption[Recipe: \REC{metis_ifu_std_process}]{%
+    \REC{metis_ifu_std_process} -- reduction of IFU flux standard
     frames and flux calibration (not all data products are shown).}
-  \label{fig:metis_lms_std_process}
+  \label{fig:metis_ifu_std_process}
 \end{figure}
 
 \clearpage
-\subsubsection{LMS science reduction}
-\label{sssec:lms_sci_process}
+\subsubsection{IFU science reduction}
+\label{sssec:ifu_sci_process}
 
 This recipe performs basic reduction of raw science exposures applying
 dark and RSRF correction and flux calibration (i.e.~conversion of
@@ -247,8 +247,8 @@ Various levels of output data can be envisaged:
 \item A spectral cube obtained by combining all exposures taken within
   a template. This step involves the image reconstruction discussed in
   Sect.~8.9 of \cite{DRLS}. Whether this step is included
-  in the present recipe \REC{metis_lms_sci_process} or is postponed to
-  the more general recipe \REC{metis_lms_sci_postprocess} is TBD. It
+  in the present recipe \REC{metis_ifu_sci_process} or is postponed to
+  the more general recipe \REC{metis_ifu_sci_postprocess} is TBD. It
   may be formally required to do the image reconstruction here if
   templates are set up to obtain a fixed set of spatially dithered and
   rotated exposures aimed at reconstructing a fully sampled PSF in
@@ -264,11 +264,11 @@ The recipe as descibed here is run in the science pipelines. For the
 observatory pipeline, a variant of the recipe may be implemented with
 reduced functionality and output. The observatory recipe may also have
 to include features to determine QC parameters for the LM-band images
-that are taken in parallel with the LMS exposures, similar to
+that are taken in parallel with the IFU exposures, similar to
 \REC{metis_lm_img_sci_process} (Sect.~\ref{ssec:recipes_img_lm}).
 
 \begin{recipedef}
-Name:                & \REC{metis_lms_sci_process}                                                              \\
+Name:                & \REC{metis_ifu_sci_process}                                                              \\
 Purpose:             & Reduction of individual science exposures.                                               \\
 Requirements:        & \REQ{METIS-6131}                                                                         \\
 Type:                & Science                                                                                  \\
@@ -277,10 +277,8 @@ Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                       
                      & \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
                      & \TPL{METIS_ifu_ext_obs_GenericOffset}                                                    \\
                      & \TPL{METIS_ifu_app_obs_GenericOffset}                                                    \\
-                     & \TPL{METIS_ifu_clc_obs_FixedSkyOffset}                                                   \\
                      & \TPL{METIS_ifu_vc_obs_FixedSkyOffset}                                                    \\
                      & \TPL{METIS_ifu_ext_app_obs_GenericOffset}                                                \\
-                     & \TPL{METIS_ifu_ext_clc_obs_FixedSkyOffset}                                               \\
                      & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset}                                                \\
                      & \TPL{METIS_ifu_cal_psf}                                                                  \\
 Input data:          & Dithered science exposures.                                                              \\
@@ -301,50 +299,50 @@ Algorithm:           & Subtract dark, divide by master flat                     
                      & Rectify spectra and assemble cube                                                        \\
                      & Extract 1D object spectrum                                                               \\
                      & Compute telluric correction and apply to reduced images and cube                         \\
-Output data:         & \PROD{LMS_SCI_REDUCED} (2D, per exposure)                                                \\
-                     & \PROD{LMS_SCI_REDUCED_TAC} (2D, per exposure)                                            \\
-                     & \PROD{LMS_SCI_BACKGROUND} (2D, per exposure)                                             \\
-                     & \PROD{LMS_SCI_REDUCED_CUBE} (3D, per exposure)                                           \\
-                     & \PROD{LMS_SCI_REDUCED_CUBE_TAC} (3D, per exposure)                                       \\
-                     & \PROD{LMS_SCI_COMBINED} (3D)                                                             \\
-                     & \PROD{LMS_SCI_COMBINED_TAC} (3D)                                                         \\
-                     & \PROD{LMS_SCI_OBJECT_1D}  (1D)                                                           \\
-                     & \PROD{LMS_SCI_TELLURIC_1D}                                                               \\
+Output data:         & \PROD{IFU_SCI_REDUCED} (2D, per exposure)                                                \\
+                     & \PROD{IFU_SCI_REDUCED_TAC} (2D, per exposure)                                            \\
+                     & \PROD{IFU_SCI_BACKGROUND} (2D, per exposure)                                             \\
+                     & \PROD{IFU_SCI_REDUCED_CUBE} (3D, per exposure)                                           \\
+                     & \PROD{IFU_SCI_REDUCED_CUBE_TAC} (3D, per exposure)                                       \\
+                     & \PROD{IFU_SCI_COMBINED} (3D)                                                             \\
+                     & \PROD{IFU_SCI_COMBINED_TAC} (3D)                                                         \\
+                     & \PROD{IFU_SCI_OBJECT_1D}  (1D)                                                           \\
+                     & \PROD{IFU_SCI_TELLURIC_1D}                                                               \\
 Expected accuracies: & TBD                                                                                      \\
 QC1 parameters:      & TBD                                                                                      \\
 \end{recipedef}
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.7\textwidth]{metis_lms_sci_process}
-  \caption[Recipe: \REC{metis_lms_sci_process}]{%
-    \REC{metis_lms_sci_process} -- reduction of LMS science frames.}
-  \label{fig:metis_lms_sci_process}
+  \includegraphics[width=0.7\textwidth]{metis_ifu_sci_process}
+  \caption[Recipe: \REC{metis_ifu_sci_process}]{%
+    \REC{metis_ifu_sci_process} -- reduction of IFU science frames.}
+  \label{fig:metis_ifu_sci_process}
 \end{figure}
 
 \clearpage
-\subsubsection{LMS telluric absorption correction}
-\label{sssec:lms_tellcorr}
+\subsubsection{IFU telluric absorption correction}
+\label{sssec:ifu_tellcorr}
 
-This recipe corrects for telluric absorption in a reduced LMS data
+This recipe corrects for telluric absorption in a reduced IFU data
 cube. The correction is done via a model atmospheric spectrum derived
 with \CODE{molecfit}.
 
 An automatic telluric correction can be performed as part of
-\REC{metis_lms_sci_process}. In an interactive environment it may be
+\REC{metis_ifu_sci_process}. In an interactive environment it may be
 better to do the telluric correction as a separate post-processing
 step with a user-defined aperture for the extraction of a 1D object
 spectrum. The spectrum is extracted from a combined cube
-(\CODE{LMS_SCI_COMBINED}) but may be applied to other products of
-\REC{metis_lms_sci_process} specified in the input set of frames.
+(\CODE{IFU_SCI_COMBINED}) but may be applied to other products of
+\REC{metis_ifu_sci_process} specified in the input set of frames.
 
 \begin{recipedef}
-  Name:                & \REC{metis_lms_tellcorr}                                                        \\
+  Name:                & \REC{metis_ifu_tellcorr}                                                        \\
   Purpose:             & Remove telluric absorption features                                             \\
   Requirements:        & \REQ{METIS-6091}                                                                \\
   Type:                & Calibration / post processing                                                   \\
   Templates:           & ---                                                                             \\
-  Input data:          & \CODE{LMS_SCI_COMBINED} -- reduced combined LMS cube                            \\
+  Input data:          & \CODE{IFU_SCI_COMBINED} -- reduced combined IFU cube                            \\
                        & \CODE{LSF_KERNEL} -- Line spread kernel to be used with \CODE{molecfit}         \\
                        & \CODE{ATM_PROFILE} -- Atmospheric input profile to be used with \CODE{molecfit} \\
   Parameters:          & extraction aperture parameters                                                  \\
@@ -353,27 +351,27 @@ spectrum. The spectrum is extracted from a combined cube
                        & line spread kernel                                                              \\
   Algorithm:           & extract 1D spectrum                                                             \\
                        & Application of molecfit                                                         \\
-  Output data:         & \PROD{LMS_SCI_REDUCED_TAC}                                                      \\
+  Output data:         & \PROD{IFU_SCI_REDUCED_TAC}                                                      \\
   Expected accuracies: & TBD                                                                             \\
   QC1 parameters:      & TBD                                                                             \\
 \end{recipedef}
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.7\textwidth]{metis_lms_tellcorr}
-  \caption[Recipe: \REC{metis_lms_tellcorr}]{\REC{metis_lms_tellcorr}
-    -- telluric correction of reduced LMS science cubes.}
-  \label{fig:metis_lms_tellcorr}
+  \includegraphics[width=0.7\textwidth]{metis_ifu_tellcorr}
+  \caption[Recipe: \REC{metis_ifu_tellcorr}]{\REC{metis_ifu_tellcorr}
+    -- telluric correction of reduced IFU science cubes.}
+  \label{fig:metis_ifu_tellcorr}
 \end{figure}
 
 
 \clearpage
-\subsubsection{LMS science postprocessing}
-\label{sssec:lms_sci_postprocess}
+\subsubsection{IFU science postprocessing}
+\label{sssec:ifu_sci_postprocess}
 
-This recipe combines a number of reduced LMS exposures covering a
+This recipe combines a number of reduced IFU exposures covering a
 different spatial and wavelength ranges into a single data cube. The
-positions and orientations of the exposures may differ as follows:
+positions and orientations of the exposures may differ as follows: \TODO{Reference to operational concept}
 \begin{description}
 \item[Spatial dithering:] The target is placed at different positions
   along and across the slice. Along-slice dithering aids in background
@@ -401,36 +399,36 @@ The recipe is only used in the science-grade pipelines, not at the
 observatory.
 
 \begin{recipedef}
-  Name:           & \REC{metis_lms_sci_postprocess}                                            \\
+  Name:           & \REC{metis_ifu_sci_postprocess}                                            \\
   Purpose:        & Coaddition and mosaicing of reduced science cubes.                         \\
   Requirements:   & \REQ{METIS-6131}                                                           \\
   Type:           & Science                                                                    \\
   Templates:      & ---                                                                        \\
-  Input data:     & Reduced science cubes (\PROD{LMS_SCI_REDUCED}, \PROD{LMS_SCI_REDUCED_TAC}) \\
+  Input data:     & Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \PROD{IFU_SCI_REDUCED_TAC}) \\
   Parameters:     & TBD                                                                        \\
   Algorithm:      & Determine cubic output grid encompassing all input cubes                   \\
                   & Resample input cubes to output grid                                        \\
                   & Coadd                                                                      \\
-  Output data:    & \PROD{LMS_SCI_COADD}                                                       \\
-                  & \PROD{LMS_SCI_COADD_ERROR}                                                 \\
+  Output data:    & \PROD{IFU_SCI_COADD}                                                       \\
+                  & \PROD{IFU_SCI_COADD_ERROR}                                                 \\
   QC1 parameters: & ---                                                                        \\
 \end{recipedef}
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.7\textwidth]{metis_lms_sci_postprocess}
-  \caption[Recipe: \REC{metis_lms_sci_postprocess}]{%
-    \REC{metis_lms_sci_postprocess} -- post-processing (coaddition) of
-    reduced LMS science frames.}
-  \label{fig:metis_lms_sci_postprocess}
+  \includegraphics[width=0.7\textwidth]{metis_ifu_sci_postprocess}
+  \caption[Recipe: \REC{metis_ifu_sci_postprocess}]{%
+    \REC{metis_ifu_sci_postprocess} -- post-processing (coaddition) of
+    reduced IFU science frames.}
+  \label{fig:metis_ifu_sci_postprocess}
 \end{figure}
 
 
 \clearpage
-\subsubsection{LMS distortion calibration}
+\subsubsection{IFU distortion calibration}
 \label{sssec:ifu_distortion}
 
-Calibration of the geometric distortion of the LMS is done by
+Calibration of the geometric distortion of the LMS/IFU is done by
 observing a pin hole mask located in a focal plane within the
 instrument. The distortion is described in terms of a polynomial model
 whose coefficients can be used to map positions in in the detector
@@ -439,26 +437,26 @@ indication of the variation of spectral resolution across the field of view.
 
 \begin{recipedef}
   Name:                & \REC{metis_ifu_distortion}                                                  \\
-  Purpose:             & Determine geometric distortion coefficients for the LMS.                    \\
+  Purpose:             & Determine geometric distortion coefficients for the IFU.                    \\
   Requirements:        & \REQ{METIS-6087}, \REQ{METIS-6073}                                          \\
   Type:                & Calibration                                                                 \\
   Templates:           & \TPL{METIS_ifu_cal_distortion}                                              \\
   Input data:          & Images of multi-pinhole mask.                                               \\
   Parameters:          & TBD                                                                         \\
   Algorithm:           & Calculate table mapping pixel position to position on sky.                  \\
-  Output data:         & \PROD{LMS_DISTORTION_TABLE}                                                 \\
-                       & \PROD{LMS_DIST_REDUCED}                                                     \\
+  Output data:         & \PROD{IFU_DISTORTION_TABLE}                                                 \\
+                       & \PROD{IFU_DIST_REDUCED}                                                     \\
   Expected accuracies: & TBD                                                                         \\
-  QC1 parameters:      & \QC{QC LMS DISTORT RMS}: RMS deviation between measured position and model \\
-                       & \QC{QC LMS DISTORT FWHM}:   Measured FWHM of spots                            \\
-                       & \QC{QC LMS DISTORT NSPOTS}: Number of identified spots                        \\
+  QC1 parameters:      & \QC{QC IFU DISTORT RMS}: RMS deviation between measured position and model \\
+                       & \QC{QC IFU DISTORT FWHM}:   Measured FWHM of spots                            \\
+                       & \QC{QC IFU DISTORT NSPOTS}: Number of identified spots                        \\
 \end{recipedef}
 
 \begin{figure}[hb]
   \centering
   \includegraphics[width=0.6\textwidth]{metis_ifu_distortion}
   \caption[Recipe: \REC{metis_ifu_distortion}]{%
-    \REC{metis_ifu_distortion} -- LMS distortion calibration}
+    \REC{metis_ifu_distortion} -- IFU distortion calibration}
   \label{fig:metis_ifu_distortion}
 \end{figure}
 

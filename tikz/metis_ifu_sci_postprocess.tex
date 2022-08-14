@@ -22,8 +22,8 @@
   \pic (start){start};
 
   \node (input) [below=0.75cm of start-m, input, text width=5cm, minimum width=5cm]{%
-    \textsl{N}~LMS\_SCI\_REDUCED \\
-    \textsl{N}~LMS\_SCI\_REDUCED\_TAC
+    \textsl{N}~IFU\_SCI\_REDUCED \\
+    \textsl{N}~IFU\_SCI\_REDUCED\_TAC
   };
 
   \node (step1) [below=1.5cm of input, redstep]{%
@@ -51,7 +51,7 @@
   \node (connect sci coadd) [connection] at
   ($(step3)!0.65!(stop-t)$) {};
   \node (sci coadd) [right=of connect sci coadd, sciproduct]{%
-    LMS\_SCI\_COADD
+    IFU\_SCI\_COADD
   };
   \draw (connect sci coadd) -- (sci coadd);
 
@@ -61,7 +61,7 @@
 
   \node [framecolor, anchor=north west] at
   ($(input)!0.5!(step1) - (4, 0)$) {%
-    \textsl{metis\_lms\_sci\_postprocess}};
+    \textsl{metis\_ifu\_sci\_postprocess}};
 
 \end{tikzpicture}
 

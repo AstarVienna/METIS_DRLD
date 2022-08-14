@@ -24,7 +24,7 @@
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input]{%
-    \textsl{N} LMS\_STD\_RAW
+    \textsl{N} IFU\_STD\_RAW
   };
 
   \node (step1) [below=2cm of input, redstep]{%
@@ -75,28 +75,28 @@
 
   % Input for detector signature removal (step1)
   \node (bpmin) [left=2cm of step1, yshift=0.8cm, calproduct]{%
-    BADPIX\_MAP\_LMS
+    BADPIX\_MAP\_IFU
   };
   \draw (bpmin.east) -- ++(1., 0) -- ++(0., 0.6) -- ++(1., 0);
 
   \node (darkin) [left=2cm of step1, calproduct] {%
-    MASTER\_DARK\_LMS
+    MASTER\_DARK\_IFU
   };
   \draw (darkin) -- (step1);
 
   \node (flatin) [left=2cm of step1, yshift=-0.8cm, calproduct]{%
-    MASTER\_FLAT\_LMS
+    MASTER\_FLAT\_IFU
   };
   \draw (flatin.east) -- ++(1., 0) -- ++(0., -0.6) -- ++(1., 0);
 
   % Input for rectification (step3)
   \node (wavecal) [left=2cm of step3, yshift=0.4cm, calproduct]{%
-    LMS\_WAVECAL
+    IFU\_WAVECAL
   };
   \draw (wavecal.east) -- ++(1., 0) -- ++(0., 0.3) -- ++(1., 0);
 
   \node (distortion) [left=2cm of step3, yshift=-0.4cm, calproduct]{%
-    LMS\_DISTORT\_TAB
+    IFU\_DISTORT\_TAB
   };
   \draw (distortion.east) -- ++(1., 0) -- ++(0., -0.3) -- ++(1., 0);
 
@@ -115,7 +115,7 @@
   \node (connectreduced) [connection] at
   ($(step6)!0.25!(stop-t)$) {};
   \node (reduced) [right=of connectreduced, calproduct]{%
-    LMS\_STD\_REDUCED
+    IFU\_STD\_REDUCED
   };
   \draw (connectreduced) -- (reduced);
 
@@ -131,7 +131,7 @@
   rectangle ($(step6)!0.75!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.5!(step1) - (3.5, 0)$) {%
-    \textsl{metis\_lms\_std\_process}};
+    \textsl{metis\_ifu\_std\_process}};
 
 \end{tikzpicture}
 
