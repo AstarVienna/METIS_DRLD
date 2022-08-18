@@ -52,7 +52,7 @@ The recipe \REC{metis_LM_lss_trace} aims at detecting the orders and a polynomia
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_trace_v0.71.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_trace_v0.74.pdf}
   \caption[Recipe: \REC{metis_LM_lss_trace}]{\REC{metis_LM_lss_trace} --
     Detection and polynomial fitting of the order location.}
   \label{Fig:rec_lm_lss_wtrace}
@@ -80,7 +80,7 @@ This recipe aims at determining the first guess of the wavelength calibration on
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_wave_v0.71.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_wave_v0.72.pdf}
   \caption[Recipe: \REC{metis_LM_lss_wave}]{\REC{metis_LM_lss_wave} --
     Creation of the LM LSS master wavelength correction.}
   \label{Fig:rec_lm_lss_trace}
@@ -126,7 +126,7 @@ Flux calibration with spectrophotometric standard stars: As first step the detec
 the wavelength calibration by means of the first guess solution (\PROD{LM_WAVE_SOL}) and the telluric sky lines (c.f. Sect.\,8.5 in \cite{DRLS}). Then the recipe extracts the standard star spectrum object, removes sky lines, collapses the 2D to 1D spectra and applies a telluric correction in an automated way to the standard star spectrum (in contrast to the science observations, which are telluric corrected in a dedicated recipe to achieve the best correction). The response curve is obtained by comparing the extracted spectrum with a model and/or another reference spectrum of the standard star. Currently it is foreseen to use the same standard stars as in \ac{CRIRES}/CRIRES+ and \ac{VISIR}. It is under investigation whether more stars are needed.
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.4\textheight]{figures/metis_lm_lss_flux_v0.71.pdf}
+  \includegraphics[width=0.4\textheight]{figures/metis_lm_lss_flux_v0.72.pdf}
   \caption[Recipe: \REC{metis_LM_lss_flux}]{\REC{metis_LM_lss_flux} --
     Flux calibration recipe.}
   \label{Fig:rec_lm_lss_flux}
@@ -207,7 +207,7 @@ QC1 parameters: & \QC{QC LM LSS STD BACKGD MEAN}: Mean value of background\\
 The science calibration recipe comprises the extraction of the object (i.e. separation of object/sky pixels), removing the sky lines, the application of the response curve previously defined, the 2D to 1D collapse and the coaddition. In contrast to the flux standard star reduction, the telluric correction on the science data is done in a dedicated recipe afterwards to achieve best quality for the correction.
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.4\textheight]{figures/metis_lm_lss_sci_v0.71.pdf}
+  \includegraphics[width=0.4\textheight]{figures/metis_lm_lss_sci_v0.72.pdf}
   \caption[Recipe: \REC{metis_LM_lss_sci}]{\REC{metis_LM_lss_sci} --
     Science reduction recipe.}
   \label{Fig:rec_lm_lss_sci}
@@ -274,7 +274,7 @@ blah
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_mf_model_v0.71.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_mf_model_v0.72.pdf}
   \caption[Recipe: \REC{metis_LM_lss_mf_model}]{\REC{metis_LM_lss_mf_model} --
     TBD.}
   \label{Fig:rec_lm_lss_mf_model}
@@ -304,7 +304,7 @@ blah
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_mf_calctrans_v0.71.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_mf_calctrans_v0.72.pdf}
   \caption[Recipe: \REC{metis_LM_lss_mf_calctrans}]{\REC{metis_LM_lss_mf_calctrans} --
     TBD.}
   \label{Fig:rec_lm_lss_mf_calctrans}
@@ -333,7 +333,7 @@ blah
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_mf_correct_v0.71.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_mf_correct_v0.72.pdf}
   \caption[Recipe: \REC{metis_LM_lss_mf_correct}]{\REC{metis_LM_lss_mf_correct} --
     TBD.}
   \label{Fig:rec_lm_lss_mf_correct}

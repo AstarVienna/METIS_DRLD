@@ -1,11 +1,11 @@
-\subsection{Long-Slit Spectroscopy in L/M- and N-bands}
-
+\subsection{Long-Slit Spectroscopy in L/M- and N-bands}\label{lss:overview}
+\subsubsection{The workflow cascades}\label{lss:cascade_overview}
 The purpose of the pipeline is to correct or remove contributions from
 the instrument, telescope, and atmosphere and produce science-grade
 data products for the L/M- and N-band \ac{LSS}
 mode. Since the detector properties are not fully specified, especially of the new Geosnap, we currently assume
 basically same reduction cascade for both spectral ranges LM and
-N, respectively. The only major difference at the time being is the absence of \ac{WCU} laser sources in the N-band, which are only available during \ac{AIT} phase to generate a first guess of the pixel-to-wavelength relation. Therefore we assume a general first guess wavelength solution in the N-band based on that \ac{AIT} data. As we assume the instrument to be very stable, that approach should be sufficient for the low-resolution N-band spectroscopy. In the LM range, two fix-frequency lasers ($@3.39$µm and $@5.26$µm) and one tuneable ($4.68....4.78$µm) is foreseen in the \ac{WCU} to be taken on daily basis (cf. \cite{METIS-calibration_plan}). Although mainly foreseen to be used for the high-resolution spectroscopy \ac{LMS} mode, we can use these laser sources for the LM-band \ac{LSS} as well.
+N, respectively. The only major difference at the time being is the absence of \ac{WCU} laser sources in the N-band, which are only available during \ac{AIT} phase to generate a first guess of the pixel-to-wavelength relation. Therefore we the general first guess wavelength solution in the N-band will be based on that \ac{AIT} data. As we assume the instrument to be very stable, that approach should be sufficient for the low-resolution N-band spectroscopy. In the LM range, two fix-frequency lasers ($@3.39$µm and $@5.26$µm) and one tuneable ($4.68....4.78$µm) is foreseen in the \ac{WCU} to be taken on daily basis (cf. \cite{METIS-calibration_plan}). Although mainly foreseen to be used for the high-resolution spectroscopy \ac{LMS} mode, we can use these laser sources for the LM-band \ac{LSS} as well.
 
 Special emphasis has to be drawn to the effects of the Earth's
 atmosphere in several respects:
@@ -40,7 +40,7 @@ spectroscopy data.  Table~\ref{Tab:LMLssDatProc} contains the data processing ta
 
 In general, there are four major steps in each of the two cascades:
 \begin{itemize}
-    \item \textbf{Preparation step:} This contains the recipes, which are invoked only rarely, e.g. after major instrument interventions, or on monthly/yearly basis to update the static calibration database. In case of the \ac{LSS} pipeline this concerns the creation of the gain maps /linearity checks and the determination of the slit losses induced by the fixed positions of the ADCs (cf. Section "Calibration of slit losses" in Calibration plan \cite{METIS-calibration_plan}).
+    \item \textbf{Preparation step:} This contains the recipes, which are invoked only rarely, e.g. after major instrument interventions, or on monthly/yearly basis to update the static calibration database. These recipes are therefore not shown in the cascade in Figs.~\ref{Fig:LMLssAssomap} and \ref{Fig:NLssAssomap} and the corresponding data processing tables. In case of the \ac{LSS} pipeline this concerns the creation of the gain maps /linearity checks (see Section~\ref{sssec:metis_det_lingain}), the determination of the slit losses induced by the fixed positions of the ADCs (cf. Section~\ref{sssec:adc_slitlosses} and Section "Calibration of slit losses" in Calibration plan \cite{METIS-calibration_plan}) and the zero position of the chopping mirror (see Section~\ref{sssec:chopperhomeposition} and Section "Chopper Home Position" in \cite{METIS-calibration_plan} for more details). T
     \item \textbf{Basic steps}: The basic steps aim for correcting the detector influence, in particular the dark correction and the determination of the master \ac{RSRF}.
     \item \textbf{Calibration/correction steps}: This is the main part which incorporates the order trace detection, distortion, wavelength and flux correction.
     \item \textbf{Post-calibration steps}: After havig calibrated spectra at hand, the last step is the telluric absorption correction.
@@ -56,7 +56,7 @@ In general, there are four major steps in each of the two cascades:
 
 \begin{sidewaysfigure}[ht]
   \centering
-  \includegraphics[width=0.9\textheight]{figures/LM_LSS_pipeline_wf_draft_latest_v0.72.png}
+  \includegraphics[width=0.9\textheight]{figures/LM_LSS_pipeline_wf_draft_latest_v0.74.png}
   \caption[Reduction cascade and association map for LM long-slit
   spectroscopy]{Reduction cascade and association map for long-slit
     spectroscopy in the LM bands.  }
@@ -85,45 +85,45 @@ In general, there are four major steps in each of the two cascades:
     \label{Tab:LMLssDatProc}
     \begin{tabular}{|l|l|l|l|l|l|}
       \hline
-      Data Type   & Classification & Recipe (Level)	& FITS Keywords & CalibDB & Products\\
+      Data Type   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
     (Templates) & Keywords	 & Processing steps	&		&	  &	\\
     \hline
-    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \REC{metis_det_dark} & Exposure time	&	& Averaged dark frame\\
+    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \REC{metis_det_dark} & Exposure time	&	\PROD{GAIN_MAP_2RG}& Averaged dark frame\\
     		& \CODE{DPR.TYPE==DARK}  &			&		&	& Bad pixel map\\
     		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
     \hline
     \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_rsrf}\hyperref{rec:lsslmrsrf} & Exposure time	& dark	& Averaged, normalized flatfield\\
-    		& \CODE{DPR.TYPE==FLAT}  &			&		&	& Bad pixel map\\
+    		& \CODE{DPR.TYPE==FLAT}  &			&		& \PROD{GAIN_MAP_2RG}	& Bad pixel map\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
          	& \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_trace}\hyperref{rec:lsslmtrace} & Exposure time	& 	& Order location\\
     		& \CODE{DPR.TYPE==FLAT}  &			&		&	& (polynomial fit)\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
-    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} & \REC{metis_LM_lss_wave}\hyperref{rec:lsslmwave} & Object name &  LASER\_TAB & wavelength solution\\
-    		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Exposure time & &\\
+    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} & \REC{metis_LM_lss_wave}\hyperref{rec:lsslmwave} & Object name &  \PROD{LASER_TAB} & wavelength solution\\
+    		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Exposure time & \PROD{GAIN_MAP_2RG} &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
-    \TPL{FLUX,STD} & \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_flux}\hyperref{rec:lsslmflux} & Object name (Flux STD) & reference flux of STD & Instrumental\\
-    		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & ATM\_LINE\_CAT & response function\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	SYNTH\_TRANS& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & LM\_ADC\_SLITLOSSES & \\
-    		& & & & REF\_FLUX\_CAT &\\
-    		& & & & AO\_PSF\_MODEL &\\    \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_sci}\hyperref{rec:lsslmsci} & Object name & ATM\_LINE\_CAT  & Science grade spectrum\\
-    		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & LM\_ADC\_SLITLOSSES &\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
+    \TPL{FLUX,STD} & \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_flux}\hyperref{rec:lsslmflux} & Object name (Flux STD) & \PROD{REF_FLUX_CAT} & Instrumental\\
+    		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \PROD{ATM_LINE_CAT} & response function\\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	\PROD{SYNTH_TRANS}& \\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \PROD{LM_ADC_SLITLOSSES} & \\
+    		& & & & \PROD{AO_PSF_MODEL} &\\    
+    		& & & & \PROD{GAIN_MAP_2RG} &\\    \hline
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_sci}\hyperref{rec:lsslmsci} & Object name & \PROD{ATM_LINE_CAT}  & Science grade spectrum\\
+    		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \PROD{LM_ADC_SLITLOSSES} &\\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&		& \PROD{GAIN_MAP_2RG}	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
-            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_model} & Object name & \ac{LSF} Kernel	 & Best-fit \\
-    		& \CODE{DPR.TYPE==OBJECT}   &			  & & atm. profile  & \texttt{molecfit} parameters\\
-    		& \CODE{DPR.TECH==TBD}  &			&		& Line database	& \\
+            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_model} & Object name & \PROD{LSF_KERNEL}	 & Best-fit \\
+    		& \CODE{DPR.TYPE==OBJECT}   &			  & & \PROD{ATM_PROFILE}  & \texttt{molecfit} parameters\\
+    		& \CODE{DPR.TECH==TBD}  &			&		& \PROD{ATM_LINE_CAT}	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
             & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_calctrans} & Object name & best-fit parameters	 & synthetic \\
-    		& \CODE{DPR.TYPE==LSS}   &		&	   & atm. profile  & Transmission curve\\
-    		& \CODE{DPR.TECH==TBD}  &			&		& Line database	& \\
+    		& \CODE{DPR.TYPE==LSS}   &		&	   & \PROD{ATM_LINE_CAT}  & Transmission curve\\
+    		& \CODE{DPR.TECH==TBD}  &			&		& 	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
             & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_correct} & Object name & 	 & Absorption corrected\\
@@ -137,7 +137,7 @@ In general, there are four major steps in each of the two cascades:
 
 \begin{sidewaysfigure}[ht]
   \centering
-  \includegraphics[width=0.9\textheight]{figures/N_LSS_pipeline_wf_draft_latest_v0.72.png}
+  \includegraphics[width=0.9\textheight]{figures/N_LSS_pipeline_wf_draft_latest_v0.74.png}
   \caption[Reduction cascade and association map for N long-slit
   spectroscopy]{Reduction cascade and association map for long-slit
     spectroscopy in the N bands.  }
@@ -154,14 +154,14 @@ In general, there are four major steps in each of the two cascades:
     \label{Tab:NLssDatProc}
     \begin{tabular}{|l|l|l|l|l|l|}
       \hline
-      Data Type   & Classification & Recipe (Level)	& FITS Keywords & CalibDB & Products\\
+      Data Type   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
     (Templates) & Keywords	 & Processing steps	&		&	  &	\\
     \hline
-    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \REC{metis_det_dark} & Exposure time	&	& Averaged dark frame\\
+    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \REC{metis_det_dark} & Exposure time	& \PROD{GAIN_MAP_GEO}	& Averaged dark frame\\
     		& \CODE{DPR.TYPE==DARK}  &			&		&	& Bad pixel map\\
     		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
     \hline
-    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_N_lss_rsrf}\hyperref{rec:lsslmrsrf} & Exposure time	& dark	& Averaged, normalized flatfield (\ac{RSRF}\\
+    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_N_lss_rsrf}\hyperref{rec:lsslmrsrf} & Exposure time	& \PROD{GAIN_MAP_GEO}	& Averaged, normalized flatfield (\ac{RSRF}\\
     		& \CODE{DPR.TYPE==FLAT}  &			&		&	& Bad pixel map\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
@@ -169,27 +169,28 @@ In general, there are four major steps in each of the two cascades:
     		& \CODE{DPR.TYPE==FLAT}  &			&		&	& (polynomial fit)\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
-    \TPL{FLUX,STD} & \CODE{DPR.CATG==CALIB} & \REC{metis_N_lss_flux}\hyperref{rec:lssnflux} & Object name (Flux STD) & reference flux of STD & Instrumental\\
-    		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & N\_WAVE\_GUESS & response function\\
-    		& \CODE{DPR.TECH==SPECTRUM}   &			   &		& ATM\_LINE\_CAT	& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & SYNTH\_TRANS & \\
-    		& & & & N\_ADC\_SLITLOSSES &\\
-    		& & & & REF\_FLUX\_CAT &\\
-    		& & & & AO\_PSF\_MODEL &\\
+    \TPL{FLUX,STD} & \CODE{DPR.CATG==CALIB} & \REC{metis_N_lss_flux}\hyperref{rec:lssnflux} & Object name (Flux STD) & \PROD{REF_FLUX_CAT} & Instrumental\\
+    		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \PROD{N_WAVE_GUESS} & response function\\
+    		& \CODE{DPR.TECH==SPECTRUM}   &			   &		& \PROD{ATM_LINE_CAT}	& \\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \PROD{SYNTH\_TRANS} & \\
+    		& & & & \PROD{N\_ADC\_SLITLOSSES} &\\
+    		& & & & \PROD{REF\_FLUX\_CAT} &\\
+    		& & & & \PROD{AO\_PSF\_MODEL} &\\
+    		& & & & \PROD{GAIN_MAP_GEO} &\\
     \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_sci}\hyperref{rec:lssnsci} & Object name & N\_WAVE\_GUESS  & Science grade spectrum\\
-    		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time &  ATM\_LINE\_CAT &\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		& N\_ADC\_SLITLOSSES	& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  &  & \\
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_sci}\hyperref{rec:lssnsci} & Object name & \PROD{N_WAVE_GUESS}  & Science grade spectrum\\
+    		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time &  \PROD{ATM_LINE_CAT} &\\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&		& \PROD{N_ADC_SLITLOSSES}	& \\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \PROD{GAIN_MAP_GEO} & \\
     \hline
-            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_model} & Object name & \ac{LSF} Kernel	 & Best-fit \\
-    		& \CODE{DPR.TYPE==OBJECT}   &			  & & atm. profile  & \texttt{molecfit} parameters\\
-    		& \CODE{DPR.TECH==TBD}  &			&		& Line database	& \\
+            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_model} & Object name & \PROD{LSF_KERNEL}	 & Best-fit \\
+    		& \CODE{DPR.TYPE==OBJECT}   &			  & & \PROD{ATM_PROFILE}  & \texttt{molecfit} parameters\\
+    		& \CODE{DPR.TECH==TBD}  &			&		& \PROD{ATM_LINE_CAT}	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
             & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_calctrans} & Object name & best-fit parameters	 & synthetic \\
-    		& \CODE{DPR.TYPE==LSS}   &		&	   & atm. profile  & Transmission curve\\
-    		& \CODE{DPR.TECH==TBD}  &			&		& Line database	& \\
+    		& \CODE{DPR.TYPE==LSS}   &		&	   & \PROD{ATM_LINE_CAT} & Transmission curve\\
+    		& \CODE{DPR.TECH==TBD}  &			&		&  	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
             & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_correct} & Object name & 	 & Absorption corrected\\
@@ -200,3 +201,16 @@ In general, there are four major steps in each of the two cascades:
     \end{tabular}
   \end{center}
 \end{sidewaystable}
+
+\subsubsection{Static calibration database}\label{lss:static_calib}
+The static calibration database comprises several data sets, some are updated from time to time:
+\begin{itemize}
+    \item \PROD{GAIN_MAP_2RG} and \PROD{GAIN_MAP_GEO}: These are the detector gain maps of the detectors (2RG=Hawaii2RG, LM-band; GEO=Geosnap, N-band), which are created by the recipe \REC{metis_det_lingain} (see Section~\ref{sssec:metis_det_lingain}). This recipe also checks the linearity of the pixels and is carried out every once in a while (yearly, TBD, see \cite{METIS-calibration_plan}) as we assume the detectors to be fairly stable.
+    \item \PROD{LASER_TAB}: The \ac{WCU} provides laser sources for the first guess of the wavelength solution. The main laser frequencies are fixed (\cite{METIS-calibration_plan}) and given in a static table.
+    \item \PROD{HITRAN}: The main wavelength calibration will be done by means of atmospheric lines, most probably based on the \ac{HITRAN}\footnote{\url{https://hitran.org/}}. They are given in a static catalogue. This database is also required by the telluric correction package \texttt{molecfit}.
+    \item \PROD{SYNTH_TRANS}: For the determination of the continuum of flux standard stars a rough telluric correction is needed. We intend to apply a static transmission curve \PROD{SYNTH_TRANS} for that purpose as we deem it to be sufficient and more time efficient than applying the telluric correction package \texttt{molecit} every time. This static transmission curve will be determined during commissioning via \texttt{molecfit}.
+    \item \PROD{AO_PSF_MODEL}: For the determination of \ac{AO}-induced slit losses we intend to use a static \ac{PSF} model, which is scaled by the \ac{AO} telemetry data. Details on that are TBD.
+    \item \PROD{REF_FLUX_CAT}: The absolute flux calibration will be done by observations of specific flux standard stars, which are compared to their theoretical models. The \PROD{REF_FLUX_CAT} will contain these models. Currently, the catalogue of flux standard stars comprises the stars from the catalogue of the \ac{VISIR} instrument.
+    \item \PROD{LM_ADC_SLITLOSS}: It is expected that the fixed positions of the \ac{ADC} will introduce specific slit losses. These losses are determined in the recipes \REC{metis_LM_adc_slitloss} and \REC{metis_N_adc_slitloss} (see Section~\ref{sssec:adc_slitlosses} and \cite{METIS-calibration_plan}). As these losses are assumed to be very stable, these recipes will be carried out only rarely.
+    \item \PROD{ATM_PROFILE} and \PROD{LSF_KERNEL}: The telluric correction package \texttt{molecfit} requires an atmospheric profile incorporating height information of the temperature, pressure and molecular abundances as input. Currently we use a static profile (equatorial \texttt{equ.atm}\footnote{\url{https://eodg.atm.ox.ac.uk/RFM/atm/}}) as starting point of the fit of the molecular column densities. In addition, a kernel for the \ac{LSF} is provided. We intend to determine the kernel during commissioning and use this as input. However, it is still unclear in how far the \ac{AO} influences that kernel. The current baseline is to use the static \PROD{LSF_KERNEL} as starting point for fitting the line spread function.
+\end{itemize}

@@ -97,7 +97,7 @@ While not part of the PIP specs, the current generation of VIP\_HCI ADI reductio
 \label{sssec:adi_img_app}
 
 
-The following recipe is applicable for ADI post processing for the LM and N band, in combination with the APP coronagraph. It is very similar to the recipe for RAVC/CVC(/CLC) coronagraphs, with the addition of steps to merging together the two half PSFs, and of applying an angular wedge mask before the derotation and stacking, and contrast curve calculations. An input set of observations consists of a time sequence of ADI images in LM/N band, which have already undergone basic calibration.
+The following recipe is applicable for ADI post processing for the LM and N band, in combination with the APP coronagraph. It is very similar to the recipe for RAVC/CVC(/CLC) coronagraphs, with the addition of steps for merging together the two half PSFs, and of applying an angular wedge mask before the derotation and stacking, and contrast curve calculations steps. An input set of observations consists of a time sequence of ADI images in LM/N band, which have already undergone basic calibration.
 
 For each image, the centroid of the central source is determined for all three PSFs and distortion corrections are performed. The PSFs are aligned at a sub-pixel scale and extracted; the extracted coronagraphic PSFs are merged to produce a complete PSF and the third PSF is used to form a cube of calibrated leakage PSFs.
 The mean/median/sigmaclipped PSF is estimated and subtracted from each frame of the merged coronagraphic PSF. Each image is
@@ -181,7 +181,7 @@ For the IFU observations, the input is a set of reduced 3D (spectral and spatial
 
 For each wavelength slice in each cube the centroid is determined by a QACITS-like algorithm in the case of the focal plane coronagraphs (RAVC/CVC) or through 2D cross-correlation with a template PSF for the APP coronagraph. This centroid information is stored in a table together with timestamps, parallactic angle and bad frame flags (based on AO loop status, AO performance, atmospheric parameters and centroid offset).
 As the ADI step requires square pixels following previous work on combining ADI techniques with IFUs (such as SPHERE/IFS, SINFONI), the rectangular spatial grid is interpolated or nearest neighbor filled to produce a square pixel image.
-It is acknowledged that one spatial dimension is undersampled which may lead to reduced performance.
+It is acknowledged that one spatial dimension is undersampled which may lead to reduced performance compared to a Nyquist-sampled PSF.
 The mean/median/sigmaclipped PSF (in time) is estimated for each wavelength and subtracted from each image in the cube.
 After derotation the cubes are combined in time to give a coadded cube. For the APP a wedge shape is used. The limited field of view of the IFU means that only PSF can be centered on the IFU. The derotated cubes are also used to generate post ADI contrast curves and contrast curves with input from the radial coronagraph throughput profile and off-axis PSFs. In addition coverage maps are produced.
 
@@ -192,12 +192,12 @@ the more detailed Marois et al. 2006 ADI routine, PCA-based routines, as well as
 
 \begin{recipedef}
   Name:                & \REC{metis_ifu_adi_ravc}                                        \\
-  Purpose:             & Classical ADI post processing for APP/CVC/RAVC(/CLC) coronagraphs      \\
+  Purpose:             & Classical ADI post processing for APP/CVC/RAVC(/CLC) coronagraphs with LMS IFU      \\
   Requirements:        & \REQ{METIS-5989}                                               \\
   Type:                & Science                                                    \\
   Templates:           & \TPL{IFU_SCI_Reduced}                            \\
   Input data:          & Time series of IFU\_SCI\_REDUCED images                      \\
-                       & LM distortion table                               \\
+                       & IFU distortion table                               \\
                        & Coronagraphic throughput map and profile                                                  \\
                        & Off-axis PSF references                                                  \\
                        &                                                  \\
@@ -230,6 +230,8 @@ the more detailed Marois et al. 2006 ADI routine, PCA-based routines, as well as
                      & \PROD{IFU_RAVC_SCI_CONTRAST_ADI} (Post ADI Contrast Curves)                                 \\
                      & \PROD{IFU_RAVC_SCI_THROUGHPUT} (ADI Throughput Curves)                               \\
                      & \PROD{IFU_RAVC_SCI_SNR} (ADI SNR Map)                            \\
+                     
+                                      & \PROD{IFU_RAVC_SCI_COVERAGEMAP} (ADI Coverage Map: number of frames)                            \\
 
   Expected accuracies: & \TBD                                                           \\
   QC1 parameters:      & \QC{FWHM of PSF by frame}                                      \\
