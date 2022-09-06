@@ -81,52 +81,52 @@ In general, there are four major steps in each of the two cascades:
   \begin{center}
     \caption[Data Processing table for LM long-slit spectroscopy]{%
       Data Processing table for LM long-slit spectroscopy
-      calibration mode}\bigskip
+      calibration mode; }\bigskip
     \label{Tab:LMLssDatProc}
     \begin{tabular}{|l|l|l|l|l|l|}
       \hline
       Data Type   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
     (Templates) & Keywords	 & Processing steps	&		&	  &	\\
     \hline
-    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \REC{metis_det_dark} & Exposure time	&	\hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}}& Averaged dark frame\\
+    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \hyperref[sssec:metis_det_dark]{\REC{metis_det_dark}} & Exposure time	&	\hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}}& Averaged dark frame\\
     		& \CODE{DPR.TYPE==DARK}  &			&		&	& Bad pixel map\\
     		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
     \hline
-    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_rsrf}\hyperref{rec:lsslmrsrf} & Exposure time	& dark	& Averaged, normalized flatfield\\
-    		& \CODE{DPR.TYPE==FLAT}  &			&		& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}}	& Bad pixel map\\
+    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:lsslmrsrf]{\REC{metis_LM_lss_rsrf}} & Exposure time	& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}}	& Averaged, normalized flatfield\\
+    		& \CODE{DPR.TYPE==FLAT}  &			&		& 	& \\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
-         	& \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_trace}\hyperref{rec:lsslmtrace} & Exposure time	& 	& Order location\\
+         	& \CODE{DPR.CATG==CALIB} &\hyperref[rec:lsslmtrace]{\REC{metis_LM_lss_trace}} & Exposure time	& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}}	& Order location\\
     		& \CODE{DPR.TYPE==FLAT}  &			&		&	& (polynomial fit)\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
-    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} & \REC{metis_LM_lss_wave}\hyperref{rec:lsslmwave} & Object name &  \hyperref[dataitem:lasertab]{\STATCALIB{LASER_TAB}} & wavelength solution\\
-    		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Exposure time & \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}} &\\
+    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} &\hyperref[rec:lsslmwave]{\REC{metis_LM_lss_wave}} & Object name &  \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}} & wavelength solution\\
+    		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Exposure time & \hyperref[dataitem:lasertab]{\STATCALIB{LASER_TAB}} &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
-    \TPL{FLUX,STD} & \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_flux}\hyperref{rec:lsslmflux} & Object name (Flux STD) & \hyperref[dataitem:reffluxcat]{\STATCALIB{REF_FLUX_CAT}} & Instrumental\\
+    \TPL{FLUX,STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:lsslmflux]{\REC{metis_LM_lss_flux}}& Object name (Flux STD) & \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}} & Instrumental\\
     		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}} & response function\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	\hyperref[dataitem:lmsynthtrans]{\STATCALIB{LM_SYNTH_TRANS}}& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \hyperref[dataitem:lmadcslitloss]{\STATCALIB{LM_ADC_SLITLOSS}} & \\
     		& & & & \hyperref[dataitem:aopsfmodel]{\EXTCALIB{AO_PSF_MODEL}} &\\    
-    		& & & & \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}} &\\    \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_sci}\hyperref{rec:lsslmsci} & Object name & \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}  & Science grade spectrum\\
+    		& & & & \hyperref[dataitem:reffluxcat]{\STATCALIB{REF_FLUX_CAT}} &\\    \hline
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:lsslmsci]{\REC{metis_LM_lss_sci}} & Object name &  \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}} & Science grade spectrum\\
     		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \hyperref[dataitem:lmadcslitloss]{\STATCALIB{LM_ADC_SLITLOSS}} &\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}}	& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&		& \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  &  &  & \\
     \hline
-            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_model} & Object name & \hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}}	 & Best-fit \\
+            & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:LMLSSmfmodel]{\REC{metis_LM_lss_mf_model}} & Object name & \hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}}	 & Best-fit \\
     		& \CODE{DPR.TYPE==OBJECT}   &			  & & \hyperref[dataitem:atmprofile]{\EXTCALIB{ATM_PROFILE}}  & \texttt{molecfit} parameters\\
     		& \CODE{DPR.TECH==TBD}  &			&		& \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
-    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
+    		& \CODE{PRO.CATG==TBD}   &  &  & start parameter set & \\
     \hline
-            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_calctrans} & Object name & best-fit parameters	 & synthetic \\
-    		& \CODE{DPR.TYPE==LSS}   &		&	   & \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}  & Transmission curve\\
+            & \CODE{DPR.CATG==SCIENCE} &  \hyperref[rec:LMLSSmfcalctrans]{\REC{metis_LM_lss_mf_calctrans}} & Object name & \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}	 & synthetic \\
+    		& \CODE{DPR.TYPE==LSS}   &		&	   &   & Transmission curve\\
     		& \CODE{DPR.TECH==TBD}  &			&		& 	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
-            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_correct} & Object name & 	 & Absorption corrected\\
+            & \CODE{DPR.CATG==SCIENCE} &  \hyperref[rec:LMLSSmfcorrect]{\REC{metis_LM_lss_mf_correct}} & Object name & 	 & Absorption corrected\\
     		& \CODE{DPR.TYPE==LSS}   &			   & synthetic Transmission curve & & science spectrum\\
     		& \CODE{DPR.TECH==TBD}  &			&		&	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
@@ -140,7 +140,7 @@ In general, there are four major steps in each of the two cascades:
   \includegraphics[width=0.9\textheight]{figures/N_LSS_pipeline_wf_draft_latest_v0.74.png}
   \caption[Reduction cascade and association map for N long-slit
   spectroscopy]{Reduction cascade and association map for long-slit
-    spectroscopy in the N bands.  }
+    spectroscopy in the N bands. }
   \label{Fig:NLssAssomap}
 \end{sidewaysfigure}
 
@@ -157,19 +157,19 @@ In general, there are four major steps in each of the two cascades:
       Data Type   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
     (Templates) & Keywords	 & Processing steps	&		&	  &	\\
     \hline
-    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \REC{metis_det_dark} & Exposure time	& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}}	& Averaged dark frame\\
+    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \hyperref[sssec:metis_det_dark]{\REC{metis_det_dark}} & Exposure time	& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}}	& Averaged dark frame\\
     		& \CODE{DPR.TYPE==DARK}  &			&		&	& Bad pixel map\\
     		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
     \hline
-    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_N_lss_rsrf}\hyperref{rec:lsslmrsrf} & Exposure time	& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}}	& Averaged, normalized flatfield (\ac{RSRF}\\
+    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:lssnrsrf]{\REC{metis_N_lss_rsrf}} & Exposure time	& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}}	& Averaged, normalized flatfield (\ac{RSRF}\\
     		& \CODE{DPR.TYPE==FLAT}  &			&		&	& Bad pixel map\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
-         	& \CODE{DPR.CATG==CALIB} & \REC{metis_N_lss_trace}\hyperref{rec:lsslmtrace} & Exposure time	& 	& Order location\\
+         	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:lssntrace]{\REC{metis_N_lss_trace} }& Exposure time	& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}}	& Order location\\
     		& \CODE{DPR.TYPE==FLAT}  &			&		&	& (polynomial fit)\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
-    \TPL{FLUX,STD} & \CODE{DPR.CATG==CALIB} & \REC{metis_N_lss_flux}\hyperref{rec:lssnflux} & Object name (Flux STD) & \hyperref[dataitem:reffluxcat]{\STATCALIB{REF_FLUX_CAT}} & Instrumental\\
+    \TPL{FLUX,STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:lssnflux]{\REC{metis_N_lss_flux}} & Object name (Flux STD) & \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}} & Instrumental\\
     		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}} & response function\\
     		& \CODE{DPR.TECH==SPECTRUM}   &			   &		& \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \hyperref[dataitem:nsynthtrans]{\STATCALIB{N_SYNTH_TRANS}} & \\
@@ -177,25 +177,25 @@ In general, there are four major steps in each of the two cascades:
     		& & & &  \hyperref[dataitem:reffluxcat]{\STATCALIB{REF_FLUX_CAT}} &\\
     		& & & & \hyperref[dataitem:aopsfmodel]{\EXTCALIB{AO_PSF_MODEL}} &\\
     		& & & & \hyperref[dataitem:nlssdistsol]{\STATCALIB{N_LSS_DIST_SOL}} &\\
-    		& & & & \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}} &\\
+    		& & & & \hyperref[dataitem:reffluxcat]{\STATCALIB{REF_FLUX_CAT}} &\\
     \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_sci}\hyperref{rec:lssnsci} & Object name & \hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}}  & Science grade spectrum\\
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:lssnsci]{\REC{metis_N_lss_sci}} & Object name & \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}}  & Science grade spectrum\\
     		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time &  \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}} &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&\hyperref[dataitem:nadcslitloss]{\STATCALIB{N_ADC_SLITLOSS}}	& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}} & \\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}} & \\
     		& & & & \hyperref[dataitem:nlssdistsol]{\STATCALIB{N_LSS_DIST_SOL}} &\\
     \hline
-            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_model} & Object name & \hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}}	 & Best-fit \\
+            & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:NLSSmfmodel]{\REC{metis_N_lss_mf_model}} & Object name & \hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}}	 & Best-fit \\
     		& \CODE{DPR.TYPE==OBJECT}   &			  & & \hyperref[dataitem:atmprofile]{\EXTCALIB{ATM_PROFILE}}  & \texttt{molecfit} parameters\\
     		& \CODE{DPR.TECH==TBD}  &			&		& \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
-    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
+    		& \CODE{PRO.CATG==TBD}   &  &  & start parameter set & \\
     \hline
-            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_calctrans} & Object name & best-fit parameters	 & synthetic \\
-    		& \CODE{DPR.TYPE==LSS}   &		&	   & \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}} & Transmission curve\\
+            & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:NLSSmfcalctrans]{\REC{metis_N_lss_mf_calctrans}} & Object name & \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}	 & synthetic \\
+    		& \CODE{DPR.TYPE==LSS}   &		&	   &  & Transmission curve\\
     		& \CODE{DPR.TECH==TBD}  &			&		&  	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
-            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_correct} & Object name & 	 & Absorption corrected\\
+            & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:NLSSmfcorrect]{\REC{metis_N_lss_mf_correct}} & Object name & 	 & Absorption corrected\\
     		& \CODE{DPR.TYPE==LSS}   &			   & synthetic Transmission curve & & science spectrum\\
     		& \CODE{DPR.TECH==TBD}  &			&		&	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\

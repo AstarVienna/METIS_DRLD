@@ -11,7 +11,7 @@ dark correction and the spectroscopic flatfielding via \ac{RSRF}, followed by th
 These recipes are described in Section~\ref{Sec:detector_calibration}.
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{Recipe \REC{metis_N_adc_slitloss}}
-The recipe \hyperref[rec:metisnadcmslitloss]{\REC{metis_n_adc_slitloss}} aims to determine the slit losses induced by the fixed \ac{ADC} positions. The recipe aims to create a table with slitlosses (\hyperref[dataitem:nadcslitloss]{\STATCALIB{N_ADC_SLITLOSS}}), which is added to the static database and used in the recipes \hyperref[rec:lssnflux]{\REC{metis_N_lss_flux}}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slitlosses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit losses" in the Calibration Plan \cite{METIS-calibration_plan}. 
+The recipe \hyperref[rec:metisnadcmslitloss]{\REC{metis_n_adc_slitloss}} aims to determine the slit losses induced by the fixed \ac{ADC} positions as function of the object position across the slit. The recipe aims to create a table with slitlosses (\hyperref[dataitem:nadcslitloss]{\STATCALIB{N_ADC_SLITLOSS}}), which is added to the static database and used in the recipes \hyperref[rec:lssnflux]{\REC{metis_N_lss_flux}}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slitlosses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit losses" in the Calibration Plan \cite{METIS-calibration_plan}. 
 
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{N-LSS Flatfielding recipe \REC{metis_N_lss_rsrf}:}\label{rec:lssnrsrf}
@@ -25,7 +25,7 @@ The recipe \REC{metis_N_lss_rsrf} aims to create a spectroscopic master flatfiel
 \end{figure}
 
 \begin{recipedef}
-Name:		& \REC{metis_N_lss_rsrf} \\
+Name:		& \hyperref[rec:lssnrsrf]{\REC{metis_N_lss_rsrf}} \\
 Purpose:	& Spectroscopic flatfielding with \ac{RSRF} \\
 Type:		& Calibration\\
 Requirements: & None \\
@@ -55,7 +55,7 @@ QC1 parameters: & \hyperref[qc:nlssrsrfmeanlevel]{\QC{QC N LSS RSRF MEAN LEVEL}}
 
 \clearpage
 \subsubsection{N-LSS Order detection \REC{metis_N_lss_trace}:}\label{rec:lssntrace}
-The recipe \REC{metis_N_lss_trace} aims at detecting the orders and a polynomial fitting of the order locations (see \cite{pis02} and \cite{pis21} for details on the algorithms).
+The recipe \REC{metis_N_lss_trace} aims at detecting the orders and a polynomial fitting of the order locations (see \cite{pis02} and \cite{pis21} for details on the algorithms). The detection and polynomial fitting is based on flatfield frames taken through a pinhole mask, which leads to individual pinhole traces along the entire dispersion direction.
 
 \begin{figure}[ht]
   \centering
@@ -194,7 +194,7 @@ Input data: 	& \hyperref[dataitem:nlsssciraw]{\RAW{N_LSS_SCI_RAW}}\\
                 & \hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}}\\
                 & \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}} \\
                 & \hyperref[dataitem:aopsfmodel]{\EXTCALIB{AO_PSF_MODEL}} \\
-                & \hyperref[dataitem:lssnresp]{\PROD{MASTER_N_RESPONSE}} \\
+                & \hyperref[dataitem:nadcslitloss]{\STATCALIB{N_ADC_SLITLOSS}}\\                & \hyperref[dataitem:lssnresp]{\PROD{MASTER_N_RESPONSE}} \\
 Parameters: 	& (TBD)\\
 Algorithm:      & Application of the detector master calib files\\
                 & wavelength calibration \\
