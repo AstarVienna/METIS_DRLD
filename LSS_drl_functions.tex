@@ -5,10 +5,13 @@
 \begin{recipedef}
 Name: & \hyperref[drl:correctinterorder]{\DRL{correct\_interorder\_bg}} \\
 Purpose: & Removal of interorder light (e.g. stray light)\\
-Used in recipes: & \hyperref[rec:metisspecflat]{\REC{metis\_LM\_lss\_flat}} \newline
-\hyperref[rec:lsslmwave]{\REC{metis\_LM\_lss\_wave}} \newline
-\hyperref[rec:metisspecflux]{\REC{metis\_LM\_lss\_flux}} \newline
-\hyperref[rec:metisspecsci]{\REC{metis\_LM\_lss\_sci}}\\
+Used in recipes: & \hyperref[rec:lsslmrsrf]{\REC{metis\_LM\_lss\_rsrf}} \newline
+                  \hyperref[rec:lssnrsrf]{\REC{metis\_N\_lss\_rsrf}} \newline
+                  \hyperref[rec:lsslmwave]{\REC{metis\_LM\_lss\_wave}} \newline
+                  \hyperref[rec:lsslmflux]{\REC{metis\_LM\_lss\_flux}} \newline
+                  \hyperref[rec:lssnflux]{\REC{metis\_N\_lss\_flux}} \newline
+                  \hyperref[rec:lsslmsci]{\REC{metis\_LM\_lss\_sci}}\newline
+                  \hyperref[rec:lssnsci]{\REC{metis\_N\_lss\_sci}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
@@ -25,7 +28,7 @@ Unit tests: & See \cite{DRLVT}. \\
 
 %---------------------------------------------------------------------
 \subsubsection{Slit curvature detection}\label{drl:slitcurvature}
-\begin{recipedef}\label{drl:slitcurvature}
+\begin{recipedef}\label{rec:slitcurvature}
 Name: & \hyperref[drl:slitcurvature]{\DRL{slit\_curvature}} \\
 Purpose: & Determines the slit curvature along the orders \\
 Used in recipes: & \hyperref[rec:lsslmwave]{\REC{metis\_LM\_lss\_wave}} \\
@@ -44,11 +47,27 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Create normalised flats}\label{drl:normflat}
+\subsubsection{Subtract WCU OFF frame from frame}\label{drl:subtrwcuoffillum}
+Used in recipes:\\ 
+\hyperref[rec:lsslmrsrf]{\REC{metis\_LM\_lss\_rsrf}} \newline
+\hyperref[rec:lssnrsrf]{\REC{metis\_N\_lss\_rsrf}} \newline
+\hyperref[rec:metislmadcmslitloss]{\REC{metis_lm_adc_slitloss}} \newline
+\hyperref[rec:metisnadcmslitloss]{\REC{metis_n_adc_slitloss}} \newline
+%\hyperref[rec:]{\REC{}} \newline
+TBD
+%---------------------------------------------------------------------
+\subsubsection{Calculate blackbody spectrum}\label{drl:calcbb}
+Used in recipes:\\ 
+\hyperref[rec:lsslmrsrf]{\REC{metis\_LM\_lss\_rsrf}} \newline
+\hyperref[rec:lssnrsrf]{\REC{metis\_N\_lss\_rsrf}} \newline
+TBD
+%---------------------------------------------------------------------
+\subsubsection{Normalise RSRF}\label{drl:normrsrf}
 \begin{recipedef}\label{drl:normflat}
 Name: & \hyperref[drl:normflat]{\DRL{norm\_flat}} \\
-Purpose: & Creates normalised flats from \hyperref[dataitem:mastersflat]{\PROD{MASTER\_SFLAT\_IMG}} \\
-Used in recipes: & \hyperref[rec:lsslmwave]{\REC{metis\_LM\_lss\_wave}} \\
+Purpose: & Creates normalised flats from \hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_LSS_RSRF\_RAW}} / \hyperref[dataitem:nlssrsrfraw]{\PROD{N\_LSS_RSRF\_RAW}}\\
+Used in recipes: & \hyperref[rec:lsslmrsrf]{\REC{metis\_LM\_lss\_rsrf}} \\
+& \hyperref[rec:lssnrsrf]{\REC{metis\_N\_lss\_rsrf}} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -56,8 +75,46 @@ Input: & \texttt{const hdrl\_image * input} \\
 %QC outputs: & None \\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
-General description: & Creates normalised master flat and determines blaze function \\
+General description: & Creates normalised \ac{RSRF} \\
 Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
+
+%---------------------------------------------------------------------
+\subsubsection{Detect order traces}\label{drl:tracedetect}
+Used in recipes:\\ 
+\hyperref[rec:lsslmtrace]{\REC{metis\_LM\_lss\_trace}} \newline
+\hyperref[rec:lssntrace]{\REC{metis\_N\_lss\_trace}} \newline
+TBD
+
+
+
+%---------------------------------------------------------------------
+\subsubsection{Apply RSRF}\label{drl:applyrsrf}
+\begin{recipedef}
+Name: & \hyperref[drl:applyrsrf]{\DRL{apply\_rsrf}}\\
+Purpose: & applies \hyperref[dataitem:lsslmrsrfmaster]{\PROD{MASTER\_LM\_LSS\_RSRF}} to LM-frames\newline
+           applies \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER\_N\_LSS\_RSRF}} to N-frames\\
+Used in recipes: & \hyperref[rec:lsslmtrace]{\REC{metis\_LM\_lss\_trace}} \newline
+                 \hyperref[rec:lssntrace]{\REC{metis\_N\_lss\_trace}} \newline
+                 \hyperref[rec:lsslmwave]{\REC{metis\_LM\_lss\_wave}} \newline
+                 \hyperref[rec:lsslmflux]{\REC{metis\_LM\_lss\_flux}} \newline
+                 \hyperref[rec:lssnflux]{\REC{metis\_N\_lss\_flux}} \newline
+                 \hyperref[rec:lsslmsci]{\REC{metis\_LM\_lss\_sci}} \newline
+                 \hyperref[rec:lssnsci]{\REC{metis\_N\_lss\_sci}} \newline 
+                 \hyperref[rec:metislmadcmslitloss]{\REC{metis_lm_adc_slitloss}} \newline
+                \hyperref[rec:metisnadcmslitloss]{\REC{metis_n_adc_slitloss}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+%Input FITS files: & None \\
+Inputs: & \texttt{const hdrl\_image * input}\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Normal flatfield process for correcting pixel-to-pixel sensitivities \\
+Mathematical description: & Division by \hyperref[dataitem:lsslmrsrfmaster]{\PROD{MASTER\_LM\_LSS\_RSRF}} or  \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER\_N\_LSS\_RSRF}}, respectively \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
@@ -84,14 +141,24 @@ Unit tests: & See \cite{DRLVT}. \\
 %\end{recipedef}
 
 %---------------------------------------------------------------------
+\subsubsection{Detect line peak}\label{drl:linedetect}
+Used in recipes:\\ 
+\hyperref[rec:lsslmwave]{\REC{metis\_LM\_lss\_wave}} \newline
+\hyperref[rec:lsslmflux]{\REC{metis\_LM\_lss\_flux}} \newline
+\hyperref[rec:lssnflux]{\REC{metis\_N\_lss\_flux}} \newline
+\hyperref[rec:lsslmsci]{\REC{metis\_LM\_lss\_sci}} \newline
+\hyperref[rec:lssnsci]{\REC{metis\_N\_lss\_sci}} \newline
+TBD
+
+
+
+%---------------------------------------------------------------------
 \subsubsection{Determine response}\label{drl:determineresponse}
 \begin{recipedef}
 Name: & \hyperref[drl:determineresponse]{\DRL{determine\_response}}\\
 Purpose: & Determination of the spectral response function\\
-Used in recipes: & \hyperref[rec:metisspecflat]{\REC{metis\_LM\_lss\_flat}} \newline
-\hyperref[rec:metisspecflat]{\REC{metis\_LM\_lss\_flat}}\newline
-\hyperref[rec:metisspecflux]{\REC{metis\_LM\_lss\_flux}} \newline
-\hyperref[rec:metisspecsci]{\REC{metis\_LM\_lss\_sci}} \\
+Used in recipes: &  \hyperref[rec:lsslmflux]{\REC{metis\_LM\_lss\_flux}} \newline
+                 \hyperref[rec:lssnflux]{\REC{metis\_N\_lss\_flux}} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_LM\_lsstrum1d * input} \\
@@ -111,8 +178,10 @@ Unit tests: & See \cite{DRLVT}. \\
 \begin{recipedef}
 Name: & \hyperref[drl:extractobject]{\DRL{extract\_object}}\\
 Purpose: & Extract object spectrum from 2D-spectrum\\
-Used in recipes: & \hyperref[rec:metisspecflux]{\REC{metis\_LM\_lss\_flux}} \newline
-\hyperref[rec:metisspecsci]{\REC{metis\_LM\_lss\_sci}} \\
+Used in recipes: & \hyperref[rec:lsslmflux]{\REC{metis\_LM\_lss\_flux}} \newline
+                 \hyperref[rec:lssnflux]{\REC{metis\_N\_lss\_flux}} \newline
+                 \hyperref[rec:lsslmsci]{\REC{metis\_LM\_lss\_sci}} \newline
+                 \hyperref[rec:lssnsci]{\REC{metis\_N\_lss\_sci}} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input\newline const hdrl\_image * background\newline hdrl\_image * output}  \\
@@ -127,33 +196,14 @@ Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
-%---------------------------------------------------------------------
-\subsubsection{Apply flatfield}\label{drl:applyflat}
-\begin{recipedef}
-Name: & \hyperref[drl:applyflat]{\DRL{apply\_flat}}\\
-Purpose: & applies \hyperref[dataitem:mastersflat]{\PROD{MASTER\_SFLAT\_IMG}} to frames\\
-Used in recipes: & \hyperref[rec:metisspecflux]{\REC{metis\_LM\_lss\_flux}} \newline
-\hyperref[rec:metisspecsci]{\REC{metis\_LM\_lss\_sci}} \\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-%Input FITS files: & None \\
-Inputs: & \texttt{const hdrl\_image * input}\\
-%QC outputs: & None \\
-%Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
-General description: & Normal flatfield process for correcting pixel-to-pixel sensitivities \\
-Mathematical description: & Division by \hyperref[dataitem:mastersflat]{\PROD{MASTER\_SFLAT\_IMG}} \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
-\end{recipedef}
 
 %---------------------------------------------------------------------
 \subsubsection{Apply flux calibration}\label{drl:applyfluxcal}
 \begin{recipedef}
 Name: & \hyperref[drl:applyfluxcal]{\DRL{apply\_fluxcal}}\\
-Purpose: & applies \hyperref[dataitem:responsespec]{\PROD{RESPONSE\_LM\_lss}} to science frames\\
-Used in recipes: & \hyperref[recipe:metisspecsci]{\REC{metis\_LM\_lss\_sci}} \\
+Purpose: & applies \hyperref[dataitem:lsslmresp]{\PROD{MASTER\_LM\_RESPONSE}} or \hyperref[dataitem:lssnresp]{\PROD{MASTER\_N\_RESPONSE}} to science frames\\
+Used in recipes: & \hyperref[rec:lsslmsci]{\REC{metis\_LM\_lss\_sci}} \newline
+                 \hyperref[rec:lssnsci]{\REC{metis\_N\_lss\_sci}} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\
@@ -167,3 +217,5 @@ Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
+
+

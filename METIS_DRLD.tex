@@ -87,7 +87,7 @@
 \usepackage{placeins}
 \usepackage{enumitem}
 \usepackage{acronym}
-
+\usepackage[dvipsnames]{xcolor}
 \usepackage{xcolor}
 \usepackage{colortbl}
 \definecolor{listingbg}{gray}{0.95}
@@ -150,6 +150,25 @@
 \definecolor{darkred}  {rgb}{0.7, 0.0, 0.0}
 \definecolor{darkorange}{rgb}{1.0, 0.49, 0.0}
 \definecolor{violett}{rgb}{255, 0, 255}
+\definecolor{turq}{rgb}{0.0, 0.7, 0.8}
+\definecolor{fits}{rgb}{0.4, 0.1, 1}
+
+
+%% Write a raw FITS file like this: \RAW{LM_SCI_RAW}
+\makeatletter
+\lstdefinestyle{RAWstyle}{%
+  basicstyle=\ttfamily\color{fits}%
+  \lst@ifdisplaystyle\scriptsize\fi}
+\makeatother
+\newcommand{\RAW}[1]{\lstinline[style=RAWstyle]!#1!}
+
+%% Write parameters like this: \PAR{DARK_LM}
+\makeatletter
+\lstdefinestyle{PARstyle}{%
+  basicstyle=\ttfamily\color{cyan}%
+  \lst@ifdisplaystyle\scriptsize\fi}
+\makeatother
+\newcommand{\PAR}[1]{\lstinline[style=PARstyle]!#1!}
 
 %% Write DRL functions names like this: \DRL{function}
 \makeatletter
@@ -165,7 +184,8 @@
   basicstyle=\ttfamily\color{darkgreen}%
   \lst@ifdisplaystyle\scriptsize\fi}
 \makeatother
-\newcommand{\REC}[1]{\lstinline[style=RECstyle]!#1!}
+\newcommand{\REC}[1]{ \texorpdfstring{\lstinline[style=RECstyle]!#1!}%
+                   {-{}-enable-so-version}}
 
 %% Write QC parameters like this: \QC{QC_SOMETHING_OR_OTHER}
 \makeatletter
@@ -197,7 +217,7 @@
 %% external calib files
 \makeatletter
 \lstdefinestyle{EXTCALIBstyle}{%
-  basicstyle=\ttfamily\color{cyan}%
+  basicstyle=\ttfamily\color{Turquoise}%
   \lst@ifdisplaystyle\scriptsize\fi}
 \makeatother
 \newcommand{\EXTCALIB}[1]{\lstinline[style=EXTCALIBstyle]!#1!}
@@ -225,6 +245,16 @@
       {% end code
     \end{longtable}%
   \end{tcolorbox}}
+
+%% Use environment datastructdef to define the data structure of a data item (see e.g. LSS_data_structures.tex)
+\newenvironment{datastructdef}
+{% begin code
+  \begin{tcolorbox}[breakable,enhanced jigsaw]%
+    \begin{longtable}{p{\hsize}}}
+      {% end code
+    \end{longtable}%
+  \end{tcolorbox}}
+
 
 %%%%% This is a definition that has the flow diagram within the box:
 %% \newcommand{\theimage}{}  % dummy definition

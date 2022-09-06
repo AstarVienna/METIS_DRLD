@@ -1,8 +1,38 @@
 \clearpage
-\section{DRL Data Structures}\label{sec:drl_data_structures}
+\section{DRL Data Items and Structures}\label{sec:drl_data_structures}
+\Large\textbf{\textcolor{red}{CAVEAT: Section widely TAKEN 1:1 FROM MICADO - TO BE Checked!}}\normalsize
 
-\input{LMS_data_structures}
 
-\input{IMG_data_structures}
+This Section describes the C Data Items and Data Structures that represent inside the C code the FITS input and output files of the recipes. \ac{METIS} follows the approach by MATISSE~\cite{MATISSE-DRLD}, as suggested by the Dataflow for ESO Observatories Deliverables Standard~\cite{1618}.
+The conversion between data structures and \ac{FITS} files and vice versa will be implemented using the abstractions provided by \ac{CPL} and \ac{HDRL}. 
 
-\input{LSS_data_structures}
+Clarification of the terms used (see also \cite{hdrl-manual}):
+\begin{itemize}
+    \item \texttt{cpl\_propertylist}: Key-value pairs like \ac{FITS} headers.
+    \item \texttt{cpl\_image}: Representation of an image using two arrays of pixels: data, and bad pixels.
+    \item \texttt{cpl\_imagelist}: List of \texttt{cpl\_image}s.
+    \item \texttt{cpl\_table}: Tabular data like a catalog.
+    \item \texttt{hdrl\_image}: Higher level image, with three pixel arrays per image: data, uncertainty, and data quality.
+          The \texttt{hdrl\_image} will be used as primary structures to contain image data, because the three pixel arrays map very well to the imaging file formats.
+    \item \texttt{hdrl\_imagelist}: List of \texttt{hdrl\_image}s.
+    \item \texttt{*}: Pointer to a single instance of a type.
+    \item \texttt{**}: Pointer to a list of instances of a type (actually, a pointer to a list of pointers each pointing to a single instance).
+\end{itemize}
+
+E.g.
+\begin{itemize}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords}: a pointer to the \texttt{cpl\_propertylist} that holds the \ac{FITS} headers of the primary extension,
+    \item \texttt{cpl\_propertylist ** extkeywords: Extension keywords}: a pointer to a list of pointers to \texttt{cpl\_propertylist} instances that hold the \ac{FITS} headers for each extension,
+    \item \texttt{hdrl\_image * image: Image}: a pointer to a \texttt{hdrl\_image} instance holding the one image (for the central detector, or spanning all detectors) of this structure,
+    \item \texttt{hdrl\_imagelist * images: Images}: a pointer to a \texttt{hdrl\_imagelist} instance holding all the images (one for each detector) of this structure.
+\end{itemize}
+
+There are \ac{DRL} functions for creating, deleting, saving and loading data for each \ac{DRL} data structure when applicable (Sections~\ref{sec:drl_functions_lms}, \ref{sec:drl_functions_img}, and \ref{sec:drl_functions_lss}).
+
+\input{CalDB_data_items}
+
+\input{LMS_data_items}
+
+\input{IMG_data_items}
+
+\input{LSS_data_items}

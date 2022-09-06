@@ -1,3 +1,727 @@
 % This section contains a description of the format of all FITS keywords
 \section{FITS keywords}
 \label{app:fits_keywords}
+
+\Large\textbf{\textcolor{red}{CAVEAT: Section~\ref{sec:essentialimagingheaders} TAKEN 1:1 FROM MICADO - TO BE ADAPTED!!!11111}}\normalsize
+
+
+%\todo[inline]{DONE-HB-210317: limit documentation to FITS keywords needed in processing of imaging and spectroscopic data. See \url{https://gitlab.astro-wise.org/micado/datareductionlibrarydesigndrs/-/issues/50}}
+
+The subsection~\ref{sec:allheaderkeywords} provides a listing of header keywords used in the FITS files of MICADO data items, both raw and processed, for which the values are used as parameters in the processing.
+%The subsection~\ref{sec:headerkeywordsperdataitemimagingmode} lists per data item the header keywords that shall be in the header of the FITS file for data which is based on observations taken in the imaging observing modes.
+
+\subsection{List of FITS header keywords used in imaging and spectroscopy recipes}
+\label{sec:essentialimagingheaders}
+
+
+All FITS files with raw exposures will have the same set of header keywords.
+The following header keywords are mandatory for the data processing to function:
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+        \item \hyperref[fits:cdeltn]{\FITS{CDELTn}}
+    \item \hyperref[fits:crpixn]{\FITS{CRPIXn}}
+    \item \hyperref[fits:crvaln]{\FITS{CRVALn}}
+    \item \hyperref[fits:ctypen]{\FITS{CTYPEn}}
+    \item \hyperref[fits:cunitn]{\FITS{CUNITn}}
+    \item \hyperref[fits:det.dit]{\FITS{DET.DIT}}
+    \item \hyperref[fits:det.readout]{\FITS{DET.READOUT}}
+    \item \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}
+    \item \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}
+    \item \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}
+    \item \hyperref[fits:exptime]{\FITS{EXPTIME}}
+    \item \hyperref[fits:ins.filt.name]{\FITS{INS.FILTi.NAME}}
+    \item \hyperref[fits:instrume]{\FITS{INSTRUME}}
+    \item \hyperref[fits:mjd-obs]{\FITS{MJD-OBS}}
+    \item \hyperref[fits:obs.tplno]{\FITS{OBS.TPLNO}}
+    \item \hyperref[fits:ocs.pxscale]{\FITS{OCS.PXSCALE}}
+    \item \hyperref[fits:tpl.expno]{\FITS{TPL.EXPNO}}
+    \item \hyperref[fits:tpl.start]{\FITS{TPL.START}}
+
+\end{itemize}
+
+%\subsection{FITS header keywords used in spectroscopic recipes}
+%\label{sec:FitsKeywordsSpectroscopy}
+
+
+
+\subsection{Specification of FITS header keywords used in imaging and spectroscopy recipes}{}\label{sec:allheaderkeywords}
+
+\subsubsection{DET\textit{n}.DIT}\label{fits:det.dit}
+\begin{recipedef}
+Name & DET\textit{n}.DIT \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & s \tabularnewline
+Comment & \textit{n}=1: LM IMG/LSS detector (Hawaii2RG)  \tabularnewline
+        & \textit{n}=2: N IMG/LSS detector (Geosnap)  \tabularnewline
+        & \textit{n}=3: IFU detectors \tabularnewline
+Default & 1.0 \tabularnewline
+Range & 0.0..3600.0 \tabularnewline
+Description & Detector integration time (average when NDIT $>$ 1) \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{DET\textit{n}.NDIT}\label{fits:det.ndit}
+\begin{recipedef}
+Name & DET\textit{n} NDIT \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & integer \tabularnewline
+Value & \%i \tabularnewline
+Unit & None \tabularnewline
+Comment & \textit{n}=1: LM IMG/LSS detector (Hawaii2RG)  \tabularnewline
+        & \textit{n}=2: N IMG/LSS detector (Geosnap)  \tabularnewline
+        & \textit{n}=3: IFU detectors \tabularnewline
+Default & 1 \tabularnewline
+Range & 1..10 \tabularnewline
+Description & Number of detector integrations \tabularnewline
+\end{recipedef}
+
+\subsubsection{DPR.CATG}\label{fits:dpr.catg}
+\begin{recipedef}
+Name & DPR CATG \tabularnewline
+Class & header|template \tabularnewline
+Context & Template \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Set by \ac{ICS}\tabularnewline
+Default & None \tabularnewline
+Range & CALIB SCIENCE TEST \tabularnewline
+Description & Raw data  product category \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{DPR.TECH}\label{fits:dpr.tech}
+\begin{recipedef}
+Name & DPR TECH \tabularnewline
+Class & header|template \tabularnewline
+Context & Template \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Set by \ac{ICS} \tabularnewline
+Default & None \tabularnewline
+Range & Depending on the observing mode \tabularnewline
+Description & Raw data product technique \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{DPR.TYPE}\label{fits:dpr.type}
+\begin{recipedef}
+Name & DPR TYPE \tabularnewline
+Class & header|template \tabularnewline
+Context & Template \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Set by \ac{ICS} \tabularnewline
+Default & None \tabularnewline
+Range & Depending on the observing mode \tabularnewline
+Description & Raw data  product type \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{EXPTIME}\label{fits:exptime}
+\begin{recipedef}
+Name & EXPTIME \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & s \tabularnewline
+Comment & Integration time \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & The integration time for a single observation (in the infrared this corresponds to DIT. Note that this does not represent the photon statistics). \tabularnewline
+\end{recipedef}
+
+\subsubsection{INS.OPTI3.NAME}\label{fits:ins.opti3.name}
+\begin{recipedef}
+Name & INS OPTI3 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Name of the LSS slit \tabularnewline
+Default & None \tabularnewline
+Range & A\_19 B\_29 C\_38 D\_57 E\_114 \tabularnewline
+Description & LSS slit name \tabularnewline
+\end{recipedef}
+
+\subsubsection{INS.OPTI9.NAME}\label{fits:ins.opti9.name}
+\begin{recipedef}
+Name & INS OPTI9 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & LM-LSS Mask/Grism name \tabularnewline
+Default & None \tabularnewline
+Range & open GRISM-L GRISM-M  \tabularnewline
+Description & LM-LSS Mask/Grism name \tabularnewline
+\end{recipedef}
+
+\subsubsection{INS.OPTI10.NAME}\label{fits:ins.opti10.name}
+\begin{recipedef}
+Name & INS OPTI10 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & LM-LSS Filter name \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & LM-LSS Filter name \tabularnewline
+\end{recipedef}
+
+\subsubsection{INS.OPTI11.NAME}\label{fits:ins.opti11.name}
+\begin{recipedef}
+Name & INS OPTI11 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Name of the neutral density filter \tabularnewline
+Default & None \tabularnewline
+Range & OPEN ND1 ND2 ND3 ND4 ND5 \tabularnewline
+Description & ND Filter name \tabularnewline
+\end{recipedef}
+
+\subsubsection{INS.OPTI12.NAME}\label{fits:ins.opti12.name}
+\begin{recipedef}
+Name & INS OPTI12 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & N-LSS Mask/Grism name \tabularnewline
+Default & None \tabularnewline
+Range & open GRISM-N  \tabularnewline
+Description & N-LSS Mask/Grism name \tabularnewline
+\end{recipedef}
+
+\subsubsection{INS.OPTI13.NAME}\label{fits:ins.opti13.name}
+\begin{recipedef}
+Name & INS OPTI13 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & N-LSS Filter name \tabularnewline
+Default & None \tabularnewline
+Range & full\_N \tabularnewline
+Description & N-LSS Filter name \tabularnewline
+\end{recipedef}
+
+\subsubsection{INS.OPTI14.NAME}\label{fits:ins.opti14.name}
+\begin{recipedef}
+Name & INS OPTI14 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & ND Filter name \tabularnewline
+Default & None \tabularnewline
+Range & OPEN ND1 ND2 ND3 ND4 \tabularnewline
+Description & ND Filter name \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{INS.OPTI20.NAME}\label{fits:ins.opti20.name}
+\begin{recipedef}
+Name & INS OPTI20 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Pinhole mask inserted? \tabularnewline
+Default & None \tabularnewline
+Range & LM-pinhole \tabularnewline
+Description & WCU FP2.1 mask wheel \tabularnewline
+\end{recipedef}
+
+\subsubsection{PRO.CATG}\label{fits:pro.catg}
+\begin{recipedef}
+Name & PRO CATG \tabularnewline
+Class & header \tabularnewline
+Context & Pipeline \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Set by recipes \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Processed data product category \tabularnewline
+\end{recipedef}
+
+\Large\textbf{\textcolor{red}{CAVEAT: Part below TAKEN 1:1 FROM MICADO - USED AS TEMPLATES TO COPY TO UPPER PART AFTER ADAPTION TO METIS!}}\normalsize
+
+\subsubsection{DET.READOUT}\label{fits:det.readout}
+\begin{recipedef}
+Name & DET READOUT \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Readout mode of the detector \tabularnewline
+Default & CDS \tabularnewline
+Range & CDS TLI RRR \tabularnewline
+Description & Readout mode of the detector \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{CDELTn}\label{fits:cdeltn}
+\begin{recipedef}
+Name & CDELTn \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & double \tabularnewline
+Value & \%.8f \tabularnewline
+Unit &  \tabularnewline
+Comment & Increment in <axis direction> \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Increment of coordinate specified by CTYPEn for each pixel step at CRPIXn. Possible values for <axis direction> are: rows (1), columns (2), frame(3) For RA and DEC the unit is degree. In this case, the comment field includes the value expressed in seconds of arc. In the proposed WCS system it should be replaced by CDn\_m \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{CDn\_ms}\label{fits:cdnms}
+\begin{recipedef}
+Name & CDn\_ms \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & double \tabularnewline
+Value & \%f \tabularnewline
+Unit &  \tabularnewline
+Comment & Coordinate translation matrix element \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Gives the translation from array axis n to coordinate axis m. For images the comment should read SS.ss arcsec per pixel \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{CRPIXn}\label{fits:crpixn}
+\begin{recipedef}
+Name & CRPIXn \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & double \tabularnewline
+Value & \%.1f \tabularnewline
+Unit &  \tabularnewline
+Comment & Ref pixel in <axis direction> \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Pixel position of the reference point in axis n. Possible values for <axis direction> are: rows (1), columns (2), frame (3) By convention the center of the pixel is pix.0, pix.5 gives the right edge of the pixel. Reference pixel is also used to identify the pointing centre (with respect to the WCS transformation, i.e. the optical axis). \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{CRVALn}\label{fits:crvaln}
+\begin{recipedef}
+Name & CRVALn \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & double \tabularnewline
+Value & \%.5f \tabularnewline
+Unit &  \tabularnewline
+Comment & Coordinate at reference pixel in <axis direction> \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Coordinate value as specified by CTYPEn at reference pixel CRPIXn. Possible values for <axis direction> are: rows (1), columns (2), frame (3) If world coordinates are used (i.e. CTYPEn is either RA---TAN and DEC--TAN), the comment field includes the value expressed in hours, minutes and seconds (RA) or degrees, minutes, and seconds (DEC). The unit has to be degrees, if RA and DEC are used as world coordinates. \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{CTYPEn}\label{fits:ctypen}
+\begin{recipedef}
+Name & CTYPEn \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & string \tabularnewline
+Value & \%s \tabularnewline
+Unit &  \tabularnewline
+Comment & Coordinate system of <axis direction> \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Name of the coordinate represented by axis n. Possible values for <axis direction> are: rows (1), columns (2), frame (3) Examples for values are "PIXEL", "RA---TAN", "DEC--TAN" \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{CUNITn}\label{fits:cunitn}
+\begin{recipedef}
+Name & CUNITn \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & string \tabularnewline
+Value & \%s \tabularnewline
+Unit &  \tabularnewline
+Comment & Unit of coordinate translation \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Unit of the coordinate in n axis n \tabularnewline
+\end{recipedef}
+
+
+
+
+\subsubsection{EXTINCT}\label{fits:extinct}
+\begin{recipedef}
+Name & EXTINCT \tabularnewline
+Class & header \tabularnewline
+Context & PRO \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & mag \tabularnewline
+Comment & Extinction of the observation \tabularnewline
+Default & 0.0 \tabularnewline
+Range & None \tabularnewline
+Description & Extinction of the observation \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{GAIN}\label{fits:gain}
+\begin{recipedef}
+Name & GAIN \tabularnewline
+Class & header \tabularnewline
+Context & Detector \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & e/adu \tabularnewline
+Comment & Gain of the detector \tabularnewline
+Default & 1.0 \tabularnewline
+Range & None \tabularnewline
+Description & Gain of the detector \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{ICCOEFi}\label{fits:iccoefi}\label{fits:iccoef0}\label{fits:iccoef1}\label{fits:iccoef2}\label{fits:iccoef3}\label{fits:iccoef4}\label{fits:iccoef5}\label{fits:iccoef6}\label{fits:iccoef7}\label{fits:iccoef8}\label{fits:iccoef9}\label{fits:iccoef00}\label{fits:iccoef01}\label{fits:iccoef02}\label{fits:iccoef03}\label{fits:iccoef04}\label{fits:iccoef05}\label{fits:iccoef06}\label{fits:iccoef07}\label{fits:iccoef08}\label{fits:iccoef09}\label{fits:iccoef10}\label{fits:iccoef11}\label{fits:iccoef12}\label{fits:iccoef13}\label{fits:iccoef14}\label{fits:iccoef15}\label{fits:iccoef16}\label{fits:iccoef17}\label{fits:iccoef18}\label{fits:iccoef19}\label{fits:iccoef20}\label{fits:iccoef21}\label{fits:iccoef22}\label{fits:iccoef23}\label{fits:iccoef24}\label{fits:iccoef25}\label{fits:iccoef26}\label{fits:iccoef27}\label{fits:iccoef28}\label{fits:iccoef29}\label{fits:iccoef30}\label{fits:iccoef31}\label{fits:iccoef32}\label{fits:iccoef33}\label{fits:iccoef34}\label{fits:iccoef35}\label{fits:iccoef36}\label{fits:iccoef37}\label{fits:iccoef38}\label{fits:iccoef39}\label{fits:iccoef40}\label{fits:iccoef41}\label{fits:iccoef42}\label{fits:iccoef43}\label{fits:iccoef44}\label{fits:iccoef45}\label{fits:iccoef46}\label{fits:iccoef47}\label{fits:iccoef48}\label{fits:iccoef49}\label{fits:iccoef50}\label{fits:iccoef51}\label{fits:iccoef52}\label{fits:iccoef53}\label{fits:iccoef54}\label{fits:iccoef55}\label{fits:iccoef56}\label{fits:iccoef57}\label{fits:iccoef58}\label{fits:iccoef59}\label{fits:iccoef60}\label{fits:iccoef61}\label{fits:iccoef62}\label{fits:iccoef63}\label{fits:iccoef64}\label{fits:iccoef65}\label{fits:iccoef66}\label{fits:iccoef67}\label{fits:iccoef68}\label{fits:iccoef69}\label{fits:iccoef70}\label{fits:iccoef71}\label{fits:iccoef72}\label{fits:iccoef73}\label{fits:iccoef74}\label{fits:iccoef75}\label{fits:iccoef76}\label{fits:iccoef77}\label{fits:iccoef78}\label{fits:iccoef79}\label{fits:iccoef80}\label{fits:iccoef81}\label{fits:iccoef82}\label{fits:iccoef83}\label{fits:iccoef84}\label{fits:iccoef85}\label{fits:iccoef86}\label{fits:iccoef87}\label{fits:iccoef88}\label{fits:iccoef89}\label{fits:iccoef90}\label{fits:iccoef91}\label{fits:iccoef92}\label{fits:iccoef93}\label{fits:iccoef94}\label{fits:iccoef95}\label{fits:iccoef96}\label{fits:iccoef97}\label{fits:iccoef98}\label{fits:iccoef99}\label{fits:iccoef}
+\begin{recipedef}
+Name & ICCOEFi \tabularnewline
+Class & header \tabularnewline
+Context & PRO \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & None \tabularnewline
+Comment & Illumination Correction Coefficient \tabularnewline
+Default & 0.0 \tabularnewline
+Range & None \tabularnewline
+Description & Illumination Correction Coefficient \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{INS.DROT}\label{fits:ins.drot}
+\begin{recipedef}
+Name & INS DROT \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & degree \tabularnewline
+Comment & Derotator angle \tabularnewline
+Default & 0.0 \tabularnewline
+Range & None \tabularnewline
+Description & Derotator angle \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{INS.FILT.NAME}\label{fits:ins.filt.name}
+\begin{recipedef}
+Name & INS FILT NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Filter name \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Filter name \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{INS.FILTi.NAME}\label{fits:ins.filti.name}
+\begin{recipedef}
+Name & INS FILTi NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Filter name \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Filter name \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{INS.MODE}\label{fits:ins.mode}
+\begin{recipedef}
+Name & INS MODE \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Instrument Mode \tabularnewline
+Default & NODEFAULT \tabularnewline
+Range & IMAGING SPEC PUP \tabularnewline
+Description & Instrument Mode \tabularnewline
+\end{recipedef}
+
+
+
+
+
+\subsubsection{INS.READMODE}\label{fits:ins.readmode}
+\begin{recipedef}
+Name & INS READMODE \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Readout mode of the detector \tabularnewline
+Default & CDS \tabularnewline
+Range & CDS TLI RRR \tabularnewline
+Description & Readout mode of the detector \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{INSTRUME}\label{fits:instrume}
+\begin{recipedef}
+Name & INSTRUME \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & string \tabularnewline
+Value & \%s \tabularnewline
+Unit &  \tabularnewline
+Comment & Instrument used \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & ESO acronym for the instrument used. \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{MJD-OBS}\label{fits:mjd-obs}
+\begin{recipedef}
+Name & MJD-OBS \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & double \tabularnewline
+Value & \%.8f \tabularnewline
+Unit &  \tabularnewline
+Comment & Obs start \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Modified Julian Day of the start of the exposure. The MJD is related to the Julian Day (JD) via the formula: MJD = JD-2400000.5 The comment includes a civil representation of the date and time. 8 decimals are required for a precision of one millisecond, 5 decimals for a precision of one second. \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{OBS.DEC}\label{fits:obs.dec}
+\begin{recipedef}
+Name & OBS DEC \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & deg \tabularnewline
+Comment & Declination \tabularnewline
+Default & 0.0 \tabularnewline
+Range & -90.0..90.0 \tabularnewline
+Description & Declination \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{OBS.RA}\label{fits:obs.ra}
+\begin{recipedef}
+Name & OBS RA \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & deg \tabularnewline
+Comment & Right Ascension \tabularnewline
+Default & 0.0 \tabularnewline
+Range & 0.0..360.0 \tabularnewline
+Description & Right Ascension \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{OBS.TPLNO}\label{fits:obs.tplno}
+\begin{recipedef}
+Name & OBS TPLNO \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & integer \tabularnewline
+Value & \%i \tabularnewline
+Unit & None \tabularnewline
+Comment & Number of the template of this exposure in an ObservingBlock \tabularnewline
+Default & 0 \tabularnewline
+Range & 0..1000 \tabularnewline
+Description & Number of the template of this exposure in an ObservingBlock \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{OCS.PXSCALE}\label{fits:ocs.pxscale}
+\begin{recipedef}
+Name & OCS PXSCALE \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & arcsec/pix \tabularnewline
+Comment & Pixel scale \tabularnewline
+Default & 0.004 \tabularnewline
+Range & None \tabularnewline
+Description & Pixel scale \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{PVn\_ks}\label{fits:pvnks}\label{fits:pv1i}\label{fits:pv2i}\label{fits:pv1}\label{fits:pv2}\label{fits:pv11}\label{fits:pv22}
+\begin{recipedef}
+Name & PVn\_ks \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & double \tabularnewline
+Value & \%f \tabularnewline
+Unit &  \tabularnewline
+Comment & Coordinate projection parameter \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Describes the parameter k for the axis n. Required for certain coordinate types \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{TPL.EXPNO}\label{fits:tpl.expno}\label{fits:obs.tpl.expno}
+\begin{recipedef}
+Name & TPL EXPNO \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & integer \tabularnewline
+Value & \%i \tabularnewline
+Unit & None \tabularnewline
+Comment & Number of this exposure in a Template \tabularnewline
+Default & 0 \tabularnewline
+Range & 0..1000 \tabularnewline
+Description & Number of this exposure in a Template \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{TPL.START}\label{fits:tpl.start}\label{fits:obs.tpl.start}
+\begin{recipedef}
+Name & TPL START \tabularnewline
+Class & header|template \tabularnewline
+Context & Template \tabularnewline
+Type & double \tabularnewline
+Value & \%.8f \tabularnewline
+Unit & None \tabularnewline
+Comment & Start time of template \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Start time of template \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{ZEROPNT}\label{fits:zeropnt}
+\begin{recipedef}
+Name & ZEROPNT \tabularnewline
+Class & header \tabularnewline
+Context & PRO \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & mag \tabularnewline
+Comment & Zeropoint of the observation \tabularnewline
+Default & 0.0 \tabularnewline
+Range & None \tabularnewline
+Description & Zeropoint of the observation \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{INS.FILT1.NAME}\label{fits:ins.filt1.name}
+\begin{recipedef}
+Name & INS FILTi NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Filter name \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Filter name \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{INS.FILT2.NAME}\label{fits:ins.filt2.name}
+\begin{recipedef}
+Name & INS FILTi NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Filter name \tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Filter name \tabularnewline
+\end{recipedef}
+
+\subsubsection{INS.SLIT.NAME}\label{fits:ins.slit.name}
+\begin{recipedef}
+Name & INS SLIT NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Slit name \tabularnewline
+Default & None \tabularnewline
+Range & provided at PAE \tabularnewline
+Description & Slit name \tabularnewline
+\end{recipedef}
+
+%\subsection{List of header keywords per MICADO data item for imaging observing modes}{}\label{sec:headerkeywordsperdataitemimagingmode}
+%
+%This section lists per data item the header keywords that shall be in the header of the FITS file for data which is based on observations taken in the imaging observing modes. As a long list of header keywords appears in all data items, we provide that common set only once up front, in the section called DATAITEM.
+%\input{generated/keywords_list_dataitems_imaging}
+
+
+\subsection{Spectroscopic FITS header keyword values}{}\label{sec:specheaderkeywordvalues}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c | c| c| c|} 
+ \hline
+
+  \FITS{INS.SLIT.NAME} & \FITS{INS.FILT.NAME} & Description & Spectral setup \\ [0.5ex] 
+ \hline\hline
+\PAR{SHORT} & \PAR{SPEC_IJ} &short 16mas$\times$3" slit & IzJ\\
+%\PAR{HK\_NARROW} & short 16mas$\times$3" slit & HK\\
+\PAR{BROAD} & \PAR{SPEC_IJ} &broad 48mas$\times$3" slit & IzJ\\
+\PAR{BROAD} & \PAR{SPEC_HK} &broad 48mas$\times$3" slit & HK\\
+\PAR{LONG} & \PAR{SPEC_J} &long 20mas$\times$15" slit & J\\
+\PAR{LONG} & \PAR{SPEC_HK} &long 20mas$\times$15" slit & HK\\
+\PAR{SHORT_SH} & \PAR{SPEC_IJ} &shifted 16mas$\times$3" slit & IzJ\\
+%\PAR{HK\_NARROW_SHIFTED} & 16mas$\times$3" slit & HK\\
+\PAR{BROAD_SH} & \PAR{SPEC_IJ} &shifted 48mas$\times$3" slit & IzJ\\
+\PAR{BROAD_SH} & \PAR{SPEC_HK}  &shifted 48mas$\times$3" slit & HK\\
+\PAR{LONG_SH} & \PAR{SPEC_J} & shifted 20mas$\times$15" slit & J\\
+\PAR{LONG_SH} & \PAR{SPEC_HK} & shifted 20mas$\times$15" slit & HK\\
+ \hline
+\PAR{PINH} & all & pinhole slit & all\\
+\PAR{PINH_SH} & all &shifted pinhole slit & all\\
+ \hline
+\end{tabular}
+\caption{Values for the \ac{FITS} keywords \FITS{INS.FILT.NAME} and \FITS{INS.SLIT.NAME} representing the spectrosopic modes}.
+\label{tab:insspecsetup_keyw}
+\end{table}

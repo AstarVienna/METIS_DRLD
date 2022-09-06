@@ -1,1 +1,24 @@
 \subsection{IMG observing mode}\label{sec:drl_functions_img}
+
+%---------------------------------------------------------------------
+\subsubsection{Detect peak centroid location}\label{drl:img_peakcentroid}
+\begin{recipedef}
+Name: & \hyperref[drl:img_peakcentroid]{\DRL{detect\_centroid\_peak}} \\
+Purpose: &Detect the location of a source peak by a centroid\\
+Used in recipes: & \hyperref[rec:metisimgchophome]{\REC{metis_img_chophome}}\newline
+\hyperref[rec:metislmadcmslitloss]{\REC{metis_lm_adc_slitloss}} \newline
+\hyperref[rec:metisnadcmslitloss]{\REC{metis_n_adc_slitloss}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+%Other inputs: & None \\
+%QC outputs: & None\\
+%Output FITS files: & None \\
+Outputs: & Location of detected peak [px]\\
+               & \texttt{cpl\_error\_code} \\
+General description: & Detection of a source by centroid fit \\
+Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}

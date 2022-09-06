@@ -1,4 +1,4 @@
-
+ 
 \subsection{Recipes for engineering templates}
 \label{ssec:recipes_technical}
 
@@ -7,6 +7,7 @@ templates need to be reduced by the pipeline. This section and the
 recipes described therein serves as a placeholder and may be removed
 later.
 
+%------------------------------------------------------------------------------------------------------------------
 \subsubsection{Pupil imaging}
 \label{sssec:pupil_imaging}
 
@@ -29,20 +30,120 @@ subsystems.
   QC1 parameters:      & \TBD                                          \\
 \end{recipedef}
 
+\clearpage
+%------------------------------------------------------------------------------------------------------------------
+\subsubsection{Chopper Home Position}\label{ssec:metisimgchophome}
+The recipe \REC{metis_img_chophome} aims to detect undefined chopper mirror zero positions after switching on the chopper (e.g. after instrument interventions) or induced by unforeseen events like earthquakes (cf. Section "Chopper Home Position" in  \cite{METIS-calibration_plan}).
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textheight]{figures/metis_img_chophome_v0.1.pdf}
+  \caption[Recipe: \REC{metis_img_chophome}]{\REC{metis_img_chophome} --
+    Recipe workflow to detect the zero position of the chopper mirror.}
+  \label{Fig:rec_chop_home}
+\end{figure}
 
-\subsubsection{Chopper Home Position}\label{sssec:chopperhomeposition}
+\begin{recipedef}\label{rec:metisimgchophome}
+Name:		& \REC{metis_img_chophome} \\
+Purpose:	& Detection of the chopper mirror home position \\
+Type:		& Calibration\\
+Requirements: & TBD \\
+Observing templates: & \TPL{METIS_img_lm_cal_ChopperHome} \\
+Input data:     & \FITS{LM_IMG_RAW} \\
+                & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
+                & \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}}  \\
+                & \hyperref[dataitem:badpixmap2rg]{\PROD{BADPIX_MAP_2RG}}  \\
+                & \hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}}  \\
+                & \PROD{MASTER_FLAT_2RG}  \\
+Parameters: 	& TBD\\
+Algorithm:      & remove detector signature\\
+                & remove median background\\
+                & apply flatfield\\
+                & detect reference source from \ac{WCU} via centroid peak detection\\
+                & Calculate mirror offset\\
+Output data:	& Offset of the chopper mirror to be piped either into the \ac{ICS} for correction \\
+                & or to be used in thee pipeline for astrometric correction\\
+Expected accuracies: & 0.1mas accuracy of the centroid position (cf. \cite{METIS-calibration_plan})\\
+QC1 parameters: & \QC{TBD}: TBD\\
+\end{recipedef}
+\clearpage
 
-
+%------------------------------------------------------------------------------------------------------------------
 \subsubsection{Plate-scale calibration}
 
 
+%------------------------------------------------------------------------------------------------------------------
 \subsubsection{Fringing calibration}
 
 
+%------------------------------------------------------------------------------------------------------------------
 \subsubsection{Calibration of slit losses}\label{sssec:adc_slitlosses}
+The recipes \hyperref[rec:metislmadcmslitloss]{\REC{metis_lm_adc_slitloss}} (Fig.~\ref{Fig:rec_lm_adc_slitloss}) and \hyperref[rec:metisnadcmslitloss]{\REC{metis_n_adc_slitloss}} (Fig.~\ref{Fig:rec_n_adc_slitloss}) aims to determine the slitlosses induced by the fixed positions of the \ac{ADC} (cf. Section "Calibration of slit losses" in  \cite{METIS-calibration_plan})). This recipe is to be carried out once in a while and creates the slitlosses to be included in the static calibration database.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_adc_slitloss_v0.74.pdf}
+  \caption[Recipe: \REC{metis_lm_adc_slitloss}]{\REC{metis_lm_adc_slitloss} --
+    Recipe workflow to determine the \ac{ADC} induced slit losses.}
+  \label{Fig:rec_lm_adc_slitloss}
+\end{figure}
+
+\begin{recipedef}\label{rec:metislmadcmslitloss}
+Name:		& \REC{metis_lm_adc_slitloss} \\
+Purpose:	& Determination of the \ac{ADC} induced slit losses \\
+Type:		& Calibration\\
+Requirements: & TBD \\
+Observing templates: & \TPL{METIS_spec_lm_cal_SlitAdc} \\
+Input data:     & \FITS{LM_SLITLOSSES_RAW} \\
+                & \FITS{LM_WCU_OFF_RAW} \\
+                & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
+                & \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}}  \\
+                & \hyperref[dataitem:badpixmap2rg]{\PROD{BADPIX_MAP_2RG}}  \\
+                & \hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}}  \\
+                & \PROD{MASTER_FLAT_2RG}  \\
+Parameters: 	& TBD\\
+Algorithm:      & remove detector signature\\
+                & remove median background\\
+                & apply flatfield\\
+                & detect reference source from \ac{WCU} via centroid peak detection\\
+                & apply aperture photometry\\
+                & calculate (simple) slitloss model (details to be defined)\\
+Output data:	& Slit loss model as function of the wavelength and object position across the slit (\EXTCALIB{LM_ADC_SLITLOSS}) \\
+Expected accuracies: & 3\% (cf. \cite{METIS_calerrbudget})\\
+QC1 parameters: & \QC{TBD}: TBD\\
+\end{recipedef}
 
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textheight]{figures/metis_n_lss_adc_slitloss_v0.74.pdf}
+  \caption[Recipe: \REC{metis_n_adc_slitloss}]{\REC{metis_n_adc_slitloss} --
+    Recipe workflow to determine the \ac{ADC} induced slit losses.}
+  \label{Fig:rec_n_adc_slitloss}
+\end{figure}
 
+\begin{recipedef}\label{rec:metisnadcmslitloss}
+Name:		& \REC{metis_n_adc_slitloss} \\
+Purpose:	& Determination of the \ac{ADC} induced slit losses \\
+Type:		& Calibration\\
+Requirements: & TBD \\
+Observing templates: & \TPL{METIS_spec_n_cal_SlitAdc} \\
+Input data:     & \FITS{N_SLITLOSSES_RAW} \\
+                & \FITS{N_WCU_OFF_RAW} \\
+                & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
+                & \hyperref[dataitem:gainmapgeo]{\PROD{GAIN_MAP_GEO}}  \\
+                & \hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}  \\
+                & \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}  \\
+                & \PROD{MASTER_FLAT_GEO}  \\
+Parameters: 	& TBD\\
+Algorithm:      & remove detector signature\\
+                & remove median background\\
+                & apply flatfield\\
+                & detect reference source from \ac{WCU} via centroid peak detection\\
+                & apply aperture photometry\\
+                & calculate (simple) slitloss model (details to be defined)\\
+Output data:	& Slit loss model as function of the wavelength and object position across the slit (\EXTCALIB{N_ADC_SLITLOSS}) \\
+Expected accuracies: & 3\% (cf. \cite{METIS_calerrbudget})\\
+QC1 parameters: & \QC{TBD}: TBD\\
+\end{recipedef}
 
 
 %%% Local Variables:
