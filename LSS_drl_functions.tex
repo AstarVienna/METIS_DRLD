@@ -1,10 +1,10 @@
 \subsection{LSS observing mode}\label{sec:drl_functions_lss}
-\textcolor{red}{TBD: Up to now mostly only copied from MICADO and crudely adapted -- check for METIS consistence!!!!}
+
 %---------------------------------------------------------------------
-\subsubsection{Interorder background correction}\label{drl:correctinterorder}
+\subsubsection{Order background correction}\label{drl:correctorder}
 \begin{recipedef}
-Name: & \hyperref[drl:correctinterorder]{\DRL{correct\_interorder\_bg}} \\
-Purpose: & Removal of interorder light (e.g. stray light)\\
+Name: & \hyperref[drl:correctorder]{\DRL{correct\_order\_bg}} \\
+Purpose: & Removal of order background contamination (e.g. stray light)\\
 Used in recipes: & \hyperref[rec:lsslmrsrf]{\REC{metis\_LM\_lss\_rsrf}} \newline
                   \hyperref[rec:lssnrsrf]{\REC{metis\_N\_lss\_rsrf}} \newline
                   \hyperref[rec:lsslmwave]{\REC{metis\_LM\_lss\_wave}} \newline
@@ -19,8 +19,8 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
-General description: & Removal of stray light by a 2D-polynomial fits of the interorder background \\
-Mathematical description: & see Section~\ref{ssec:interorderbg} \\
+General description: & Removal of stray light by a 2D-polynomial fits of the order background \\
+Mathematical description: & see Section~\ref{ssec:orderbg} \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\

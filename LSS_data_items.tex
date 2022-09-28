@@ -37,11 +37,11 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:lmlssrsrfpinhraw]{\FITS{LM_LSS_RSRF_PINH_RAW}}\\[0.3cm]
-Description: & Raw exposure of the \ac{WCU} flatfield lamp through the \ac{LSS} to achieve the \ac{RSRF}.\\[0.3cm]
+Description: & Raw exposure of the \ac{WCU} flatfield lamp through the \ac{LSS} to achieve the order detection / distortion model.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,LAMP,PINH} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti20.name]{\FITS{INS.OPTI20.NAME}}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}, \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti20.name]{\FITS{INS.OPTI20.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_PINH_RAW}\\[0.3cm]
 Template: & \TPL{METIS\_spec_lm_cal_rsrfpinh}\\
 Input for recipe: & \hyperref[rec:lsslmtrace]{\REC{metis\_lm\_lss\_trace}}\\
@@ -106,7 +106,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
-    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{hdrl\_image * image: Single image for each nod/offset position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
@@ -134,7 +134,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}})}
-    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{hdrl\_image * image: Single image for each nodding/offset position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
@@ -199,7 +199,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:nlssrsrfpinhraw]{\FITS{N_LSS_RSRF_PINH_RAW}}\\[0.3cm]
-Description: & Raw exposure of the \ac{WCU} flatfield lamp through the \ac{LSS} to achieve the \ac{RSRF}.\\[0.3cm]
+Description: & Raw exposure of the \ac{WCU} flatfield lamp through the \ac{LSS} to achieve the order detection / distortion model.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,LAMP,PINH} \\[0.3cm]
@@ -240,7 +240,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}})}
-    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{hdrl\_image * image: Single image for each chop/nod position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
@@ -266,7 +266,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}} , \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}})}
-    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{hdrl\_image * image: Single image for each chop/nod position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
@@ -310,10 +310,10 @@ Name: & \hyperref[dataitem:medianlmrsrfimg]{\FITS{MEDIAN_LM_LSS_RSRF_IMG}}\\[0.3
 Description: & LM-band \ac{LSS} Median \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_LM_LSS_RSRF}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
-\FITS{DO.CATG}: & \FITS{MASTER_LM_LSS_RSRF}\\[0.3cm]
+\FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:lsslmrsrf]{\REC{metis\_lm\_lss\_rsrf}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-Comment: & intermediate data product used for \ac{QC}\\
+Comment: & intermediate data product used for \ac{QC} only\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
 %\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
@@ -333,10 +333,10 @@ Name: & \hyperref[dataitem:meanlmrsrfimg]{\FITS{MEAN_LM_LSS_RSRF_IMG}}\\[0.3cm]
 Description: & LM-band \ac{LSS} Mean \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MEAN_LM_LSS_RSRF_IMG}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
-\FITS{DO.CATG}: & \FITS{MASTER_LM_LSS_RSRF}\\[0.3cm]
+\FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:lsslmrsrf]{\REC{metis\_lm\_lss\_rsrf}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-Comment: & intermediate data product used for \ac{QC}\\
+Comment: & intermediate data product used for \ac{QC} only\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
 %\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
@@ -385,10 +385,10 @@ Name: & \hyperref[dataitem:mediannrsrfimg]{\FITS{MEDIAN_N_LSS_RSRF_IMG}}\\[0.3cm
 Description: & LM-band \ac{LSS} Median \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MEDIAN_N_LSS_RSRF_IMG}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
-\FITS{DO.CATG}: & \FITS{MEDIAN_N_LSS_RSRF_IMG}\\[0.3cm]
+\FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:lssnrsrf]{\REC{metis\_n\_lss\_rsrf}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-Comment: & intermediate data product used for \ac{QC}\\
+Comment: & intermediate data product used for \ac{QC} only\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
 %\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
@@ -409,10 +409,10 @@ Name: & \hyperref[dataitem:meannrsrfimg]{\FITS{MEAN_N_LSS_RSRF_IMG}}\\[0.3cm]
 Description: & LM-band \ac{LSS} Mean \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MEAN_N_LSS_RSRF_IMG}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
-\FITS{DO.CATG}: & \FITS{MEAN_N_LSS_RSRF_IMG}\\[0.3cm]
+\FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:lssnrsrf]{\REC{metis\_n\_lss\_rsrf}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-Comment: & intermediate data product used for \ac{QC}\\
+Comment: & intermediate data product used for \ac{QC} only\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
 %\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
@@ -542,7 +542,7 @@ Name: & \hyperref[dataitem:lmlssstdobjmap]{\FITS{LM_LSS_STD_OBJ_MAP}}\\[0.3cm]
 Description: & Image with detected object pixels of the flux standard star.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_STD_OBJ_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
-\FITS{DO.CATG}: & \FITS{LM_LSS_STD_OBJ_MAP}\\[0.3cm]
+\FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:lsslmflux]{\REC{metis\_lm\_lss\_flux}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
@@ -566,7 +566,7 @@ Name: & \hyperref[dataitem:lmlssstdskymap]{\FITS{LM_LSS_STD_SKY_MAP}}\\[0.3cm]
 Description: & Image with detected sky pixels of the flux standard star observation.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_STD_SKY_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
-\FITS{DO.CATG}: & \FITS{LM_LSS_STD_SKY_MAP}\\[0.3cm]
+\FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:lsslmflux]{\REC{metis\_lm\_lss\_flux}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
@@ -614,7 +614,7 @@ Name: & \hyperref[dataitem:nlssstdobjmap]{\FITS{N_LSS_STD_OBJ_MAP}}\\[0.3cm]
 Description: & Image with detected object pixels of the flux standard star..\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_STD_OBJ_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N_LSS_STD_OBJ_MAP}\\[0.3cm]
+\FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:lssnflux]{\REC{metis\_n\_lss\_flux}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
@@ -637,7 +637,7 @@ Name: & \hyperref[dataitem:nlssstdskymap]{\FITS{N_LSS_STD_SKY_MAP}}\\[0.3cm]
 Description: & Image with detected plain sky pixels of the flux standard star observation.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_STD_SKY_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N_LSS_STD_SKY_MAP}\\[0.3cm]
+\FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:lssnflux]{\REC{metis\_n\_lss\_flux}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
@@ -685,7 +685,7 @@ Name: & \hyperref[dataitem:lmlsssciobjmap]{\FITS{LM_LSS_SCI_OBJ_MAP}}\\[0.3cm]
 Description: & Image with detected object pixels of the science observation.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_SCI_OBJ_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
-\FITS{DO.CATG}: & \FITS{LM_LSS_SCI_OBJ_MAP}\\[0.3cm]
+\FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:lsslmsci]{\REC{metis\_lm\_lss\_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
@@ -708,7 +708,7 @@ Name: & \hyperref[dataitem:lmlsssciskymap]{\FITS{LM_LSS_SCI_SKY_MAP}}\\[0.3cm]
 Description: & Image with detected plain sky pixels of the science observation.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_SCI_SKY_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
-\FITS{DO.CATG}: & \FITS{LM_LSS_SCI_SKY_MAP}\\[0.3cm]
+\FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:lsslmsci]{\REC{metis\_lm\_lss\_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
@@ -780,7 +780,7 @@ Name: & \hyperref[dataitem:nlsssciobjmap]{\FITS{N_LSS_SCI_OBJ_MAP}}\\[0.3cm]
 Description: & Image with detected object pixels of the science frame.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_SCI_OBJ_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N_LSS_SCI_OBJ_MAP}\\[0.3cm]
+\FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:lssnsci]{\REC{metis\_n\_lss\_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
@@ -804,7 +804,7 @@ Name: & \hyperref[dataitem:nlsssciskymap]{\FITS{N_LSS_SCI_SKY_MAP}}\\[0.3cm]
 Description: & Image with detected plain sky pixels of the science frame.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_SCI_SKY_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N_LSS_SCI_SKY_MAP}\\[0.3cm]
+\FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:lssnsci]{\REC{metis\_n\_lss\_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\

@@ -71,12 +71,12 @@ Purpose: & flux calibration\\
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:atmprofile]{\FITS{ATM_PROFILE}}\\[0.3cm]
-Description: & atmopsheric profile containing height information on temperature, pressure and molecular abundances\\[0.3cm]
+Description: & atmospheric profile containing height information on temperature, pressure and molecular abundances\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{ATM_PROFILE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{ATM_PROFILE}\\[0.3cm]
 Source: & Taken from \url{https://eodg.atm.ox.ac.uk/RFM/atm/}\\
-comment: & Currently the \texttt{equ.atm} is standard.\\
+Comment: & Currently the \texttt{equ.atm} is standard. Refinement with data from L-HATPRO radiometer desired.\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & telluric correction\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -147,7 +147,7 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_ADC_SLITLOSS}\\[0.3cm]
 Source: & recipe \hyperref[rec:metislmadcmslitloss]{\REC{metis_lm_adc_slitloss}} (see Section~\ref{sssec:adc_slitlosses} and \cite{METIS-calibration_plan}) \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-Purpose: & telluric correction\\
+Purpose: & flux calibration\\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
@@ -169,7 +169,7 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_ADC_SLITLOSS}\\[0.3cm]
 Source: & recipe \hyperref[rec:metisnadcmslitloss]{\REC{metis_n_adc_slitloss}} (see Section~\ref{sssec:adc_slitlosses} and \cite{METIS-calibration_plan}) \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-Purpose: & telluric correction\\
+Purpose: & flux calibration\\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}

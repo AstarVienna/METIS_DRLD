@@ -93,28 +93,28 @@ In general, there are four major steps in each of the two cascades:
     		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
     \hline
     \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:lsslmrsrf]{\REC{metis_LM_lss_rsrf}} & Exposure time	& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}}	& Averaged, normalized flatfield\\
-    		& \CODE{DPR.TYPE==FLAT}  &			&		& 	& \\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
+    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	& 	& \\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	& \\
     \hline
          	& \CODE{DPR.CATG==CALIB} &\hyperref[rec:lsslmtrace]{\REC{metis_LM_lss_trace}} & Exposure time	& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}}	& Order location\\
     		& \CODE{DPR.TYPE==FLAT}  &			&		&	& (polynomial fit)\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
-    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} &\hyperref[rec:lsslmwave]{\REC{metis_LM_lss_wave}} & Object name &  \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}} & wavelength solution\\
-    		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Exposure time & \hyperref[dataitem:lasertab]{\STATCALIB{LASER_TAB}} &\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
+    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} &\hyperref[rec:lsslmwave]{\REC{metis_LM_lss_wave}} & Exposure time &  \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}} & wavelength solution\\
+    		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Grism & \hyperref[dataitem:lasertab]{\STATCALIB{LASER_TAB}} &\\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
     \TPL{FLUX,STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:lsslmflux]{\REC{metis_LM_lss_flux}}& Object name (Flux STD) & \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}} & Instrumental\\
     		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}} & response function\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	\hyperref[dataitem:lmsynthtrans]{\STATCALIB{LM_SYNTH_TRANS}}& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \hyperref[dataitem:lmadcslitloss]{\STATCALIB{LM_ADC_SLITLOSS}} & \\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\hyperref[dataitem:lmsynthtrans]{\STATCALIB{LM_SYNTH_TRANS}}& \\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \hyperref[dataitem:lmadcslitloss]{\STATCALIB{LM_ADC_SLITLOSS}} & \\
     		& & & & \hyperref[dataitem:aopsfmodel]{\EXTCALIB{AO_PSF_MODEL}} &\\    
     		& & & & \hyperref[dataitem:reffluxcat]{\STATCALIB{REF_FLUX_CAT}} &\\    \hline
     \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:lsslmsci]{\REC{metis_LM_lss_sci}} & Object name &  \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}} & Science grade spectrum\\
     		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \hyperref[dataitem:lmadcslitloss]{\STATCALIB{LM_ADC_SLITLOSS}} &\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		& \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  &  & \\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	& \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit  &  & \\
     \hline
             & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:LMLSSmfmodel]{\REC{metis_LM_lss_mf_model}} & Object name & \hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}}	 & Best-fit \\
     		& \CODE{DPR.TYPE==OBJECT}   &			  & & \hyperref[dataitem:atmprofile]{\EXTCALIB{ATM_PROFILE}}  & \texttt{molecfit} parameters\\
@@ -127,7 +127,7 @@ In general, there are four major steps in each of the two cascades:
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
             & \CODE{DPR.CATG==SCIENCE} &  \hyperref[rec:LMLSSmfcorrect]{\REC{metis_LM_lss_mf_correct}} & Object name & 	 & Absorption corrected\\
-    		& \CODE{DPR.TYPE==LSS}   &			   & synthetic Transmission curve & & science spectrum\\
+    		& \CODE{DPR.TYPE==LSS}   &			   & & synthetic Transmission curve  & science spectrum\\
     		& \CODE{DPR.TECH==TBD}  &			&		&	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
@@ -162,17 +162,17 @@ In general, there are four major steps in each of the two cascades:
     		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
     \hline
     \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:lssnrsrf]{\REC{metis_N_lss_rsrf}} & Exposure time	& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}}	& Averaged, normalized flatfield (\ac{RSRF}\\
-    		& \CODE{DPR.TYPE==FLAT}  &			&		&	& Bad pixel map\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
+    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	&	& Bad pixel map\\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	& \\
     \hline
          	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:lssntrace]{\REC{metis_N_lss_trace} }& Exposure time	& \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}}	& Order location\\
-    		& \CODE{DPR.TYPE==FLAT}  &			&		&	& (polynomial fit)\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
+    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	&	& (polynomial fit)\\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	& \\
     \hline
     \TPL{FLUX,STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:lssnflux]{\REC{metis_N_lss_flux}} & Object name (Flux STD) & \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}} & Instrumental\\
     		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}} & response function\\
-    		& \CODE{DPR.TECH==SPECTRUM}   &			   &		& \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \hyperref[dataitem:nsynthtrans]{\STATCALIB{N_SYNTH_TRANS}} & \\
+    		& \CODE{DPR.TECH==SPECTRUM}   &			   & Grism		& \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  &  Slit & \hyperref[dataitem:nsynthtrans]{\STATCALIB{N_SYNTH_TRANS}} & \\
     		& & & & \hyperref[dataitem:nadcslitloss]{\STATCALIB{N_ADC_SLITLOSS}} &\\
     		& & & &  \hyperref[dataitem:reffluxcat]{\STATCALIB{REF_FLUX_CAT}} &\\
     		& & & & \hyperref[dataitem:aopsfmodel]{\EXTCALIB{AO_PSF_MODEL}} &\\
@@ -181,8 +181,8 @@ In general, there are four major steps in each of the two cascades:
     \hline
     \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:lssnsci]{\REC{metis_N_lss_sci}} & Object name & \hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_GEO}}  & Science grade spectrum\\
     		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time &  \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}} &\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&\hyperref[dataitem:nadcslitloss]{\STATCALIB{N_ADC_SLITLOSS}}	& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}} & \\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&\hyperref[dataitem:nadcslitloss]{\STATCALIB{N_ADC_SLITLOSS}}	& \\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}} & \\
     		& & & & \hyperref[dataitem:nlssdistsol]{\STATCALIB{N_LSS_DIST_SOL}} &\\
     \hline
             & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:NLSSmfmodel]{\REC{metis_N_lss_mf_model}} & Object name & \hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}}	 & Best-fit \\
@@ -196,7 +196,7 @@ In general, there are four major steps in each of the two cascades:
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
             & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:NLSSmfcorrect]{\REC{metis_N_lss_mf_correct}} & Object name & 	 & Absorption corrected\\
-    		& \CODE{DPR.TYPE==LSS}   &			   & synthetic Transmission curve & & science spectrum\\
+    		& \CODE{DPR.TYPE==LSS}   &			   &  & synthetic Transmission curve & science spectrum\\
     		& \CODE{DPR.TECH==TBD}  &			&		&	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
