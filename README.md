@@ -2,9 +2,9 @@
 
 ## Special Commands
 
-- Recipes: `\REC{met_do_something}`
+- Recipes: `\REC{metis_do_something}`
 - QC parameters: `\QC{QC SOMETHING OR OTHER}`
-- Templates: `\TPL{DARK_LM}`
+- Templates: `\TPL{METIS_gen_cal_dark}`
 - Products: `\PROD{SOME_THING}`
 - Requirements: `\REQ{METIS-xxx}`
 - External calibration files: `\EXTCALIB{some_file}`
