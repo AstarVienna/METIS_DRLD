@@ -24,3 +24,7 @@ METIS_DRLD.pdf
 auto/
 *~
 /figures/metis_lm_sci_modules.png
+
+# pycharm files
+.idea/
+__pycache__/
