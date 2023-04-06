@@ -1,0 +1,8 @@
+==== Flat fielding ====
+=== Notes ===
+  * <color #ed1c24>Dome/Sky flats not applicable in the thermal IR; twilight flats are difficult (see e.g. Gemini experience).</color>
+  * According to Derek Ives (priv. comm.) the gain stability of the long-wavelength cutoff H2RG detectors is as good as in the more commonly used near-IR version -- a single flatfield calibration per day (in daytime) should thus be sufficient.
+  * Flat field calibration is required for relative photometry within the field and for inter-band spectral calibration.
+  * Most homogeneous source available is the sky. Sources for inhomogeneous transmission are: telescope mirrors, entrance window, instrument throughput, detector inhomogeneities.
+  * The flat field can be calibrated during daytime using a light source in the WCU (called "lamp flatfields"). Lamp flatfields have a known (but not necessarily flat) emission pattern with known and controllable intensity and can be taken without access to the telescope. On the other side, flat fields taken with the WCU include additional sources of inhomogeneities such as the imaging system (warm mirrors) inside the WCU as well as the warm WCU pick-off mirror in front of the METIS entrance window. Also, WCU flatfields do not probe the telescope as a possible source for inhomogeneous transmission.
+  * No flatfields are currently used in the processing of VISIR data (User Manual 2018-07-01, data reduction cookbook v080_0) and according to Michael Sterzik (priv. comm.) this has been tried on TIMMI2 but without success.

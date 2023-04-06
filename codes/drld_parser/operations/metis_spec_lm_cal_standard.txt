@@ -1,0 +1,12 @@
+===Procedure for METIS_spec_lm_cal_standard ===
+
+Observations of spectrophotometric standard stars with a purpose to determine the conversion factor of the spectrophotometry. The observing template is identical to the ''METIS_spec_lm_obs_AutoNodOnSlit'' template, and it is combined with ''METIS_spec_lm_acq'' that is used to acquire the standard star.
+
+
+===Parameters for METIS_spec_lm_cal_standard ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TYPE              |yes        |STD (STD)|Data product type|                      
+
+All other parameters are identical to ''METIS_spec_lm_obs_AutoNodOnSlit''

@@ -1,0 +1,127 @@
+==== Acquisition Template METIS_img_n_acq ====
+
+=== Procedure for METIS_img_n_acq ===
+
+++++
+Preset telescope|
+  * send target coordinates to TCS
+  * initiate guiding/tracking. Guide star may be chosen by operator (if no coordinates supplied), or use the one specified in the template.
+  * wait for signal “arrived at position” / “guiding”
+++++
+++++
+Configure CFO|
+  * CFO can be configured while the telescope is presetting
+  * ''CFO PP1'': select cold stop PPS-CFO1
+  * ''CFO PP1'': open (no ADC foreseen for N) 
+  * Start derotator. Options:
+    * Field tracking (pupil rotates)
+    * Pupil tracking (field rotates, used for HCI)
+    * No tracking (stopped). For engineering purposes.
+  * Chopper to home position
+  * Initialize pupil stabilization mirror
+  * ''CFO FP2'' to N Field Stop
+  * LMS pick-off to open
+  * Set chopper parameters
+  * Start chopping
+++++
+++++
+Setup imager|
+  * Set ''IMG-LM PP1'' to CLOSED (no light on IMG-LM system)
+  * [comment] IMG-N PP1 has three wheels. The wheel located exactly in the pupil plane will contain the pupil masks (stops; for coronagraphy), and the N-band grism. The other two wheels located behind the one in the pupil plane will contain the science filters, and the neutral density (ND) filters (METIS-3954, METIS-3782, METIS-5529).
+  * Move ''IMG-N PP1 MASK/GRISM'' (mask/grism wheel) to open
+  * Move ''IMG-N PP1 FILT'' to selected science filter 
+  * Move ''IMG-N PP1 ND'' to selected neutral-density filter (for the acquisition of very bright targets)
+  * Pupil imaging lens to open
+    * [comment] a mechanism for pupil viewing. Not located in the pupil plane, probably in front of the detector (tbc). In IMG used for engineering/AIV purposes.
+  * Set detector parameters (total exposure time, readout mode). The system will set the DIT/NDIT combination depending on the background levels.
+++++
+++++
+AO and target acquisition|
+  * Details of the AO acquisition are described in \cite{SCAOFa}.
+  * Preset AO
+    * Set SCAO filter wheel to K if Kmag > 0, otherwise K_ND  
+    * Move the field selector ''SCA-PP1 FS'' to the pointing reference position
+    * setup WFS (detector and modulator)
+    * start WFS
+  * Wait for the telescope preset to complete
+  * Center the guide star at the pointing reference position
+    * Detect decenter
+    * apply corrections to the PFS pointing origin
+  * Close the pupil position control loop
+  * Take over AO control from the telescope
+    * close the loop on the METIS WFS with few modes
+    * sequential field stabilization mode is the default
+  * Optimize mis-registration
+    * bootstrap initial mis-registration
+    * increase to full AO correction performance
+  * Measure the position of the target in the science focal plane.
+  * Center the target in the science focal plane using CFO-PP2 chopper.
+
+**Note 1:** The above sequence assumes that the pointing accuracy of the ELT is better than the field selector FoV (2 arcsec). Otherwise, we will do a small search with the SCAO field selector mirror. This is just to be on the safe side, we may not use it (see the Note 2) or only needed during commissioning. 
+
+**Note 2:** there are two parts in the telescope pointing: the telescope pointing itself and the telescope alignment with the instrument (installed in the Nasmyth platform which has a relative motion). 
+
+++++
+++++
+While AO loop is closed|
+  * AO controls M4/M5 (via CCS)
+    * RTC communicates directly with CCS (no ICS involvement)
+  * Monitor range
+  * Schedule ROUS maneuver (trigger or postpone the  next execution of major stroke off-loading events)
+  * Save WFS data (slopes)
+    * TBD when (all the time?)
+    * For PSF reconstruction, NCPA removal
+++++
+
+===Parameters for METIS_img_n_acq ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^
+|TEL TARG ALPHA        |no         |(NODEFAULT)                |Target RA|
+|TEL TARG DELTA        |no         |(NODEFAULT)                |Target DEC|
+|TEL TARG EQUINOX      |no         |-2000..3000 (2000)         |Equinox|
+|TEL TARG PMA          |no         |-10..10 (0)                |Proper motion in RA in arcsec/year|
+|TEL TARG PMD          |no         |-10..10 (0)                |Proper motion in DEC in arcsec/year|
+|TEL TARG NAME         |no         |(NODEFAULT)                |Name of the Target|
+|TEL AG GUIDESTAR      |no         |NONE SETUPFILE CATALOGUE (CATALOGUE)|Telescope Guide Star Selection|
+|TEL GS1 ALPHA         |no         |(0.0)                      |RA of telescope guide star 1|
+|TEL GS1 DELTA         |no         |(0.0)                      |DEC of telescope guide star 1|
+|TEL GS2 ALPHA         |no         |(0.0)                      |RA of telescope guide star 2|
+|TEL GS2 DELTA         |no         |(0.0)                      |DEC of telescope guide star 2|
+|TEL GS3 ALPHA         |no         |(0.0)                      |RA of telescope guide star 3|
+|TEL GS3 DELTA         |no         |(0.0)                      |DEC of telescope guide star 3|
+|TEL TARG ADDVELALPHA  |yes        |-100..100 (0)              |Differential tracking RA, in arcsec/s|
+|TEL TARG ADDVELDELTA  |yes        |-100..100 (0)              |Differential tracking DEC, in arcsec/s|
+|SEQ PRESET            |yes        |T F (T)                    |Preset telescope?|
+|SEQ NGS ISTARGET      |no         |T F (NODEFAULT)            |Target = AO Guide Star|
+|SEQ NGS ALPHA         |no         |(NODEFAULT)                |RA of AO Guide Star|
+|SEQ NGS DELTA         |no         |(NODEFAULT)                |DEC of AO Guide Star|
+|SEQ NGS MAG           |no         |TBD (10)                   |K mag of AO Guide Star|
+|SEQ PUPILTRK          |no         |T F (T)                    |Enable this for pupil tracking|
+|SEQ NGS SKYALPHA      |no         |-TBD..TBD (0)              |Field selector offset to sky RA|
+|SEQ NGS SKYDELTA      |no         |-TBD..TBD (0)              |Field selector offset to sky DEC|  
+|SEQ CFO CHOP FREQ         |yes        |0..5 (0)               |Chopping frequency|
+|SEQ CFO CHOP XPOS       |no         |TBD (NODEFAULT)          |List of chopper x positions|
+|SEQ CFO CHOP YPOS       |no         |TBD (NODEFAULT)           |List of chopper y positions|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|DPR CATG              |yes        |ACQUISITION TEST (ACQUISITION) |Data product category|
+|DPR TECH              |yes        |IMAGE (IMAGE)                 |Data product technique|
+|DPR TYPE              |yes        |OBJECT SKY STD PSF-CALIBRATOR (OBJECT)|Data product type| 
+|DET2 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-N Detector integration time (DIT)|
+|DET2 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-N Number of Integrations (NDIT)|
+|DET2 NCORRS NAME       |no         |TBD                         |IMG-N Readout mode|
+|INS ROT OFFANGLE      |no         |-360..360 (0)              |Position Angle on Sky (deg)|
+|INS OPTI1 NAME         |yes        | PPS-CFO1 (PPS-CFO1)                |CFO-PP1 mask wheel|
+|INS OPTI2 NAME         |yes        | OUT (OUT)                |CFO-PP1 ADC wheel|
+|INS OPTI3 NAME         |yes         |FIELD-14 (FIELD-14)       |CFO FP2 mask/slit wheel|
+|INS OPTI4 NAME         |yes        |OUT (OUT)                  |LMS beamsplitter pickoff wheel|
+|INS OPTI12 NAME         |no         |open PPS-N SPM-N (SPM-N)                  |IMG-N Mask/Grism name|
+|INS OPTI13 NAME         |no         |N1 N2 PAH8.6 PAH8.6_ref PAH11.25 PAH11.25_ref [NeII] [NeII]_ref [SIV] [SIV]_ref N3 (N1)                |IMG-N Filter name|
+|INS OPTI14 NAME         |no         |OPEN ND1 ND2 ND3 ND4 (NODEFAULT)                  |IMG-N Neutral density filter|
+|INS OPTI16 NAME         |yes        |OUT (OUT)                    | IMG-N pupil imaging lens|
+|INS OPTI17 NAME         |yes        |OUT (OUT)                    | WCU periscope arm|
+
+
+
+
+Notes: 
+  * It is not yet clear what will be the standard chopping pattern, it will possibly be a 3-point pattern instead of the "classical" 2-point pattern. This will require parameters to define the chopper positions, instead of the chopper throw/angle combination. These keywords should be updated once the "main" chopping pattern is decided. 

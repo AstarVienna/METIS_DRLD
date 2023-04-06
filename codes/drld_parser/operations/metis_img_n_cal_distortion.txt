@@ -1,0 +1,66 @@
+===Procedure for METIS_img_n_cal_distortion ===
+
+Procedure to determine the detector distortion maps. A grid is inserted in the optical path of the instrument. The grid is illuminated, simulating a set of point sources at various positions of the detector. The template takes a set of ''NEXPO'' exposures with a particular ''DIT'' and ''NDIT'' combination.
+
+++++
+Setup WCU|
+  * Move periscopic arm to IN
+  * Set temperature of the blackbody to specified temperature
+  * Set ''WCU-FP2.1'' to grid-N
+  * Set ''WCU-PP1'' to ELT mask
+  * Wait for about 45 minutes (warming up time, depends on the BB temperature selection)
+  * Check the power readout. If the power is detectable, continue. 
+  * Set ''WCU-BB-aperture-mask'' to CLOSE
+  * take background measurement
+  * Set ''WCU-BB-aperture-mask'' to OPEN
+++++
+
+++++
+Setup CFO and subsystems|
+  * Set ''CFO-PP1'' to PPS-CFO1
+  * Set ''CFO-FP2'' to FIELD-14
+  * Set LMS beamsplitter pickoff wheel to OUT
+  * Set the IMG-N mask to SPM-N
+  * Set the IMG-N science filter to the specified filter
+  * Set the IMG-N neutral density filter to the specified filter
+++++
+
+++++
+Start Exposure|
+  * Start exposures with the IMG-N with the requested DIT and NDIT
+  * move grid by known offsets in the field using the chopper, repeat exposures
+++++
+
+++++
+End Exposure|
+  * Collect headers
+  * Send file to ESO Archive
+++++
+
+===Parameters for METIS_img_n_cal_distortion ===
+
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TECH              |yes        |IMAGE (IMAGE)                 |Data product technique|
+|DPR TYPE              |yes        |DISTORTION (DISTORTION)|Data product type|       
+|DET2 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-N Detector integration time (DIT)|
+|DET2 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-N Number of Integrations (NDIT)|
+|DET2 NCORRS NAME       |no         |TBD                         |IMG-N Readout mode|
+|DET2 CUBE MODE        |no         |T F (F)                    |Toggle cube mode| 
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
+|SEQ WCU_BB_TEMP       |yes        |TEMP-N                        |WCU BB temperature for specific filter|
+|SEQ WCU_OFF_NFRAMES   |yes        |TBD                        |Number of WCU off frames to take |
+|INS OPTI1 NAME         |yes        | PPS-CFO1 (PPS-CFO1)                |CFO-PP1 mask wheel|
+|INS OPTI2 NAME         |yes        | OUT (OUT)                |CFO-PP1 ADC wheel|
+|INS OPTI3 NAME         |yes         |FIELD-14 (FIELD-14)       |CFO FP2 mask/slit wheel|
+|INS OPTI4 NAME         |yes        |OUT (OUT)                  |LMS beamsplitter pickoff wheel|
+|INS OPTI12 NAME         |no         |open PPS-N SPM-N (SPM-N)                  |IMG-N Mask/Grism name|
+|INS OPTI13 NAME         |no         |N1 N2 PAH8.6 PAH8.6_ref PAH11.25 PAH11.25_ref [NeII] [NeII]_ref [SIV] [SIV]_ref N3 (N1)                |IMG-N Filter name|
+|INS OPTI14 NAME         |no         |OPEN ND1 ND2 ND3 ND4 (NODEFAULT)                  |IMG-N Neutral density filter|
+|INS OPTI16 NAME         |yes        |OUT (OUT)                    | IMG-N pupil imaging lens|
+|INS OPTI17 NAME         |yes        |IN (IN)                    | WCU periscope arm|
+|INS OPTI18 NAME	|yes                |WCU_mask AIV_mask ELT_mask (ELT_mask)             |WCU PP1 masks|
+|INS OPTI19 NAME	|yes                |OPEN (OPEN)                              |WCU BB exit aperture masks|
+|INS OPTI20 NAME        |yes         |grid-N (grid-N) |WCU FP2.1 mask wheel|

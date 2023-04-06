@@ -1,0 +1,8 @@
+<color #ed1c24>__**Open discussion**__</color> 
+
+
+__**(1) Filters for medium res spectroscopy **__ 
+
+''Kora:'' Which filter will be used in this case? N_full is marked as "for spectroscopy" in METIS-3642, but below it mentions also "order blocking filters needed for the longslit spectroscopy modes". I would like to clarify this.
+
+<color #ed1c24>__**Old discussion - clarified and implemented in text **__</color>

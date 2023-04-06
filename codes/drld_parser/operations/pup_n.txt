@@ -1,0 +1,5 @@
+This engineering mode is used to obtain an image of the telescope pupil in the N band. It consists of only one template.
+
+Template options:
+
+  * [[METIS_pup_n|METIS_pup_n]]

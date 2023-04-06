@@ -1,0 +1,13 @@
+<color #ed1c24>__**Open discussion**__</color> (If you have any new discussion items please write into this section.)
+
+<color #ed1c24>__**Old discussion - clarified and implemented in text **__</color>
+
+(1) **Configure CFO**
+''Roy:'' We do not foresee the use of ADCs in the NQ bands.
+''Kora:'' Text modified accordingly. 
+
+(2) **METIS_obs_IMG_NQ_AutoChop**
+''Roy:'' I think (based on the work of Alex and Leo) that the "standard" chopping "unit" will be a 3-position rather than the classical 2-position pattern. Also, we may chop in 2 dimensions (so we'd have 5 or more positions). This is still all very much TBD, and we don't know the scheme yet, but I'd say it is unlikely that we'll do the classical 2-position "on-off" pattern that is currently in the description.
+I updated the description to make this a bit more general, replacing "chop throw + position angle" with "chop positions".
+
+''Kora:'' Thanks Roy. I also modified the fits keyword parameters (although it is still to be seen how exactly do we call these parameters).

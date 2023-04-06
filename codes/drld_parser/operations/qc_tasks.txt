@@ -1,0 +1,3 @@
+==== List of QC tasks ====
+  * Take a flatfield with the vortex coronographic masks (<color #ed1c24>should this also be done with the pupil plane APP masks?</color>) to determine its position in the field (1/week, tbc)
+  * 

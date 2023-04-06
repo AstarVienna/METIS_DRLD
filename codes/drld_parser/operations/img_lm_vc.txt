@@ -1,0 +1,54 @@
+===== Ring-apodized or classical vortex coronagraphy ((RA/C)VC) in L- or M-band  =====
+Science use case example: //Exoplanet search with RAVC in L-band//
+
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+  * any special needs?
+
+==== Acquisition ====
+
+During the preset, the telescope is sent to the position of the target. The AO NGS is automatically centered on the WFS (no interaction needed). The VPM is inserted after the AO loop is closed, and the star is offset approximately to its center. An ND filter is inserted at the beginning of the sequence (the exact filter will be adapted to the star's brightness), and once the star is positioned at the VPM center, the ND is taken out. For extremely bright stars, this may be done in steps (from lower to higher transmission NDs). Accurate centering is performed using QACITS.
+
+Template options:
+  * [[metis_img_lm_vc_acq|METIS_img_lm_vc_acq]]
+
+==== Science sequence ====
+
+For HCI observing modes:
+
+  * The target (typically a bright star) is always on-axis and used as the NGS for the SCAO
+  * The derotator is always in pupil tracking mode (i.e. pupil is always oriented in the same pre-defined direction)
+
+Sky subtraction:
+
+  * Background subtraction is done by post-processing of the images in pupil tracking mode and/or based on dedicated sky measurements every ~10 min (ADI, RDI) 
+  * A sky frame and an off-axis PSF reference are taken every ~10 min. The sky measurement is used for background subtraction (required for RDI, and may also be useful for ADI), and for online calibration of the QACITS. After the sky and the off-axis PSF measurement, the star should be placed back close enough to the vortex center to enable the QACITS-based acquisition without saturation on the brightest targets. The detailed procedure is described in \cite{E-REP-ULG-MET-1022}.
+
+Template options: 
+  * [[metis_img_lm_vc_obs_fixedskyoffset|METIS_img_lm_vc_obs_FixedSkyOffset]]
+
+
+===== Calibration data =====
+
+++++
+Calibration requirements|
+  * flatfielding (daytime WCU, not needed daily?; twilight sky flats?)
+  * sky background recostruction/subtraction (chop/dither/stare), align frames (dithered/choped exposures)
+  * flux calibration (sky atmosphere modeling + one/few standard observations per night?)
+  * psf re-construction?
+  * provide data cube or "stacked" result?
+++++
+
+===== Products =====
+
+  * background-subtracted, flux-calibrated image (cube). Units, e.g., [photons/s/pix]
+  * corresponding uncertainties (cube)
+  * PSF (cube)
+
+===== Discussion =====
+ [[img_lm_vc_discussion|img_lm_vc_discussion]] 

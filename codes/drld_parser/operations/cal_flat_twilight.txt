@@ -1,0 +1,49 @@
+==== Twilight flats ====
+=== Responsible ===
+Science Operations
+
+=== Phase ===
+Late twilight
+
+=== Frequency ===
+Upon request
+
+=== Purpose ===
+Improve accuracy of lamp flatfield in terms of homogeneity
+
+=== Procedure ===
+  * point telescope towards an empty patch of sky at an airmass corresponding to the desired illumination levels (e.g. airmasses 1, 2, 2.5)
+  * set exposure time such that about 50% of the full-well capacity is reached in a single DIT
+  * take a series (10, tbc) of exposures with the desired science camera(s) (NQ/LM IMG)
+  * Repeat at other illumination levels, if desired
+
+=== Pipeline data products ===
+  * Master flat field frame
+
+=== Prepared observing blocks ===
+(tbd)
+
+=== Prepared templates ===
+[[METIS_all_cal_twilightflat|METIS_all_cal_TwilightFlat]] (tbc)
+
+=== Pipeline support ===
+  * Dark subtraction
+  * median of all frames with same DIT, detector mode (windowing, readout mode) and camera
+  * linear regression to compute detector linearity from frames with different illumination
+
+=== Duration ===
+less than one hour (tbd)
+
+=== Prerequisites ===
+  * clear skies
+  * access to telescope
+
+=== Required Accuracy ===
+depends on application
+
+=== Expected Accuracy ===
+  * limited by sky brightness variations with time and operational constraints
+
+=== Notes ===
+  * Twilight darks have the advantage of being an intrinsically very flat light source. Also, light enters the telescope / instrument in almost the same way as for the observation of a scientific object. However, due to the fast variation of the sky brightness with time during twilight, it is operationally challenging to capture a sufficiently large number of frames with the desired illumination level. Additionally, one need to select a piece of sky without bright (astronomical) infrared sources. We therefore foresee twilight flats only in exceptional conditions / upon request of the user.
+  * In contrast to existing thermal-IR cameras (such as e.g. VISIR at the VLT), the thermal background of METIS will be dominated by the thermal emission from the telescope at almost all science wavelengths (see Fig.~\ref{fig:thermal_background}). Twilight flats therefore only sample a limited range of (high) fluxes, as obtained in actual observations.

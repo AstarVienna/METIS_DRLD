@@ -1,0 +1,51 @@
+==== Dark Frame ====
+=== Responsible ===
+Science Operations
+
+=== Phase ===
+Daytime
+
+=== Frequency ===
+Once every day
+
+=== Purpose ===
+Remove zero level offset (also of flat/lamp frames), measure RON, measure hot pixels
+
+=== Procedure ===
+  * Select closed position in CFO-PP1 wheel
+  * Take exposures with all science cameras in parallel
+
+=== Pipeline data products ===
+  * Master dark frame
+  * hot, cold, deviant pixel maps (derived from a combination of the dark and flatfield calibrations)
+
+=== Prepared observing blocks ===
+(tbd)
+
+=== Prepared templates ===
+[[METIS_all_cal_dark|METIS_all_cal_dark]]
+
+=== Pipeline support ===
+  * Dark: median of all frames with same DIT, detector mode (windowing, readout mode) and camera
+  * Hot/cold/deviant pixel maps: determine significant (+/- 5 sigma) outliers in thermal background illuminated “dark” frames
+
+=== Duration ===
+less than one hour
+
+=== Prerequisites ===
+none
+
+=== Required Accuracy ===
+(tbd)
+
+=== Expected Accuracy ===
+limited by thermal leaks / outside illumination (tbd)
+
+
+
+=== Notes ===
+  * With the current detector choice, the dark frame calibration is only required scientifically for L band observations. While we will perform chopper-offsets in L band to remove the background, we may re-scale the individual frames (see discussion in Thermal background subtraction). For a proper re-scaling, a dark subtraction is required first.
+  * We do not require a dark frame calibration for the scientific data analysis of N band observations since we only perform differential observations via chopping. This may be different if we switch to the (probably more stable) GeoSnap detector for which we anticipate a background subtraction scheme more similar to the L band, i.e. with slow chopper offsets where we may want to scale the background of the individual exposure. This would require a well calibrated zero point (dark frame).
+  * We will nevertheless record N band dark frames, however, as this has proven to be a useful diagnostic of various detector and instrument problems in VISIR.
+  * For monitoring purposes, we intend to perform both a "METIS-dark" and an "Imager-dark" measurement. The former (which will be used for science data processing) just blocks the light from outside using the CLOSED position in the CFO-PP1 wheel and measure the dark current as well as thermal radiation from the instrument. The latter additionally uses a CLOSED position in the respective subsystem PP1.
+  * We note that the thermal emission from the closed position of the CFO-PP1 wheel contributes about as much to the instrument dark current as all the other mirrors. If we consider it a surface at 100% emissivity, its thermal emission is approximately equal to all 10 surfaces of the CFO at 10% emissivity.

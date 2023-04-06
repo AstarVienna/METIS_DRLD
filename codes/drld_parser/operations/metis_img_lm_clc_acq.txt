@@ -1,0 +1,118 @@
+==== Acquisition Template METIS_img_lm_clc_acq ====
+
+__Note:__ For all modes that use pupil tracking it needs to be investigated how close to the zenith an object can be before the field rotation becomes go fast accurate pupil tracking is no longer possible.
+
+=== Procedure for METIS_img_lm_clc_acq ===
+
+++++
+Preset telescope|
+  * send target coordinates to TCS
+  * initiate guiding/tracking. Guide star may be chosen by operator (if no coordinates supplied), or use the one specified in the template.
+  * wait for signal “arrived at position” / “guiding”
+++++
+++++
+Configure CFO|
+  * ADC wheel (located close to CFO-PP1): open or with ADC in
+  * Start derotator (pupil tracking)
+  * Chopper to zero
+  * Initialize pupil stabilization mirror
+  * CFO FP2 to LM field stop 
+  * LMS pick-off to open
+  * Set chopper parameters
+  * Start chopping when/if needed
+++++
+++++
+Setup imager|
+  * Set ''IMG-N PP1'' to CLOSED (no light on IMG-N system)
+  * [comment] IMG-LM PP1 has three wheels. The wheel located exactly in the pupil plane will contain the pupil masks (stops; for coronagraphy), APP, and the grisms. The other two wheels located behind the one in the pupil plane will contain the science filters, and the neutral density (ND) filters (METIS-3953, METIS-3781, METIS-5528).
+  * Move ''IMG-LM PP1 MASK/GRISM'' (mask/grism wheel) to open 
+    * After the AO loop is closed, the Lyot mask will be inserted here
+  * Move ''IMG-LM PP1 FILT'' to selected science filter 
+  * Move ''IMG-LM PP1 ND'' to selected neutral-density filter (for acquisition of very bright targets) 
+  * Pupil imaging lens to open
+  * Set detector parameters (DIT, NDIT, readout mode)
+++++
+++++
+AO acquisition|
+  * Get field orientation
+  * Position field selector (NGS acquisition)
+  * Set up WFS (filter, modulation, integration time, which modes to correct, etc.)
+  * Start readout of WFS.
+  * Start CFO pupil stabilization.
+  * Start M4 registration.
+  * Bright target (on-axis GS; always in coronagraphy)
+    * measure the position of the GS on the WFS and center using SCA-PP1 FS.  
+  * Close loop
+    * Sequential or cascade handover (METIS takes control of M4 and M5 via CCS). Decided only once.
+  * Center the target in the science focal plane
+    * measure the position of the target in the science focal plane. 
+    * center the target using CFO-PP2 chopper (optional).
+++++
+++++
+Coronagraphic acquisition|
+  * IMG-LM PP1: insert the ND filter (optional).
+  * Take a short exposure to check the star's position. Align the star with the choronagraphic mask  centre using the chopper or send to the pre-defined position of the mask center.
+  * CFO FP2: insert LOM-LM 
+  * IMG-LM-PP1 wheel: insert ULS-LM
+  * Fine adjustments (move-to-pixel) to center the star precisely.
+  * IMG-LM PP1: Remove the ND filter (unless required by the science observations).
+++++
+++++
+While AO loop is closed|
+  * Run NCPA removal (PSI) algorithm and calculate the slope offsets, on tbd time frame. 
+  *  Send corrections to SCAO supervisor (ICS)
+    * To M4 (global slope offsets) and M5 (tip/tilt)
+  * Save WFS data (slopes)
+
+++++
+
+===Parameters for METIS_img_lm_clc_acq ===
+
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^
+|HIERARCH ESO TEL TARG ALPHA        |no         |(NODEFAULT)                |Target RA|
+|HIERARCH ESO TEL TARG DELTA        |no         |(NODEFAULT)                |Target DEC|
+|HIERARCH ESO TEL TARG EQUINOX      |no         |-2000..3000 (2000)         |Equinox|
+|HIERARCH ESO TEL TARG PMA          |no         |-10..10 (0)                |Proper motion in RA in arcsec/year| 
+|HIERARCH ESO TEL TARG PMD          |no         |-10..10 (0)                |Proper motion in DEC in arcsec/year|
+|HIERARCH ESO TEL TARG NAME         |no         |(NODEFAULT)                |Name of the Target|
+|HIERARCH ESO TEL TARG GUIDESTAR      |no         |NONE SETUPFILE CATALOGUE (CATALOGUE)|Telescope Guide Star Selection|
+|HIERARCH ESO TEL GS1 ALPHA         |no         |(0.0)                      |RA of telescope guide star|
+|HIERARCH ESO TEL GS1 DELTA         |no         |(0.0)                      |DEC of telescope guide star|
+|HIERARCH ESO TEL ROT OFFANGLE      |no         |-360..360 (0)          |Position Angle on Sky (deg)|
+|HIERARCH ESO TEL TARG ADDVELALPHA  |yes        |-100..100 (0)              |Differential tracking in RA|
+|HIERARCH ESO TEL TARG ADDVELDELTA  |yes        |-100..100 (0)              |Differential tracking in DEC|
+|HIERARCH ESO SEQ PRESET            |yes        |T F (T)                    |Preset telescope?|
+|HIERARCH ESO SEQ NGS ISTARGET      |no         |T F (NODEFAULT)            |Target = AO Guide Star|
+|HIERARCH ESO SEQ NGS ALPHA         |no         |(NODEFAULT)                |RA of AO Guide Star|
+|HIERARCH ESO SEQ NGS DELTA         |no         |(NODEFAULT)                |DEC of AO Guide Star|
+|HIERARCH ESO SEQ NGS MAG           |no         |TBD (10)                   |H mag of AO Guide Star|
+|HIERARCH ESO SEQ PUPILTRK          |no         |T F (F)                    |Enable this for pupil tracking|
+|HIERARCH ESO SEQ NGS DIT           |yes        |0..TBD (TBD)                |NGS integration time (DIT)|
+|HIERARCH ESO SEQ NGS NDIT          |yes        |0..TBD (1)                        |NGS number of Integrations (NDIT)|
+|HIERARCH ESO SEQ NGS SKYALPHA      |no         |-TBD..TBD (0)              |Chopper offset to sky RA|
+|HIERARCH ESO SEQ NGS SKYDELTA      |no         |-TBD..TBD (0)              |Chopper offset to sky DEC|
+|HIERARCH ESO SEQ BKG MODE          |no         |NONE CHOPPED (NONE)        |Background subtraction mode|  
+|HIERARCH ESO SEQ CFO CHOP POSANG       |no         |0..360 (NODEFAULT)         |Chopper position angle|
+|HIERARCH ESO SEQ CFO CHOP THROW        |no         |0..5 (NODEFAULT)           |Chop throw|
+|HIERARCH ESO SEQ CFO CHOP FREQ         |yes        |TBD                        |Chopping frequency|
+|HIERARCH ESO DPR CATG              |yes        |SCIENCE CALIB ACQUISITION TECHNICAL (ACQUISITION) |Data product category|
+|HIERARCH ESO DPR TECH              |yes        |IMAGE LSS IFU IMAGE,RAVC IMAGE,APP IFU,RAVC IFU,APP (IMAGE)                 |Data product technique|
+|HIERARCH ESO DPR TYPE              |yes        |OBJECT SKY STD PSF-CALIBRATOR DARK FLAT WAVE BIAS DISTORTION (OBJECT)|Data product type| 
+|HIERARCH ESO DET DIT               |no         |0..TBD (NODEFAULT)         |Detector integration time (DIT)|
+|HIERARCH ESO DET NDIT              |no         |0..TBD (1)                 |Number of Integrations (NDIT)|
+|HIERARCH ESO DET NCORRS NAME       |no         |TBD                        |Readout mode|
+|HIERARCH ESO INS FILT1 NAME        |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef fullL M' CO(1-0)/ice COref fullM (NODEFAULT)                |Filter name|
+|HIERARCH ESO INS OPTI1 NAME         |no         |APP Grism_L Grism_M Lyot-stop (TBD) (Lyot-stop)                  |Mask/Grism name|
+|HIERARCH ESO INS OPTI2 NAME         |no         |TBC (NODEFAULT)                  |Neutral density filter|
+|HIERARCH ESO INS OPTI3 NAME         |no         |VPM-L VPM-M VPM-N1 VPM-N2 LOM-LM LOM-N (LOM-LM)       |Vortex phase or Lyot occulting mask|
+
+
+Notes:
+
+  * System should automatically calculate the chopping parameters as a result from the list of random jittering offsets (if offsetting is to be done with the chopper, and not with the telescope)
+  * Keyword for chopper parameters set to CFO since the chopper is inside of the instrument, this is to be confirmed.
+
+===Additional parameters for METIS_img_lm_clc_acq, not baseline===
+ 
+  * Select scale 

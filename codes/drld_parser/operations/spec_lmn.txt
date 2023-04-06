@@ -1,0 +1,29 @@
+===== Parallel L/M-band and N-band low resolution spectroscopy  =====
+Science use case example: //Spectral analysis of spatially resolved dust tori around AGNs / circumstellar disks//
+
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+
+==== Acquisition ====
+
+This mode is foreseen only for compact/point sources, and it is to be performed in pupil tracking mode with the slit oriented perpendicular to the horizon. This is to ensure that the atmospheric dispersion is strictly in the along-slit direction, in order to avoid complications due to the chromatic offsets between LM and N bands causing a strong wavelength dependence of source position on the slit in the dispersion direction.
+
+During the preset, the telescope is sent to the position of the target. The AO NGS is automatically centered on the WFS (no interaction needed). In case of the off-axis NGS (SEQ NGS ISTARGET = F), an internal WFS mirror (field selector) will be tilted such that the off-axis NGS falls exactly onto the WFS. A through-slit image is taken in order to measure the exact slit position on the detector. The target is then moved to the slit position.
+
+Template options: 
+  * [[METIS_spec_lmn_acq|METIS_spec_lmn_acq]]
+
+==== Science sequence ====
+In long-slit spectroscopy mode, the sky subtraction in N is performed by chopping and nodding the target, typically along the slit, with optional jitters at each position. More complex source geometries might require larger nodding amplitudes, and/or nodding perpendicular to the slit in order to avoid self-cancellation. In LM band the chopping is sub-optimal because it enforces shorter DITs on the IMG-LM detector than required in order to reach the background-limit there (but since chopping is happening in the common path, it is obviously either done to both imagers or not at all -- and it is required for the N band long-slit spectroscopy).
+
+Template options: 
+  * [[METIS_spec_lmn_obs_AutoChopNodOnSlit|METIS_spec_lmn_obs_AutoChopNodOnSlit]]
+
+===== Discussion =====
+ [[spec_lmn_discussion|spec_lmn_discussion]] 
+

@@ -1,0 +1,67 @@
+==== Science spectroscopy template METIS_obs_LSS_N_MRAutoChopOnSlit ====
+
+=== Procedure for METIS_obs_LSS_N_MRAutoChopOnSlit ===
+ 
+++++
+Setup spectrograph|
+  * Move to selected filter (''IMG-NQ PP1 FILT'') 
+  * Mask wheel to open
+  * Move to selected grism (''IMG-NQ PP1 GRISM'')
+  * Set detector parameters (DIT, NDIT, readout mode, cube mode T/F)
+++++
+++++
+Start science exposures|
+  * This template performs chopping (using the CFO PP2 chopper) in the same direction as the slit orientation, and additionally allows for small random dithers along the slit around the initial target position. Dither can be performed using the CFO PP2 chopper or telescope offsets.
+  * Set chop parameters at CFO PP2 (chop throw, frequency, chop position angle)
+  * Set number of chop cycles at CFO PP2 (''NCHOPCYCLES'')
+  * Set the ''DitherWidth'' = width of the 1D box for dithering.
+  * At each offset position start science exposures with DIT/NDIT/readout mode. 
+  * Read-out and save individual exposures, or co-added frames, depending on the ''cube mode'' T/F keyword.
+++++
+++++
+End science exposures|
+  * Return back to the initial position
+  * Collect headers
+  * Merge into one or more data cubes
+  * Send cube to ESO Archive
+  * Send cube to Pipeline machine or ICS storage (tbd)
+  * Go back to //Setup Spectrograph// until target observations are finished (single OB). For example, to observe with a different grism.
+  * Send cube to ESO Archive
+
+At the end of the OB:
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop (M4)
+    * stop field stabilization (M5)
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+++++
+
+===Parameters for METIS_obs_LSS_N_MRAutoChopOnSlit===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|HIERARCH ESO DPR CATG              |yes        |SCIENCE CALIB ACQUISITION TECHNICAL (SCIENCE) |Data product category|
+|HIERARCH ESO DPR TECH              |yes        |IMAGE LSS IFU IMAGE,RAVC IMAGE,APP IFU,RAVC IFU,APP (IMAGE)                 |Data product technique|
+|HIERARCH ESO DPR TYPE              |yes        |OBJECT SKY STD PSF-CALIBRATOR FLAT DARK (OBJECT)|Data product type|                      
+|HIERARCH ESO DET DIT               |no         |0..TBD (NODEFAULT)         |Detector integration time (DIT)|
+|HIERARCH ESO DET NCORRS NAME       |no         |TBD                        |Readout mode|
+|HIERARCH ESO DET CUBE MODE        |no         |T F (F)                    |Toggle cube mode| 
+|HIERARCH ESO INS FILT1 NAME         |no         |full_N (full_N)        |Filter name|
+|HIERARCH ESO INS OPTI2 NAME         |no         | TBC (NODEFAULT)          |Neutral density filter|
+|HIERARCH ESO INS OPTI1 NAME      |no         |open APP Grism_N-low Grism_N-[S IV] Grism_N-[Ne II] SAM1 SAM2 (TBD) (NODEFAULT)   |Grism|
+|HIERARCH ESO INS SLIT1 NAME    |no         |TBC (NODEFAULT)   |Slit|
+|HIERARCH ESO SEQ JITTER WIDTH      |no         |0..5 (NODEFAULT)           |Jitter Box Width (arcsec)|
+|HIERARCH ESO SEQ NCHOPCYCLES         |no         |0..100 (NODEFAULT)         |Number of chopping cycles|
+|HIERARCH ESO SEQ NDIT OBJECT       |no         |1..1000 (1)                |NDIT on OBJECT positions|
+|HIERARCH ESO SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
+|HIERARCH ESO SEQ POISSON           |yes        |1..100 (10)                |Random throw generator
+|HIERARCH ESO SEQ RETURN            |no         |T F (T)                    |Return to origin?|
+|HIERARCH ESO SEQ CFO CHOP POSANG       |yes        |0..360 (NODEFAULT)         |Chopper position angle|
+|HIERARCH ESO SEQ CFO CHOP THROW        |yes        |0..5 (NODEFAULT)           |Chop throw|
+|HIERARCH ESO SEQ CFO CHOP FREQ         |yes        |TBD                        |Chopping frequency|
+

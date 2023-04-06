@@ -1,0 +1,15 @@
+==== Template METIS_gen_cal_LampOff ====
+=== Input parameters ===
+  * Temperature T1
+  * INS MODE
+  * WCU configuration (e.g. grid in WCU FP1)
+
+=== Procedure ===
+  * Activate WCU extended blackbody source (wait for warm-up time)
+  * set WCU BB to temperature T1, wait until warmed up
+    * while WCU is warming up
+      * setup CFO for observation in INS MODE
+      * setup WCU
+  * close WCU input / output shutters
+  * take a background measurement
+  * open WCU shutters

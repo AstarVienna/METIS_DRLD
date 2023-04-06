@@ -1,0 +1,58 @@
+==== Absolute flux calibration ====
+=== Responsible ===
+Observer
+
+=== Phase ===
+Night time
+
+=== Frequency ===
+Max. once per night per instrument mode
+
+=== Purpose ===
+Determine instrumental zeropoint / flux conversion factor (Jy/cts/s)
+
+=== Procedure ===
+  * Observe a (spectrophotometric) standard star (see Appendix for a discussion about applicable standard stars)
+
+=== Pipeline data products ===
+  * Raw-reduced image / spectrum of the (spectrophotometric) standard star
+  * Photometric zeropoint / flux conversion factor
+
+=== Prepared observing blocks ===
+(tbd)
+
+=== Prepared templates ===
+  * [[METIS_img_lm_cal_standard|METIS_img_lm_cal_standard]]
+  * [[METIS_img_nq_cal_standard|METIS_img_nq_cal_standard]]
+  * [[METIS_spec_lm_cal_standard|METIS_spec_lm_cal_standard]]
+  * [[METIS_spec_nq_cal_standard|METIS_spec_nq_cal_standard]]
+  * [[METIS_ifu_cal_standard|METIS_ifu_cal_standard]]
+
+=== Pipeline support ===
+  * Raw-reduce data according to instrument mode (image, spectrum, IFS)
+  * Using a tbd database of known standard stars, determine the photometric zeropoint / flux conversion factor
+
+=== Duration ===
+Like a normal observation of the respective observing mode, approximately 30 min (tbc)
+
+=== Prerequisites ===
+  * clear skies
+  * access to telescope
+
+=== Required Accuracy ===
+  * Relative spectro-photometric accuracy over an entire atmospheric band: 10%
+  * Absolute line flux accuracy: 30%
+  * Relative photometric accuracy: 1%
+  * Absolute flux calibration: 5%
+
+=== Expected Accuracy ===
+Limited by (our limited knowledge of) atmospheric variations, uncertainties in the standard stars themselves.
+
+
+
+=== Notes ===
+  * Additionally there is the requirement (METIS-1203) to achieve the photometric stability with just one on-sky flux calibration per night per mode
+  * For high accuracy observations, we expect that the user will demand (on his own time budget) a dedicated flux calibration, in addition to this (observatory-provided) flux calibration.
+  * Open questions:
+    * (How well) can we predict the change of the ADU/Jy conversion factor within a night from environmental parameters or from the science spectrum / aperture photometry itself?
+    * Can we estimate the sky opacity from the atmospheric emission? And can we infer the atmospheric transmission in a certain filter (i.e. the ADU/Jy conversion factor) from this? In the absence of scattering, there should be an anti-correlation between the background level (atmospheric emissivity) and the conversion factor (atmospheric transparency).

@@ -1,0 +1,62 @@
+==== Engineering mode N band pupil imaging ====
+
+=== Procedure for METIS_pup_n ===
+ 
+++++
+Configure CFO |
+  * ''CFO PP1'': select chosen pupil mask (if any)
+  * Set de-rotator initial angle and keep it at that angle
+  * Chopper to home position
+  * ''CFO FP2'' to PI-MASK
+  * LMS pick-off to open
+++++
+++++
+Setup imager|
+  * Set ''IMG-LM PP1'' to CLOSED (no light on IMG-LM system)
+  * Move ''IMG-N PP1 MASK/GRISM'' to selected pupil mask
+  * Move ''IMG-N PP1 FILT'' to selected science filter 
+  * Move ''IMG-N PP1 ND'' to selected neutral-density filter (default: none)
+  * Insert pupil imaging lens into beam
+    * a mechanism for pupil viewing. Not located in the pupil plane, probably in front of the detector (tbc). In IMG used for engineering/AIV purposes.
+  * Set detector parameters (DIT, NDIT, readout mode)
+++++
+
+++++
+Start exposures|
+  * Start science exposures with DIT/NDIT. 
+  * Perform ''Nexp'' number of exposures.
+  * Read-out and save individual exposures, or co-added frames, depending on the ''cube mode'' T/F keyword.
+++++
+++++
+End exposures|
+  * Collect headers
+  * Merge into one or more data cubes
+  * Send cube to ESO Archive
+
+At the end of the OB:
+  * Stop CFO pupil stabilization
+  * Select "DARK" position in CFO-PP1
+  * [comment] as per recommendation by ELT WG on persistence (May 2022)
+++++
+
+===Parameters for METIS_pup_lm ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |SCIENCE TEST (SCIENCE) |Data product category|
+|DPR TECH              |yes        |IMAGE (IMAGE)                 |Data product technique|
+|DPR TYPE              |yes        |OBJECT STD (OBJECT)|Data product type|                      
+|DET2 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-N Detector integration time (DIT)|
+|DET2 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-N Number of Integrations (NDIT)|
+|DET2 NCORRS NAME       |no         |TBD                         |IMG-N Readout mode|
+|DET2 CUBE MODE        |yes         |T F (T)                    |Toggle cube mode| 
+|INS OPTI1 NAME        |no         |PPS-CFO1 PPS-CFO2 RAP-LM Dark AIV OPEN (OPEN) | CFO-PP1 mask|
+|INS OPTI2 NAME        |yes        |OPEN                       |CFO-PP1 ADC wheel|
+|INS OPTI3 NAME        |yes        |PI-MASK                    |CFO-FP2 mask wheel|
+|INS OPTI4 NAME        |yes        |OPEN                       |LMS pickoff beamsplitter|
+|INS OPTI12 NAME        |yes        |open PPS-N SPM-N (SPM-N)  |IMG-N mask/grism wheel|
+|INS OPTI13 NAME         |no         |N1 N2 PAH8.6 PAH8.6_ref PAH11.25 PAH11.25_ref [NeII] [NeII]_ref [SIV] [SIV]_ref N3 (N1)                |IMG-N Filter name|
+|INS OPTI14 NAME         |no         |OPEN ND1 ND2 ND3 ND4 (OPEN)                  |IMG-N Neutral density filter|
+|INS OPTI16 NAME       |yes        |IN                         |IMG-N pupil imaging lens|
+|INS OPTI17 NAME       |yes        |OPEN                       |WCU periscope|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|

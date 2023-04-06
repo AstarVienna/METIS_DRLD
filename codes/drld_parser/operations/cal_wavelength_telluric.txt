@@ -1,0 +1,52 @@
+==== (Night-time) wavelength and telluric correction ====
+
+=== Responsible ===
+Observer
+
+=== Phase ===
+Nighttime
+
+=== Frequency ===
+During every observation
+
+=== Purpose ===
+Determine more accurate wavelength calibration, remove telluric absorption lines from spectrum
+
+=== Procedure ===
+No extra data needs to be taken for this calibration step. The telluric lines are imprinted in every science spectrum.
+
+=== Prepared observing blocks ===
+(tbd)
+
+=== Prepared templates ===
+[[METIS_all_cal_wave_telluric|METIS_all_cal_wave_telluric]]
+
+=== Pipeline support ===
+  * After dark subtraction and flat fielding, use the ESO package molecfit to determine the wavelength calibration and remove the imprint of telluric lines from the spectra.
+
+=== Duration ===
+No extra observations are required for this calibration.
+
+=== Prerequisites ===
+In the classical approach of telluric calibration, the telluric calibrator not only provides an estimate of the Earth's atmospheric transparency, but more generally provides a full relative spectral response function. Atmospheric modelling tools such as molecfit cannot possibly know about the RSRF of the instrument, however. In order to derive (and correct for) the telluric transmission from the science spectrum itself, we therefore require a valid RSRF as input for this calibration step.
+
+=== Required Accuracy ===
+  * Wavelength calibration: 1/10 px
+  * Telluric removal must be good enough to reach the required spectro-photometric accuracy (10% within an atmospheric band)
+
+=== Expected Accuracy ===
+  * wavelength calibration accuracy
+    * using the telluric absorption spectrum: obtained accuracy depends only the signal/noise of the measured spectrum. In general, an SNR of approximately 30 is required to determine the centroid of a line to the required accuracy of 1/10 of a pixel.
+    * using the telluric emission lines (e.g. for emission line objects or very faint objects with insufficient continuum to produce significant telluric absorption lines) depends on the SNR of the observed emission lines (dependent on wavelength range of the observation), possibly night sky conditions, and accuracy (or knowledge) of centering position of the source in the slit (to determine wavecal offset between emission spectrum / fills the whole slit and source spectrum / possibly not centered in the slit)
+  * telluric calibration accuracy
+    * limited by uncertainties in the line databases
+    * For the relevant wavelength range, the accuracy of the telluric correction with molecfit is expected to be better than 3 \% \cite{smette2015}.
+
+
+
+=== Notes ===
+  * We expect that this model-based approach will be the default method to correct for telluric lines. No telluric calibrators will need to be observed.
+  * Telluric absorption (or emission) lines are accessible at almost all science wavelengths of METIS (except in a narrow region at the red end of the L band, where the daytime wavelength calibration with the QCLs will have to be used). It has been shown by \cite{smette2015} that the telluric lines can be used to improve the day-time wavelength calibration in a number of wavelength ranges and spectral resolving powers.
+  * While molecfit has been demonstrated to work very well on high-resolution spectroscopy data for both CRIRES and VISIR \cite{smette2015}, our own tests of using molecfit on low-resolution VISIR spectra have not yet led to satisfying results. This is likely due to the uncertain flatfield in VISIR observations and we are currently investigating this in the calibration programme 4102.L-0413 (PI S. Kimeswenger). Using this model-based approach for wavelength and telluric line calibration will require an accurate knowledge (and possibly monitoring) of the respective RSRFs for all relevant spectral observing modes.
+  * A better telluric correction can be achieved if PWV can be given as an input parameter (S. Kimeswenger, priv. comm.)
+  * The absolute stability of the atmospheric lines is good enough for our purposes. Measurements comparing atmospheric lines with radiosonde measurements have shown that the scatter between these two was only of order 10 m/s over a time-scale of six years \cite{figueira2012}.

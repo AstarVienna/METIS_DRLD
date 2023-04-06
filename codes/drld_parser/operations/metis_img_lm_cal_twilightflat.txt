@@ -1,0 +1,74 @@
+===Procedure for METIS_img_lm_cal_flat_twilight ===
+
+For the twilight flat field calibration observations, the telescope is pointed at a location in the sky, opposite of the sun and at a given airmass. The telescope is put in no-tracking mode so that the sky drifts over METIS. This logic is encoded in the template.
+
+The template cycles through a selectable series of filters to determine the best DIT and NDIT for the actual twilight flat observation in order to obtain a high initial count level on the frames (~50% of the full-well capacity). After this, exposures are taken cycling through these filters obtaining frames with fixed DIT and NDIT (and decreasing or increasing count levels during evening or morning twilight, respectively). The sequence can be repeated at different illumination levels, i.e. different airmasses.
+
+++++
+Preset telescope|
+  * send target coordinates to TCS
+  * [comment] Since twilight flats will be taken at sky positions preferably without stars, and since image quality does not matter for twilight flats, no AO guiding is necessary or possible in this mode.
+  * wait for signal “arrived at position”
+++++
+++++
+Configure CFO |
+  * CFO can be configured while the telescope is presetting
+  * ''CFO PP1'': select cold stop PPS-CFO1
+  * ''CFO PP1'' (ADC wheel): select ADC (or open position)
+  * Set de-rotator initial angle and start derotator. Options:
+    * Field tracking (pupil rotates) [default]
+    * Pupil tracking (field rotates; by default used for both HCI and (on-axis) regular imaging)
+    * No tracking (stopped). For engineering purposes.
+  * Chopper to home position
+  * ''CFO FP2'' to LM Field Stop
+  * LMS pick-off to open
+++++
+++++
+Setup imager|
+  * Set ''IMG-N PP1'' to CLOSED (no light on IMG-N system)
+  * Move ''IMG-LM PP1 MASK/GRISM'' to selected pupil mask (pupil stop PPS-LM for field-tracking observations, spider mask SPM-LM for pupil-tracking observations)
+  * Move ''IMG-LM PP1 FILT'' to selected science filter 
+  * Move ''IMG-LM PP1 ND'' to selected neutral-density filter (for acquisition of very bright targets)
+  * Pupil imaging lens to open
+  * Set detector parameters (DIT, NDIT, readout mode)
+++++
+++++
+Start exposures|
+  * Start science exposures with specified DIT/NDIT and perform ''Nexp'' number of exposures.
+++++
+++++
+End exposures|
+  * Collect headers
+  * Send file to ESO Archive
+  * Select "DARK" position in CFO-PP1
+  * [comment] as per recommendation by ELT WG on persistence (May 2022)
+  * Stop derotator
+  * Handover to telescope
+    * Telescope gets ready for next preset
+++++
+
+
+
+===Parameters for METIS_img_lm_cal_flat_twilight ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TECH              |yes        |IMAGE IMAGE,APP IMAGE,RAVC IMAGE,CVC (NODEFAULT)    |Data product technique|
+|DPR TYPE              |yes        |FLAT,SKY (FLAT,SKY)|Data product type| 
+|DET1 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
+|DET1 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-LM Number of Integrations (NDIT)|
+|DET1 NCORRS NAME       |no         |TBD                         |IMG-LM Readout mode|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NEXPO             |no         |0..TBD (1)                 |Number of exposures|
+|SEQ NCYCLES            |no         |1..TBD (1)                 |Number of cycles|
+|SEQ DIT FILT LIST     |no         |(NODEFAULT)                 |Filter list|
+|SEQ PRESET            |yes        |T F (T)                    |Preset telescope?|
+|INS OPTI1 NAME         |yes        | PPS-CFO1 RAP-LM (PPS-CFO1)                |CFO-PP1 mask wheel|
+|INS OPTI2 NAME         |yes        | TBD (TBD)                |CFO-PP1 ADC wheel|
+|INS OPTI3 NAME   	|yes        | FIELD-11 FIELD-14 FIELD-3 SLIT-A SLIT-B SLIT-C SLIT-D SLIT-E VPM-L VPM-M PI-MASK PNH-1 (FIELD-11)                              |CFO FP2 mask/slit wheel |
+|INS OPTI4 NAME         |yes        |OUT IN (OUT)                  |LMS beamsplitter pickoff wheel|
+|INS OPTI9 NAME         |no         |open PPS-LM RLS-LM CLS-LM APP-LM SPM-LM (SPM-LM)  |IMG-LM Mask/Grism name|
+|INS OPTI10 NAME         |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef M' CO(1-0)/ice COref HCIL-short HCIL-long (L')                |IMG-LM Filter name|
+|INS OPTI11 NAME         |no         |OPEN ND1 ND2 ND3 ND4 ND5 DARK (NODEFAULT)                  |IMG-LM Neutral density filter|
+|INS OPTI15 NAME         |yes        |OUT IN (OUT)                    | IMG-LM pupil imaging lens|
+|INS OPTI17 NAME         |yes        |OUT (OUT)                    | WCU periscope arm|

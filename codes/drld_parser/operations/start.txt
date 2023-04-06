@@ -1,0 +1,10 @@
+===== METIS operations =====
+
+  * [[cmds|METIS instrument modes / list of Comprehensive Mode Descriptions (CMDs)]]
+  * [[calib_tasks|List of calibration tasks]]
+  * [[metis_templates|List of METIS templates]]
+  * [[qc_tasks|List of QC tasks]]
+  * [[fits_keywords|FITS header keywords]]
+  * [[operations_meetings|post-PDR operations group meeting notes]]
+  * [[opti_elements|List of OPTIi keywords]]
+  * [[deti|List of detectors]]

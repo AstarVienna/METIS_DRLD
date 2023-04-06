@@ -1,0 +1,94 @@
+This page contains the tables of all the acquisition, science, and calibration templates of METIS.
+++++
+METIS Acquisition templates|
+^Template name             ^Functionality  | 
+|**Imaging**|
+|[[METIS_img_lm_acq|METIS_img_lm_acq]]|acquisition of LM imaging observations|
+|[[METIS_img_lm_app_acq|METIS_img_lm_app_acq]]|acquisition of APP coronagraphy in LM |
+|[[METIS_img_lm_vc_acq|METIS_img_lm_vc_acq]]|acquisition of ring-apodized or classical vortex coronagraphy in LM |
+|[[METIS_img_n_acq|METIS_img_n_acq]]|acquisition of N band imaging observations|
+|[[METIS_img_n_cvc_acq|METIS_img_n_cvc_acq]]|acquisition of classical vortex coronagraphy in N |
+|[[METIS_img_lmn_acq|METIS_img_lmn_acq]]|acquisition of parallel LM and N band imaging observations |
+|**Long-slit spectroscopy**|
+|[[METIS_spec_lm_acq|METIS_spec_lm_acq]]|acquisition of long-slit spectroscopic observations in LM |
+|[[METIS_spec_n_acq|METIS_spec_n_acq]]|acquisition of low-resolution long-slit spectroscopic observations in N |
+|[[METIS_spec_lmn_acq|METIS_spec_lmn_acq]]|acquisition of parallel LM and N band long-slit spectroscopic observations |
+|**Integral Field Unit**|
+|[[METIS_ifu_acq|METIS_ifu_acq          ]]|acquisition of nominal IFU spectroscopy |
+|[[METIS_ifu_app_acq|METIS_ifu_app_acq]]|acquisition of nominal IFU spectroscopy with APP coronagraph|
+|[[METIS_ifu_vc_acq|METIS_ifu_vc_acq]]|acquisition of nominal IFU spectroscopy with ring-apodized or classical vortex coronagraph |
+|[[METIS_ifu_ext_acq|METIS_ifu_ext_acq]]|acquisition of extended IFU spectroscopy |
+|[[METIS_ifu_ext_app_acq|METIS_ifu_ext_app_acq]]|acquisition of extended IFU spectroscopy with APP coronagraph |
+|[[METIS_ifu_ext_vc_acq|METIS_ifu_ext_vc_acq]]|acquisition of extended IFU spectroscopy with ring-apodized or classical vortex coronagraph|
+++++
+++++
+METIS Observing templates|
+^Template name             ^Functionality  | 
+|**Imaging**|
+|[[METIS_img_lm_obs_AutoJitter|METIS_img_lm_obs_AutoJitter]]	| LM-band imaging with jitter |
+|[[METIS_img_lm_obs_FixedSkyOffset |METIS_img_lm_obs_FixedSkyOffset]] |LM-band imaging with jitter and fixed sky offset|	
+|[[METIS_img_lm_obs_GenericOffset |METIS_img_lm_obs_GenericOffset]] |LM-band imaging with user-defined offsets | 
+|[[METIS_img_lm_app_obs_FixedOffset|METIS_img_lm_app_obs_FixedOffset]] |APP coronagraphy in LM with offset between two positions |	
+|[[METIS_img_lm_vc_obs_FixedSkyOffset|METIS_img_lm_vc_obs_FixedSkyOffset]] |Ring-apodized or classical vortex coronagraphy in LM with fixed sky offset|	
+|[[METIS_img_n_obs_AutoChopNod|METIS_img_n_obs_AutoChopNod]] |N-band imaging with chopping and nodding in pre-defined direction |
+|[[METIS_img_n_obs_GenericChopNod|METIS_img_n_obs_GenericChopNod]] |N-band imaging with chopping and nodding |
+|[[METIS_img_n_cvc_obs_AutoChop |METIS_img_n_cvc_obs_AutoChop ]] |Classical vortex coronagraphy in N-band with chopping |
+|[[METIS_img_lmn_obs_AutoChopNod|METIS_img_lmn_obs_AutoChopNod]] |LM and N-band parallel imaging with chopping and nodding in pre-defined direction |
+|[[METIS_img_lmn_obs_GenericChopNod|METIS_img_lmn_obs_GenericChopNod]] |LM and N-band parallel imaging with chopping and nodding |
+|**Long-slit spectroscopy**|
+|[[METIS_spec_lm_obs_AutoNodOnSlit|METIS_spec_lm_obs_AutoNodOnSlit]] 		|Low-resolution LSS in LM with offsets along the slit |
+|[[METIS_spec_lm_obs_GenericOffset|METIS_spec_lm_obs_GenericOffset]]		|Low-resolution LSS in LM with user-defined offsets |
+|[[METIS_spec_n_obs_AutoChopNodOnSlit|METIS_spec_n_obs_AutoChopNodOnSlit]]	|Low-resolution LSS in N-band with chopping and nodding along the slit| 
+|[[METIS_spec_lmn_obs_AutoChopNodOnSlit|METIS_spec_lmn_obs_AutoChopNodOnSlit]]	|Low-resolution LSS in LM and N-band (parallel) with chopping and nodding along the slit|   
+|**Integral Field Unit**|
+|[[METIS_ifu_obs_FixedSkyOffset|METIS_ifu_obs_FixedSkyOffset]] |Nominal IFU spectroscopy with jitter and fixed sky offsets | 
+|[[METIS_ifu_obs_GenericOffset|METIS_ifu_obs_GenericOffset]]   |Nominal IFU spectroscopy with user-defined offsets | 
+|[[METIS_ifu_app_obs_Stare|METIS_ifu_app_obs_Stare]]   | Nominal IFU spectroscopy with APP coronagraph| 
+|[[METIS_ifu_vc_obs_FixedSkyOffset|METIS_ifu_vc_obs_FixedSkyOffset]] |Nominal IFU spectroscopy with ring-apodized or classical vortex coronagraph and fixed sky offsets|
+|[[METIS_ifu_ext_obs_FixedSkyOffset|METIS_ifu_ext_obs_FixedSkyOffset]] |Extended IFU spectroscopy with jitter and fixed sky offsets |
+|[[METIS_ifu_ext_obs_GenericOffset |METIS_ifu_ext_obs_GenericOffset ]] |Extended IFU spectroscopy with user-defined offsets |
+|[[METIS_ifu_ext_app_obs_Stare|METIS_ifu_ext_app_obs_Stare]]   | Extended IFU spectroscopy with APP coronagraph| 
+|[[METIS_ifu_ext_vc_obs_FixedSkyOffset|METIS_ifu_ext_vc_obs_FixedSkyOffset]]   | Extended IFU spectroscopy with ring-apodized or classical vortex coronagraph and fixed sky offsets |
+++++
+++++
+METIS Calibration templates|
+^Template name             ^Functionality  | 
+|[[METIS_img_lm_cal_ChopperHome|METIS_img_lm_cal_ChopperHome]]|Chopper home position|
+|[[METIS_gen_cal_dark|METIS_gen_cal_dark]]|Series of dark frames (imager dark)|
+|[[METIS_gen_cal_InsDark|METIS_gen_cal_InsDark]]|Series of dark frames (instrument dark)|
+|[[METIS_img_lm_cal_InternalFlat|METIS_img_lm_cal_InternalFlat]]|Imaging internal flat field in LM |
+|[[METIS_img_n_cal_InternalFlat|METIS_img_n_cal_InternalFlat]]|Imaging internal flat field in N |
+|[[METIS_img_lm_cal_TwilightFlat|METIS_img_lm_cal_TwilightFlat]] | Imaging twilight flat fields in LM|
+|[[METIS_img_n_cal_TwilightFlat|METIS_img_n_cal_TwilightFlat]] | Imaging twilight flat fields in N|
+|[[METIS_spec_lm_cal_SlitAdc|METIS_spec_lm_cal_SlitAdc]] |Calibration of slit loss and ADC model in LM |
+|[[METIS_spec_n_cal_slit|METIS_spec_n_cal_slit]] |Calibration of slit loss and atmospheric dispersion model in N  |
+|[[METIS_spec_lm_cal_InternalWave|METIS_spec_lm_cal_InternalWave]] |Wavelength calibration with internal light source LM long-slit spectroscopy|
+|[[METIS_spec_n_cal_InternalWave|METIS_spec_n_cal_InternalWave]] |Wavelength calibration with internal light source N long-slit spectroscopy|
+|[[METIS_ifu_cal_InternalWave|METIS_ifu_cal_InternalWave]] |Wavelength calibration with internal light source IFU|
+|[[METIS_ifu_cal_rsrf|METIS_ifu_cal_rsrf]] |Determine the relative spectral response function for the IFU|
+|[[METIS_spec_lm_cal_rsrf|METIS_spec_lm_cal_rsrf]] |Determine the relative spectral response function for the LM-band LSS|
+|[[METIS_spec_n_cal_rsrf|METIS_spec_n_cal_rsrf]] |Determine the relative spectral response function for the N-band LSS|
+|[[METIS_img_lm_cal_standard|METIS_img_lm_cal_standard]] |Standard star imaging in LM |
+|[[METIS_img_n_cal_standard|METIS_img_n_cal_standard]] |Standard star imaging in N |
+|[[METIS_spec_lm_cal_standard|METIS_spec_lm_cal_standard]] |Standard star observations for LSS in LM |
+|[[METIS_spec_n_cal_standard|METIS_spec_n_cal_standard]] |Standard star observations for LSS in N|
+|[[METIS_ifu_cal_standard|METIS_ifu_cal_standard]] |Standard star observations with IFU|
+|[[METIS_img_lm_cal_psf|METIS_img_lm_cal_psf]] |PSF calibrator imaging LM |
+|[[METIS_img_n_cal_psf|METIS_img_n_cal_psf]] |PSF calibrator imaging N |
+|[[METIS_ifu_cal_psf|METIS_ifu_cal_psf]] |PSF calibrator IFU|
+|[[METIS_img_lm_cal_platescale|METIS_img_lm_cal_platescale]]   |Plate-scale and true North calibration imaging LM|
+|[[METIS_img_n_cal_platescale|METIS_img_n_cal_platescale]]   |Plate-scale and true North calibration imaging N|
+|[[METIS_ifu_cal_platescale|METIS_ifu_cal_platescale]] |Plate-scale and true North calibration IFU|
+|[[METIS_img_lm_cal_distortion|METIS_img_lm_cal_distortion]]   |Distortion map imaging LM|
+|[[METIS_img_n_cal_distortion|METIS_img_n_cal_distortion]]   |Distortion map imaging N|
+|[[METIS_ifu_cal_distortion|METIS_ifu_cal_distortion]] |Distortion map IFU|
+|[[METIS_img_lm_cal_DetLin|METIS_img_lm_cal_DetLin]] |Detector linearity check imaging LM |
+|[[METIS_img_n_cal_DetLin|METIS_img_n_cal_DetLin]] |Detector linearity check imaging N |
+|[[METIS_ifu_cal_DetLin|METIS_ifu_cal_DetLin]] |Detector linearity check IFU |
+++++
+++++
+METIS Engineering templates|
+^Template name             ^Functionality  | 
+|[[METIS_pup_lm|METIS_pup_lm]] |Pupil imaging in LM |
+|[[METIS_pup_n|METIS_pup_n]] |Pupil imaging in N |
+++++

@@ -1,0 +1,39 @@
+===== Imaging LM =====
+
+Science use case example: //the disk population in the Arches cluster //
+
+
+=== Input Data and assumptions ===
+
+Our starting point is the paper by [[https://ui.adsabs.harvard.edu/abs/2015A%26A...578A...4S/abstract|Stolte et al. (2015)]], who present JHKL photometry of the Arches cluster taken with the HST-WFC3 and VLT-NACO instruments. We consider the cluster core, i.e. field 1 of Stolte+2015. We take their L′ magnitudes as a starting point and fit a power law to the luminosity function the between L′=8.5 mag and L′=14.0 mag. We // assume // that towards fainter magnitudes, out of reach for VLT-NACO, the underlying distribution keeps following the same power law. This assumption may be refined later. The input distribution for the simulation is illustrated here:{{:operations:input_distribution_arches.pdf?400|}}. In this plot, the black histogram indicates the detected sources in the NACO data; the faintest of these correspond to stars of ≈2 solar masses. The green histogram represents the synthetic extension of the sample towards fainter magnitudes. These sources are // assumed // to be randomly distributed over the field; also this assumption can be refined later, by introducing e.g. a model for mass segregation.
+
+=== Synthetic Data ===
+
+The "real" part of the simulated data follows directly from the positions and magnitudes as measured by [[https://ui.adsabs.harvard.edu/abs/2015A%26A...578A...4S/abstract|Stolte+2015]]. The synthetic extension towards lower magnitudes is created as above. A 4096x4096 pixel image is created, where each star consists of 1 pixel with a value corresponding to the star's brightness. An observation sequence is then simulated by extracting the 1920x1920 pixel field of the LM imager at 20 dither positions, randomly chosen with an amplitude of 5″ in both spatial dimensions, for 1 minute per position. A background map is created by taking the median of all observations (most of the solid angle is "empty sky"), and this background is subtracted from each frame. The frames are then combined into a mosaic, shown below (left frame). For illustration, the "coverage map" (i.e. in how many dither positions a certain position was present) is shown, too (right):   
+
+
+{{:operations:combined_cube_Lp.jpg?400|}} {{:operations:coverage_map_Lp.jpg?400|}}
+  
+
+The dither pattern can be further optimised, here the positions were simply sampled randomly for illustration. 
+
+=== Analysis & Results ===
+
+The Starfinder algorithm by [[https://ui.adsabs.harvard.edu/abs/2000A%26AS..147..335D/abstract|Diolaiti et al. (2000)]] is run on the simulated observation. For speed reasons, only the central 1024x1024 pixel field is analysed in this test. This is the region with the highest SNR. The starfinder algorithm performs PSF photometry in multiple iterations, starting with the brightest stars in the field and detecting subsequently fainter objects in the field. A small fraction of the field is shown here for illustration, where the circles denote the sources that were input to the simulation (blue: sources already detected with NACO, green: synthetic sources, produced as described above), and the red squares are sources detected by the starfinder algorithm:
+
+{{:operations:starfinder_source_detection_Arches_Lp.jpg?400|}}
+
+We can compare the brightnesses derived from the PSF photometry to the input values for the simulation, yielding the following plot: {{operations:Lp_magnitudes_input_vs_detected_Arches.pdf?400|}}. While the slope is close to 1, there is about an 0.15 magnitude offset (the results of the PSF photometry are slightly brighter than the input values); this needs looking into, it is probably due to the way I use starfinder, which may need some tuning.
+
+The resulting luminosity function derived from the synthetic observations is given here {{operations:Lp_brightness_distribution_Arches.pdf?400|}}. The known sources detected with NACO are in green, the synthetic part of the input distribution in black (the distribution extents far beyond the detection limit), the detected sources are in red. Sources are detected down to approximately L=20.3 mag, The photon noise detection limit for a 1 hour observation is L′=21.78 mag; accounting for the shorter observing time here the faintest detected sources are within a factor 2 of the photon noise limit.
+
+
+=== Next steps / improvements ===
+
+  - Use simulated METIS PSF (here a diffraction-limited approximation was used for experimentation purposes). 
+  - Apply pupil rotation to individual dither positions, experiment whether this experiment works best at times of low or high field rotation (the Arches cluster passes close to the zenith; at culmination the field rotation rate peaks at ~185 deg/h, at 1 hour before or after culmination (airmass 1.03) the rotation rate is ~20 deg/h, at 2 hours before or after culmination (airmass 1.12) the rate is ~8 deg/h.
+  - add IR excess to targets according to different scenarios (disk fraction as a function of stellar mass), currently no explicit IR excesses are assigned, we only use the observed L' luminosity function and extend it to fainter sources to see what we can recover.
+  - Spatial distribution of targets (mass segregation?) according to different scenarios.
+  - Experiment with residual background background; assume a fixed pattern that follows the pupil orientation (dominant contributor). Potentially a second fixed pattern that follows the entrance window orientation.
+
+

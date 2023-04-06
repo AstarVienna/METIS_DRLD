@@ -1,0 +1,43 @@
+===== Imaging N =====
+Use case: //Dust continuum imaging in AGNs//
+
+===== Operational procedure =====
+==== Preparation ====
+  * ETC
+  * p2pp kind of OB preparation (including usage of ETC)
+
+
+==== Acquisition ====
+
+During the preset, the telescope is sent to the position of the target. The AO NGS is automatically centered on the WFS (no interaction needed). In case of the off-axis NGS (SEQ NGS ISTARGET = F), an internal WFS mirror (field selector) will be tilted such that the off-axis NGS falls exactly onto the WFS. The operator may be asked to perform fine centering of the target on the detector.
+
+Template options: 
+  * [[metis_img_n_acq|METIS_img_n_acq]]
+
+
+==== Science sequence ====
+
+In the N-band, the fluctuations of the thermal background and the detector noise require chopping (~1Hz for the GeoSnap detector). Since the simple subtraction of two chopped frames (on- and off-axis positions) leaves chopping residuals, we additionally need to regularly offset (nod) the telescope. 
+
+Template options: 
+  * [[METIS_img_n_obs_autochopnod|METIS_img_n_obs_AutoChopNod]]
+  * [[METIS_img_n_obs_genericchopnod|METIS_img_n_obs_GenericChopNod]]
+
+
+===== Required calibrations =====
+  * Sky background subtraction via chopping or dithering (dependent on the detector) or drift scanning (tbd) and nodding
+    * Associated pipeline recipes ''chop-difference frames'' and ''nod-difference frames''
+      * subtract sum (median?) of sky frames from sum (median?) of target frames for each nod position to produce chop-difference frames
+      * subtract the sum of all nod A positions from the sum of all nod B positions to produce nod-difference frame
+  * flux calibration (sky atmosphere modeling + one/few standard observations per night?)
+    * Associated pipeline recipe ''flux-calibrate IMG_N''
+      * applies (previously determined) flux conversion factor to raw counts of the nod-difference frame to produce background-subtracted, flux calibrated image (cube?)
+  * PSF re-construction(?)
+
+===== Science data products =====
+  * background-subtracted, flux-calibrated image (cube, tbd). Units: [photons/s/pix] (tbc)
+  * corresponding uncertainties (cube)
+  * PSF (cube)
+
+===== Discussion =====
+ [[img_n_discussion|img_n_discussion]] 

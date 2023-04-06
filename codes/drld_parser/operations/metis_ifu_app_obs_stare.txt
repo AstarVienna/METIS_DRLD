@@ -1,0 +1,64 @@
+==== Science IFU coronagraphy template METIS_ifu_app_obs_Stare ====
+
+=== Procedure for METIS_ifu_app_obs_Stare ===
+ 
+++++
+Setup IFU|
+  * User can choose the central wavelength (INS WLEN CEN) from a pre-defined list. The system then sets the order, and the grating tilt of the Echelle necessary to provide the required setting.
+    * ''LMS PP4'' Select pre-dispersed range (order)
+    * ''LMS PP5'' Select main dispersed range 
+  * Set detector parameters (DIT, NDIT, readout mode, cube mode T/F)
+++++
+++++
+Start science exposures|
+
+  * The observations are taken in pupil tracking mode, with the target always kept in the same place.
+  * Execute science exposures with DIT/NDIT. 
+  * Read-out and save individual exposures, or co-added frames, depending on the ''cube mode'' T/F keyword.
+
+++++
+++++
+End science exposures|
+  * Return telescope or chopper (depending on which actuator is used for offsetting) back to the initial position.
+  * Collect headers
+  * Merge into one or more data cubes
+  * Send cube to ESO Archive
+  * Send cube to Pipeline machine or ICS storage (tbd)
+  * Go back to //Setup IFU// until target observations are finished (single OB). For example, to observe at a different central wavelength (but note that this might not be very common in pupil tracking modes).
+
+At the end of the OB:
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+
+++++
+
+===Parameters for METIS_ifu_app_obs_Stare===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |SCIENCE TEST (SCIENCE)            |Data product category|
+|DPR TECH              |yes        |IFU,APP (IFU,APP)                 |Data product technique|
+|DPR TYPE              |yes        |OBJECT (OBJECT)|Data product type|                      
+|DET1 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
+|DET1 NDIT               |yes         |1..TBD (NODEFAULT)         |MG-LM Number of Integrations (NDIT)|
+|DET1 NCORRS NAME       |no         |TBD                         |IMG-LM Readout mode|
+|DET3 DIT               |yes         |0..TBD (NODEFAULT)         |LMS Detector integration time (DIT)|
+|DET3 NDIT               |yes         |1..TBD (NODEFAULT)         |LMS Number of Integrations (NDIT)|
+|DET3 NCORRS NAME       |no         |TBD                         |LMS Readout mode|
+|DET1 CUBE MODE        |yes         |T F (T)                    |Toggle cube mode| 
+|DET3 CUBE MODE        |yes         |T F (T)                    |Toggle cube mode| 
+|INS OPTI10 NAME         |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef M' CO(1-0)/ice COref HCIL-short HCIL-long (L')                |IMG-LM Filter name|
+|INS OPTI11 NAME         |no         |OPEN ND1 ND2 ND3 ND4 ND5 (NODEFAULT)                  |IMG-LM Neutral density filter|
+|SEQ TIME       |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
+|SEQ RETURN            |no         |T F (T)                    |Return to origin?|
+|SEQ CFO CHOP FREQ         |yes        |0..0.5 (1)                      |Chopping frequency|
+|INS WLEN CEN         |no         |2700 - 5300 nm (NODEFAULT)           |Central wavelength|

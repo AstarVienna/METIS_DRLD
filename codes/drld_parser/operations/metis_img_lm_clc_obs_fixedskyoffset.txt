@@ -1,0 +1,77 @@
+==== Science imaging coronagraphy template METIS_img_lm_clc_obs_FixedSkyOffset ====
+
+=== Procedure for METIS_img_lm_clc_obs_FixedSkyOffset ===
+ 
+++++
+Setup imager|
+  * Move ''IMG-LM PP1 FILT'' to selected filter
+  * Remove the neutral density filter (located in one of the wheels in IMG-LM PP1)
+  * Set detector parameters (DIT, NDIT, readout mode, cube mode T/F)
+++++
+++++
+Start science exposures|
+
+  * This template moves the telescope alternatively between OBJECT and SKY positions. 
+  * The OBJECT position is fixed to keep the bright star in the occulting mask. The number of exposures taken at this position is set by the keyword ''N_OBJECT''
+  * The SKY positions are randomly distributed around a position set at a constant distance from the initial telescope pointing. This distance is defined by the parameters ''Sky offset in RA'' and ''Sky offset in DEC''. The dither around this position is calculated to be within a ''Jitter Box Width''. The number of dithered sky exposures is set by the keyword ''N_SKY''.
+  * AO loop is closed at the OBJECT position, and opened at the SKY position.
+  * Offsets to sky are performed using the telescope offsets, while the dithering can be performed also using the CFO-PP2 chopper.
+  * The observing sequence is performed as AB-AB-AB  where AB is a single OBJECT-SKY cycle, including N_OBJECT exposures at the position A, and N_SKY dithers at the position B. The keyword ''NABCycles'' defines the number of AB cycles.
+  * At each position start science exposures with DIT/NDIT. 
+  * Read-out and save individual exposures, or co-added frames, depending on the ''cube mode'' T/F keyword.
+
+++++
+++++
+End science exposures|
+  * Return back to the initial position
+  * Collect headers
+  * Merge into one or more data cubes
+  * Send cube to ESO Archive
+  * Send cube to Pipeline machine or ICS storage (tbd)
+  * Go back to Setup Imager until target observations are finished (single OB). For example, to observe in a different filter (but note that this might not be very common in pupil tracking modes).
+
+At the end of the OB:
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop (M4)
+    * stop field stabilization (M5)
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+
+++++
+
+===Parameters for METIS_img_lm_clc_obs_FixedSkyOffset ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|HIERARCH ESO DPR CATG              |yes        |SCIENCE CALIB ACQUISITION TECHNICAL (SCIENCE) |Data product category|
+|HIERARCH ESO DPR TECH              |yes        |IMAGE LSS IFU IMAGE,RAVC IMAGE,APP IFU,RAVC IFU,APP (IMAGE)                 |Data product technique|
+|HIERARCH ESO DPR TYPE              |yes        |OBJECT SKY STD PSF-CALIBRATOR DARK FLAT WAVE BIAS DISTORTION (OBJECT)|Data product type|                      
+|HIERARCH ESO DET DIT               |no         |0..TBD (NODEFAULT)         |Detector integration time (DIT)|
+|HIERARCH ESO DET NCORRS NAME       |no         |TBD                        |Readout mode|
+|HIERARCH ESO DET CUBE MODE        |no         |T F (F)                    |Toggle cube mode| 
+|HIERARCH ESO INS FILT1 NAME         |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef fullL M' CO(1-0)/ice COref fullM (NODEFAULT)                            |Filter name|
+|HIERARCH ESO INS OPTI2 NAME         |no         |TBC (NODEFAULT)                  |Neutral density filter|
+|HIERARCH ESO SEQ JITTER WIDTH      |no         |0..5 (NODEFAULT)           |Jitter Box Width (arcsec)|
+|HIERARCH ESO SEQ NABCYCLES         |no         |0..100 (NODEFAULT)         |Number of AB or BA cycles|
+|HIERARCH ESO SEQ NDIT OBJECT       |no         |1..1000 (1)                |NDIT on OBJECT positions|
+|HIERARCH ESO SEQ NDIT SKY          |no         |1..1000 (1)                |NDIT on SKY positions|
+|HIERARCH ESO SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
+|HIERARCH ESO SEQ OBSTYPE LIST      |no         |O S (NODEFAULT)            |Observation type list, O/S|
+|HIERARCH ESO SEQ OFFSET COORDS     |no         |SKY DETECTOR (DETECTOR)    |Offset coordinate type selection|
+|HIERARCH ESO SEQ SKYOFFSET ALPHA   |no         |0..TBD (10)                |RA offset to sky|
+|HIERARCH ESO SEQ SKYOFFSET DELTA   |no         |0..TBD (10)                |DEC offset to sky|
+|HIERARCH ESO SEQ POISSON           |yes        |1..100 (10)                |Random throw generator
+|HIERARCH ESO SEQ RETURN            |no         |T F (T)                    |Return to origin?|
+|HIERARCH ESO SEQ CFO CHOP POSANG       |yes        |0..360 (NODEFAULT)         |Chopper position angle|
+|HIERARCH ESO SEQ CFO CHOP THROW        |yes        |0..5 (NODEFAULT)           |Chop throw|
+|HIERARCH ESO SEQ CFO CHOP FREQ         |yes        |TBD                        |Chopping frequency|
+  
+Notes:
+
+  * System should automatically calculate the chopping parameters as a result from the offset list (if offsetting is to be done with the chopper, and not with the telescope)
+  * Keyword for chopper parameters set to CFO since the chopper is inside of the instrument, this is to be confirmed.

@@ -1,0 +1,51 @@
+==== Lamp flats ====
+=== Responsible ===
+Science Operations
+
+=== Phase ===
+Daytime
+
+=== Frequency ===
+Once every day
+
+=== Purpose ===
+Calibrate inhomogeneities in the instrumental transmission and detector responsivity.
+
+=== Procedure ===
+  * [[metis_all_cal_lampoff|Take WCU "lamp off" frames]]
+  * select illumination level (repeat for all relevant, i.e. observed, illumination levels)
+  * Select the instrument setup(s) (e.g. camera, filter, coronagraphic masks etc.) with which science observations have been performed in the night before
+  * select DIT such that about half the detector full well capacity is reached (possibly select from list of allowed exposure times)
+  * take a small number of exposures (5-10, tbc)
+
+=== Pipeline data products ===
+  * Gain maps for LM/NQ IMG cameras (possibly also bad pixel map, see discussion in Dark Frame calibration)
+
+=== Prepared observing blocks ===
+(tbd)
+
+=== Prepared templates ===
+  * [[METIS_img_lm_cal_LampFlat|METIS_img_lm_cal_LampFlat]]
+  * [[METIS_img_nq_cal_LampFlat|METIS_img_nq_cal_LampFlat]]
+
+=== Pipeline support ===
+  * Subtract dark (LM only) from each frame
+  * compute average of frames for each illumination level
+  * compute linear regression for each detector pixel
+  * normalise
+
+=== Duration ===
+about one hour per camera, two hours in total, including lamp warm-up time (tbc)
+
+=== Prerequisites ===
+  * None. METIS is explicitly designed for being insensitive (and to not affect) other instruments / day time operations, so that flat field measurements can be taken at any time during the day.
+
+=== Required Accuracy ===
+(tbd)
+
+=== Expected Accuracy ===
+Limited by flatness of lamp illumination, stability of detector gain; expected accuracy: 1% (NQ; as in VISIR, \cite{claret2003}); similar for LM.
+
+
+=== Notes ===
+  * The flat field is also part of a more generic template to measure the detector linearity. While the full linearity curve will only be determined once / occasionally, however, we intend to perform an imaging flat field every day.

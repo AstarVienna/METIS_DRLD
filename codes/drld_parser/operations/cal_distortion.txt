@@ -1,0 +1,54 @@
+==== Distortion calibration ====
+=== Responsible ===
+Science Operations
+
+=== Phase ===
+Daytime
+
+=== Frequency ===
+Once every year, and after every intervention (tbc)
+
+=== Purpose ===
+Determine distortion maps
+
+=== Procedure ===
+  * Warm up WCU BB to a tbd temperature (appropriate for LM / NQ band observations)
+  * While waiting for warm-up, setup instrument for appropriate observing mode and insert grid into WCU FP1
+  * close WCU BB shutters, take a background measurement, open WCU BB shutters
+  * Take a series (10, tbc) of exposures of the grid of pointsources
+  * <color #ed1c24>move grid by known offsets in the field using the chopper?</color>
+
+=== Pipeline data products ===
+  * raw-reduced images of the grid of point sources
+  * distortion map
+
+=== Prepared observing blocks ===
+(tbd)
+
+=== Prepared templates ===
+  * [[METIS_ifu_cal_distortion|METIS_ifu_cal_distortion]]
+  * [[METIS_img_lm_cal_distortion|METIS_img_lm_cal_distortion]]
+  * [[METIS_img_nq_cal_distortion|METIS_img_nq_cal_distortion]]
+
+=== Pipeline support ===
+  * raw-reduced images of the grid of point sources (dark subtraction, flat fielding for LM/NQ imagers)
+  * Using the known separation of points on the mask (in mm) and known f/ value of the optical system, compute the pixel field of view and distortion across the whole detector
+
+=== Duration ===
+Dominated by WCU BB warm-up time (30 min?)
+
+=== Prerequisites ===
+none
+
+=== Required Accuracy ===
+  * This is probably the dominant term for the astrometric accuracy
+  * The requirement for plate-scale stability is currently driven by the IFU (reconstruction) need of 0.1 lambda/D at 3.5 micron, corresponding to 2.3 mas on-sky.
+
+=== Expected Accuracy ===
+  * Limited by <color #ed1c24>???</color>
+
+
+
+=== Notes ===
+  * LMS distortion mapping can be combined with slit-loss and RSRF measurements (<color #ed1c24>discuss</color>)
+  * Alternative on-sky distortion calibration method: Observe a stellar constellation ("asterism", e.g. an open cluster or the Galactic Center (in L band); 47 Tuc has been used before with VISIR \cite{momany2012}) with well-known coordinates (e.g. from HST observations). This would also allow us to characterise any (pointing-induced) flexure of the telescope. However, there are not many dense / bright clusters in L band and the telescope flexure terms will probably be very different at the location of a "calibration cluster".

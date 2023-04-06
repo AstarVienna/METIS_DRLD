@@ -1,0 +1,77 @@
+==== Science spectroscopy template METIS_spec_lmn_obs_AutoChopNodOnSlit ====
+
+=== Procedure for METIS_spec_lmn_obs_AutoChopNodOnSlit ===
+ 
+++++
+Setup spectrograph|
+  * Move to selected filters (''IMG-N PP1 FILT'' and ''IMG-LM PP1 FILT'') 
+  * Move to selected grisms (''IMG-LM PP1 MASK/GRISM'' and ''IMG-N PP1 MASK/GRISM'')
+  * Remove the neutral density filters (''IMG-LM PP1 ND'' and ''IMG-N PP1 ND'' to open)
+  * Set parameters for both IMG-LM and IMG-N detectors (total exposure time, readout mode, cube mode T/F). The system will set the DIT/NDIT combination depending on the background levels.
+++++
+++++
+Start science exposures|
+  * This template performs chopping (using the CFO PP2 chopper) in the same direction as the slit orientation. Nodding can be performed both parallel, or perpendicular to the slit direction. Additionally small random dithers along the slit are allowed. More complex source geometries might require larger nodding amplitudes, and/or nodding perpendicular to the slit in order to avoid self-cancellation.
+  * Set chop parameters at CFO PP2 (chop throw, frequency, chop position angle)
+  * Set number of chop cycles at CFO PP2 (''NCHOPCYCLES'')
+  * Set nodding parameters (nodding direction, ''NODTHROW'', ''NNODCYCLES'' 
+  * Set the ''JITTERWIDTH'' = width of the 1D box for dithering.
+  * At each offset position start science exposures with DIT/NDIT/readout mode. 
+  * Read-out and save individual exposures for both IMG-LM and IMG-N detectors, or co-added frames, depending on the ''cube mode'' T/F keyword.
+++++
+++++
+End science exposures|
+  * Return telescope or chopper (depending on which actuator is used for offsetting) back to the initial position.
+  * Collect headers
+  * Merge into one or more data cubes per imager
+  * Send cubes to ESO Archive
+  * Send cubes to Pipeline machine or ICS storage (tbd)
+  * Go back to //Setup Spectrograph// until target observations are finished (single OB).
+
+At the end of the OB:
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+++++
+
+===Parameters for METIS_spec_lmn_obs_AutoChopNodOnSlit===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |SCIENCE TEST (SCIENCE) |Data product category|
+|DPR TECH              |yes        |LSS (LSS)                 |Data product technique|
+|DPR TYPE              |yes        |OBJECT (OBJECT)|Data product type|                      
+|DET1 CUBE MODE         |yes        |T F (T)                    |IMG-LM toggle cube mode| 
+|DET1 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
+|DET1 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-LM Number of Integrations (NDIT)|
+|DET1 NCORRS NAME       |no         |TBD                         |IMG-LM Readout mode|
+|DET2 CUBE MODE         |yes        |T F (T)                    |IMG-N toggle cube mode| 
+|DET2 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-N Detector integration time (DIT)|
+|DET2 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-N Number of Integrations (NDIT)|
+|DET2 NCORRS NAME       |no         |TBD                         |IMG-N Readout mode|
+|INS OPTI3 NAME        |no         |A_19 B_29 C_38 D_57 E_114 (NODEFAULT)   |Slit|
+|INS OPTI9 NAME      |no         |GRISM-L GRISM-M (NODEFAULT)   |IMG-LM mask/grism wheel|
+|INS OPTI10 NAME         |no         |full_L full_M (NODEFAULT)     |IMG-LM Filter name|
+|INS OPTI11 NAME         |no         |OPEN ND1 ND2 ND3 ND4 ND5 (NODEFAULT)  |IMG-LM Neutral density filter|
+|INS OPTI12 NAME        |no         |GRISM-N (GRISM-N)   |IMG-N mask/grism wheel|
+|INS OPTI13 NAME        |no         |full_N (full_N)        |IMG-N Filter name|
+|INS OPTI14 NAME        |no         |OPEN ND1 ND2 ND3 ND4 (NODEFAULT)    |IMG-N Neutral density filter|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ JITTER WIDTH      |no         |0..5 (NODEFAULT)           |Jitter Box Width (arcsec)|
+|SEQ NCHOPCYCLES       |no         |0..100 (NODEFAULT)         |Number of chopping cycles|
+|SEQ NNODCYCLES        |no         |0..TBD (NODEFAULT)         |Number of nodding cycles|
+|SEQ CHOPNOD DIR       |no         |PARALLEL PERPENDICULAR (PERPENDICULAR)         |Relative Chop/Nod Direction|
+|SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
+|SEQ POISSON           |yes        |1..100 (10)                |Random throw generator|
+|SEQ RETURN            |no         |T F (T)                    |Return to origin?|
+|SEQ CFO CHOP POSANG   |yes        |0..360 (0)         |Chopper position angle|
+|SEQ CFO CHOP THROW    |yes        |0..5 (2.5)           |Chop throw|
+|SEQ CFO CHOP FREQ     |yes        |0..5 (1)                   |Chopping frequency|
+|SEQ NODTHROW          |no         |0..TBD (NODEFAULT)         |Nodding amplitude|

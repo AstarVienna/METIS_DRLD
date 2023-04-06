@@ -1,0 +1,24 @@
+===== N-band medium resolution spectroscopy  =====
+Science use case example: //Spectral analysis of spatially resolved dust tori around AGNs / circumstellar disks//
+
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+
+==== Acquisition ====
+
+Template options: 
+  * [[METIS_acq_LSS_N_MR|METIS_acq_LSS_N_MR]]
+
+==== Science sequence ====
+
+Template options: 
+  * [[METIS_obs_LSS_N_MRAutoChopOnSlit|METIS_obs_LSS_N_MRAutoChopOnSlit]]
+
+===== Discussion =====
+
+[[LSS_N_MR_discussion|LSS_N_MR_discussion]]

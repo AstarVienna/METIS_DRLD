@@ -1,0 +1,74 @@
+==== Science spectroscopy template METIS_spec_lm_obs_AutoNodOnSlit ====
+
+=== Procedure for METIS_spec_lm_obs_AutoNodOnSlit ===
+ 
+++++
+Setup spectrograph|
+  * Move to selected filter (''IMG-LM PP1 FILT'') 
+  * Move to selected grism (''IMG-LM PP1 MASK/GRISM'')
+  * Remove the neutral density filter (''IMG-LM PP1 ND'' to open)
+  * Set detector parameters (DIT, NDIT, readout mode, cube mode T/F)
+++++
+++++
+Start science exposures|
+  * This template performs offsets between two positions (A and B) along the slit. A cycle is a pair of AB or BA observations. Cycles are repeated on ABBA sequences. Offsets are performed both using telescope offsets, and CFO-PP2 chopper. 
+  * Set up offset parameters (chopper frequency if chopping is to be used, ''NodThrow''). Position angle is fixed to match the slit orientation.
+  * First science exposure is taken at the position A, by offseting to the position +''NodThrow''/2 along the slit. The second exposure (B) is taken at (-''NodThrow''/2) from the initial position along the slit.
+  * Allow small random dithers along the slit around the positions A and B (using CFO-PP2 chopper or telescope offsets), defined by the parameter ''JitterWidth''. The random offsets are generated inside the interval (-''JitterWidth''/2,+''JitterWidth''/2) around the A (B) positions at +''NodThrow''/2 (-NodThrow/2). ''JitterWidth'' should be smaller than ''NodThrow''.
+  * Set up parameter ''N_ABCycles'' defining the number of AB or BA cycles.
+  * Set up parameter ''Nexpo'' defining the number of images taken at a single offset position.
+  * At each offset position start science exposures with DIT/NDIT/readout mode. 
+  * Read-out and save individual exposures, or co-added frames, depending on the ''cube mode'' T/F keyword.
+++++
+++++
+End science exposures|
+  * Return telescope or chopper (depending on which actuator is used for offsetting) back to the initial position.
+  * Collect headers
+  * Merge into one or more data cubes
+  * Send cube to ESO Archive
+  * Send cube to Pipeline machine or ICS storage (tbd)
+  * Go back to //Setup Spectrograph// until target observations are finished (single OB). For example, to observe with a different grism.
+  * Send cube to ESO Archive
+
+At the end of the OB:
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+++++
+
+===Parameters for METIS_spec_lm_obs_AutoNodOnSlit===
+
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |SCIENCE TEST (SCIENCE) |Data product category|
+|DPR TECH              |yes        |LSS (LSS)                 |Data product technique|
+|DPR TYPE              |yes        |OBJECT (OBJECT)|Data product type|                      
+|DET1 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
+|DET1 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-LM Number of Integrations (NDIT)|
+|DET1 NCORRS NAME       |no         |TBD                         |IMG-LM Readout mode|
+|DET1 CUBE MODE        |yes         |T F (T)                    |Toggle cube mode| 
+|INS OPTI3 NAME        |no         |A_19 B_29 C_38 D_57 E_114 (NODEFAULT)   |Slit|
+|INS OPTI9 NAME      |no         |GRISM-L GRISM-M (NODEFAULT)   |IMG-LM mask/grism wheel|
+|INS OPTI10 NAME         |no         |full_L full_M (NODEFAULT)     |IMG-LM Filter name|
+|INS OPTI11 NAME         |no         |OPEN ND1 ND2 ND3 ND4 ND5 (NODEFAULT)  |IMG-LM Neutral density filter|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ JITTER WIDTH      |no         |0..5 (NODEFAULT)           |Jitter Box Width (arcsec)|
+|SEQ NABCYCLES         |no         |0..100 (NODEFAULT)         |Number of AB or BA cycles|
+|SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
+|SEQ POISSON           |yes        |1..100 (10)                |Random throw generator
+|SEQ RETURN            |no         |T F (T)                    |Return to origin?|
+|SEQ CFO CHOP POSANG       |yes        |0..360 (0)             |Chopper position angle|
+|SEQ CFO CHOP FREQ         |yes        |0..5 (0)               |Chopping frequency|
+|SEQ NODTHROW        |yes        |TBD                        |Nod throw|
+
+__Notes:__
+
+  * NODTHROW parameter defines the 1D offset along the slit, with respect to the central position (as described above). 

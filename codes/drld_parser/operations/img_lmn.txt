@@ -1,0 +1,41 @@
+===== Parallel imaging LM and N band =====
+Use case: //Dust continuum imaging in AGNs//
+
+===== Operational procedure =====
+==== Preparation ====
+  * ETC
+  * p2pp kind of OB preparation (including usage of ETC)
+
+
+==== Acquisition ====
+
+During the preset, the telescope is sent to the position of the target. The AO NGS is automatically centered on the WFS (no interaction needed). In case of the off-axis NGS (SEQ NGS ISTARGET = F), an internal WFS mirror (field selector) will be tilted such that the off-axis NGS falls exactly onto the WFS. The operator may be asked to perform fine centering of the target on the detector.
+
+Template options: 
+  * [[metis_img_lmn_acq|METIS_img_lmn_acq]]
+
+
+==== Science sequence ====
+
+In the N-band, the fluctuations of the thermal background requires chopping. Since the simple subtraction of two chopped frames (on- and off-axis positions) leaves chopping residuals, we additionally need to regularly offset (nod) the telescope. The parallel mode template compromises in terms of field of view (it chooses the smaller field masks of the LM band imager) and in terms of background subtraction (it uses chopping which is probably not required in the LM band). According to preliminary data, 1 Hz chopping would be sufficient for the GeoSnap (N band) detector and read-out at this rate would not compromise the performance of the L band imager (too much).
+
+Template options: 
+  * [[METIS_img_lmn_obs_autochopnod|METIS_img_lmn_obs_AutoChopNod]]
+  * [[METIS_img_lmn_obs_genericchopnod|METIS_img_lmn_obs_GenericChopNod]]
+
+
+===== Required calibrations =====
+  * Sky background subtraction via chopping and nodding
+    * Associated pipeline recipes ''chop-difference frames'' and ''nod-difference frames''
+      * subtract sum of sky frames from sum of target frames for each nod position to produce chop-difference frames
+      * subtract the sum of all nod A positions from the sum of all nod B positions to produce nod-difference frame
+  * flux calibration (sky atmosphere modeling + one/few standard observations per night)
+    * Associated pipeline recipes ''flux-calibrate IMG_N'' and ''flux-calibrate IMG_LM'' (these can work on calibrators taken in parallel mode or taken individually)
+      * applies (previously determined) flux conversion factor to raw counts of the nod-difference frame to produce background-subtracted, flux calibrated data cube (third dimension: time).
+
+===== Science data products =====
+  * background-subtracted, flux-calibrated cube. Units: [Jy/pix]
+  * corresponding uncertainties (cube)
+
+===== Discussion =====
+ [[img_lmn_discussion|img_lmn_discussion]] 

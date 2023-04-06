@@ -1,0 +1,34 @@
+<color #ed1c24>This section is incomplete, since the mode probably will not be implemented.</color>
+
+===== SAM LM =====
+Science use case example: searching for the closest BD companions to nearby stars
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+
+==== Acquisition ====
+
+  * Template: [[METIS_acq_IMG_SAM_LM|METIS_acq_IMG_SAM_LM]]
+
+==== Science sequence ====
+
+  * Template: [[METIS_obs_IMG_SAM_LM|METIS_obs_IMG_SAM_LM]]
+
+===== Calibration data =====
+
+++++
+Calibration requirements|
+  * flatfielding (daytime WCU, not needed daily?; twilight sky flats?)
+  * sky background subtraction (chop/dither)
+++++
+
+===== Products =====
+  * basic calibrated inteferograms (cube)
+  * corresponding uncertainties (cube)
+
+===== Discussion =====
+ [[SAM_LM_discussion|SAM_LM_discussion]] 

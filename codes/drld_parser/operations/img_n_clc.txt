@@ -1,0 +1,31 @@
+===== Classical Lyot coronagraphy (CLC) in N1- or N2-band  =====
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+  * any special needs?
+
+==== Acquisition ====
+
+Template options:
+  * [[metis_img_n_clc_acq|METIS_img_n_clc_acq]]
+
+==== Science sequence ====
+
+For HCI observing modes:
+
+  * The target (typically a bright star) is always on-axis and used as the NGS for the SCAO
+  * The derotator is always in pupil tracking mode (i.e. pupil is always oriented in the same pre-defined direction)
+
+Sky subtraction:
+
+  * The sky subtraction is performed via telescope offsets to an empty sky position. The AO loop is opened for the sky observations, and then subsequently closed when back on target.
+
+Template options: 
+  * [[metis_img_n_clc_obs_fixedskyoffset|METIS_img_n_clc_obs_FixedSkyOffset]]
+
+===== Discussion =====
+ [[img_n_clc_discussion|img_n_clc_discussion]] 

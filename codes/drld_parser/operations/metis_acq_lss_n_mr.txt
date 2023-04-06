@@ -1,0 +1,118 @@
+==== Acquisition Template METIS_ACQ_LSS_N_MR ====
+
+=== Procedure for METIS_ACQ_LSS_N_MR ===
+
+++++
+Preset telescope|
+  * send target coordinates to TCS
+  * initiate guiding/tracking. Guide star may be chosen by operator (if no coordinates supplied), or use the one specified in the template.
+  * wait for signal “arrived at position” / “guiding”
+++++
+++++
+Configure CFO|
+  * CFO-PP1 to open (no ADC foreseen in NQ)
+  * Set sky orientation
+  * CFO-CST to selected cold stop
+  * Start derotator. Options:
+    * Field tracking (pupil rotates). Default for long-slit spectroscopy.
+    * Pupil tracking (field rotates, used for HCI)
+    * No tracking (stopped). For engineering purposes.
+  * Chopper to zero
+  * Initialize pupil stabilization mirror
+  * CFO FP2 to NQ Field Stop
+  * LMS pick-off to open
+  * set chopping parameters (frequency, chop throw, chopping orientation)
+++++
+++++
+Setup imager for target acquisition|
+  * Insert ''IMG-LM PP1'' to CLOSED (no light to IMG-LM system)
+  * IMG-NQ PP1 should have three wheels. The exact allocation of IMG-PP1 elements is TBC, but currently it looks like the the wheel located exactly in the pupil plane will contain the masks (for coronagraphy, SAM) and the grisms. The other two wheels located just before and just after the pupil plane will contain the science filters, and the neutral density (ND) filters.
+    * Move ''IMG-NQ PP1 MASK/GRISM'' (mask/grism wheel) to open
+    * Move ''IMG-NQ PP1 FILT'' to selected science filter 
+    * Move ''IMG-NQ PP1 ND'' to selected neutral-density filter (for acquisition of very bright targets)
+  * Pupil imaging lens to open
+    * a mechanism for pupil viewing. Not located in the pupil plane, probably in front of the detector (tbc). In IMG used for engineering/AIV purposes.
+  * Set detector parameters (DIT, NDIT, readout mode)
+++++
+++++
+AO and image acquisition|
+  * Get field orientation
+  * Position field selector (NGS acquisition)
+  * Set up WFS (filter, modulation, integration time, which modes to correct, etc.)
+  * Start readout of WFS.
+  * Start CFO pupil stabilization.
+  * Start M4 registration.
+  * Bright target (on-axis GS)
+    * measure the position of the GS on the WFS and center using SCA-PP1 FS.  
+  * Faint target (off-axis guide star, science target not seen in short exposure)
+    * Offset to NGS (if not the same as target). SCA-PP1 Field selector. 
+    * Measure the position of the guide star in the WFS.
+    * Fine-centering using SCA-PP1 FS + apply equal offset to CFO-PP2 chopper to center science target in science focal plane 
+  * Close M4 imaging stabilization
+  * Close loop
+  * Measure the position of the target in the science focal plane. 
+  * Center the target in the science focal plane using CFO-PP2 chopper (optional).
+
+
+**Note 1:** The above sequence assumes that the pointing accuracy of the ELT is better than the field selector FoV (2 arcsec). Otherwise, we should do an acquisition image to position the telescope. This is done with the imager FP. This is just to be on the safe side, we may not use it (see the Note 2) or only needed during commissioning. 
+
+**Note 2:** there are two parts in the telescope pointing: the telescope pointing itself and the telescope alignment with instrument (installed in the Nasmyth platform which has a relative
+motion). 
+++++
+++++
+Acquire target on slit|
+  * Take dithered or chopped pair of images (no slit). Target should be already centered as described above (step //AO and image acquisition//). Display the difference image.
+  * Move to pixel of slit (calibrated slit position)
+  * CFO FP2 to selected slit (''CFO FP2 SLIT'')
+  * Take through-slit image (chopped pair)
+  * Move to slit to refine the positioning (optional; offset using telescope or CFO-PP2 chopper)
+++++
+++++
+While AO loop is closed|
+  * AO controls M4/M5 (via CCS)
+    * RTC communicates directly with CCS (no ICS involvement)
+  * Monitor range
+  * Request off-loads
+  * Save WFS data (slopes)
+    * TBD when (all the time?)
+    * For PSF reconstruction, NCPA removal
+++++
+
+===Parameters for METIS_ACQ_LSS_N_MR===
+
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^
+|HIERARCH ESO TEL TARG ALPHA        |no         |(NODEFAULT)                |Target RA|
+|HIERARCH ESO TEL TARG DELTA        |no         |(NODEFAULT)                |Target DEC|
+|HIERARCH ESO TEL TARG EQUINOX      |no         |-2000..3000 (2000)         |Equinox|
+|HIERARCH ESO TEL TARG PMA          |no         |-10..10 (0)                |Proper motion in RA in arcsec/year| 
+|HIERARCH ESO TEL TARG PMD          |no         |-10..10 (0)                |Proper motion in DEC in arcsec/year|
+|HIERARCH ESO TEL TARG NAME         |no         |(NODEFAULT)                |Name of the Target|
+|HIERARCH ESO TEL TARG GUIDESTAR      |no         |NONE SETUPFILE CATALOGUE (CATALOGUE)|Telescope Guide Star Selection|
+|HIERARCH ESO TEL GS1 ALPHA         |no         |(0.0)                      |RA of telescope guide star|
+|HIERARCH ESO TEL GS1 DELTA         |no         |(0.0)                      |DEC of telescope guide star|
+|HIERARCH ESO TEL ROT OFFANGLE      |no         |-360..360 (0)          |Position Angle on Sky (deg)|
+|HIERARCH ESO TEL TARG ADDVELALPHA  |yes        |-100..100 (0)              |Differential tracking in RA|
+|HIERARCH ESO TEL TARG ADDVELDELTA  |yes        |-100..100 (0)              |Differential tracking in DEC|
+|HIERARCH ESO SEQ PRESET            |yes        |T F (T)                    |Preset telescope?|
+|HIERARCH ESO SEQ NGS ISTARGET      |no         |T F (NODEFAULT)            |Target = AO Guide Star|
+|HIERARCH ESO SEQ NGS ALPHA         |no         |(NODEFAULT)                |RA of AO Guide Star|
+|HIERARCH ESO SEQ NGS DELTA         |no         |(NODEFAULT)                |DEC of AO Guide Star|
+|HIERARCH ESO SEQ NGS MAG           |no         |TBD (10)                   |H mag of AO Guide Star|
+|HIERARCH ESO SEQ NGS DIT           |yes        |0..TBD (NODEFAULT)                |NGS integration time (DIT)|
+|HIERARCH ESO SEQ NGS NDIT          |yes        |0..TBD (1)                        |NGS number of Integrations (NDIT)|
+|HIERARCH ESO SEQ NGS SKYALPHA      |no         |-TBD..TBD (0)              |Chopper offset to sky RA|
+|HIERARCH ESO SEQ NGS SKYDELTA      |no         |-TBD..TBD (0)              |Chopper offset to sky DEC|
+|HIERARCH ESO SEQ BKG MODE          |no         |NONE CHOPPED (NONE)        |Background subtraction mode|  
+|HIERARCH ESO SEQ CFO CHOP POSANG       |no         |0..360 (NODEFAULT)         |Chopper position angle|
+|HIERARCH ESO SEQ CFO CHOP THROW        |no         |0..5 (NODEFAULT)           |Chop throw|
+|HIERARCH ESO SEQ CFO CHOP FREQ         |yes        |TBD                        |Chopping frequency|
+|HIERARCH ESO DPR CATG              |yes        |SCIENCE CALIB ACQUISITION TECHNICAL (ACQUISITION) |Data product category|
+|HIERARCH ESO DPR TECH              |yes        |IMAGE LSS IFU IMAGE,RAVC IMAGE,APP IFU,RAVC IFU,APP (IMAGE)                 |Data product technique|
+|HIERARCH ESO DPR TYPE              |yes        |OBJECT SKY STD PSF-CALIBRATOR FLAT DARK (OBJECT)|Data product type| 
+|HIERARCH ESO DET DIT               |no         |0..TBD (NODEFAULT)         |Detector integration time (DIT)|
+|HIERARCH ESO DET NDIT              |no         |0..TBD (1)                 |Number of Integrations (NDIT)|
+|HIERARCH ESO INS FILT1 NAME         |no         |full_N (full_N)                |Filter name|
+|HIERARCH ESO INS OPTI1 NAME         |no         |open APP Grism_N-low  Grism_N-[S IV]  Grism_N-[Ne II] SAM1 SAM2 (TBD) (open)                  |Mask/Grism name|
+|HIERARCH ESO INS OPTI2 NAME         |no         |TBC (NODEFAULT)                  |Neutral density filter|
+|HIERARCH ESO INS SLIT1 NAME         |no         |TBC (NODEFAULT)                  |Slit name|

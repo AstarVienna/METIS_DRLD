@@ -1,0 +1,69 @@
+===Procedure for METIS_spec_lm_cal_InternalWave ===
+
+Template with a purpose to provide a pixel to wavelength transformation for the L and M bands. The three L and M band laser sources in the WCU are: (1) a fixed laser at 3.39 micron, (2) a tuneable laser at 4.68 to 4.78 micron and (3) a fixed laser at 5.26 micron. The laser can be tuned quickly several times during a long exposure with the long-slit spectrograph so that a single exposure with multiple lines is created.
+
+Internal wavelength calibration with the L band source will produce a single laser line; internal wavelength calibration with the M band source will produce a number of lines from the tuneable source and a single fixed line from the fixed laser at the red-end of the M band.
+
+++++
+Setup WCU|
+  * Move periscopic arm to IN
+  * Activate the laser sources, block the IS exit aperture
+  * Take background frame
+  * select appropriate imager ND filter if required
+  * Set ''WCU-FP2.1'' to LM-pinhole mask (for a most defined wavelength solution)
+  * Set ''WCU-PP1'' to ELT mask
+  * Check the power readout. If the power is detectable, continue. 
+  * Set ''WCU-BB-aperture-mask'' to CLOSE
+  * take background measurement
+  * Set ''WCU-BB-aperture-mask'' to OPEN
+++++
+
+++++
+Setup CFO and subsystems|
+  * Set ''CFO-PP1'' to PPS-CFO2
+  * Set ''CFO-FP2'' to A_19 (narrowest slit to give highest spectral resolution)
+  * Set LMS beamsplitter pickoff wheel to OUT
+  * Set the IMG-LM mask to specified GRISM
+  * Set the IMG-LM science filter to the specified filter
+  * Set the IMG-LM neutral density filter to the specified filter
+++++
+
+++++
+Start Exposure|
+  * Start exposures with the IMG-LM with the requested DIT and NDIT
+++++
+
+++++
+End Exposure|
+  * Collect headers
+  * Send file to ESO Archive
+  * Turn off lasers
+++++
+
+===Parameters for METIS_spec_lm_cal_InternalWave ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TECH              |yes        |LSS (LSS)                 |Data product technique|
+|DPR TYPE              |yes        |WAVE (WAVE)|Data product type| 
+|DET1 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
+|DET1 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-LM Number of Integrations (NDIT)|
+|DET1 NCORRS NAME       |no         |TBD                         |IMG-LM Readout mode|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NEXPO              |no         |0..TBD (1)                 |Number of exposures per DIT|
+|SEQ WCU LASER1         |yes        |OFF ON (NODEFAULT)         |WCU L band fixed laser source|
+|SEQ WCU LASER2         |yes        |OFF ON (NODEFAULT)         |WCU M band tuneable laser source|
+|SEQ WCU LASER2 WAVE    |yes        |4.68..4.78 (NODEFAULT)     |WCU M band tuneable laser source wavelength|
+|SEQ WCU LASER3         |yes        |OFF ON (NODEFAULT)         |WCU M band fixed laser source|
+|INS OPTI1 NAME         |yes        | PPS-CFO2 (PPS-CFO2)                |CFO-PP1 mask wheel|
+|INS OPTI2 NAME         |yes        | OUT ADC-1 ADC-2 (OUT)                |CFO-PP1 ADC wheel|
+|INS OPTI3 NAME   	|yes        | A_19 B_29 C_38 D_57 E_114 (A_19)  |CFO-FP2 mask/slit wheel |
+|INS OPTI4 NAME         |yes        |OUT IN (OUT)                  |LMS beamsplitter pickoff wheel|
+|INS OPTI9 NAME         |no         |open GRISM-L GRISM-M (NODEFAULT)          |IMG-LM Mask/Grism name|
+|INS OPTI10 NAME         |no         |full_L full_M (NODEFAULT)                |IMG-LM Filter name|
+|INS OPTI11 NAME         |no         |OPEN ND1 ND2 ND3 ND4 ND5 DARK (NODEFAULT)  |IMG-LM Neutral density filter|
+|INS OPTI15 NAME         |yes        |OUT IN (OUT)                    | IMG-LM pupil imaging lens|
+|INS OPTI17 NAME         |yes        |IN (IN)                    | WCU periscope arm|
+|INS OPTI18 NAME	|yes          |WCU_mask AIV_mask ELT_mask (ELT_mask)             |WCU PP1 masks|
+|INS OPTI19 NAME	|yes         |CLOSED (CLOSED)                          |WCU BB exit aperture masks|
+|INS OPTI20 NAME        |yes         |LM-pinhole (LM-pinhole) |WCU FP2.1 mask wheel|

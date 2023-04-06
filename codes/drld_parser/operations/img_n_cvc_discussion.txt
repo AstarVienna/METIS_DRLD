@@ -1,0 +1,26 @@
+<color #ed1c24>__**Open discussion**__</color> 
+
+__**(1) Accurate relative position between VPM1 and VPM2**__
+''Kora:'' Assuming that QACITS loop is running only on the VPM1 position, how do we calibrate precisely the relative position between VPM1 and VPM2, which determines the chop throw? Can we use the off-axis PSF measurements to locate the VPM centers (they should look like dark spots against the thermal background)? 
+
+''Roy:'' Good point. I am not sure whether the QACITS can run on both positions. In principle this should not be a problem, but it is of course a bit more complicated; essentially we'd run two loops simultaneously. This is probably the best solution. The alternative would be to go "blindly" to the second position with the known offset - I think once this is measured (in AIV) then the relative offset is stable within the required accuracy. I made a note that I should clarify this with Olivier.
+
+
+
+__**(2) initial centering accuracy **__
+
+''Roy:'' this must be much better than 1 lambda/D; the idea is that we do the acquisition with an ND for bright objects, and when the VPM is in then we take the ND out (we plan to never do "science" observations of this kind with an ND; it is a top level requirement that METIS can observe the brightest stars with a coronagraph without an ND). If the star would then be 1 lam/D from the VPM center then it would be almost as bright as without any VPM. I think the required centering accuracy will be on the order of a mas, I'll clarify this with Olivier, too.
+
+''Kora:'' For now, I changed the requirement in the template from 1 lamda/D to << 1 lamda/D. Once this is clarified, we can modify it.
+
+
+__**(3) METIS_obs_RAVC_N_AutoChop **__
+
+''Roy:'' I think also here we'll probably want to do PSF measurements (put in ND, offset 1 or 2 arcsec), do some chopped pairs. The frequency is TBD.
+
+''Kora:'' In the current procedure, we have a PSF observation as part of the acquisition template (in Coronagraphic Acquisition section). Is there a need to do it again as part of the science template? Or should this be moved to the science template?
+
+<color #ed1c24>__**Old discussion - clarified and implemented in text **__</color>
+
+
+

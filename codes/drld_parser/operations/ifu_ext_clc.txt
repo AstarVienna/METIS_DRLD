@@ -1,0 +1,42 @@
+===== Classical Lyot extended IFU coronagraphy (CLC) in L- or M-band  =====
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+  * any special needs?
+
+==== Acquisition ====
+
+Template options:
+  * [[METIS_ifu_ext_clc_acq|METIS_ifu_ext_clc_acq]]
+
+==== Science sequence ====
+
+For HCI observing modes:
+
+  * The target (typically a bright star) is always on-axis and used as the NGS for the SCAO
+  * The derotator is always in pupil tracking mode (i.e. pupil is always oriented in the same pre-defined direction)
+
+Sky subtraction:
+
+  * Background subtraction is done by post-processing of the images in pupil tracking mode (e.g. ADI) 
+  * An occasional sky frame can be taken by offsetting the telescope (TBD). The AO loop is opened for the sky observations, and then subsequently closed when back on target.
+
+Template options: 
+  * [[METIS_ifu_ext_clc_obs_FixedSkyOffset|METIS_ifu_ext_clc_obs_FixedSkyOffset]]
+
+
+===== Calibration data =====
+
+++++
+Calibration requirements|
+++++
+
+===== Products =====
+
+
+===== Discussion =====
+ [[ifu_ext_clc_discussion|ifu_ext_clc_discussion]] 

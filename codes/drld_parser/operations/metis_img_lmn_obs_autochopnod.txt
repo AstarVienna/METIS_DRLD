@@ -1,0 +1,76 @@
+==== Science imaging template METIS_img_lmn_obs_AutoChopNod ====
+
+=== Procedure for METIS_img_lmn_obs_AutoChopNod ===
+ 
+++++
+Setup imager|
+  * Move ''IMG-N PP1 FILT'' and ''IMG-LM PP1 FILT'' to selected filters
+  * Set detector parameters for both IMG-LM and IMG-N detectors (total exposure time, readout mode, cube mode T/F). The system will set the DIT/NDIT combination depending on the background levels.
+++++
+++++
+Start science exposures|
+  * This template performs chopping (using the CFO-PP2 chopper) between the target and a sky position. Additionally, it performs nodding, switching from one field to another by offsetting the telescope. Nodding allows to correct for optical path residuals that remain after chopping. The nodding direction can be either parallel or perpendicular to the chopping direction. In the case of parallel nodding, the nod throw has to either be the same as the chop throw or sufficiently different from it so that no image overlapping occurs.
+  * The detector (DET-LM, DET-N) and chopper cycles are synchronized. 
+  * The keyword ''SEQ.JITTER.WIDTH'' allows chopping and nodding with random offsets so that a jitter pattern is carried out.
+  * Set the chopping parameters (''chop-pattern/positions'', ''chop frequency'')
+  * Set the number of chopping cycles (moving through all defined chop positions) using the parameter ''NChopCycles''
+  * Set nodding direction (''CHOPNOD DIR'' = parallel or perpendicular)
+  * Set the number of nodding cycles using the parameter ''NNodCycles''
+  * At each offset position start science exposures with DIT/NDIT. 
+  * Read-out and save individual exposures from both IMG-LM and IMG-N detectors, or co-added frames, depending on the ''cube mode'' T/F keyword.
+
+++++
+++++
+End science exposures|
+  * Return telescope or chopper (depending on which actuator is used for offsetting) back to the initial position.
+  * Collect headers
+  * Merge into one or more data cubes
+  * Send cube to ESO Archive
+  * Send cube to Pipeline machine or ICS storage (tbd)
+  * Go back to Setup Imager until target observations are finished (single OB). For example, to observe in a different filter.
+
+At the end of the OB:
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+++++
+
+===Parameters for METIS_img_n_obs_AutoChopNod ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |SCIENCE TEST(SCIENCE) |Data product category|
+|DPR TECH              |yes        |IMAGE (IMAGE)                 |Data product technique|
+|DPR TYPE              |yes        |OBJECT SKY STD PSF-CALIBRATOR (OBJECT)|Data product type|                      
+|DET1 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
+|DET1 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-LM Number of Integrations (NDIT)|
+|DET1 NCORRS NAME       |no         |TBD                         |IMG-LM Readout mode|
+|DET1 CUBE MODE         |yes        |T F (T)                    |Toggle cube mode| 
+|DET2 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-N Detector integration time (DIT)|
+|DET2 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-N Number of Integrations (NDIT)|
+|DET2 NCORRS NAME       |no         |TBD                         |IMG-N Readout mode|
+|DET2 CUBE MODE         |yes        |T F (T)                    |Toggle cube mode| 
+|INS OPTI10 NAME         |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef M' CO(1-0)/ice COref HCIL-short HCIL-long (L')                |IMG-LM filter name|
+|INS OPTI11 NAME         |no         |OPEN ND1 ND2 ND3 ND4 ND5 (OPEN)                  |IMG-LM Neutral density filter|
+|INS OPTI13 NAME         |no         |N1 N2 PAH8.6 PAH8.6_ref PAH11.25 PAH11.25_ref [NeII] [NeII]_ref [SIV] [SIV]_ref N3 (N1)                |IMG-N filter name|
+|INS OPTI14 NAME         |no         |OPEN ND1 ND2 ND3 ND4 (OPEN)                  |IMG-N Neutral density filter|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NCHOPCYCLES       |no         |0..TBD (NODEFAULT)         |Number of chopping cycles|
+|SEQ NNODCYCLES        |no         |0..TBD (NODEFAULT)         |Number of nodding cycles|
+|SEQ CHOPNOD DIR       |no         |PARALLEL PERPENDICULAR (PERPENDICULAR)         |Relative Chop/Nod Direction|
+| SEQ JITTER WIDTH | no |0..5 (NODEFAULT) |Jitter Box Width (arcsec)| 
+|SEQ RETURN            |no         |T F (T)                    |Return to origin?|
+|SEQ CFO CHOP FREQ         |yes        |0..5 (1)                        |Chopping frequency|
+|SEQ CFO CHOP XPOS       |no         |TBD (NODEFAULT)          |Chopper x position|
+|SEQ CFO CHOP YPOS       |no         |TBD (NODEFAULT)           |Chopper y position|
+
+Notes: 
+  * It is not yet clear what will be the standard chopping pattern, it will possibly be a 3-point pattern instead of the "classical" 2-point pattern. This will require parameters to define the chopper positions, instead of the chopper throw/angle combination. These keywords should be updated once the "main" chopping pattern is decided. 
+

@@ -1,0 +1,11 @@
+===Procedure for METIS_img_n_cal_platescale ===
+ 
+The plate scale and true North calibration template is used on astrometric fields (asterisms or globular clusters, tied to GAIA) in order to determine the plate-scale and calibrate the true North angle on sky. The observing template is identical to the ''METIS_img_n_obs_AutoChopNod'' template, and it is combined with ''METIS_img_n_acq'' that is used to acquire the field.
+
+===Parameters for METIS_img_n_cal_platescale ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TYPE              |yes        |PLATESCALE (PLATESCALE)|Data product type|                      
+
+All other parameters are identical to ''METIS_img_n_obs_AutoChopNod''

@@ -1,0 +1,59 @@
+==== LMS RSRF calibration ====
+=== Responsible ===
+Science Operations
+
+=== Phase ===
+Daytime
+
+=== Frequency ===
+Once every month (tbc)
+
+=== Purpose ===
+Determine the relative spectral response function
+
+=== Procedure ===
+  * [[metis_all_cal_lampoff|Take WCU lamp off frames]]. Parameters: T1 (tbd), INS MODE: LMS, WCU FP1 config: grid
+  * record the BB spectrum 1 with the LMS
+  * set WCU BB to temperature T2 (tbd), wait until temperature is reached
+  * close WCU input / output shutters, take a background measurement, open WCU shutters
+  * record the BB spectrum 2 with the LMS
+  * move the grid pattern against the slitlets and repeat <color #ed1c24>(combine with slit loss / distortion template)</color>
+
+=== Pipeline data products ===
+  * Relative Spectral Response Function
+
+=== Prepared observing blocks ===
+(tbd)
+
+=== Prepared templates ===
+[[METIS_ifu_cal_rsrf|METIS_ifu_cal_rsrf]] (tbc)
+
+=== Pipeline support ===
+  * background / dark frame subtraction of raw frames
+  * divide observed frames by blackbody spectrum of known temperature to obtain the relative spectral response function
+  * <color #ed1c24>describe use of second blackbody measurement</color>
+
+=== Duration ===
+  * warm up WCU BB to T1 (30 min?)
+  * For each position, take a series of frames (3 min including setup?)
+  * step the point sources relative to the slitlets (1/10 l/D steps, ca. 10 steps in total in across slit position; <color #ed1c24>is the along slit direction also required?</color> (probably yes; the RSRF is, after all, dependent on wavelength and detector/field location)
+  * switch to T2 (30 min?)
+  * repeat the stepping
+  * In total 2 hours?
+
+=== Prerequisites ===
+none (tbd)
+
+=== Required Accuracy ===
+  * relative spectro-photometric accuracy: 10%
+  * no calibration error budget yet, but the RSRF can probably get 1/3 of the total budget, 3% accuracy
+
+=== Expected Accuracy ===
+  * limited by (imperfect correction for) detector non-linearity?
+
+
+
+=== Notes ===
+  * A full RSRF for the LMS with its large number of settings will take a lot of time and will probably only taken once (or very rarely). We intend to come up with a "full RSRF" and a "partial RSRF" template where the latter probes a relevant subset of LMS settings (e.g. scientifically most relevant spectral ranges) to verify that the full RSRF solution is still applicable.
+  * <color #ed1c24>Discuss a combined RSRF + distortion + slit loss template for LMS?</color>
+  * <color #ed1c24>Should this be moved to the QC section?</color>

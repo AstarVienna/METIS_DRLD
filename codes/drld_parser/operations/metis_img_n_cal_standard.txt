@@ -1,0 +1,12 @@
+===Procedure for METIS_img_n_cal_standard ===
+ 
+Imaging observations of standard stars with a purpose to determine the zero point of the
+photometry. The observing template is identical to the ''METIS_img_n_obs_AutoChopNod'' template, and it is combined with ''METIS_img_n_acq'' that is used to acquire the standard star.
+
+===Parameters for METIS_img_n_cal_standard ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TYPE              |yes        |STD (STD)|Data product type|                      
+
+All other parameters are identical to ''METIS_img_n_obs_AutoChopNod''
