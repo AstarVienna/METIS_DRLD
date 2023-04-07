@@ -33,4 +33,3 @@ class Recipe:
     hdrl_functions: List[str] = None
     requirements: List[str] = None
     matched_keywords: List[str] = None
-

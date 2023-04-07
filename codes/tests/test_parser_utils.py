@@ -6,6 +6,7 @@ from ..drld_parser import parser_utils as pu
 
 PATH_ROOT = Path(__file__).parent.parent.parent
 
+
 class TestGetRecipes:
     def test_number_of_recipes_extracted_is_not_none(self):
         assert len(pu.get_recipes(PATH_ROOT)) > 0

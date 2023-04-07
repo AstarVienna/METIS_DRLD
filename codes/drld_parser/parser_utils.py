@@ -74,21 +74,17 @@ HACK_TEMPLATE_NAMES_IN_DRLD = {
         "METIS_spec_N_obs_AutoNodOnSlit",
     ): "metis_spec_n_obs_autochopnodonslit",
     ("Recipes_LSS_LM", "METIS_spec_lm_cal_slit_adc"): "metis_spec_lm_cal_slitadc",
-
     # Maybe should exist? # TODO: should be metis_spec_n_cal_slit ?
     # ("Recipes_LSS_N", "METIS_spec_N_cal_slit_adc"): "metis_spec_lm_cal_slitadc",
     ("Recipes_LSS_N", "METIS_spec_N_cal_slit_adc"): "metis_spec_n_cal_slit",
-
     # Maybe should exist?
     (
         "Recipadces_LSS_N",
         "METIS_spec_N_obs_GenericOffset",
     ): "metis_spec_lm_obs_genericoffset",
-
     # Which one?
     # ("Recipes_Technical", "METIS_spec_n_cal_SlitAdc"): "metis_spec_lm_cal_slitadc",
     ("Recipes_Technical", "METIS_spec_n_cal_SlitAdc"): "metis_spec_n_cal_slit",
-
     (
         "Recipes_IFU_LM",
         "METIS_ifu_app_obs_GenericOffset",
@@ -195,7 +191,7 @@ def parse_fits_header(line):
 def parse_file_template(filename, template_types_dict):
     """Parse a Template file."""
     name_template = hack_rename_template(Path(filename).stem).lower()
-    datatt = open(filename, encoding='utf8').read()
+    datatt = open(filename, encoding="utf8").read()
     used_template_names = set(
         hack_rename_template_header(name_template, ttt)
         for ttt in re.findall("METIS_[a-zA-Z_]*", datatt)
@@ -233,7 +229,7 @@ def get_tpls_from_tex(filename, recipe_names):
         "METIS_IMAGE",
         "METIS_CUBE",
     ] + recipe_names
-    datat = open(filename, encoding='utf8').read()
+    datat = open(filename, encoding="utf8").read()
     # Using TPL macro
     # TODO: There are TPL macros that are not templates!!
     tpls_macro = [
@@ -260,11 +256,12 @@ def hack_rename_template_names_drld(filename, name_template):
 
 
 def get_template_summaries():
-    data = open(os.path.join(PATH_OPERATIONS, "metis_templates.txt"),
-                encoding='utf8').read()
-    sections = [section.strip()
-                for section in data.split("++++")[1:]
-                if section.strip()]
+    data = open(
+        os.path.join(PATH_OPERATIONS, "metis_templates.txt"), encoding="utf8"
+    ).read()
+    sections = [
+        section.strip() for section in data.split("++++")[1:] if section.strip()
+    ]
     assert len(sections) == 4
 
     templates_true = {}
@@ -276,8 +273,7 @@ def get_template_summaries():
         template_list = {}
         for line_with_template in lines_with_template:
             # print(line_with_template)
-            _, name_a, name_b, description, _ = line_with_template.strip().split(
-                "|")
+            _, name_a, name_b, description, _ = line_with_template.strip().split("|")
             name_a = name_a.strip().strip("[").strip("]").strip()
             name_b = name_b.strip().strip("[").strip("]").strip()
             assert name_a == name_b, f"{name_a} {name_b}"
@@ -311,16 +307,12 @@ def parse_recipe_from_table(stable):
         if "&" in line
     ]
 
-    rows4 = [
-        (aa.strip().strip(":").strip(), bb.strip())
-        for aa, bb in rows3
-    ]
+    rows4 = [(aa.strip().strip(":").strip(), bb.strip()) for aa, bb in rows3]
 
     value = ""
     field_old = ""
     thedata = {}
     for row in rows4:
-
         field1 = row[0].lower().replace(" ", "_")
         field1 = re.sub("label{.*?}", "", field1)
         if field1 == "":
@@ -329,12 +321,12 @@ def parse_recipe_from_table(stable):
 
         # Previous one must be finished
         if field_old:
-            if field_old == 'templates':
+            if field_old == "templates":
                 value = re.sub("\\\\TPL{(.*?)}", " \\1 ", value)
                 value = value.replace(",", " ")
-                if 'tbd' in value.lower():
-                    value = ['TBD']
-                elif value.lower() == 'none' or '--' in value:
+                if "tbd" in value.lower():
+                    value = ["TBD"]
+                elif value.lower() == "none" or "--" in value:
                     value = []
                 else:
                     value = value.split()
@@ -369,28 +361,25 @@ def parse_recipes(filenames):
     # CalDB_data_items.tex uses recipedef for dataitems
     # IMG_drl_functions.tex uses recipedef for functions
     filenames_ok = [
-        fni for fni in filenames
+        fni
+        for fni in filenames
         if "12_0-QC_parameters" not in fni
         and "CalDB_data_items" not in fni
         and "LSS_data_items" not in fni
         and "IMG_drl_functions" not in fni
     ]
-    data_all = "\n\n".join(open(fni, encoding='utf8').read()
-                           for fni in filenames_ok)
+    data_all = "\n\n".join(open(fni, encoding="utf8").read() for fni in filenames_ok)
     # TODO: Assure we don't miss the first recipe by accident.
     srecipes = [
         dd.split("\\end{recipedef}")[0]
         for dd in data_all.split("\\begin{recipedef}")
-        if "recipe parameters" in dd.lower()
-        or "qc1" in dd.lower()
+        if "recipe parameters" in dd.lower() or "qc1" in dd.lower()
     ][1:]
-    return [
-        parse_recipe_from_table(stable)
-        for stable in srecipes
-    ]
+    return [parse_recipe_from_table(stable) for stable in srecipes]
 
 
 def get_recipes(drld_path):
-    files_drld = glob.glob(os.path.join(drld_path, "*.tex")) + \
-                 glob.glob(os.path.join(drld_path, "**/*.tex"))
+    files_drld = glob.glob(os.path.join(drld_path, "*.tex")) + glob.glob(
+        os.path.join(drld_path, "**/*.tex")
+    )
     return parse_recipes(files_drld)

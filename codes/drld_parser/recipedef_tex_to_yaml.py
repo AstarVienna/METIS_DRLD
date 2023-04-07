@@ -5,9 +5,11 @@ import yaml
 
 PATH_ROOT = Path(__file__).parent.parent.parent
 
+
 def write_yaml_file(data, filename):
-    with open(filename, 'w') as outfile:
+    with open(filename, "w") as outfile:
         yaml.dump(data, outfile)
+
 
 def parse_multiline_string(string):
     dic = {}
@@ -37,7 +39,7 @@ def get_sections(text):
             section_lines = []
         elif line.strip() == "\\end{recipedef}":
             in_section = False
-            sections.append('\n'.join(section_lines))
+            sections.append("\n".join(section_lines))
         elif in_section:
             section_lines.append(line)
     return sections
@@ -83,7 +85,7 @@ class RecipeSectionReader:
             text += f"--- {name} ---\n\n"
             for key, value in self.dicts[name].items():
                 text += f"{key} :\n"
-                text += "    - "+'\n    - '.join(value)+"\n"
+                text += "    - " + "\n    - ".join(value) + "\n"
             text += "\n\n"
 
         return text
@@ -95,5 +97,4 @@ wka = "LSS_drl_functions.tex"
 rec = RecipeSectionReader(filename=PATH_ROOT / wka)
 print(rec)
 # rec.writeto("functions")
-#rec.write_individual("recipes")
-
+# rec.write_individual("recipes")
