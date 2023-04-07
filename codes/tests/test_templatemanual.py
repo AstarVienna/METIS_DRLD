@@ -9,3 +9,4 @@ class TestTemplateManual:
 
     def test_number_of_templates_extracted_is_not_none(self):
         assert len(METIS_TemplateManual.templates) > 0
+

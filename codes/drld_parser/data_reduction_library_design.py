@@ -84,8 +84,8 @@ class Recipe:
             value = row[1]
 
             if "name" in field:
-                value = re.sub("\\\\REC{(.*?)}", "\\1", value)
-                value = re.sub("\\\\hyperref[.*?]{(.*?)}", "\\1", value)
+                value = re.sub(r"\\REC{(.*?)}", "\\1", value)
+                value = re.sub(r"\\hyperref\[.*?]{(.*?)}", "\\1", value)
                 # print(field, ":::", value)
 
             # noinspection PyUnresolvedReferences
@@ -109,14 +109,16 @@ class DataReductionLibraryDesign:
         self.path_drld = path_here.parent.parent
         # The path of the DRLD
 
-        self.filenames_tex = glob.glob(os.path.join(self.path_drld, "*.tex")) + glob.glob(
-            os.path.join(self.path_drld, "**/*.tex")
-        )
-        # All tex files, need to check whether the templates and recipes etc.
-        # they reference actually exists.
+        self.filenames_tex = glob.glob(os.path.join(self.path_drld, "*.tex"))
+        # Regular tex files.
+
+        self.filenames_tikz = glob.glob(os.path.join(self.path_drld, "**/*.tex"))
+        # Tikz figures.
 
         self.recipes = self.get_recipes()
         # The recipes as defined in the DRLD.
+
+        self.recipe_names_used = self.get_recipe_names_used()
 
     def get_recipes(self):
         """"""
@@ -125,20 +127,18 @@ class DataReductionLibraryDesign:
         recipes = {}
         for filename in files_drld:
             data = open(filename, encoding="utf8").read()
-            # TODO: Assure we don't miss the first recipe by accident.
             srecipes = [
                 dd.split("\\end{recipedef}")[0]
                 for dd in data.split("\\begin{recipedef}")
                 if "recipe parameters" in dd.lower() or "qc1" in dd.lower()
-            ][1:]
+            ]
             for stable in srecipes:
                 recipe = Recipe.parse_recipe_from_table(stable)
                 recipes[recipe.name] = recipe
 
         return recipes
 
-    @staticmethod
-    def get_tpls_from_tex(filename, recipe_names):
+    def get_tpls_from_tex(self, filename):
         """
         Get templates from tex files
         """
@@ -146,7 +146,7 @@ class DataReductionLibraryDesign:
         not_templates = [
             "METIS_IMAGE",
             "METIS_CUBE",
-        ] + recipe_names
+        ] + list(self.recipes.keys())
         datat = open(filename, encoding="utf8").read()
         # Using TPL macro
         # TODO: There are TPL macros that are not templates!!
@@ -163,6 +163,27 @@ class DataReductionLibraryDesign:
         ]
         # TODO: does not work for tikz
         return [tsi for tsi in tpls_macro + tpls_latex if tsi not in not_templates]
+
+    def get_recipe_names_used(self):
+        """All recipes names used in the DRLD."""
+        # TODO: Also search in the figures.
+
+        # TODO: Ensure that these abbreviations are handled somehow:
+        #       "The prefix ``\REC{metis_}'' has been
+        #     omitted from the recipe names to improve clarity. The product
+        #     names omit ``\PROD{LM_}''.}"
+
+        # Everything starts with metis_ except detmon_ir_lg
+        not_recipes = {"metis_do_stuff", "metis_", ""}
+        recipe_names_u = [
+            recname.replace("\\", "")
+            for fn in self.filenames_tex
+            for recname in re.findall(
+                "\\\\REC{(.*?)}", open(fn, encoding="utf8").read()
+            )
+            if recname not in not_recipes
+        ]
+        return sorted(set(recipe_names_u))
 
 
 METIS_DataReductionLibraryDesign = DataReductionLibraryDesign()
