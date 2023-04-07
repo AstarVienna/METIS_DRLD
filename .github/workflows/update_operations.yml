@@ -1,0 +1,40 @@
+# This workflow creates a PR to update the operations wiki export.
+
+name: update_operations
+
+on:
+  schedule:
+    # Run every 5 minutes past the hour, because the export is created on the hour.
+    - cron: "5 * * * *"
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Download operations wiki export on top of checkout
+        run: python codes/drld_parser/download_operations_wiki.py
+
+      # Create a PR with the changes from the above script, if any.
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "Update operations wiki export"
+          branch: update-operations-wiki-export
+          delete-branch: true
+          title: "[Assist PR] Update operations wiki export"
+          body: |
+            Update operations wiki export.
+            Auto-generated.
+          labels: |
+            automated
+          draft: false
