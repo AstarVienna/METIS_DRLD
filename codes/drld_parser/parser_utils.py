@@ -2,6 +2,7 @@ import re
 import os
 import glob
 from pathlib import Path
+from typing import Dict
 
 from codes.drld_parser.base_classes import FitsHeader, Template, Recipe
 
@@ -255,7 +256,39 @@ def hack_rename_template_names_drld(filename, name_template):
     )
 
 
-def get_template_summaries():
+def get_template_summaries() -> Dict[str, Dict[str, str]]:
+    """Get a dictionary of template types, names, and descriptions.
+
+    The wiki defines many templates, but most are not used (anymore). The
+    templates in "metis_templates.txt" are the ones that are actually included
+    in the Template Manual.
+
+    The names in this list also have the canonical capitalisation.
+
+    E.g.
+    {
+        "Acquisition": {
+            "METIS_ifu_acq": "acquisition of nominal IFU spectroscopy ",
+            "METIS_ifu_app_acq": "acquisition of nominal IFU spectroscopy with APP coronagraph",
+            "METIS_ifu_ext_acq": "acquisition of extended IFU " "spectroscopy ",
+            ...
+        },
+        "Calibration": {
+            "METIS_gen_cal_InsDark": "Series of dark frames (instrument dark)",
+            "METIS_gen_cal_dark": "Series of dark frames (imager dark)",
+            ...
+        },
+        "Engineering": {
+            "METIS_pup_lm": "Pupil imaging in LM ",
+            "METIS_pup_n": "Pupil imaging in N ",
+        },
+        "Observing": {
+            "METIS_ifu_app_obs_Stare": " Nominal IFU spectroscopy with APP coronagraph",
+            "METIS_ifu_ext_app_obs_Stare": " Extended IFU spectroscopy with APP coronagraph",
+            ...
+        },
+    }
+    """
     data = open(
         os.path.join(PATH_OPERATIONS, "metis_templates.txt"), encoding="utf8"
     ).read()
