@@ -5,6 +5,9 @@ from pathlib import Path
 
 from codes.drld_parser.base_classes import FitsHeader, Template, Recipe
 
+PATH_HERE = Path(__file__).parent
+PATH_OPERATIONS = PATH_HERE / "operations"
+
 HACK_TEMPLATE_NAMES_IN_WIKI = {
     # Should just not be there:
     ("fits_keywords", "METIS_all_dark"): "metis_gen_cal_dark",
@@ -256,8 +259,8 @@ def hack_rename_template_names_drld(filename, name_template):
     )
 
 
-def get_template_summaries(operations_path):
-    data = open(os.path.join(operations_path, "metis_templates.txt"),
+def get_template_summaries():
+    data = open(os.path.join(PATH_OPERATIONS, "metis_templates.txt"),
                 encoding='utf8').read()
     sections = [section.strip()
                 for section in data.split("++++")[1:]

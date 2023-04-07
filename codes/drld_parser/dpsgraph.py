@@ -5,18 +5,19 @@ import re
 from pathlib import Path
 
 from codes.drld_parser.parser_utils import \
-    hack_rename_template_header, parse_file_template, get_tpls_from_tex, \
-    HACK_TEMPLATE_NAMES_IN_WIKI, hack_rename_template_names_drld, \
-    get_template_summaries, get_recipes
+    (
+    hack_rename_template_header, parse_file_template, get_tpls_from_tex,
+    HACK_TEMPLATE_NAMES_IN_WIKI, hack_rename_template_names_drld,
+    get_template_summaries, get_recipes, PATH_OPERATIONS,
+)
 
 ################################################################################
 # Checking Templates for consistency with DRLD
 ################################################################################
 
 PATH_HERE = Path(__file__).parent
-OPERATIONS_PATH = PATH_HERE / "operations"
 
-template_summaries = get_template_summaries(OPERATIONS_PATH)
+template_summaries = get_template_summaries()
 
 type_from_template_name = {tt.lower(): type_tt
                            for type_tt, tps in template_summaries.items()
@@ -28,7 +29,7 @@ assert len(templates_all_true) == len(set(templates_all_true))
 assert len(type_from_template_name) == len(templates_all_true)
 
 
-files_templates = glob.glob(os.path.join(OPERATIONS_PATH, "metis_*_*.txt"))
+files_templates = glob.glob(os.path.join(PATH_OPERATIONS, "metis_*_*.txt"))
 templates = [parse_file_template(filename, type_from_template_name)
              for filename in files_templates]
 templatesd = {template.name.lower(): template for template in templates}

@@ -13,5 +13,4 @@ class TestGetRecipes:
 
 class TestGetTemplateSummaries:
     def test_number_of_templates_extracted_is_not_none(self):
-        operations_path = PATH_ROOT / "codes" / "drld_parser" / "operations"
-        assert len(pu.get_template_summaries(operations_path)) > 0
+        assert len(pu.get_template_summaries()) > 0
