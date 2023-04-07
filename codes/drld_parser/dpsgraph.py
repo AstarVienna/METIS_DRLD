@@ -4,7 +4,7 @@ import os
 import re
 from pathlib import Path
 
-from codes.drld_parser.base_classes import METIS_DataReductionLibraryDesign
+from codes.drld_parser.data_reduction_library_design import METIS_DataReductionLibraryDesign
 from codes.drld_parser.hacks import hack_rename_template_names_drld
 
 
