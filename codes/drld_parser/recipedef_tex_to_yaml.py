@@ -1,6 +1,9 @@
 import os
+from pathlib import Path
+
 import yaml
 
+PATH_ROOT = Path(__file__).parent.parent.parent
 
 def write_yaml_file(data, filename):
     with open(filename, 'w') as outfile:
@@ -89,7 +92,7 @@ class RecipeSectionReader:
 ocz = "Recipes_Imaging_LM.tex"
 wka = "LSS_drl_functions.tex"
 
-rec = RecipeSectionReader(filename=f"..\{wka}")
+rec = RecipeSectionReader(filename=PATH_ROOT / wka)
 print(rec)
 # rec.writeto("functions")
 #rec.write_individual("recipes")

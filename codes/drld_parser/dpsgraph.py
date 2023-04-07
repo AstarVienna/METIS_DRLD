@@ -13,7 +13,9 @@ from codes.drld_parser.parser_utils import \
 # Checking Templates for consistency with DRLD
 ################################################################################
 
-OPERATIONS_PATH = "./operations"
+PATH_HERE = Path(__file__).parent
+OPERATIONS_PATH = PATH_HERE / "operations"
+
 template_summaries = get_template_summaries(OPERATIONS_PATH)
 
 type_from_template_name = {tt.lower(): type_tt
@@ -68,7 +70,7 @@ for fn in files_wiki:
 
 print("===== Now Parsing DRLD =====")
 
-DRLD_PATH = "../../"
+DRLD_PATH = Path(__file__).parent.parent.parent
 files_drld = glob.glob(os.path.join(DRLD_PATH, "*.tex")) + \
              glob.glob(os.path.join(DRLD_PATH, "**/*.tex"))
 
