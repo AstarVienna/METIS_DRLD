@@ -2,6 +2,129 @@
 
 These are currently necessary, but should in due time be removed.
 """
+from pathlib import Path
+
+HACK_TEMPLATE_NAMES_IN_WIKI = {
+    # Should just not be there:
+    ("fits_keywords", "METIS_all_dark"): "metis_gen_cal_dark",
+    # Probably typo?
+    (
+        "metis_ifu_cal_platescale",
+        "METIS_img_ifu_cal_platescale",
+    ): "metis_ifu_cal_platescale",
+    ("ifu_discussion", "METIS_obs_IFU_FixedSkyOffset"): "metis_ifu_obs_fixedskyoffset",
+    ("cal_slitloss_adc", "METIS_spec_lm_cal_slit_adc"): "metis_spec_lm_cal_slitadc",
+    # all -> gen
+    ("cal_dark", "METIS_all_cal_dark"): "METIS_gen_cal_dark",
+    # all -> gen for lampoff, but lampoff not in Template Manual
+    ("cal_rsrf_slit", "metis_all_cal_lampoff"): "metis_gen_cal_lampoff",
+    ("cal_flat_lamp", "metis_all_cal_lampoff"): "metis_gen_cal_lampoff",
+    ("cal_rsrf_lms", "metis_all_cal_lampoff"): "metis_gen_cal_lampoff",
+    # lamp
+    ("cal_flat_lamp", "METIS_img_lm_cal_LampFlat"): "metis_img_lm_cal_internalflat",
+    # Should not be a template? # Not in Template Manual
+    ("cal_det_bias", "METIS_all_cal_bias"): "",
+    # Twilight flats, are TwilightFlat in Template Manual, not flat_twilight
+    # ("metis_img_lm_cal_twilightflat", "METIS_img_lm_cal_flat_twilight"): "metis_img_lm_cal_twilightflat",
+    ("cal_flat_twilight", "METIS_all_cal_TwilightFlat"): "metis_img_n_cal_twilightflat",
+    ("cal_flat_twilight", "METIS_all_cal_twilightflat"): "metis_img_n_cal_twilightflat",
+    # ("metis_img_n_cal_twilightflat", "METIS_img_n_cal_flat_twilight"): "metis_img_n_cal_twilightflat",
+    # Not a problem, picked up by accident
+    ("ifu_discussion", "METIS_CM"): "",
+    ("start", "metis_templates"): "",
+    # NQ. NQ mentioned twice in Template Manual though
+    ("img_nq_app", "METIS_obs_APP_N_AutoChop"): "metis_img_n_obs_autochopnod",
+    ("img_nq_app", "METIS_acq_APP_N"): "metis_img_lm_app_acq",
+    ("cal_flux", "METIS_spec_nq_cal_standard"): "metis_img_n_obs_autochopnod",
+    ("cal_flux", "METIS_spec_nq_cal_standard"): "metis_spec_n_cal_standard",
+    ("cal_flux", "METIS_img_nq_cal_standard"): "metis_img_n_cal_standard",
+    ("img_n_discussion", "METIS_obs_IMG_NQ_AutoChop"): "metis_img_n_obs_autochopnod",
+    ("cal_distortion", "METIS_img_nq_cal_distortion"): "metis_img_n_cal_distortion",
+    ("cal_flat_lamp", "METIS_img_nq_cal_LampFlat"): "",
+    ("cal_det_linearity", "METIS_img_nq_cal_DetLin"): "metis_img_n_cal_detlin",
+    ("cal_slitloss_adc", "METIS_spec_nq_cal_slit_adc"): "metis_spec_n_cal_slit",
+    # Seems to be only discussion item
+    (
+        "img_n_cvc_discussion",
+        "METIS_obs_RAVC_N_AutoChop",
+    ): "metis_img_n_cvc_obs_autochop",
+    ("spec_n_discussion", "METIS_ACQ_LSS_N_LR"): "metis_acq_lss_n_mr",
+    # to investigate
+    ("cal_wavelength_telluric", "METIS_all_cal_wave_telluric"): "",
+}
+
+
+HACK_TEMPLATE_NAMES_IN_DRLD = {
+    ("*", "METIS_img_nq_cal_DetLin"): "METIS_img_n_cal_DetLin",
+    ("*", "METIS_all_cal_dark"): "METIS_gen_cal_dark",
+    # ("*", "METIS_img_n_cal_LampFlat"): "",
+    (
+        "Recipes_Imaging_LM",
+        "METIS_all_cal_TwilightFlat",
+    ): "METIS_img_lm_cal_TwilightFlat",
+    ("Recipes_Imaging_N", "METIS_all_cal_TwilightFlat"): "METIS_img_n_cal_TwilightFlat",
+    ("metis_n_img_flat", "METIS_all_cal_TwilightFlat"): "METIS_img_n_cal_TwilightFlat",
+    # Seems wrong in DRLD:
+    (
+        "Recipes_LSS_N",
+        "METIS_spec_N_obs_AutoNodOnSlit",
+    ): "metis_spec_n_obs_autochopnodonslit",
+    ("Recipes_LSS_LM", "METIS_spec_lm_cal_slit_adc"): "metis_spec_lm_cal_slitadc",
+    # Maybe should exist? # TODO: should be metis_spec_n_cal_slit ?
+    # ("Recipes_LSS_N", "METIS_spec_N_cal_slit_adc"): "metis_spec_lm_cal_slitadc",
+    ("Recipes_LSS_N", "METIS_spec_N_cal_slit_adc"): "metis_spec_n_cal_slit",
+    # Maybe should exist?
+    (
+        "Recipadces_LSS_N",
+        "METIS_spec_N_obs_GenericOffset",
+    ): "metis_spec_lm_obs_genericoffset",
+    # Which one?
+    # ("Recipes_Technical", "METIS_spec_n_cal_SlitAdc"): "metis_spec_lm_cal_slitadc",
+    ("Recipes_Technical", "METIS_spec_n_cal_SlitAdc"): "metis_spec_n_cal_slit",
+    (
+        "Recipes_IFU_LM",
+        "METIS_ifu_app_obs_GenericOffset",
+    ): "metis_ifu_obs_genericoffset",
+    # Pinhole is internal wave?
+    ("LSS_data_items", "METIS_spec_lm_cal_rsrfpinh"): "metis_spec_lm_cal_internalwave",
+    ("LSS_data_items", "METIS_spec_n_cal_rsrfpinh"): "metis_spec_n_cal_internalwave",
+    ("Recipes_LSS_LM", "METIS_spec_lm_cal_rsrfpinh"): "metis_spec_lm_cal_internalwave",
+    ("Recipes_LSS_N", "METIS_spec_n_cal_rsrfpinh"): "metis_spec_n_cal_internalwave",
+    # and these as well?
+    ("Recipes_IFU_LM", "METIS_ifu_cal_LampWave"): "metis_ifu_cal_internalwave",
+    ("metis_ifu_wavecal", "METIS_ifu_cal_LampWave"): "metis_ifu_cal_internalwave",
+    # Unknown
+    ("metis_n_img_flat", "METIS_img_n_cal_LampFlat"): "metis_img_n_cal_internalflat",
+    (
+        "metis_lm_img_flat",
+        "METIS_all_cal_TwilightFlat",
+    ): "metis_img_lm_cal_twilightflat",
+    ("metis_lm_img_flat", "METIS_img_lm_cal_LampFlat"): "metis_img_lm_cal_internalflat",
+    # App stuff
+    (
+        "Recipes_IFU_LM",
+        "METIS_ifu_ext_app_obs_GenericOffset",
+    ): "metis_ifu_ext_obs_genericoffset",
+    ("Recipes_Imaging_N", "METIS_img_nq_cal_standard"): "metis_img_n_cal_standard",
+    # Investigate
+}
+
+
+TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI = [
+    "METIS_spec_lm_cal_rsrfpinh",
+    "METIS_spec_n_cal_rsrfpinh",
+    "METIS_img_nq_cal_DetLin",
+]
+
+
+HACK_BAD_NAMES = {
+    "recipe_name": "name",
+    "observing_templates": "templates",
+    "recipe_parameters": "parameters",
+    "hdrl_function": "hdrl_functions",
+    "requirement": "requirements",
+    "template": "templates",
+}
 
 
 def hack_rename_template_header(name_template_file, name_template_header):
@@ -40,4 +163,12 @@ def hack_rename_template_header(name_template_file, name_template_header):
     }
     return hack_dict.get(
         (name_template_file.lower(), name_template_header.lower()), name_template_header
+    )
+
+
+def hack_rename_template_names_drld(filename, name_template):
+    filenamestem = Path(filename).stem
+    return HACK_TEMPLATE_NAMES_IN_DRLD.get(
+        (filenamestem, name_template),
+        HACK_TEMPLATE_NAMES_IN_DRLD.get(("*", name_template), name_template),
     )

@@ -4,7 +4,7 @@ from pathlib import Path
 import re
 from typing import Dict, Set, List, Tuple
 
-from codes.drld_parser.hacks import hack_rename_template_header
+from codes.drld_parser.hacks import hack_rename_template_header, HACK_BAD_NAMES, HACK_TEMPLATE_NAMES_IN_DRLD
 
 
 @dataclasses.dataclass
@@ -94,6 +94,78 @@ class Recipe:
     hdrl_functions: List[str] = None
     requirements: List[str] = None
     matched_keywords: List[str] = None
+
+    @staticmethod
+    def parse_recipe_from_table(stable):
+        """Parse a Recipe from a table"""
+        rows1 = [
+            line.strip()
+            for line in stable.splitlines()
+            if line.strip() and not line.strip().startswith("%")
+        ]
+
+        # Concatenate lines.. Aargh
+        rows2 = []
+        thisline = ""
+        for line in rows1:
+            thisline += line
+            if thisline.endswith("\\\\"):
+                rows2.append(thisline)
+                thisline = ""
+
+        rows3 = [
+            line.strip().strip("\\").strip().split("&")
+            for line in rows2
+            # TODO: Do something sensible if there is no &
+            if "&" in line
+        ]
+
+        rows4 = [(aa.strip().strip(":").strip(), bb.strip()) for aa, bb in rows3]
+
+        value = ""
+        field_old = ""
+        thedata = {}
+        for row in rows4:
+            field1 = row[0].lower().replace(" ", "_")
+            field1 = re.sub("label{.*?}", "", field1)
+            if field1 == "":
+                value += "\n" + row[1]
+                continue
+
+            # Previous one must be finished
+            if field_old:
+                if field_old == "templates":
+                    value = re.sub("\\\\TPL{(.*?)}", " \\1 ", value)
+                    value = value.replace(",", " ")
+                    if "tbd" in value.lower():
+                        value = ["TBD"]
+                    elif value.lower() == "none" or "--" in value:
+                        value = []
+                    else:
+                        value = value.split()
+                        value = [
+                            HACK_TEMPLATE_NAMES_IN_DRLD.get(vi.lower(), vi.lower())
+                            for vi in value
+                        ]
+                thedata[field_old] = value
+
+            field = HACK_BAD_NAMES.get(field1, field1)
+            value = row[1]
+
+            if "name" in field:
+                value = re.sub("\\\\REC{(.*?)}", "\\1", value)
+                value = re.sub("\\\\hyperref[.*?]{(.*?)}", "\\1", value)
+                # print(field, ":::", value)
+
+            # noinspection PyUnresolvedReferences
+            if field not in Recipe.__dataclass_fields__:
+                print(field, field1, row[0])
+
+            # Cannot yet add the value to thedata dictionary because the value
+            # might continue on other rows.
+            field_old = field
+
+        return Recipe(**thedata)
 
 
 class TemplateManual:

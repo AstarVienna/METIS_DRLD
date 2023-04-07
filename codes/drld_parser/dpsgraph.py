@@ -4,10 +4,9 @@ import os
 import re
 from pathlib import Path
 
+from codes.drld_parser.hacks import hack_rename_template_names_drld
 from codes.drld_parser.parser_utils import (
     get_tpls_from_tex,
-    HACK_TEMPLATE_NAMES_IN_WIKI,
-    hack_rename_template_names_drld,
     get_recipes,
 )
 
