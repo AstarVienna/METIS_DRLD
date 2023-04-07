@@ -1,4 +1,5 @@
 import dataclasses
+import glob
 import os
 from pathlib import Path
 import re
@@ -255,4 +256,71 @@ class TemplateManual:
         }
 
 
+class DataReductionLibraryDesign:
+    """The information from the DRLD"""
+    # TODO: Check all tex files
+
+    def __init__(self):
+        path_here = Path(__file__).parent
+
+        self.path_drld = path_here.parent.parent
+        # The path of the DRLD
+
+        self.filenames_tex = glob.glob(os.path.join(self.path_drld, "*.tex")) + glob.glob(
+            os.path.join(self.path_drld, "**/*.tex")
+        )
+        # All tex files, need to check whether the templates and recipes etc.
+        # they reference actually exists.
+
+        self.recipes = self.get_recipes()
+        # The recipes as defined in the DRLD.
+
+    def get_recipes(self):
+        """"""
+        # TODO: Verify that there are no recipes defined in other tex files.
+        files_drld = glob.glob(os.path.join(self.path_drld, "Recipes*.tex"))
+        recipes = {}
+        for filename in files_drld:
+            data = open(filename, encoding="utf8").read()
+            # TODO: Assure we don't miss the first recipe by accident.
+            srecipes = [
+                dd.split("\\end{recipedef}")[0]
+                for dd in data.split("\\begin{recipedef}")
+                if "recipe parameters" in dd.lower() or "qc1" in dd.lower()
+            ][1:]
+            for stable in srecipes:
+                recipe = Recipe.parse_recipe_from_table(stable)
+                recipes[recipe.name] = recipe
+
+        return recipes
+
+    @staticmethod
+    def get_tpls_from_tex(filename, recipe_names):
+        """
+        Get templates from tex files
+        """
+
+        not_templates = [
+            "METIS_IMAGE",
+            "METIS_CUBE",
+        ] + recipe_names
+        datat = open(filename, encoding="utf8").read()
+        # Using TPL macro
+        # TODO: There are TPL macros that are not templates!!
+        tpls_macro = [
+            tsii.replace("\\", "")
+            for tsii in re.findall("\\\\TPL{(M.*?)}", datat, re.IGNORECASE)
+        ]
+        # Normal LaTeX, includes tikzs
+        tpls_latex = [
+            tsii.replace("\\", "").replace("$ast$", "*")
+            for tsii in
+            # re.findall("metis\\\\_[iaogps][a-z_\\*\\\\]*", datat, re.IGNORECASE)
+            re.findall("metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
+        ]
+        # TODO: does not work for tikz
+        return [tsi for tsi in tpls_macro + tpls_latex if tsi not in not_templates]
+
+
 METIS_TemplateManual = TemplateManual()
+METIS_DataReductionLibraryDesign = DataReductionLibraryDesign()

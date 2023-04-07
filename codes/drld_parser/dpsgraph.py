@@ -4,11 +4,8 @@ import os
 import re
 from pathlib import Path
 
+from codes.drld_parser.base_classes import METIS_DataReductionLibraryDesign
 from codes.drld_parser.hacks import hack_rename_template_names_drld
-from codes.drld_parser.parser_utils import (
-    get_tpls_from_tex,
-    get_recipes,
-)
 
 
 ################################################################################
@@ -41,7 +38,7 @@ recipe_names_drld = sorted(set(recipe_names_u))
 #assert not (templatesd.keys() & set(recipe_names_drld))
 
 
-recipes = get_recipes(DRLD_PATH)
+recipes = METIS_DataReductionLibraryDesign.recipes.values()
 recipesd = {rec.name.lower(): rec for rec in recipes}
 assert len(recipes) == len(recipesd)
 
@@ -54,7 +51,7 @@ for recipe in recipes:
 
 for fn in files_drld:
     fnstem = Path(fn).stem
-    tpls = get_tpls_from_tex(fn, recipe_names_drld)
+    tpls = METIS_DataReductionLibraryDesign.get_tpls_from_tex(fn, recipe_names_drld)
     for ts in tpls:
         if "*" in ts:
             # TODO: Do something sensible here. E.g. are there any templates with that prefix?
