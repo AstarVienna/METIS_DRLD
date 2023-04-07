@@ -122,6 +122,16 @@ TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI = [
 ]
 
 
+HACK_BAD_NAMES = {
+    "recipe_name": "name",
+    "observing_templates": "templates",
+    "recipe_parameters": "parameters",
+    "hdrl_function": "hdrl_functions",
+    "requirement": "requirements",
+    "template": "templates",
+}
+
+
 def hack_rename_template(name_template):
     # The filename is considered the correct one.
     # TODO: Check whether there are files for all these.
@@ -238,7 +248,6 @@ def get_tpls_from_tex(filename, recipe_names):
     return [tsi for tsi in tpls_macro + tpls_latex if tsi not in not_templates]
 
 
-
 def hack_rename_template_names_drld(filename, name_template):
     filenamestem = Path(filename).stem
     return HACK_TEMPLATE_NAMES_IN_DRLD.get(
@@ -304,15 +313,6 @@ def parse_recipe_from_table(stable):
         for aa, bb in rows3
     ]
 
-    HACK_BAD_NAMES = {
-        "recipe_name": "name",
-        "observing_templates": "templates",
-        "recipe_parameters": "parameters",
-        "hdrl_function": "hdrl_functions",
-        "requirement": "requirements",
-        "template": "templates",
-    }
-
     value = ""
     field_old = ""
     thedata = {}
@@ -346,9 +346,10 @@ def parse_recipe_from_table(stable):
 
         if "name" in field:
             value = re.sub("\\\\REC{(.*?)}", "\\1", value)
-            value = re.sub("\\\\hyperref\[.*?]{(.*?)}", "\\1", value)
+            value = re.sub("\\\\hyperref[.*?]{(.*?)}", "\\1", value)
             # print(field, ":::", value)
 
+        # noinspection PyUnresolvedReferences
         if field not in Recipe.__dataclass_fields__:
             print(field, field1, row[0])
 
