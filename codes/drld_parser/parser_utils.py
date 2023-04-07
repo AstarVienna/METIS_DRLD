@@ -7,7 +7,6 @@ from typing import Dict
 from codes.drld_parser.base_classes import FitsHeader, Template, Recipe
 
 PATH_HERE = Path(__file__).parent
-PATH_OPERATIONS = PATH_HERE / "operations"
 
 HACK_TEMPLATE_NAMES_IN_WIKI = {
     # Should just not be there:
@@ -132,95 +131,6 @@ HACK_BAD_NAMES = {
 }
 
 
-def hack_rename_template(name_template):
-    # The filename is considered the correct one.
-    # TODO: Check whether there are files for all these.
-    hack_dict = {
-        # "metis_img_n_cal_flat_twilight": "METIS_img_n_cal_TwilightFlat"
-    }
-    return hack_dict.get(name_template.lower(), name_template)
-
-
-def hack_rename_template_header(name_template_file, name_template_header):
-    # The filename is considered the correct one.
-    # TODO: Check whether there are files for all these.
-    hack_dict = {
-        (
-            "metis_img_lmn_obs_autochopnod",
-            "METIS_img_n_obs_AutoChopNod".lower(),
-        ): "METIS_img_lmn_obs_AutoChopNod",
-        (
-            "metis_img_n_cal_twilightflat",
-            "metis_img_n_cal_flat_twilight",
-        ): "METIS_img_n_cal_TwilightFlat",
-        ("metis_spec_lmn_acq", "METIS_spec_lm_acq".lower()): "METIS_spec_lmn_acq",
-        (
-            "metis_img_lm_cal_chopperhome",
-            "METIS_img_lm_cal_InternalFlat".lower(),
-        ): "METIS_img_lm_cal_ChopperHome",
-        (
-            "metis_img_lmn_obs_genericchopnod",
-            "METIS_img_n_obs_GenericChopNod".lower(),
-        ): "METIS_img_lmn_obs_GenericChopNod",
-        (
-            "metis_img_lm_cal_twilightflat",
-            "METIS_img_lm_cal_flat_twilight".lower(),
-        ): "metis_img_lm_cal_twilightflat",
-        (
-            "metis_ifu_cal_platescale",
-            "METIS_img_ifu_cal_platescale".lower(),
-        ): "metis_ifu_cal_platescale",
-        ("metis_pup_n", "METIS_pup_lm".lower()): "metis_pup_n",
-    }
-    return hack_dict.get(
-        (name_template_file.lower(), name_template_header.lower()), name_template_header
-    )
-
-
-def parse_fits_header(line):
-    _, parameter, hidden, therange, label, _ = [
-        cell.strip() for cell in line.split("|")
-    ]
-    return FitsHeader(
-        parameter=parameter,
-        hidden=hidden,
-        range=therange,
-        label=label,
-    )
-
-
-def parse_file_template(filename, template_types_dict):
-    """Parse a Template file."""
-    name_template = hack_rename_template(Path(filename).stem).lower()
-    datatt = open(filename, encoding="utf8").read()
-    used_template_names = set(
-        hack_rename_template_header(name_template, ttt)
-        for ttt in re.findall("METIS_[a-zA-Z_]*", datatt)
-    )
-    used_template_names_headers = set(
-        hack_rename_template_header(name_template, ttt)
-        for ttt in re.findall("=.*(METIS_[a-zA-Z_]*)", datatt)
-    )
-    # print(name_template, used_template_names_headers)
-    assert set(name.lower() for name in used_template_names_headers) == {name_template}
-    templates_referenced = used_template_names - used_template_names_headers
-
-    lines_param = [
-        line.strip() + ("" if line.strip().endswith("|") else "|")
-        for line in datatt.split("^Parameter")[-1].splitlines()
-        if line.startswith("|")
-    ]
-
-    parameters = [parse_fits_header(line) for line in lines_param]
-    fitsheaders = {param.parameter: param for param in parameters}
-    return Template(
-        name=name_template,
-        ttype=template_types_dict.get(name_template, "Unknown"),
-        headers=fitsheaders,
-        references=templates_referenced,
-    )
-
-
 def get_tpls_from_tex(filename, recipe_names):
     """
     Get templates from tex files
@@ -254,66 +164,6 @@ def hack_rename_template_names_drld(filename, name_template):
         (filenamestem, name_template),
         HACK_TEMPLATE_NAMES_IN_DRLD.get(("*", name_template), name_template),
     )
-
-
-def get_template_summaries() -> Dict[str, Dict[str, str]]:
-    """Get a dictionary of template types, names, and descriptions.
-
-    The wiki defines many templates, but most are not used (anymore). The
-    templates in "metis_templates.txt" are the ones that are actually included
-    in the Template Manual.
-
-    The names in this list also have the canonical capitalisation.
-
-    E.g.
-    {
-        "Acquisition": {
-            "METIS_ifu_acq": "acquisition of nominal IFU spectroscopy ",
-            "METIS_ifu_app_acq": "acquisition of nominal IFU spectroscopy with APP coronagraph",
-            "METIS_ifu_ext_acq": "acquisition of extended IFU " "spectroscopy ",
-            ...
-        },
-        "Calibration": {
-            "METIS_gen_cal_InsDark": "Series of dark frames (instrument dark)",
-            "METIS_gen_cal_dark": "Series of dark frames (imager dark)",
-            ...
-        },
-        "Engineering": {
-            "METIS_pup_lm": "Pupil imaging in LM ",
-            "METIS_pup_n": "Pupil imaging in N ",
-        },
-        "Observing": {
-            "METIS_ifu_app_obs_Stare": " Nominal IFU spectroscopy with APP coronagraph",
-            "METIS_ifu_ext_app_obs_Stare": " Extended IFU spectroscopy with APP coronagraph",
-            ...
-        },
-    }
-    """
-    data = open(
-        os.path.join(PATH_OPERATIONS, "metis_templates.txt"), encoding="utf8"
-    ).read()
-    sections = [
-        section.strip() for section in data.split("++++")[1:] if section.strip()
-    ]
-    assert len(sections) == 4
-
-    templates_true = {}
-    for section in sections:
-        lines = section.splitlines()
-        type_template = lines[0].split()[1]
-        # print(type_template)
-        lines_with_template = [line for line in lines if "METIS_" in line]
-        template_list = {}
-        for line_with_template in lines_with_template:
-            # print(line_with_template)
-            _, name_a, name_b, description, _ = line_with_template.strip().split("|")
-            name_a = name_a.strip().strip("[").strip("]").strip()
-            name_b = name_b.strip().strip("[").strip("]").strip()
-            assert name_a == name_b, f"{name_a} {name_b}"
-            template_list[name_a] = description
-        templates_true[type_template] = template_list
-
-    return templates_true
 
 
 def parse_recipe_from_table(stable):

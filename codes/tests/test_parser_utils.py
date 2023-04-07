@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pytest
 from ..drld_parser import parser_utils as pu
+from ..drld_parser.base_classes import METIS_TemplateManual
 
 PATH_ROOT = Path(__file__).parent.parent.parent
 
@@ -14,4 +15,5 @@ class TestGetRecipes:
 
 class TestGetTemplateSummaries:
     def test_number_of_templates_extracted_is_not_none(self):
-        assert len(pu.get_template_summaries()) > 0
+
+        assert len(METIS_TemplateManual.templates) > 0
