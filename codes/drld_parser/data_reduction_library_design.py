@@ -2,6 +2,7 @@
 
 import dataclasses
 import glob
+import hashlib
 import itertools
 import os
 from pathlib import Path
@@ -99,18 +100,18 @@ class DataItemReference:
     hyperref: str = None
     description: str = None
 
-    def __hash__(self):
-        return hash(
-            (
-                self.name,
-                self.dtype,
-                self.hyperref,
-                self.description,
-            )
-        )
+    def fake_hash(self):
+        """Create a reproducible hash.
+
+        Python __hash__ cannot be used because it is not reproducible
+        by design.
+        """
+        s_all = f"{self.name} {self.dtype} {self.hyperref} {self.description}"
+        h_all = hashlib.sha256(s_all.encode("utf-8"))
+        return h_all.hexdigest()
 
     def get_name(self):
-        return self.name if self.name else f"UNKNOWN_{str(hash(self))[-8:]}"
+        return self.name if self.name else f"UNKNOWN_{str(self.fake_hash())[-8:]}"
 
     def __post_init__(self):
         # TODO: perhaps use pydantic?
