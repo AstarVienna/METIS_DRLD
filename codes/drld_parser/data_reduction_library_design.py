@@ -64,9 +64,11 @@ class DataItemReference:
         Example lines:
 
         \hyperref[dataitem:nlsssciobjmap]{\PROD{N_LSS_SCI_OBJ_MAP}}: Pixel map of object pixels
+        "$N\\times$ \\hyperref[dataitem:nlssrsrfpinhraw]{\\RAW{N_LSS_RSRF_PINH_RAW}}"
         \hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}}
-        \PROD{MF\_BEST\_FIT\_TAB}
+        Calibrated science images (\\PROD{LM_SCI_CALIBRATED})
         \PROD{N_DIST_REDUCED} (reduced grid mask images)
+        \PROD{MF\_BEST\_FIT\_TAB}
         Chopped/nodded science or standard images
         """
         patterns_to_test = [
@@ -74,7 +76,9 @@ class DataItemReference:
             # Patterns are ordered from most specific to least specific.
             for pp in [
                 r"\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}: (?P<description>.*)",
+                r"(?P<description>.*?) \\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}",
                 r"\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}",
+                r"(?P<description>.*?) \(\\(?P<dtype>[A-Z]+){(?P<name>.*?)}\)",
                 r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)} \((?P<description>.*?)\)",
                 r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)}",
                 r"(?P<description>.*)",
@@ -162,7 +166,9 @@ class Recipe:
                     #   \hyperref[dataitem:nlsssci1d]{\PROD{N_LSS_SCI_1D}}: coadded, wavelength calibrated 1D spectrum\\
                     #   & (\FITS{PRO_CATG}: \FITS{N_LSS_1d_coadd_wavecal}) \\
                     value = [
-                        val for val in value.split("\n") if not val.startswith("(")
+                        DataItemReference.from_recipe_line(val)
+                        for val in value.split("\n")
+                        if not val.startswith("(")
                     ]
 
                 thedata[field_old] = value

@@ -175,3 +175,19 @@ class TestParseDataItemReference:
         assert diref.dtype == "PROD"
         assert diref.hyperref is None
         assert diref.description == "Chopped/nodded science or standard images"
+
+        diref = DataItemReference.from_recipe_line(
+            "$N\\times$ \\hyperref[dataitem:nlssrsrfpinhraw]{\\RAW{N_LSS_RSRF_PINH_RAW}}"
+        )
+        assert diref.name == "N_LSS_RSRF_PINH_RAW"
+        assert diref.dtype == "RAW"
+        assert diref.hyperref == "dataitem:nlssrsrfpinhraw"
+        assert diref.description == "$N\\times$"
+
+        diref = DataItemReference.from_recipe_line(
+            "Calibrated science images (\\PROD{LM_SCI_CALIBRATED})"
+        )
+        assert diref.name == "LM_SCI_CALIBRATED"
+        assert diref.dtype == "PROD"
+        assert diref.hyperref is None
+        assert diref.description == "Calibrated science images"

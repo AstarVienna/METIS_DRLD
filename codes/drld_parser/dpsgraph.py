@@ -12,8 +12,14 @@ for recipe in METIS_DataReductionLibraryDesign.recipes.values():
     if recipe.input_data:
         print(" - input data")
         for thing in recipe.input_data:
-            print("   -", thing)
+            # if thing.name not in METIS_DataReductionLibraryDesign.dataitems:
+            #     print("   -", thing.name)
+            if thing.name is None:
+                print("   -", thing)
     if recipe.output_data:
         print(" - output data")
         for thing in recipe.output_data:
-            print("   -", thing)
+            # if thing.name not in METIS_DataReductionLibraryDesign.dataitems:
+            #     print("   -", thing.name)
+            if thing.name is None:
+                print("   -", thing)
