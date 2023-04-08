@@ -29,11 +29,11 @@ class TestDataReductionLibraryDesign:
             and "dataitem" in line
             and not line.startswith("%")
         ]
+        lines_with_and = [line for line in lines1 if ' and ' in line]
 
         is_used = numpy.zeros(len(lines1), dtype=bool)
         not_found = []
         found_more_than_once = []
-        not_parsed = []
 
         # Are all dataitems in the DRLD also in the lines above?
         for di in METIS_DataReductionLibraryDesign.dataitems:
@@ -54,7 +54,8 @@ class TestDataReductionLibraryDesign:
         assert not not_found
         assert not found_more_than_once
         assert not not_parsed
-        assert len(lines1) == len(METIS_DataReductionLibraryDesign.dataitems)
+        assert all(is_used)
+        assert len(lines1) + len(lines_with_and) == len(METIS_DataReductionLibraryDesign.dataitems)
 
     def test_template_and_recipe_names_do_not_overlap(self):
         names_recipes = {
@@ -83,7 +84,7 @@ class TestDataReductionLibraryDesign:
         ), f"Non existing recipe names: {names_not_existing}"
 
     @pytest.mark.xfail(
-        reason="There are many references to recipes with incorrect capitalization, in particular in LSS_data_items.tex."
+        reason="There are references to recipes with incorrect capitalization, e.g. in LSS_data_items.tex."
     )
     def test_all_recipe_names_are_correctly_capitalized(self):
         names_existing = METIS_DataReductionLibraryDesign.recipes.keys()

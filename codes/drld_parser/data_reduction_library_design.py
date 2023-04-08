@@ -207,8 +207,9 @@ class DataReductionLibraryDesign:
         # All these \n's are there because HB doesn't know how to do proper
         # look-ahead or look-backwards in Python regular expressions.
 
+        # TODO: differentiate between PROD, EXTCALIB, STATCALIB, and RAW
         dataitems1 = re.findall(
-            r"[^%](\\paragraph{\\hyperref\[(.*?)]{\\PROD{(.*?)}}}\\label{(.*?)}*)\n",
+            r"[^%](\\paragraph{\\hyperref\[(.*?)]{\\[A-Z]+{(.*?)}}}\\label{(.*?)}*)\n",
             data_all,
         )
 
