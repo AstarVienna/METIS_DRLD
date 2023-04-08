@@ -56,6 +56,19 @@ class DataItemReference:
     hyperref: str = None
     description: str = None
 
+    def __hash__(self):
+        return hash(
+            (
+                self.name,
+                self.dtype,
+                self.hyperref,
+                self.description,
+            )
+        )
+
+    def get_name(self):
+        return self.name if self.name else f"UNKNOWN_{str(hash(self))[-8:]}"
+
     def __post_init__(self):
         # TODO: perhaps use pydantic?
         if self.name is not None:
