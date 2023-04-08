@@ -1,3 +1,6 @@
+import glob
+
+import numpy
 import pytest
 
 from ..drld_parser.data_reduction_library_design import (
@@ -13,6 +16,45 @@ class TestDataReductionLibraryDesign:
 
     def test_number_of_dataitems_extracted_is_not_none(self):
         assert len(METIS_DataReductionLibraryDesign.dataitems) > 0
+
+    def test_dataitem_extraction(self):
+        """Another way to find the datatimes."""
+        sglob = str(METIS_DataReductionLibraryDesign.path_drld / "*.tex")
+        paths_tex = glob.glob(sglob)
+        lines1 = [
+            line
+            for path in paths_tex
+            for line in open(path).readlines()
+            if "paragraph" in line
+            and "dataitem" in line
+            and not line.startswith("%")
+        ]
+
+        is_used = numpy.zeros(len(lines1), dtype=bool)
+        not_found = []
+        found_more_than_once = []
+        not_parsed = []
+
+        # Are all dataitems in the DRLD also in the lines above?
+        for di in METIS_DataReductionLibraryDesign.dataitems:
+            found = numpy.array([di in line for line in lines1])
+            if not found.any():
+                not_found.append(di)
+            if found.sum() > 1:
+                found_more_than_once.append(di)
+            is_used |= found
+
+        # Are all lines used for some dataitem?
+        not_parsed = [
+            line
+            for line, used in zip(lines1, is_used)
+            if not used
+        ]
+
+        assert not not_found
+        assert not found_more_than_once
+        assert not not_parsed
+        assert len(lines1) == len(METIS_DataReductionLibraryDesign.dataitems)
 
     def test_template_and_recipe_names_do_not_overlap(self):
         names_recipes = {

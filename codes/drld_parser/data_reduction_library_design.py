@@ -32,6 +32,7 @@ def find_latex_inputs(path):
 @dataclasses.dataclass
 class DataItem:
     """A Raw / Processed / External DataItem."""
+    # TODO: Add at least DO.CATG / PRO.CATG, because those can be referenced too.
 
     name: str = None
     hyperref: str = None
@@ -189,8 +190,7 @@ class DataReductionLibraryDesign:
 
         or
 
-        \paragraph{\hyperref[dataitem:badpixmap2rg]{\PROD{BADPIX_MAP_2RG}} and \hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}}\label{dataitem:badpixmap}\label{dataitem:badpixmap2rg}\label{dataitem:badpixmapgeo}
-
+        \paragraph{\hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}}}\label{dataitem:lsfkernel}
 
         """
         path_dataitems = self.path_drld / "09_0-DRL-Data-Structures.tex"

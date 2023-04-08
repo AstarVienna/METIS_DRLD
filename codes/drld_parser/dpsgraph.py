@@ -18,4 +18,5 @@ for recipe in METIS_DataReductionLibraryDesign.recipes.values():
         for thing in recipe.output_data:
             print("   -", thing)
 
-dataitems1 = METIS_DataReductionLibraryDesign.get_dataitems()
+
+
