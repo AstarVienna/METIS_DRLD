@@ -40,7 +40,9 @@ class Template:
         )
         # print(name_template, used_template_names_headers)
         # TODO: Remove these .lower()s.
-        assert set(name.lower() for name in used_template_names_headers) == {name.lower()}
+        assert set(name.lower() for name in used_template_names_headers) == {
+            name.lower()
+        }
         templates_referenced = used_template_names - used_template_names_headers
 
         lines_param = [
@@ -58,7 +60,6 @@ class Template:
             references=templates_referenced,
             description=description,
         )
-
 
 
 class TemplateManual:
@@ -114,7 +115,9 @@ class TemplateManual:
             template_list = {}
             for line_with_template in lines_with_template:
                 # print(line_with_template)
-                _, name_a, name_b, description, _ = line_with_template.strip().split("|")
+                _, name_a, name_b, description, _ = line_with_template.strip().split(
+                    "|"
+                )
                 name_a = name_a.strip().strip("[").strip("]").strip()
                 name_b = name_b.strip().strip("[").strip("]").strip()
                 assert name_a == name_b, f"{name_a} {name_b}"
@@ -122,10 +125,14 @@ class TemplateManual:
             template_summaries[type_template] = template_list
 
         type_from_template_name = {
-            tt.lower(): type_tt for type_tt, tps in template_summaries.items() for tt in tps
+            tt.lower(): type_tt
+            for type_tt, tps in template_summaries.items()
+            for tt in tps
         }
 
-        templates_all_true = [tt for tpslist in template_summaries.values() for tt in tpslist]
+        templates_all_true = [
+            tt for tpslist in template_summaries.values() for tt in tpslist
+        ]
         assert len(templates_all_true) == len(set(templates_all_true))
         assert len(type_from_template_name) == len(templates_all_true)
         return template_summaries

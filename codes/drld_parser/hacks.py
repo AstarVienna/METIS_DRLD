@@ -159,7 +159,10 @@ def hack_rename_template_header(name_template_file, name_template_header):
             "METIS_img_ifu_cal_platescale".lower(),
         ): "metis_ifu_cal_platescale",
         ("metis_pup_n", "METIS_pup_lm".lower()): "metis_pup_n",
-        ("metis_gen_cal_insdark", "METIS_gen_cal_InsDark".lower()): "METIS_gen_cal_InsDark"
+        (
+            "metis_gen_cal_insdark",
+            "METIS_gen_cal_InsDark".lower(),
+        ): "METIS_gen_cal_InsDark",
     }
     return hack_dict.get(
         (name_template_file.lower(), name_template_header.lower()), name_template_header

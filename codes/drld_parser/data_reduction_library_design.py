@@ -101,6 +101,7 @@ class Recipe:
 
 class DataReductionLibraryDesign:
     """The information from the DRLD"""
+
     # TODO: Check all tex files
 
     def __init__(self):
@@ -164,7 +165,11 @@ class DataReductionLibraryDesign:
                 re.findall("metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
             ]
             # TODO: does not work for tikz
-            template_names += [tsi for tsi in tpls_macro + tpls_latex if tsi.lower() not in not_templates]
+            template_names += [
+                tsi
+                for tsi in tpls_macro + tpls_latex
+                if tsi.lower() not in not_templates
+            ]
 
         return template_names
 
