@@ -1,4 +1,5 @@
 import glob
+from pprint import pprint
 
 import numpy
 import pytest
@@ -118,6 +119,23 @@ class TestDataReductionLibraryDesign:
         assert (
             not names_not_existing
         ), f"Non existing template names: {names_not_existing}"
+
+    @pytest.mark.xfail(reason="Soooooo many recipes have bad input and output!")
+    def test_all_recipe_data_has_a_name(self):
+        bad_input_data = [
+            (recipe.name, diref)
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.input_data
+            if diref.name is None
+        ]
+        bad_output_data = [
+            (recipe.name, diref)
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.output_data
+            if diref.name is None
+        ]
+        assert not bad_input_data
+        assert not bad_output_data
 
 
 class TestFindLatexInputs:

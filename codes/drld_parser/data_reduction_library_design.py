@@ -97,11 +97,11 @@ class Recipe:
     name: str = None
     purpose: str = None
     type: str = None
-    templates: List[str] = None
-    input_data: List[str] = None
-    parameters: List[str] = None
+    templates: List[str] = dataclasses.field(default_factory=list)
+    input_data: List[str] = dataclasses.field(default_factory=list)
+    parameters: List[str] = dataclasses.field(default_factory=list)
     algorithm: str = None
-    output_data: List[Tuple[str, str]] = None
+    output_data: List[Tuple[str, str]] = dataclasses.field(default_factory=list)
     expected_accuracies: str = None
     qc1_parameters: List[str] = None
     hdrl_functions: List[str] = None
