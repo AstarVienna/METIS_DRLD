@@ -162,7 +162,8 @@ class TemplateManual:
     def expand_wildcards(self, name):
         """Expand wildcards in template names.
 
-        E.g., the DRLD can refer to e.g. metis_img_lm_*_obs_*. This should
+        E.g., the DRLD can refer to e.g. metis_img_lm_*_obs_* in
+        metis_lm_img_basic_reduce and metis_lm_img_background. This should
         expand to (ignoring capitalization):
         - METIS_img_lm_obs_AutoJitter
         - METIS_img_lm_obs_FixedSkyOffset
@@ -179,7 +180,7 @@ class TemplateManual:
         TODO: Maybe those *should* match in this particular case?
         """
         if "*" not in name:
-            return name
+            return [name]
 
         # Replace the second _; on the basis that that works.
         name2 = name.replace("*_", "*").replace("*", ".*").lower()

@@ -61,10 +61,11 @@ boxes_dataitem_missing = [
 ]
 
 boxes_templates_missing = [
-    f'   "{tn.lower()}" [shape=box, fillcolor={colors["TEMPLATE"]}, color=red, style="filled,dashed", penwidth="4.0", label="{tn}"];'
+    f'   "{tni.lower()}" [shape=box, fillcolor={colors["TEMPLATE"]}, color=red, style="filled,dashed", penwidth="4.0", label="{tni}"];'
     for recipe in METIS_DataReductionLibraryDesign.recipes.values()
     for tn in recipe.templates
-    if METIS_TemplateManual.get_template(tn) is None
+    for tni in METIS_TemplateManual.expand_wildcards(tn)
+    if METIS_TemplateManual.get_template(tni) is None
 ]
 
 edges_recipe_output = [
@@ -80,9 +81,10 @@ edges_recipe_input = [
 ]
 
 edges_recipe_template = [
-    f'    "{recipe.name.lower()}" -- "{template.lower()}"'
+    f'    "{recipe.name.lower()}" -- "{tni.lower()}"'
     for recipe in METIS_DataReductionLibraryDesign.recipes.values()
     for template in recipe.templates
+    for tni in METIS_TemplateManual.expand_wildcards(template)
 ]
 
 s_boxes_edges = "\n".join(

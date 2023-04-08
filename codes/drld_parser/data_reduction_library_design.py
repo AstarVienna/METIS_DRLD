@@ -224,6 +224,10 @@ class Recipe:
                             )
                             for vi in value
                         ]
+                    # There could be a * in one of the templates, e.g.
+                    # "metis_img_lm_*_obs_*". However, it is not possible
+                    # to expand those here, because there is no knowledge
+                    # about which templates exist at this stage.
                 elif field_old in ["output_data", "input_data"]:
                     # TODO: These should all be \PROD{something} but are not
                     # TODO: Some of these are multiline, do not ignore those! e.g.:
