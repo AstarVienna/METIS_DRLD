@@ -241,6 +241,7 @@ class Recipe:
                     #   Where _det appears in FITS keywords of input or product files,
                     #   it is taken to mean _2RG, _GEO or _LMS
                     #   according to the detector array for which data are being processed.
+                    # But do _IFU instead of _LMS.
 
                     # Second, split these:
                     #         Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \PROD{IFU_SCI_REDUCED_TAC})
@@ -248,7 +249,7 @@ class Recipe:
                     for val in value1:
                         if val.name and "det" in val.name:
                             assert val.name.endswith("_det")
-                            for postfix in ["_2RG", "_GEO", "_LMS"]:
+                            for postfix in ["_2RG", "_GEO", "_IFU"]:
                                 value.append(
                                     DataItemReference(
                                         name=val.name.replace("_det", postfix),
