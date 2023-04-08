@@ -1,4 +1,14 @@
-"""Create a Graph of all elements of the DPS."""
+"""Create a Graph of all elements of the DPS.
+
+Colors based on association maps:
+                                                                          rawcolor         {235,235,235}
+(leg_recipe)     [recipe]        {n_img_flat}      {recipe}               recipecolor     {210,169, 188}
+(leg_calproduct) [calibproduct]  {MASTER_DARK_GEO} {calib. product}       calproductcolor {185,184,237}
+(leg_sciproduct) [scienceproduct]{N_SCI_REDUCED}   {science product}      sciproductcolor {197,219,183}
+(leg_qcproduct)  [qcproduct]     {MASTER_DARK_GEO} {QC product}           qcproductcolor  {255,201,165}
+(leg_statcalfile)[statcalfile]   {MASTER_RSRF}     {static calib. file}   calibcolor      {255,250,216}
+(leg_calfile)    [extcalfile]    {FLUXSTD_CATALOG} {external calib. file} externalcolor   {183,255,255}
+"""
 
 from codes.drld_parser.data_reduction_library_design import (
     METIS_DataReductionLibraryDesign,
@@ -6,9 +16,18 @@ from codes.drld_parser.data_reduction_library_design import (
 )
 from codes.drld_parser.template_manual import METIS_TemplateManual
 
-for dn in METIS_DataReductionLibraryDesign.dataitems:
-    dtype = guess_dataitem_type(dn)
-#     print(dn, dtype)
+# TODO: Apparently MASTER_DARK_GEO and MASTER_FLAT_GEO should be a QC product?
+colors = {
+    "RAW": "#%02x%02x%02x" % (235, 235, 235),
+    "RECIPE": "#%02x%02x%02x" % (210, 169, 188),
+    "CALIB": "#%02x%02x%02x" % (185, 184, 237),
+    "PROD": "#%02x%02x%02x" % (197, 219, 183),
+    "QC": "#%02x%02x%02x" % (255, 201, 165),
+    "STATCALIB": "#%02x%02x%02x" % (255, 250, 216),
+    "EXTCALIB": "#%02x%02x%02x" % (183, 255, 255),
+    "UNKNOWN": "#%02x%02x%02x" % (197, 219, 183),
+    "TEMPLATE": "white",
+}
 
 dataitem_names_lower = [
     dataitem.name.lower()
@@ -18,29 +37,29 @@ dataitem_names_lower = [
 template_names_lower = [tn.lower() for tn in METIS_TemplateManual.templates]
 
 boxes_recipes_existing = [
-    f'   "{recipe.name.lower()}" [shape=box, fillcolor=green, style=filled, label="{recipe.name}"];'
+    f'   "{recipe.name.lower()}" [shape=box, fillcolor="{colors["RECIPE"]}", style=filled, label="{recipe.name}"];'
     for recipe in METIS_DataReductionLibraryDesign.recipes.values()
 ]
 
 boxes_dataitem_existing = [
-    f'   "{dataitem.name.lower()}" [shape=box, fillcolor=purple, style=filled, label="{dataitem.name}"];'
+    f'   "{dataitem.name.lower()}" [shape=box, fillcolor="{colors[guess_dataitem_type(dataitem.name)]}", style=filled, label="{dataitem.name}"];'
     for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
 ]
 
 boxes_template_existing = [
-    f'   "{template.name.lower()}" [shape=box, fillcolor=orange, style=filled, label="{template.name}"];'
+    f'   "{template.name.lower()}" [shape=box, fillcolor="{colors["TEMPLATE"]}", style=filled, label="{template.name}"];'
     for template in METIS_TemplateManual.templates.values()
 ]
 
 boxes_dataitem_missing = [
-    f'   "{diref.get_name().lower()}" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="{diref.get_name()}"];'
+    f'   "{diref.get_name().lower()}" [shape=box, fillcolor="{colors["UNKNOWN"]}", color=red, style="filled,dashed", penwidth="4.0", label="{diref.get_name()}"];'
     for recipe in METIS_DataReductionLibraryDesign.recipes.values()
     for diref in recipe.input_data + recipe.output_data
     if diref.get_name().lower() not in dataitem_names_lower
 ]
 
 boxes_templates_missing = [
-    f'   "{tn.lower()}" [shape=box, fillcolor=orange, color=red, style="filled,dashed", penwidth="4.0", label="{tn}"];'
+    f'   "{tn.lower()}" [shape=box, fillcolor={colors["TEMPLATE"]}, color=red, style="filled,dashed", penwidth="4.0", label="{tn}"];'
     for recipe in METIS_DataReductionLibraryDesign.recipes.values()
     for tn in recipe.templates
 ]

@@ -181,6 +181,25 @@ class TestDataReductionLibraryDesign:
         for dn in METIS_DataReductionLibraryDesign.dataitems:
             _ = guess_dataitem_type(dn, raise_exception=True)
 
+    def test_datatypes_are_known(self):
+        dtypes = [
+            diref.dtype
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.input_data + recipe.output_data
+        ]
+        # TODO: They should never be FITS or CODE
+        assert set(dtypes) == {"PROD", "RAW", "EXTCALIB", "STATCALIB", "FITS", "CODE"}
+
+    @pytest.mark.xfail(reason="Some are still FITS or CODE")
+    def test_datatypes_are_known_strict(self):
+        dtypes = [
+            diref.dtype
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.input_data + recipe.output_data
+        ]
+        # TODO: They should never be FITS or CODE
+        assert set(dtypes) == {"PROD", "RAW", "EXTCALIB", "STATCALIB"}
+
 
 class TestFindLatexInputs:
     def test_find_latex_inputs(self):
