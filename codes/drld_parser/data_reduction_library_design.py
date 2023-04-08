@@ -32,11 +32,60 @@ def find_latex_inputs(path):
 @dataclasses.dataclass
 class DataItem:
     """A Raw / Processed / External DataItem."""
+
     # TODO: Add at least DO.CATG / PRO.CATG, because those can be referenced too.
 
     name: str = None
     hyperref: str = None
     labels: List[str] = None
+
+
+@dataclasses.dataclass
+class DataItemReference:
+    """A DataItem as referenced in a Recipe.
+
+    Has to be a separate class as DataItem, because the point is to check
+    whether the Recipes properly refer to existing DataItems."""
+
+    name: str = None
+    dtype: str = "PROD"
+    hyperref: str = None
+    description: str = None
+
+    def __post_init__(self):
+        # TODO: perhaps use pydantic?
+        if self.name is not None:
+            self.name = self.name.replace("\\", "")
+
+    @staticmethod
+    def from_recipe_line(line):
+        """Parse a line from a Recipe definition.
+
+        Example lines:
+
+        \hyperref[dataitem:nlsssciobjmap]{\PROD{N_LSS_SCI_OBJ_MAP}}: Pixel map of object pixels
+        \hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}}
+        \PROD{MF\_BEST\_FIT\_TAB}
+        \PROD{N_DIST_REDUCED} (reduced grid mask images)
+        Chopped/nodded science or standard images
+        """
+        patterns_to_test = [
+            re.compile(pp)
+            # Patterns are ordered from most specific to least specific.
+            for pp in [
+                r"\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}: (?P<description>.*)",
+                r"\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}",
+                r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)} \((?P<description>.*?)\)",
+                r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)}",
+                r"(?P<description>.*)",
+            ]
+        ]
+        for pattern in patterns_to_test:
+            match = re.match(pattern, line)
+            if match:
+                return DataItemReference(**match.groupdict())
+
+        return DataItemReference
 
 
 @dataclasses.dataclass
@@ -109,7 +158,12 @@ class Recipe:
                         ]
                 elif field_old in ["output_data", "input_data"]:
                     # TODO: These should all be \PROD{something} but are not
-                    value = value.split("\n")
+                    # TODO: Some of these are multiline, do not ignore those! e.g.:
+                    #   \hyperref[dataitem:nlsssci1d]{\PROD{N_LSS_SCI_1D}}: coadded, wavelength calibrated 1D spectrum\\
+                    #   & (\FITS{PRO_CATG}: \FITS{N_LSS_1d_coadd_wavecal}) \\
+                    value = [
+                        val for val in value.split("\n") if not val.startswith("(")
+                    ]
 
                 thedata[field_old] = value
 

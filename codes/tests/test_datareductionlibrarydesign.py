@@ -6,6 +6,7 @@ import pytest
 from ..drld_parser.data_reduction_library_design import (
     METIS_DataReductionLibraryDesign,
     find_latex_inputs,
+    DataItemReference,
 )
 from ..drld_parser.template_manual import METIS_TemplateManual
 
@@ -25,11 +26,9 @@ class TestDataReductionLibraryDesign:
             line
             for path in paths_tex
             for line in open(path).readlines()
-            if "paragraph" in line
-            and "dataitem" in line
-            and not line.startswith("%")
+            if "paragraph" in line and "dataitem" in line and not line.startswith("%")
         ]
-        lines_with_and = [line for line in lines1 if ' and ' in line]
+        lines_with_and = [line for line in lines1 if " and " in line]
 
         is_used = numpy.zeros(len(lines1), dtype=bool)
         not_found = []
@@ -45,17 +44,15 @@ class TestDataReductionLibraryDesign:
             is_used |= found
 
         # Are all lines used for some dataitem?
-        not_parsed = [
-            line
-            for line, used in zip(lines1, is_used)
-            if not used
-        ]
+        not_parsed = [line for line, used in zip(lines1, is_used) if not used]
 
         assert not not_found
         assert not found_more_than_once
         assert not not_parsed
         assert all(is_used)
-        assert len(lines1) + len(lines_with_and) == len(METIS_DataReductionLibraryDesign.dataitems)
+        assert len(lines1) + len(lines_with_and) == len(
+            METIS_DataReductionLibraryDesign.dataitems
+        )
 
     def test_template_and_recipe_names_do_not_overlap(self):
         names_recipes = {
@@ -137,3 +134,44 @@ class TestFindLatexInputs:
         paths_input = find_latex_inputs(path)
         filenames_input = [pp.name for pp in paths_input]
         assert filenames_input == fns_expected
+
+
+class TestParseDataItemReference:
+    def test_parse_dataitem_reference(self):
+        diref = DataItemReference.from_recipe_line(
+            r"\hyperref[dataitem:nlsssciobjmap]{\PROD{N_LSS_SCI_OBJ_MAP}}: Pixel map of object pixels"
+        )
+        assert diref.name == "N_LSS_SCI_OBJ_MAP"
+        assert diref.dtype == "PROD"
+        assert diref.hyperref == "dataitem:nlsssciobjmap"
+        assert diref.description == "Pixel map of object pixels"
+
+        diref = DataItemReference.from_recipe_line(
+            r"\hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}}"
+        )
+        assert diref.name == "N_LSS_WAVE_GUESS"
+        assert diref.dtype == "STATCALIB"
+        assert diref.hyperref == "dataitem:nlsswaveguess"
+        assert diref.description is None
+
+        diref = DataItemReference.from_recipe_line(r"\PROD{MF\_BEST\_FIT\_TAB}")
+        assert diref.name == "MF_BEST_FIT_TAB"
+        assert diref.dtype == "PROD"
+        assert diref.hyperref is None
+        assert diref.description is None
+
+        diref = DataItemReference.from_recipe_line(
+            r"\PROD{N_DIST_REDUCED} (reduced grid mask images)"
+        )
+        assert diref.name == "N_DIST_REDUCED"
+        assert diref.dtype == "PROD"
+        assert diref.hyperref is None
+        assert diref.description == "reduced grid mask images"
+
+        diref = DataItemReference.from_recipe_line(
+            "Chopped/nodded science or standard images"
+        )
+        assert diref.name is None
+        assert diref.dtype == "PROD"
+        assert diref.hyperref is None
+        assert diref.description == "Chopped/nodded science or standard images"
