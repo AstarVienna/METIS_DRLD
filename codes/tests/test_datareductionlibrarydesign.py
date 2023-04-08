@@ -39,3 +39,21 @@ class TestDataReductionLibraryDesign:
             and name.lower() in names_existing_lower
         ]
         assert not names_bad_capitalization, f"Recipe names with incorrect capitalization: {names_bad_capitalization}"
+
+    @pytest.mark.xfail(reason="There are many references to templates that do not exits.")
+    def test_all_templates_used_also_exist(self):
+        # TODO: hack_rename_template_names_drld and
+        #  TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI are currently not
+        #  used anymore.
+        names_existing = METIS_TemplateManual.templates.keys()
+        names_used = METIS_DataReductionLibraryDesign.template_names_used
+        names_existing_lower = [name.lower() for name in names_existing]
+        names_not_existing = [
+            name for name in names_used
+            if name not in names_existing
+            and name.lower() not in names_existing_lower
+            # TODO: Do something sensible with *'s in these names.
+            and "*" not in name
+        ]
+
+        assert not names_not_existing, f"Non existing template names: {names_not_existing}"

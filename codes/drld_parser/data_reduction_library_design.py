@@ -119,6 +119,7 @@ class DataReductionLibraryDesign:
         # The recipes as defined in the DRLD.
 
         self.recipe_names_used = self.get_recipe_names_used()
+        self.template_names_used = self.get_template_names_used()
 
     def get_recipes(self):
         """"""
@@ -138,7 +139,7 @@ class DataReductionLibraryDesign:
 
         return recipes
 
-    def get_tpls_from_tex(self, filename):
+    def get_template_names_used(self):
         """
         Get templates from tex files
         """
@@ -147,22 +148,25 @@ class DataReductionLibraryDesign:
             "METIS_IMAGE",
             "METIS_CUBE",
         ] + list(self.recipes.keys())
-        datat = open(filename, encoding="utf8").read()
-        # Using TPL macro
-        # TODO: There are TPL macros that are not templates!!
-        tpls_macro = [
-            tsii.replace("\\", "")
-            for tsii in re.findall("\\\\TPL{(M.*?)}", datat, re.IGNORECASE)
-        ]
-        # Normal LaTeX, includes tikzs
-        tpls_latex = [
-            tsii.replace("\\", "").replace("$ast$", "*")
-            for tsii in
-            # re.findall("metis\\\\_[iaogps][a-z_\\*\\\\]*", datat, re.IGNORECASE)
-            re.findall("metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
-        ]
-        # TODO: does not work for tikz
-        return [tsi for tsi in tpls_macro + tpls_latex if tsi not in not_templates]
+        not_templates += [rec.lower() for rec in not_templates]
+        template_names = []
+        for filename in self.filenames_tex + self.filenames_tikz:
+            datat = open(filename, encoding="utf8").read()
+            tpls_macro = [
+                tsii.replace("\\", "")
+                for tsii in re.findall("\\\\TPL{(M.*?)}", datat, re.IGNORECASE)
+            ]
+            # Normal LaTeX, includes tikzs
+            tpls_latex = [
+                tsii.replace("\\", "").replace("$ast$", "*")
+                for tsii in
+                # re.findall("metis\\\\_[iaogps][a-z_\\*\\\\]*", datat, re.IGNORECASE)
+                re.findall("metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
+            ]
+            # TODO: does not work for tikz
+            template_names += [tsi for tsi in tpls_macro + tpls_latex if tsi.lower() not in not_templates]
+
+        return template_names
 
     def get_recipe_names_used(self):
         """All recipes names used in the DRLD."""
