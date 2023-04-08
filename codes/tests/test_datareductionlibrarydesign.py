@@ -1,12 +1,18 @@
 import pytest
 
-from ..drld_parser.data_reduction_library_design import METIS_DataReductionLibraryDesign
+from ..drld_parser.data_reduction_library_design import (
+    METIS_DataReductionLibraryDesign,
+    find_latex_inputs,
+)
 from ..drld_parser.template_manual import METIS_TemplateManual
 
 
 class TestDataReductionLibraryDesign:
     def test_number_of_recipes_extracted_is_not_none(self):
         assert len(METIS_DataReductionLibraryDesign.recipes) > 0
+
+    def test_number_of_dataitems_extracted_is_not_none(self):
+        assert len(METIS_DataReductionLibraryDesign.dataitems) > 0
 
     def test_template_and_recipe_names_do_not_overlap(self):
         names_recipes = {
@@ -72,3 +78,19 @@ class TestDataReductionLibraryDesign:
         assert (
             not names_not_existing
         ), f"Non existing template names: {names_not_existing}"
+
+
+class TestFindLatexInputs:
+    def test_find_latex_inputs(self):
+        fns_expected = [
+            "CalDB_data_items.tex",
+            "LMS_data_items.tex",
+            "IMG_data_items.tex",
+            "LSS_data_items.tex",
+        ]
+        path = (
+            METIS_DataReductionLibraryDesign.path_drld / "09_0-DRL-Data-Structures.tex"
+        )
+        paths_input = find_latex_inputs(path)
+        filenames_input = [pp.name for pp in paths_input]
+        assert filenames_input == fns_expected

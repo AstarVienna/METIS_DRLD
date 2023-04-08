@@ -2,12 +2,40 @@
 
 import dataclasses
 import glob
+import itertools
 import os
 from pathlib import Path
 import re
 from typing import List, Tuple
 
 from codes.drld_parser.hacks import HACK_BAD_NAMES, HACK_TEMPLATE_NAMES_IN_DRLD
+
+
+def find_latex_inputs(path):
+    """Flatten a tex file."""
+    lines = open(path).readlines()
+    lines_with_input = [
+        line for line in lines if line.strip() and line.strip().startswith(r"\input{")
+    ]
+    paths_inputted = [
+        path.parent / (ll + ".tex")
+        for line in lines_with_input
+        for ll in re.findall(r"\\input{(.*?)}", line)
+    ]
+    paths_to_return = [fn for fn in paths_inputted]
+    for fn in paths_inputted:
+        paths_to_return + find_latex_inputs(fn)
+
+    return paths_to_return
+
+
+@dataclasses.dataclass
+class DataItem:
+    """A Raw / Processed / External DataItem."""
+
+    name: str = None
+    hyperref: str = None
+    labels: List[str] = None
 
 
 @dataclasses.dataclass
@@ -78,6 +106,10 @@ class Recipe:
                             HACK_TEMPLATE_NAMES_IN_DRLD.get(vi.lower(), vi.lower())
                             for vi in value
                         ]
+                elif field_old in ["output_data", "input_data"]:
+                    # TODO: These should all be \PROD{something} but are not
+                    value = value.split("\n")
+
                 thedata[field_old] = value
 
             field = HACK_BAD_NAMES.get(field1, field1)
@@ -117,7 +149,10 @@ class DataReductionLibraryDesign:
         # Tikz figures.
 
         self.recipes = self.get_recipes()
-        # The recipes as defined in the DRLD.
+        # The Recipes defined in the DRLD.
+
+        self.dataitems = self.get_dataitems()
+        # The DataItems defined in the DRLD.
 
         self.recipe_names_used = self.get_recipe_names_used()
         self.template_names_used = self.get_template_names_used()
@@ -139,6 +174,83 @@ class DataReductionLibraryDesign:
                 recipes[recipe.name] = recipe
 
         return recipes
+
+    def get_dataitems(self):
+        """Read all DataItems defined in 'DRL DATA ITEMS AND STRUCTURES'.
+
+        The DataItems are all defined in 09_0-DRL-Data-Structures.tex, which
+        \input's all *_data_item.tex files. Those files have paragraphs like
+
+        \paragraph{\hyperref[dataitem:lmlsssciflux2d]{\PROD{LM_LSS_SCI_FLUX_2D}}}\label{dataitem:lmlsssciflux2d}
+
+        but some are
+
+        '\\paragraph{\\hyperref[dataitem:masterdark2rg]{\\PROD{MASTER_DARK_2RG}} and \\hyperref[dataitem:masterdarkgeo]{\\PROD{MASTER_DARK_GEO}}}\\label{dataitem:masterdark}\\label{dataitem:masterdark2rg}\\label{dataitem:masterdarkgeo}'
+
+        or
+
+        \paragraph{\hyperref[dataitem:badpixmap2rg]{\PROD{BADPIX_MAP_2RG}} and \hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}}\label{dataitem:badpixmap}\label{dataitem:badpixmap2rg}\label{dataitem:badpixmapgeo}
+
+
+        """
+        path_dataitems = self.path_drld / "09_0-DRL-Data-Structures.tex"
+        paths_with_dataitems = find_latex_inputs(path_dataitems)
+
+        data_all = (
+            "\n"
+            + "\n".join(
+                open(pp).read() for pp in [path_dataitems] + paths_with_dataitems
+            )
+            + "\n"
+        )
+        data_all = data_all.replace("\n", "\n\n")
+        # All these \n's are there because HB doesn't know how to do proper
+        # look-ahead or look-backwards in Python regular expressions.
+
+        dataitems1 = re.findall(
+            r"[^%](\\paragraph{\\hyperref\[(.*?)]{\\PROD{(.*?)}}}\\label{(.*?)}*)\n",
+            data_all,
+        )
+
+        dataitems2 = []
+        for line, hyperref, name, label in dataitems1:
+            if " and " in name:
+                # beware of ZA̡͊͠͝LGΌ
+                mm = re.match(
+                    r"\\paragraph{\\hyperref\[(.*?)]{\\PROD{(.*?)}} and \\hyperref\[(.*?)]{\\PROD{(.*?)}}}(\\label{.*?})$",
+                    line,
+                )
+                hyperref1, name1, hyperref2, name2, labelsg = mm.groups()
+                hyperref_common = "".join(
+                    a[0]
+                    for a in itertools.takewhile(
+                        lambda a: a[0] == a[1], zip(hyperref1, hyperref2)
+                    )
+                )
+                labels = re.findall(r"\\label{(.*?)}", labelsg)
+                assert hyperref_common in labels
+                assert hyperref2 in labels
+                assert hyperref1 in labels
+                dataitems2 += [
+                    [name1, hyperref1, labels],
+                    [name2, hyperref2, labels],
+                ]
+            else:
+                assert hyperref == label
+                # namel = name.lower().replace("_", "")
+                # print(f"dataitem:{namel}" == hyperref, name, hyperref)
+                dataitems2 += [[name, hyperref, [label]]]
+
+        dataitems3 = {}
+        for name, hyperref, labels in dataitems2:
+            assert name not in dataitems3
+            dataitems3[name] = DataItem(
+                name=name,
+                hyperref=hyperref,
+                labels=labels,
+            )
+
+        return dataitems3
 
     def get_template_names_used(self):
         """
