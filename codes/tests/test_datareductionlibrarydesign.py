@@ -8,6 +8,7 @@ from ..drld_parser.data_reduction_library_design import (
     METIS_DataReductionLibraryDesign,
     find_latex_inputs,
     DataItemReference,
+    guess_dataitem_type,
 )
 from ..drld_parser.template_manual import METIS_TemplateManual
 
@@ -175,6 +176,10 @@ class TestDataReductionLibraryDesign:
             and diref.name not in all_output_names
         ]
         assert not bad_input_data
+
+    def test_datatype_can_be_guessed(self):
+        for dn in METIS_DataReductionLibraryDesign.dataitems:
+            _ = guess_dataitem_type(dn, raise_exception=True)
 
 
 class TestFindLatexInputs:

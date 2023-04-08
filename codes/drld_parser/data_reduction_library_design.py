@@ -6,13 +6,55 @@ import itertools
 import os
 from pathlib import Path
 import re
-from typing import List, Tuple
+from typing import List
 
 from codes.drld_parser.hacks import (
     HACK_BAD_NAMES,
     HACK_TEMPLATE_NAMES_IN_DRLD,
     HACK_INCORRECT_INPUT_DATA,
 )
+
+
+def guess_dataitem_type(name, raise_exception=False):
+    """Guess the dataitem type from DataItemReferences.
+
+    However, it is not uniquely defined, because in different context
+    a DataItem can have a different type. In particular, it could be a PROD
+    for the recipe that produces it, but a STATCALIB for the recipes that
+    use it. More importantly, it could be that a STATCALIB data product is
+    used in the same workflow as it is produced, then it should be a PROD also
+    as input.
+
+    For now this function assumes that the type of a DataItem as input is
+    always identical."""
+    direfs_output = [
+        (recipe, diref)
+        for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+        for diref in recipe.output_data
+        if diref.name is not None and diref.name.lower() == name.lower()
+    ]
+    direfs_input = [
+        (recipe, diref)
+        for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+        for diref in recipe.input_data
+        if diref.name is not None and diref.name.lower() == name.lower()
+    ]
+    datatypes_input = [diref.dtype for _, diref in direfs_input]
+    datatypes_output = [diref.dtype for _, diref in direfs_output]
+    datatypes = [diref.dtype for _, diref in direfs_input + direfs_output]
+    if not datatypes:
+        return "PROD"
+
+    if len(set(datatypes_input)) > 1 or len(set(datatypes_output)) > 1:
+        print()
+        print(name)
+        print(datatypes_input)
+        print([rec.name for rec, _ in direfs_input])
+        print(datatypes_output)
+        print([rec.name for rec, _ in direfs_output])
+        assert not raise_exception
+
+    return (datatypes_input + datatypes_output)[0]
 
 
 def find_latex_inputs(path):
@@ -116,10 +158,10 @@ class Recipe:
     purpose: str = None
     type: str = None
     templates: List[str] = dataclasses.field(default_factory=list)
-    input_data: List[str] = dataclasses.field(default_factory=list)
+    input_data: List[DataItemReference] = dataclasses.field(default_factory=list)
     parameters: List[str] = dataclasses.field(default_factory=list)
     algorithm: str = None
-    output_data: List[Tuple[str, str]] = dataclasses.field(default_factory=list)
+    output_data: List[DataItemReference] = dataclasses.field(default_factory=list)
     expected_accuracies: str = None
     qc1_parameters: List[str] = None
     hdrl_functions: List[str] = None

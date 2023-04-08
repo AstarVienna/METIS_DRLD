@@ -2,13 +2,20 @@
 
 from codes.drld_parser.data_reduction_library_design import (
     METIS_DataReductionLibraryDesign,
+    guess_dataitem_type,
 )
 from codes.drld_parser.template_manual import METIS_TemplateManual
+
+for dn in METIS_DataReductionLibraryDesign.dataitems:
+    dtype = guess_dataitem_type(dn)
+#     print(dn, dtype)
 
 dataitem_names_lower = [
     dataitem.name.lower()
     for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
 ]
+
+template_names_lower = [tn.lower() for tn in METIS_TemplateManual.templates]
 
 boxes_recipes_existing = [
     f'   "{recipe.name.lower()}" [shape=box, fillcolor=green, style=filled, label="{recipe.name}"];'
@@ -30,6 +37,12 @@ boxes_dataitem_missing = [
     for recipe in METIS_DataReductionLibraryDesign.recipes.values()
     for diref in recipe.input_data + recipe.output_data
     if diref.get_name().lower() not in dataitem_names_lower
+]
+
+boxes_templates_missing = [
+    f'   "{tn.lower()}" [shape=box, fillcolor=orange, color=red, style="filled,dashed", penwidth="4.0", label="{tn}"];'
+    for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+    for tn in recipe.templates
 ]
 
 edges_recipe_output = [
@@ -55,6 +68,7 @@ s_boxes_edges = "\n".join(
     + boxes_dataitem_existing
     + boxes_template_existing
     + boxes_dataitem_missing
+    + boxes_templates_missing
     + edges_recipe_output
     + edges_recipe_input
     + edges_recipe_template
