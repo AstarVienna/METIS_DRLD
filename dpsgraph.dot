@@ -168,11 +168,12 @@ graph METISDPS {
    "metis_img_lm_cal_detlin" [shape=box, fillcolor="white", style=filled, label="METIS_img_lm_cal_DetLin"];
    "metis_img_n_cal_detlin" [shape=box, fillcolor="white", style=filled, label="METIS_img_n_cal_DetLin"];
    "metis_ifu_cal_detlin" [shape=box, fillcolor="white", style=filled, label="METIS_ifu_cal_DetLin"];
-   "unknown_13443039" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_13443039"];
-   "unknown_96258299" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_96258299"];
-   "unknown_55856982" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_55856982"];
-   "unknown_42313011" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_42313011"];
-   "unknown_15609998" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_15609998"];
+   "lm_sci_basic_reduced" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_BASIC_REDUCED"];
+   "unknown_15522970" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_15522970"];
+   "unknown_90016115" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_90016115"];
+   "unknown_13244739" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_13244739"];
+   "unknown_85701960" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_85701960"];
+   "unknown_67314350" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_67314350"];
    "lm_ravc_sci_calibrated" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_CALIBRATED"];
    "lm_ravc_sci_centred" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_CENTRED"];
    "lm_ravc_centroid_tab" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_CENTROID_TAB"];
@@ -184,10 +185,11 @@ graph METISDPS {
    "lm_ravc_sci_throughput" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_THROUGHPUT"];
    "lm_ravc_sci_coveragemap" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_COVERAGEMAP"];
    "lm_ravc_sci_snr" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_SNR"];
-   "unknown_13443039" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_13443039"];
-   "unknown_96258299" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_96258299"];
-   "unknown_35553781" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_35553781"];
-   "unknown_15609998" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_15609998"];
+   "lm_sci_basic_reduced" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_BASIC_REDUCED"];
+   "unknown_15522970" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_15522970"];
+   "unknown_90016115" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_90016115"];
+   "unknown_99099586" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_99099586"];
+   "unknown_67314350" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_67314350"];
    "lm_app_sci_calibrated" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_CALIBRATED"];
    "lm_app_sci_centred" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_CENTRED"];
    "lm_app_centroid_tab" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_CENTROID_TAB"];
@@ -199,11 +201,12 @@ graph METISDPS {
    "lm_app_sci_throughput" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_THROUGHPUT"];
    "lm_app_sci_coveragemap" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_COVERAGEMAP"];
    "lm_app_sci_snr" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_SNR"];
-   "unknown_27295936" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_27295936"];
-   "unknown_08460080" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_08460080"];
-   "unknown_55856982" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_55856982"];
-   "unknown_42313011" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_42313011"];
-   "unknown_15609998" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_15609998"];
+   "ifu_sci_reduced" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_REDUCED"];
+   "unknown_96711986" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_96711986"];
+   "unknown_17801714" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_17801714"];
+   "unknown_13244739" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_13244739"];
+   "unknown_85701960" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_85701960"];
+   "unknown_67314350" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_67314350"];
    "ifu_ravc_sci_calibrated" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_CALIBRATED"];
    "ifu_ravc_sci_centred" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_CENTRED"];
    "ifu_ravc_centroid_tab" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_CENTROID_TAB"];
@@ -215,38 +218,38 @@ graph METISDPS {
    "ifu_ravc_sci_throughput" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_THROUGHPUT"];
    "ifu_ravc_sci_snr" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_SNR"];
    "ifu_ravc_sci_coveragemap" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_COVERAGEMAP"];
-   "unknown_77227162" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_77227162"];
-   "unknown_38606449" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_38606449"];
-   "unknown_15624792" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_15624792"];
-   "unknown_77938216" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_77938216"];
+   "unknown_31915007" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_31915007"];
+   "unknown_90606666" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_90606666"];
+   "unknown_18068535" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_18068535"];
+   "unknown_31946356" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_31946356"];
    "ifu_wavecal" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_WAVECAL"];
-   "unknown_54354993" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_54354993"];
+   "unknown_36654644" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_36654644"];
    "master_dark_ifu" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="MASTER_DARK_IFU"];
    "badpix_map_ifu" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="BADPIX_MAP_IFU"];
    "ifu_wavecal" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_WAVECAL"];
    "master_flat_ifu" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="MASTER_FLAT_IFU"];
    "rsrf_ifu" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="RSRF_IFU"];
    "badpix_map_ifu" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="BADPIX_MAP_IFU"];
-   "unknown_59511927" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_59511927"];
-   "unknown_38606449" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_38606449"];
-   "unknown_44731413" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_44731413"];
-   "unknown_65961653" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_65961653"];
-   "unknown_42864003" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_42864003"];
-   "unknown_53086500" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_53086500"];
+   "unknown_27419418" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_27419418"];
+   "unknown_90606666" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_90606666"];
+   "unknown_84103786" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_84103786"];
+   "unknown_02089269" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_02089269"];
+   "unknown_10434226" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_10434226"];
+   "unknown_88472167" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_88472167"];
    "ifu_std_reduced_cube" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_STD_REDUCED_CUBE"];
    "ifu_std_background_cube" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_STD_BACKGROUND_CUBE"];
    "ifu_std_reduced_1d" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_STD_REDUCED_1D"];
    "ifu_std_telluric_1d" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_STD_TELLURIC_1D"];
    "fluxcal_tab" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="FLUXCAL_TAB"];
-   "unknown_46353470" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_46353470"];
-   "unknown_54346679" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_54346679"];
-   "unknown_38606449" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_38606449"];
-   "unknown_44731413" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_44731413"];
-   "unknown_65961653" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_65961653"];
-   "unknown_42864003" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_42864003"];
-   "unknown_93389349" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_93389349"];
-   "unknown_53086500" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_53086500"];
-   "unknown_54512580" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_54512580"];
+   "unknown_86821345" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_86821345"];
+   "unknown_40747574" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_40747574"];
+   "unknown_90606666" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_90606666"];
+   "unknown_84103786" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_84103786"];
+   "unknown_02089269" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_02089269"];
+   "unknown_10434226" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_10434226"];
+   "unknown_91880809" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_91880809"];
+   "unknown_88472167" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_88472167"];
+   "unknown_56125205" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_56125205"];
    "ifu_sci_reduced" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_REDUCED"];
    "ifu_sci_reduced_tac" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_REDUCED_TAC"];
    "ifu_sci_background" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_BACKGROUND"];
@@ -262,31 +265,31 @@ graph METISDPS {
    "ifu_sci_reduced_tac" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_REDUCED_TAC"];
    "ifu_sci_coadd" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_COADD"];
    "ifu_sci_coadd_error" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_COADD_ERROR"];
-   "unknown_69289874" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_69289874"];
+   "unknown_57637844" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_57637844"];
    "ifu_distortion_table" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_DISTORTION_TABLE"];
    "ifu_dist_reduced" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_DIST_REDUCED"];
    "master_lm_response" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="MASTER_LM_RESPONSE"];
    "master_lm_response" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="MASTER_LM_RESPONSE"];
-   "unknown_04203184" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_04203184"];
-   "unknown_04203184" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_04203184"];
+   "unknown_62937376" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_62937376"];
+   "unknown_62937376" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_62937376"];
    "lm_img_raw" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_IMG_RAW"];
    "master_img_flat_2rg" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="MASTER_IMG_FLAT_2RG"];
-   "unknown_57530515" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_57530515"];
-   "unknown_83407374" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_83407374"];
+   "unknown_87305758" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_87305758"];
+   "unknown_30721768" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_30721768"];
    "lm_slitlosses_raw" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_SLITLOSSES_RAW"];
    "lm_wcu_off_raw" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_WCU_OFF_RAW"];
    "master_img_flat_2rg" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="MASTER_IMG_FLAT_2RG"];
    "n_slitlosses_raw" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_SLITLOSSES_RAW"];
    "n_wcu_off_raw" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_WCU_OFF_RAW"];
    "master_img_flat_geo" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="MASTER_IMG_FLAT_GEO"];
-   "unknown_63700381" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_63700381"];
+   "unknown_19561375" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_19561375"];
    "flat,off" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="FLAT,OFF"];
    "gain_map_lms" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="GAIN_MAP_LMS"];
    "linearity_2rg" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LINEARITY_2RG"];
    "linearity_geo" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LINEARITY_GEO"];
    "linearity_lms" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LINEARITY_LMS"];
    "badpix_map_lms" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="BADPIX_MAP_LMS"];
-   "unknown_84698307" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_84698307"];
+   "unknown_35424130" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_35424130"];
    "master_dark_lms" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="MASTER_DARK_LMS"];
    "bpm_cold_2rg" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="BPM_COLD_2RG"];
    "bpm_cold_geo" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="BPM_COLD_GEO"];
@@ -295,14 +298,14 @@ graph METISDPS {
    "bpm_hot_geo" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="BPM_HOT_GEO"];
    "bpm_hot_lms" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="BPM_HOT_LMS"];
    "badpix_map_lms" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="BADPIX_MAP_LMS"];
-   "unknown_65726317" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_65726317"];
-   "unknown_38475147" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_38475147"];
-   "unknown_84076434" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_84076434"];
+   "unknown_26214560" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_26214560"];
+   "unknown_83469788" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_83469788"];
+   "unknown_30253230" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_30253230"];
    "master_img_flat_2rg" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="MASTER_IMG_FLAT_2RG"];
-   "unknown_76339985" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_76339985"];
-   "unknown_54346679" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_54346679"];
-   "unknown_38606449" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_38606449"];
-   "unknown_24211101" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_24211101"];
+   "unknown_87978335" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_87978335"];
+   "unknown_40747574" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_40747574"];
+   "unknown_90606666" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_90606666"];
+   "unknown_37390912" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_37390912"];
    "lm_sci_basic_reduced" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_BASIC_REDUCED"];
    "lm_std_basic_reduced" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_STD_BASIC_REDUCED"];
    "lm_sci_basic_reduced" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_BASIC_REDUCED"];
@@ -314,7 +317,7 @@ graph METISDPS {
    "lm_sci_object_cat" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_OBJECT_CAT"];
    "lm_std_object_cat" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_STD_OBJECT_CAT"];
    "lm_std_bkg_subtracted" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_STD_BKG_SUBTRACTED"];
-   "unknown_96931390" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_96931390"];
+   "unknown_28372279" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_28372279"];
    "lm_std_combined" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_STD_COMBINED"];
    "fluxcal_tab" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="FLUXCAL_TAB"];
    "lm_sci_bkg_subtracted" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_BKG_SUBTRACTED"];
@@ -325,21 +328,21 @@ graph METISDPS {
    "lm_sci_coadd" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_COADD"];
    "lm_sci_coadd_error" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_COADD_ERROR"];
    "lm_sci_coadd_contrib" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_COADD_CONTRIB"];
-   "unknown_06434791" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_06434791"];
-   "unknown_55009573" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_55009573"];
+   "unknown_90328376" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_90328376"];
+   "unknown_35370083" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_35370083"];
    "lm_distortion_table" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_DISTORTION_TABLE"];
    "lm_distortion_map" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_DISTORTION_MAP"];
    "lm_dist_reduced" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_DIST_REDUCED"];
-   "unknown_65726317" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_65726317"];
-   "unknown_38475147" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_38475147"];
-   "unknown_84076434" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_84076434"];
+   "unknown_26214560" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_26214560"];
+   "unknown_83469788" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_83469788"];
+   "unknown_30253230" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_30253230"];
    "master_img_flat_geo" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="MASTER_IMG_FLAT_GEO"];
-   "unknown_21901776" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_21901776"];
-   "unknown_15624792" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_15624792"];
+   "unknown_02724343" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_02724343"];
+   "unknown_18068535" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_18068535"];
    "n_sci_bkg_subtracted" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_SCI_BKG_SUBTRACTED"];
    "n_std_bkg_subtracted" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_STD_BKG_SUBTRACTED"];
    "n_std_bkg_subtracted" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_STD_BKG_SUBTRACTED"];
-   "unknown_96931390" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_96931390"];
+   "unknown_28372279" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_28372279"];
    "fluxcal_tab" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="FLUXCAL_TAB"];
    "n_sci_bkg_subtracted" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_SCI_BKG_SUBTRACTED"];
    "fluxcal_tab" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="FLUXCAL_TAB"];
@@ -347,9 +350,9 @@ graph METISDPS {
    "n_sci_calibrated" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_SCI_CALIBRATED"];
    "n_sci_calibrated" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_SCI_CALIBRATED"];
    "n_sci_restored" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_SCI_RESTORED"];
-   "unknown_06434791" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_06434791"];
-   "unknown_73052596" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_73052596"];
-   "unknown_84076434" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_84076434"];
+   "unknown_90328376" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_90328376"];
+   "unknown_79344862" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_79344862"];
+   "unknown_30253230" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_30253230"];
    "n_distortion_table" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_DISTORTION_TABLE"];
    "n_distortion_map" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_DISTORTION_MAP"];
    "n_dist_reduced" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_DIST_REDUCED"];
@@ -357,63 +360,10 @@ graph METISDPS {
    "master_n_response" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="MASTER_N_RESPONSE"];
    "master_n_response" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="MASTER_N_RESPONSE"];
    "hitran" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="HITRAN"];
-   "lm_sci_reduced" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="lm_sci_reduced"];
-   "lm_sci_reduced" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="lm_sci_reduced"];
-   "ifu_sci_reduced" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="ifu_sci_reduced"];
-   "metis_ifu_cal_lampwave" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_cal_lampwave"];
-   "metis_ifu_cal_rsrf" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_cal_rsrf"];
-   "metis_ifu_cal_standard" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_cal_standard"];
-   "metis_ifu_obs_fixedskyoffset" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_obs_fixedskyoffset"];
-   "metis_ifu_obs_genericoffset" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_obs_genericoffset"];
-   "metis_ifu_ext_obs_fixedskyoffset" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_ext_obs_fixedskyoffset"];
-   "metis_ifu_ext_obs_genericoffset" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_ext_obs_genericoffset"];
-   "metis_ifu_app_obs_genericoffset" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_app_obs_genericoffset"];
-   "metis_ifu_vc_obs_fixedskyoffset" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_vc_obs_fixedskyoffset"];
-   "metis_ifu_ext_app_obs_genericoffset" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_ext_app_obs_genericoffset"];
-   "metis_ifu_ext_vc_obs_fixedskyoffset" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_ext_vc_obs_fixedskyoffset"];
-   "metis_ifu_cal_psf" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_cal_psf"];
-   "metis_ifu_cal_distortion" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_cal_distortion"];
-   "metis_spec_lm_cal_rsrf" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_lm_cal_rsrf"];
-   "metis_spec_lm_cal_rsrfpinh" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_lm_cal_rsrfpinh"];
-   "metis_spec_lm_cal_internalwave" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_lm_cal_internalwave"];
-   "metis_spec_lm_cal_standard" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_lm_cal_standard"];
-   "metis_spec_lm_acq" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_lm_acq"];
-   "metis_spec_lm_obs_autonodonslit" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_lm_obs_autonodonslit"];
-   "metis_spec_lm_obs_genericoffset" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_lm_obs_genericoffset"];
-   "metis_spec_lm_cal_slit_adc" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_lm_cal_slit_adc"];
    "tbd" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="TBD"];
-   "metis_img_lm_cal_chopperhome" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_lm_cal_chopperhome"];
-   "metis_spec_lm_cal_slitadc" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_lm_cal_slitadc"];
-   "metis_spec_n_cal_slitadc" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_n_cal_slitadc"];
-   "metis_img_lm_cal_detlin" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_lm_cal_detlin"];
-   "metis_img_n_cal_detlin" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_n_cal_detlin"];
-   "metis_ifu_cal_detlin" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_ifu_cal_detlin"];
-   "metis_gen_cal_dark" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_gen_cal_dark"];
-   "metis_img_lm_cal_internalflat" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_lm_cal_internalflat"];
-   "metis_all_cal_twilightflat" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_all_cal_twilightflat"];
-   "metis_img_lm_cal_standard" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_lm_cal_standard"];
    "metis_img_lm_*_obs_*" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_lm_*_obs_*"];
-   "metis_img_lm_cal_standard" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_lm_cal_standard"];
    "metis_img_lm_*_obs_*" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_lm_*_obs_*"];
-   "metis_img_lm_cal_standard" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_lm_cal_standard"];
-   "metis_img_lm_cal_distortion" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_lm_cal_distortion"];
-   "metis_img_n_cal_internalflat" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_n_cal_internalflat"];
-   "metis_all_cal_twilightflat" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_all_cal_twilightflat"];
-   "metis_img_n_cal_standard" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_n_cal_standard"];
-   "metis_img_n_obs_autochopnod" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_n_obs_autochopnod"];
-   "metis_img_n_obs_genericchopnod" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_n_obs_genericchopnod"];
-   "metis_img_n_cvc_obs_autochop" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_n_cvc_obs_autochop"];
-   "metis_img_n_clc_obs_fixedskyoffset" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_n_clc_obs_fixedskyoffset"];
-   "metis_img_n_cal_psf" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_n_cal_psf"];
-   "metis_img_n_cal_standard" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_n_cal_standard"];
-   "metis_img_n_cal_distortion" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_img_n_cal_distortion"];
-   "metis_spec_n_cal_rsrf" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_n_cal_rsrf"];
-   "metis_spec_n_cal_rsrfpinh" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_n_cal_rsrfpinh"];
-   "metis_spec_n_cal_standard" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_n_cal_standard"];
-   "metis_spec_n_acq" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_n_acq"];
-   "metis_spec_n_obs_autonodonslit" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_n_obs_autonodonslit"];
    "metis_spec_n_obs_genericoffset" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_n_obs_genericoffset"];
-   "metis_spec_n_cal_slit_adc" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="metis_spec_n_cal_slit_adc"];
     "lm_ravc_sci_calibrated" -- "metis_lm_adi_ravc"
     "lm_ravc_sci_centred" -- "metis_lm_adi_ravc"
     "lm_ravc_centroid_tab" -- "metis_lm_adi_ravc"
@@ -490,9 +440,9 @@ graph METISDPS {
     "mf_best_fit_tab" -- "metis_lm_lss_mf_model"
     "lm_lss_synth_trans" -- "metis_lm_lss_mf_calctrans"
     "lm_lss_sci_flux_tellcorr_1d" -- "metis_lm_lss_mf_correct"
-    "unknown_04203184" -- "metis_pupil_imaging"
-    "unknown_57530515" -- "metis_img_chophome"
-    "unknown_83407374" -- "metis_img_chophome"
+    "unknown_62937376" -- "metis_pupil_imaging"
+    "unknown_87305758" -- "metis_img_chophome"
+    "unknown_30721768" -- "metis_img_chophome"
     "lm_adc_slitloss" -- "metis_lm_adc_slitloss"
     "n_adc_slitloss" -- "metis_n_adc_slitloss"
     "gain_map_2rg" -- "metis_det_lingain"
@@ -563,49 +513,52 @@ graph METISDPS {
     "mf_best_fit_tab" -- "metis_n_lss_mf_model"
     "n_lss_synth_trans" -- "metis_n_lss_mf_calctrans"
     "n_lss_sci_flux_tellcorr_1d" -- "metis_n_lss_mf_correct"
-    "metis_lm_adi_ravc" -- "unknown_13443039"
-    "metis_lm_adi_ravc" -- "unknown_96258299"
-    "metis_lm_adi_ravc" -- "unknown_55856982"
-    "metis_lm_adi_ravc" -- "unknown_42313011"
-    "metis_lm_adi_ravc" -- "unknown_15609998"
-    "metis_lm_adi_app" -- "unknown_13443039"
-    "metis_lm_adi_app" -- "unknown_96258299"
-    "metis_lm_adi_app" -- "unknown_35553781"
-    "metis_lm_adi_app" -- "unknown_15609998"
-    "metis_ifu_adi_ravc" -- "unknown_27295936"
-    "metis_ifu_adi_ravc" -- "unknown_08460080"
-    "metis_ifu_adi_ravc" -- "unknown_55856982"
-    "metis_ifu_adi_ravc" -- "unknown_42313011"
-    "metis_ifu_adi_ravc" -- "unknown_15609998"
-    "metis_ifu_wavecal" -- "unknown_77227162"
-    "metis_ifu_wavecal" -- "unknown_38606449"
-    "metis_ifu_wavecal" -- "unknown_15624792"
-    "metis_ifu_wavecal" -- "unknown_77938216"
-    "metis_ifu_rsrf" -- "unknown_54354993"
+    "metis_lm_adi_ravc" -- "lm_sci_basic_reduced"
+    "metis_lm_adi_ravc" -- "unknown_15522970"
+    "metis_lm_adi_ravc" -- "unknown_90016115"
+    "metis_lm_adi_ravc" -- "unknown_13244739"
+    "metis_lm_adi_ravc" -- "unknown_85701960"
+    "metis_lm_adi_ravc" -- "unknown_67314350"
+    "metis_lm_adi_app" -- "lm_sci_basic_reduced"
+    "metis_lm_adi_app" -- "unknown_15522970"
+    "metis_lm_adi_app" -- "unknown_90016115"
+    "metis_lm_adi_app" -- "unknown_99099586"
+    "metis_lm_adi_app" -- "unknown_67314350"
+    "metis_ifu_adi_ravc" -- "ifu_sci_reduced"
+    "metis_ifu_adi_ravc" -- "unknown_96711986"
+    "metis_ifu_adi_ravc" -- "unknown_17801714"
+    "metis_ifu_adi_ravc" -- "unknown_13244739"
+    "metis_ifu_adi_ravc" -- "unknown_85701960"
+    "metis_ifu_adi_ravc" -- "unknown_67314350"
+    "metis_ifu_wavecal" -- "unknown_31915007"
+    "metis_ifu_wavecal" -- "unknown_90606666"
+    "metis_ifu_wavecal" -- "unknown_18068535"
+    "metis_ifu_wavecal" -- "unknown_31946356"
+    "metis_ifu_rsrf" -- "unknown_36654644"
     "metis_ifu_rsrf" -- "master_dark_ifu"
     "metis_ifu_rsrf" -- "badpix_map_ifu"
     "metis_ifu_rsrf" -- "ifu_wavecal"
-    "metis_ifu_std_process" -- "unknown_59511927"
-    "metis_ifu_std_process" -- "unknown_38606449"
-    "metis_ifu_std_process" -- "unknown_44731413"
-    "metis_ifu_std_process" -- "unknown_65961653"
-    "metis_ifu_std_process" -- "unknown_42864003"
-    "metis_ifu_std_process" -- "unknown_53086500"
-    "metis_ifu_sci_process" -- "unknown_46353470"
-    "metis_ifu_sci_process" -- "unknown_54346679"
-    "metis_ifu_sci_process" -- "unknown_38606449"
-    "metis_ifu_sci_process" -- "unknown_44731413"
-    "metis_ifu_sci_process" -- "unknown_65961653"
-    "metis_ifu_sci_process" -- "unknown_42864003"
-    "metis_ifu_sci_process" -- "unknown_93389349"
-    "metis_ifu_sci_process" -- "unknown_53086500"
-    "metis_ifu_sci_process" -- "unknown_54512580"
+    "metis_ifu_std_process" -- "unknown_27419418"
+    "metis_ifu_std_process" -- "unknown_90606666"
+    "metis_ifu_std_process" -- "unknown_84103786"
+    "metis_ifu_std_process" -- "unknown_02089269"
+    "metis_ifu_std_process" -- "unknown_10434226"
+    "metis_ifu_std_process" -- "unknown_88472167"
+    "metis_ifu_sci_process" -- "unknown_86821345"
+    "metis_ifu_sci_process" -- "unknown_40747574"
+    "metis_ifu_sci_process" -- "unknown_90606666"
+    "metis_ifu_sci_process" -- "unknown_84103786"
+    "metis_ifu_sci_process" -- "unknown_02089269"
+    "metis_ifu_sci_process" -- "unknown_10434226"
+    "metis_ifu_sci_process" -- "unknown_91880809"
+    "metis_ifu_sci_process" -- "unknown_88472167"
+    "metis_ifu_sci_process" -- "unknown_56125205"
     "metis_ifu_tellcorr" -- "ifu_sci_combined"
     "metis_ifu_tellcorr" -- "lsf_kernel"
     "metis_ifu_tellcorr" -- "atm_profile"
     "metis_ifu_sci_postprocess" -- "ifu_sci_reduced"
     "metis_ifu_sci_postprocess" -- "ifu_sci_reduced_tac"
-    "metis_ifu_distortion" -- "unknown_69289874"
+    "metis_ifu_distortion" -- "unknown_57637844"
     "metis_lm_lss_rsrf" -- "lm_lss_rsrf_raw"
     "metis_lm_lss_rsrf" -- "persistence_map"
     "metis_lm_lss_rsrf" -- "gain_map_2rg"
@@ -659,7 +612,7 @@ graph METISDPS {
     "metis_lm_lss_mf_calctrans" -- "atm_line_cat"
     "metis_lm_lss_mf_correct" -- "lm_lss_sci_flux_1d"
     "metis_lm_lss_mf_correct" -- "lm_lss_synth_trans"
-    "metis_pupil_imaging" -- "unknown_04203184"
+    "metis_pupil_imaging" -- "unknown_62937376"
     "metis_img_chophome" -- "lm_img_raw"
     "metis_img_chophome" -- "persistence_map"
     "metis_img_chophome" -- "gain_map_2rg"
@@ -680,41 +633,41 @@ graph METISDPS {
     "metis_n_adc_slitloss" -- "badpix_map_geo"
     "metis_n_adc_slitloss" -- "master_dark_geo"
     "metis_n_adc_slitloss" -- "master_img_flat_geo"
-    "metis_det_lingain" -- "unknown_63700381"
+    "metis_det_lingain" -- "unknown_19561375"
     "metis_det_lingain" -- "flat,off"
-    "metis_det_dark" -- "unknown_84698307"
-    "metis_lm_img_flat" -- "unknown_65726317"
-    "metis_lm_img_flat" -- "unknown_38475147"
-    "metis_lm_img_flat" -- "unknown_84076434"
-    "metis_lm_img_basic_reduce" -- "unknown_76339985"
-    "metis_lm_img_basic_reduce" -- "unknown_54346679"
-    "metis_lm_img_basic_reduce" -- "unknown_38606449"
-    "metis_lm_img_basic_reduce" -- "unknown_24211101"
+    "metis_det_dark" -- "unknown_35424130"
+    "metis_lm_img_flat" -- "unknown_26214560"
+    "metis_lm_img_flat" -- "unknown_83469788"
+    "metis_lm_img_flat" -- "unknown_30253230"
+    "metis_lm_img_basic_reduce" -- "unknown_87978335"
+    "metis_lm_img_basic_reduce" -- "unknown_40747574"
+    "metis_lm_img_basic_reduce" -- "unknown_90606666"
+    "metis_lm_img_basic_reduce" -- "unknown_37390912"
     "metis_lm_img_background" -- "lm_sci_basic_reduced"
     "metis_lm_img_background" -- "lm_std_basic_reduced"
     "metis_lm_img_std_process" -- "lm_std_bkg_subtracted"
-    "metis_lm_img_std_process" -- "unknown_96931390"
+    "metis_lm_img_std_process" -- "unknown_28372279"
     "metis_lm_img_calibrate" -- "lm_sci_bkg_subtracted"
     "metis_lm_img_calibrate" -- "fluxcal_tab"
     "metis_lm_img_calibrate" -- "lm_distortion_table"
     "metis_lm_img_sci_postprocess" -- "lm_sci_calibrated"
     "metis_lm_img_sci_postprocess" -- "badpix_map_2rg"
-    "metis_lm_img_distortion" -- "unknown_06434791"
-    "metis_lm_img_distortion" -- "unknown_55009573"
-    "metis_n_img_flat" -- "unknown_65726317"
-    "metis_n_img_flat" -- "unknown_38475147"
-    "metis_n_img_flat" -- "unknown_84076434"
-    "metis_n_img_chopnod" -- "unknown_21901776"
-    "metis_n_img_chopnod" -- "unknown_15624792"
+    "metis_lm_img_distortion" -- "unknown_90328376"
+    "metis_lm_img_distortion" -- "unknown_35370083"
+    "metis_n_img_flat" -- "unknown_26214560"
+    "metis_n_img_flat" -- "unknown_83469788"
+    "metis_n_img_flat" -- "unknown_30253230"
+    "metis_n_img_chopnod" -- "unknown_02724343"
+    "metis_n_img_chopnod" -- "unknown_18068535"
     "metis_n_img_std_process" -- "n_std_bkg_subtracted"
-    "metis_n_img_std_process" -- "unknown_96931390"
+    "metis_n_img_std_process" -- "unknown_28372279"
     "metis_n_img_calibrate" -- "n_sci_bkg_subtracted"
     "metis_n_img_calibrate" -- "fluxcal_tab"
     "metis_n_img_calibrate" -- "n_distortion_table"
     "metis_n_img_restore" -- "n_sci_calibrated"
-    "metis_n_img_distortion" -- "unknown_06434791"
-    "metis_n_img_distortion" -- "unknown_73052596"
-    "metis_n_img_distortion" -- "unknown_84076434"
+    "metis_n_img_distortion" -- "unknown_90328376"
+    "metis_n_img_distortion" -- "unknown_79344862"
+    "metis_n_img_distortion" -- "unknown_30253230"
     "metis_n_lss_rsrf" -- "n_lss_rsrf_raw"
     "metis_n_lss_rsrf" -- "persistence_map"
     "metis_n_lss_rsrf" -- "gain_map_geo"
@@ -763,40 +716,37 @@ graph METISDPS {
     "metis_n_lss_mf_calctrans" -- "hitran"
     "metis_n_lss_mf_correct" -- "n_lss_sci_flux_1d"
     "metis_n_lss_mf_correct" -- "n_lss_synth_trans"
-    "metis_lm_adi_ravc" -- "lm_sci_reduced"
-    "metis_lm_adi_app" -- "lm_sci_reduced"
-    "metis_ifu_adi_ravc" -- "ifu_sci_reduced"
-    "metis_ifu_wavecal" -- "metis_ifu_cal_lampwave"
+    "metis_ifu_wavecal" -- "metis_ifu_cal_internalwave"
     "metis_ifu_rsrf" -- "metis_ifu_cal_rsrf"
     "metis_ifu_std_process" -- "metis_ifu_cal_standard"
     "metis_ifu_sci_process" -- "metis_ifu_obs_fixedskyoffset"
     "metis_ifu_sci_process" -- "metis_ifu_obs_genericoffset"
     "metis_ifu_sci_process" -- "metis_ifu_ext_obs_fixedskyoffset"
     "metis_ifu_sci_process" -- "metis_ifu_ext_obs_genericoffset"
-    "metis_ifu_sci_process" -- "metis_ifu_app_obs_genericoffset"
+    "metis_ifu_sci_process" -- "metis_ifu_obs_genericoffset"
     "metis_ifu_sci_process" -- "metis_ifu_vc_obs_fixedskyoffset"
-    "metis_ifu_sci_process" -- "metis_ifu_ext_app_obs_genericoffset"
+    "metis_ifu_sci_process" -- "metis_ifu_ext_obs_genericoffset"
     "metis_ifu_sci_process" -- "metis_ifu_ext_vc_obs_fixedskyoffset"
     "metis_ifu_sci_process" -- "metis_ifu_cal_psf"
     "metis_ifu_distortion" -- "metis_ifu_cal_distortion"
     "metis_lm_lss_rsrf" -- "metis_spec_lm_cal_rsrf"
-    "metis_lm_lss_trace" -- "metis_spec_lm_cal_rsrfpinh"
+    "metis_lm_lss_trace" -- "metis_spec_lm_cal_internalwave"
     "metis_lm_lss_wave" -- "metis_spec_lm_cal_internalwave"
     "metis_lm_lss_flux" -- "metis_spec_lm_cal_standard"
     "metis_lm_lss_sci" -- "metis_spec_lm_acq"
     "metis_lm_lss_sci" -- "metis_spec_lm_obs_autonodonslit"
     "metis_lm_lss_sci" -- "metis_spec_lm_obs_genericoffset"
-    "metis_lm_lss_sci" -- "metis_spec_lm_cal_slit_adc"
+    "metis_lm_lss_sci" -- "metis_spec_lm_cal_slitadc"
     "metis_pupil_imaging" -- "tbd"
     "metis_img_chophome" -- "metis_img_lm_cal_chopperhome"
     "metis_lm_adc_slitloss" -- "metis_spec_lm_cal_slitadc"
-    "metis_n_adc_slitloss" -- "metis_spec_n_cal_slitadc"
+    "metis_n_adc_slitloss" -- "metis_spec_n_cal_slit"
     "metis_det_lingain" -- "metis_img_lm_cal_detlin"
     "metis_det_lingain" -- "metis_img_n_cal_detlin"
     "metis_det_lingain" -- "metis_ifu_cal_detlin"
     "metis_det_dark" -- "metis_gen_cal_dark"
     "metis_lm_img_flat" -- "metis_img_lm_cal_internalflat"
-    "metis_lm_img_flat" -- "metis_all_cal_twilightflat"
+    "metis_lm_img_flat" -- "metis_img_lm_cal_twilightflat"
     "metis_lm_img_basic_reduce" -- "metis_img_lm_cal_standard"
     "metis_lm_img_basic_reduce" -- "metis_img_lm_*_obs_*"
     "metis_lm_img_background" -- "metis_img_lm_cal_standard"
@@ -804,20 +754,19 @@ graph METISDPS {
     "metis_lm_img_std_process" -- "metis_img_lm_cal_standard"
     "metis_lm_img_distortion" -- "metis_img_lm_cal_distortion"
     "metis_n_img_flat" -- "metis_img_n_cal_internalflat"
-    "metis_n_img_flat" -- "metis_all_cal_twilightflat"
+    "metis_n_img_flat" -- "metis_img_n_cal_twilightflat"
     "metis_n_img_chopnod" -- "metis_img_n_cal_standard"
     "metis_n_img_chopnod" -- "metis_img_n_obs_autochopnod"
     "metis_n_img_chopnod" -- "metis_img_n_obs_genericchopnod"
     "metis_n_img_chopnod" -- "metis_img_n_cvc_obs_autochop"
-    "metis_n_img_chopnod" -- "metis_img_n_clc_obs_fixedskyoffset"
     "metis_n_img_chopnod" -- "metis_img_n_cal_psf"
     "metis_n_img_std_process" -- "metis_img_n_cal_standard"
     "metis_n_img_distortion" -- "metis_img_n_cal_distortion"
     "metis_n_lss_rsrf" -- "metis_spec_n_cal_rsrf"
-    "metis_n_lss_trace" -- "metis_spec_n_cal_rsrfpinh"
+    "metis_n_lss_trace" -- "metis_spec_n_cal_internalwave"
     "metis_n_lss_flux" -- "metis_spec_n_cal_standard"
     "metis_n_lss_sci" -- "metis_spec_n_acq"
-    "metis_n_lss_sci" -- "metis_spec_n_obs_autonodonslit"
+    "metis_n_lss_sci" -- "metis_spec_n_obs_autochopnodonslit"
     "metis_n_lss_sci" -- "metis_spec_n_obs_genericoffset"
-    "metis_n_lss_sci" -- "metis_spec_n_cal_slit_adc"
+    "metis_n_lss_sci" -- "metis_spec_n_cal_slit"
 }
