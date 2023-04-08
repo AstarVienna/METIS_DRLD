@@ -200,6 +200,18 @@ class TestDataReductionLibraryDesign:
         # TODO: They should never be FITS or CODE
         assert set(dtypes) == {"PROD", "RAW", "EXTCALIB", "STATCALIB"}
 
+    def test_only_correct_template_types_are_used(self):
+        for recipe in METIS_DataReductionLibraryDesign.recipes.values():
+            for tn in recipe.templates:
+                template = METIS_TemplateManual.get_template(tn)
+                # TODO: Why do we process METIS_spec_lm_acq and METIS_spec_n_acq
+                assert (
+                    template is None
+                    or template.ttype in ["Calibration", "Observing"]
+                    or template.name
+                    in METIS_DataReductionLibraryDesign.templates_acquisition_used
+                )
+
 
 class TestFindLatexInputs:
     def test_find_latex_inputs(self):

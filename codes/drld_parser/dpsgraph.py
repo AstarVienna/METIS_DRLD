@@ -49,6 +49,8 @@ boxes_dataitem_existing = [
 boxes_template_existing = [
     f'   "{template.name.lower()}" [shape=box, fillcolor="{colors["TEMPLATE"]}", style=filled, label="{template.name}"];'
     for template in METIS_TemplateManual.templates.values()
+    if template.ttype in ["Calibration", "Observing"]
+    or template.name in METIS_DataReductionLibraryDesign.templates_acquisition_used
 ]
 
 boxes_dataitem_missing = [

@@ -303,6 +303,9 @@ class DataReductionLibraryDesign:
         self.path_drld = path_here.parent.parent
         # The path of the DRLD
 
+        self.templates_acquisition_used = ["METIS_spec_lm_acq", "METIS_spec_n_acq"]
+        # Apparently we do process some acquisition templates!
+
         self.filenames_tex = glob.glob(os.path.join(self.path_drld, "*.tex"))
         # Regular tex files.
 
