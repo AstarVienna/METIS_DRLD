@@ -1,0 +1,781 @@
+graph METISDPS {
+    
+    rankdir=RL
+
+   "metis_lm_adi_ravc" [shape=box, fillcolor=green, style=filled, label="metis_lm_adi_ravc"];
+   "metis_lm_adi_app" [shape=box, fillcolor=green, style=filled, label="metis_lm_adi_app"];
+   "metis_ifu_adi_ravc" [shape=box, fillcolor=green, style=filled, label="metis_ifu_adi_ravc"];
+   "metis_ifu_wavecal" [shape=box, fillcolor=green, style=filled, label="metis_ifu_wavecal"];
+   "metis_ifu_rsrf" [shape=box, fillcolor=green, style=filled, label="metis_ifu_rsrf"];
+   "metis_ifu_std_process" [shape=box, fillcolor=green, style=filled, label="metis_ifu_std_process"];
+   "metis_ifu_sci_process" [shape=box, fillcolor=green, style=filled, label="metis_ifu_sci_process"];
+   "metis_ifu_tellcorr" [shape=box, fillcolor=green, style=filled, label="metis_ifu_tellcorr"];
+   "metis_ifu_sci_postprocess" [shape=box, fillcolor=green, style=filled, label="metis_ifu_sci_postprocess"];
+   "metis_ifu_distortion" [shape=box, fillcolor=green, style=filled, label="metis_ifu_distortion"];
+   "metis_lm_lss_rsrf" [shape=box, fillcolor=green, style=filled, label="metis_LM_lss_rsrf"];
+   "metis_lm_lss_trace" [shape=box, fillcolor=green, style=filled, label="metis_LM_lss_trace"];
+   "metis_lm_lss_wave" [shape=box, fillcolor=green, style=filled, label="metis_LM_lss_wave"];
+   "metis_lm_lss_flux" [shape=box, fillcolor=green, style=filled, label="metis_LM_lss_flux"];
+   "metis_lm_lss_sci" [shape=box, fillcolor=green, style=filled, label="metis_LM_lss_sci"];
+   "metis_lm_lss_mf_model" [shape=box, fillcolor=green, style=filled, label="metis_LM_lss_mf_model"];
+   "metis_lm_lss_mf_calctrans" [shape=box, fillcolor=green, style=filled, label="metis_LM_lss_mf_calctrans"];
+   "metis_lm_lss_mf_correct" [shape=box, fillcolor=green, style=filled, label="metis_LM_lss_mf_correct"];
+   "metis_pupil_imaging" [shape=box, fillcolor=green, style=filled, label="metis_pupil_imaging"];
+   "metis_img_chophome" [shape=box, fillcolor=green, style=filled, label="metis_img_chophome"];
+   "metis_lm_adc_slitloss" [shape=box, fillcolor=green, style=filled, label="metis_lm_adc_slitloss"];
+   "metis_n_adc_slitloss" [shape=box, fillcolor=green, style=filled, label="metis_n_adc_slitloss"];
+   "metis_det_lingain" [shape=box, fillcolor=green, style=filled, label="metis_det_lingain"];
+   "metis_det_dark" [shape=box, fillcolor=green, style=filled, label="metis_det_dark"];
+   "metis_det_persistence" [shape=box, fillcolor=green, style=filled, label="metis_det_persistence"];
+   "metis_lm_img_flat" [shape=box, fillcolor=green, style=filled, label="metis_lm_img_flat"];
+   "metis_lm_img_basic_reduce" [shape=box, fillcolor=green, style=filled, label="metis_lm_img_basic_reduce"];
+   "metis_lm_img_background" [shape=box, fillcolor=green, style=filled, label="metis_lm_img_background"];
+   "metis_lm_img_std_process" [shape=box, fillcolor=green, style=filled, label="metis_lm_img_std_process"];
+   "metis_lm_img_calibrate" [shape=box, fillcolor=green, style=filled, label="metis_lm_img_calibrate"];
+   "metis_lm_img_sci_postprocess" [shape=box, fillcolor=green, style=filled, label="metis_lm_img_sci_postprocess"];
+   "metis_lm_img_distortion" [shape=box, fillcolor=green, style=filled, label="metis_lm_img_distortion"];
+   "metis_n_img_flat" [shape=box, fillcolor=green, style=filled, label="metis_n_img_flat"];
+   "metis_n_img_chopnod" [shape=box, fillcolor=green, style=filled, label="metis_n_img_chopnod"];
+   "metis_n_img_std_process" [shape=box, fillcolor=green, style=filled, label="metis_n_img_std_process"];
+   "metis_n_img_calibrate" [shape=box, fillcolor=green, style=filled, label="metis_n_img_calibrate"];
+   "metis_n_img_restore" [shape=box, fillcolor=green, style=filled, label="metis_n_img_restore"];
+   "metis_n_img_distortion" [shape=box, fillcolor=green, style=filled, label="metis_n_img_distortion"];
+   "metis_n_lss_rsrf" [shape=box, fillcolor=green, style=filled, label="metis_N_lss_rsrf"];
+   "metis_n_lss_trace" [shape=box, fillcolor=green, style=filled, label="metis_N_lss_trace"];
+   "metis_n_lss_flux" [shape=box, fillcolor=green, style=filled, label="metis_N_lss_flux"];
+   "metis_n_lss_sci" [shape=box, fillcolor=green, style=filled, label="metis_N_lss_sci"];
+   "metis_n_lss_mf_model" [shape=box, fillcolor=green, style=filled, label="metis_N_lss_mf_model"];
+   "metis_n_lss_mf_calctrans" [shape=box, fillcolor=green, style=filled, label="metis_N_lss_mf_calctrans"];
+   "metis_n_lss_mf_correct" [shape=box, fillcolor=green, style=filled, label="metis_N_lss_mf_correct"];
+   "persistence_map" [shape=box, fillcolor=purple, style=filled, label="PERSISTENCE_MAP"];
+   "gain_map_2rg" [shape=box, fillcolor=purple, style=filled, label="GAIN_MAP_2RG"];
+   "gain_map_geo" [shape=box, fillcolor=purple, style=filled, label="GAIN_MAP_GEO"];
+   "atm_line_cat" [shape=box, fillcolor=purple, style=filled, label="ATM_LINE_CAT"];
+   "ao_psf_model" [shape=box, fillcolor=purple, style=filled, label="AO_PSF_MODEL"];
+   "atm_profile" [shape=box, fillcolor=purple, style=filled, label="ATM_PROFILE"];
+   "laser_tab" [shape=box, fillcolor=purple, style=filled, label="LASER_TAB"];
+   "ref_flux_cat" [shape=box, fillcolor=purple, style=filled, label="REF_FLUX_CAT"];
+   "lm_adc_slitloss" [shape=box, fillcolor=purple, style=filled, label="LM_ADC_SLITLOSS"];
+   "n_adc_slitloss" [shape=box, fillcolor=purple, style=filled, label="N_ADC_SLITLOSS"];
+   "lsf_kernel" [shape=box, fillcolor=purple, style=filled, label="LSF_KERNEL"];
+   "n_lss_dist_sol" [shape=box, fillcolor=purple, style=filled, label="N_LSS_DIST_SOL"];
+   "n_lss_wave_guess" [shape=box, fillcolor=purple, style=filled, label="N_LSS_WAVE_GUESS"];
+   "lm_synth_trans" [shape=box, fillcolor=purple, style=filled, label="LM_SYNTH_TRANS"];
+   "n_synth_trans" [shape=box, fillcolor=purple, style=filled, label="N_SYNTH_TRANS"];
+   "master_dark_2rg" [shape=box, fillcolor=purple, style=filled, label="MASTER_DARK_2RG"];
+   "master_dark_geo" [shape=box, fillcolor=purple, style=filled, label="MASTER_DARK_GEO"];
+   "badpix_map_2rg" [shape=box, fillcolor=purple, style=filled, label="BADPIX_MAP_2RG"];
+   "badpix_map_geo" [shape=box, fillcolor=purple, style=filled, label="BADPIX_MAP_GEO"];
+   "lm_lss_rsrf_raw" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_RSRF_RAW"];
+   "lm_lss_rsrf_pinh_raw" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_RSRF_PINH_RAW"];
+   "lm_lss_wave_raw" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_WAVE_RAW"];
+   "lm_lss_flux_raw" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_FLUX_RAW"];
+   "lm_lss_sci_raw" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_SCI_RAW"];
+   "n\_lss_rsrf\_raw" [shape=box, fillcolor=purple, style=filled, label="N\_LSS_RSRF\_RAW"];
+   "n_lss_wave_raw" [shape=box, fillcolor=purple, style=filled, label="N_LSS_WAVE_RAW"];
+   "n_lss_rsrf_pinh_raw" [shape=box, fillcolor=purple, style=filled, label="N_LSS_RSRF_PINH_RAW"];
+   "n_lss_flux_raw" [shape=box, fillcolor=purple, style=filled, label="N_LSS_FLUX_RAW"];
+   "n_lss_sci_raw" [shape=box, fillcolor=purple, style=filled, label="N_LSS_SCI_RAW"];
+   "master_lm_lss_rsrf" [shape=box, fillcolor=purple, style=filled, label="MASTER_LM_LSS_RSRF"];
+   "median_lm_lss_rsrf_img" [shape=box, fillcolor=purple, style=filled, label="MEDIAN_LM_LSS_RSRF_IMG"];
+   "mean_lm_lss_rsrf_img" [shape=box, fillcolor=purple, style=filled, label="MEAN_LM_LSS_RSRF_IMG"];
+   "master_n_lss_rsrf" [shape=box, fillcolor=purple, style=filled, label="MASTER_N_LSS_RSRF"];
+   "median_n_lss_rsrf_img" [shape=box, fillcolor=purple, style=filled, label="MEDIAN_N_LSS_RSRF_IMG"];
+   "mean_n_lss_rsrf_img" [shape=box, fillcolor=purple, style=filled, label="MEAN_N_LSS_RSRF_IMG"];
+   "lm_lss_trace" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_TRACE"];
+   "n_lss_trace" [shape=box, fillcolor=purple, style=filled, label="N_LSS_TRACE"];
+   "lm_lss_curve" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_CURVE"];
+   "lm_lss_dist_sol" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_DIST_SOL"];
+   "lm_lss_wave_guess" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_WAVE_GUESS"];
+   "lm_lss_std_obj_map" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_STD_OBJ_MAP"];
+   "lm_lss_std_sky_map" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_STD_SKY_MAP"];
+   "lm_lss_std_1d" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_STD_1D"];
+   "n_lss_std_obj_map" [shape=box, fillcolor=purple, style=filled, label="N_LSS_STD_OBJ_MAP"];
+   "n_lss_std_sky_map" [shape=box, fillcolor=purple, style=filled, label="N_LSS_STD_SKY_MAP"];
+   "n_lss_std_1d" [shape=box, fillcolor=purple, style=filled, label="N_LSS_STD_1D"];
+   "lm_lss_sci_obj_map" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_SCI_OBJ_MAP"];
+   "lm_lss_sci_sky_map" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_SCI_SKY_MAP"];
+   "lm_lss_sci_2d" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_SCI_2D"];
+   "lm_lss_sci_1d" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_SCI_1D"];
+   "n_lss_sci_obj_map" [shape=box, fillcolor=purple, style=filled, label="N_LSS_SCI_OBJ_MAP"];
+   "n_lss_sci_sky_map" [shape=box, fillcolor=purple, style=filled, label="N_LSS_SCI_SKY_MAP"];
+   "n_lss_sci_2d" [shape=box, fillcolor=purple, style=filled, label="N_LSS_SCI_2D"];
+   "n_lss_sci_1d" [shape=box, fillcolor=purple, style=filled, label="N_LSS_SCI_1D"];
+   "master\_lm\_response" [shape=box, fillcolor=purple, style=filled, label="MASTER\_LM\_RESPONSE"];
+   "master\_n_response" [shape=box, fillcolor=purple, style=filled, label="MASTER\_N_RESPONSE"];
+   "mf_best_fit_tab" [shape=box, fillcolor=purple, style=filled, label="MF_BEST_FIT_TAB"];
+   "lm_lss_synth_trans" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_SYNTH_TRANS"];
+   "n_lss_synth_trans" [shape=box, fillcolor=purple, style=filled, label="N_LSS_SYNTH_TRANS"];
+   "lm_lss_sci_flux_2d" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_SCI_FLUX_2D"];
+   "n_lss_sci_flux_2d" [shape=box, fillcolor=purple, style=filled, label="N_LSS_SCI_FLUX_2D"];
+   "lm_lss_sci_flux_1d" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_SCI_FLUX_1D"];
+   "n_lss_sci_flux_1d" [shape=box, fillcolor=purple, style=filled, label="N_LSS_SCI_FLUX_1D"];
+   "lm_lss_sci_flux_tellcorr_1d" [shape=box, fillcolor=purple, style=filled, label="LM_LSS_SCI_FLUX_TELLCORR_1D"];
+   "n_lss_sci_flux_tellcorr_1d" [shape=box, fillcolor=purple, style=filled, label="N_LSS_SCI_FLUX_TELLCORR_1D"];
+   "metis_img_lm_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_acq"];
+   "metis_img_lm_app_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_app_acq"];
+   "metis_img_lm_vc_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_vc_acq"];
+   "metis_img_n_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_img_n_acq"];
+   "metis_img_n_cvc_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_img_n_cvc_acq"];
+   "metis_img_lmn_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lmn_acq"];
+   "metis_spec_lm_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_lm_acq"];
+   "metis_spec_n_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_n_acq"];
+   "metis_spec_lmn_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_lmn_acq"];
+   "metis_ifu_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_acq"];
+   "metis_ifu_app_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_app_acq"];
+   "metis_ifu_vc_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_vc_acq"];
+   "metis_ifu_ext_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_ext_acq"];
+   "metis_ifu_ext_app_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_ext_app_acq"];
+   "metis_ifu_ext_vc_acq" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_ext_vc_acq"];
+   "metis_img_lm_obs_autojitter" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_obs_AutoJitter"];
+   "metis_img_lm_obs_fixedskyoffset" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_obs_FixedSkyOffset"];
+   "metis_img_lm_obs_genericoffset" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_obs_GenericOffset"];
+   "metis_img_lm_app_obs_fixedoffset" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_app_obs_FixedOffset"];
+   "metis_img_lm_vc_obs_fixedskyoffset" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_vc_obs_FixedSkyOffset"];
+   "metis_img_n_obs_autochopnod" [shape=box, fillcolor=orange, style=filled, label="METIS_img_n_obs_AutoChopNod"];
+   "metis_img_n_obs_genericchopnod" [shape=box, fillcolor=orange, style=filled, label="METIS_img_n_obs_GenericChopNod"];
+   "metis_img_n_cvc_obs_autochop" [shape=box, fillcolor=orange, style=filled, label="METIS_img_n_cvc_obs_AutoChop"];
+   "metis_img_lmn_obs_autochopnod" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lmn_obs_AutoChopNod"];
+   "metis_img_lmn_obs_genericchopnod" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lmn_obs_GenericChopNod"];
+   "metis_spec_lm_obs_autonodonslit" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_lm_obs_AutoNodOnSlit"];
+   "metis_spec_lm_obs_genericoffset" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_lm_obs_GenericOffset"];
+   "metis_spec_n_obs_autochopnodonslit" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_n_obs_AutoChopNodOnSlit"];
+   "metis_spec_lmn_obs_autochopnodonslit" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_lmn_obs_AutoChopNodOnSlit"];
+   "metis_ifu_obs_fixedskyoffset" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_obs_FixedSkyOffset"];
+   "metis_ifu_obs_genericoffset" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_obs_GenericOffset"];
+   "metis_ifu_app_obs_stare" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_app_obs_Stare"];
+   "metis_ifu_vc_obs_fixedskyoffset" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_vc_obs_FixedSkyOffset"];
+   "metis_ifu_ext_obs_fixedskyoffset" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_ext_obs_FixedSkyOffset"];
+   "metis_ifu_ext_obs_genericoffset" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_ext_obs_GenericOffset"];
+   "metis_ifu_ext_app_obs_stare" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_ext_app_obs_Stare"];
+   "metis_ifu_ext_vc_obs_fixedskyoffset" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_ext_vc_obs_FixedSkyOffset"];
+   "metis_img_lm_cal_chopperhome" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_cal_ChopperHome"];
+   "metis_gen_cal_dark" [shape=box, fillcolor=orange, style=filled, label="METIS_gen_cal_dark"];
+   "metis_gen_cal_insdark" [shape=box, fillcolor=orange, style=filled, label="METIS_gen_cal_InsDark"];
+   "metis_img_lm_cal_internalflat" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_cal_InternalFlat"];
+   "metis_img_n_cal_internalflat" [shape=box, fillcolor=orange, style=filled, label="METIS_img_n_cal_InternalFlat"];
+   "metis_img_lm_cal_twilightflat" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_cal_TwilightFlat"];
+   "metis_img_n_cal_twilightflat" [shape=box, fillcolor=orange, style=filled, label="METIS_img_n_cal_TwilightFlat"];
+   "metis_spec_lm_cal_slitadc" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_lm_cal_SlitAdc"];
+   "metis_spec_n_cal_slit" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_n_cal_slit"];
+   "metis_spec_lm_cal_internalwave" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_lm_cal_InternalWave"];
+   "metis_spec_n_cal_internalwave" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_n_cal_InternalWave"];
+   "metis_ifu_cal_internalwave" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_cal_InternalWave"];
+   "metis_ifu_cal_rsrf" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_cal_rsrf"];
+   "metis_spec_lm_cal_rsrf" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_lm_cal_rsrf"];
+   "metis_spec_n_cal_rsrf" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_n_cal_rsrf"];
+   "metis_img_lm_cal_standard" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_cal_standard"];
+   "metis_img_n_cal_standard" [shape=box, fillcolor=orange, style=filled, label="METIS_img_n_cal_standard"];
+   "metis_spec_lm_cal_standard" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_lm_cal_standard"];
+   "metis_spec_n_cal_standard" [shape=box, fillcolor=orange, style=filled, label="METIS_spec_n_cal_standard"];
+   "metis_ifu_cal_standard" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_cal_standard"];
+   "metis_img_lm_cal_psf" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_cal_psf"];
+   "metis_img_n_cal_psf" [shape=box, fillcolor=orange, style=filled, label="METIS_img_n_cal_psf"];
+   "metis_ifu_cal_psf" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_cal_psf"];
+   "metis_img_lm_cal_platescale" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_cal_platescale"];
+   "metis_img_n_cal_platescale" [shape=box, fillcolor=orange, style=filled, label="METIS_img_n_cal_platescale"];
+   "metis_ifu_cal_platescale" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_cal_platescale"];
+   "metis_img_lm_cal_distortion" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_cal_distortion"];
+   "metis_img_n_cal_distortion" [shape=box, fillcolor=orange, style=filled, label="METIS_img_n_cal_distortion"];
+   "metis_ifu_cal_distortion" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_cal_distortion"];
+   "metis_img_lm_cal_detlin" [shape=box, fillcolor=orange, style=filled, label="METIS_img_lm_cal_DetLin"];
+   "metis_img_n_cal_detlin" [shape=box, fillcolor=orange, style=filled, label="METIS_img_n_cal_DetLin"];
+   "metis_ifu_cal_detlin" [shape=box, fillcolor=orange, style=filled, label="METIS_ifu_cal_DetLin"];
+   "metis_pup_lm" [shape=box, fillcolor=orange, style=filled, label="METIS_pup_lm"];
+   "metis_pup_n" [shape=box, fillcolor=orange, style=filled, label="METIS_pup_n"];
+   "unknown_24441660" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_24441660"];
+   "unknown_12207181" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_12207181"];
+   "unknown_05182637" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_05182637"];
+   "unknown_45219424" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_45219424"];
+   "unknown_33347933" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_33347933"];
+   "lm_ravc_sci_calibrated" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_CALIBRATED"];
+   "lm_ravc_sci_centred" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_CENTRED"];
+   "lm_ravc_centroid_tab" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_CENTROID_TAB"];
+   "lm_ravc_sci_speckle" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_SPECKLE"];
+   "lm_ravc_sci_derotated_psfsub_coadd" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_DEROTATED_PSFSUB_COADD"];
+   "lm_ravc_sci_derotated_coadd" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_DEROTATED_COADD"];
+   "lm_ravc_sci_contrast_raw" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_CONTRAST_RAW"];
+   "lm_ravc_sci_contrast_adi" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_CONTRAST_ADI"];
+   "lm_ravc_sci_throughput" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_THROUGHPUT"];
+   "lm_ravc_sci_coveragemap" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_COVERAGEMAP"];
+   "lm_ravc_sci_snr" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_RAVC_SCI_SNR"];
+   "unknown_24441660" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_24441660"];
+   "unknown_12207181" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_12207181"];
+   "unknown_91560950" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_91560950"];
+   "unknown_33347933" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_33347933"];
+   "lm_app_sci_calibrated" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_CALIBRATED"];
+   "lm_app_sci_centred" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_CENTRED"];
+   "lm_app_centroid_tab" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_CENTROID_TAB"];
+   "lm_app_sci_speckle" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_SPECKLE"];
+   "lm_app_sci_derotated_psfsub" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_DEROTATED_PSFSUB"];
+   "lm_app_sci_derotated_coadd" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_DEROTATED_COADD"];
+   "lm_app_sci_contrast_raw" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_CONTRAST_RAW"];
+   "lm_app_sci_contrast_adi" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_CONTRAST_ADI"];
+   "lm_app_sci_throughput" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_THROUGHPUT"];
+   "lm_app_sci_coveragemap" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_COVERAGEMAP"];
+   "lm_app_sci_snr" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_SNR"];
+   "unknown_01281085" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_01281085"];
+   "unknown_78595031" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_78595031"];
+   "unknown_05182637" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_05182637"];
+   "unknown_45219424" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_45219424"];
+   "unknown_33347933" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_33347933"];
+   "ifu_ravc_sci_calibrated" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_CALIBRATED"];
+   "ifu_ravc_sci_centred" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_CENTRED"];
+   "ifu_ravc_centroid_tab" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_CENTROID_TAB"];
+   "ifu_ravc_sci_speckle" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_SPECKLE"];
+   "ifu_ravc_sci_derotated_psfsub" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_DEROTATED_PSFSUB"];
+   "ifu_ravc_sci_derotated_coadd" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_DEROTATED_COADD"];
+   "ifu_ravc_sci_contrast_raw" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_CONTRAST_RAW"];
+   "ifu_ravc_sci_contrast_adi" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_CONTRAST_ADI"];
+   "ifu_ravc_sci_throughput" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_THROUGHPUT"];
+   "ifu_ravc_sci_snr" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_SNR"];
+   "ifu_ravc_sci_coveragemap" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_RAVC_SCI_COVERAGEMAP"];
+   "unknown_85642397" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_85642397"];
+   "unknown_57438231" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_57438231"];
+   "unknown_48741667" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_48741667"];
+   "unknown_81165114" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_81165114"];
+   "ifu_wavecal" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_WAVECAL"];
+   "unknown_04970310" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_04970310"];
+   "master_dark_ifu" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="MASTER_DARK_IFU"];
+   "badpix_map_ifu" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="BADPIX_MAP_IFU"];
+   "ifu_wavecal" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_WAVECAL"];
+   "master_flat_ifu" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="MASTER_FLAT_IFU"];
+   "rsrf_ifu" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="RSRF_IFU"];
+   "badpix_map_ifu" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="BADPIX_MAP_IFU"];
+   "unknown_60723488" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_60723488"];
+   "unknown_57438231" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_57438231"];
+   "unknown_14691933" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_14691933"];
+   "unknown_93629369" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_93629369"];
+   "unknown_30181591" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_30181591"];
+   "unknown_95494538" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_95494538"];
+   "ifu_std_reduced_cube" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_STD_REDUCED_CUBE"];
+   "ifu_std_background_cube" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_STD_BACKGROUND_CUBE"];
+   "ifu_std_reduced_1d" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_STD_REDUCED_1D"];
+   "ifu_std_telluric_1d" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_STD_TELLURIC_1D"];
+   "fluxcal_tab" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="FLUXCAL_TAB"];
+   "unknown_62423871" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_62423871"];
+   "unknown_24317584" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_24317584"];
+   "unknown_57438231" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_57438231"];
+   "unknown_14691933" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_14691933"];
+   "unknown_93629369" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_93629369"];
+   "unknown_30181591" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_30181591"];
+   "unknown_84011519" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_84011519"];
+   "unknown_95494538" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_95494538"];
+   "unknown_30008768" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_30008768"];
+   "ifu_sci_reduced" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_REDUCED"];
+   "ifu_sci_reduced_tac" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_REDUCED_TAC"];
+   "ifu_sci_background" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_BACKGROUND"];
+   "ifu_sci_reduced_cube" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_REDUCED_CUBE"];
+   "ifu_sci_reduced_cube_tac" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_REDUCED_CUBE_TAC"];
+   "ifu_sci_combined" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_COMBINED"];
+   "ifu_sci_combined_tac" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_COMBINED_TAC"];
+   "ifu_sci_object_1d" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_OBJECT_1D"];
+   "ifu_sci_telluric_1d" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_TELLURIC_1D"];
+   "ifu_sci_combined" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_COMBINED"];
+   "ifu_sci_reduced_tac" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_REDUCED_TAC"];
+   "ifu_sci_reduced" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_REDUCED"];
+   "ifu_sci_reduced_tac" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_REDUCED_TAC"];
+   "ifu_sci_coadd" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_COADD"];
+   "ifu_sci_coadd_error" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_SCI_COADD_ERROR"];
+   "unknown_66164281" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_66164281"];
+   "ifu_distortion_table" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_DISTORTION_TABLE"];
+   "ifu_dist_reduced" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="IFU_DIST_REDUCED"];
+   "master_lm_response" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="MASTER_LM_RESPONSE"];
+   "master_lm_response" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="MASTER_LM_RESPONSE"];
+   "unknown_87531984" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_87531984"];
+   "unknown_87531984" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_87531984"];
+   "lm_img_raw" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_IMG_RAW"];
+   "master_img_flat_2rg" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="MASTER_IMG_FLAT_2RG"];
+   "unknown_62956892" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_62956892"];
+   "unknown_71980372" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_71980372"];
+   "lm_slitlosses_raw" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_SLITLOSSES_RAW"];
+   "lm_wcu_off_raw" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_WCU_OFF_RAW"];
+   "master_img_flat_2rg" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="MASTER_IMG_FLAT_2RG"];
+   "n_slitlosses_raw" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_SLITLOSSES_RAW"];
+   "n_wcu_off_raw" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_WCU_OFF_RAW"];
+   "master_img_flat_geo" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="MASTER_IMG_FLAT_GEO"];
+   "unknown_24994131" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_24994131"];
+   "flat,off" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="FLAT,OFF"];
+   "gain_map_lms" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="GAIN_MAP_LMS"];
+   "linearity_2rg" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LINEARITY_2RG"];
+   "linearity_geo" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LINEARITY_GEO"];
+   "linearity_lms" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LINEARITY_LMS"];
+   "badpix_map_lms" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="BADPIX_MAP_LMS"];
+   "unknown_94359455" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_94359455"];
+   "master_dark_lms" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="MASTER_DARK_LMS"];
+   "bpm_cold_2rg" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="BPM_COLD_2RG"];
+   "bpm_cold_geo" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="BPM_COLD_GEO"];
+   "bpm_cold_lms" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="BPM_COLD_LMS"];
+   "bpm_hot_2rg" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="BPM_HOT_2RG"];
+   "bpm_hot_geo" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="BPM_HOT_GEO"];
+   "bpm_hot_lms" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="BPM_HOT_LMS"];
+   "badpix_map_lms" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="BADPIX_MAP_LMS"];
+   "unknown_72325985" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_72325985"];
+   "unknown_69892265" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_69892265"];
+   "unknown_65354495" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_65354495"];
+   "master_img_flat_2rg" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="MASTER_IMG_FLAT_2RG"];
+   "unknown_84130556" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_84130556"];
+   "unknown_24317584" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_24317584"];
+   "unknown_57438231" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_57438231"];
+   "unknown_97564908" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_97564908"];
+   "lm_sci_basic_reduced" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_BASIC_REDUCED"];
+   "lm_std_basic_reduced" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_STD_BASIC_REDUCED"];
+   "lm_sci_basic_reduced" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_BASIC_REDUCED"];
+   "lm_std_basic_reduced" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_STD_BASIC_REDUCED"];
+   "lm_sci_bkg" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_BKG"];
+   "lm_std_bkg" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_STD_BKG"];
+   "lm_sci_bkg_subtracted" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_BKG_SUBTRACTED"];
+   "lm_std_bkg_subtracted" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_STD_BKG_SUBTRACTED"];
+   "lm_sci_object_cat" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_OBJECT_CAT"];
+   "lm_std_object_cat" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_STD_OBJECT_CAT"];
+   "lm_std_bkg_subtracted" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_STD_BKG_SUBTRACTED"];
+   "unknown_60328994" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_60328994"];
+   "lm_std_combined" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_STD_COMBINED"];
+   "fluxcal_tab" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="FLUXCAL_TAB"];
+   "lm_sci_bkg_subtracted" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_BKG_SUBTRACTED"];
+   "fluxcal_tab" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="FLUXCAL_TAB"];
+   "lm_distortion_table" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_DISTORTION_TABLE"];
+   "lm_sci_calibrated" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_CALIBRATED"];
+   "lm_sci_calibrated" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_CALIBRATED"];
+   "lm_sci_coadd" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_COADD"];
+   "lm_sci_coadd_error" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_COADD_ERROR"];
+   "lm_sci_coadd_contrib" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_SCI_COADD_CONTRIB"];
+   "unknown_48510442" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_48510442"];
+   "unknown_53754134" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_53754134"];
+   "lm_distortion_table" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_DISTORTION_TABLE"];
+   "lm_distortion_map" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_DISTORTION_MAP"];
+   "lm_dist_reduced" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="LM_DIST_REDUCED"];
+   "unknown_72325985" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_72325985"];
+   "unknown_69892265" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_69892265"];
+   "unknown_65354495" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_65354495"];
+   "master_img_flat_geo" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="MASTER_IMG_FLAT_GEO"];
+   "unknown_82691283" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_82691283"];
+   "unknown_48741667" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_48741667"];
+   "n_sci_bkg_subtracted" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_SCI_BKG_SUBTRACTED"];
+   "n_std_bkg_subtracted" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_STD_BKG_SUBTRACTED"];
+   "n_std_bkg_subtracted" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_STD_BKG_SUBTRACTED"];
+   "unknown_60328994" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_60328994"];
+   "fluxcal_tab" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="FLUXCAL_TAB"];
+   "n_sci_bkg_subtracted" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_SCI_BKG_SUBTRACTED"];
+   "fluxcal_tab" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="FLUXCAL_TAB"];
+   "n_distortion_table" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_DISTORTION_TABLE"];
+   "n_sci_calibrated" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_SCI_CALIBRATED"];
+   "n_sci_calibrated" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_SCI_CALIBRATED"];
+   "n_sci_restored" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_SCI_RESTORED"];
+   "unknown_48510442" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_48510442"];
+   "unknown_87125379" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_87125379"];
+   "unknown_65354495" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_65354495"];
+   "n_distortion_table" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_DISTORTION_TABLE"];
+   "n_distortion_map" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_DISTORTION_MAP"];
+   "n_dist_reduced" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_DIST_REDUCED"];
+   "n_lss_rsrf_raw" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="N_LSS_RSRF_RAW"];
+   "master_n_response" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="MASTER_N_RESPONSE"];
+   "master_n_response" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="MASTER_N_RESPONSE"];
+   "hitran" [shape=box, fillcolor=purple, color=red, style="filled,dashed", penwidth="4.0", label="HITRAN"];
+    "lm_ravc_sci_calibrated" -- "metis_lm_adi_ravc"
+    "lm_ravc_sci_centred" -- "metis_lm_adi_ravc"
+    "lm_ravc_centroid_tab" -- "metis_lm_adi_ravc"
+    "lm_ravc_sci_speckle" -- "metis_lm_adi_ravc"
+    "lm_ravc_sci_derotated_psfsub_coadd" -- "metis_lm_adi_ravc"
+    "lm_ravc_sci_derotated_coadd" -- "metis_lm_adi_ravc"
+    "lm_ravc_sci_contrast_raw" -- "metis_lm_adi_ravc"
+    "lm_ravc_sci_contrast_adi" -- "metis_lm_adi_ravc"
+    "lm_ravc_sci_throughput" -- "metis_lm_adi_ravc"
+    "lm_ravc_sci_coveragemap" -- "metis_lm_adi_ravc"
+    "lm_ravc_sci_snr" -- "metis_lm_adi_ravc"
+    "lm_app_sci_calibrated" -- "metis_lm_adi_app"
+    "lm_app_sci_centred" -- "metis_lm_adi_app"
+    "lm_app_centroid_tab" -- "metis_lm_adi_app"
+    "lm_app_sci_speckle" -- "metis_lm_adi_app"
+    "lm_app_sci_derotated_psfsub" -- "metis_lm_adi_app"
+    "lm_app_sci_derotated_coadd" -- "metis_lm_adi_app"
+    "lm_app_sci_contrast_raw" -- "metis_lm_adi_app"
+    "lm_app_sci_contrast_adi" -- "metis_lm_adi_app"
+    "lm_app_sci_throughput" -- "metis_lm_adi_app"
+    "lm_app_sci_coveragemap" -- "metis_lm_adi_app"
+    "lm_app_sci_snr" -- "metis_lm_adi_app"
+    "ifu_ravc_sci_calibrated" -- "metis_ifu_adi_ravc"
+    "ifu_ravc_sci_centred" -- "metis_ifu_adi_ravc"
+    "ifu_ravc_centroid_tab" -- "metis_ifu_adi_ravc"
+    "ifu_ravc_sci_speckle" -- "metis_ifu_adi_ravc"
+    "ifu_ravc_sci_derotated_psfsub" -- "metis_ifu_adi_ravc"
+    "ifu_ravc_sci_derotated_coadd" -- "metis_ifu_adi_ravc"
+    "ifu_ravc_sci_contrast_raw" -- "metis_ifu_adi_ravc"
+    "ifu_ravc_sci_contrast_adi" -- "metis_ifu_adi_ravc"
+    "ifu_ravc_sci_throughput" -- "metis_ifu_adi_ravc"
+    "ifu_ravc_sci_snr" -- "metis_ifu_adi_ravc"
+    "ifu_ravc_sci_coveragemap" -- "metis_ifu_adi_ravc"
+    "ifu_wavecal" -- "metis_ifu_wavecal"
+    "master_flat_ifu" -- "metis_ifu_rsrf"
+    "rsrf_ifu" -- "metis_ifu_rsrf"
+    "badpix_map_ifu" -- "metis_ifu_rsrf"
+    "ifu_std_reduced_cube" -- "metis_ifu_std_process"
+    "ifu_std_background_cube" -- "metis_ifu_std_process"
+    "ifu_std_reduced_1d" -- "metis_ifu_std_process"
+    "ifu_std_telluric_1d" -- "metis_ifu_std_process"
+    "fluxcal_tab" -- "metis_ifu_std_process"
+    "ifu_sci_reduced" -- "metis_ifu_sci_process"
+    "ifu_sci_reduced_tac" -- "metis_ifu_sci_process"
+    "ifu_sci_background" -- "metis_ifu_sci_process"
+    "ifu_sci_reduced_cube" -- "metis_ifu_sci_process"
+    "ifu_sci_reduced_cube_tac" -- "metis_ifu_sci_process"
+    "ifu_sci_combined" -- "metis_ifu_sci_process"
+    "ifu_sci_combined_tac" -- "metis_ifu_sci_process"
+    "ifu_sci_object_1d" -- "metis_ifu_sci_process"
+    "ifu_sci_telluric_1d" -- "metis_ifu_sci_process"
+    "ifu_sci_reduced_tac" -- "metis_ifu_tellcorr"
+    "ifu_sci_coadd" -- "metis_ifu_sci_postprocess"
+    "ifu_sci_coadd_error" -- "metis_ifu_sci_postprocess"
+    "ifu_distortion_table" -- "metis_ifu_distortion"
+    "ifu_dist_reduced" -- "metis_ifu_distortion"
+    "master_lm_lss_rsrf" -- "metis_lm_lss_rsrf"
+    "median_lm_lss_rsrf_img" -- "metis_lm_lss_rsrf"
+    "mean_lm_lss_rsrf_img" -- "metis_lm_lss_rsrf"
+    "lm_lss_trace" -- "metis_lm_lss_trace"
+    "lm_lss_curve" -- "metis_lm_lss_wave"
+    "lm_lss_dist_sol" -- "metis_lm_lss_wave"
+    "lm_lss_wave_guess" -- "metis_lm_lss_wave"
+    "lm_lss_std_obj_map" -- "metis_lm_lss_flux"
+    "lm_lss_std_sky_map" -- "metis_lm_lss_flux"
+    "lm_lss_std_1d" -- "metis_lm_lss_flux"
+    "master_lm_response" -- "metis_lm_lss_flux"
+    "lm_lss_sci_obj_map" -- "metis_lm_lss_sci"
+    "lm_lss_sci_sky_map" -- "metis_lm_lss_sci"
+    "lm_lss_sci_2d" -- "metis_lm_lss_sci"
+    "lm_lss_sci_1d" -- "metis_lm_lss_sci"
+    "lm_lss_sci_flux_2d" -- "metis_lm_lss_sci"
+    "lm_lss_sci_flux_1d" -- "metis_lm_lss_sci"
+    "mf_best_fit_tab" -- "metis_lm_lss_mf_model"
+    "lm_lss_synth_trans" -- "metis_lm_lss_mf_calctrans"
+    "lm_lss_sci_flux_tellcorr_1d" -- "metis_lm_lss_mf_correct"
+    "unknown_87531984" -- "metis_pupil_imaging"
+    "unknown_62956892" -- "metis_img_chophome"
+    "unknown_71980372" -- "metis_img_chophome"
+    "lm_adc_slitloss" -- "metis_lm_adc_slitloss"
+    "n_adc_slitloss" -- "metis_n_adc_slitloss"
+    "gain_map_2rg" -- "metis_det_lingain"
+    "gain_map_geo" -- "metis_det_lingain"
+    "gain_map_lms" -- "metis_det_lingain"
+    "linearity_2rg" -- "metis_det_lingain"
+    "linearity_geo" -- "metis_det_lingain"
+    "linearity_lms" -- "metis_det_lingain"
+    "badpix_map_2rg" -- "metis_det_lingain"
+    "badpix_map_geo" -- "metis_det_lingain"
+    "badpix_map_lms" -- "metis_det_lingain"
+    "master_dark_2rg" -- "metis_det_dark"
+    "master_dark_geo" -- "metis_det_dark"
+    "master_dark_lms" -- "metis_det_dark"
+    "bpm_cold_2rg" -- "metis_det_dark"
+    "bpm_cold_geo" -- "metis_det_dark"
+    "bpm_cold_lms" -- "metis_det_dark"
+    "bpm_hot_2rg" -- "metis_det_dark"
+    "bpm_hot_geo" -- "metis_det_dark"
+    "bpm_hot_lms" -- "metis_det_dark"
+    "badpix_map_2rg" -- "metis_det_dark"
+    "badpix_map_geo" -- "metis_det_dark"
+    "badpix_map_lms" -- "metis_det_dark"
+    "persistence_map" -- "metis_det_persistence"
+    "master_img_flat_2rg" -- "metis_lm_img_flat"
+    "badpix_map_2rg" -- "metis_lm_img_flat"
+    "lm_sci_basic_reduced" -- "metis_lm_img_basic_reduce"
+    "lm_std_basic_reduced" -- "metis_lm_img_basic_reduce"
+    "lm_sci_bkg" -- "metis_lm_img_background"
+    "lm_std_bkg" -- "metis_lm_img_background"
+    "lm_sci_bkg_subtracted" -- "metis_lm_img_background"
+    "lm_std_bkg_subtracted" -- "metis_lm_img_background"
+    "lm_sci_object_cat" -- "metis_lm_img_background"
+    "lm_std_object_cat" -- "metis_lm_img_background"
+    "lm_std_combined" -- "metis_lm_img_std_process"
+    "fluxcal_tab" -- "metis_lm_img_std_process"
+    "lm_sci_calibrated" -- "metis_lm_img_calibrate"
+    "lm_sci_coadd" -- "metis_lm_img_sci_postprocess"
+    "lm_sci_coadd_error" -- "metis_lm_img_sci_postprocess"
+    "lm_sci_coadd_contrib" -- "metis_lm_img_sci_postprocess"
+    "lm_distortion_table" -- "metis_lm_img_distortion"
+    "lm_distortion_map" -- "metis_lm_img_distortion"
+    "lm_dist_reduced" -- "metis_lm_img_distortion"
+    "master_img_flat_geo" -- "metis_n_img_flat"
+    "badpix_map_geo" -- "metis_n_img_flat"
+    "n_sci_bkg_subtracted" -- "metis_n_img_chopnod"
+    "n_std_bkg_subtracted" -- "metis_n_img_chopnod"
+    "fluxcal_tab" -- "metis_n_img_std_process"
+    "n_sci_calibrated" -- "metis_n_img_calibrate"
+    "n_sci_restored" -- "metis_n_img_restore"
+    "n_distortion_table" -- "metis_n_img_distortion"
+    "n_distortion_map" -- "metis_n_img_distortion"
+    "n_dist_reduced" -- "metis_n_img_distortion"
+    "master_n_lss_rsrf" -- "metis_n_lss_rsrf"
+    "median_n_lss_rsrf_img" -- "metis_n_lss_rsrf"
+    "mean_n_lss_rsrf_img" -- "metis_n_lss_rsrf"
+    "n_lss_trace" -- "metis_n_lss_trace"
+    "n_lss_std_obj_map" -- "metis_n_lss_flux"
+    "n_lss_std_sky_map" -- "metis_n_lss_flux"
+    "n_lss_std_1d" -- "metis_n_lss_flux"
+    "master_n_response" -- "metis_n_lss_flux"
+    "n_lss_sci_obj_map" -- "metis_n_lss_sci"
+    "n_lss_sci_sky_map" -- "metis_n_lss_sci"
+    "n_lss_sci_2d" -- "metis_n_lss_sci"
+    "n_lss_sci_1d" -- "metis_n_lss_sci"
+    "n_lss_sci_flux_2d" -- "metis_n_lss_sci"
+    "n_lss_sci_flux_1d" -- "metis_n_lss_sci"
+    "mf_best_fit_tab" -- "metis_n_lss_mf_model"
+    "n_lss_synth_trans" -- "metis_n_lss_mf_calctrans"
+    "n_lss_sci_flux_tellcorr_1d" -- "metis_n_lss_mf_correct"
+    "metis_lm_adi_ravc" -- "unknown_24441660"
+    "metis_lm_adi_ravc" -- "unknown_12207181"
+    "metis_lm_adi_ravc" -- "unknown_05182637"
+    "metis_lm_adi_ravc" -- "unknown_45219424"
+    "metis_lm_adi_ravc" -- "unknown_33347933"
+    "metis_lm_adi_app" -- "unknown_24441660"
+    "metis_lm_adi_app" -- "unknown_12207181"
+    "metis_lm_adi_app" -- "unknown_91560950"
+    "metis_lm_adi_app" -- "unknown_33347933"
+    "metis_ifu_adi_ravc" -- "unknown_01281085"
+    "metis_ifu_adi_ravc" -- "unknown_78595031"
+    "metis_ifu_adi_ravc" -- "unknown_05182637"
+    "metis_ifu_adi_ravc" -- "unknown_45219424"
+    "metis_ifu_adi_ravc" -- "unknown_33347933"
+    "metis_ifu_wavecal" -- "unknown_85642397"
+    "metis_ifu_wavecal" -- "unknown_57438231"
+    "metis_ifu_wavecal" -- "unknown_48741667"
+    "metis_ifu_wavecal" -- "unknown_81165114"
+    "metis_ifu_rsrf" -- "unknown_04970310"
+    "metis_ifu_rsrf" -- "master_dark_ifu"
+    "metis_ifu_rsrf" -- "badpix_map_ifu"
+    "metis_ifu_rsrf" -- "ifu_wavecal"
+    "metis_ifu_std_process" -- "unknown_60723488"
+    "metis_ifu_std_process" -- "unknown_57438231"
+    "metis_ifu_std_process" -- "unknown_14691933"
+    "metis_ifu_std_process" -- "unknown_93629369"
+    "metis_ifu_std_process" -- "unknown_30181591"
+    "metis_ifu_std_process" -- "unknown_95494538"
+    "metis_ifu_sci_process" -- "unknown_62423871"
+    "metis_ifu_sci_process" -- "unknown_24317584"
+    "metis_ifu_sci_process" -- "unknown_57438231"
+    "metis_ifu_sci_process" -- "unknown_14691933"
+    "metis_ifu_sci_process" -- "unknown_93629369"
+    "metis_ifu_sci_process" -- "unknown_30181591"
+    "metis_ifu_sci_process" -- "unknown_84011519"
+    "metis_ifu_sci_process" -- "unknown_95494538"
+    "metis_ifu_sci_process" -- "unknown_30008768"
+    "metis_ifu_tellcorr" -- "ifu_sci_combined"
+    "metis_ifu_tellcorr" -- "lsf_kernel"
+    "metis_ifu_tellcorr" -- "atm_profile"
+    "metis_ifu_sci_postprocess" -- "ifu_sci_reduced"
+    "metis_ifu_sci_postprocess" -- "ifu_sci_reduced_tac"
+    "metis_ifu_distortion" -- "unknown_66164281"
+    "metis_lm_lss_rsrf" -- "lm_lss_rsrf_raw"
+    "metis_lm_lss_rsrf" -- "persistence_map"
+    "metis_lm_lss_rsrf" -- "gain_map_2rg"
+    "metis_lm_lss_rsrf" -- "badpix_map_2rg"
+    "metis_lm_lss_rsrf" -- "master_dark_2rg"
+    "metis_lm_lss_trace" -- "lm_lss_rsrf_pinh_raw"
+    "metis_lm_lss_trace" -- "persistence_map"
+    "metis_lm_lss_trace" -- "gain_map_2rg"
+    "metis_lm_lss_trace" -- "badpix_map_2rg"
+    "metis_lm_lss_trace" -- "master_dark_2rg"
+    "metis_lm_lss_trace" -- "master_lm_lss_rsrf"
+    "metis_lm_lss_wave" -- "lm_lss_wave_raw"
+    "metis_lm_lss_wave" -- "persistence_map"
+    "metis_lm_lss_wave" -- "gain_map_2rg"
+    "metis_lm_lss_wave" -- "badpix_map_2rg"
+    "metis_lm_lss_wave" -- "master_dark_2rg"
+    "metis_lm_lss_wave" -- "master_lm_lss_rsrf"
+    "metis_lm_lss_wave" -- "lm_lss_trace"
+    "metis_lm_lss_wave" -- "laser_tab"
+    "metis_lm_lss_flux" -- "lm_lss_flux_raw"
+    "metis_lm_lss_flux" -- "persistence_map"
+    "metis_lm_lss_flux" -- "gain_map_2rg"
+    "metis_lm_lss_flux" -- "badpix_map_2rg"
+    "metis_lm_lss_flux" -- "master_dark_2rg"
+    "metis_lm_lss_flux" -- "master_lm_lss_rsrf"
+    "metis_lm_lss_flux" -- "lm_lss_dist_sol"
+    "metis_lm_lss_flux" -- "lm_lss_wave_guess"
+    "metis_lm_lss_flux" -- "ao_psf_model"
+    "metis_lm_lss_flux" -- "atm_line_cat"
+    "metis_lm_lss_flux" -- "lm_adc_slitloss"
+    "metis_lm_lss_flux" -- "lm_synth_trans"
+    "metis_lm_lss_flux" -- "ref_flux_cat"
+    "metis_lm_lss_sci" -- "lm_lss_sci_raw"
+    "metis_lm_lss_sci" -- "persistence_map"
+    "metis_lm_lss_sci" -- "gain_map_2rg"
+    "metis_lm_lss_sci" -- "badpix_map_2rg"
+    "metis_lm_lss_sci" -- "master_dark_2rg"
+    "metis_lm_lss_sci" -- "master_lm_lss_rsrf"
+    "metis_lm_lss_sci" -- "lm_lss_dist_sol"
+    "metis_lm_lss_sci" -- "lm_lss_wave_guess"
+    "metis_lm_lss_sci" -- "atm_line_cat"
+    "metis_lm_lss_sci" -- "lm_adc_slitloss"
+    "metis_lm_lss_sci" -- "master_lm_response"
+    "metis_lm_lss_mf_model" -- "lm_lss_sci_flux_1d"
+    "metis_lm_lss_mf_model" -- "lsf_kernel"
+    "metis_lm_lss_mf_model" -- "atm_profile"
+    "metis_lm_lss_mf_model" -- "atm_line_cat"
+    "metis_lm_lss_mf_calctrans" -- "mf_best_fit_tab"
+    "metis_lm_lss_mf_calctrans" -- "lsf_kernel"
+    "metis_lm_lss_mf_calctrans" -- "atm_profile"
+    "metis_lm_lss_mf_calctrans" -- "atm_line_cat"
+    "metis_lm_lss_mf_correct" -- "lm_lss_sci_flux_1d"
+    "metis_lm_lss_mf_correct" -- "lm_lss_synth_trans"
+    "metis_pupil_imaging" -- "unknown_87531984"
+    "metis_img_chophome" -- "lm_img_raw"
+    "metis_img_chophome" -- "persistence_map"
+    "metis_img_chophome" -- "gain_map_2rg"
+    "metis_img_chophome" -- "badpix_map_2rg"
+    "metis_img_chophome" -- "master_dark_2rg"
+    "metis_img_chophome" -- "master_img_flat_2rg"
+    "metis_lm_adc_slitloss" -- "lm_slitlosses_raw"
+    "metis_lm_adc_slitloss" -- "lm_wcu_off_raw"
+    "metis_lm_adc_slitloss" -- "persistence_map"
+    "metis_lm_adc_slitloss" -- "gain_map_2rg"
+    "metis_lm_adc_slitloss" -- "badpix_map_2rg"
+    "metis_lm_adc_slitloss" -- "master_dark_2rg"
+    "metis_lm_adc_slitloss" -- "master_img_flat_2rg"
+    "metis_n_adc_slitloss" -- "n_slitlosses_raw"
+    "metis_n_adc_slitloss" -- "n_wcu_off_raw"
+    "metis_n_adc_slitloss" -- "persistence_map"
+    "metis_n_adc_slitloss" -- "gain_map_geo"
+    "metis_n_adc_slitloss" -- "badpix_map_geo"
+    "metis_n_adc_slitloss" -- "master_dark_geo"
+    "metis_n_adc_slitloss" -- "master_img_flat_geo"
+    "metis_det_lingain" -- "unknown_24994131"
+    "metis_det_lingain" -- "flat,off"
+    "metis_det_dark" -- "unknown_94359455"
+    "metis_lm_img_flat" -- "unknown_72325985"
+    "metis_lm_img_flat" -- "unknown_69892265"
+    "metis_lm_img_flat" -- "unknown_65354495"
+    "metis_lm_img_basic_reduce" -- "unknown_84130556"
+    "metis_lm_img_basic_reduce" -- "unknown_24317584"
+    "metis_lm_img_basic_reduce" -- "unknown_57438231"
+    "metis_lm_img_basic_reduce" -- "unknown_97564908"
+    "metis_lm_img_background" -- "lm_sci_basic_reduced"
+    "metis_lm_img_background" -- "lm_std_basic_reduced"
+    "metis_lm_img_std_process" -- "lm_std_bkg_subtracted"
+    "metis_lm_img_std_process" -- "unknown_60328994"
+    "metis_lm_img_calibrate" -- "lm_sci_bkg_subtracted"
+    "metis_lm_img_calibrate" -- "fluxcal_tab"
+    "metis_lm_img_calibrate" -- "lm_distortion_table"
+    "metis_lm_img_sci_postprocess" -- "lm_sci_calibrated"
+    "metis_lm_img_sci_postprocess" -- "badpix_map_2rg"
+    "metis_lm_img_distortion" -- "unknown_48510442"
+    "metis_lm_img_distortion" -- "unknown_53754134"
+    "metis_n_img_flat" -- "unknown_72325985"
+    "metis_n_img_flat" -- "unknown_69892265"
+    "metis_n_img_flat" -- "unknown_65354495"
+    "metis_n_img_chopnod" -- "unknown_82691283"
+    "metis_n_img_chopnod" -- "unknown_48741667"
+    "metis_n_img_std_process" -- "n_std_bkg_subtracted"
+    "metis_n_img_std_process" -- "unknown_60328994"
+    "metis_n_img_calibrate" -- "n_sci_bkg_subtracted"
+    "metis_n_img_calibrate" -- "fluxcal_tab"
+    "metis_n_img_calibrate" -- "n_distortion_table"
+    "metis_n_img_restore" -- "n_sci_calibrated"
+    "metis_n_img_distortion" -- "unknown_48510442"
+    "metis_n_img_distortion" -- "unknown_87125379"
+    "metis_n_img_distortion" -- "unknown_65354495"
+    "metis_n_lss_rsrf" -- "n_lss_rsrf_raw"
+    "metis_n_lss_rsrf" -- "persistence_map"
+    "metis_n_lss_rsrf" -- "gain_map_geo"
+    "metis_n_lss_rsrf" -- "badpix_map_geo"
+    "metis_n_lss_rsrf" -- "master_dark_geo"
+    "metis_n_lss_trace" -- "n_lss_rsrf_pinh_raw"
+    "metis_n_lss_trace" -- "persistence_map"
+    "metis_n_lss_trace" -- "gain_map_geo"
+    "metis_n_lss_trace" -- "badpix_map_geo"
+    "metis_n_lss_trace" -- "master_dark_geo"
+    "metis_n_lss_trace" -- "master_n_lss_rsrf"
+    "metis_n_lss_flux" -- "n_lss_flux_raw"
+    "metis_n_lss_flux" -- "persistence_map"
+    "metis_n_lss_flux" -- "gain_map_geo"
+    "metis_n_lss_flux" -- "badpix_map_geo"
+    "metis_n_lss_flux" -- "master_dark_geo"
+    "metis_n_lss_flux" -- "master_n_lss_rsrf"
+    "metis_n_lss_flux" -- "n_lss_trace"
+    "metis_n_lss_flux" -- "n_lss_dist_sol"
+    "metis_n_lss_flux" -- "n_lss_wave_guess"
+    "metis_n_lss_flux" -- "n_synth_trans"
+    "metis_n_lss_flux" -- "ao_psf_model"
+    "metis_n_lss_flux" -- "atm_line_cat"
+    "metis_n_lss_flux" -- "n_adc_slitloss"
+    "metis_n_lss_flux" -- "ref_flux_cat"
+    "metis_n_lss_sci" -- "n_lss_sci_raw"
+    "metis_n_lss_sci" -- "persistence_map"
+    "metis_n_lss_sci" -- "gain_map_geo"
+    "metis_n_lss_sci" -- "badpix_map_geo"
+    "metis_n_lss_sci" -- "master_dark_geo"
+    "metis_n_lss_sci" -- "master_n_lss_rsrf"
+    "metis_n_lss_sci" -- "n_lss_trace"
+    "metis_n_lss_sci" -- "n_lss_dist_sol"
+    "metis_n_lss_sci" -- "n_lss_wave_guess"
+    "metis_n_lss_sci" -- "atm_line_cat"
+    "metis_n_lss_sci" -- "ao_psf_model"
+    "metis_n_lss_sci" -- "n_adc_slitloss"
+    "metis_n_lss_sci" -- "master_n_response"
+    "metis_n_lss_mf_model" -- "n_lss_sci_flux_1d"
+    "metis_n_lss_mf_model" -- "lsf_kernel"
+    "metis_n_lss_mf_model" -- "atm_profile"
+    "metis_n_lss_mf_model" -- "atm_line_cat"
+    "metis_n_lss_mf_calctrans" -- "mf_best_fit_tab"
+    "metis_n_lss_mf_calctrans" -- "lsf_kernel"
+    "metis_n_lss_mf_calctrans" -- "atm_profile"
+    "metis_n_lss_mf_calctrans" -- "hitran"
+    "metis_n_lss_mf_correct" -- "n_lss_sci_flux_1d"
+    "metis_n_lss_mf_correct" -- "n_lss_synth_trans"
+    "metis_lm_adi_ravc" -- "lm_sci_reduced"
+    "metis_lm_adi_app" -- "lm_sci_reduced"
+    "metis_ifu_adi_ravc" -- "ifu_sci_reduced"
+    "metis_ifu_wavecal" -- "metis_ifu_cal_lampwave"
+    "metis_ifu_rsrf" -- "metis_ifu_cal_rsrf"
+    "metis_ifu_std_process" -- "metis_ifu_cal_standard"
+    "metis_ifu_sci_process" -- "metis_ifu_obs_fixedskyoffset"
+    "metis_ifu_sci_process" -- "metis_ifu_obs_genericoffset"
+    "metis_ifu_sci_process" -- "metis_ifu_ext_obs_fixedskyoffset"
+    "metis_ifu_sci_process" -- "metis_ifu_ext_obs_genericoffset"
+    "metis_ifu_sci_process" -- "metis_ifu_app_obs_genericoffset"
+    "metis_ifu_sci_process" -- "metis_ifu_vc_obs_fixedskyoffset"
+    "metis_ifu_sci_process" -- "metis_ifu_ext_app_obs_genericoffset"
+    "metis_ifu_sci_process" -- "metis_ifu_ext_vc_obs_fixedskyoffset"
+    "metis_ifu_sci_process" -- "metis_ifu_cal_psf"
+    "metis_ifu_distortion" -- "metis_ifu_cal_distortion"
+    "metis_lm_lss_rsrf" -- "metis_spec_lm_cal_rsrf"
+    "metis_lm_lss_trace" -- "metis_spec_lm_cal_rsrfpinh"
+    "metis_lm_lss_wave" -- "metis_spec_lm_cal_internalwave"
+    "metis_lm_lss_flux" -- "metis_spec_lm_cal_standard"
+    "metis_lm_lss_sci" -- "metis_spec_lm_acq"
+    "metis_lm_lss_sci" -- "metis_spec_lm_obs_autonodonslit"
+    "metis_lm_lss_sci" -- "metis_spec_lm_obs_genericoffset"
+    "metis_lm_lss_sci" -- "metis_spec_lm_cal_slit_adc"
+    "metis_pupil_imaging" -- "tbd"
+    "metis_img_chophome" -- "metis_img_lm_cal_chopperhome"
+    "metis_lm_adc_slitloss" -- "metis_spec_lm_cal_slitadc"
+    "metis_n_adc_slitloss" -- "metis_spec_n_cal_slitadc"
+    "metis_det_lingain" -- "metis_img_lm_cal_detlin"
+    "metis_det_lingain" -- "metis_img_n_cal_detlin"
+    "metis_det_lingain" -- "metis_ifu_cal_detlin"
+    "metis_det_dark" -- "metis_gen_cal_dark"
+    "metis_lm_img_flat" -- "metis_img_lm_cal_internalflat"
+    "metis_lm_img_flat" -- "metis_all_cal_twilightflat"
+    "metis_lm_img_basic_reduce" -- "metis_img_lm_cal_standard"
+    "metis_lm_img_basic_reduce" -- "metis_img_lm_*_obs_*"
+    "metis_lm_img_background" -- "metis_img_lm_cal_standard"
+    "metis_lm_img_background" -- "metis_img_lm_*_obs_*"
+    "metis_lm_img_std_process" -- "metis_img_lm_cal_standard"
+    "metis_lm_img_distortion" -- "metis_img_lm_cal_distortion"
+    "metis_n_img_flat" -- "metis_img_n_cal_internalflat"
+    "metis_n_img_flat" -- "metis_all_cal_twilightflat"
+    "metis_n_img_chopnod" -- "metis_img_n_cal_standard"
+    "metis_n_img_chopnod" -- "metis_img_n_obs_autochopnod"
+    "metis_n_img_chopnod" -- "metis_img_n_obs_genericchopnod"
+    "metis_n_img_chopnod" -- "metis_img_n_cvc_obs_autochop"
+    "metis_n_img_chopnod" -- "metis_img_n_clc_obs_fixedskyoffset"
+    "metis_n_img_chopnod" -- "metis_img_n_cal_psf"
+    "metis_n_img_std_process" -- "metis_img_n_cal_standard"
+    "metis_n_img_distortion" -- "metis_img_n_cal_distortion"
+    "metis_n_lss_rsrf" -- "metis_spec_n_cal_rsrf"
+    "metis_n_lss_trace" -- "metis_spec_n_cal_rsrfpinh"
+    "metis_n_lss_flux" -- "metis_spec_n_cal_standard"
+    "metis_n_lss_sci" -- "metis_spec_n_acq"
+    "metis_n_lss_sci" -- "metis_spec_n_obs_autonodonslit"
+    "metis_n_lss_sci" -- "metis_spec_n_obs_genericoffset"
+    "metis_n_lss_sci" -- "metis_spec_n_cal_slit_adc"
+}
