@@ -159,5 +159,35 @@ class TemplateManual:
         templatesd = {tn.lower(): template for tn, template in self.templates.items()}
         return templatesd.get(name.lower(), None)
 
+    def expand_wildcards(self, name):
+        """Expand wildcards in template names.
+
+        E.g., the DRLD can refer to e.g. metis_img_lm_*_obs_*. This should
+        expand to (ignoring capitalization):
+        - METIS_img_lm_obs_AutoJitter
+        - METIS_img_lm_obs_FixedSkyOffset
+        - METIS_img_lm_obs_GenericOffset
+        - METIS_img_lm_app_obs_FixedOffset
+        - METIS_img_lm_vc_obs_FixedSkyOffset
+
+        Note that the first three have only one underscore between the 'lm'
+        and the 'obs', but the given template name has two, and these should
+        not match:
+        - METIS_img_lmn_obs_AutoChopNod
+        - METIS_img_lmn_obs_GenericChopNod
+
+        TODO: Maybe those *should* match in this particular case?
+        """
+        if "*" not in name:
+            return name
+
+        # Replace the second _; on the basis that that works.
+        name2 = name.replace("*_", "*").replace("*", ".*").lower()
+        pattern = re.compile(name2)
+
+        return [
+            tn for tn in METIS_TemplateManual.templates if re.match(pattern, tn.lower())
+        ]
+
 
 METIS_TemplateManual = TemplateManual()

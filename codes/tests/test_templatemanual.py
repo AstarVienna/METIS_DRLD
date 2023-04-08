@@ -17,3 +17,16 @@ class TestTemplateManual:
                 "Acquisition",
                 "Engineering",
             ]
+
+    def test_expand_wildcards(self):
+        expanded = METIS_TemplateManual.expand_wildcards("metis_img_lm_*_obs_*")
+        expanded_lower = {tn.lower() for tn in expanded}
+        expected = {
+            "METIS_img_lm_obs_AutoJitter",
+            "METIS_img_lm_obs_FixedSkyOffset",
+            "METIS_img_lm_obs_GenericOffset",
+            "METIS_img_lm_app_obs_FixedOffset",
+            "METIS_img_lm_vc_obs_FixedSkyOffset",
+        }
+        expected_lower = {tn.lower() for tn in expected}
+        assert expected_lower == expanded_lower
