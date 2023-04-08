@@ -64,6 +64,7 @@ boxes_templates_missing = [
     f'   "{tn.lower()}" [shape=box, fillcolor={colors["TEMPLATE"]}, color=red, style="filled,dashed", penwidth="4.0", label="{tn}"];'
     for recipe in METIS_DataReductionLibraryDesign.recipes.values()
     for tn in recipe.templates
+    if METIS_TemplateManual.get_template(tn) is None
 ]
 
 edges_recipe_output = [

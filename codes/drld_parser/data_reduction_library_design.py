@@ -12,6 +12,7 @@ from codes.drld_parser.hacks import (
     HACK_BAD_NAMES,
     HACK_TEMPLATE_NAMES_IN_DRLD,
     HACK_INCORRECT_INPUT_DATA,
+    HACK_RECIPE_TEMPLATES,
 )
 
 
@@ -215,9 +216,12 @@ class Recipe:
                     elif value.lower() == "none" or "--" in value:
                         value = []
                     else:
+                        assert "METIS_ifu_cal_InternalWave".lower() not in value.lower()
                         value = value.split()
                         value = [
-                            HACK_TEMPLATE_NAMES_IN_DRLD.get(vi.lower(), vi.lower())
+                            HACK_RECIPE_TEMPLATES.get(
+                                (thedata["name"], vi.lower()), vi.lower()
+                            )
                             for vi in value
                         ]
                 elif field_old in ["output_data", "input_data"]:

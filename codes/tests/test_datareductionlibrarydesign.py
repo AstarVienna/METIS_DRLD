@@ -212,6 +212,20 @@ class TestDataReductionLibraryDesign:
                     in METIS_DataReductionLibraryDesign.templates_acquisition_used
                 )
 
+    @pytest.mark.xfail(
+        reason="metis_spec_n_obs_genericoffset does not exist, there is a TBD and some asterisks."
+    )
+    def test_whether_templates_are_understood(self):
+        problems = []
+        for recipe in METIS_DataReductionLibraryDesign.recipes.values():
+            for template in recipe.templates:
+                if (
+                    template is not None
+                    and METIS_TemplateManual.get_template(template) is None
+                ):
+                    problems.append((recipe.name, template))
+        assert not problems
+
 
 class TestFindLatexInputs:
     def test_find_latex_inputs(self):

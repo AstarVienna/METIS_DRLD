@@ -157,7 +157,7 @@ class TemplateManual:
     def get_template(self, name):
         """Get a template even if the capitalization is wrong, or None."""
         templatesd = {tn.lower(): template for tn, template in self.templates.items()}
-        return templatesd.get(name, None)
+        return templatesd.get(name.lower(), None)
 
 
 METIS_TemplateManual = TemplateManual()

@@ -54,6 +54,8 @@ HACK_TEMPLATE_NAMES_IN_WIKI = {
 }
 
 
+# TODO: HACK_TEMPLATE_NAMES_IN_DRLD is now less necessary, as all templates
+#  referenced in the Recipes are dealt with in HACK_RECIPE_TEMPLATES.
 HACK_TEMPLATE_NAMES_IN_DRLD = {
     ("*", "METIS_img_nq_cal_DetLin"): "METIS_img_n_cal_DetLin",
     ("*", "METIS_all_cal_dark"): "METIS_gen_cal_dark",
@@ -109,6 +111,48 @@ HACK_TEMPLATE_NAMES_IN_DRLD = {
     # Investigate
 }
 
+HACK_RECIPE_TEMPLATES = {
+    # Pinhole is internal wave?
+    (
+        "metis_LM_lss_trace",
+        "metis_spec_lm_cal_rsrfpinh",
+    ): "METIS_spec_lm_cal_InternalWave",
+    ("metis_N_lss_trace", "metis_spec_n_cal_rsrfpinh"): "METIS_spec_n_cal_InternalWave",
+    # and these as well?
+    ("metis_ifu_wavecal", "metis_ifu_cal_lampwave"): "METIS_ifu_cal_InternalWave",
+    # app stuff
+    (
+        "metis_ifu_sci_process",
+        "metis_ifu_app_obs_genericoffset",
+    ): "METIS_ifu_obs_GenericOffset",
+    (
+        "metis_ifu_sci_process",
+        "metis_ifu_ext_app_obs_genericoffset",
+    ): "METIS_ifu_ext_obs_GenericOffset",
+    # Why are these different?
+    ("metis_LM_lss_sci", "metis_spec_lm_cal_slit_adc"): "METIS_spec_lm_cal_SlitAdc",
+    ("metis_N_lss_sci", "metis_spec_n_cal_slit_adc"): "METIS_spec_n_cal_slit",
+    # Typo?
+    ("metis_n_adc_slitloss", "metis_spec_n_cal_slitadc"): "METIS_spec_n_cal_slit",
+    # Apparently not "all"
+    (
+        "metis_lm_img_flat",
+        "metis_all_cal_twilightflat",
+    ): "METIS_img_lm_cal_TwilightFlat",
+    ("metis_n_img_flat", "metis_all_cal_twilightflat"): "METIS_img_n_cal_TwilightFlat",
+    # Typo?
+    (
+        "metis_N_lss_sci",
+        "metis_spec_n_obs_autonodonslit",
+    ): "METIS_spec_n_obs_AutoChopNodOnSlit",
+    # No clue
+    # ("metis_pupil_imaging", "TBD"): "",
+    # To handle in some other way
+    # ("metis_lm_img_basic_reduce", "metis_img_lm_*_obs_*"): "",
+    # ("metis_lm_img_background", "metis_img_lm_*_obs_*"): "",
+    # Maybe should exist?
+    # ("metis_N_lss_sci", "metis_spec_n_obs_genericoffset"): "",
+}
 
 TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI = [
     "METIS_spec_lm_cal_rsrfpinh",
@@ -127,6 +171,7 @@ HACK_BAD_NAMES = {
 }
 
 HACK_INCORRECT_INPUT_DATA = {
+    "LM_SCI_REDUCED": "LM_SCI_BASIC_REDUCED",
     "MASTER_FLAT_2RG": "MASTER_IMG_FLAT_2RG",
     "MASTER_FLAT_GEO": "MASTER_IMG_FLAT_GEO",
     "LM_SCI_BADPIX": "BADPIX_MAP_2RG",
