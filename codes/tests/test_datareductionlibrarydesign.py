@@ -137,6 +137,45 @@ class TestDataReductionLibraryDesign:
         assert not bad_input_data
         assert not bad_output_data
 
+    @pytest.mark.xfail(reason="Most data is not yet defined...")
+    def test_all_recipe_data_is_defined(self):
+        bad_input_data = [
+            (recipe.name, diref)
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.input_data
+            if diref.name is not None
+            and diref.name not in METIS_DataReductionLibraryDesign.dataitems
+        ]
+        bad_output_data = [
+            (recipe.name, diref)
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.output_data
+            if diref.name is not None
+            and diref.name not in METIS_DataReductionLibraryDesign.dataitems
+        ]
+        assert not bad_input_data
+        assert not bad_output_data
+
+    def test_input_data_is_created(self):
+        """All input data should be created somewhere."""
+        # TODO: This test only passes due to HACK_INCORRECT_INPUT_DATA.
+        #   So it still needs to be fixed.
+        all_output_names = [
+            diref.name
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.output_data
+            if diref.name is not None
+        ]
+        bad_input_data = [
+            (recipe.name, diref)
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.input_data
+            if diref.name is not None
+            and diref.dtype == "PROD"
+            and diref.name not in all_output_names
+        ]
+        assert not bad_input_data
+
 
 class TestFindLatexInputs:
     def test_find_latex_inputs(self):

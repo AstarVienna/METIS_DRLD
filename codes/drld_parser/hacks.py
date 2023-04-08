@@ -126,6 +126,12 @@ HACK_BAD_NAMES = {
     "template": "templates",
 }
 
+HACK_INCORRECT_INPUT_DATA = {
+    "MASTER_FLAT_2RG": "MASTER_IMG_FLAT_2RG",
+    "MASTER_FLAT_GEO": "MASTER_IMG_FLAT_GEO",
+    "LM_SCI_BADPIX": "BADPIX_MAP_2RG",
+}
+
 
 def hack_rename_template_header(name_template_file, name_template_header):
     """Some template files on the wiki have incorrect headers.

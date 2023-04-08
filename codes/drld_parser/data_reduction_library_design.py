@@ -8,7 +8,11 @@ from pathlib import Path
 import re
 from typing import List, Tuple
 
-from codes.drld_parser.hacks import HACK_BAD_NAMES, HACK_TEMPLATE_NAMES_IN_DRLD
+from codes.drld_parser.hacks import (
+    HACK_BAD_NAMES,
+    HACK_TEMPLATE_NAMES_IN_DRLD,
+    HACK_INCORRECT_INPUT_DATA,
+)
 
 
 def find_latex_inputs(path):
@@ -56,6 +60,7 @@ class DataItemReference:
         # TODO: perhaps use pydantic?
         if self.name is not None:
             self.name = self.name.replace("\\", "")
+            self.name = HACK_INCORRECT_INPUT_DATA.get(self.name, self.name)
 
     @staticmethod
     def from_recipe_line(line):
@@ -165,11 +170,51 @@ class Recipe:
                     # TODO: Some of these are multiline, do not ignore those! e.g.:
                     #   \hyperref[dataitem:nlsssci1d]{\PROD{N_LSS_SCI_1D}}: coadded, wavelength calibrated 1D spectrum\\
                     #   & (\FITS{PRO_CATG}: \FITS{N_LSS_1d_coadd_wavecal}) \\
-                    value = [
+                    value1 = [
                         DataItemReference.from_recipe_line(val)
                         for val in value.split("\n")
                         if not val.startswith("(")
                     ]
+                    # Some fields need to be split.
+                    # TODO: These are 'or' clauses probably, need to verify that and add support for those.
+
+                    # First, from the DRLD:
+                    #   Where _det appears in FITS keywords of input or product files,
+                    #   it is taken to mean _2RG, _GEO or _LMS
+                    #   according to the detector array for which data are being processed.
+
+                    # Second, split these:
+                    #         Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \PROD{IFU_SCI_REDUCED_TAC})
+                    value = []
+                    for val in value1:
+                        if val.name and "det" in val.name:
+                            assert val.name.endswith("_det")
+                            for postfix in ["_2RG", "_GEO", "_LMS"]:
+                                value.append(
+                                    DataItemReference(
+                                        name=val.name.replace("_det", postfix),
+                                        dtype=val.dtype,
+                                        hyperref=val.hyperref,
+                                        description=val.description,
+                                    )
+                                )
+                        elif val.name and "PROD" in val.name:
+                            # There is only one case of this it seems.
+                            # Then the name becomes
+                            #  'IFU_SCI_REDUCED}, PROD{IFU_SCI_REDUCED_TAC'
+                            names_new = val.name.split("}, PROD{")
+                            assert len(names_new) == 2
+                            for name_new in names_new:
+                                value.append(
+                                    DataItemReference(
+                                        name=name_new,
+                                        dtype=val.dtype,
+                                        hyperref=val.hyperref,
+                                        description=val.description,
+                                    )
+                                )
+                        else:
+                            value.append(val)
 
                 thedata[field_old] = value
 
