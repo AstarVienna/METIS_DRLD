@@ -43,7 +43,7 @@ At the end of the OB:
     * Telescope gets ready for next preset
 ++++
 
-===Parameters for METIS_img_n_obs_AutoChopNod ===
+===Parameters for METIS_img_lmn_obs_AutoChopNod ===
 
 ^Parameter             ^Hidden     ^Range (default)            ^Label^  
 |DPR CATG              |yes        |SCIENCE TEST(SCIENCE) |Data product category|
