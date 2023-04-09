@@ -1,0 +1,35 @@
+===== Nominal IFU spectroscopy (LM) =====
+Science use case example: //Kinematic and spatial studies of circumstellar disk dynamics with CO at 4.65 microns//
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+  * preparation GUI to help define FOV 
+
+==== Acquisition ====
+
+The steps prior to AO loop closing are identical to IMG-LM. After that, the LMS pick-off mirror is inserted (90% of the light sent to LMS, 10% to the IMG-LM). For target centering on the IFU, the positional cross-calibration between the IMG and the LMS will be used. This should be precise to within a small fraction of a slice width (a few mas).
+
+Template options: 
+  * [[METIS_ifu_acq|METIS_ifu_acq]]
+
+==== Science sequence ====
+
+Two options to deal with offsetting to the sky: 
+
+  * Periodic offsets to a pre-defined nearby sky position, alternating between the science target and the sky position, with dithering (Fixed Sky Offset)
+  * Any user-defined offset pattern (Generic Offset)
+ 
+All offsets can be performed using the telescope or the CFO-PP2 chopper (TBC).
+
+Template options:
+
+  * [[METIS_ifu_obs_FixedSkyOffset|METIS_ifu_obs_FixedSkyOffset]]
+  * [[METIS_ifu_obs_GenericOffset|METIS_ifu_obs_GenericOffset]]
+
+===== Discussion =====
+
+  * [[ifu_discussion|ifu_discussion]]

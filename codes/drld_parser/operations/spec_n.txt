@@ -1,0 +1,27 @@
+===== N-band low resolution spectroscopy  =====
+Science use case example: //Spectral analysis of spatially resolved dust tori around AGNs / circumstellar disks//
+
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+
+==== Acquisition ====
+
+During the preset, the telescope is sent to the position of the target. The AO NGS is automatically centered on the WFS (no interaction needed). In case of the off-axis NGS (SEQ NGS ISTARGET = F), an internal WFS mirror (field selector) will be tilted such that the off-axis NGS falls exactly onto the WFS.  A through-slit image is taken in order to measure the exact slit position on the detector. The target is then moved to the slit position.
+
+Template options: 
+  * [[METIS_spec_n_acq|METIS_spec_n_acq]]
+
+==== Science sequence ====
+In long-slit spectroscopy mode, the sky subtraction in N is performed by chopping and nodding the target, typically along the slit, with optional jitters at each position. More complex source geometries might require larger nodding amplitudes, and/or nodding perpendicular to the slit in order to avoid self-cancellation.
+
+Template options: 
+  * [[METIS_spec_n_obs_AutoChopNodOnSlit|METIS_spec_n_obs_AutoChopNodOnSlit]]
+
+===== Discussion =====
+ [[spec_n_discussion|spec_n_discussion]] 
+

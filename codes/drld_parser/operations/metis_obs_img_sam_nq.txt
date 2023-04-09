@@ -1,0 +1,51 @@
+==== Science imaging template METIS_obs_IMG_SAM_NQ ====
+
+=== Procedure for METIS_obs_IMG_SAM_NQ ===
+ 
+++++
+Setup imager|
+  * Move ''IMG-NQ PP1 FILT'' to selected filter
+  * ''IMG-NQ PP1 MASK'' to selected SAM mask
+  * Set detector parameters (DIT, NDIT, readout mode, burst mode T/F)
+++++
+++++
+Start science exposures|
+
+  * set up chopper parameters (frequency, chop-throw, position angle)
+  * Depending on the sky subtraction mode, following offsetting options are available: 
+    * chopping: using CFO-PP2 chopper
+    * dithering: using CFO-PP2 chopper or telescope offsets
+    * sky offsets: using CFO-PP2 chopper or telescope offsets. Can be implemented in situation where there is no suitable blank position at the regular chop-throw distance (5 arcsec), in case of e.g. crowded field, or very extended target. If the offset is too large to maintain guiding, open the AO loop, take exposure(s) at the sky position, resume AO correction after returning back on the target. 
+  * Offsets should be defined in detector coordinates to avoid that the changing position angle on sky (due to pupil-tracking) puts the objects in ever different locations on the detector, or outside of the available field.
+  * At each offset position start science exposures with DIT/NDIT. 
+  * ''burst mode'' keyword set to T
+  * Read-out and save individual exposures (interferograms)
+++++
+++++
+End science exposures|
+  * Return back to the initial position. 
+  * Collect headers
+  * Merge in one final data cube per observation (tbc)
+  * Send cube to ESO Archive
+  * Send cube to PIP machine
+  * Stop chopper
+  * Stop AO
+  * Stop derotator
+  * Stop CST pupil tracking
+++++
+
+=== Parameters for METIS_obs_IMG_SAM_NQ ===
+
+  * ''IMG-NQ FP1'' - DIT (can be list)
+  * ''IMG-NQ FP1'' - NDIT (can be list)
+  * ''IMG-NQ FP1'' - readout mode
+  * ''IMG-NQ FP1'' - burst mode T/F (set T)
+  * ''IMG-NQ PP1'' - filter
+  * background subtraction technique (chopping/dithering/sky offset)
+  * CFO PP2  - chopper parameters (''frequency'', ''chop-throw'', ''chopper position angle'')
+  * ''CFO PP2 NCHOPCYCLES'' - number of chopping cycles
+  * ''Noff'' - total number of offsets
+  * ''X offset'' - list of offsets in X direction (in detector coordinates).
+  * ''Y offset'' - list of offsets in Y direction (in detector coordinates).
+  * ''NEXP'' - number of exposures at each offset position
+

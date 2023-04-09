@@ -1,0 +1,45 @@
+==== Removal of thermal background in N/Q bands ====
+One of the most crucial calibrations in a thermal-infrared instrument like METIS is the removal of the thermal background which dominates the photon count rate. This task is being studied with large efforts in the METIS consortium. In this subsection we report the currently foreseen plan to remove the thermal background. For an in-depth discussion on this topic, see Section~\ref{sec:thermal_background}.
+
+=== Responsible ===
+Observer
+
+=== Phase ===
+Night-time
+
+=== Frequency ===
+During observations
+
+=== Purpose ===
+Remove thermal background and detector artefacts
+
+=== Procedure ===
+  * Use the METIS-internal chopper mirror to perform small ($<$ 10\farcs, tbc), fast ($\approx$ 10 Hz) offsets of the field with respect to the NQ IMG detector
+  * Additionally perform regular "nodding" offsets, i.e. offsets of the telescope main axis. The baseline assumption for nodding is like with VISIR (Ref. VISIR user manual, Issue 97.1), i.e. 90 seconds per nod cycle or one telescope offset every 45 seconds.
+
+=== Pipeline data products ===
+  * Maps of the background without the sources and background-subtracted versions of the maps with the sources
+
+=== Prepared observing blocks ===
+Part of the science observations
+
+=== Prepared templates ===
+Part of the N band observing templates
+
+=== Pipeline support ===
+  * For each two subsequent chop cycles, subtract the mean of all A frames from the mean of all B frames leading to a single chop-difference frame.
+  * For each nod cycle, compute the mean chop-difference frame, i.e. the nod half-cycle frame (consider to store these frames in the final FITS file, as is currently done with VISIR)
+  * For each two subsequent nod cycles, subtract the half-cycle frames, leading to nod-difference frames. Then compute the mean of all these nod-difference frames, leading to the final background-subtracted image.
+  * For the final science-grade calibrated data product, the optimal extraction (PSF-weighting) should be used to subtract the two/three/four positive/negative source images (the number of source images on the final background-subtracted image depends on the relative chop/nod motions) and produce a single stacked image (along other intermediate data products).
+
+=== Duration ===
+Part of the observing overheads, see \cite{sec:thermal_background} for a discussion of these.
+
+=== Prerequisites ===
+none
+
+=== Required Accuracy ===
+Depends on science case; in general the residuals from the background removal must be insignificant compared to the photon noise of the background in order to reach the background-noise limit.
+
+=== Expected Accuracy ===
+tbd

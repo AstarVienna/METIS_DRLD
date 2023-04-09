@@ -1,0 +1,54 @@
+==== Removal of thermal background in L/M bands ====
+Previous observing experience has shown that a (slow) dither pattern is sufficient to support the thermal background removal in the L and M bands. It is unclear, however, if these offsets can be performed by the METIS-internal chopper. This would alter the light path between the various offset positions and probably introduce artefacts similar to the chop-residuals. Perhaps this has to be done with the telescope (as is done in current L band cameras).
+
+=== Responsible ===
+Observer
+
+=== Phase ===
+Night-time
+
+=== Frequency ===
+During observations
+
+=== Purpose ===
+Remove thermal background and detector artefacts
+
+=== Procedure ===
+  * Use the METIS-internal chopper mirror (tbc) to perform small (less than 10 arc seconds, tbc), slow (timescale about 1 minute) offsets of the field w.r.t. the LM IMG or LMS detector
+
+=== Pipeline data products ===
+  * Maps of the background without the sources and background-subtracted versions of the maps with the sources
+
+=== Prepared observing blocks ===
+Part of the science observations
+
+=== Prepared templates ===
+Part of the observing templates
+
+=== Pipeline support ===
+Use a variety of observing templates in order to accommodate cases for in-field and out-of-field dithering (see LM Imaging observing templates).
+
+In-field-dithering:
+  * determine (spatial) zero-point offsets for each "dither" position
+  * align frames (e.g. by computing the centroid of a bright source in the field or by using the exact offset value that was applied to the chopper)
+  * determine the median of all dithered frames to suppress any emission that did not follow the dither pattern. Ultimately this should be replaced by an iterative procedure where, in the beginning, a median frame is used to identify the astronomical sources and in the following step(s) a median is used to combine the background frames (excluding the source positions) with higher signal/noise.
+
+Out-of-field dithering:
+  * subtract sky frame from object frame
+  * Generate median difference frame
+
+=== Duration ===
+Part of the observing overheads, see \cite{sec:thermal_background} for a discussion of these.
+
+=== Prerequisites ===
+none
+
+=== Required Accuracy ===
+Depends on science case; in general the residuals from the background removal must be insignificant compared to the photon noise of the background in order to reach the background-noise limit.
+
+=== Expected Accuracy ===
+tbd
+
+
+=== Notes ===
+  * How to best determine the flux scaling factors for each dither position? E.g. take a median of the frame and re-scale accordingly or use a more sophisticated 2D/PCA approach such as presented in \cite{hunziker2018}.

@@ -1,0 +1,65 @@
+===Procedure for METIS_ifu_cal_rsrf ===
+
+This template is used to determine the relative spectral response function for the IFU mode. A grid is inserted in the optical path of the instrument. The grid is illuminated, simulating a set of point sources at various positions of the detector. After taking background frames, the template takes a set of ''NEXPO'' exposures with a particular ''DIT'' and ''NDIT'' combination. The procedure is repeated for various illumination levels/black body temperatures and grid positions.
+
+++++
+Setup WCU|
+  * Move periscopic arm to IN
+  * Set temperature of the blackbody to specified temperature
+  * Wait for about 45 minutes (warming up time, depends on the BB temperature selection)
+  * Set ''WCU-FP2.1'' to flat-field mask (open position)
+  * Set ''WCU-PP1'' to ELT mask
+  * Check the power readout. If the power is detectable, continue. 
+  * Set ''WCU-BB-aperture-mask'' to CLOSE
+  * take background measurement
+  * Set ''WCU-BB-aperture-mask'' to OPEN
+++++
+++++
+Setup CFO and subsystems|
+  * Set ''CFO-PP1'' to PPS-CFO1
+  * Set ''CFO-FP2'' to FIELD-11
+  * Set LMS beamsplitter pickoff wheel to IN
+  * insert ''LMS PP1'' cold stop
+  * ''LMS PP4'' Select pre-dispersed range (spectral order)
+  * ''LMS FP4'' to single order selecting mask (nominal mode) or spectral IFU (extended mode)
+  * ''LMS PP5'' Select main dispersed range 
+++++
+
+++++
+Start Exposure|
+  * Start exposures with the LMS with the requested DIT and NDIT
+++++
+
+++++
+End Exposure|
+  * Collect headers
+  * Send file to ESO Archive
+++++
+
+===Parameters for METIS_ifu_cal_rsrf ===
+
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TECH              |yes        |IFU (IFU)                 |Data product technique|
+|DPR TYPE              |yes        |FLAT,LAMP (FLAT,LAMP)     |Data product type|      
+|DET3 DIT               |yes         |0..TBD (NODEFAULT)         |LMS Detector integration time (DIT)|
+|DET3 NDIT              |yes         |1..TBD (NODEFAULT)         |LMS Number of Integrations (NDIT)|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|DET3 NCORRS NAME       |no         |TBD                         |LMS Readout mode|
+|SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
+|INS WLEN CEN         |no         |2700 - 5300 nm (NODEFAULT)           |Central wavelength|
+|SEQ WCU_BB_TEMP       |yes        |TEMP-L TEMP-M (NODEFAULT)     |WCU BB temperature for specific filter|
+|SEQ WCU_OFF_NFRAMES   |yes        |TBD                        |Number of WCU off frames to take |
+|INS OPTI1 NAME         |yes        | PPS-CFO1 (PPS-CFO1)                |CFO-PP1 mask wheel|
+|INS OPTI2 NAME         |yes        | OUT (OUT)                |CFO-PP1 ADC wheel|
+|INS OPTI3 NAME         |no         |FIELD-11 (FIELD-11)                  |Slit name|
+|INS OPTI4 NAME         |yes        |IN (IN)                  |LMS beamsplitter pickoff wheel|
+|INS OPTI5 NAME         |yes        |open PPS-LMS SPM-LMS (PPS-LMS)   |LMS PP1 mask wheel|
+|INS OPTI6 NAME         |no        |OUT IN (NODEFAULT)                  |LMS spectral IFU mechanism|
+|INS OPTI7 NAME         |yes        |TBD (TBD)                  |LMS pre-disperser (to be determined by template)|
+|INS OPTI8 NAME         |yes        |TBD (TBD)                  |LMS main disperser (to be determined by template)|
+|INS OPTI17 NAME         |yes        |IN (IN)                    | WCU periscope arm|
+|INS OPTI18 NAME	|yes          |WCU_mask AIV_mask ELT_mask (ELT_mask)             |WCU PP1 masks|
+|INS OPTI19 NAME	|yes         |OPEN (OPEN)                              |WCU BB exit aperture masks|
+|INS OPTI20 NAME        |yes         |flatfield (flatfield) |WCU FP2.1 mask wheel|

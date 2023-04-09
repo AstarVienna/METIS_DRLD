@@ -1,0 +1,64 @@
+===Procedure for METIS_spec_lm_cal_rsrf ===
+
+This template is used to determine the relative spectral response function for the long-slit spectrograph. A grid is inserted in the optical path of the instrument. The grid is illuminated with the black body source, simulating a set of point sources at various positions of the detector. After taking background frames, the template takes a set of ''NEXPO'' exposures with a particular ''DIT'' and ''NDIT'' combination. The procedure is repeated for various illumination levels/black body temperatures and grid positions.
+
+++++
+Setup WCU|
+  * Move periscopic arm to IN
+  * Set temperature of the blackbody to specified temperature
+  * Wait for about 45 minutes (warming up time, depends on the BB temperature selection)
+  * Set ''WCU-FP2.1'' to flat-field mask (open position)
+  * Set ''WCU-PP1'' to ELT mask
+  * Check the power readout. If the power is detectable, continue. 
+  * Set ''WCU-BB-aperture-mask'' to CLOSE
+  * take background measurement
+  * Set ''WCU-BB-aperture-mask'' to OPEN
+++++
+
+++++
+Setup CFO and subsystems|
+  * Set ''CFO-PP1'' to PPS-CFO2
+  * Set ''CFO-FP1'' to given fixed ADC element
+  * Set ''CFO-FP2'' to chosen slit
+  * Set LMS beamsplitter pickoff wheel to OUT
+  * Set the IMG-LM mask to selected grism
+  * Set the IMG-LM science filter to the specified filter
+  * Set the IMG-LM neutral density filter to the specified filter
+++++
+
+++++
+Start Exposure|
+  * Start exposures with the IMG-LM with the requested DIT and NDIT
+++++
+
+++++
+End Exposure|
+  * Collect headers
+  * Send file to ESO Archive
+++++
+
+===Parameters for METIS_spec_lm_cal_rsrf ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TECH              |yes        |LSS (LSS)                 |Data product technique|
+|DPR TYPE              |yes        |FLAT,LAMP (FLAT,LAMP) |Data product type|      
+|DET1 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
+|DET1 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-LM Number of Integrations (NDIT)|
+|DET1 NCORRS NAME       |no         |TBD                         |IMG-LM Readout mode|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
+|SEQ WCU_BB_TEMP       |yes        |TEMP-L TEMP-M (NODEFAULT)  |WCU BB temperature for specific filter|
+|SEQ WCU_OFF_NFRAMES   |yes        |TBD                        |Number of WCU off frames to take |
+|INS OPTI1 NAME         |yes        | PPS-CFO2 (PPS-CFO2)                |CFO-PP1 mask wheel|
+|INS OPTI2 NAME         |yes        | OUT (OUT)                |CFO-PP1 ADC wheel|
+|INS OPTI3 NAME         |no         |A_19 B_29 C_38 D_57 E_114 (NODEFAULT)                  |Slit name|
+|INS OPTI4 NAME         |yes        |OUT (OUT)                  |LMS beamsplitter pickoff wheel|
+|INS OPTI9 NAME         |no         |GRISM-L GRISM-M (NODEFAULT)                  |IMG-LM Mask/Grism name|
+|INS OPTI10 NAME         |no         |full_L full_M (NODEFAULT)                |IMG-LM Filter name|
+|INS OPTI11 NAME         |no     |OPEN ND1 ND2 ND3 ND4 ND5 DARK (NODEFAULT)                  |IMG-LM Neutral density filter|
+|INS OPTI15 NAME         |yes        |OUT (OUT)                    | IMG-LM pupil imaging lens|
+|INS OPTI17 NAME         |yes        |IN (IN)                    | WCU periscope arm|
+|INS OPTI18 NAME	|yes          |WCU_mask AIV_mask ELT_mask (ELT_mask)             |WCU PP1 masks|
+|INS OPTI19 NAME	|yes         |OPEN (OPEN)                              |WCU BB exit aperture masks|
+|INS OPTI20 NAME        |yes         |flatfield (flatfield) |WCU FP2.1 mask wheel|

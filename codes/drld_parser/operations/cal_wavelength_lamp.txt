@@ -1,0 +1,46 @@
+==== Daytime wavelength calibration (WCU QCLs) ====
+=== Responsible ===
+Science Operations
+
+=== Phase ===
+Daytime
+
+=== Frequency ===
+Once every day (tbc)
+
+=== Purpose ===
+Provide an approximate wavelength to pixel transformation for the L and M bands
+
+=== Procedure ===
+  * LM band imaging spectrograph and integral-field spectrograph
+    * determine absolute wavelength reference / calibrate the WCU QCL source using the WCU HeNe source (tbc)
+    * step the WCU QCL source over the desired wavelength range (fine sampling of relevant spectral regions for the LMS, coarse sampling of the full L/M bands for the long-slit spectrograph), take a spectrum at every wavelength position (how many laser lines are visible in a single setting of the QCL? How long does it take to step the QCL through the spectrum?)
+
+=== Pipeline data products ===
+  * Wavelength-to-pixel transformation
+
+=== Prepared observing blocks ===
+(tbd)
+
+=== Prepared templates ===
+(tbd)
+
+=== Pipeline support ===
+  * Determine the centroid position of the observed line, e.g. through a Gaussian (tbc) fit to the lines
+  * Using the known wavelength of the laser line(s) and the fitted pixel positions, interpolate (and extrapolate) the wavelength to pixel relation for the given setup.
+
+=== Duration ===
+  * 30 minutes per spectroscopic setting (low/medium resolution in L) (tbc)
+  * tbd minutes for the LMS (depending on how many settings of the LMS need to be calibrated)
+
+=== Prerequisites ===
+none
+
+=== Required Accuracy ===
+The wavelength accuracy after calibration must be 1/10 of a pixel.
+
+=== Expected Accuracy ===
+Applicability of daytime wavelength calibration limited by drifts between daytime and nighttime, also by the accuracy with which the source can be centered in the slit.
+
+=== Notes ===
+Our plan is to use this daytime calibration as a first guess for the wavelength calibration and improve it using the telluric absorption or emission lines (see \ref{sec:cals:wavecal_night}).

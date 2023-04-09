@@ -1,0 +1,3 @@
+==== Thermal background removal for the HCI observing modes ====
+
+Due to operational constraints (e.g. the source needs to be centered on the Vortex mask in Vortex coronagraphy modes), the background subtraction strategy for the HCI modes is more constrained. On the other hand, background removal in HCI profits from the generic HCI speckle subtraction strategy (pupil tracking observations) which will probably also remove most of the background subtraction residuals.

@@ -1,0 +1,16 @@
+__** Acquisition **__ 
+
+''Roy:'' setup imager: I think we first acquire the source (including fine centering, if needed), and only after that put in the SAM mask. Otherwise you see only the interferograms during acquisition.
+
+
+
+__** Parameters for METIS_ACQ_IMG_SAM_LM **__ 
+
+''Roy:'' background subtraction mode: I think this would be dithering (probably with the chopper), but not "chopped"
+
+
+__** Science imaging template METIS_obs_IMG_SAM_LM **__ 
+
+''Roy:'' at "start science exposures" it says: "Offsets should be defined in detector coordinates to avoid that the changing position angle on sky (due to pupil-tracking) puts the objects in ever different locations on the detector, or outside of the available field." I have not fully thought this through - will try to do so when more appropriately caffeinated ...
+
+''Roy:'' X and Y offsets; I am not sure whether they should be defined in detector coordinates. The sky rotates, so for a given pupil orientation (w.r.t. the detector) this means that the detector coordinates for given offsets on sky are then dependent on the exact timing of the beginning of the sequence. The coordinates will (because of that) in any case be very complex if given in detector coordinates. I suspect it is better to give the sky offsets in sky coordinates, and let the ICS determine exactly what chopper offsets (= detector offsets) are needed to achieve this for each individual offset position (or even individual exposure).

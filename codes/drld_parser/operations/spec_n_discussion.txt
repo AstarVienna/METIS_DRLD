@@ -1,0 +1,11 @@
+<color #ed1c24>__**Open discussion**__</color> 
+
+Please place your comments here.
+
+<color #ed1c24>__**Old discussion - clarified and implemented in text **__</color>
+
+__** (1) METIS_ACQ_LSS_N_LR **__
+
+  * ADC: for N-band we do not foresee the use of ADCs. **Modified.**
+         
+  * QACITS references are not needed here. **Removed.**

@@ -1,0 +1,47 @@
+==== Detector linearity calibration ====
+=== Responsible ===
+Science Operations
+
+=== Phase ===
+Daytime
+
+=== Frequency ===
+Once every year (tbc)
+
+=== Purpose ===
+Determine detector linearity curve
+
+=== Procedure ===
+  * set WCU BB / flatfield source to appropriate temperature for LM / NQ band, wait for warm-up
+  * while warming up: setup instrument for respective observing mode
+  * at various temperature (brightness) levels <color #ed1c24>and/or detector DIT (tbc)</color>, take a short series (10, tbc) of observations
+
+=== Pipeline data products ===
+  * Detector linearity curve
+  * Detector gain
+
+=== Prepared observing blocks ===
+(tbd)
+
+=== Prepared templates ===
+  * [[METIS_img_lm_cal_DetLin|METIS_img_lm_cal_DetLin]]
+  * [[METIS_ifu_cal_DetLin|METIS_ifu_cal_DetLin]] ?
+  * [[METIS_img_nq_cal_DetLin|METIS_img_nq_cal_DetLin]]
+
+
+=== Pipeline support ===
+  * Detector linearity curve: potentially complex procedure (for AQUARIUS detector), see recipe from Bonn group developed for VLTI/MATISSE
+  * Detector gain: sttdev as a function of average counts (perhaps not possible with AQUARIUS due to ELFN, i.e. excess noise that depends on illumination level)
+
+=== Duration ===
+dominated by WCU BB warm-up times (1-2 hours?)
+
+=== Prerequisites ===
+None
+
+=== Required Accuracy ===
+(tbd)
+
+=== Expected Accuracy ===
+tbd
+

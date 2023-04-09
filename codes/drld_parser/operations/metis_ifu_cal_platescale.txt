@@ -1,0 +1,10 @@
+===Procedure for METIS_img_ifu_cal_platescale ===
+ 
+The plate scale and true North calibration template is used on astrometric fields (asterisms or globular clusters, tied to GAIA) in order to determine the plate-scale and calibrate the true North angle on sky.
+The observing template is identical to the ''METIS_ifu_obs_FixedSkyOffset'' or the ''METIS_ifu_ext_obs_FixedSkyOffset'' template, depending on whether the nominal or the extended mode of the IFU is used. It is combined with the ''METIS_ifu_acq'' or ''METIS_ifu_ext_acq'' template that is used to acquire the field.
+
+===Parameters for METIS_img_ifu_cal_platescale ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TYPE              |yes        |PLATESCALE (PLATESCALE)|Data product type|                      

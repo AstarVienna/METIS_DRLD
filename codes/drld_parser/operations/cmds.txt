@@ -1,0 +1,28 @@
+===== METIS instrument modes (linking to comprehensive mode descriptions) =====
+
+^Instrument mode code ^HCI mode code     ^Instrument mode name^
+|IMG_LM               |--                |[[IMG_LM | LM band imaging]]|
+|IMG_LM_(RA/C)VC      |(RA/C)VC-L/M      |[[IMG_LM_VC | Ring-apodized or classical vortex coronagraphy L or M]]|
+|IMG_LM_APP           |APP-IMG-LM        |[[IMG_LM_APP |Apodizing Phase Plate (APP) coronagraphy LM]]|
+|IMG_N               |--                |[[IMG_N | N band imaging]]|
+|IMG_N_CVC            |CVC-N1/N2         |[[IMG_N_CVC | Classical vortex coronagraphy N band]]|
+|IMG_LMN              |--                |[[IMG_LMN | parallel LM and N band imaging]]|
+|SPEC_LM              |--                |[[SPEC_LM | full L or M band low-resolution spectroscopy]]|
+|SPEC_N               |--                |[[SPEC_N | full N band low-resolution spectroscopy]]|
+|SPEC_LMN             |--                |[[SPEC_LMN | parallel full L or M band and N band low-resolution spectroscopy]]|
+|IFU_nominal          |--                |[[IFU | nominal IFU spectroscopy]]|
+|IFU_nominal_APP      |APP-LMS           |[[IFU_APP | nominal IFU spectroscopy with APP]]|
+|IFU_nominal_(RA/C)VC |(RA/C)VC-LMS      |[[IFU_VC | nominal IFU spectroscopy with (RA/C)VC in L or M band]]|
+|IFU_extended         |--                |[[IFU_ext | extended IFU spectroscopy]]|
+|IFU_extended_APP     |APP-LMS           |[[IFU_ext_APP | extended IFU spectroscopy with APP]]|
+|IFU_extended_(RA/C)VC|(RA/C)VC-LMS      |[[IFU_ext_VC | extended IFU spectroscopy with (RA/C)VC in L or M band]]|
+|PUP_LM                |--                |[[PUP_LM | pupil imaging L band (engineering mode)]]|
+|PUP_N                |--                |[[PUP_N | pupil imaging N band (engineering mode)]]|
+|<del>IMG_LM_CLC</del>           |CLC-LM            |[[IMG_LM_CLC | Classical Lyot coronagraphy L or M]] (backup mode, not baseline)|
+|<del>IMG_N_CLC</del>           |CLC-N             |[[IMG_N_CLC | Classical Lyot coronagraphy in N-band]] (backup mode, not baseline)|
+|<del>IFU_nominal_CLC</del>      |CLC-LMS           |[[IFU_CLC | nominal IFU spectroscopy with CLC in L or M band]] (backup mode, not baseline)|
+|<del>IFU_extended_CLC</del>     |CLC-LMS           |[[IFU_ext_CLC | extended IFU spectroscopy with CLC in L or M band]] (backup mode, not baseline)|
+|<del>IMG_NQ_APP</del>           |APP-IMG-NQ        |[[IMG_NQ_APP | Classical APP N]]  (not baseline)|
+|<del>SAM_LM</del>               |SAM-LM            |[[SAM_LM | SAM LM]] (this mode may not be required)|
+|<del>SAM_NQ</del>               |SAM-NQ            |[[SAM_NQ | SAM NQ]] (this mode may not be required)|
+|<del>SPEC_N_MED</del>           |--                |[[SPEC_N_MED | ([S IV] or [Ne II]) N band medium-resolution spectroscopy]] (this mode has been removed)|

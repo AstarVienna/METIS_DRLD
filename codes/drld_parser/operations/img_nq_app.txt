@@ -1,0 +1,52 @@
+===== Apodized Phase Plate coronagraphy (APP) in N-band  =====
+<color #ed1c24> APP in the N-band is not a baseline mode, no further work will be done here.</color>
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+  * any special needs?
+
+==== Acquisition ====
+
+  * Templates: [[METIS_acq_APP_N|METIS_acq_APP_N]]
+
+==== Science sequence ====
+
+For HCI observing modes:
+
+  * The target (typically a bright star) is always on-axis and used as the NGS for the SCAO
+  * The derotator is always in pupil tracking mode (i.e. pupil is always oriented in the same pre-defined direction)
+
+Sky subtraction:
+
+  * In APP mode, the target will be moved between two predefined positions on the detector (A and B)
+  * A single star using the APP generates three PSFs on the detector - two coronagraphic PSFs and a leakage PSF halfway between the two coronagraphic PSFs. In both positions A and B, all three PSFs should be seen. The PSFs at A and B should not interfere with each other.  
+  * Offsets between A and B in the N-band will be performed using the CFO-PP2 chopper.
+  * Optional small dithers can be included around the positions A and B. 
+
+Template options: 
+  * [[METIS_obs_APP_N_AutoChop|METIS_obs_APP_N_AutoChop]]
+
+
+===== Calibration data =====
+
+++++
+Calibration requirements|
+  * flatfielding (daytime WCU, not needed daily?; twilight sky flats?)
+  * sky background recostruction/subtraction (chop/dither/stare), align frames (dithered/choped exposures)
+  * flux calibration (sky atmosphere modeling + one/few standard observations per night?)
+  * psf re-construction?
+  * provide data cube or "stacked" result?
+++++
+
+===== Products =====
+
+  * background-subtracted, flux-calibrated image (cube). Units, e.g., [photons/s/pix]
+  * corresponding uncertainties (cube)
+  * PSF (cube)
+
+===== Discussion =====
+ [[IMG_N_APP_discussion|IMG_N_APP_discussion]] 

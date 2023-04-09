@@ -1,0 +1,43 @@
+===== Ring-apodized or classical vortex ((RA/C)VC) extended IFU coronagraphy in L- or M-band  =====
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+  * any special needs?
+
+==== Acquisition ====
+During the preset, the telescope is sent to the position of the target. The AO NGS is automatically centered on the WFS (no interaction needed). The VPM is inserted after the AO loop is closed, and the star is offset approximately to its center based on IMG-LM images. An ND filter is inserted in IMG-LM at the beginning of the sequence (the exact filter will be adapted to the star's brightness), and once the star is positioned at the VPM center, the ND is taken out. For extremely bright stars, this may be done in steps (from lower to higher transmission NDs). Accurate centering is performed using QACITS (on IMG data). LMS is kept closed until the acquisition in the IMG-LM is finished (i.e. the star is centered on the VPM and the QACITS loop is closed).
+
+Template options:
+  * [[METIS_ifu_ext_vc_acq|METIS_ifu_ext_vc_acq]]
+
+==== Science sequence ====
+
+For HCI observing modes:
+
+  * The target (typically a bright star) is always on-axis and used as the NGS for the SCAO
+  * The derotator is always in pupil tracking mode (i.e. pupil is always oriented in the same pre-defined direction)
+
+Sky subtraction:
+
+  * Background subtraction is done by post-processing of the images in pupil tracking mode (e.g. ADI) 
+  * A sky frame and an off-axis PSF measurement are taken every ~10 min with IMG-LM (for online calibration of the QACITS). The detailed procedure is described in \cite{E-REP-ULG-MET-1022}.
+
+Template options: 
+  * [[METIS_ifu_ext_vc_obs_FixedSkyOffset|METIS_ifu_ext_vc_obs_FixedSkyOffset]]
+
+
+===== Calibration data =====
+
+++++
+Calibration requirements|
+++++
+
+===== Products =====
+
+
+===== Discussion =====
+ [[ifu_ext_vc_discussion|ifu_ext_vc_discussion]] 

@@ -1,0 +1,70 @@
+==== Science IFU template METIS_ifu_obs_GenericOffset ====
+
+=== Procedure for METIS_ifu_obs_GenericOffset ===
+ 
+++++
+Setup IFU|
+  * User can choose the central wavelength (INS WLEN CEN) from a pre-defined list. The system then sets the order, and the grating tilt of the Echelle necessary to provide the required setting.
+    * ''LMS PP4'' Select pre-dispersed range (order)
+    * ''LMS PP5'' Select main dispersed range  
+  * Set detector parameters (DIT, NDIT, readout mode, cube mode T/F)
+++++
+++++
+Start science exposures|
+  * Depending on the sky subtraction mode, the following offsetting options are available: 
+    * dithering: using CFO-PP2 chopper or telescope offsets
+    * sky offsets: using telescope offsets. Can be implemented in situations where there is no suitable blank position at the regular chop-throw distance (5 arcsec), in case of e.g. crowded field, or a very extended target. If the offset is too large to maintain guiding, open the AO loop, take exposure(s) at the sky position, and resume AO correction after returning back on the target.
+    * sky offsets + dithering. Offset to a sky position, and back to the target, with a small dither that places the target on a slightly different position on the detector than the initial one. Can be performed using the CFO-PP2 chopper or telescope offsets, or a combination of the two.
+  * There are gaps in the instantaneous wavelength coverage of the LMS, which can be accounted for by tilting slightly the main dispersion grating. The user can select the angle of the dispersion grating from a list of pre-defined named positions, or can explicitly specify the desired angle (TBD).
+  * The science sequence is repeated at each setting of the main dispersion grating angle. 
+  * At each offset position start science exposures with DIT/NDIT. 
+  * Read-out and save individual exposures, or co-added frames, depending on the ''cube mode'' T/F keyword.
+++++
+++++
+End science exposures|
+  * Return telescope or chopper (depending on which actuator is used for offsetting) back to the initial position.
+  * Collect headers
+  * Merge into one or more data cubes
+  * Send cube to ESO Archive
+  * Send cube to Pipeline machine or ICS storage (tbd)
+  * Go back to //Setup IFU// until target observations are finished (single OB). For example, to observe at a different central wavelength.
+
+At the end of the OB:
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+++++
+
+===Parameters for METIS_ifu_obs_GenericOffset===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |SCIENCE TEST (SCIENCE)     |Data product category|
+|DPR TECH              |yes        |IFU (IFU)                  |Data product technique|
+|DPR TYPE              |yes        |OBJECT SKY (OBJECT)        |Data product type|                      
+|DET1 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
+|DET1 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-LM Number of Integrations (NDIT)|
+|DET1 NCORRS NAME       |no         |TBD                         |IMG-LM Readout mode|
+|DET3 DIT               |yes         |0..TBD (NODEFAULT)         |LMS Detector integration time (DIT)|
+|DET3 NDIT              |yes         |1..TBD (NODEFAULT)         |LMS Number of Integrations (NDIT)|
+|DET3 NCORRS NAME       |no         |TBD                         |LMS Readout mode|
+|DET1 CUBE MODE        |yes         |T F (T)                    |Toggle cube mode| 
+|DET3 CUBE MODE        |yes         |T F (T)                    |Toggle cube mode| 
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
+|SEQ NOFFSETS          |no         |0...1000 (NODEFAULT)       |Total number of offsets|
+|SEQ OBSTYPE LIST      |no         |O S (NODEFAULT)            |Observation type list, O/S|
+|SEQ OFFSET COORDS     |no         |SKY DETECTOR (DETECTOR)    |Offset coordinate type selection|
+|SEQ OFFSET1 LIST      |no         |-600..600 (NODEFAULT)      |List of X or RA offsets (arcsec)|
+|SEQ OFFSET2 LIST      |no         |-600..600 (NODEFAULT)      |List of Y or DEC offsets (arcsec)|
+|SEQ RETURN            |no         |T F (T)                    |Return to origin?|
+|INS WLEN CEN         |no         |2700 - 5300 nm (NODEFAULT)           |Central wavelength|  
+|INS OPTI10 NAME         |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef M' CO(1-0)/ice COref HCIL-short HCIL-long (L')                |IMG-LM Filter name|
+|INS OPTI11 NAME         |no         |OPEN ND1 ND2 ND3 ND4 ND5 (NODEFAULT)                  |IMG-LM Neutral density filter|

@@ -1,0 +1,7 @@
+===Procedure for METIS_ifu_cal_psf ===
+ 
+A template used for imaging PSF calibrator stars, identical to the corresponding photometric standard star template. Depending on whether the PSF calibrator is needed for the nominal or the extended mode of the IFU, it is combined with ''METIS_ifu_acq'' or ''METIS_ifu_ext_acq'', respectively.
+
+===Parameters for METIS_ifu_cal_psf ===
+
+The template keywords are identical to the ''METIS_ifu_cal_standard'' template.

@@ -1,0 +1,27 @@
+=== List of calibration tasks covered in the calibration plan ===
+  * [[cal_dark | Dark frame]]
+  * [[cal_flat_generic | Flat fielding]]
+    * [[cal_flat_lamp | Lamp flats]]
+    * [[cal_flat_twilight | Twilight flats]]
+  * Background removal
+    * [[cal_dither_lm | Background removal in LM]]
+    * [[cal_chopnod_nq | Background removal in NQ]]
+    * [[cal_bgsub_hci | Background removal for HCI observing modes]]
+  * [[cal_slitloss_adc | Slit losses and ADC corrections]]
+  * Wavelength and telluric calibration
+    * [[cal_wavelength_lamp | Daytime wavelength calibration]]
+    * [[cal_wavelength_telluric | Nighttime wavelength and telluric calibration]]
+  * Spectral response calibration
+    * [[cal_rsrf_lms | LMS Relative Spectral Response Function calibration]]
+    * [[cal_rsrf_slit | Long-slit RSRF calibration]]
+  * [[cal_flux | Absolute flux calibration]]
+  * [[cal_distortion | Distortion correction]]
+  * Detector calibrations
+    * [[cal_det_linearity | Detector linearity calibration]]
+    * [[cal_det_read | Detector read-noise determination]]
+    * [[cal_det_bias | Detector bias calibration]]
+    * [[cal_det_fringing | Detector fringe correction]]
+
+Other calibration tasks:
+  * LMS stray light removal
+  * see old Operational Concepts doc

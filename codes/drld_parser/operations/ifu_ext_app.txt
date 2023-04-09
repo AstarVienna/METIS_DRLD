@@ -1,0 +1,43 @@
+===== Apodized Phase Plate (APP) extended IFU coronagraphy in L- or M-band  =====
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+  * any special needs?
+
+==== Acquisition ====
+
+The steps prior to AO loop closing are identical to IMG-LM APP observations. After closing the loop, the LMS pick-off mirror is inserted (90% of the light sent to LMS, 10% to the IMG-LM). For target positioning on the IFU, the positional cross-calibration between the IMG and the LMS will be used. This should be precise to within a small fraction of a slice width (a few mas). The APP mask is inserted in LMS after the AO loop is closed, and a fixed offset is added to compensate for the wedge in the APP. The star is placed just off the image slicer, so that the APP PSF dark hole falls onto the image slicer.
+
+Template options: 
+  * [[METIS_ifu_ext_app_acq|METIS_ifu_ext_app_acq]]
+
+==== Science sequence ====
+
+For HCI observing modes:
+
+  * The target (typically a bright star) is always on-axis and used as the NGS for the SCAO
+  * The derotator is always in pupil tracking mode (i.e. pupil is always oriented in the same pre-defined direction)
+
+Sky subtraction:
+
+  * In APP IFU mode, the background subtraction will rely on ADI-like post-processing.
+
+
+Template options: 
+  * [[METIS_ifu_ext_app_obs_Stare|METIS_ifu_ext_app_obs_Stare]]
+
+
+===== Calibration data =====
+
+===== Products =====
+
+  * background-subtracted, flux-calibrated image (cube). Units, e.g., [photons/s/pix]
+  * corresponding uncertainties (cube)
+  * PSF (cube)
+
+===== Discussion =====
+ [[ifu_ext_app_discussion|ifu_ext_app_discussion]] 

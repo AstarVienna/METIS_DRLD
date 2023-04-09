@@ -20,5 +20,21 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Test
-        run: echo "Hello"
+      # Runs a single command using the runners shell
+      - name: Download operations wiki export on top of checkout
+        run: python codes/drld_parser/download_operations_wiki.py
+
+      # Create a PR with the changes from the above script, if any.
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "Update operations wiki export"
+          branch: update-operations-wiki-export
+          delete-branch: true
+          title: "[Assist PR] Update operations wiki export"
+          body: |
+            Update operations wiki export.
+            Auto-generated.
+          labels: |
+            automated
+          draft: false

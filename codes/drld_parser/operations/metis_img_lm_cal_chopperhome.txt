@@ -1,0 +1,63 @@
+===Procedure for METIS_img_lm_cal_ChopperHome ===
+
+This calibration is required since the absolute positioning accuracy of the chopper is much lower than our expected overall astrometric accuracy. Once the chopper is powered on, it does, however, trace its offsets very accurately. With this calibration, the chopper home position is measured as the offset between the K band source (as seen by the SCAO WFS, before the chopper) and the L band source (as seen by the IMG-LM, after the chopper).
+
+++++
+Setup WCU|
+  * Move periscopic arm to IN
+  * Set temperature of the blackbody to specified temperature
+  * Wait for about 45 minutes (warming up time, depends on the BB temperature selection)
+  * Set ''WCU-FP2.1'' to LM-pinhole
+  * Set ''WCU-PP1'' to ELT mask
+  * Check the power readout. If the power is detectable, continue. 
+  * Set ''WCU-BB-aperture-mask'' to CLOSE
+  * take background measurement
+  * Set ''WCU-BB-aperture-mask'' to OPEN
+++++
+
+++++
+Setup CFO and subsystems|
+  * Set ''CFO-PP1'' to PPS-CFO1
+  * Set ''CFO-FP2'' to FIELD-11
+  * Set LMS beamsplitter pickoff wheel to OUT
+  * Set the IMG-LM mask to SPM-LM
+  * Set the IMG-LM science filter to the specified filter
+  * Set the IMG-LM neutral density filter to the specified filter
+++++
+
+++++
+Start Exposure|
+  * Start exposures with the IMG-LM with the requested DIT and NDIT
+++++
+
+++++
+End Exposure|
+  * Collect headers
+  * Send file to ESO Archive
+++++
+
+===Parameters for METIS_img_lm_cal_InternalFlat ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TECH              |yes        |IMAGE IMAGE,APP IMAGE,RAVC IMAGE,CVC (NODEFAULT)    |Data product technique|
+|DPR TYPE              |yes        |FLAT,LAMP (FLAT,LAMP)|Data product type| 
+|DET1 DIT               |no         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
+|DET1 NDIT              |no         |0..TBD (1)                 |IMG-LM Number of Integrations (NDIT)|
+|DET1 NCORRS NAME       |no         |TBD                         |IMG-LM Readout mode|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NEXPO             |no         |0..TBD (1)                 |Number of exposures|
+|SEQ WCU_BB_TEMP       |yes        |TEMP-L  |WCU BB temperature for specific filter|
+|SEQ WCU_OFF_NFRAMES   |yes        |TBD                        |Number of WCU off frames to take |
+|INS OPTI1 NAME         |yes        | PPS-CFO1 RAP-LM (PPS-CFO1)                |CFO-PP1 mask wheel|
+|INS OPTI2 NAME         |yes        | OUT ADC-1 ADC-2 (OUT)                |CFO-PP1 ADC wheel|
+|INS OPTI3 NAME   	|yes        | FIELD-11 FIELD-14 FIELD-3 VPM-L VPM-M PI-MASK PNH-1 (FIELD-11)                              |CFO FP2 mask/slit wheel |
+|INS OPTI4 NAME         |yes        |OUT IN (OUT)                  |LMS beamsplitter pickoff wheel|
+|INS OPTI9 NAME         |no         |open PPS-LM RLS-LM CLS-LM APP-LM SPM-LM (SPM-LM)                  |IMG-LM Mask/Grism name|
+|INS OPTI10 NAME         |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef M' CO(1-0)/ice COref HCIL-short HCIL-long (NODEFAULT)                |IMG-LM Filter name|
+|INS OPTI11 NAME         |no         |OPEN ND1 ND2 ND3 ND4 ND5 DARK (OPEN)          |IMG-LM Neutral density filter|
+|INS OPTI15 NAME         |yes        |OUT IN (OUT)                    | IMG-LM pupil imaging lens|
+|INS OPTI17 NAME         |yes        |IN (IN)                    | WCU periscope arm|
+|INS OPTI18 NAME	|yes                |WCU_mask AIV_mask ELT_mask (ELT_mask)             |WCU PP1 masks|
+|INS OPTI19 NAME	|yes                |OPEN (OPEN)                              |WCU BB exit aperture masks|
+|INS OPTI20 NAME        |yes         |LM-pinhole (LM-pinhole) |WCU FP2.1 mask wheel|

@@ -1,0 +1,23 @@
+== List of OPTIi keywords ==
+
+^Parameter             ^Description^
+| INS OPTI1 | CFO PP1 mask wheel |
+| INS OPTI2 | CFO PP1 ADC wheel |
+| INS OPTI3 | CFO FP2 mask/slit wheel |
+| INS OPTI4 | LMS beamsplitter pickoff wheel |
+| INS OPTI5 | LMS PP1 mask wheel |
+| INS OPTI6 | LMS spectral IFU mechanism |
+| INS OPTI7 | LMS pre-disperser |
+| INS OPTI8 | LMS main disperser |
+| INS OPTI9 | IMG-LM mask/grism wheel |
+| INS OPTI10 | IMG-LM science filter wheel |
+| INS OPTI11 | IMG-LM neutral density filter wheel |
+| INS OPTI12 | IMG-N mask/grism wheel |
+| INS OPTI13 | IMG-N science filter wheel |
+| INS OPTI14 | IMG-N neutral density filter wheel |
+| INS OPTI15 | IMG-LM PIL |
+| INS OPTI16 | IMG-N PIL |
+| INS OPTI17 | WCU periscope |
+| INS OPTI18 | WCU PP1 masks |
+| INS OPTI19 | WCU IS exit aperture masks |
+| INS OPTI20 | WCU FP2.1 mask wheel |

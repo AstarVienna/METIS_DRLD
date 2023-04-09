@@ -1,0 +1,11 @@
+__** (1) Acquisition, setup imager **__
+
+''Roy:'' detail: here the SAM mask is not yet included; we first do an acquisition and centering at some pre-defined position before we put in the SAM mask (you indeed include it again later). I think I had the same comment in the SAM-LM section.
+
+
+__** (2) METIS_obs_IMG_SAM_NQ, offsets **__
+''Roy:'' Again, here I think the offsets should be defined in sky coordinates, and the control software should convert this in actual chopper motion (given the time of observation, the de-rotator angle (=field/pupil orientation at the beginning of the observation), and the observing preparation software must be intelligent enough so that it checks and does not allow for setups where e.g. sources move out of the field, or the interferogram runs off the detector. Detailed work for this is needed - but not now (and maybe never ;-)
+
+
+
+ 

@@ -1,0 +1,60 @@
+==== Acquisition Template METIS_ACQ_IMG_SAM_LM ====
+
+=== Procedure for METIS_ACQ_IMG_SAM_LM ===
+
+++++
+Preset telescope|
+  * send target coordinates to TCS
+  * initiate guiding/tracking. Guide star may be chosen by operator (if no coordinates supplied), or use the one specified in the template.
+  * wait for signal “arrived at position” / “guiding”
+++++
+++++
+Configure CFO|
+  * CFO-PP1 to open
+  * CFO-CST pupil tracking
+  * Chopper to zero
+  * CFO FP2 to LM Field Stop
+  * LMS pick-off to open
+++++
+++++
+Setup imager|
+  * Set ''IMG-NQ PP1 BLANK'' (no light on IMG-NQ system)
+  * Move ''IMG-LM PP1 FILT'' to selected filter
+  * ''IMG-LM PP1 MASK'' to selected SAM mask 
+  * Disperser wheel to open
+  * Pupil imaging lens to open
+  * Set detector parameters (DIT, NDIT, readout mode)
+++++
+++++
+AO and target acquisition|
+  * Set orientation angle for the given SAM mask - to avoid spider images overlapping with the mask apertures.
+  * Position field selector (NGS acquisition)
+  * Set up WFS (filter, modulation, etc)
+  * measure the position of the GS on the WFS and center using SCA-PP1 FS.  
+  * measure the position of the target in the science focal plane. 
+  * center the target in the science focal plane using CFO-PP2 chopper (optional).
+  * Close M4 imaging stabilization
+  * Close loop
+  * ''IMG-LM PP1 MASK'' - insert SAM mask
+++++
+++++
+While AO loop is closed|
+  * AO controls M4/M5 (via CCS)
+  * Monitor range
+  * Request off-loads
+  * Save WFS data (slopes)
+++++
+
+===Parameters for METIS_ACQ_IMG_SAM_LM===
+  * ''RA'' - target right ascension
+  * ''DEC'' - target declination
+  * ''ADA POSANG'' - Position angle on the sky (fixed for each SAM mask)
+  * ''SCA PP2'' filter (for AO acquisition)
+  * ''IMG-LM PP1'' filter (for target acquisition) 
+  * ''SCA PP2'' - DIT for AO acquisition
+  * ''IMG-LM FP1'' - DIT for target acquisition
+  * ''IMG-LM FP1'' - NDIT for target acquisition
+  * ''IMG-LM PP1 MASK'' - SAM mask
+  * Background subtraction mode (NONE if sufficiently bright; CHOPPED for faint sources)	
+  * Pupil tracking (fixed to T)
+  * Select scale (not baseline) 

@@ -1,0 +1,7 @@
+== List of detectors ==
+
+^Parameter             ^Description^
+| DET1 | IMG-LM detector (Hawaii2RG) |
+| DET2 | IMG-N detector (GeoSnap) |
+| DET3 | LMS detector assembly (2 Hawaii2RG) |
+| DET4 | WFS detector (Selex) |

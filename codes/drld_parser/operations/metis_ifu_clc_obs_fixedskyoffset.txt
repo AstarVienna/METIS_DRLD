@@ -1,0 +1,70 @@
+==== Science IFU coronagraphy template METIS_ifu_clc_obs_FixedSkyOffset ====
+
+=== Procedure for METIS_ifu_clc_obs_FixedSkyOffset ===
+ 
+++++
+Setup IFU|
+  * ''LMS PP3'' Select pre-dispersed range (order)
+  * ''LMS PP4'' Select main dispersed range 
+  * Set detector parameters (DIT, NDIT, readout mode, cube mode T/F)
+++++
+++++
+Start science exposures|
+  * This template moves the telescope alternatively between OBJECT and SKY positions. 
+  * The OBJECT position is fixed to keep the bright star in the CLC. The number of exposures taken at this position is set by the keyword ''N_OBJECT''
+  * The SKY positions are randomly distributed around a position set at a constant distance from the initial telescope pointing. This distance is defined by the parameters ''Sky offset in RA'' and ''Sky offset in DEC''. The dither around this position is calculated to be within a ''Jitter Box Width''. The number of dithered sky exposures is set by the keyword ''N_SKY''.
+  * Offsets to sky an dithering are performed using the telescope offsets.
+  * The observing sequence is performed as AB-AB-AB  where AB is a single OBJECT-SKY cycle, including N_OBJECT exposures at the position A, and N_SKY dithers at the position B. The keyword ''NABCycles'' defines the number of AB cycles.
+  * There are gaps in the instantaneous wavelength coverage of the LMS, which can be accounted for by tilting slightly the main dispersion grating. The user can select the angle of the dispersion grating from a list of pre-defined named positions, or can explicitly specify the desired angle (TBD).
+  * The science sequence is repeated at each setting of the main dispersion grating angle. 
+  * At each position start science exposures with DIT/NDIT. 
+  * Read-out and save individual exposures, or co-added frames, depending on the ''cube mode'' T/F keyword.
+++++
+++++
+End science exposures|
+  * Return back to the initial position
+  * Collect headers
+  * Merge into one or more data cubes
+  * Send cube to ESO Archive
+  * Send cube to Pipeline machine or ICS storage (tbd)
+  * Go back to //Setup IFU// until target observations are finished (single OB). For example, to observe at a different central wavelength (but note that this might not be very common in pupil tracking modes).
+
+At the end of the OB:
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop (M4)
+    * stop field stabilization (M5)
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+++++
+
+===Parameters for METIS_ifu_clc_obs_FixedSkyOffset===
+
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|HIERARCH ESO DPR CATG              |yes        |SCIENCE CALIB ACQUISITION TECHNICAL (SCIENCE) |Data product category|
+|HIERARCH ESO DPR TECH              |yes        |IMAGE LSS IFU IMAGE,RAVC IMAGE,APP IFU,RAVC IFU,APP (IFU)                 |Data product technique|
+|HIERARCH ESO DPR TYPE              |yes        |OBJECT SKY STD PSF-CALIBRATOR DARK FLAT WAVE BIAS DISTORTION (OBJECT)|Data product type|                      
+|HIERARCH ESO DET DIT               |no         |0..TBD (NODEFAULT)         |Detector integration time (DIT)|
+|HIERARCH ESO DET NCORRS NAME       |no         |TBD                        |Readout mode|
+|HIERARCH ESO DET CUBE MODE        |no         |T F (F)                    |Toggle cube mode| 
+|HIERARCH ESO SEQ JITTER WIDTH      |no         |0..5 (NODEFAULT)           |Jitter Box Width (arcsec)|
+|HIERARCH ESO SEQ NABCYCLES         |no         |0..100 (NODEFAULT)         |Number of AB or BA cycles|
+|HIERARCH ESO SEQ NDIT OBJECT       |no         |1..1000 (1)                |NDIT on OBJECT positions|
+|HIERARCH ESO SEQ NDIT SKY          |no         |1..1000 (1)                |NDIT on SKY positions|
+|HIERARCH ESO SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
+|HIERARCH ESO SEQ OBSTYPE LIST      |no         |O S (NODEFAULT)            |Observation type list, O/S|
+|HIERARCH ESO SEQ OFFSET COORDS     |no         |SKY DETECTOR (DETECTOR)    |Offset coordinate type selection|
+|HIERARCH ESO SEQ SKYOFFSET ALPHA   |no         |0..TBD (10)                |RA offset to sky|
+|HIERARCH ESO SEQ SKYOFFSET DELTA   |no         |0..TBD (10)                |DEC offset to sky|
+|HIERARCH ESO SEQ POISSON           |yes        |1..100 (10)                |Random throw generator
+|HIERARCH ESO SEQ RETURN            |no         |T F (T)                    |Return to origin?|
+|HIERARCH ESO SEQ CFO CHOP POSANG       |yes        |0..360 (NODEFAULT)         |Chopper position angle|
+|HIERARCH ESO SEQ CFO CHOP THROW        |yes        |0..5 (NODEFAULT)           |Chop throw|
+|HIERARCH ESO SEQ CFO CHOP FREQ         |yes        |TBD                        |Chopping frequency|
+|HIERARCH ESO INS WLEN CEN         |no         |2700 - 5300 nm (NODEFAULT)           |Central wavelength|

@@ -1,0 +1,53 @@
+==== Calibration of slit losses / ADC corrections ====
+=== Responsible ===
+Science Operations
+
+=== Phase ===
+Daytime
+
+=== Frequency ===
+Once per year (tbc)
+
+=== Purpose ===
+Calibrate slit loss and ADC correction model
+
+=== Procedure ===
+  * Activate WCU point source (filament) and wait for warm-up time, select illumination level to fill the respective detector to about half of the full well capacity
+  * Insert a slit
+  * Choose an ADC setup (no ADC, ADC 1 / 20 deg or ADC 2 / 40 deg) and derotator angle (rotating the ADC relative to the slit)
+  * Close WCU blackbody output port (and input port, tbc) and take a background measurement
+  * Open the WCU blackbody ports
+  * Use the METIS-internal chopper to step the source in 1/10 lambda/D steps across the chosen slit
+  * repeat for several derotator settings (4, tbc), all settings of the fixed ADC and all five slits
+
+=== Pipeline data products ===
+  * Best-fit model parameters
+
+=== Prepared observing blocks ===
+(tbd)
+
+=== Prepared templates ===
+  * [[METIS_spec_lm_cal_slit_adc|METIS_spec_lm_cal_slit_adc]]
+  * [[METIS_spec_nq_cal_slit_adc|METIS_spec_nq_cal_slit_adc]]
+
+=== Pipeline support ===
+  * For each step, determine flux on detector (aperture photometry)
+  * Fit a tbd model to the derived flux vs. object position curve (slit losses) as well as for the object position vs. wavelength (ADC correction), update pipeline recipes for slit loss and ADC calibration with found model parameters
+
+=== Duration ===
+The full calibration set will take a lot of time. If a series of short exposures (say 3 min total including setup time) is taken for each chopper offset position (typically 10-20), ADC setting (3 settings), derotator angle (4, tbc) and for each slit (5 slits), this would lead to a <color #ed1c24>massive calibration task taking 30 hours</color> (60 hours, if LM/NQ images cannot be taken in parallel). However, we do not need to take all combinations (regularly), but can perhaps take the full ADC sweep (all ADC settings, derotator angles, positions across the slit) in only one slit and just confirm a few points for the other slits.
+
+
+=== Prerequisites ===
+none
+
+=== Required Accuracy ===
+  * Positional / wavelength accuracy: 1/10 of a pixel.
+  * The slit-loss flux correction should not introduce a significant error in the calibration, i.e. be negligible against flux calibration which we expect to be better than 10% (relative spectro-photometry accuracy over an entire band). The slit-loss flux correction should thus be accurate to 1/10 of this, i.e. 1%.
+
+=== Expected Accuracy ===
+tbd
+
+
+=== Notes ===
+  * Slit losses may occur due to bad centring of a source and due to atmospheric dispersion. The latter is a function of wavelength and depends on PWV, pressure, seeing and AO performance. We plan to produce a lookup table for the 2D pixel to wavelength mapping which will be verified in commissioning.

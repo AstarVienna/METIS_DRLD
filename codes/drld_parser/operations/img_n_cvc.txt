@@ -1,0 +1,37 @@
+===== Classical vortex coronagraphy (CVC) in N-band  =====
+Science use case example: //Exoplanet search with CVC in N-band//
+
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+  * any special needs?
+
+==== Acquisition ====
+
+During the preset, the telescope is sent to the position of the target. The AO NGS is automatically centered on the WFS (no interaction needed). The vortex phase mask (VPM) consisting of three identical VPM elements installed side-by-side is inserted after the AO loop is closed, and the star is offset approximately to the center middle VPM mask. An ND filter is inserted at the beginning of the sequence (the exact filter will be adapted to the star's brightness), and once the star is positioned at the VPM center, the ND is taken out. For extremely bright stars, this may be done in steps (from lower to higher transmission NDs). Accurate centering is performed using QACITS. 
+
+Template options:
+  * [[metis_img_n_cvc_acq|METIS_img_n_cvc_acq]]
+
+==== Science sequence ====
+
+For HCI observing modes:
+
+  * The target (typically a bright star) is always on-axis and used as the NGS for the SCAO
+  * The derotator is always in pupil tracking mode (i.e. pupil is always oriented in the same pre-defined direction)
+
+Sky subtraction:
+
+  * All the N-band coronagraphic observations will use chopping. Chopping will be carried out between the centers of three identical VPMs installed side-by-side in CFO-FP2. Fast chopping movements will only occur between two neighboring VPM centers. It is not yet clear what will be the standard chopping pattern, it will possibly be a 3-point pattern instead of the “classical” 2-point pattern. This will require parameters to define the chopper positions, instead of the chopper throw/angle combination. The relevant procedures and template keywords should be updated once the “main” chopping pattern is decided.
+  * An off-axis PSF measurement is taken every ~10 min, as required for QACITS \cite{E-REP-ULG-MET-1022}. 
+
+Template options: 
+  * [[metis_img_n_cvc_obs_autochop|METIS_img_n_cvc_obs_AutoChop]]
+
+
+===== Discussion =====
+ [[img_n_cvc_discussion|img_n_cvc_discussion]] 

@@ -1,0 +1,52 @@
+<color #ed1c24>__**Open discussion**__</color> 
+
+Please write your new comments here.
+
+
+
+<color #ed1c24>__**Old discussion - clarified and implemented in text **__</color>
+
+__** (1) **__
+''Roy:'' cf. the comment on the IMG-LM-PP1 allocation: indeed all pupil masks (stops) are in the wheel that is exactly in the pupil plane. This is also the first of the three wheels. Also the gratings for the spectroscopy are in this wheel, as well as the APP. The list is in subsystem requirement METIS-3953. The wheel behind that contains the science filter (METIS-3781), and the last of the three wheels contains ND filters (METIS-5528).
+
+''Kora:'' Thanks Roy for the update. I have changed the comment in all the acquisition templates accordingly.  
+
+
+__** (2) NQ (remove Q) **__
+
+''Roy:'' (this is just cosmetics) in Acquisition-setup imager (and generally) everywhere, the references to IMG-NQ may be changed to IMG-N, Q-band is out and there is zero chance of it coming back into METIS.
+
+''Kora'': Indeed, I already did renaming of all the templates to remove the reference to the Q-band. Now I also went through all the acquisition and science templates and changed all NQ to N.  
+
+__**(3) Target movements with AO loop closed:**__ 
+
+''Kora:'' From Olivier Absil: //"In general, it should be made clear in the document that, once the telescope is guiding and the AO loop closed, any movement of the science target within the CFO-FP2 FoV will need to be done with the chopper." //
+We have, at several places at the wiki a text similar to that at this page: //"dithering: using CFO-PP2 chopper or telescope offsets"//. I understand that if we move the telescope, we moved the NGC from the field selector, i.e. the loop cannot remain closed. Therefore, as Olivier says, we can perform dithering **only** by using the chopper. [Alternatively, if we offset the telescope, we could apply the same offset in the opposite direction on SCAO to counteract the movement (I'm not sure if this is possible).] For large offsets to sky, the AO loop is opened and then closed once we're back on the target - this can be either done using the chopper, or the telescope. Is this reasoning correct?
+
+Not completely. Large offsets can only be performed using the telescope, not chopper. Chopper can move the target only within the CFO FoV.
+
+__**(4) Cold Stops**__ 
+
+''Kora:'' I have some doubts about the combination of CFO-PP1 and IMG-PP1 Cold Stops in various modes. Here's my understanding of this and some questions:
+
+  * IMG of LSS with field tracking: undersized cold stop in CFO-PP1, no cold stop on IMG system.
+  * RAVC IMG (pupil tracking): Ring apodized CS in CFO-PP1 + Lyot CS in IMG-PP1. Telescope spiders are masked by the Lyot stop in IMG-PP1.
+  * APP IMG (pupil tracking). Here I need to clarify two things: (a) CFO-PP1: METIS-2565 (//The APP active aperture shall be always fully illuminated with light from the telescope pupil.//) - that means there is no CS in CFO-PP1 for APP, correct? (b) IMG-PP1 APP mask in the mask wheel. Spiders are covered in IMG-PP1. Is that somehow done by the same APP mask, or is there a separate mask covering the spiders. If yes, where is it located? Somehow I thought that there is only one element for APP in IMG-PP1, but in the Norma's Technote it sound like there are two things. 
+
+''From M. Kenworthy:'' There is an integrated metallic mask inside the APP optics that acts as a cold pupil stop. We deliberately make the transmissive areas of these stops smaller than the actual pupil image, so that the optics are tolerant to misalignment errors.
+
+  * IMG with pupil tracking (without coronagraphs; ADI-like data analysis). First, is this foreseen as an option? Second, how are the spiders covered in this case? Can the Lyot stop used for RAVC be used here as well?
+ 
+''Answering myself:'' Yes. There is a Spider Mask in IMG-PP1 that is used in this case (METIS-3539)
+
+
+__**(5) **__ 
+  ''Norma:'' I don't understand the statement "Set IMG-NQ PP1 BLANK (no light on IMG-NQ system)" in the Setup Imager part. I may be wrong but to me Blank is the same as open. Is the meaning of this something to block/close chanel NQ when observing in LM band? 
+  
+''Kora:'' Yes, the idea to have the other channel closed. I called it "Blank" because of: 
+  - Functional Breakdown Matrix which has an entry "Select blank" on IMG-PP1 activated for NQ imaging channel when observing in LM; 
+  - METIS 3539, elements of IMG-LM-PP1, element #1 is Blank/closed, and element #10 Open. 
+
+But then I see in METIS 3638, elements if IMG-NQ-PP1 that there is some confusion between Blank and Open, i.e. not clear if this is supposed to be the same thing or not. 
+
+**Final conclusion:** Consistently call this CLOSED and remove BLANK from all templates (done).

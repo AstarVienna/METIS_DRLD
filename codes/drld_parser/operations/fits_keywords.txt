@@ -1,0 +1,97 @@
+===== FITS header keywords =====
+As discussed in Leuven on 21 Nov, this page shall serve as a central collection point for FITS header keywords. The agreed upon procedure is this:
+  * Everyone may suggest new FITS header keywords to be implemented for the final merged METIS data product. Add your proposed keyword ID, description (what does the keyword describe?), valid values (range or type), and comment (why is it necessary?) in the appropriate section as normal text.
+  * Wim is the owner of the list and checks newly entered keywords for compliance with (assumed) ESO standards. If they are approved by him, he adds a "Y" into the "Approved" column. In the end, the keywords will go in the METIS Data Interface Definition document (E-LIS-KUL-MET-1002).
+
+^ Keyword ID ^ Hidden ^ Range (default) ^ Label ^ Comment ^ Approved ^
+|   **DPR -- data product keywords**   |||||
+| HIERARCH ESO DPR CATG | no |SCIENCE CALIB ACQUISITION TECHNICAL (ACQUISITION)|Data product category| Required for the pipeline data association (OCA rules) |  Y  |
+| HIERARCH ESO DPR TECH | no |IMAGE LSS IFU IMAGE,RAVC IMAGE,APP IFU,RAVC IFU,APP (IMAGE) |Data product technique| Required for the pipeline data association (OCA rules) |  Y  |
+| HIERARCH ESO DPR TYPE | no |OBJECT SKY STD PSF-CALIBRATOR DARK FLAT WAVE BIAS DISTORTION (NODEFAULT) |Data product type| Required for the pipeline data association (OCA rules) |  Y  |
+|   **INS -- instrument control keywords**   |||||
+| HIERARCH ESO INS FILT1 NAME | no |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef fullL M' CO(1-0)/ice COref fullM (NODEFAULT)  | Filter name | Required for scientific interpretation |  Y  |
+|HIERARCH ESO INS OPTI1 NAME  |no|open APP Grism_L Grism_M SAM1 SAM2 Lyot-stop (TBD) (NODEFAULT)                  |Mask/Grism name | Required for scientific interpretation |  Y  |
+|HIERARCH ESO INS OPTI2 NAME  |no |TBC (NODEFAULT)                  |Neutral density filter| Required to diminish flux of very bright objects|  Y  |
+|HIERARCH ESO INS OPTI3 NAME  |no   |VPM-L VPM-M VPM-N1 VPM-N2 LOM-LM LOM-N (NODEFAULT)       |Vortex phase or Lyot occulting mask| Required for scientific interpretation|  Y  |
+|HIERARCH ESO INS SLIT1 NAME |no         |TBC (NODEFAULT)                  |Slit name| Required for scientific interpretation|  Y  |
+|HIERARCH ESO INS WLEN CEN   |no         |2700 - 5300 nm (NODEFAULT)       |Central wavelength, IFU |User-defined central wavelength for the IFU observations|  Y  |
+|HIERARCH ESO INS WLEN START       |no         |2900 - 4200 nm  (NODEFAULT)                 |Starting wavelength, IFU|Starting wavelength on the detector for IFU observations |  Y  |
+|HIERARCH ESO INS WLEN END         |no         |2900 - 4200 nm  (NODEFAULT)                 |End wavelength, IFU| End wavelength on detector for IFU observations|  Y  |
+|HIERARCH ESO INS GRAT ANGLE         |no         |TBD (TBD)                 |Main dispersion grating angle| | |
+|HIERARCH ESO INS ADC NAME         |no         |no_ADC ADC1 ADC2 (NODEFAULT)                  |Atmospheric dispersion corrector|Required for calibration | |
+|HIERARCH ESO INS DROT POSANG      |no         | (NODEFAULT)                  |Derotator position angle|Required for calibration | |
+|HIERARCH ESO INS LMS MODE| no | "Nominal" or "Extended"| Nominal or extended mode | Required for data reduction | |
+
+
+|   **OBS -- observation control software keywords**   ||||||
+| HIERARCH ESO OBS NAME | no | e.g. "NGC1068-broadband" | Name of Observing Block | Useful for quick identification of observation |  Y  |
+
+
+|   **SEQ -- sequencer (template) keywords**   |||||
+| HIERARCH ESO SEQ NODPOS | no | e.g. "A" or "B" | Nodding position | Required for data reduction |   Y  |
+| HIERARCH ESO SEQ PRESET | yes|T F (T)                    |Preset telescope?| Required for acquisition |  Y  |
+| HIERARCH ESO SEQ NGS ISTARGET| no |T F (NODEFAULT)            |Target = AO Guide Star|Required for acquisition |  Y  |
+| HIERARCH ESO SEQ NGS ALPHA   | no |(NODEFAULT)                |RA of AO Guide Star| Required for acquisition|  Y  |
+| HIERARCH ESO SEQ NGS DELTA   | no |(NODEFAULT)                |DEC of AO Guide Star| Required for acquisition|  Y  |
+| HIERARCH ESO SEQ NGS MAG     | no |TBD (10)                   |H mag of AO Guide Star| Required for acquisition |  Y  |
+| HIERARCH ESO SEQ PUPILTRK    | no |T F (F)                    |Enable this for pupil tracking||  Y  | 
+| HIERARCH ESO SEQ NGS DIT     | yes |0..TBD (NODEFAULT)       |NGS integration time (DIT)| Required for acquisition |   Y  |
+| HIERARCH ESO SEQ NGS NDIT    | yes |0..TBD (1)        |NGS number of Integrations (NDIT)|Required for acquisition|  Y  |
+| HIERARCH ESO SEQ NGS SKYALPHA | no |-TBD..TBD (0) |Chopper offset to sky RA| Required for acquisition |  Y  |
+| HIERARCH ESO SEQ NGS SKYDELTA | no |-TBD..TBD (0) |Chopper offset to sky DEC| Required for acquisition |  Y  |
+| HIERARCH ESO SEQ BKG MODE     | no |NONE CHOPPED (NONE)|Background subtraction mode| Required for acquisition |  Y  | 
+| HIERARCH ESO SEQ CFO CHOP POSANG |no |0..360 (NODEFAULT) |Chopper position angle| Required for acquisition |  Y  | 
+| HIERARCH ESO SEQ CFO CHOP THROW  |no |0..5 (NODEFAULT) |Chop throw| Required for acquisition |  Y  | 
+| HIERARCH ESO SEQ CFO CHOP FREQ   |yes |TBD |Chopping frequency| Required for acquisition |  Y  | 
+| HIERARCH ESO SEQ NCHOPCYCLES     |no  |0..TBD (NODEFAULT)|Number of chopping cycles|Required for observing sequence |  Y  |
+| HIERARCH ESO SEQ JITTER WIDTH | no |0..5 (NODEFAULT) |Jitter Box Width (arcsec)| Required for observing sequence |  Y  | 
+| HIERARCH ESO SEQ NEXPO | no |0..1000 (NODEFAULT) |Number of exposures per offset|Required for observing sequence |  Y  | 
+| HIERARCH ESO SEQ NOFFSETS | no |0...1000 (NODEFAULT) |Total number of offsets|Required for observing sequence  |  Y  | 
+| HIERARCH ESO SEQ POISSON | yes |1..100 (10)  |Random throw generator| Required for jittering |  Y  | 
+| HIERARCH ESO SEQ RETURN | no |T F (T)|Return to origin?|Required for observing sequence |  Y  | 
+| HIERARCH ESO SEQ OBSTYPE LIST |no |O S (NODEFAULT)|Observation type list, O/S|Useful for data reduction|  Y  | 
+| HIERARCH ESO SEQ OFFSET COORDS|no |SKY DETECTOR (DETECTOR) |Offset coordinate type selection|Required for observing sequence |  Y  | 
+| HIERARCH ESO SEQ OFFSET1 LIST |no |-600..600 (NODEFAULT) |List of X or RA offsets (arcsec)|Required for observing sequence  |  Y  | 
+| HIERARCH ESO SEQ OFFSET2 LIST |no |-600..600 (NODEFAULT) |List of Y or DEC offsets (arcsec)|Required for observing sequence  |  Y  |
+| HIERARCH ESO SEQ NABCYCLES | no |0..100 (NODEFAULT) |Number of AB or BA cycles| Required for observing sequence  |  Y  |
+| HIERARCH ESO SEQ NDIT OBJECT | no |1..1000 (1) |NDIT on OBJECT positions|Required for data reduction|  Y  |
+| HIERARCH ESO SEQ NDIT SKY | no |1..1000 (1)|NDIT on SKY positions| Required for data reduction |  Y  |
+| HIERARCH ESO SEQ SKYOFFSET ALPHA |no |0..TBD (10) |RA offset to sky| Required for observing sequence |  Y  |
+| HIERARCH ESO SEQ SKYOFFSET DELTA |no |0..TBD (10) |DEC offset to sky| Required for observing sequence|  Y  |
+|HIERARCH ESO SEQ NNODCYCLES       |no         |0..TBD (NODEFAULT)         |Number of nodding cycles| Required for observing sequence|   |
+|HIERARCH ESO SEQ NODTHROW       |no         |0..TBD (NODEFAULT)         |Nodding amplitude|Required for observing sequence|   |
+|HIERARCH ESO SEQ CHOPNOD DIR       |no         |PARALLEL PERPENDICULAR (PERPENDICULAR)         |Relative Chop/Nod Direction|Required for observing sequence|   |
+|HIERARCH ESO SEQ NCYCLES            |no         |1..TBD (1)                 |Number of cycles| Required for flat field calibration templates| |
+|HIERARCH ESO SEQ DIT ADJUST        |no         |T F (T)                 |Adjust DIT?| Required for flat field calibration templates| |
+|HIERARCH ESO SEQ DIT FILT LIST     |no         |(NODEFAULT)                 |Filter list| Required for flat field calibration templates| |
+|HIERARCH ESO SEQ TIME               |no         |0..TBD (NODEFAULT)         |Total integration time (sec)| Required for science observations in NQ bands |
+
+
+|   **TEL -- telescope control keywords**   |||||
+| HIERARCH ESO TEL TARG OFFSETALPHA | no |-TBD...TBD (0) | Alpha offset for the target | Required for data reduction |   Y  |
+| HIERARCH ESO TEL TARG OFFSETDELTA | no |-TBD...TBD (0) | Delta offset for the target | Required for data reduction |  Y  |
+| HIERARCH ESO TEL TARG ALPHA        |no         |(NODEFAULT)                |Target RA| Required for acquisition  |  Y  |
+| HIERARCH ESO TEL TARG DELTA        |no         |(NODEFAULT)                |Target DEC| Required for acquisition  |  Y  |
+| HIERARCH ESO TEL TARG EQUINOX      |no         |-2000..3000 (2000)         |Equinox| Required for acquisition  |  Y  |
+| HIERARCH ESO TEL TARG PMA          |no         |-10..10 (0)                |Proper motion in RA in arcsec/year| Required for acquisition  |  Y  |
+| HIERARCH ESO TEL TARG PMD          |no         |-10..10 (0)                |Proper motion in DEC in arcsec/year| Required for acquisition  |  Y  |
+| HIERARCH ESO TEL TARG NAME         |no         |(NODEFAULT)                |Name of the Target| Required for acquisition  |  Y  |
+| HIERARCH ESO TEL AG GUIDESTAR      |no         |NONE SETUPFILE CATALOGUE (CATALOGUE)|Telescope Guide Star Selection| Required for acquisition  |  Y  |
+| HIERARCH ESO TEL GS1 ALPHA         |no         |(0.0)                      |RA of telescope guide star| Required for acquisition  |  Y  |
+| HIERARCH ESO TEL GS1 DELTA         |no         |(0.0)                      |DEC of telescope guide star| Required for acquisition |  Y  |
+| HIERARCH ESO TEL ROT OFFANGLE      |no         |-360..360 (0)|Position Angle on Sky (deg)| Required for acquisition  |  Y  |
+| HIERARCH ESO TEL TARG ADDVELALPHA  |yes        |-100..100 (0)  |Differential tracking in RA| Required for acquisition |  Y  |
+| HIERARCH ESO TEL TARG ADDVELDELTA  |yes        |-100..100 (0) | Differential tracking in DEC| Required for acquisition  |  Y  |
+
+
+|   **TPL -- template parameters**   |||||
+| HIERARCH ESO TPL ID | no | METIS_all_dark | Template signature ID | Useful for debugging |  Y  |
+
+
+|   **DET -- detector parameters**   |||||
+| HIERARCH ESO DET CHIP ID    |no|e.g.'ESO-Hawaii2RG-chip66'|Unique name of chip|Required for data reduction|Y| 
+| HIERARCH ESO DET DIT  |no|0..TBD (NODEFAULT)|Detector integration time (DIT)|Required for data reduction|  Y  |
+| HIERARCH ESO DET NDIT |no|0..TBD (1)|Number of Integrations (NDIT)|Required for data reduction |  Y  |
+| HIERARCH ESO DET NCORRS NAME | no |TBD |Readout mode| Required for data reduction |  Y  |
+| HIERARCH ESO DET CUBE MODE | no |T F (F) |Toggle cube mode| Required for data reduction |  Y  |
+

@@ -1,0 +1,41 @@
+<color #ed1c24>__**Open discussion**__</color>
+
+Please write your new comments here.
+
+<color #ed1c24>__**Old discussion - clarified and implemented in text **__</color>
+
+
+
+(1) __** Acquisition **__ 
+
+''Roy:''  
+ * The location of the ND filters is now defined, they will be in one of the 3 IMG-PP1 wheels
+   * The exact allocation of IMG-PP1 elements is TBC, but it looks like the "masks" (for coronagraphy, SAM) and the grisms will both be in the "mask" wheel, i.e. the one that is exactly in the pupil plane. The science and ND filters will be in wheels just before and just after the pupil plane.
+
+''Kora:'' OK. I added this info in this template, and will add it to other as well. I have created three INS keywords that cover the three wheels.
+
+
+(2) __** Start science exposures **__ 
+
+''Roy:'' we must make a note that the persistence behavior is to be investigated. Typically we will be looking at very bright sources, that will heavily saturate the central star. Thus, we may want to restrict ourselves to a simple 2 position nod pattern (going back and forth many times), depending on how problematic this persistence problem is.
+
+''Kora:'' I added a note about this in the template, to have it in mind for later.
+
+(3) __** End science exposures **__ 
+
+''Roy:'' just a note: for this application we will usually observe for a relatively long time (>~1 hour, near culmination) to get a good amount of field rotation. Therefore, I doubt that doing multiple filters one after the other, in the same OB, will ever happen (this is different for "normal" imaging applications, where this will be a common thing to do).
+
+''Kora:'' That's right. I added a small comment to the respective section.
+
+(4)__** Storing of individual image frames for HCI modes**__ 
+
+''Sascha:'' somewhere (not exactly sure where) it probably should be captured that for the HCI modes (LM imaging with the APP/Vortex, but probably also N band imaging with the Vortex) the user should have the option to store each individual image frame and not only the mean/median of a pre-defined number of frames.
+
+''Kora:'' There is a keyword ''CUBE MODE'' in the HCI and imaging templates that can be set to True or False.
+
+(5) __** Avoidance of zenith passage **__ 
+
+''Sascha:'' For all modes that use pupil tracking (in particular HCI with the APP/Vortex) it needs to be investigated how close to the zenith an object can be before the field rotation becomes go fast accurate pupil tracking is no longer possible. For NACO, I think, there is an avoidance of ~2 degrees or so... 
+Also here I am not 100% sure where to address this point. Maybe here's not the right place, but somewhere in needs to be kept in mind for the HCI modes.
+
+''Kora:'' Yes, we have to keep that in mind. I added a note mentioning this at the beginning of the acquisition template.

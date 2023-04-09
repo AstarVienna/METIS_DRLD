@@ -1,0 +1,50 @@
+===Procedure for METIS_gen_cal_dark ===
+
+This template is used for the science dark frame calibration. It acquires a number NEXPO of darks with specified DIT and NDIT (which should correspond to the DIT and NDIT of the exposure to correct). The darks can be taken in parallel using the different detectors (IMG LM, IMG N, LMS), with a different DIT/NDIT.
+
+This dark calibration is also referred to as imager dark and uses the dark positions in both the CFO-PP1 and the IMG-PP1 and LMS-PP1 wheels.
+ 
+++++
+Setup WCU|
+  * Nothing to be done
+++++
+
+++++
+Setup CFO and subsystems|
+  * Set ''CFO-PP1'' to DARK
+  * Set ''IMG-PP1'' to DARK
+  * Set ''LMS-PP1'' to DARK
+++++
+
+++++
+Start Exposure|
+  * Start exposures with request DIT and NDIT in all subsystems
+++++
+
+++++
+End Exposure|
+  * Collect headers
+  * Send file to ESO Archive
+++++
+
+
+
+===Parameters for METIS_gen_cal_dark ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TECH              |yes        |IMAGE (IMAGE)                 |Data product technique|
+|DPR TYPE              |yes        |DARK (DARK)|Data product type| 
+|DET1 DIT               |no         |0..TBD (NODEFAULT)         |Detector integration time (DIT) for IMG-LM|
+|DET1 NDIT              |no         |1..TBD (1)                 |Number of Integrations (NDIT) for IMG-LM|
+|DET2 DIT               |no         |0..TBD (NODEFAULT)         |Detector integration time (DIT) for IMG-N|
+|DET2 NDIT              |no         |1..TBD (1)                 |Number of Integrations (NDIT)  for IMG-N|
+|DET3 DIT               |no         |0..TBD (NODEFAULT)         |Detector integration time (DIT) for LMS|
+|DET3 NDIT              |no         |1..TBD (1)                 |Number of Integrations (NDIT) for LMS|
+|SEQ NEXPO1              |no         |0..TBD (1)                 |Number of exposures per DIT for IMG-LM|
+|SEQ NEXPO2              |no         |0..TBD (1)                 |Number of exposures per DIT for IMG-N|
+|SEQ NEXPO3              |no         |0..TBD (1)                 |Number of exposures per DIT for LMS|
+|INS OPTI1 NAME      |yes                 |DARK (DARK)                |CFO-PP1 mask wheel |
+|INS OPTI5 NAME      |yes                 |DARK (DARK)                |LMS-PP1 mask wheel |
+|INS OPTI9 NAME      |yes                 |DARK-LM (DARK-LM)                |IMG-LM mask/grism wheel |
+|INS OPTI12 NAME      |yes                 |DARK-N (DARK-N)                |IMG-N mask/grism wheel |

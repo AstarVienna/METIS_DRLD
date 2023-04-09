@@ -1,0 +1,68 @@
+==== Science imaging coronagraphy template METIS_img_n_cvc_obs_AutoChop ====
+
+=== Procedure for METIS_img_n_cvc_obs_AutoChop ===
+ 
+++++
+Setup imager|
+  * Move ''IMG-N PP1 FILT'' to selected filter
+  * Remove the neutral density filter (located in one of the wheels in IMG-N PP1)
+  * Set detector parameters (total exposure time, readout mode, cube mode T/F). The system will set the DIT/NDIT combination depending on the background levels. 
+++++
+++++
+Start science exposures|
+
+  * This templates performs chopping (using the CFO-PP2 chopper) between the three VPM masks. The positions are pre-defined by the locations of the three VPM masks sitting in the CFO-FP2. The exact centering of the star at the three positions is performed during the acquisition, and the chopper parameters (chop-throw and angle) are calculated. The chopping is always performed between the centers of the two (out of three) side-by-side VPMs in VPM-N1/N2 (sequence B-A-B-A…, followed by B-C-B-C…).
+  * Set the number of chopping cycles (chopped pairs of images) using the parameter NChopCycles.
+  * At each position start science exposures with DIT/NDIT. 
+  * Every ~10 min, the chopper is used to move the star to a separation of >20 λ/D from the VPM-N2 centre, but still well within VPM-N2’s footprint. Unsaturated PSF measurements are obtained (while chopping), using an ND filter if needed. Chop subtraction is applied to obtain sky-subtracted PSF measurements.
+  * Use chopper to place the star back close to the VPM-N2 centre (centring accurate to within ~1 λ/D). In case of bright stars, an ND should be used.
+  * Close the QACITS loop.
+  * Read-out and save individual exposures, or co-added frames, depending on the ''cube mode'' T/F keyword.
+
+++++
+++++
+End science exposures|
+  * Return telescope or chopper (depending on which actuator is used for offsetting) back to the initial position.
+  * Collect headers
+  * Merge into one or more data cubes
+  * Send cube to ESO Archive
+  * Send cube to Pipeline machine or ICS storage (tbd)
+  * Go back to Setup Imager until target observations are finished (single OB). For example, to observe in a different filter (but note that this might not be very common in pupil tracking modes).
+
+At the end of the OB:
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+
+++++
+
+===Parameters for METIS_img_n_cvc_obs_AutoChop ===
+
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |SCIENCE TEST (SCIENCE) |Data product category|
+|DPR TECH              |yes        |IMAGE,CVC (IMAGE,CVC)                 |Data product technique|
+|DPR TYPE              |yes        |OBJECT SKY (OBJECT)|Data product type|                      
+|DET2 NCORRS NAME       |no         |TBD                         |IMG-N Readout mode|
+|DET2 CUBE MODE        |yes         |T F (T)                    |Toggle cube mode| 
+|INS OPTI13 NAME         |no         |N1 N2 PAH8.6 PAH8.6_ref PAH11.25 PAH11.25_ref [NeII] [NeII]_ref [SIV] [SIV]_ref N3 (N1)                |IMG-N Filter name|
+|INS OPTI14 NAME         |no         |OPEN (OPEN)                  |IMG-N Neutral density filter|
+|SEQ TIME OBJECT       |no         |0..TBD (NODEFAULT)         |Total integration time on OBJECT position (sec)|
+|SEQ TIME PSF       |no         |0..TBD (NODEFAULT)         |Total integration time on off-axis PSF position (sec)|
+|SEQ DET2 DIT OBJECT       |yes         |0..TBD (NODEFAULT)         |DIT on OBJECT positions|
+|SEQ DET2 NDIT OBJECT       |yes         |1..1000 (NODEFAULT)       |NDIT on OBJECT positions|
+|SEQ DET2 DIT PSF       |yes         |0..TBD (NODEFAULT)         |DIT on off-axis PSF positions|
+|SEQ DET2 NDIT PSF       |yes         |1..1000 (NODEFAULT)       |NDIT on off-axis PSF positions|
+|SEQ NCHOPCYCLES       |no         |0..TBD (NODEFAULT)         |Number of chopping cycles|
+|SEQ RETURN            |no         |T F (T)                    |Return to origin?|
+|SEQ CFO CHOP POSANG       |yes        |0..360 (0)             |Chopper position angle|
+|SEQ CFO CHOP THROW        |yes        |0..5 (2.5)             |Chop throw|
+|SEQ CFO CHOP FREQ         |yes        |0..5 (1)               |Chopping frequency|

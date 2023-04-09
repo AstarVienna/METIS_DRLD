@@ -1,0 +1,72 @@
+===== Imaging LM =====
+
+Science use case example: //the disk population in the Arches cluster //
+
+=== Brief description of experiment ===
+
+The Arches cluster is a massive young star cluster located at a projected distance of about 26 pc from the galactic centre. Stolte+2015 searched the region for L-band excess sources using VLT/NACO, indicative of circumstellar disks, and found that about 9% of stars in the mass range of ~2 to 15 solar masses still possess a disk. With the limited sensitivity and spatial resolution offered by 8m class telescopes, the entire low-mass star regime remains unproved. With METIS, our point source sensitivity is about 1.17 micro-Jy in 10 minutes of integration time, i.e. a factor of ~200 better than that of Stolte+2015. Assuming a constant ratio of L-band brightness to stellar luminosity, this means that with METIS we will probe the entire population down to ~0.5 solar masses. The core of the cluster can be covered with 4 METIS pointings and contains 18 known disk-bearing stars of >2 Msun (i.e. HAeBe stars) and presumably a large number of hitherto unknown disk-bearing T Tauri stars. 
+
+{{:operations:bildschirmfoto_2021-04-08_um_13.58.55.png?400|}}
+
+=== Challenges ===
+
+
+  * Crowded field, but most of the area should be “background” (i.e. have no source). Multi-position dithers are needed for the background subtraction (the more positions the better). All sources are expected to be point sources.
+  * AO guide star: brightest star in Stolte+2015 “field 1” (cluster center) has K~10.0 mag. This should give Strehl ~90% in L-band. It already in the regime where the AO performance depends on guide star brightness. TBC: AO performance when guide star is in crowded field.
+  * The working assumption is that with n dither positions, the median of the measured values will correspond to the background. Any given chop/dither pair will have a roughly equal number of positive and negative star images.
+  * The cluster is larger than the METIS field of view. The densest region approximately fits in the FOV but to get the whole cluster, multiple pointings will be needed.
+  * The AO guide star may be off-axis, in which case only field-tracking observations are supported
+
+
+ 
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC; for point sources. The brightest source in Field 1 (cluster centre) has L'=8.38 mag, i.e. ~109 mJy. This is ~2.2 times the saturation limit at DIT=40ms (fastest full frame rate), so this object will be mildly saturated. In the K-band this source has K=10.0 mag; its coordinates are [17 45 50.415, -28 49 21.84] j2000.
+  * p2pp (p2) kind of OB preparation
+  * Visualisation for pointings / dither positions overlaid on e.g. NACO data.
+
+==== Acquisition ====
+
+During the preset, the telescope is sent to the position of the target. The AO NGS is automatically centered on the WFS (no interaction needed). In case of the off-axis NGS (SEQ NGS ISTARGET = F), an internal SCAO mirror (field selector) will be tilted such that the off-axis NGS falls exactly onto the WFS. The operator may be asked to perform fine centering of the target on the detector.
+
+Template options:
+  * [[metis_img_lm_acq|METIS_img_lm_acq]]
+
+==== Science sequence ====
+Depending on the sky subtraction strategy, following offsetting options are available: 
+  * dithering (aka jittering): using CFO-PP2 chopper or telescope offsets
+  * sky offsets: using telescope offsets. Can be implemented in situations where there is no suitable blank position at the regular chop-throw distance (5 arcsec), in case of e.g. crowded field, or a very extended target. 
+  * sky offsets + dithering. Offset to a sky position, and back to the target, with a small dither that places the target in a slightly different position on the detector than the initial one. Can be performed using the CFO-PP2 chopper or telescope offsets, or a combination of the two.
+
+Template options: 
+  * [[metis_img_lm_obs_autojitter|METIS_img_lm_obs_AutoJitter]]
+  * [[metis_img_lm_obs_genericoffset|METIS_img_lm_obs_GenericOffset]]
+  * [[metis_img_lm_obs_fixedskyoffset|METIS_img_lm_obs_FixedSkyOffset]] 
+
+**Note:** The METIS_img_lm_obs_FixedSkyOffset template is a special case of the METIS_img_lm_obs_GenericOffset template, but with an advantage of simplicity from the user point of view (only one offset positions is specified, and the rest is calculated by the system). 
+===== Calibration data =====
+
+++++
+Calibration requirements|
+  * flatfielding (daytime WCU, not needed daily?; twilight sky flats?)
+  * sky background recostruction/subtraction (chop/dither/stare), align frames (dithered/choped exposures)
+  * flux calibration (sky atmosphere modeling + one/few standard observations per night?)
+  * psf re-construction?
+  * provide data cube or "stacked" result?
+++++
+
+===== Products =====
+
+  * background-subtracted, flux-calibrated image (cube). Units, e.g., [photons/s/pix]
+  * corresponding uncertainties (cube)
+  * PSF (cube)
+
+===== Science Analysis =====
+ [[img_lm_science_analysis|img_lm_science_analysis]] 
+
+
+===== Discussion =====
+ [[img_lm_discussion|img_lm_discussion]] 

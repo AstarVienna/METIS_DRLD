@@ -1,0 +1,45 @@
+==== Detector bias determination ====
+=== Responsible ===
+Science Operations
+
+=== Phase ===
+Daytime
+
+=== Frequency ===
+Once every day (tbc)
+
+=== Purpose ===
+Determine detector bias count level
+
+=== Procedure ===
+  * Close all instrument shutters
+  * Take a series of 0-second exposures with all detectors
+
+=== Pipeline data products ===
+  * Master bias frame
+
+=== Prepared observing blocks ===
+(tbd)
+
+=== Prepared templates ===
+[[METIS_all_cal_bias|METIS_all_cal_bias]]
+
+=== Pipeline support ===
+  * master bias frame: median of all frames
+
+=== Duration ===
+5 min
+
+=== Prerequisites ===
+None
+
+=== Required Accuracy ===
+tbd
+
+=== Expected Accuracy ===
+limited by thermal leaks / outside illumination? (tbd)
+
+
+
+=== Notes ===
+  * <color #ed1c24>Required for all detectors?</color>

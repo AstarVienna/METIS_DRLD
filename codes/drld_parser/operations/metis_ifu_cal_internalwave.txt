@@ -1,0 +1,70 @@
+===Procedure for METIS_ifu_cal_InternalWave ===
+
+Template with a purpose to provide a pixel to wavelength transformation for the LMS. The three L and M band laser sources in the WCU are: (1) a fixed laser at 3.39 micron, (2) a tuneable laser at 4.68 to 4.78 micron and (3) a fixed laser at 5.26 micron. The laser can be tuned quickly several times during a long exposure with the LMS so that a single exposure with multiple lines is created.
+
+++++
+Setup WCU|
+  * Move periscopic arm to IN
+  * Activate the laser sources, block the IS exit aperture
+  * select appropriate imager ND filter if required
+  * Set ''WCU-FP2.1'' to LM-pinhole mask (for a most defined wavelength solution)
+  * Set ''WCU-PP1'' to ELT mask
+  * Check the power readout. If the power is detectable, continue. 
+  * Set ''WCU-BB-aperture-mask'' to CLOSE
+  * take background measurement
+  * Set ''WCU-BB-aperture-mask'' to OPEN
+++++
+
+++++
+Setup CFO and subsystems|
+  * Set ''CFO-PP1'' to PPS-CFO1
+  * Set LMS beamsplitter pickoff wheel to IN
+  * insert ''LMS PP1'' cold stop
+  * ''LMS PP4'' Select pre-dispersed range (spectral order)
+  * ''LMS FP4'' to single order selecting mask (nominal mode) or spectral IFU (extended mode)
+  * ''LMS PP5'' Select main dispersed range 
+++++
+
+++++
+Start Exposure|
+  * Start exposures with the LMS with the requested DIT and NDIT
+++++
+
+++++
+End Exposure|
+  * Collect headers
+  * Send file to ESO Archive
+  * Turn off lasers
+++++
+
+
+===Parameters for METIS_ifu_cal_InternalWave ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TECH              |yes        |IFU (IFU)                 |Data product technique|
+|DPR TYPE              |yes        |WAVE (WAVE)|Data product type| 
+|DET3 DIT               |yes         |0..TBD (NODEFAULT)         |LMS Detector integration time (DIT)|
+|DET3 NDIT              |yes         |1..TBD (NODEFAULT)         |LMS Number of Integrations (NDIT)|
+|DET3 NCORRS NAME       |no         |TBD                         |LMS Readout mode|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NEXPO              |no         |0..TBD (1)                 |Number of exposures per DIT|
+|INS WLEN CEN         |no         |2700 - 5300 nm (NODEFAULT)           |Central wavelength|
+|SEQ WCU LASER1         |yes        |OFF ON (NODEFAULT)         |WCU L band fixed laser source|
+|SEQ WCU LASER2         |yes        |OFF ON (NODEFAULT)         |WCU M band tuneable laser source|
+|SEQ WCU LASER2 WAVE    |yes        |4.68..4.78 (NODEFAULT)     |WCU M band tuneable laser source wavelength|
+|SEQ WCU LASER3         |yes        |OFF ON (NODEFAULT)         |WCU M band fixed laser source|
+|INS OPTI1 NAME         |yes        | PPS-CFO1 (PPS-CFO1)                |CFO-PP1 mask wheel|
+|INS OPTI2 NAME         |yes        | OUT (OUT)                |CFO-PP1 ADC wheel|
+|INS OPTI3 NAME   	|yes        | OPEN (OPEN)  |CFO FP2 mask/slit wheel |
+|INS OPTI4 NAME         |yes        |OUT IN (IN)                  |LMS beamsplitter pickoff wheel|
+|INS OPTI5 NAME         |no         |OPEN PPS-LMS SPM-LMS (NODEFAULT) |PP1 mask wheel|
+|INS OPTI6 NAME         |no         |OUT IN (NODEFAULT)           |LMS spectral IFU mechanism|
+|INS OPTI7 NAME         |yes        |TBD                          |LMS pre-disperser angle (to be computed by template)|
+|INS OPTI8 NAME         |           |TBD                          |LMS main disperser angle (to be computed by template)|
+|INS OPTI9 NAME         |no         |DARK (DARK)          |IMG-LM Mask/Grism name|
+|INS OPTI12 NAME         |no         |DARK (DARK)          |IMG-N Mask/Grism name|
+|INS OPTI17 NAME         |yes        |IN (IN)                    | WCU periscope arm|
+|INS OPTI18 NAME	|yes          |WCU_mask AIV_mask ELT_mask (ELT_mask)             |WCU PP1 masks|
+|INS OPTI19 NAME	|yes         |CLOSED (CLOSED)                              |WCU BB exit aperture masks|
+|INS OPTI20 NAME        |yes         |LM-pinhole (LM-pinhole) |WCU FP2.1 mask wheel|

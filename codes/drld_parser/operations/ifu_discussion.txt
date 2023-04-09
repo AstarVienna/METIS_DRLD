@@ -1,0 +1,59 @@
+<color #ed1c24>__**Open discussion**__</color> 
+
+__**(1) METIS_obs_IFU_FixedSkyOffset **__
+
+''Roy:'' It is not clear to me whether a "dithering" in the way we do it with imaging can be done here. For really compact sources probably yes, but since the IFU FOV is only ~0.5x1.0 arcsec, I suppose in most (or at least many) cases we cannot do "on-chip" dithering, and the sky measurement is done at an offset that puts the science target outside the FOV.
+
+''Kora:'' I assume that in most cases the user will want to offset to a sky position, but the idea of the "Generic Offset" template is to allow the user to define any sequence of offsets (not just ABBA), which consequently includes an option of dithering while keeping the science target in the FoV during the entire sequence. We may want to discourage the users of doing this, but I'm not sure if we should eliminate it completely, and how exactly to implement this in a template. I'll leave this open to discuss at our next face-to-face meeting (19/04/2018) and then update this page. 
+
+__**(2) Acquisition sequence **__
+
+''Kora:'' We should discuss the IFU acquisition sequence given that the LMS pick-off is definitely decided to be a beamsplitter. Currently, the sequence goes like this: (1) acquire on IMG, (2) Close loop and center on IMG, (3) insert LMS pick-off and acquire on IFU. With the beamsplitter this might be done differently, since we can look at the both systems at the same time (insert the LMS pick-off from the beginning). I will initiate a discussion at the F2F meeting in Leiden (19/04).
+
+__**(3) Spectral dithering? **__
+
+''Oliver:'' Will these templates provide for spectral dithering to cover a wider wavelength range? This is described in the LMS document (E-REP-ATC-MET-1003-0D1, Sect.3.4.6.3). --- //[[oliver.czoske@univie.ac.at|Oliver Czoske]] 2018/12/17 12:42//
+
+''Kora:'' Thanks for pointing this out. We should indeed allow this in order to cover the gaps in the instantaneous wavelength coverage of the LMS. A list of main dispersion grating angles can be specified by tthe user (which can be a pre-defined set of named positions, or a free setting, tbd). This is now iimplemented in all the LMS modes, and a dedicated keyword was added to the parameter list.   
+
+<color #ed1c24>__**Old discussion - clarified and implemented in text **__</color>
+
+__**(1) Field stops for IFU**__
+
+''Kora:'' Since we are using the IMG LM system to acquire the IFU, we insert the LM Field stop in CFO FP2 during the acquisition. After the target is acquired on the imager (loop closed), we insert the LMS pickoff. Two questions here: 
+
+(1) What happens to the LM field stop in CFO FP2? It stays in place or it is retracted?
+
+(2) Where is the FoV of the IFU defined? I don't see any element in e.g. LMS FP1 that would have a function of a field stop.
+
+''Roy (answering Kora):''
+
+(1) I think it simply stays where it is.
+
+(2) there are actually 2 places where this happens: the pick-off mirror does a first stop down of the field (though over-sized, and with "fuzzy edges" because the pick-off is slightly out of focus), and then at the image slicer.
+
+
+__**(2) LMS PP3 elements**__
+
+''Kora:'' In the nominal IFU mode, there should be a single-order selecting mask located somewhere at the output of the pre-disperser (LMS PP3). In the extended mode, several adjacent orders are sent to the slicing mirror (LMS FP3), which would mean that the single-order selecting mask has to be out of the stream. But, there is no mention of an optical element that would be used to select a single order in e.g. the Functional Breakdown Matrix, or anywhere else really, so I'm wondering (1) if I misunderstand how this works ([[https://filr.astron.nl/ssf/s/readFile/folderEntry/2456262/8ad7801158f38fea015a39f7ebab25b8/1443708022000/lastView/METIS_CM01_Sept15_Spectrograph.pdf|link]]), and (2) if I'm right, where is this element located (LMS FP3 maybe)?
+
+''Roy:'' (I presume you are looking at the image on page 3 of the document you linked here). My understanding is the following. The image slicer is located "to the left" of this entire image, i.e. the field has already been sliced, and all the slices that used to be "next to each other" are now "on top of each other", forming one long slit in a focal plane. Everything is still undispersed at this point. Then the light is pre-dispersed at the next pupil plane (labeled pre-disperser prism), and the dispersed light (spectra) are re-imaged to the next focal plane (labeled "mask"). Here, only a small wavelength range is passed through (corresponding to the selected order of the main dispersion grating), the rest is lost (blocked by the mask). Then the light is further dispersed (in approximately but not quite the same direction as the pre-dispersion, so this is different from the situation in a cross-dispersed echelle where the two are ~perpendicular) but thanks to the previous mask we do not get overlapping orders because the spectral range that is passed through corresponds to only a single order of the main dispersion prism. 
+
+In the extended wavelength mode (I think) the masks are broader, such that several orders (on page 6 it says 6 orders) can be imaged simultaneously; if the pre- and main-dispersion were in exactly the same direction this would not work because the orders would overlap on the detector. that is why the pre-dispersion is somewhat tilted w.r.t. the main dispersion, and the slit length in the extended wavelength mode must be reduced (see page 6).
+
+NOTE: this document is quite old (from CMO1), I wanted to see whether there is an updated version but FILR is down (again :-/) It may be that things have changed a little.
+
+''Kora:'' OK, clarified. The single-order-selecting mask (a.k.a slit mask) is not a moving element. There are two deployable mirrors in LMS FP3 that, when retracted, let the light go to the slit mask and afterwards towards the main disperser (nominal mode), and when deployed, send the light to the spectral slicer and then to the main disperser (extended mode). A newer document where this is nicely depicted can be found [[https://filr.astron.nl/ssf/s/readFile/folderEntry/3318902/8ad780115fd918ce01603719a5b023b1/1512752915000/last/METIS_CM05_Subsystem_Spectrometer%20overview.pptx|here]]. 
+
+__**(3) LMS PP3/PP4 parameters**__
+
+''Kora:'' Setup LMS PP3 and PP4 to get the wavelength range of interest. How exactly are we going to do that? Should the user specify the order and the wavelength reference (case of CRIRES for example), or just the central wavelength, from which the system calculates the order/position to rotate the LMS PP3 and PP4 elements?
+
+''Roy:'' I think it will be the latter. The observation preparation software should be "clever" enough to check that the chosen parameters are sensible (to be discussed in more detail what exactly this means).
+
+
+
+
+
+
+

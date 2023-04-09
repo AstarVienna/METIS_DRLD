@@ -1,0 +1,138 @@
+==== Acquisition Template METIS_img_lmn_acq ====
+
+=== Procedure for METIS_img_lmn_acq ===
+
+++++
+Preset telescope|
+  * send target coordinates to TCS
+  * initiate guiding/tracking. Guide star may be chosen by operator (if no coordinates supplied), or use the one specified in the template.
+  * wait for signal “arrived at position” / “guiding”
+++++
+++++
+Configure CFO |
+  * CFO can be configured while the telescope is presetting
+  * ''CFO PP1'': select cold stop PPS-CFO1
+  * ''CFO PP1'' (ADC wheel): move to open position
+    * [comment] ADC have been designed for LM band, and it is yet to be seen how would their transmission and dispersion look like in the N-band. For now we assume no ADC will be used. This means some smearing in the LM band, which can be reduced by observing in narrow- or medium-band (e.g. HCI) filters.
+  * [comment] the proper one should be selected automatically depending on the airmass in the middle of the observation. Possibly give a warning if there isn't a single optimal ADC to use during the observation (and then suggest doing the observation later?). Could also add observation constraints in p2.
+  * Set de-rotator initial angle and start derotator. Options:
+    * Field tracking (pupil rotates)
+    * Pupil tracking (field rotates; by default used for both HCI and (on-axis) regular imaging)
+    * No tracking (stopped). For engineering purposes.
+  * Chopper to home position
+  * Start chopping
+  * [comment] This is in case we want to or need to try actual chopping (~ 1 Hz offsetting within the field using the CFO-FP2 chopper mirror)
+  * ''CFO FP2'' to LM Field Stop
+  * LMS pick-off to open
+++++
+++++
+Setup both LM and N band imagers|
+  * Move ''IMG-LM PP1 MASK/GRISM'' to selected pupil mask (pupil stop PPS-LM for field-tracking observations, spider mask SPM-LM for pupil-tracking observations)
+  * Move ''IMG-LM PP1 FILT'' to selected science filter 
+  * Move ''IMG-LM PP1 ND'' to selected neutral-density filter (for acquisition of very bright targets)
+  * LM IMG pupil imaging lens to open
+    * [comment] a mechanism for pupil viewing. Not located in the pupil plane, probably in front of the detector (tbc). In IMG used for engineering/AIV purposes.
+  * Set IMG-LM detector parameters (DIT, NDIT, readout mode)
+  * Move ''IMG-N PP1 MASK/GRISM'' (mask/grism wheel) to open
+  * Move ''IMG-N PP1 FILT'' to selected science filter 
+  * Move ''IMG-N PP1 ND'' to selected neutral-density filter (for the acquisition of very bright targets)
+  * N IMG pupil imaging lens to open
+  * Set IMG-N detector parameters (DIT, NDIT, readout mode)
+++++
+++++
+AO and target acquisition|
+  * Details of the AO acquisition are described in \cite{SCAOFa}.
+  * Preset AO
+    * Set SCAO filter wheel to K if Kmag > 0, otherwise K_ND  
+    * Move the field selector ''SCA-PP1 FS'' to the pointing reference position
+    * setup WFS (detector and modulator)
+    * start WFS
+  * Wait for the telescope preset to complete
+  * Center the guide star at the pointing reference position
+    * Detect decenter
+    * apply corrections to the PFS pointing origin
+  * Close the pupil position control loop
+  * Take over AO control from the telescope
+    * close the loop on the METIS WFS with few modes
+    * sequential field stabilization mode is the default
+  * Optimize mis-registration
+    * bootstrap initial mis-registration
+    * increase to full AO correction performance
+  * Measure the position of the target in the science focal plane.
+  * Center the target in the science focal plane using CFO-PP2 chopper.
+
+**Note 1:** The above sequence assumes that the pointing accuracy of the ELT is better than the field selector FoV (2 arcsec). Otherwise, we will do a small search with the SCAO field selector mirror. This is just to be on the safe side, we may not use it (see the Note 2) or only needed during commissioning. 
+
+**Note 2:** there are two parts in the telescope pointing: the telescope pointing itself and the telescope alignment with instrument (installed in the Nasmyth platform which has a relative motion). 
+
+++++
+++++
+While AO loop is closed|
+  * AO controls M4/M5 (via CCS)
+    * RTC communicates directly with CCS (no ICS involvement)
+  * Monitor range
+  * Schedule ROUS maneuver (trigger or postpone the  next execution of major stroke off-loading events)
+  * Save WFS data (slopes)
+    * TBD when (all the time?)
+    * For PSF reconstruction, NCPA removal
+++++
+
+
+===Parameters for METIS_img_lmn_acq ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^
+|TEL TARG ALPHA        |no         |(NODEFAULT)                |Target RA|
+|TEL TARG DELTA        |no         |(NODEFAULT)                |Target DEC|
+|TEL TARG EQUINOX      |no         |-2000..3000 (2000)         |Equinox|
+|TEL TARG PMA          |no         |-10..10 (0)                |Proper motion in RA in arcsec/year| 
+|TEL TARG PMD          |no         |-10..10 (0)                |Proper motion in DEC in arcsec/year|
+|TEL TARG NAME         |no         |(NODEFAULT)                |Name of the Target|
+|TEL TARG GUIDESTAR      |no         |NONE SETUPFILE CATALOGUE (CATALOGUE)|Telescope Guide Star Selection|
+|TEL GS1 ALPHA         |no         |(0.0)                      |RA of telescope guide star 1|
+|TEL GS1 DELTA         |no         |(0.0)                      |DEC of telescope guide star 1|
+|TEL GS2 ALPHA         |no         |(0.0)                      |RA of telescope guide star 2|
+|TEL GS2 DELTA         |no         |(0.0)                      |DEC of telescope guide star 2|
+|TEL GS3 ALPHA         |no         |(0.0)                      |RA of telescope guide star 3|
+|TEL GS3 DELTA         |no         |(0.0)                      |DEC of telescope guide star 3|
+|TEL TARG ADDVELALPHA  |yes        |-100..100 (0)              |Differential tracking RA, in arcsec/s|
+|TEL TARG ADDVELDELTA  |yes        |-100..100 (0)              |Differential tracking DEC, in arcsec/s|
+|SEQ PRESET            |yes        |T F (T)                    |Preset telescope?|
+|SEQ NGS ISTARGET      |no         |T F (NODEFAULT)            |Target = AO Guide Star|
+|SEQ NGS ALPHA         |no         |(NODEFAULT)                |RA of AO Guide Star|
+|SEQ NGS DELTA         |no         |(NODEFAULT)                |DEC of AO Guide Star|
+|SEQ NGS MAG           |no         |TBD (10)                   |K mag of AO Guide Star|
+|SEQ PUPILTRK          |no         |T F (T)                    |Enable this for pupil tracking|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NGS SKYALPHA      |no         |-TBD..TBD (0)              |Field selector offset to sky RA|
+|SEQ NGS SKYDELTA      |no         |-TBD..TBD (0)              |Field selector offset to sky DEC|
+|SEQ CFO CHOP POSANG       |no         |0..360 (0)             |Chopper position angle|
+|SEQ CFO CHOP THROW        |no         |0..5 (2.5)           |Chop throw|
+|SEQ CFO CHOP FREQ         |yes        |0..5 (1)                   |Chopping frequency|
+|DPR CATG              |yes        |ACQUISITION TEST (ACQUISITION) |Data product category|
+|DPR TECH              |yes        |IMAGE (IMAGE)                 |Data product technique|
+|DPR TYPE              |yes        |OBJECT SKY STD PSF-CALIBRATOR (OBJECT)|Data product type| 
+|DET1 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
+|DET1 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-LM Number of Integrations (NDIT)|
+|DET2 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-N Detector integration time (DIT)|
+|DET2 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-N Number of Integrations (NDIT)|
+|INS ROT OFFANGLE      |no         |-360..360 (0)          |Position Angle on Sky (deg)|
+|INS OPTI1 NAME         |yes        | PPS-CFO1 (PPS-CFO1)                |CFO-PP1 mask wheel|
+|INS OPTI2 NAME         |yes        | OUT ADC-1 ADC-2 (NODEFAULT)               |CFO-PP1 ADC wheel|
+|INS OPTI3 NAME         |yes         |FIELD-11 (FIELD-11)       |CFO FP2 mask/slit wheel|
+|INS OPTI4 NAME         |yes        |OUT (OUT)                  |LMS beamsplitter pickoff wheel|
+|INS OPTI9 NAME         |no         |open PPS-LM SPM-LM (SPM-LM)                  |IMG-LM Mask/Grism name|
+|INS OPTI10 NAME         |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef M' CO(1-0)/ice COref HCIL-short HCIL-long (L')                |IMG-LM filter name|
+|INS OPTI11 NAME         |no         |OPEN ND1 ND2 ND3 ND4 ND5 DARK (NODEFAULT)                  |IMG-LM Neutral density filter|
+|INS OPTI12 NAME         |no         |open PPS-N SPM-N (SPM-N)                  |IMG-N Mask/Grism name|
+|INS OPTI13 NAME         |no         |N1 N2 PAH8.6 PAH8.6_ref PAH11.25 PAH11.25_ref [NeII] [NeII]_ref [SIV] [SIV]_ref N3 (N1)                |IMG-N filter name|
+|INS OPTI14 NAME         |no         |OPEN ND1 ND2 ND3 ND4 (NODEFAULT)                  |IMG-N Neutral density filter|
+|INS OPTI15 NAME         |yes        |OUT (OUT)                    | IMG-LM pupil imaging lens|
+|INS OPTI16 NAME         |yes        |OUT (OUT)                    | IMG-N pupil imaging lens|
+|INS OPTI17 NAME         |yes        |OUT (OUT)                    | WCU periscope arm|
+
+
+
+Notes:
+
+  * System should automatically calculate the chopper parameters as a result from the list of random jittering offsets (if offsetting is to be done with the chopper, and not with the telescope)
+  * Keyword for chopper parameters set to CFO since the chopper is inside of the instrument

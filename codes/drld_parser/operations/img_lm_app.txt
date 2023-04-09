@@ -1,0 +1,55 @@
+===== Apodized Phase Plate coronagraphy (APP) in L- or M-band  =====
+Science use case example: //Exoplanet search with APP in L-band//
+
+
+===== Operational procedure =====
+
+==== Preparation ====
+
+  * ETC
+  * p2pp kind of OB preparation
+  * any special needs?
+
+==== Acquisition ====
+
+The steps prior to AO loop closing are similar to IMG-LM observations. The APP mask is inserted after the AO loop is closed, and a fixed offset is added to compensate for the wedge in the APP.
+
+Template options:
+  *  [[metis_img_lm_app_acq|METIS_img_lm_app_acq]]
+
+==== Science sequence ====
+
+For HCI observing modes:
+
+  * The target (typically a bright star) is always on-axis and used as the NGS for the SCAO
+  * The derotator is always in pupil tracking mode (i.e. pupil is always oriented in the same pre-defined direction)
+
+Sky subtraction:
+
+  * In APP mode, the target will be moved between two predefined positions on the detector (A and B).
+  * A single star using the APP generates three PSFs on the detector - two coronagraphic PSFs and a leakage PSF halfway between the two coronagraphic PSFs. In both positions A and B, all three PSFs should be seen. The PSFs at A and B should not interfere with each other.  
+  * Offsets between A and B should be performed using the CFO-PP2 chopper. 
+
+Template options: 
+  * [[metis_img_lm_app_obs_fixedoffset|METIS_img_lm_app_obs_FixedOffset]]
+
+
+===== Calibration data =====
+
+++++
+Calibration requirements|
+  * flatfielding (daytime WCU, not needed daily?; twilight sky flats?)
+  * sky background recostruction/subtraction (chop/dither/stare), align frames (dithered/choped exposures)
+  * flux calibration (sky atmosphere modeling + one/few standard observations per night?)
+  * psf re-construction?
+  * provide data cube or "stacked" result?
+++++
+
+===== Products =====
+
+  * background-subtracted, flux-calibrated image (cube). Units, e.g., [photons/s/pix]
+  * corresponding uncertainties (cube)
+  * PSF (cube)
+
+===== Discussion =====
+ [[img_lm_app_discussion|img_lm_app_discussion]] 

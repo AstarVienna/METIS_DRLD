@@ -1,0 +1,67 @@
+==== Science imaging coronagraphy template METIS_img_lm_app_obs_FixedOffset ====
+
+=== Procedure for METIS_img_lm_app_obs_FixedOffset ===
+ 
+++++
+Setup imager|
+  * Move ''IMG-LM PP1 FILT'' to selected filter
+  * Remove the neutral density filter (located in one of the wheels in IMG-LM PP1)
+  * Set detector parameters (DIT, NDIT, readout mode, cube mode T/F)
+++++
+++++
+Start science exposures|
+  * This template moves the target alternatively between A and B positions on the IMG-LM FP1 detector. 
+  * The initial A and B positions are predefined so that all three PSFs are visible at the detector at both positions.
+  * Offsets between A and B positions and dithering are performed using the CFO-PP2 chopper.
+  * The observing sequence is performed as AB-AB-AB. The keyword ''NABCycles'' defines the number of AB cycles.
+  * At each position start science exposures with DIT/NDIT. 
+  * Read-out and save individual exposures, or co-added frames, depending on the ''cube mode'' T/F keyword.
+
+ **Note:** The persistence behaviour is still to be investigated. Typically, we will be looking at very bright sources, that might heavily saturate the central star. Thus, we may want to restrict ourselves to a simple 2 position nod pattern (going back and forth many times), depending on how problematic the persistence is. This section will be updated once we know more about the issue.
+
+++++
+++++
+End science exposures|
+  * Return telescope or chopper (depending on which actuator is used for offsetting) back to the initial position.
+  * Collect headers
+  * Merge into one or more data cubes
+  * Send cube to ESO Archive
+  * Send cube to Pipeline machine or ICS storage (tbd)
+  * Go back to Setup Imager until target observations are finished (single OB). For example, to observe in a different filter (but note that this might not be very common in pupil tracking modes).
+
+At the end of the OB:
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+
+++++
+
+===Parameters for METIS_img_lm_app_obs_FixedOffset ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |SCIENCE TEST (SCIENCE) |Data product category|
+|DPR TECH              |yes        |IMAGE,APP (IMAGE,APP)                 |Data product technique|
+|DPR TYPE              |yes        |OBJECT (OBJECT)|Data product type|                      
+|DET1 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
+|DET1 NDIT               |yes         |1..TBD (NODEFAULT)         |MG-LM Number of Integrations (NDIT)|
+|DET1 NCORRS NAME       |no         |TBD                         |IMG-LM Readout mode|
+|DET1 CUBE MODE        |yes         |T F (T)                    |Toggle cube mode| 
+|INS OPTI10 NAME         |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef M' CO(1-0)/ice COref HCIL-short HCIL-long (L')                |IMG-LM Filter name|
+|INS OPTI11 NAME         |no         |OPEN (OPEN)                  |IMG-LM Neutral density filter|
+|SEQ TIME       |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NABCYCLES         |no         |0..100 (NODEFAULT)         |Number of AB or BA cycles|
+|SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
+|SEQ NOFFSETS 	       |no	   |0..1000 (NODEFAULT)	       |Total number of offsets|
+|SEQ RETURN            |no         |T F (T)                    |Return to origin?|
+|SEQ CFO CHOP POSANG       |yes        |0..360 (0)             |Chopper position angle|
+|SEQ CFO CHOP THROW        |yes        |0..5 (2.5)             |Chop throw|
+|SEQ CFO CHOP FREQ         |yes        |0..5 (0)               |Chopping frequency|
+  

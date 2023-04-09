@@ -1,0 +1,19 @@
+===== 18 July 2019 video conference =====
+participants: Roy, Kora, Chad, Leo
+
+  * ELT Operations Concept Description discussion yesterday in the ELT engineering call
+    * draft document has been distributed to a small circle
+    * document release imminent
+    * document appears to be very high level
+    * Operations of ELT will be significantly different from VLT operations
+    * Workshop (in Garching) planned to discuss updates to the document
+  * Discussion about radiometer document
+    * comments on work plan / outline in LaTeX (Overleaf) document
+    * First version probably does not need to include a detailed analysis, but statement of what we know + what we (would) have to do to achieve certain numbers
+  * Action items
+    * Leo: Write to Alain about publishing UVES result
+    * Leo: Write to Wolfgang and ask about PWV profile modeling (can one do this with skycalc?)
+    * Roy: talk to Klaus Pontoppidan about doing telluric correction with VISIR high resolution
+    * Roy: formalise the meeting minutes (Google doc / METIS template / meeting minute number)
+  * Discussion about open operations RIXes
+  * Next meeting: Mon, 9 Sep, 1 pm

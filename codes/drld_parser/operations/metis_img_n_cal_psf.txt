@@ -1,0 +1,7 @@
+===Procedure for METIS_img_n_cal_psf ===
+ 
+A template used for imaging PSF calibrator stars, identical to the corresponding photometric standard star template. It is combined with ''METIS_img_n_acq'' that is used to acquire the psf calibrator star.
+
+===Parameters for METIS_img_n_cal_psf ===
+
+The template keywords are identical to the ''METIS_img_n_cal_standard'' template.

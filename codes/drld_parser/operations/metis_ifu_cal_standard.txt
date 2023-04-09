@@ -1,0 +1,9 @@
+===Procedure for METIS_ifu_cal_standard ===
+
+This template is used for standard star observations with the IFU.  The observing template is identical to to the ''METIS_ifu_obs_GenericOffset'' or the ''METIS_ifu_ext_obs_GenericOffset'' template, depending on whether the nominal or extended mode if the IFU is used. It is combined with ''METIS_ifu_acq'' or ''METIS_ifu_ext_acq'' that is used to acquire the standard star.
+
+===Parameters for METIS_ifu_cal_standard ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TYPE              |yes        |STD (STD)|Data product type|                      

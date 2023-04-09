@@ -1,0 +1,54 @@
+<color #ed1c24>__**Open discussion**__</color> 
+
+Please write your comments here.
+
+<color #ed1c24>__**Old discussion - clarified and implemented in text **__</color>
+
+__**(1) Dithering on SKY for coronagraphy**__
+
+''Kora:'' In the science template for RAVC LM, we go alternating between the OBJECT and SKY position. On SKY, I included optional dithers, as is done with NACO in the L'-band with AGPM vortex. NACO, however, has a significantly larger FoV (27x27 or 54x54 arsec²), a chance to get some random star on the sky frame is larger, therefore dithering can help. I would think that this could be beneficial for METIS as well, and it can be optional (one can set the dithering box width to zero if no dithering is required). Please let me know if this has been discussed at some point, or you have an objection/suggestions with respect to this procedure.
+
+
+''Sascha:''Sounds ok to me. Note that in the LM band NACO is typically operated with the 27 mas/px camera (with the 27 arcsec FoV). 
+
+__**(2) Acquisition, configure CFO **__
+
+
+''Roy:'' "ADC+RAVC combination to be tested. Also, they are currently in the same wheel", here it is good to be more explicit in the sense that the RAP is in the CFO-PP1 position. The "RAVC" is the combination of 3 elements throughout the instrument (RAP in CFO-PP1, phase mask in CFO-FP2, and Lyot stop in IMG-PP1). We know this well, of course, but some readers may still be confused about how exactly these HCI modes work.
+
+
+''Roy:'' "at this stage the vortex is not yet inserted, which permits to center the target for the SCAO". The SCAO pickoff lies before the CFO-FP2, so the SCAO operates does not "see" any difference whether or not the vortex phase mask is in or out. But indeed, we must first acquire with the SCAO unit, close the loop, and (using the chopper probably) put the star at the exact position in the CFO-FP2 where the vortex will be centered once we rotate it in (as is written).
+
+''Kora:'' Both points corrected.
+
+__**(3) Acquisition, setup imager **__
+
+''Roy:'' comment: I am optimistic that we will indeed have 3 (near-) IMG-PP1 wheels in each of the IMG arms, so that we can combine ND filters freely with science filters and pupil masks for the bright targets. I have convinced the imager designers of the necessity and I think the new optical+mechanical design is near completion.
+
+''Kora:'' This is now implemented in the text.
+
+__**(4) Acquisition, AO acquisition **__
+
+''Roy:'' I think the loop should be closed before the source positions in the science focal plane(s) are measured.
+
+''Kora:'' Makes sense. Updated here, as well as in other CMDs. 
+
+__**(5) Acquisition, coronagraphic acquisition **__
+
+''Roy:'' I suspect that in the typical sequence we have a ND filter in the beam during the initial centering (before the vortex mask is rotated in), which we will take out once we have the vortex in. At that point, we will probably do a first round of "QACITS" to do the final fine centering and then start the observation.
+
+''Kora:'' Section updated following the sequence described in the Technical note E-TNT-NOVA-MET-1040.
+
+
+__** (6) Storing of individual image frames for HCI modes**__ 
+
+''Sascha:'' somewhere (not exactly sure where) it probably should be captured that for the HCI modes (LM imaging with the APP/Vortex, but probably also N band imaging with the Vortex) the user should have the option to store each individual image frame and not only the mean/median of a pre-defined number of frames.
+
+''Kora:'' There is a keyword ''CUBE MODE'' in the HCI and imaging templates that can be set to True or False.
+
+__** (7) Avoidance of zenith passage **__ 
+
+''Sascha:'' For all modes that use pupil tracking (in particular HCI with the APP/Vortex) it needs to be investigated how close to the zenith an object can be before the field rotation becomes go fast accurate pupil tracking is no longer possible. For NACO, I think, there is an avoidance of ~2 degrees or so... 
+Also here I am not 100% sure where to address this point. Maybe here's not the right place, but somewhere in needs to be kept in mind for the HCI modes.
+
+''Kora:'' Yes, we have to keep that in mind. I added a note mentioning this at the beginning of the acquisition template.

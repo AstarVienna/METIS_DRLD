@@ -1,0 +1,3 @@
+__**(1) Multiple echelle positions to cover full lambda range**__
+
+''Kora:'' We will have to use several echelle positions (rotating the main disperser located LMS PP4) to cover continuously the wavelength range of interest. How do we handle that? Should we define a sequence of rotation positions for LMS PP4? Does the sequence depend on the exact wavelength range (I suppose the answer is yes since the order distance can vary)?

@@ -1,0 +1,11 @@
+<color #ed1c24>__**Open discussion**__</color> 
+
+Please write your comments here.
+
+<color #ed1c24>__**Old discussion - clarified and implemented in text **__</color>
+
+__**(1) Configure CFO**__ 
+
+''Roy:'' We now have 2 wheels in the CFO-PP1, so that the ADC's can be used in combination with the apodizing masks.
+
+''Kora:'' Corrected.

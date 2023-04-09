@@ -1,0 +1,68 @@
+===Procedure for METIS_img_n_cal_DetLin ===
+
+Detector linearity templates are used to determine detector linearity curves. The WCU BB/flatfield source is set to the appropriate temperature. A short series (10, tbc) of observations is taken with various WCU integrating sphere exit aperture masks to vary the brightness levels.
+
+
+++++
+Setup WCU|
+  * Move periscopic arm to IN
+  * Set temperature of the blackbody to specified temperature
+  * Wait for about 45 minutes (warming up time, depends on the BB temperature selection)
+  * Set ''WCU-FP2.1'' to flat-field mask (open position)
+  * Set ''WCU-PP1'' to ELT mask
+  * Check the power readout. If the power is detectable, continue. 
+  * Set ''WCU-BB-aperture-mask'' to CLOSE
+  * take background measurement
+  * Set ''WCU-BB-aperture-mask'' to smallest aperture mask
+++++
+
+++++
+Setup CFO and subsystems|
+  * Set ''CFO-PP1'' to PPS-CFO1
+  * Set ''CFO-FP2'' to FIELD-14
+  * Set LMS beamsplitter pickoff wheel to OUT
+  * Set the IMG-N mask to SPM-N
+  * Set the IMG-N science filter to the specified filter
+  * Set the IMG-N neutral density filter to the specified filter
+  * Set ''IMG-LM-PP1'' to DARK
+++++
+
+++++
+Start Exposure|
+  * Start exposures with the IMG-N with the requested DIT and NDIT
+  * Until largest WCU aperture mask is reached:
+    * Set ''WCU-BB-aperture-mask'' to next larger size aperture mask
+    * Start exposures with the IMG-N with the requested DIT and NDIT
+++++
+
+++++
+End Exposure|
+  * Collect headers
+  * Send file to ESO Archive
+++++
+
+
+===Parameters for METIS_img_n_cal_DetLin ===
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^
+|DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
+|DPR TECH              |yes        |IMAGE (IMAGE)                 |Data product technique|
+|DPR TYPE              |yes        |DETLIN (DETLIN)|Data product type| 
+|DET2 DIT               |no         |0..TBD (NODEFAULT)         |IMG-N Detector integration time (DIT)|
+|DET2 NDIT              |no         |0..TBD (1)                 |IMG-N Number of Integrations (NDIT)|
+|DET2 NCORRS NAME       |no         |TBD                         |IMG-N Readout mode|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NEXPO              |no         |0..TBD (TBD)                 |Number of exposures per DIT|
+|SEQ WCU_BB_TEMP       |yes        |TEMP-N                        |WCU BB temperature for specific filter|
+|SEQ WCU_OFF_NFRAMES   |yes        |TBD                        |Number of WCU off frames to take |
+|INS OPTI1 NAME         |yes        | PPS-CFO1 (PPS-CFO1)      |CFO-PP1 mask wheel|
+|INS OPTI2 NAME         |yes        | TBD (TBD)                |CFO-PP1 ADC wheel|
+|INS OPTI3 NAME   	|yes        | FIELD-14 (FIELD-14)      |CFO FP2 mask/slit wheel |
+|INS OPTI4 NAME         |yes        |OUT IN (OUT)              |LMS beamsplitter pickoff wheel|
+|INS OPTI12 NAME         |no         |open SPM-N (SPM-N)       |IMG-N Mask/Grism name|
+|INS OPTI13 NAME         |no         |N1 N2 PAH8.6 PAH8.6_ref PAH11.25 PAH11.25_ref [NeII] [NeII]_ref [SIV] [SIV]_ref N3 (N1)                |IMG-N Filter name|
+|INS OPTI14 NAME         |no         |OPEN ND1 ND2 ND3 ND4 (NODEFAULT)                  |IMG-N Neutral density filter|
+|INS OPTI16 NAME         |yes        |OUT IN (OUT)                    | IMG-N pupil imaging lens|
+|INS OPTI17 NAME         |yes        |IN (IN)                    | WCU periscope arm|
+|INS OPTI18 NAME	|yes                |WCU_mask AIV_mask ELT_mask (ELT_mask)             |WCU PP1 masks|
+|INS OPTI20 NAME        |yes         |flatfield (flatfield) |WCU FP2.1 mask wheel|

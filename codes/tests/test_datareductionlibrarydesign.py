@@ -1,0 +1,300 @@
+import glob
+from pprint import pprint
+
+import numpy
+import pytest
+
+from ..drld_parser.data_reduction_library_design import (
+    METIS_DataReductionLibraryDesign,
+    find_latex_inputs,
+    DataItemReference,
+    guess_dataitem_type,
+)
+from ..drld_parser.template_manual import METIS_TemplateManual
+
+
+class TestDataReductionLibraryDesign:
+    def test_number_of_recipes_extracted_is_not_none(self):
+        assert len(METIS_DataReductionLibraryDesign.recipes) > 0
+
+    def test_number_of_dataitems_extracted_is_not_none(self):
+        assert len(METIS_DataReductionLibraryDesign.dataitems) > 0
+
+    def test_dataitem_extraction(self):
+        """Another way to find the datatimes."""
+        sglob = str(METIS_DataReductionLibraryDesign.path_drld / "*.tex")
+        paths_tex = glob.glob(sglob)
+        lines1 = [
+            line
+            for path in paths_tex
+            for line in open(path).readlines()
+            if "paragraph" in line and "dataitem" in line and not line.startswith("%")
+        ]
+        lines_with_and = [line for line in lines1 if " and " in line]
+
+        is_used = numpy.zeros(len(lines1), dtype=bool)
+        not_found = []
+        found_more_than_once = []
+
+        # Are all dataitems in the DRLD also in the lines above?
+        for di in METIS_DataReductionLibraryDesign.dataitems:
+            found = numpy.array([di in line for line in lines1])
+            if not found.any():
+                not_found.append(di)
+            if found.sum() > 1:
+                found_more_than_once.append(di)
+            is_used |= found
+
+        # Are all lines used for some dataitem?
+        not_parsed = [line for line, used in zip(lines1, is_used) if not used]
+
+        assert not not_found
+        assert not found_more_than_once
+        assert not not_parsed
+        assert all(is_used)
+        assert len(lines1) + len(lines_with_and) == len(
+            METIS_DataReductionLibraryDesign.dataitems
+        )
+
+    def test_template_and_recipe_names_do_not_overlap(self):
+        names_recipes = {
+            name.lower() for name in METIS_DataReductionLibraryDesign.recipes.keys()
+        }
+        names_templates = {
+            name.lower() for name in METIS_TemplateManual.templates.keys()
+        }
+        assert not (names_recipes & names_templates)
+
+    @pytest.mark.xfail(
+        reason="There are several recipes mentioned that do not exist..."
+    )
+    def test_all_recipe_names_used_also_exist(self):
+        names_existing = METIS_DataReductionLibraryDesign.recipes.keys()
+        names_used = METIS_DataReductionLibraryDesign.recipe_names_used
+        names_existing_lower = [name.lower() for name in names_existing]
+        names_not_existing = [
+            name
+            for name in names_used
+            if name not in names_existing and name.lower() not in names_existing_lower
+        ]
+
+        assert (
+            not names_not_existing
+        ), f"Non existing recipe names: {names_not_existing}"
+
+    @pytest.mark.xfail(
+        reason="There are references to recipes with incorrect capitalization, e.g. in LSS_data_items.tex."
+    )
+    def test_all_recipe_names_are_correctly_capitalized(self):
+        names_existing = METIS_DataReductionLibraryDesign.recipes.keys()
+        names_used = METIS_DataReductionLibraryDesign.recipe_names_used
+        names_existing_lower = [name.lower() for name in names_existing]
+
+        names_bad_capitalization = [
+            name
+            for name in names_used
+            if name not in names_existing and name.lower() in names_existing_lower
+        ]
+        assert (
+            not names_bad_capitalization
+        ), f"Recipe names with incorrect capitalization: {names_bad_capitalization}"
+
+    @pytest.mark.xfail(
+        reason="There are many references to templates that do not exits."
+    )
+    def test_all_templates_used_also_exist(self):
+        # TODO: hack_rename_template_names_drld and
+        #  TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI are currently not
+        #  used anymore.
+        names_existing = METIS_TemplateManual.templates.keys()
+        names_used = METIS_DataReductionLibraryDesign.template_names_used
+        names_existing_lower = [name.lower() for name in names_existing]
+        names_not_existing = [
+            name
+            for name in names_used
+            if name not in names_existing and name.lower() not in names_existing_lower
+            # TODO: Do something sensible with *'s in these names.
+            and "*" not in name
+        ]
+
+        assert (
+            not names_not_existing
+        ), f"Non existing template names: {names_not_existing}"
+
+    @pytest.mark.xfail(reason="Soooooo many recipes have bad input and output!")
+    def test_all_recipe_data_has_a_name(self):
+        bad_input_data = [
+            (recipe.name, diref)
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.input_data
+            if diref.name is None
+        ]
+        bad_output_data = [
+            (recipe.name, diref)
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.output_data
+            if diref.name is None
+        ]
+        assert not bad_input_data
+        assert not bad_output_data
+
+    @pytest.mark.xfail(reason="Most data is not yet defined...")
+    def test_all_recipe_data_is_defined(self):
+        bad_input_data = [
+            (recipe.name, diref)
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.input_data
+            if diref.name is not None
+            and diref.name not in METIS_DataReductionLibraryDesign.dataitems
+        ]
+        bad_output_data = [
+            (recipe.name, diref)
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.output_data
+            if diref.name is not None
+            and diref.name not in METIS_DataReductionLibraryDesign.dataitems
+        ]
+        assert not bad_input_data
+        assert not bad_output_data
+
+    def test_input_data_is_created(self):
+        """All input data should be created somewhere."""
+        # TODO: This test only passes due to HACK_INCORRECT_INPUT_DATA.
+        #   So it still needs to be fixed.
+        all_output_names = [
+            diref.name
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.output_data
+            if diref.name is not None
+        ]
+        bad_input_data = [
+            (recipe.name, diref)
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.input_data
+            if diref.name is not None
+            and diref.dtype == "PROD"
+            and diref.name not in all_output_names
+        ]
+        assert not bad_input_data
+
+    def test_datatype_can_be_guessed(self):
+        for dn in METIS_DataReductionLibraryDesign.dataitems:
+            _ = guess_dataitem_type(dn, raise_exception=True)
+
+    def test_datatypes_are_known(self):
+        dtypes = [
+            diref.dtype
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.input_data + recipe.output_data
+        ]
+        # TODO: They should never be FITS or CODE
+        assert set(dtypes) == {"PROD", "RAW", "EXTCALIB", "STATCALIB", "FITS", "CODE"}
+
+    @pytest.mark.xfail(reason="Some are still FITS or CODE")
+    def test_datatypes_are_known_strict(self):
+        dtypes = [
+            diref.dtype
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for diref in recipe.input_data + recipe.output_data
+        ]
+        # TODO: They should never be FITS or CODE
+        assert set(dtypes) == {"PROD", "RAW", "EXTCALIB", "STATCALIB"}
+
+    def test_only_correct_template_types_are_used(self):
+        for recipe in METIS_DataReductionLibraryDesign.recipes.values():
+            for tn in recipe.templates:
+                template = METIS_TemplateManual.get_template(tn)
+                # TODO: Why do we process METIS_spec_lm_acq and METIS_spec_n_acq
+                assert (
+                    template is None
+                    or template.ttype in ["Calibration", "Observing"]
+                    or template.name
+                    in METIS_DataReductionLibraryDesign.templates_acquisition_used
+                )
+
+    @pytest.mark.xfail(
+        reason="metis_spec_n_obs_genericoffset does not exist, there is a TBD and some asterisks."
+    )
+    def test_whether_templates_are_understood(self):
+        problems = []
+        for recipe in METIS_DataReductionLibraryDesign.recipes.values():
+            for template in recipe.templates:
+                if (
+                    template is not None
+                    and METIS_TemplateManual.get_template(template) is None
+                ):
+                    problems.append((recipe.name, template))
+        assert not problems
+
+
+class TestFindLatexInputs:
+    def test_find_latex_inputs(self):
+        fns_expected = [
+            "CalDB_data_items.tex",
+            "LMS_data_items.tex",
+            "IMG_data_items.tex",
+            "LSS_data_items.tex",
+        ]
+        path = (
+            METIS_DataReductionLibraryDesign.path_drld / "09_0-DRL-Data-Structures.tex"
+        )
+        paths_input = find_latex_inputs(path)
+        filenames_input = [pp.name for pp in paths_input]
+        assert filenames_input == fns_expected
+
+
+class TestParseDataItemReference:
+    def test_parse_dataitem_reference(self):
+        diref = DataItemReference.from_recipe_line(
+            r"\hyperref[dataitem:nlsssciobjmap]{\PROD{N_LSS_SCI_OBJ_MAP}}: Pixel map of object pixels"
+        )
+        assert diref.name == "N_LSS_SCI_OBJ_MAP"
+        assert diref.dtype == "PROD"
+        assert diref.hyperref == "dataitem:nlsssciobjmap"
+        assert diref.description == "Pixel map of object pixels"
+
+        diref = DataItemReference.from_recipe_line(
+            r"\hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}}"
+        )
+        assert diref.name == "N_LSS_WAVE_GUESS"
+        assert diref.dtype == "STATCALIB"
+        assert diref.hyperref == "dataitem:nlsswaveguess"
+        assert diref.description is None
+
+        diref = DataItemReference.from_recipe_line(r"\PROD{MF\_BEST\_FIT\_TAB}")
+        assert diref.name == "MF_BEST_FIT_TAB"
+        assert diref.dtype == "PROD"
+        assert diref.hyperref is None
+        assert diref.description is None
+
+        diref = DataItemReference.from_recipe_line(
+            r"\PROD{N_DIST_REDUCED} (reduced grid mask images)"
+        )
+        assert diref.name == "N_DIST_REDUCED"
+        assert diref.dtype == "PROD"
+        assert diref.hyperref is None
+        assert diref.description == "reduced grid mask images"
+
+        diref = DataItemReference.from_recipe_line(
+            "Chopped/nodded science or standard images"
+        )
+        assert diref.name is None
+        assert diref.dtype == "PROD"
+        assert diref.hyperref is None
+        assert diref.description == "Chopped/nodded science or standard images"
+
+        diref = DataItemReference.from_recipe_line(
+            "$N\\times$ \\hyperref[dataitem:nlssrsrfpinhraw]{\\RAW{N_LSS_RSRF_PINH_RAW}}"
+        )
+        assert diref.name == "N_LSS_RSRF_PINH_RAW"
+        assert diref.dtype == "RAW"
+        assert diref.hyperref == "dataitem:nlssrsrfpinhraw"
+        assert diref.description == "$N\\times$"
+
+        diref = DataItemReference.from_recipe_line(
+            "Calibrated science images (\\PROD{LM_SCI_CALIBRATED})"
+        )
+        assert diref.name == "LM_SCI_CALIBRATED"
+        assert diref.dtype == "PROD"
+        assert diref.hyperref is None
+        assert diref.description == "Calibrated science images"

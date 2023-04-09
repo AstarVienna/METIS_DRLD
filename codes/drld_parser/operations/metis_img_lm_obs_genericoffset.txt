@@ -1,0 +1,77 @@
+==== Science imaging template METIS_img_lm_obs_GenericOffset ====
+
+=== Procedure for METIS_img_lm_obs_GenericOffset ===
+ 
+++++
+Setup imager|
+  * Move ''IMG-LM PP1 FILT'' to selected filter
+  * Move ''IMG-LM PP1 ND'' to selected neutral density filter 
+  * Set detector parameters (DIT, NDIT, readout mode, cube mode T/F)
+++++
+++++
+Start science exposures|
+
+  * This template offers a flexibility to perform any sequence of offsets.
+  * Telescope offsets are defined as a list of offsets in the sky coordinates (RA, dec) in arcseconds, or in detector coordinates (x, y) in pixels.
+  * The total number of offsets is defined by the keyword ''Noff''. This number can be different from the number of elements in the aforementioned (offset) list. If ''Noff'' is larger than the number of elements in a list, the list is restarted from the beginning as many times as needed until the correct number of frames have been acquired.
+  * Offsetting is performed using CFO-PP2 chopper or telescope offsets (TBD).
+  * Offset the chosen actuator (telescope or chopper).
+  * Observation type can be defined for each image (O or S) which can facilitate the data reduction.This can be entered as a list, where O stands for OBJECT, and S for SKY. In header, the DPR.TYPE keyword is modified accordingly. Note that this may be appropriate only for situations when the telescope is offset so that the target is not anymore in the field-of-view. A more common situation (for compact objects), however, will be such that the offsets always keep the target within the field-of-view.  
+  * set up chopper parameters (frequency, chop-throw, position angle)
+  * At each offset position start science exposures with DIT/NDIT. 
+  * Read-out and save individual exposures, or co-added frames, depending on the ''cube mode'' T/F keyword.
+  * At each offset position performs ''Nexp'' number of exposures.
+++++
+++++
+End science exposures|
+  * Return telescope or chopper (depending on which actuator is used for offsetting) back to the initial position.
+  * Collect headers
+  * Merge into one or more data cubes
+  * Send cube to ESO Archive
+  * Send cube to Pipeline machine or ICS storage (tbd)
+  * Go back to Setup Imager until target observations are finished (single OB). For example, to observe in a different filter.
+
+At the end of the OB:
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+++++
+
+===Parameters for METIS_img_lm_obs_GenericOffset ===
+
+
+^Parameter             ^Hidden     ^Range (default)            ^Label^  
+|DPR CATG              |yes        |SCIENCE TEST (SCIENCE) |Data product category|
+|DPR TECH              |yes        |IMAGE (IMAGE)                 |Data product technique|
+|DPR TYPE              |yes        |OBJECT SKY (OBJECT)|Data product type|                       
+|DET1 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
+|DET1 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-LM Number of Integrations (NDIT)|
+|DET1 NCORRS NAME       |no         |TBD                         |IMG-LM Readout mode|
+|DET1 CUBE MODE        |yes         |T F (T)                    |Toggle cube mode| 
+|INS OPTI10 NAME         |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef M' CO(1-0)/ice COref HCIL-short HCIL-long (L')                |IMG-LM Filter name|
+|INS OPTI11 NAME         |no         |OPEN ND1 ND2 ND3 ND4 ND5 (OPEN)                  |IMG-LM Neutral density filter|
+|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
+|SEQ NOFFSETS          |no         |0...1000 (NODEFAULT)       |Total number of offsets|
+|SEQ OBSTYPE LIST      |no         |O S (NODEFAULT)            |Observation type list, O/S|
+|SEQ OFFSET COORDS     |no         |SKY DETECTOR (DETECTOR)    |Offset coordinate type selection|
+|SEQ OFFSET1 LIST      |no         |-600..600 (NODEFAULT)      |List of X or RA offsets (arcsec)|
+|SEQ OFFSET2 LIST      |no         |-600..600 (NODEFAULT)      |List of Y or DEC offsets (arcsec)|
+|SEQ RETURN            |no         |T F (T)                    |Return to origin?|
+|SEQ CFO CHOP POSANG       |yes        |0..360 (0)             |Chopper position angle|
+|SEQ CFO CHOP THROW        |yes        |0..5 (2.5)             |Chop throw|
+|SEQ CFO CHOP FREQ         |yes        |0..5 (0)               |Chopping frequency|
+  
+Notes:
+
+  * System should automatically calculate the chopping parameters as a result from the offset list (if offsetting is to be done with the chopper, and not with the telescope)
+  * Keyword for chopper parameters set to CFO since the chopper is inside of the instrument, this is to be confirmed.
+  
