@@ -70,7 +70,7 @@ Name:		& \REC{metis_N_lss_trace} \\
 Purpose:	& Detection of order location \\
 Type:		& Calibration\\
 Requirements: & None \\
-Templates:           & \TPL{METIS_spec_n_cal_rsrfpinh} \\
+Templates:           & \TPL{METIS_spec_n_cal_InternalWave} \\
 Input data:     & $N\times$ \hyperref[dataitem:nlssrsrfpinhraw]{\RAW{N_LSS_RSRF_PINH_RAW}} \\
                 & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:gainmapgeo]{\STATCALIB{GAIN_MAP_GEO}}  \\
@@ -180,9 +180,9 @@ Purpose:  & Science data calibration\\
 Type:		& Science reduction\\
 Requirements: & METIS-6084 \\
 Templates:           & \TPL{METIS_spec_N_acq}, \\
-                & \TPL{METIS_spec_N_obs_AutoNodOnSlit}, \\
+                & \TPL{METIS_spec_n_obs_AutoChopNodOnSlit}, \\
                 & \TPL{METIS_spec_N_obs_GenericOffset} \\
-                & \TPL{METIS_spec_N_cal_slit_adc}\\
+                & \TPL{METIS_spec_n_cal_slit}\\
 Input data: 	& \hyperref[dataitem:nlsssciraw]{\RAW{N_LSS_SCI_RAW}}\\
                 & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:gainmapgeo]{\STATCALIB{GAIN_MAP_GEO}}  \\
