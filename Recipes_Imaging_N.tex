@@ -55,7 +55,7 @@ otherwise a new one is created.
                        & Filter ID                                                      \\
                        & ADC ID                                                         \\
                        & possibly others (e.g.\ coronagraphic mask, \TBD)               \\
-  Recipe parameters:   & Combination method (\texttt{mean}, \texttt{median},
+  Parameters:          & Combination method (\texttt{mean}, \texttt{median},
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
                        & Threshold for bad-pixel identification                         \\
@@ -70,7 +70,7 @@ otherwise a new one is created.
                        & \QC{QC N FLAT NBADPIX}                                         \\
                        & \QC{QC N FLAT MEAN ##}                                         \\
                        & \QC{QC N FLAT RMS ##}                                          \\
-  hdrl function        & \CODE{hdrl_bpm_fit_compute}                                    \\
+  hdrl functions:      & \CODE{hdrl_bpm_fit_compute}                                    \\
                        & \CODE{hdrl_imagelist_collapse}                                 \\
                        & \CODE{hdrl_imagelist_sub_image}                                \\
 \end{recipedef}
@@ -116,7 +116,7 @@ correction is applied.
   Matched keywords:  & Filter ID                                                    \\
                      & Chop position                                                \\
                      & Nod position                                                 \\
-  Recipe parameters: & TBD                                                          \\
+  Parameters:        & TBD                                                          \\
   Algorithm:         & Add/subtract images to subtract background                   \\
   Output data:       & \PROD{N_SCI_BKG_SUBTRACTED}                                  \\
                      & \PROD{N_STD_BKG_SUBTRACTED}                                  \\
@@ -160,7 +160,7 @@ following \cite{visir_manual}.
                        & photometric standard catalogue                                                \\
   Matched keywords:    & Object ID                                                                     \\
                        & Filter ID                                                                     \\
-  Recipe parameters:   & None (TBD)                                                                    \\
+  Parameters:          & None (TBD)                                                                    \\
   Algorithm:           & Create object catalogue, identify standard star                               \\
                        & Measure flux from star in all beams                                           \\
                        & Compute conversion factor to physical units                                   \\
@@ -219,7 +219,7 @@ header receives the keyword \FITS{BUNIT} with value %
                      & \CODE{FLUXCAL_TAB}                               \\
                      & \CODE{N_DISTORTION_TABLE}                        \\
   Matched keywords:  & Filter ID                                        \\
-  Recipe parameters: & TBD                                              \\
+  Parameters:        & TBD                                              \\
   Algorithm:         & Scale image data to ph/s                         \\
                      & Add header information (\FITS{BUNIT}, WCS, etc.) \\
   Output data:       & \PROD{N_SCI_CALIBRATED}                          \\
@@ -257,7 +257,7 @@ included in the pipeline (cf.\ Sect.~8.8 of \cite{DRLS}).
   Purpose:           & Restore a single positive beam from chop-nod difference image \\
   Type:              & Science                                                       \\
   Input data:        & \CODE{N_SCI_CALIBRATED}                                       \\
-  Recipe parameters: & size of cutout region                                         \\
+  Parameters:        & size of cutout region                                         \\
   Algorithm:         & Cut regions around beams                                      \\
                      & Add regions with appropriate signs                            \\
   Output data:       & \PROD{N_SCI_RESTORED}                                         \\

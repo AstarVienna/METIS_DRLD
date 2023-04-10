@@ -46,7 +46,7 @@ otherwise a new one is created.
                        & ADC ID                                                         \\
                        & Flat type (internal or twilight)                               \\
                        & possibly others (e.g.\ coronagraphic mask, \TBD)               \\
-  Recipe parameters:   & Combination method (\texttt{mean}, \texttt{median},
+  Parameters:          & Combination method (\texttt{mean}, \texttt{median},
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
                        & Threshold for bad-pixel identification                         \\
@@ -93,7 +93,7 @@ Basic statistics of the images can be used to screen for saturation.
   channel offset correction and crosstalk (see \cite{matisse_minutes}).}
 
 \begin{recipedef}
-  Recipe name:      & \REC{metis_lm_img_basic_reduce}   \\
+  Name:             & \REC{metis_lm_img_basic_reduce}   \\
   Purpose:          & apply basic reduction of images   \\
   Type:             & Calibration, Science              \\
   Templates:        & \TPL{METIS_img_lm_cal_standard}  \\
@@ -161,7 +161,7 @@ counts within an aperture.}
 \TODO{Is this good enough for HCI images or do we need more?}
 
 \begin{recipedef}
-  Recipe name:      & \REC{metis_lm_img_background}                             \\
+  Name:             & \REC{metis_lm_img_background}                             \\
   Purpose:          & estimate and subtract background                          \\
   Type:             & Calibration                                               \\
   Templates:        & \TPL{METIS_img_lm_cal_standard}                           \\
@@ -221,7 +221,7 @@ following \cite{visir_manual}.
                        & photometric standard catalogue                                               \\
   Matched keywords:    & OBJECT ID                                                                    \\
                        & FILTER ID                                                                    \\
-  Recipe parameters:   & None (TBD)                                                                   \\
+  Parameters:          & None (TBD)                                                                   \\
   Algorithm:           & Measure flux from star in detector units                                     \\
                        & Compute conversion factor to physical units                                  \\
                        & Measure background noise (std.\ dev.) and compute detection limits.          \\
@@ -291,7 +291,7 @@ header. The images are not resampled by this recipe, this is left to
                      & \CODE{FLUXCAL_TAB}                               \\
                      & \CODE{LM_DISTORTION_TABLE}                       \\
   Matched keywords:  & Filter ID                                        \\
-  Recipe parameters: & None (TBD)                                       \\
+  Parameters:        & None (TBD)                                       \\
   Algorithm:         & Scale image data to ph/s                         \\
                      & Add header information (\FITS{BUNIT}, WCS, etc.) \\
   Output data:       & \PROD{LM_SCI_CALIBRATED}                         \\
