@@ -161,13 +161,15 @@ TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI = [
 ]
 
 
+# Bad labels in recipedef tables.
 HACK_BAD_NAMES = {
-    "recipe_name": "name",
-    "observing_templates": "templates",
-    "recipe_parameters": "parameters",
-    "hdrl_function": "hdrl_functions",
-    "requirement": "requirements",
-    "template": "templates",
+    # E.g.
+    # "recipe_name": "name",
+    # "observing_templates": "templates",
+    # "recipe_parameters": "parameters",
+    # "hdrl_function": "hdrl_functions",
+    # "requirement": "requirements",
+    # "template": "templates",
 }
 
 HACK_INCORRECT_INPUT_DATA = {
