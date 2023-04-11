@@ -35,7 +35,7 @@ While not part of the PIP specs, the current generation of VIP\_HCI ADI reductio
   Purpose:             & Classical ADI post processing for CVC/RAVC(/CLC) coronagraphs      \\
   Requirements:        & \REQ{METIS-5989}                                               \\
   Type:                & Science                                                    \\
-  Input data:          & \PROD{LM_SCI_REDUCED}                            \\
+  Input data:          & \PROD{LM_SCI_BASIC_REDUCED}                            \\
                        & Time series of LM\_SCI\_REDUCED images                      \\
                        & LM distortion table                               \\
                        & Coronagraphic throughput map and profile                                                  \\
@@ -46,7 +46,7 @@ While not part of the PIP specs, the current generation of VIP\_HCI ADI reductio
                        &               \\
                        &               \\
                        &               \\
-  Recipe parameters:   &  combination approach (median,mean,sigclip) \\
+  Parameters:          &  combination approach (median,mean,sigclip) \\
                        &   combination parameters (e.g., N-sigma)          \\
                        &  start and end limit to contrast curve (in $\lambda/D$) \\
   & frame exclusion thresholds dependent on AO parameters and centroid offset                \\
@@ -77,7 +77,7 @@ While not part of the PIP specs, the current generation of VIP\_HCI ADI reductio
                        & \QC{Raw and post ADI contrast at seps (1,2,5,10,20,40 lam/D)}                                        \\
                        & \QC{Mean SNR in ADI map}                                        \\
                        & \QC{Peak SNR in ADI map}                                         \\
-  hdrl function        & \CODE{}                                    \\
+  hdrl functions:      & \CODE{}                                    \\
                        & \CODE{}                                 \\
                        & \CODE{}                                \\
 \end{recipedef}
@@ -112,7 +112,7 @@ In addition to the final images, the stack of derotated, PSF subtracted images a
   Purpose:             & Classical ADI post processing for APP coronagraph      \\
   Requirements:        & \REQ{METIS-5989}                                               \\
   Type:                & Science                                                    \\
-  Input data:          & \PROD{LM_SCI_REDUCED}                            \\
+  Input data:          & \PROD{LM_SCI_BASIC_REDUCED}                            \\
                        & Time series of LM\_SCI\_REDUCED images                      \\
                        & LM distortion table                               \\
                        & Off-axis PSF reference                                                  \\
@@ -122,7 +122,7 @@ In addition to the final images, the stack of derotated, PSF subtracted images a
                        &               \\
                        &               \\
                        &               \\
-  Recipe parameters:   &  combination approach (median,mean,sigclip) \\
+  Parameters:          &  combination approach (median,mean,sigclip) \\
                        &   combination parameters (e.g., N-sigma)          \\
                        &  start and end limit to contrast curve (in $\lambda/D$) \\
   & frame exclusion thresholds dependent on AO parameters and centroid offset \\
@@ -157,7 +157,7 @@ In addition to the final images, the stack of derotated, PSF subtracted images a
                        & \QC{Raw and post ADI contrast at seps (1,2,5,10,20,40 lam/D)}                                        \\
                        & \QC{Mean SNR in ADI map}                                        \\
                        & \QC{Peak SNR in ADI map}                                         \\
-  hdrl function        & \CODE{}                                    \\
+  hdrl functions:      & \CODE{}                                    \\
                        & \CODE{}                                 \\
                        & \CODE{}                                \\
 \end{recipedef}
@@ -206,7 +206,7 @@ the more detailed Marois et al. 2006 ADI routine, PCA-based routines, as well as
                        &               \\
                        &               \\
                        &               \\
-  Recipe parameters:   &  combination approach (median,mean,sigclip) \\
+  Parameters:          &  combination approach (median,mean,sigclip) \\
                        &   combination parameters (e.g., N-sigma)          \\
                        &  start and end limit to contrast curve (in $\lambda/D$) \\
   & frame exclusion thresholds dependent on AO parameters and centroid offset \\
@@ -238,7 +238,7 @@ the more detailed Marois et al. 2006 ADI routine, PCA-based routines, as well as
                        & \QC{Raw and post ADI contrast at seps (1,2,5,10,20,40 lam/D)}                                        \\
                        & \QC{Mean SNR in ADI map}                                        \\
                        & \QC{Peak SNR in ADI map}                                         \\
-  hdrl function        & \CODE{}                                    \\
+  hdrl functions:      & \CODE{}                                    \\
                        & \CODE{}                                 \\
                        & \CODE{}                                \\
 \end{recipedef}

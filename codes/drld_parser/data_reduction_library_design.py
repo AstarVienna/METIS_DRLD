@@ -217,7 +217,6 @@ class Recipe:
                     elif value.lower() == "none" or "--" in value:
                         value = []
                     else:
-                        assert "METIS_ifu_cal_InternalWave".lower() not in value.lower()
                         value = value.split()
                         value = [
                             HACK_RECIPE_TEMPLATES.get(

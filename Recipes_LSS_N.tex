@@ -29,7 +29,7 @@ Name:		& \hyperref[rec:lssnrsrf]{\REC{metis_N_lss_rsrf}} \\
 Purpose:	& Spectroscopic flatfielding with \ac{RSRF} \\
 Type:		& Calibration\\
 Requirements: & None \\
-Observing templates: & \TPL{METIS_spec_n_cal_rsrf} \\
+Templates:           & \TPL{METIS_spec_n_cal_rsrf} \\
 Input data:     & $N\times$ \hyperref[dataitem:nlssrsrfraw]{\RAW{N_LSS_RSRF_RAW}} \\
                 & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:gainmapgeo]{\STATCALIB{GAIN_MAP_GEO}}  \\
@@ -70,7 +70,7 @@ Name:		& \REC{metis_N_lss_trace} \\
 Purpose:	& Detection of order location \\
 Type:		& Calibration\\
 Requirements: & None \\
-Observing templates: & \TPL{METIS_spec_n_cal_rsrfpinh} \\
+Templates:           & \TPL{METIS_spec_n_cal_InternalWave} \\
 Input data:     & $N\times$ \hyperref[dataitem:nlssrsrfpinhraw]{\RAW{N_LSS_RSRF_PINH_RAW}} \\
                 & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:gainmapgeo]{\STATCALIB{GAIN_MAP_GEO}}  \\
@@ -109,7 +109,7 @@ Name:		& \REC{metis_N_lss_flux} \\
 Purpose:	& Flux calibration \\
 Type:		& Calibration\\
 Requirements: & METIS-6084, METIS-6074 \\
-Observing templates: & \TPL{METIS_spec_N_cal_standard}\\
+Templates:           & \TPL{METIS_spec_N_cal_standard}\\
 Input data: 	& \hyperref[dataitem:nlssfluxraw]{\RAW{N_LSS_FLUX_RAW}}\\
                 & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:gainmapgeo]{\STATCALIB{GAIN_MAP_GEO}}  \\
@@ -179,10 +179,10 @@ Name:		& \REC{metis_N_lss_sci} \\
 Purpose:  & Science data calibration\\
 Type:		& Science reduction\\
 Requirements: & METIS-6084 \\
-Observing templates: & \TPL{METIS_spec_N_acq}, \\
-                & \TPL{METIS_spec_N_obs_AutoNodOnSlit}, \\
+Templates:           & \TPL{METIS_spec_N_acq}, \\
+                & \TPL{METIS_spec_n_obs_AutoChopNodOnSlit}, \\
                 & \TPL{METIS_spec_N_obs_GenericOffset} \\
-                & \TPL{METIS_spec_N_cal_slit_adc}\\
+                & \TPL{METIS_spec_n_cal_slit}\\
 Input data: 	& \hyperref[dataitem:nlsssciraw]{\RAW{N_LSS_SCI_RAW}}\\
                 & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:gainmapgeo]{\STATCALIB{GAIN_MAP_GEO}}  \\
@@ -246,7 +246,7 @@ Name:		& \hyperref[rec:NLSSmfmodel]{\REC{metis_N_lss_mf_model}}\\
 Purpose:	& Achieve the best fit for modelling the transmission curve to be applied as telluric correction \\
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
-Observing templates: & None\\
+Templates:           & None\\
 Input data: 	& \hyperref[dataitem:nlsssciflux1d]{\PROD{N_LSS_SCI_FLUX_1D}}\\
                 & \hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}} \\
                 & \hyperref[dataitem:atmprofile]{\EXTCALIB{ATM_PROFILE}} \\
@@ -274,7 +274,7 @@ Name:		& \hyperref[rec:NLSSmfcalctrans]{\REC{metis_N_lss_mf_calctrans}}\\
 Purpose:	& Calculation of the synthetic transmission \\
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
-Observing templates: & None\\
+Templates:           & None\\
 Input data: 	& \PROD{MF\_BEST\_FIT\_TAB}\\
                 & \STATCALIB{LSF_Kernel} \\
                 & \EXTCALIB{ATM_PROFILE} \\
@@ -302,7 +302,7 @@ Name:		& \hyperref[rec:NLSSmfcorrect]{\REC{metis_N_lss_mf_correct}}\\
 Purpose:	& Apply the synthetic transmission to the science spectra \\
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
-Observing templates: & None\\
+Templates:           & None\\
 Input data: 	& \hyperref[dataitem:nlsssciflux1d]{\PROD{N_LSS_SCI_FLUX_1D}}\\
                 & \hyperref[dataitem:nlsssynthttrans]{\PROD{N_LSS_SYNTH_TRANS}}\\
 Parameters: 	& None\\

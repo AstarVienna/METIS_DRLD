@@ -57,7 +57,7 @@ table extension holds the polynomial coefficients.
   Purpose:             & Determine pixel-to-wavelength transformation.                          \\
   Requirements:        & \REQ{METIS-6074}                                                       \\
   Type:                & Calibration                                                            \\
-  Templates:           & \TPL{METIS_ifu_cal_LampWave}                                           \\
+  Templates:           & \TPL{METIS_ifu_cal_InternalWave}                                           \\
   Input data:          & Images taken with WCU QCL source                                       \\
                        & Master dark                                                            \\
                        & Bad-pixel map                                                          \\
@@ -276,9 +276,10 @@ Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                       
                      & \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
                      & \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
                      & \TPL{METIS_ifu_ext_obs_GenericOffset}                                                    \\
-                     & \TPL{METIS_ifu_app_obs_GenericOffset}                                                    \\
+% TODO: Decide what to do about app
+%                     & \TPL{METIS_ifu_app_obs_GenericOffset}                                                    \\
                      & \TPL{METIS_ifu_vc_obs_FixedSkyOffset}                                                    \\
-                     & \TPL{METIS_ifu_ext_app_obs_GenericOffset}                                                \\
+%                     & \TPL{METIS_ifu_ext_app_obs_GenericOffset}                                                \\
                      & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset}                                                \\
                      & \TPL{METIS_ifu_cal_psf}                                                                  \\
 Input data:          & Dithered science exposures.                                                              \\

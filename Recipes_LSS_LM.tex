@@ -32,7 +32,7 @@ Name:		& \hyperref[rec:lsslmrsrf]{\REC{metis_LM_lss_rsrf}}  \\
 Purpose:	& Spectroscopic flatfielding with \ac{RSRF} \\
 Type:		& Calibration\\
 Requirements: & None \\
-Observing templates: & \TPL{METIS_spec_lm_cal_rsrf} \\
+Templates:           & \TPL{METIS_spec_lm_cal_rsrf} \\
 Input data:     & $N\times$ \hyperref[dataitem:lmlsswaveraw]{\RAW{LM_LSS_RSRF_RAW}} \\
                 & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:gainmap2rg]{\STATCALIB{GAIN_MAP_2RG}}  \\
@@ -73,7 +73,7 @@ Name:		&  \hyperref[rec:lsslmtrace]{\REC{metis_LM_lss_trace}} \\
 Purpose:	& Detection of order location \\
 Type:		& Calibration\\
 Requirements: & None \\
-Observing templates: & \TPL{METIS_spec_lm_cal_rsrfpinh}  \\
+Templates:           & \TPL{METIS_spec_lm_cal_InternalWave}  \\
 Input data:     & $N\times$ \hyperref[dataitem:lmlssrsrfpinhraw]{\RAW{LM_LSS_RSRF_PINH_RAW}} \\
                 & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:gainmap2rg]{\STATCALIB{GAIN_MAP_2RG}}  \\
@@ -112,7 +112,7 @@ Name:		& \hyperref[rec:lsslmwave]{\REC{metis_LM_lss_wave}} \\
 Purpose:	& Wavelength calibration \\
 Type:		& Calibration\\
 Requirements: & METIS-6084, METIS-1371, METIS-6074 \\
-Observing templates: & \TPL{METIS_spec_lm_cal_internalwave}, \\
+Templates:           & \TPL{METIS_spec_lm_cal_internalwave}, \\
 Input data: 	& \hyperref[dataitem:lmlsswaveraw]{\RAW{LM_LSS_WAVE_RAW}}\\
                 & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:gainmap2rg]{\STATCALIB{GAIN_MAP_2RG}}  \\
@@ -156,7 +156,7 @@ Name:		& \hyperref[rec:lsslmflux]{\REC{metis_LM_lss_flux}} \\
 Purpose:	& Flux calibration \\
 Type:		& Calibration\\
 Requirements: & METIS-6084, METIS-6074 \\
-Observing templates: & \TPL{METIS_spec_lm_cal_standard}\\
+Templates:           & \TPL{METIS_spec_lm_cal_standard}\\
 Input data: 	& \hyperref[dataitem:lmlssfluxraw]{\RAW{LM_LSS_FLUX_RAW}}\\
                 & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:gainmap2rg]{\STATCALIB{GAIN_MAP_2RG}}  \\
@@ -225,10 +225,10 @@ Name:		& \hyperref[rec:lsslmsci]{\REC{metis_LM_lss_sci}} \\
 Purpose:    & Science data calibration\\
 Type:		& Science reduction\\
 Requirements: & METIS-6084 \\
-Observing templates: & \TPL{METIS_spec_lm_acq}, \\
+Templates:           & \TPL{METIS_spec_lm_acq}, \\
                 & \TPL{METIS_spec_lm_obs_AutoNodOnSlit}, \\
                 & \TPL{METIS_spec_lm_obs_GenericOffset} \\
-                & \TPL{METIS_spec_lm_cal_slit_adc}\\
+                & \TPL{METIS_spec_lm_cal_SlitAdc}\\
 Input data: 	& \hyperref[dataitem:lmlsssciraw]{\RAW{LM_LSS_SCI_RAW}}\\
                 & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:gainmap2rg]{\STATCALIB{GAIN_MAP_2RG}}  \\
@@ -292,7 +292,7 @@ Name:		& \hyperref[rec:LMLSSmfmodel]{\REC{metis_LM_lss_mf_model}} \\
 Purpose:	& Achieve the best fit for modelling the transmission curve to be applied as telluric correction \\
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
-Observing templates: & None\\
+Templates:           & None\\
 Input data: 	& \hyperref[dataitem:lmlsssciflux1d]{\PROD{LM_LSS_SCI_FLUX_1D}}\\
                 & \hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}} \\
                 & \hyperref[dataitem:atmprofile]{\EXTCALIB{ATM_PROFILE}} \\
@@ -321,7 +321,7 @@ Name:		& \hyperref[rec:LMLSSmfcalctrans]{\REC{metis_LM_lss_mf_calctrans}} \\
 Purpose:	& Calculation of the synthetic transmission \\
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
-Observing templates: & None\\
+Templates:           & None\\
 Input data: 	& \hyperref[dataitem:mfbestfittab]{\PROD{MF\_BEST\_FIT\_TAB}}: Table with best-fit parameters\\
                 & \hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}} \\
                 & \hyperref[dataitem:atmprofile]{\EXTCALIB{ATM_PROFILE}} \\
@@ -349,7 +349,7 @@ Name:		& \hyperref[rec:LMLSSmfcorrect]{\REC{metis_LM_lss_mf_correct}} \\
 Purpose:	& Apply the synthetic transmission to the science spectra \\
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
-Observing templates: & None\\
+Templates:           & None\\
 Input data: 	& \hyperref[dataitem:lmlsssciflux1d]{\PROD{LM_LSS_SCI_FLUX_1D}}\\
                 & \hyperref[dataitem:lmlsssynthttrans]{\PROD{LM_LSS_SYNTH_TRANS}}\\
 Parameters: 	& None\\

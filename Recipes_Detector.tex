@@ -57,7 +57,7 @@ sequence.
 
 \newpage
 \begin{recipedef}
-  Recipe name:         & \REC{metis_det_lingain}                                                             \\
+  Name:                & \REC{metis_det_lingain}                                                             \\
   Purpose:             & determine non-linearity and gain of the detectors                                   \\
   Requirements:        & \REQ{METIS-5997}                                                                    \\
   Type:                & Calibration                                                                         \\
@@ -79,7 +79,7 @@ sequence.
   QC1 parameters:      & \QC{QC LIN GAIN MEAN}                                                               \\
                        & \QC{QC LIN GAIN RMS}                                                                \\
                        & \QC{QC LIN NUM BADPIX}                                                              \\
-  hdrl functions       & \CODE{hdrl_imagelist_sub_image}                                                     \\
+  hdrl functions:      & \CODE{hdrl_imagelist_sub_image}                                                     \\
                        & \CODE{hdrl_bpm_fit_compute}                                                         \\
 \end{recipedef}
 
@@ -116,7 +116,7 @@ the average over the detector.
 \begin{recipedef}
   Name:                & \REC{metis_det_dark}                                                        \\
   Purpose:             & determine the dark current of the detectors                                 \\
-  Requirement:         & \REQ{METIS-6063}                                                            \\
+  Requirements:        & \REQ{METIS-6063}                                                            \\
   Type:                & Calibration                                                                 \\
   Templates:           & \TPL{METIS_gen_cal_dark}                                                    \\
   Input data:          & A set of DARK frames from various detectors with various integration times. \\
@@ -140,7 +140,7 @@ the average over the detector.
                        & \QC{QC DARK NCOLDPIX}                                                               \\
                        & \QC{QC DARK NHOTPIX}                                                                \\
                        & (more \TBD)                                                                  \\
-  hdrl functions       & \CODE{hdrl_bpm_3d_compute}                                 \\
+  hdrl functions:      & \CODE{hdrl_bpm_3d_compute}                                 \\
                        & \CODE{hdrl_imagelist_collapse}                             \\
 \end{recipedef}
 
@@ -168,14 +168,14 @@ archive.
 \begin{recipedef}
   Name:                & \REC{metis_det_persistence}           \\
   Purpose:             & compute persistence correction        \\
-  Requirement:         & \REQ{METIS-9145}                      \\
+  Requirements:        & \REQ{METIS-9145}                      \\
   Type:                & Calibration                           \\
-  Template:            & --                                    \\
+  Templates:           & --                                    \\
   Parameters:          & \TBD                                  \\
-  Algorithm:           & see hdrl function                     \\
+  Algorithm:           & see hdrl functions:                   \\
   Output data:         & \PROD{PERSISTENCE_MAP}                \\
   Expected accuracies: & \TBD                                  \\
-  QC1 parameters:      & see hdrl function                     \\
+  QC1 parameters:      & see hdrl functions:                   \\
   hdrl functions:      & \TBD (\CODE{hdrl_persistence_compute} \\
 \end{recipedef}
 

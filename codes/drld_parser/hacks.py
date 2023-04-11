@@ -113,38 +113,43 @@ HACK_TEMPLATE_NAMES_IN_DRLD = {
 
 HACK_RECIPE_TEMPLATES = {
     # Pinhole is internal wave?
-    (
-        "metis_LM_lss_trace",
-        "metis_spec_lm_cal_rsrfpinh",
-    ): "METIS_spec_lm_cal_InternalWave",
-    ("metis_N_lss_trace", "metis_spec_n_cal_rsrfpinh"): "METIS_spec_n_cal_InternalWave",
+    # (
+    #     "metis_LM_lss_trace",
+    #     "metis_spec_lm_cal_rsrfpinh",
+    # ): "METIS_spec_lm_cal_InternalWave",
+    # ("metis_N_lss_trace", "metis_spec_n_cal_rsrfpinh"): "METIS_spec_n_cal_InternalWave",
+
     # and these as well?
-    ("metis_ifu_wavecal", "metis_ifu_cal_lampwave"): "METIS_ifu_cal_InternalWave",
-    # app stuff
-    (
-        "metis_ifu_sci_process",
-        "metis_ifu_app_obs_genericoffset",
-    ): "METIS_ifu_obs_GenericOffset",
-    (
-        "metis_ifu_sci_process",
-        "metis_ifu_ext_app_obs_genericoffset",
-    ): "METIS_ifu_ext_obs_GenericOffset",
-    # Why are these different?
-    ("metis_LM_lss_sci", "metis_spec_lm_cal_slit_adc"): "METIS_spec_lm_cal_SlitAdc",
-    ("metis_N_lss_sci", "metis_spec_n_cal_slit_adc"): "METIS_spec_n_cal_slit",
-    # Typo?
-    ("metis_n_adc_slitloss", "metis_spec_n_cal_slitadc"): "METIS_spec_n_cal_slit",
+    # ("metis_ifu_wavecal", "metis_ifu_cal_lampwave"): "METIS_ifu_cal_InternalWave",
+
+    # app stuff, is that still relevant?
+    # (
+    #     "metis_ifu_sci_process",
+    #     "metis_ifu_app_obs_genericoffset",
+    # ): "METIS_ifu_obs_GenericOffset",
+    # (
+    #     "metis_ifu_sci_process",
+    #     "metis_ifu_ext_app_obs_genericoffset",
+    # ): "METIS_ifu_ext_obs_GenericOffset",
+
+    # Why are these different? Renamed, TODO: discuss names
+    # ("metis_LM_lss_sci", "metis_spec_lm_cal_slit_adc"): "METIS_spec_lm_cal_SlitAdc",
+    # ("metis_N_lss_sci", "metis_spec_n_cal_slit_adc"): "METIS_spec_n_cal_slit",
+    # ("metis_n_adc_slitloss", "metis_spec_n_cal_slitadc"): "METIS_spec_n_cal_slit",
+
     # Apparently not "all"
-    (
-        "metis_lm_img_flat",
-        "metis_all_cal_twilightflat",
-    ): "METIS_img_lm_cal_TwilightFlat",
-    ("metis_n_img_flat", "metis_all_cal_twilightflat"): "METIS_img_n_cal_TwilightFlat",
+    # (
+    #     "metis_lm_img_flat",
+    #     "metis_all_cal_twilightflat",
+    # ): "METIS_img_lm_cal_TwilightFlat",
+    # ("metis_n_img_flat", "metis_all_cal_twilightflat"): "METIS_img_n_cal_TwilightFlat",
+
     # Typo?
-    (
-        "metis_N_lss_sci",
-        "metis_spec_n_obs_autonodonslit",
-    ): "METIS_spec_n_obs_AutoChopNodOnSlit",
+    # (
+    #     "metis_N_lss_sci",
+    #     "metis_spec_n_obs_autonodonslit",
+    # ): "METIS_spec_n_obs_AutoChopNodOnSlit",
+
     # No clue
     # ("metis_pupil_imaging", "TBD"): "",
     # To handle in some other way
@@ -161,20 +166,23 @@ TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI = [
 ]
 
 
+# Bad labels in recipedef tables.
 HACK_BAD_NAMES = {
-    "recipe_name": "name",
-    "observing_templates": "templates",
-    "recipe_parameters": "parameters",
-    "hdrl_function": "hdrl_functions",
-    "requirement": "requirements",
-    "template": "templates",
+    # E.g.
+    # "recipe_name": "name",
+    # "observing_templates": "templates",
+    # "recipe_parameters": "parameters",
+    # "hdrl_function": "hdrl_functions",
+    # "requirement": "requirements",
+    # "template": "templates",
 }
 
 HACK_INCORRECT_INPUT_DATA = {
-    "LM_SCI_REDUCED": "LM_SCI_BASIC_REDUCED",
-    "MASTER_FLAT_2RG": "MASTER_IMG_FLAT_2RG",
-    "MASTER_FLAT_GEO": "MASTER_IMG_FLAT_GEO",
-    "LM_SCI_BADPIX": "BADPIX_MAP_2RG",
+    # E.g.
+    # "LM_SCI_REDUCED": "LM_SCI_BASIC_REDUCED",
+    # "MASTER_FLAT_2RG": "MASTER_IMG_FLAT_2RG",
+    # "MASTER_FLAT_GEO": "MASTER_IMG_FLAT_GEO",
+    # "LM_SCI_BADPIX": "BADPIX_MAP_2RG",
 }
 
 
