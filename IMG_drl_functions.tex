@@ -1,6 +1,26 @@
 \subsection{IMG observing mode}\label{sec:drl_functions_img}
 
 %---------------------------------------------------------------------
+\subsubsection{metis\_derive\_gain}\label{drl:metis_derive_gain}
+\begin{recipedef}
+Name: & \hyperref[drl:metis_derive_gain]{\DRL{metis_derive_gain}} \\
+Purpose: & Determine the gain. \\
+Used in recipes: & \hyperref[sssec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & $n\times$ \texttt{const double * means} \\
+%Other inputs: & None \\
+%QC outputs: & None\\
+%Output FITS files: & None \\
+Outputs: & gain [\TODO{units}]\\
+               & \texttt{cpl\_error\_code} \\
+General description: & Determine the gain as the slope of variance against mean of detlin images. \\
+Mathematical description: & TBD \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & None. \\
+%Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+%---------------------------------------------------------------------
 \subsubsection{Detect peak centroid location}\label{drl:img_peakcentroid}
 \begin{recipedef}
 Name: & \hyperref[drl:img_peakcentroid]{\DRL{detect\_centroid\_peak}} \\

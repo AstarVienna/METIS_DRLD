@@ -62,20 +62,20 @@ sequence.
   Requirements:        & \REQ{METIS-5997}                                                                    \\
   Type:                & Calibration                                                                         \\
   Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
-                       & \TPL{METIS_img_n_cal_DetLin}                                                       \\
+                       & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
-  Input data:          & set of \FITS{FLAT,LAMP} frames taken with increasing DIT/illumination               \\
-                       & instrument dark (\FITS{FLAT,OFF})                                                   \\
-  Matched keywords:    & Detector ID                                                                         \\
-  Algorithm:           & Subtract instrument dark                                                            \\
-                       & Compute mean and variance for each frame.                                           \\
-                       & Gain is determined as the slope of variance against mean.                           \\
-                       & Fit polynomial of value as a function of DIT and illumination level for each pixel. \\
-                       & Flag pixels with coefficients significantly different from the mean of all pixels.  \\
+  Input data:          & \RAW{DETLIN_RAW_det}: (set of \FITS{FLAT,LAMP} frames taken with increasing DIT)    \\
+                       & \PROD{MASTER_DARK_det}: (set of instrument darks \TODO{use METIS_gen_cal_InsDark})  \\
+  Matched keywords:    & Detector ID \TODO{TBD}                                                              \\
+  Algorithm:           & Subtract instrument dark (\CODE{hdrl_imagelist_sub_image}).                         \\
+                       & Compute mean and variance for each frame (\CODE{TBD}).                              \\
+                       & Gain is determined as the slope of variance against mean (\CODE{metis_derive_gain}) \\
+                       & Fit polynomial of value as a function of DIT and illumination level for each pixel (\CODE{metis_derive_nonlinearity}). \\
+                       & Flag pixels with coefficients significantly different from the mean of all pixels. (\CODE{hdrl_bpm_fit_compute}) \\
   Output data:         & \PROD{GAIN_MAP_det}                                                                 \\
                        & \PROD{LINEARITY_det}                                                                \\
                        & \PROD{BADPIX_MAP_det}                                                               \\
-  Expected accuracies: & TBD                                                                                 \\
+  Expected accuracies: & \TODO{TBD}                                                                          \\
   QC1 parameters:      & \QC{QC LIN GAIN MEAN}                                                               \\
                        & \QC{QC LIN GAIN RMS}                                                                \\
                        & \QC{QC LIN NUM BADPIX}                                                              \\
