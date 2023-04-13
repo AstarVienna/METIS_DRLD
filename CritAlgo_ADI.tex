@@ -70,8 +70,8 @@ Following the SNR definitions of Mawet et al 2014 the noise is calculated in ann
 
 To demonstrate the ADI/SDI reduction of an IFU dataset which contains spatial, temporal and spectral information we first generate a METIS IFU HCI dataset of 12000 frames by 267 by 267 pixels and Z spectral bins. Each frame corresponds with an exposure time of 0.3 seconds, with a total integration time of 1 hour. At a central wavelength of 3.8 micron this corresponds to approximately X by X lambda/D. 
 We generate PSFs with the HEEPS python code in L band with the RAVC coronagraph at a pixel scale of 8.2 by 8.2 mas. This data is FFT interpolated with VIP\_HCI with a scaling factor to generate 1600 spectral bins in a wavelength range of X micron at a wavelength of X micron.
-As the METIS IFU projected on-sky has rectangular pixels we reinterpolate this data for each temporal and spectral slice to a grid of X by X mas and then average the data in one dimension to get a pixel scale of 8.2 by 21 mas. The sum of all flux is set to be equal to the total photons of the star in L-band.
-To go back to square pixels, we duplicate the undersampled axis. We inject noise according to the shot noise of the source, sky background and detector read noise with a single resolution element spanning about x by x pixels, while also using a binning factor of X spectrally and Y temporally to reduce memory consumption.
+As the METIS IFU projected on-sky has rectangular pixels we reinterpolate this data for each temporal and spectral slice to a grid of X by X mas and then average the data in one dimension to get a pixel scale of 8.2 by 24.6 mas (note actual scale is close to 8.2 x 21 mas). The sum of all flux is set to be equal to the total photons of the star in L-band.
+To go back to square pixels, we duplicate the undersampled axis. We inject noise according to the shot noise of the source, sky background and detector read noise with a single resolution element spanning about x by x pixels, while also using a binning factor of X spectrally and 100 temporally to reduce memory consumption.
 
 
 
