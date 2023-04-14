@@ -1,0 +1,18 @@
+name: Build LaTeX document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: METIS_DRLD.tex
+          post_compile: mv METIS_DRLD.pdf "METIS_DRLD.$(date +'%Y%m%dT%H%M%S').${{ github.sha }}.pdf"
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: METIS DRLD
+          path: ./*.pdf
