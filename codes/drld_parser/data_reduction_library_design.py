@@ -121,7 +121,7 @@ class DataItemReference:
 
     @staticmethod
     def from_recipe_line(line):
-        """Parse a line from a Recipe definition.
+        r"""Parse a line from a Recipe definition.
 
         Example lines:
 
@@ -291,8 +291,7 @@ class Recipe:
                 # print(field, ":::", value)
 
             # noinspection PyUnresolvedReferences
-            if field not in Recipe.__dataclass_fields__:
-                print(field, field1, row[0])
+            assert field in Recipe.__dataclass_fields__, f"Field cannot be found {row[0]}"
 
             # Cannot yet add the value to thedata dictionary because the value
             # might continue on other rows.
@@ -349,7 +348,7 @@ class DataReductionLibraryDesign:
         return recipes
 
     def get_dataitems(self):
-        """Read all DataItems defined in 'DRL DATA ITEMS AND STRUCTURES'.
+        r"""Read all DataItems defined in 'DRL DATA ITEMS AND STRUCTURES'.
 
         The DataItems are all defined in 09_0-DRL-Data-Structures.tex, which
         \input's all *_data_item.tex files. Those files have paragraphs like
