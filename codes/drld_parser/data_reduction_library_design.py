@@ -283,6 +283,8 @@ class Recipe:
                 thedata[field_old] = value
 
             field = HACK_BAD_NAMES.get(field1, field1)
+            if field1 in HACK_BAD_NAMES:
+                print(f"{field1} should be renamed to {field}.")
             value = row[1]
 
             if "name" in field:
