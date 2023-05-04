@@ -84,8 +84,8 @@ otherwise a new one is created.
   the background subtraction.}
 
 This recipe performs the basic reduction of raw exposures from the
-LM-band imager, i.e.\ dark subtraction and flat fielding. It is used
-for both standard and science exposures.
+LM-band imager, i.e.\ dark subtraction, flat fielding and other removing
+instrumental signals. It is used for both standard and science exposures.
 
 Basic statistics of the images can be used to screen for saturation.
 
@@ -100,12 +100,15 @@ Basic statistics of the images can be used to screen for saturation.
                     & \TPL{METIS_img_lm_*_obs_*}       \\
   Input data:       & Dithered images (standard, science) \\
                     & Blank sky images (if available)   \\
+                    & Masked detector region (if available)  \\
                     & Master dark                       \\
                     & Master flat                       \\
   Matched keywords: & DIT (for dark)                    \\
                     & Filter ID (for flat)              \\
   Algorithm:        & Subtract dark, divide by flat     \\
-                    & Analyse and remove masked regions (\TBD) \\
+                    & Remove sky pattern                \\
+                    & Remove crosstalk, correct non-linearity \\
+                    & Analyse and remove masked regions  \\
   Output data:      & \PROD{LM_SCI_BASIC_REDUCED}       \\
                     & \PROD{LM_STD_BASIC_REDUCED}       \\
   QC1 parameters:   & \QC{QC LM IMG MEDIAN}             \\
