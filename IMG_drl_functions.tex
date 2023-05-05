@@ -1,6 +1,94 @@
 \subsection{IMG observing mode}\label{sec:drl_functions_img}
 
 %---------------------------------------------------------------------
+\subsubsection{Function for basic processing}
+
+\begin{recipedef}
+Name: & \hyperref[drl:img_nonlinear_correction]{\DRL{img\_nonlinear\_correction}} \\
+Purpose: &Correction for detector non-linearity\\
+Used in recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & $n\times$ \texttt{const ls\_image * input} \\
+%Other inputs: & None \\
+%QC outputs: & None\\
+%Output FITS files: & None \\
+Outputs: & Non-linearity corrected images [px]\\
+                & \texttt{cpl\_error\_code} \\
+General description: & Correction of detector non-linearity \\
+Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+
+\begin{recipedef}
+Name: & \hyperref[drl:img_crosstalk_correction]{\DRL{img\_crosstalk\_correction}} \\
+Purpose: &Correction for detector crosstalk\\
+Used in recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & $n\times$ \texttt{const ls\_image * input} \\
+%Other inputs: & None \\
+%QC outputs: & None\\
+%Output FITS files: & None \\
+Outputs: & Crosstalk corrected images [px]\\
+                & \texttt{cpl\_error\_code} \\
+General description: & Correction of detector crosstalk \\
+Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+
+
+\begin{recipedef}
+Name: & \hyperref[drl:img_detrend]{\DRL{img\_detrend}} \\
+Purpose: &Remove detector signals\\
+Used in recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const ls\_image * input} \\
+&  \texttt{const ls\_master\_dark\_image * input} \\
+&  \texttt{const ls\_master\_flat\_image * input} \\
+%Other inputs: & None \\
+%QC outputs: & None\\
+%Output FITS files: & None \\
+Outputs: & Detrended images [px]\\
+                & \texttt{cpl\_error\_code} \\
+General description: & De-trending the raw image \\
+Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+
+
+\begin{recipedef}
+Name: & \hyperref[drl:img_skybackground_removal]{\DRL{img\_skybackground_removal}} \\
+Purpose: &Remove detector signals\\
+Used in recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const ls\_image * input} \\
+      & \texttt{const ls\_skybackground\_image} \\
+     %\texttt{const ls\_master_dark_image * input} \\
+    %\texttt{const ls\_master_flat_image * input} \\
+%Other inputs: & None \\
+%QC outputs: & None\\
+%Output FITS files: & None \\
+Outputs: & Removing sky background from images [px]\\
+                & \texttt{cpl\_error\_code} \\
+General description: & Removing sky backround from images \\
+Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+    
+
+
+
 \subsubsection{Detect peak centroid location}\label{drl:img_peakcentroid}
 \begin{recipedef}
 Name: & \hyperref[drl:img_peakcentroid]{\DRL{detect\_centroid\_peak}} \\
