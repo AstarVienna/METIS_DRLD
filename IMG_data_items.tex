@@ -1,5 +1,35 @@
 \subsection{IMG mode data items}\label{ssec:img_drl_data_structures}
 \subsubsection{Raw data item structures}\label{sssec:imgrawdatastructs}
+
+\paragraph{\hyperref[dataitem:lmimageraw]{\RAW{LM_IMAGE_RAW}}}\label{dataitem:lmimageraw}
+
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:lmimageraw]{\FITS{LM_IMAGE_RAW}}\\[0.3cm]
+Description: & Raw exposure of the LM image mode.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+Template: & \TPL{METIS_img_lm_cal_standard}\\
+          & \TPL{METIS_img_lm_*_obs_*}       \\
+Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{meti\_lm\_img\_basic\_reduce}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
 %\clearpage
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:imgprocdatastructs}
 \paragraph{\hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}} and \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}}\label{dataitem:masterdark}\label{dataitem:masterdark2rg}\label{dataitem:masterdarkgeo}
@@ -7,3 +37,31 @@
 
 %\clearpage
 \subsubsection{Final data item structures}\label{sssec:imgfinaldatastructs}
+
+\paragraph{\hyperref[dataitem:lmimagedetrend]{\RAW{LM_IMAGE_DETREND}}}\label{dataitem:lmimagedetrend}
+
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:lmimagedetrend]{\FITS{LM_IMAGE_DETREND}}\\[0.3cm]
+Description: & Detrended exposure of the LM image mode.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+Template: & \TPL{METIS_img_lm_cal_standard}\\
+            & \TPL{METIS_img_lm_*_obs_*}       \\
+Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{meti\_lm\_img\_basic\_reduce}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
