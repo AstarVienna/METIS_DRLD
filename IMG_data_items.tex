@@ -1,5 +1,59 @@
 \subsection{IMG mode data items}\label{ssec:img_drl_data_structures}
 \subsubsection{Raw data item structures}\label{sssec:imgrawdatastructs}
+
+\paragraph{\hyperref[dataitem:detlinraw]}{\RAW{DETLIN_RAW_det}}\label{dataitem:detlinraw}\label{dataitem:detlinraw2rg}\label{dataitem:detlinrawgeo}\label{dataitem:detlinrawifu}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:detlinraw]{\FITS{DETLIN_RAW_det}}\\[0.3cm]
+Description: & Raw data for non-linearity determination.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,det}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DETLIN}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DETLIN_RAW_det}\\[0.3cm]
+Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
+                       & \TPL{METIS_img_n_cal_DetLin}                                                        \\
+                       & \TPL{METIS_ifu_cal_DetLin}                                                          \\
+Input for recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item TODO
+\end{enumerate}
+\end{datastructdef}
+
+\paragraph{\hyperref[dataitem:darkinternalraw]}{\RAW{DARK_INTERNAL_det_RAW}}\label{dataitem:darkinternalraw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:darkinternalraw]{\FITS{DARK_INTERNAL_det_RAW}}\\[0.3cm]
+Description: & Raw data for dark subtraction in other recipes.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,det}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK,INTERNAL}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DARK_INTERNAL_det}\\[0.3cm]
+Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
+                       & \TPL{METIS_img_n_cal_DetLin}                                                        \\
+                       & \TPL{METIS_ifu_cal_DetLin}                                                          \\
+                    & \TODO{Many more} \\
+Input for recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}}\\
+                  & \TODO{Many more} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item TODO
+\end{enumerate}
+\end{datastructdef}
+
+
 %\clearpage
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:imgprocdatastructs}
 \paragraph{\hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}} and \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}}\label{dataitem:masterdark}\label{dataitem:masterdark2rg}\label{dataitem:masterdarkgeo}
@@ -11,9 +65,9 @@
 Name: & \hyperref[dataitem:linearity]{\FITS{LINEARITY}}\\[0.3cm]
 Description: & Nonlinearity coefficients.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LINEARY}\\
-\OCA keywords: & \hyperref[fits:PRO.catg]{\FITS{PRO.CATG}}, \TODO{Which subinstrument} \\
+OCA keywords: & \hyperref[fits:PRO.catg]{\FITS{PRO.CATG}}, \TODO{Which subinstrument} \\
 \FITS{DO.CATG}: & \FITS{LINEARITY}\\[0.3cm]
-\Input for recipe: & \hyperref[rec:lsslmrsrf]{\REC{TODO}}\\
+Input for recipe: & \hyperref[rec:lsslmrsrf]{\REC{TODO}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
