@@ -48,7 +48,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-<<<<<<< HEAD
+
 \paragraph{\hyperref[dataitem:detlinraw]}{\RAW{DETLIN_RAW_det}}\label{dataitem:detlinraw}\label{dataitem:detlinraw2rg}\label{dataitem:detlinrawgeo}\label{dataitem:detlinrawifu}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -74,8 +74,6 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-=======
->>>>>>> 06c0e10 (Add raw data for non linearity)
 \paragraph{\hyperref[dataitem:darkinternalraw]}{\RAW{DARK_INTERNAL_det_RAW}}\label{dataitem:darkinternalraw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -100,24 +98,17 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
     \item TODO
-<<<<<<< HEAD
 \end{enumerate}
 \end{datastructdef}
-
-
-=======
-
-\end{enumerate}
-\end{datastructdef}
->>>>>>> 06c0e10 (Add raw data for non linearity)
 
 
 %\clearpage
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:imgprocdatastructs}
 \label{dataitem:masterdark}
 
-%\paragraph{\hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}} and \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}}\label{dataitem:masterdark}\label{dataitem:masterdark2rg}\label{dataitem:masterdarkgeo}
-\paragraph{\hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}}}\label{dataitem:masterdark2rg}
+\paragraph{\hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}} and \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}}\label{dataitem:masterdark}\label{dataitem:masterdark2rg}\label{dataitem:masterdarkgeo}
+
+
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:masterdark2rg]{\FITS{MASTER_DARK_2RG}}\\[0.3cm]
@@ -259,6 +250,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
+
 \paragraph{\hyperref[dataitem:linearity]}{\PROD{LINEARITY}}\label{dataitem:linearity}\label{dataitem:linearity2rg}\label{dataitem:linearitylms}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -288,6 +280,7 @@ Description: & Nonlinearity coefficients.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LINEARY}\\
 OCA keywords: & \hyperref[fits:PRO.catg]{\FITS{PRO.CATG}}, \TODO{Which subinstrument} \\
 \FITS{DO.CATG}: & \FITS{LINEARITY}\\[0.3cm]
+Created by recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}} \\
 Input for recipe: & \hyperref[rec:lsslmrsrf]{\REC{TODO}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
