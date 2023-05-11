@@ -35,13 +35,14 @@ We therefore will include three different approaches for the telluric correction
     \item "classical" approach: The transmission of the Earth's atmosphere is determined in the classical way with the help of a \ac{TSS} as described above (right branch in Fig.~\ref{Fig:tellcorrmethods})
     \item "\textit{molecfit-on-star}": This is a combination of the both methods in the sense that \texttt{molecfit} is applied to \ac{TSS} observations, and the resulting synthetic transmission spectrum is used for the telluric correction of the science target  (middle branch in Fig.~\ref{Fig:tellcorrmethods})
 \end{itemize}
+\textit{Notes:}\\
 The newest release\footnote{\color{red}INSERT RELEASE NUMBER HERE WHEN ITS ONLINE\color{black}} of \texttt{molecfit} will contain a routine to correct transmission spectra for airmass. This allows the usage of \ac{TSS} which are at a different airmass than the science target.\\
 As mentioned above, \texttt{molecfit} will be the default method. It is therefore on the users responsibility, whether a \ac{TSS} is required/desired. However, the selection of the \ac{TSS} should not be arbitrary, but only possible from a provided catalogue.\\
-If possible, these stars will also be used for the absolute flux calibration (TBChecked!!!)
+If possible, these stars will also be used for the absolute flux calibration \color{red}(TBChecked!!!)\color{black}
 
 %------------------------------------------------------------------------------
 \subsubsection{Other algorithms included in the telluric correction approach}\label{ssec:otheralgstellcorr}
-\paragraph{Normalisation of stellar continua\newline}\label{ssec:spec_normalisation}
+\paragraph{Normalisation of \ac{TSS} continua\newline}\label{ssec:spec_normalisation}
 The normalisation of spectra can be a tricky issue especially for cool stars with plenty intrinsic spectral features. A general approach is therefore not possible. However, we can restrict our routines to stars, which are (a) well-known and (b) model spectra are available. We therefore use the following approach: 
 \begin{itemize}
     \item For each star we determine spectral regions, which are known to belong to the continuum, i.e. do not contain absorption/emission features neither intrinsic nor atmospheric.
@@ -49,7 +50,7 @@ The normalisation of spectra can be a tricky issue especially for cool stars wit
     \item The \ac{TSS} spectrum is finally divided by this polynomial.
 \end{itemize} 
 
-\paragraph{Airmass correction\newline}\label{ssec:airmass_coo}
+\paragraph{Airmass correction of transmission functions\newline}\label{ssec:airmass_corr}
 see approach in latest mf release TBWritten
 
 \paragraph{Quality control parameters\newline}\label{ssec_tellcorr_qc_params}
