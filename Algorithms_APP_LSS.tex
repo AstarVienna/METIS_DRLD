@@ -35,6 +35,13 @@ In the past years the approach of modelling transmission curves of Earth's atmos
 The outcome of the \ac{ELT} working group meeting of 2021-03-15 was that future instrument pipelines should include dedicated recipes based on the telluric correction \texttt{telluriccorr} library \cite{telluriccorr}. This package is based on \texttt{molecfit} and will be provided and maintained by \ac{ESO}. The telluric correction will be performed in three dedicated recipes as post-correction   and closely follow the approach as implemented in the \ac{KMOS} pipeline. The three steps comprise the fit of the telluirc features (e.g. \REC{metis_LM_lss_mf_model} for the LM range), the calculation of the transmission curve (e.g. \REC{metis_LM_lss_mf_calctrans}) and the application of the actual correction (e.g. \REC{metis_LM_lss_mf_correct}). For the determination of the \ac{LSF} we primarily rely on the possibilities as offered by the \texttt{telluricorr}/\texttt{molecfit} package, which is based on a fitting of the \ac{LSF} by a combination of a boxcar, Gaussian or Lorentzian. On basis of the commissioning data we will establish a parameter set providing a good starting point for the fits.\\
 We also intend to enable the user to include a dedicated line kernel instead, in case a reliable kernel model can be determined with other (external) tools (e.g. a model-based convolution of an internal \ac{LSF}, the slit-widths and/or an \ac{AO} component). In addition, also external supplementary meteorological data (e.g. provided by an \ac{LHATPRO} radiometer) can be included if the \texttt{telluricorr}/\texttt{molecfit} package offers that possibility.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/tell_corr_methods.pdf}
+  \caption{Methods for the telluric correction to be included in the \ac{METIS} pipeline.}
+  \label{Fig:tellcorrmethods}
+\end{figure}
+
 \textcolor{red}{TBD: Usage of TSS????}
 
 %-----------------------------------------------------------------------------------------
