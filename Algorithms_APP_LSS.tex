@@ -31,14 +31,14 @@ Flux calibration implies the conversion of ADUs to physical units. This is done 
 
 %-----------------------------------------------------------------------------------------
 \subsubsection{Telluric absorption correction}\label{ssec:tellcorr}
-Due to the dense molecular absorption arising from the Earth's atmosphere, nearly every \c{MIR} regime spectrum requires a correction for these telluric features. The required atmospheric transmission curve can be achieved either by specific observations of a telluric standard star (TSS, the "classical" way) or by a modelling approach. \\
+Due to the dense molecular absorption arising from the Earth's atmosphere, nearly every \c{MIR} regime spectrum requires a correction for these telluric features. The required atmospheric transmission curve can be achieved either by specific observations of a telluric standard star (\ac{TSS}, the "classical" way) or by a modelling approach. \\
 
-\paragraph{}{Modelling approach}: 
+\paragraph{Modelling approach}: 
 In the last years the modelling method has evolved. It is based on radiative transfer modelling of the Earth's atmosphere (\cite{mf1, mf2, molecfit}\footnote{\url{https://www.eso.org/sci/software/pipelines/skytools/molecfit}}). A height model of the Earth's atmosphere containing information of pressure, temperature and the concentration of molecules in combination with a radiative transfer model and a molecular line list is used to determine the transmission of the Earth's atmosphere at the time of observations. The approach by fitting specific molecular absorption features in the science spectra. The best-fit transmission function is finally used for the telluric correction.\\
 For many
 
 
-\paragraph{}{Classical approach}
+\paragraph{Classic \ac{TSS} approach}
 A telluric standard star (\ac{TSS}) spectrum is taken ideally directly before/after the science observations near the science target position (or at least at the same airmass) to probe the same pathway through the Earth's atmosphere. This \ac{TSS}-spectrum is processed in the same way as the science spectrum (except the absolute flux calibration). To remove intrinsic stellar features this spectrum is corrected with a model spectrum of this \ac{TSS}. Finally its continuum is normalised to unity. The resulting normalised spectrum (ideally) only contains the fingerprint of the Earth's atmospheric absorptions and can be used for the telluric correction. 
 
 LSF itentical + In case the model spectrum also contains absolute flux values, this star could also be appropriate for the absolute flux calibration.
