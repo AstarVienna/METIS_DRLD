@@ -36,18 +36,17 @@ We therefore will include three different approaches for the telluric correction
   \label{Fig:tellcorrmethods}
 \end{figure}
 %------------------------------------------------------------------------------
-\subsubsection{Other algorithms included in the telluric correction approach} 
-\subsection{Normalisation of stellar continua}
+\subsubsection{Other algorithms included in the telluric correction approach}\label{ssec:otheralgstellcorr}
+\paragraph{Normalisation of stellar continua\newline}\label{ssec:spec_normalisation}
 The normalisation of spectra can be a tricky issue especially for cool stars with plenty intrinsic spectral features. A general approach is therefore not possible. However, we can restrict our routines to stars, which are (a) well-known and (b) model spectra are available. We therefore use the following approach: 
 \begin{itemize}
     \item For each star we determine spectral regions, which are known to belong to the continuum, i.e. do not contain absorption/emission features neither intrinsic nor atmospheric.
-    \item These spectral regions are then fit by a polynomial.
-    \item 
-\end{itemize}  a third step, the \ac{TSS} spectrum is divided by this polynomial.
+    \item These spectral regions are then fit by a polynomial. The degree of the polynomial will be determined when the set of \ac{TSS} is established.
+    \item The \ac{TSS} spectrum is divided by this polynomial.
+\end{itemize} 
 
-Others TBD:
-\begin{itemize}
-    \item airmass correction: see approach in latest mf release
-    \item quality control params: see approach in latest mf release
-%    \item TSS spectra normalisation: TBWritten
-\end{itemize}
+\paragraph{Airmass correction\newline}\label{ssec:airmass_coo}
+see approach in latest mf release TBWritten
+
+\paragraph{Quality control parameters\newline}\label{ssec_tellcorr_qc_params}
+see approach in latest mf release TBWritten see sect~\ref{ssec:spec_normalisation}
