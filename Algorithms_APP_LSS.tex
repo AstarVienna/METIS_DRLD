@@ -38,17 +38,15 @@ There are several sources for model spectra available:
 \begin{itemize}
     \item Cohen set (\cite{coh99}): Set of 422 stellar model templates, mainly K and M giants. One of the standard sets in \ac{MIR}.
     \item The SPEX \ac{IRTF} Spectral library\footnote{\url{http://irtfweb.ifa.hawaii.edu/~spex/IRTF_Spectral_Library/}}: Set of observed stellar spectra (F to M-type, some carbon and S-type stars and L and T dwarfs) in the range $0.8...5.0\mu$m mostly at a resolving power of $R\equiv\lambda/\Delta\lambda\sim2,000$.
-    \item Phoenix library\footnote{\url{https://phoenix.astro.physik.uni-goettingen.de/}}\cite{phoenix}: Library of synthetic medium and high resolution spectra between $0.5...5.5\mu$m covering a wide stellar parameter space ($2,300\textrm{K}\leq T_\textrm{eff}\leq12,000\textrm{K}$; $0.0\leq\log g\leq+6.0$; $-4.0\leq$[Fe/H]$\leq+1.0$; $0.2\leq$[$\alpha$/Fe]) \\
+    \item Phoenix library\footnote{\url{https://phoenix.astro.physik.uni-goettingen.de/}}\cite{phoenix}: Library of synthetic medium and high resolution spectra between $0.5...5.5\mu$m covering a wide stellar parameter space ($2,300\textrm{K}\leq T_\textrm{eff}\leq12,000\textrm{K}$; $0.0\leq\log g\leq+6.0$; $-4.0\leq$[Fe/H]$\leq+1.0$; $0.2\leq$[$\alpha$/Fe]$\leq+1.2$). \\
 \end{itemize}
-Currently the \ac{METIS} team looks into that topic and to assembles a set of appropriate \ac{TSS} stars.
+The \ac{METIS} consortium will look into that topic and to assemble a set of appropriate \ac{TSS} stars.
 
 \paragraph{Modelling approach:\newline} In the last years the modelling method has evolved. It is based on radiative transfer modelling of the Earth's atmosphere (\cite{mf1, mf2, molecfit}\footnote{\url{https://www.eso.org/sci/software/pipelines/skytools/molecfit}}). A height model of the Earth's atmosphere containing information of pressure, temperature and the concentration of molecules in combination with a radiative transfer model and a molecular line list is used to determine the transmission of the Earth's atmosphere at the time of observations. The approach by fitting specific molecular absorption features in the science spectra. The best-fit transmission function is finally used for the telluric correction.\\
 
 LSF identical + In case the model spectrum also contains absolute flux values, this star could also be appropriate for the absolute flux calibration.
 
 
-models available: SPEX \\
-Cohen \cite{coh99}\\
 VISIR pipeline\footnote{\url{https://www.eso.org/sci/software/pipelines/}} \cite{visir_manual}
 
 
