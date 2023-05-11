@@ -57,7 +57,27 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %\clearpage
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:imgprocdatastructs}
 \paragraph{\hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}} and \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}}\label{dataitem:masterdark}\label{dataitem:masterdark2rg}\label{dataitem:masterdarkgeo}
+
 \paragraph{\hyperref[dataitem:badpixmap2rg]{\PROD{BADPIX_MAP_2RG}} and \hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}}\label{dataitem:badpixmap}\label{dataitem:badpixmap2rg}\label{dataitem:badpixmapgeo}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:badpixmap]{\FITS{BADPIX_MAP_det}}\\[0.3cm]
+Description: & Bad pixel map\\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{BADPIX_MAP_det}\\
+OCA keywords: & \hyperref[fits:PRO.catg]{\FITS{PRO.CATG}} \\
+\FITS{DO.CATG}: & \FITS{BADPIX_MAP_det}\\[0.3cm]
+Created by recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}} \\
+Input for recipe: & \hyperref[rec:]{\REC{TODO}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item TODO
+\end{enumerate}
+\end{datastructdef}
 
 \paragraph{\hyperref[dataitem:linearity]}{\PROD{LINEARITY}}\label{dataitem:linearity}\label{dataitem:linearity2rg}\label{dataitem:linearitylms}
 \begin{recipedef}
@@ -67,6 +87,7 @@ Description: & Nonlinearity coefficients.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LINEARY}\\
 OCA keywords: & \hyperref[fits:PRO.catg]{\FITS{PRO.CATG}}, \TODO{Which subinstrument} \\
 \FITS{DO.CATG}: & \FITS{LINEARITY}\\[0.3cm]
+Created by recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}} \\
 Input for recipe: & \hyperref[rec:lsslmrsrf]{\REC{TODO}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
