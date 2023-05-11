@@ -42,17 +42,14 @@ There are several sources for model spectra available:
 \end{itemize}
 The \ac{METIS} consortium will look into that topic and to assemble a set of appropriate \ac{TSS} stars.
 
-\paragraph{Modelling approach:\newline} In the last years the modelling method has evolved. It is based on radiative transfer modelling of the Earth's atmosphere (\cite{mf1, mf2, molecfit}\footnote{\url{https://www.eso.org/sci/software/pipelines/skytools/molecfit}}). A height model of the Earth's atmosphere containing information of pressure, temperature and the concentration of molecules in combination with a radiative transfer model and a molecular line list is used to determine the transmission of the Earth's atmosphere at the time of observations. The approach by fitting specific molecular absorption features in the science spectra. The best-fit transmission function is finally used for the telluric correction.\\
-
-LSF identical + In case the model spectrum also contains absolute flux values, this star could also be appropriate for the absolute flux calibration.
-
-
-VISIR pipeline\footnote{\url{https://www.eso.org/sci/software/pipelines/}} \cite{visir_manual}
-
-
+\paragraph{Modelling synthetic transmission spectra:\newline} In the last years the modelling method has evolved. It is based on radiative transfer modelling of the Earth's atmosphere (\cite{mf1, mf2, molecfit}\footnote{\url{https://www.eso.org/sci/software/pipelines/skytools/molecfit}}). A height model of the Earth's atmosphere containing information of pressure, temperature and the concentration of molecules in combination with a radiative transfer model and a molecular line list is used to determine the transmission of the Earth's atmosphere at the time of observations. The approach by fitting specific molecular absorption features in the science spectra. The best-fit transmission function is finally used for the telluric correction.\\
 In the past years the approach of modelling transmission curves of Earth's atmosphere has made significant progress leading to versatile and mature software packages for the telluric correction. One of these packages is \texttt{molecfit}\footnote{\url{http://www.eso.org/sci/software/pipelines/skytools/molecfit}} (\cite{mf1, mf2}). This package is optimised for the ESO framework and ESO instruments and is also foreseen to be used for \ac{METIS}.\\
 The outcome of the \ac{ELT} working group meeting of 2021-03-15 was that future instrument pipelines should include dedicated recipes based on the telluric correction \texttt{telluriccorr} library \cite{telluriccorr}. This package is based on \texttt{molecfit} and will be provided and maintained by \ac{ESO}. The telluric correction will be performed in three dedicated recipes as post-correction   and closely follow the approach as implemented in the \ac{KMOS} pipeline. The three steps comprise the fit of the telluirc features (e.g. \REC{metis_LM_lss_mf_model} for the LM range), the calculation of the transmission curve (e.g. \REC{metis_LM_lss_mf_calctrans}) and the application of the actual correction (e.g. \REC{metis_LM_lss_mf_correct}). For the determination of the \ac{LSF} we primarily rely on the possibilities as offered by the \texttt{telluricorr}/\texttt{molecfit} package, which is based on a fitting of the \ac{LSF} by a combination of a boxcar, Gaussian or Lorentzian. On basis of the commissioning data we will establish a parameter set providing a good starting point for the fits.\\
 We also intend to enable the user to include a dedicated line kernel instead, in case a reliable kernel model can be determined with other (external) tools (e.g. a model-based convolution of an internal \ac{LSF}, the slit-widths and/or an \ac{AO} component). In addition, also external supplementary meteorological data (e.g. provided by an \ac{LHATPRO} radiometer) can be included if the \texttt{telluricorr}/\texttt{molecfit} package offers that possibility.
+
+\paragraph{Approach for \ac{METIS}:\newline} 
+The modelling approach has become the standard way for the telluric correction in several ESO pipelines as it avoids to spend valuable observing time on taking \ac{TSS} spectra. It is therefore also foreseen as default method for the \ac{METIS} pipeline.\\
+Nevertheless, there might be situations where the classical way becomes the better option. For example, in case the science object's continuum is too weak to be used for fitting spe
 
 \begin{figure}[ht]
   \centering
@@ -61,7 +58,6 @@ We also intend to enable the user to include a dedicated line kernel instead, in
   \label{Fig:tellcorrmethods}
 \end{figure}
 
-\textcolor{red}{TBD: Usage of TSS????}
 
 %-----------------------------------------------------------------------------------------
 \subsubsection{Object extraction and faint object spectroscopy}\label{sec:fospectro}
