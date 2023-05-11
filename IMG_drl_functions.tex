@@ -21,6 +21,26 @@ Error conditions: & None. \\
 %Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
 %---------------------------------------------------------------------
+\subsubsection{metis\_derive\_nonlinearity}\label{drl:metis_derive_nonlinearity}
+\begin{recipedef}
+Name: & \hyperref[drl:metis_derive_nonlinearity]{\DRL{metis_derive_nonlinearity}} \\
+Purpose: & Determine the non-linearity coefficients. \\
+Used in recipes: & \hyperref[sssec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & $n\times$ \texttt{hdrl\_image * image} Dark corrected non-linearity raws. \\
+%Other inputs: & None \\
+%QC outputs: & None\\
+%Output FITS files: & None \\
+Outputs: & \hyperref[dataitem:linearity]}{\PROD{LINEARITY}} \\
+               & \texttt{cpl\_error\_code} \\
+General description: & Determine the non-linearity coefficients. \\
+Mathematical description: & \TODO{TBD} \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & None. \\
+%Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+%---------------------------------------------------------------------
 \subsubsection{Detect peak centroid location}\label{drl:img_peakcentroid}
 \begin{recipedef}
 Name: & \hyperref[drl:img_peakcentroid]{\DRL{detect\_centroid\_peak}} \\
