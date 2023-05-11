@@ -33,8 +33,10 @@ Flux calibration implies the conversion of ADUs to physical units. This is done 
 \subsubsection{Telluric absorption correction}\label{ssec:tellcorr}
 Due to the dense molecular absorption arising from the Earth's atmosphere, nearly every \c{MIR} regime spectrum requires a correction for these telluric features. The required atmospheric transmission curve can be achieved either by specific observations of a telluric standard star (TSS) or by a modelling approach. The first is called the \textit{classical} way.\\
 
-models available: \footnote{\url{http://irtfweb.ifa.hawaii.edu/~spex/IRTF_Spectral_Library/}}
-Phoenix code\footnote{\url{https://phoenix.astro.physik.uni-goettingen.de/}}\cite{phoenix}
+models available: SPEX IRTF Spectral library\footnote{\url{http://irtfweb.ifa.hawaii.edu/~spex/IRTF_Spectral_Library/}}\\
+Phoenix code\footnote{\url{https://phoenix.astro.physik.uni-goettingen.de/}}\cite{phoenix}\\
+Cohen \cite{coh99}\\
+VISIR pipeline\footnote{\url{https://www.eso.org/sci/software/pipelines/#pipelines_table}} \cite{visir_manual}
 
 
 In the past years the approach of modelling transmission curves of Earth's atmosphere has made significant progress leading to versatile and mature software packages for the telluric correction. One of these packages is \texttt{molecfit}\footnote{\url{http://www.eso.org/sci/software/pipelines/skytools/molecfit}} (\cite{mf1, mf2}). This package is optimised for the ESO framework and ESO instruments and is also foreseen to be used for \ac{METIS}.\\
