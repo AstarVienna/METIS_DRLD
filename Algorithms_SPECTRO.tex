@@ -36,6 +36,7 @@ We therefore will include three different approaches for the telluric correction
     \item "\textit{molecfit-on-star}": This is a combination of the both methods in the sense that \texttt{molecfit} is applied to \ac{TSS} observations, and the resulting synthetic transmission spectrum is used for the telluric correction of the science target  (middle branch in Fig.~\ref{Fig:tellcorrmethods})
 \end{itemize}
 The newest release\footnote{\color{red}INSERT RELEASE NUMBER HERE WHEN ITS ONLINE\color{black}} of \texttt{molecfit} will contain a routine to correct transmission spectra for airmass. This allows the usage of \ac{TSS} which are at a different airmass than the science target.
+As mentioned above, \texttt{molecfit} will be the default method. It is therefore on the users responsibility, whether a \ac{TSS} is required/desired. However, the selection of the \ac{TSS} should not be arbitrary, but only possible from a provided catalogue.
 
 %------------------------------------------------------------------------------
 \subsubsection{Other algorithms included in the telluric correction approach}\label{ssec:otheralgstellcorr}
