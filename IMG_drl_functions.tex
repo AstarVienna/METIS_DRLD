@@ -9,7 +9,7 @@ Purpose: &Correction for detector non-linearity\\
 Used in recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & $n\times$ \texttt{const ls\_image * input} \\
+Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
@@ -28,7 +28,7 @@ Purpose: &Correction for detector crosstalk\\
 Used in recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & $n\times$ \texttt{const ls\_image * input} \\
+Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
@@ -48,7 +48,7 @@ Purpose: &Remove detector signals\\
 Used in recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const ls\_image * input} \\
+Input: & \texttt{const hdrl\_image * input} \\
 &  \texttt{const ls\_master\_dark\_image * input} \\
 &  \texttt{const ls\_master\_flat\_image * input} \\
 %Other inputs: & None \\
@@ -70,7 +70,7 @@ Purpose: &Building thermal background signals\\
 Used in recipes: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const ls\_image * input} \\
+Input: & \texttt{const hdrl\_image * input} \\
         & \texttt{const ls\_skybackground\_image} \\
         %\texttt{const ls\_master_dark_image * input} \\
     %\texttt{const ls\_master_flat_image * input} \\
@@ -94,7 +94,7 @@ Purpose: &Remove sky background signals\\
 Used in recipes: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const ls\_image * input} \\
+Input: & \texttt{const hdrl\_image * input} \\
       & \texttt{const ls\_skybackground\_image} \\
      %\texttt{const ls\_master_dark_image * input} \\
     %\texttt{const ls\_master_flat_image * input} \\
