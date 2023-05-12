@@ -2,6 +2,91 @@
 \section{QC Parameters}\label{sec:qc_parameters}
 
 \subsection{Imaging mode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      LM-Band
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\QC{QC LM IMG MEDIAN}}\label{qc:lmimgmedianlevel}
+\begin{recipedef}
+Name & \QC{QC LM IMG MEDIAN} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+Description & Median level of the LM image \tabularnewline
+Comment &  \tabularnewline
+\end{recipedef}
+
+\paragraph{\QC{QC LM IMG STANDARD DEVIATION}}\label{qc:lmimgstd}
+\begin{recipedef}
+Name & \QC{QC LM IMG STANDARD DEVIATION} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+Description & Standard deviation of the LM image \tabularnewline
+Comment &  \tabularnewline
+\end{recipedef}
+
+\paragraph{\QC{QC LM IMG PEAK}}\label{qc:lmimgmedianlevel}
+\begin{recipedef}
+Name & \QC{QC LM IMG PEAK} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+Description & Peak value the LM image \tabularnewline
+Comment &  \tabularnewline
+\end{recipedef}
+
+
+\paragraph{\QC{QC LM IMG BKG MEDIAN}}\label{qc:lmimgbkgmedian}
+\begin{recipedef}
+Name & \QC{QC LM IMG BKG MEDIAN} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
+Description & Median value of the background removed LM image \tabularnewline
+Comment &  \tabularnewline
+\end{recipedef}
+
+
+\paragraph{\QC{QC LM IMG BKG MEDIAN DEVIATION}}\label{qc:lmimgbkgmediandev}
+\begin{recipedef}
+Name & \QC{QC LM IMG BKG MEDIAN DEVIATION} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
+Description & Median deviation of the background removed LM image \tabularnewline
+Comment &  \tabularnewline
+\end{recipedef}
+
+
+
+
 \subsection{IFU mode}
 
 \subsection{Long-slit spectroscopy mode}
@@ -22,7 +107,7 @@ Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \hyperref[rec:lsslmrsrf]{\REC{metis_LM_lss_rsrf}}\\
 Description & Mean level of the \ac{RSRF} \tabularnewline
-Comment & Determined within the trace \tabularnewline
+Comment &  \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -38,7 +123,7 @@ Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \hyperref[rec:lsslmrsrf]{\REC{metis_LM_lss_rsrf}}\\
 Description & Median level of the \ac{RSRF} \tabularnewline
-Comment & Determined within the trace \tabularnewline
+Comment &  \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -720,7 +805,7 @@ Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \hyperref[rec:lssnrsrf]{\REC{metis_N_lss_rsrf}}\\
 Description & Mean level of the \ac{RSRF} \tabularnewline
-Comment & Determined within the trace \tabularnewline
+Comment &  \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -736,7 +821,7 @@ Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \hyperref[rec:lssnrsrf]{\REC{metis_N_lss_rsrf}}\\
 Description & Median level of the \ac{RSRF} \tabularnewline
-Comment & Determined within the trace \tabularnewline
+Comment &  \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
