@@ -123,11 +123,11 @@ the average over the detector.
   Parameters:          & Combination method (\texttt{median}, \texttt{mean},
                          \texttt{sigclip},\dots)                                                  \\
                        & Parameters for combination methods                                          \\
-                       & Threshold for bad-pixel identification                                      \\
-  Algorithm:           & Group files by detector and \texttt{DIT}                                      \\
-                       & Call function \REC{metis_determine_dark} \\
-                     & Compute median or average of input frames to improve statistics.            \\
-                       & Flag deviant pixels in master dark.                                         \\
+                       & Thresholds for deviant-pixel identification                                      \\
+  Algorithm:           & Group files by detector and \texttt{DIT}, based on header keywords           \\
+                       & Call function \REC{metis_determine_dark} for each set of files\\
+                       & Compute median or average of input frames to improve statistics.            \\  % separate routine, or part of determine dark
+                       & call \REC{metis_update_dark_mask} to flag deviant pixels \\
   Output data:         & \PROD{MASTER_DARK_det}                                                      \\
                        & \PROD{BPM_COLD_det}                                                         \\
                        & \PROD{BPM_HOT_det}                                                          \\
