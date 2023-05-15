@@ -126,7 +126,7 @@ QC outputs: ??\\
 Outputs: & Corrected raw images\\
          & \texttt{cpl\_error\_code} \\
 General description: & Persistence correction of raw images \\
-Mathematical description: & ?? \\
+Mathematical description: & see Section~\ref{sec_persistence_correction} \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
@@ -165,7 +165,7 @@ Purpose: & Flag deviant pixels in the master flat and update the image mask\\
 Used in recipes: & \hyperref[drl:lm_img_flat]{\REC{metis_ilm_img_flat}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &  \texttt{const hdrl\_image * input} \\
+Input: & flat \texttt{const hdrl\_image * input} \\
 &  \PROD{BADPIX_MAP_det}   \\
 & Threshold(s) for deviant pixel detection\\
 QC outputs: & QC LM FLAT NBADPIX\\
