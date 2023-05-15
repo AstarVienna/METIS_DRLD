@@ -23,37 +23,38 @@ The following additional critical algorithms were identified in the period betwe
 \end{enumerate}
 
 % Export these to individual files if they become too wordy
-\subsection{Persistence correction}
+\subsection{Persistence correction}\label{ssec:criticalpersistencecorrection}
 
-Will have access to a HDRL function from ESO. 
+Will have access to a HDRL function from ESO.
 The interface is TBD.
 Subtraction of persistence image as determined by ESO.
 Need to reference ESO docs for this.
 How does the scaling happen?
 Is there an API endpoint for this?
 
-\subsection{Detector Masks}
+
+\subsection{Detector Masks}\label{ssec:criticaldetetctormasks}
 
 Look into the MATISSE docs as to how this was done
 Delivers a bias/dark/ron value?
 
-\subsection{Bad pixel determination}
+\subsection{Bad pixel determination}\label{ssec:criticalbadpixeldetermination}
 
 Surely every other instrument on planet earth has some sort of algo for this.
 Need to determine the format of the bad pixel mask (bool?)
 Take XSHOOTER as example
 
-\subsection{Background subtraction}
+\subsection{Background subtraction}\label{ssec:criticalbackgroundsubtraction}
 
 N-band: Standard chop and nod using telescope chopper and internal nodder
 See VISIR pipeline
 
-\subsection{Wavelength calibration and distortion correction}
+\subsection{Wavelength calibration and distortion correction}\label{ssec:criticalwavelengthanddistortion}
 
 Pyreduce, will be described by Nadeen
 IMG modes are not critical, see recipes
 
-\subsection{Telluric correction}
+\subsection{Telluric correction}\label{ssec:criticaltelluriccorrection}
 Telluric correction, i.e. the removal of absorption features arising in the Earth's atmosphere, is a critical issue as the imprint of molecular species present in our air may vary on different timescales down to minutes due to changes in their composition and their amount. In particular the \ac{MIR} range is affected (see App~\ref{app:atmo_trans}).\\
 There are two well established ways to correct for these absorptions:
 \begin{itemize}
@@ -63,25 +64,25 @@ There are two well established ways to correct for these absorptions:
 These two methods can also be combined in the way that the modelling approach is applied to a \ac{TSS} spectrum, and the resulting transmission function is then applied to the science spectrum. This combination is specifically useful if the science target continuum is too weak to use the absorptions for a fit.\\
 For the \ac{METIS} pipelines we intend to incorporate both ways (including their combination). A detailed description is given in Section~\ref{ssec:tellcorr}. As both methods are well established, we deem a dedicated prototyping not necessary.
 
-\subsection{Error propagation}
+\subsection{Error propagation}\label{ssec:criticalerrorpropagation}
 
 HDRL functions do error propogation. Look into docs for these. 
 Understand how HDRL does this and then copy it.
 
-\subsection{N-band image restoration}
+\subsection{N-band image restoration}\label{ssec:criticalnbandimagerestoration}
 
 Chop-nod inversion and stacking
 Look at how VISIR does this
 Need to look at sub-pixel chop shifts, and whether the images need to be resampled
 Plate scale distortions are not really a issue, because we only care about compact objects
 
-\subsection{LMS image and cube reconstruction}
+\subsection{LMS image and cube reconstruction}\label{ssec:criticallmsimageandcubereconstruction}
 
 Completely open and a bit of a beast. 
 Help from Linz?
 Drizzling from HST?
 
-\subsection{LMS data rate}
+\subsection{LMS data rate}\label{ssec:criticallmsdatarate}
 
 See data rate document. 
 Hand-wave-y arguments to make this go away.
