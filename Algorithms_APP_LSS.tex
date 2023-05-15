@@ -28,7 +28,7 @@ Order rectification is achieved using the PyReduce algorithm described by \cite{
 \begin{center}
 \begin{tabular}{c|ccc|cc|cc}
 Band & $\lambda_\textrm{min}$ & $\lambda_\textrm{cent}$ & $\lambda_\textrm{max}$ & $\lambda_\textrm{min}$ y-Pos & $\lambda_\textrm{min}$ y-Pos & $\Delta\lambda$ & Dispersion \\
- & [$\mu$m] & [$\mu$m] & [$\mu$m] & & on chip [mm] & on chip [$\mu$m] & [$\mu$m/pixel]\\
+ & [$\mu$m] & [$\mu$m] & [$\mu$m] & on chip [mm] & on chip [mm] & on chip [$\mu$m] & [$\mu$m/pixel]\\
 \hline
 L & 2.9 & 3.55 & 4.2 & 17.856 & -16.704 & 1.300 & 6.77e-04 \\
 M & 4.5 & 4.85 & 5.2 & 17.856 & -16.704 & 0.700 & 3.65e-04 \\
@@ -42,7 +42,7 @@ N & 7.5 & 10.5 & 13.5 & -18.801 & 16.911 & 6.000 & 3.02e-03 \\
 \begin{center}
 \begin{tabular}{c|cc|ccc|ccc}
 Slit & Width & Length & dlam L & dlam M & dlam N & $L$-band & $M$-band & $N$-band \\
-ID & [mas] & [mas] & & & & Resolution & Resolution & Resolution \\
+ID & [mas] & [mas] & & & & Resolution\footnote{at $\lambda_textrm{cent}$} & Resolution & Resolution \\
 \hline
 Slit A & 19.0 & 8000.0 & 2.352e-03 & 1.266e-03 & 8.621e-03 & 1509 & 3830 & 1218 \\
 Slit B & 28.6 & 8000.0 & 3.540e-03 & 1.906e-03 & 1.298e-02 & 1003 & 2544 & 809 \\
@@ -50,6 +50,7 @@ Slit C & 38.1 & 8000.0 & 4.716e-03 & 2.539e-03 & 1.729e-02 & 752 & 1910 & 608 \\
 Slit D & 57.1 & 8000.0 & 7.068e-03 & 3.806e-03 & 2.591e-02 & 502 & 1274 & 405 \\
 Slit E & 114.2 & 8000.0 & 1.414e-02 & 7.612e-03 & 5.182e-02 & 251 & 637 & 203 \\
 \end{tabular}
+\caption{Spectral resolving power of the Long-slit spectrograph in all three bands incorporating the different slits\label{tab:bands_specres2}}
 \end{center}
 \end{table}
 
