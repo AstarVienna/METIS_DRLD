@@ -5,7 +5,7 @@
 \begin{recipedef}
 Name: & \hyperref[drl:det_dark]{\DRL{metis\_determine\_dark}} \\
 Purpose: & Determine the dark current of the detectors and create dark images\\
-Used in recipes: & \hyperref[drl:det_dark]{\REC{metis_det_dark}}\\
+Used in recipes: & \hyperref[drl:det_dark]{\REC{metis_det_dark}}, \hyperref[drl:det_lingain]{\REC{metis_det_lingain}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
@@ -24,7 +24,7 @@ Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
 
-\subsubsection{Flag Deviant Pixels in Dark Frame}\label{drl:det_dark}
+\subsubsection{Flag Deviant Pixels in Dark Frame}\label{drl:update_dark_mask}
 \begin{recipedef}
 Name: & \hyperref[drl:update_dark_mask]{\DRL{metis\_update\_dark\_mask}} \\
 Purpose: & Flag deviant (hot, cold, bad) pixels in the master dark and update the image mask\\
