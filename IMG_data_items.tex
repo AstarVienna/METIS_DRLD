@@ -33,6 +33,44 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %\clearpage
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:imgprocdatastructs}
 \paragraph{\hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}} and \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}}\label{dataitem:masterdark}\label{dataitem:masterdark2rg}\label{dataitem:masterdarkgeo}
+
+
+
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:det_dark]{\FITS{MASTER_DARK_2rg}}\\[0.3cm]
+Description: & Master dark frame for LM detector data \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LMS} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK,??} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{MASTER_DARK_2rg}\\[0.3cm]
+Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
+Created by:  \hyperref[drl:det_dark]{\REC{metis_det_dark}} \\
+Input for recipes: & \hyperref[]{\REC{metis_lm_img_flat}}\\  
+& \hyperref[]{\REC{metis_lm_img_basic_reduce}}\\ 
+%Input for recipe: & \hyperref[]{\REC{metis_n_img_flat}}\\  %    geo
+%Input for recipe: & \hyperref[]{\REC{METIS_ifu_cal_InternalWave}}\\  %   _ifu
+%Input for recipe: & \hyperref[]{\REC{metis_ifu_rsrf}}\\  %   _ifu
+%Input for recipe: & \hyperref[]{\REC{metis_ifu_std_process}}\\  %   _ifu
+%Input for recipe: & \hyperref[]{\REC{metis_ifu_sci_process}}\\  % _ifu
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\RAW{LM_LSS_RSRF_RAW}}}\label{dataitem:lmlssrsrfraw}
+
+
 \paragraph{\hyperref[dataitem:badpixmap2rg]{\PROD{BADPIX_MAP_2RG}} and \hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}}\label{dataitem:badpixmap}\label{dataitem:badpixmap2rg}\label{dataitem:badpixmapgeo}
 
 %\clearpage
@@ -265,5 +303,3 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}    
     
-
-\subsubsection{Final data item structures}\label{sssec:imgfinaldatastructs}
