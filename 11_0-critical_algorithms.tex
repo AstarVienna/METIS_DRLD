@@ -24,30 +24,97 @@ The following additional critical algorithms were identified in the period betwe
 
 % Export these to individual files if they become too wordy
 \subsection{Persistence correction}\label{ssec:criticalpersistencecorrection}
+Persistence is a major issue in modern IR detectors, in particular in the Hawaii2RG devices (HgCdTe based).
+This detector type also shows significant differences between the individual chips.
+%The Aquarius (Si:As) seems to be less affected.
+Fortunately, this pattern can be corrected via simple subtraction as a very first step.
+However, since the determination of this pattern relies on observations previously done, this approach requires access to these data, which might arise from completely other observing runs and are therefore proprietory.
+Therefore, the avoidance of persistence, i.e. a sophisticated planning / persistence management should be one of the major goals for the planning of the observations and the operational concept.
+% It is not yet clear in how far a persistence correction is to be implemented in the pipelines.
+%We therefore include that for the time being without detailed specification and assume this persistence maps to be external calibration input to the pipeline.
 
-Will have access to a HDRL function from ESO.
+\TODO{Add figure from DRS? ``see Fig. 33 [taken from LBT website4 ]'' \url{https://sites.google.com/a/lbto.org/luci/instrument-characteristics/detector\#TOC-Persistence}
+}
+
+\TODO{Will have access to a HDRL function from ESO.
 The interface is TBD.
 Subtraction of persistence image as determined by ESO.
 Need to reference ESO docs for this.
 How does the scaling happen?
-Is there an API endpoint for this?
+Is there an API endpoint for this?}
 
 
 \subsection{Detector Masks}\label{ssec:criticaldetetctormasks}
 
+In MATISSE the engineers created specific masks covering 32 pixels at the edge of the Aquarius detector, which was prone to crosstalk.
+Crosstalk probably arises from the shared series buses in the detector readout electronics (see Figure on page 8 in~\cite{matisse_minutes}).
+For the METIS detectors similar masks as in MATISSE are forseen in order to correct for crosstalk (cf. Polarion METIS-3093).
+In~\cite{matisse_minutes}, the correction is described as follows:
+
+\begin{displayquote}
+Cross-talk correction is done in two steps using the masked pixels in the vertical direction, which are equivalent to two masked outputs.
+\begin{itemize}
+    \item Step 1 : The [w]hole line is corrected by an offset.
+    \item Step 2 : Each pixel is corrected using the corresponding masked pixel in terms of raw
+number in the two vertical masked outputs.
+\end{itemize}
+\end{displayquote}
+
+
+\TODO{
 Look into the MATISSE docs as to how this was done
 Delivers a bias/dark/ron value?
+Perhaps add Fig. 34 from DRS? Figure 34: Aquarius detector masks as realised in MATISSE ([RD11], courtesy of S. Mouzali).
+Add Fig 35 from DRS? ``Figure 35: Correction for the crosstalk ([RD11], courtesy of S. Mouzali).''
+}
 
 \subsection{Bad pixel determination}\label{ssec:criticalbadpixeldetermination}
 
+Bad pixels are an issue in any detector and have to be are monitored and stored.
+This is usually done with the help of DARK and FLATFIELD frames.
+Cold/hot pixels can be identified by using DARKS since they have pixel values which are far from an expected values (e.g.\ median value).
+Non-linear pixels can be detected with illumination flats, that is, the detector is illuminated uniformly by a flatfield source.
+Using  several exposure times / flux levels, non-linearities in pixels can be found by fitting polynomials to each  individual pixel.
+We intend to introduce a bad pixel classification similar to the convention introduced in the X-Shooter Pipeline Manual (cf.\ Section 11.3 in~\cite{xshooter_manual}), adapted to our needs.
+
+\TODO{
 Surely every other instrument on planet earth has some sort of algo for this.
 Need to determine the format of the bad pixel mask (bool?)
-Take XSHOOTER as example
+Take XSHOOTER as example ftp://ftp.eso.org/pub/dfs/pipelines/xshooter/xshoo-pipeline-manual-12.19.1.pdf
+}
 
 \subsection{Background subtraction}\label{ssec:criticalbackgroundsubtraction}
+Observations in the mid-infrared are affected by the high sky background, the telescope background, and detector variations and non-linearities.
+A proper background correction is thus essential to ensure accurate photometric and spectroscopic analysis of the observed sources.
+As METIS will face an unprecedented level of complexity in the background subtraction due to (1) the high background dominated by the large number of warm mirrors, (2) the internal chopping, and (3) the complexities of nodding with an AO-corrected instrument, a dedicated research project has been started to better understand the origin of chop-residuals and to evaluate chop-only background removal strategies.
+Hence, the dedicated pipeline algorithms will ultimately depend on the chosen strategy for each METIS detector, e.g.\ dithering, classical chop-nod, chop-counter-chop (in 1D or 2D), drift scanning.
+%This is particularly relevant for the NQ bands where, for instance, the instability of the AQUARIUS detector response demands chopping at much higher frequencies.
+More details on dedicated research project and the proposed strategies are given in the Calibration Plan \cite{METIS-calibration_plan} which serves as the base for the following.
 
+\TODO{
 N-band: Standard chop and nod using telescope chopper and internal nodder
 See VISIR pipeline
+}
+
+\subsubsection{LM bands}
+Small ($< 1000 \arcsec$) and slow (1 min timescale) dithered offsets of the field with respect to the LM IMG or IFU detector are expected to be performed by the METIS-internal chopper mirror.
+The pipeline shall determine the sky background from the dithered images and produce background maps without the sources and background-subtracted versions of the maps with the sources.
+For In-field-dithering, this is done by determining a flux scaling factor for each ``dither'' position, aligning the exposures (by either using a 2d cross-correlation routine on bright sources or by using the offset values applied to the chopper), scaling the frames to a common median and removing objects by rejecting the highest and lowest pixels.
+The remaining pixels are then averaged, or medianed, to produce the sky frame which is then scaled to match the median of the object frame before being subtracted.
+The sky subtraction is further improved by following the previous steps to produce the combined image to locate all the sources.
+Then the background frames are combined again while excluding the sources positions.
+The best approach to determine the flux scaling factor of each dither exposure is yet to be determined (e.g.\ by median scaling or by a 2D/PCA approach based on \cite{Hunziker2018}).
+The pipeline would also support sky subtraction using separate sky images for out-of-field dithering modes, i.e.\ when the observed field is crowded or full of extended emission.
+
+\subsubsection{N bands}
+To ensure proper background sampling at the longer wavelengths, small ($< 1000 \arcsec$) and fast ($\approx 10 \mathrm{Hz}$) chopping offsets of the field with respect to the N IMG detector are expected to be performed by the METIS- internal chopper mirror.
+The chopping residuals from the previous step shall be corrected by nodding the telescope to a different position and repeating the same chopping procedure.
+The chopping and nodding sequence is expected to follow what is currently being done with VISIR.
+The pipeline shall determine the sky background from the chopped and nodded images and produce background maps without the sources and background-subtracted versions of the maps with the sources.
+For each nodding cycle the subsequent chop-cycle frames are subtracted from each other (mean of on-source frames minus mean of off-source frames) resulting in a single chop-difference frame, i.e. nod half-cycle frame.
+Then for subsequent nodding cycles the nod half-cycle frames are subtracted from each other resulting in a nod-difference frame.
+The mean of all nod-difference frames is the final background-subtracted image.
+Additionally, the optimal extraction (PSF-weighting) will be used to subtract the positive/negative source images from the final background-subtract image (2/3/4 depending on the relative chopping/nodding directions) to produce a single stacked image of the sources of interest.
 
 \subsection{Wavelength calibration and distortion correction}\label{ssec:criticalwavelengthanddistortion}
 
