@@ -24,19 +24,22 @@ Order rectification is achieved using the PyReduce algorithm described by \cite{
 
 %-----------------------------------------------------------------------------------------
 \subsubsection{Wavelength calibration strategy}\label{ssec:wavecal}
+\begin{center}
 \begin{table}
 \begin{tabular}{c|ccc|cccc}
-Band & $\lambda_\textrm{min}$ & $\lambda_\textrm{cent}$ & $\lambda_\textrm{max}$ & y-Pos & y2-Pos & dlam & Dispersion \\
- & & & & & & & [$\mu$ / pixel]\\
+Band & $\lambda_\textrm{min}$ & $\lambda_\textrm{cent}$ & $\lambda_\textrm{max}$ & $\lambda_\textrm{min}$ y-Pos & $\lambda_\textrm{min}$ y-Pos & dlam & Dispersion \\
+ & [$\mu$m] & [$\mu$m] & [$\mu$m] & & on chip [mm] & on chip [mm] & [$\mu$m/pixel]\\
 \hline
 L & 2.9 & 3.55 & 4.2 & 17.856 & -16.704 & 1.300 & 6.771e-04 \\
 M & 4.5 & 4.85 & 5.2 & 17.856 & -16.704 & 0.700 & 3.646e-04 \\
 N & 7.5 & 10.5 & 13.5 & -18.801 & 16.911 & 6.000 & 3.024e-03 \\
 \end{tabular}
 \end{table}
+\end{center}
 
+\begin{center}
 \begin{table}
-\begin{tabular}{ccccccccc}
+\begin{tabular}{c|cccccccc}
 Name & Width & Length & dlam L & dlam M & dlam N & L Resolution & M Resolution & N Resolution \\
 Slit A & 19.0 & 8000.0 & 2.352e-03 & 1.266e-03 & 8.621e-03 & 1509 & 3830 & 1218 \\
 Slit B & 28.6 & 8000.0 & 3.540e-03 & 1.906e-03 & 1.298e-02 & 1003 & 2544 & 809 \\
@@ -45,6 +48,7 @@ Slit D & 57.1 & 8000.0 & 7.068e-03 & 3.806e-03 & 2.591e-02 & 502 & 1274 & 405 \\
 Slit E & 114.2 & 8000.0 & 1.414e-02 & 7.612e-03 & 5.182e-02 & 251 & 637 & 203 \\
 \end{tabular}
 \end{table}
+\end{center}
 
 
 %-----------------------------------------------------------------------------------------
