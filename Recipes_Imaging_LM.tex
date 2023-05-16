@@ -49,11 +49,14 @@ otherwise a new one is created.
   Parameters:          & Combination method (\texttt{mean}, \texttt{median},
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
-                       & Threshold for bad-pixel identification                         \\
-  Algorithm:           & For internal flats: combine \CODE{LAMP OFF} exposures to dark. \\
-                       & Subtract internal dark or master dark from flat exposures.     \\
-                       & Fit slope of pixel values against illumination level.          \\
-                       & Add pixels with significant deviations to bad pixel map.       \\
+                         & Threshold(s) for deviant-pixel identification                  \\
+ Algorithm:            & Call \REC{metis_apply_persistance_correction} to apply the persistance correction \\
+                         & For internal flats: call \REC{metis_det_dark} with \CODE{LAMP OFF} images to create dark frame. \\
+ & Subtract internal dark or master dark from flat exposures.     \\
+  & call \REC{metis_lm_img_flat} to fit slope of pixel values against illumination level. Frames
+  with the same exposure time will be averaged.\\
+                       & Compute median or average of input frames to improve statistics.\\
+                       & Call \REC{metis_update_flat_mask} to flag deviant pixels. \\
   Output data:         & \PROD{MASTER_IMG_FLAT_2RG}                                     \\
                        & \PROD{BADPIX_MAP_2RG}                                          \\
   Expected accuracies: & \TBD                                                           \\
@@ -62,7 +65,7 @@ otherwise a new one is created.
                        & \QC{QC LM FLAT MEAN ##}                                        \\
                        & \QC{QC LM FLAT RMS ##}                                         \\
   hdrl function:       & \CODE{hdrl_bpm_fit_compute}                                    \\
-                       & \CODE{hdrl_imagelist_collapse}                                 \\
+                       & \CODE{hdrl_imagelist_collapse} \\
                        & \CODE{hdrl_imagelist_sub_image}                                \\
 \end{recipedef}
 
@@ -388,7 +391,7 @@ map.
 This recipe will only be used in the science-grade pipelines, not at
 the observatory.
 
-\begin{recipedef}
+\begin{recipedef}\label{rec:lm_img_flat}
   Name:                & \REC{metis_lm_img_sci_postprocess}                         \\
   Purpose:             & Coadd reduced images.                                      \\
   Requirements:        & \REQ{METIS-6104}                                           \\
