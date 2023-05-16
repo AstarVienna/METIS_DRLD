@@ -140,6 +140,8 @@
 
 \usepackage{textcomp}
 
+\usepackage{csquotes}
+
 \usepackage[countmax]{subfloat}
 % ADDING NEW DEFINITIONS -------------------------------------------- start
 \usepackage[autokw=true]{svn-multi}
@@ -153,7 +155,8 @@
 \definecolor{turq}{rgb}{0.0, 0.7, 0.8}
 \definecolor{fits}{rgb}{0.4, 0.1, 1}
 
-
+%\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
 %% Write a raw FITS file like this: \RAW{LM_SCI_RAW}
 \makeatletter
 \lstdefinestyle{RAWstyle}{%
@@ -525,6 +528,7 @@ presented for \ac{PDR} and supersedes that document for \ac{FDR}.
 \appendix
 \input{App01_Product_files}
 \input{App02_FITS_keywords}
+\input{App03_AtmoTrans}
 
 \end{document}
 
