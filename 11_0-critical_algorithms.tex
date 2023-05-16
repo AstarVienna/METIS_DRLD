@@ -4,22 +4,78 @@
 This section discusses the progress made on the critical algorithms identified in the Data Reduction Library Specifications document [AD1].
 
 \begin{enumerate}
-    \item Persistence correction
-    \item Detector Masks
-    \item Bad pixel determination
-    \item Background subtraction
-    \item Wavelength calibration and distortion correction
-    \item Telluric correction
-    \item Error propagation
-    \item N-band image restoration
-    \item LMS image and cube reconstruction
-    \item LMS data rate
+    \item Persistence correction (\ref{ssec:criticalpersistencecorrection})
+    \begin{itemize}
+        \item \textit{Reason at PDR}: Persistence is a major issue in modern IR detectors, and the determination of this pattern relies on observations previously done, which might arise from completely other observing runs and are therefore proprietary.
+        \item \textit{Status at FDR}: The persistence correction algorithm will be developed by ESO, making the part in the Data Reduction Library non-critical.
+        \item \textit{Prototype delivery}: None
+    \end{itemize}
+    \item Detector Masks (\ref{ssec:criticaldetetctormasks})
+    \begin{itemize}
+        \item \textit{Reason at PDR}: Reason unknown.
+        \item \textit{Status at FDR}: Standard procedures apply, therefore not critical.
+        \item \textit{Prototype delivery}: None.
+    \end{itemize}
+    \item Bad pixel determination (\ref{ssec:criticalbadpixeldetermination})
+    \begin{itemize}
+        \item \textit{Reason at PDR}: Reason unknown.
+        \item \textit{Status at FDR}: Standard procedures apply, therefore not critical.
+        \item \textit{Prototype delivery}: None.
+    \end{itemize}
+    \item Background subtraction (\ref{ssec:criticalbackgroundsubtraction})
+    \begin{itemize}
+        \item \textit{Reason at PDR}: A proper background correction is essential to ensure accurate photometric and spectroscopic analysis of the observed sources because observations in the mid-infrared are affected by the high sky and telescope background.
+        \item \textit{Status at FDR}: Standard subtraction techniques (dithering, chopping and nodding) will be used, which not require prototying. More complex algorithms that would have required prototyping, e.g.
+involving principal component analysis, have been ruled out since PDR.
+        \item \textit{Prototype delivery}: None
+    \end{itemize}
+    \item Wavelength calibration and distortion correction (\ref{ssec:criticalwavelengthanddistortion})
+    \begin{itemize}
+        \item \textit{Reason at PDR}: A new algorithm is necessary for wavelength calibration and distortion correction for LSS.
+        \item \textit{Status at FDR}: We will use the algorithm from PyReduce.
+        \item \textit{Prototype delivery}: An adaptation of the PyReduce package.
+    \end{itemize}
+    \item Telluric correction (\ref{ssec:criticaltelluriccorrection})
+    \begin{itemize}
+        \item \textit{Reason at PDR}: Telluric correction, i.e. the removal of absorption features arising in the Earth’s atmosphere, is a critical issue as the imprint of molecular species present in our air may vary on different timescales down to minutes due to changes in their composition and their amount.
+        \item \textit{Status at FDR}: We either use molecfit or a telluric standard star. Both ways are well proven, and therefore we will not deliver a prototype
+        \item \textit{Prototype delivery}: None.
+    \end{itemize}
+    \item Error propagation (\ref{ssec:criticalerrorpropagation})
+    \begin{itemize}
+        \item \textit{Reason at PDR}: Error propagation is important.
+        \item \textit{Status at FDR}: The \ac{HDRL} provides standardized mechanisms for error propagation; prototyping is therefore not necessary.
+        \item \textit{Prototype delivery}: None.
+    \end{itemize}
+    \item N-band image restoration (\ref{ssec:criticalnbandimagerestoration})
+    \begin{itemize}
+        \item \textit{Reason at PDR}: There is no standard algorithm for extended sources.
+        \item \textit{Status at FDR}: Extended sources have been excluded, and the VISIR algorithm will be used for compact sources.
+        \item \textit{Prototype delivery}: None.
+    \end{itemize}
+    \item LMS image and cube reconstruction (\ref{ssec:criticallmsimageandcubereconstruction})
+    \begin{itemize}
+        \item \textit{Reason at PDR}: Due to the width of the slices in the LM integral-field spectrograph of $20.7 mas$, the PSF is undersampled in the across-slice direction, and there is no known cube reconstruction algorithm.
+        \item \textit{Status at FDR}: A prototype algorithm is implemented in Python.
+        \item \textit{Prototype delivery}: Python package.
+    \end{itemize}
+    \item LMS data rate (\ref{ssec:criticallmsdatarate})
+    \begin{itemize}
+        \item \textit{Reason at PDR}: For very bright sources, the LM band spectrograph will have to operate with very short exposures, resulting in a high data rate of up to $1000 \mathrm{MiB}s^{-1}$ which may present a problem for the observatory pipeline which has to deal with the data in real time.
+        \item \textit{Status at FDR}: The data rate is under control and does not require prototyping.
+        \item \textit{Prototype delivery}: None.
+    \end{itemize}
 \end{enumerate}
 
 The following additional critical algorithms were identified in the period between PDR and FDR:
 
 \begin{enumerate}
     \item ADI algorithm
+    \begin{itemize}
+        \item \textit{Reason at FDR}: Considering many of the science cases for METIS are focusing on direct imaging / high contrast imaging we deem it critical that we demonstrate that METIS-like data can be ADI-reduced without major issues.
+        \item \textit{Status at FDR}: ADI algorithms for all HCI observing modes are known from literature, however considering many METIS science cases fall under HCI we demonstrate prototype ADI algorithms for the focal-plane and pupil-plane coronagraphs as well ADI+SDI for the partially undersampled IFU with METIS-like simulated data.
+        \item \textit{Prototype delivery}: Python package.
+    \end{itemize}
 \end{enumerate}
 
 % Export these to individual files if they become too wordy
