@@ -280,7 +280,7 @@ QC parameter will include estimates of the sensitivity for the
 detection of point sources and surface brightness sensitivity
 following \cite{visir_manual}.
 
-\begin{recipedef}
+\begin{recipedef}\label{rec:lm_img_photstd}
   Name:                & \REC{metis_lm_img_std_process}                                               \\
   Purpose:             & Determine conversion factor between detector counts and physical source flux \\
   Type:                & Calibration                                                                  \\
@@ -290,13 +290,15 @@ following \cite{visir_manual}.
   Matched keywords:    & OBJECT ID                                                                    \\
                        & FILTER ID                                                                    \\
   Parameters:          & None (TBD)                                                                   \\
-  Algorithm:           & Measure flux from star in detector units                                     \\
-                       & Compute conversion factor to physical units                                  \\
-                       & Measure background noise (std.\ dev.) and compute detection limits.          \\
+  Algorithm:           & Call \REC{calculate_std_flux} to measure flux in input images                      \\
+                       & call \REC{recentre_img} to recentre and stack images                         \\
+                       & call \REC{calculate_std_flux} on the stacked image to get flux of the star in detector units\\
+                       & call \REC{caluculate_std_fluxcal} to calculate the conversion factor to physical units    \\
+                       & call \REC{calculate_detection_limits} to compute measure background noise (std,rms) and compute detection limits \\
   Output data:         & \PROD{LM_STD_COMBINED}                                                       \\
                        & \PROD{FLUXCAL_TAB}                                                           \\
   Expected accuracies: & \TBD                                                                         \\
-  QC1 parameters:      & \QC{QC LM IMG STD BACKGD RNS}                                                \\
+  QC1 parameters:      & \QC{QC LM IMG STD BACKGD RMS}                                                \\
                        & \QC{QC LM STD PEAK CNTS}                                                     \\
                        & \QC{QC LM STD APERTURE CNTS}                                                 \\
                        & \QC{QC LM STD STREHL}                                                        \\
@@ -312,8 +314,8 @@ following \cite{visir_manual}.
 
 \begin{figure}[hb]
   \centering
-  % \includegraphics[width=0.6\textwidth]{metis_lm_img_std_process}
-  \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
+   \includegraphics[width=0.6\textwidth]{metis_lm_img_std_process}
+  %\resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
   \caption[Recipe: \REC{metis_lm_img_std_process}]{\REC{metis_lm_img_std_process} --
     compute conversion between ADU and physical flux units}
   \label{fig:metis_lm_img_std_process}
