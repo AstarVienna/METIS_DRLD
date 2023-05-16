@@ -147,10 +147,6 @@ Comment & \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%      FLATS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{\QC{QC LM MASTERFLAT NBADPIX}}\label{qc:lmflatnbadpix}
 \begin{recipedef}
 Name & \QC{QC LM MASTERFLAT NBADPIX} \tabularnewline
@@ -166,10 +162,6 @@ Description & Number of bad pixels in the image mask \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%      FLATS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{\QC{QC LM FLAT MEAN \#\#}}\label{qc:lmflatmeannn}
 \begin{recipedef}
@@ -187,10 +179,6 @@ Comment & \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%      FLATS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{\QC{QC LM FLAT RMS \#\#}}\label{qc:lmflatrmsnn}
 \begin{recipedef}
 Name & \QC{QC LM FLAT RMS \#\#} \tabularnewline
@@ -202,6 +190,71 @@ Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \hyperref[rec:lm_img_flat]{\REC{metis_lm_image_flat}}\\
+Description & RMS value of a single flat field image \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{\QC{QC N MASTERFLAT RMS}}\label{qc:nflatrms}
+\begin{recipedef}
+Name & \QC{QC N MASTERFLAT RMS} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:n_img_flat]{\REC{metis_n_image_flat}}\\
+Description & RMS of the master flat \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\QC{QC N MASTERFLAT NBADPIX}}\label{qc:nflatnbadpix}
+\begin{recipedef}
+Name & \QC{QC N MASTERFLAT NBADPIX} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:n_img_flat]{\REC{metis_n_image_flat}}\\
+Description & Number of bad pixels in the image mask \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\QC{QC N FLAT MEAN \#\#}}\label{qc:nflatmeannn}
+\begin{recipedef}
+Name & \QC{QC N FLAT MEAN \#\#} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:n_img_flat]{\REC{metis_n_image_flat}}\\
+Description & Mean value of a single flat field image \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\QC{QC N FLAT RMS \#\#}}\label{qc:nflatrmsnn}
+\begin{recipedef}
+Name & \QC{QC N FLAT RMS \#\#} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:n_img_flat]{\REC{metis_n_image_flat}}\\
 Description & RMS value of a single flat field image \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
