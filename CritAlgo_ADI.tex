@@ -1,4 +1,9 @@
 \subsection{ADI algorithm}\label{ssec:criticaladialgorithm}
+Considering many of the science cases for METIS are focusing on direct imaging / high contrast imaging we deem it critical that we demonstrate that METIS-like data can be ADI-reduced without major issues.
+ADI reduction with focal plane and pupil plane coronagraphs, in addition to ADI+SDI with the IFU (partially spatially undersampled with an additional spectral dimension) is therefore demonstrated.
+It is recognized that the required techniques are already known from earlier publications of data collected with high contrast imagers and AO-fed IFUs.
+This study allows the PIP team to become more familiar with them and to present prototype algorithms in a centralized location.
+
 \subsubsection{Generation of representative set of IMG\_LM data: planetary system}
 Using a combination of the HEEPS code and the ScopeSim code with the METIS package we have performed simulations of a star and a point source companion in order to test critical algorithms for high contrast imaging on simulated data of METIS.
 Using the HEEPS code we simulate a sequence of up to 12000 PSFs of an unresolved star behind the RAVC coronagraph and of an unresolved companion sufficiently far away from the coronagraph to be considered off-axis, with each PSF corresponding with an integration time of 300 milliseconds for a total of 3600 seconds of observing time. Each PSF is generated with a (SCAO-only) wavefront sampled every 300 ms (comparable to the coherence time t0 at L-band), thereby effectively time sampling the atmospheric wavefront aberrations. Both PSFs are scaled to the magnitude of the parent star ($L=3.5$). For this demonstration we use a time sequence of 12000 PSFs but will apply some windowing and temporal binning to increase execution speed on a laptop. 
