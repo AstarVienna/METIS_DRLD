@@ -38,7 +38,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:det_dark]{\FITS{MASTER_DARK_2rg}}\\[0.3cm]
+Name: & \hyperref[dataitem:det_dark]{\FITS{MASTER_DARK_2rg}}\label{dataitem:det_dark}\\[0.3cm]
 Description: & Master dark frame for LM detector data \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LMS} \\
@@ -71,7 +71,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lm_img_flat]{\FITS{MASTER_FLAT_IMG_2RG}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_img_flat]{\FITS{MASTER_IMG_FLAT_2RG}}\label{dataitem:lm_img_flat}\\[0.3cm]
 Description: & Master flat frame for LM image data \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LM} \\
@@ -85,7 +85,7 @@ Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+\paragraph{\hyperref[dataitem:lm_img_flat]{\PROD{LM_MASTER_FLAT}}}\label{drsstructure:lmmasterflat}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}

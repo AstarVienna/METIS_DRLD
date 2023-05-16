@@ -114,9 +114,9 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 
 \subsubsection{Apply Persistance Correction}\label{drl:img_apply_persistence_correction}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_img_apply_persistence_correction]{\DRL{metis\_img\_apply_persistence_correction}} \\
+Name: & \hyperref[drl:img_apply_persistence_correction]{\DRL{metis\_img\_apply_persistence_correction}} \\
 Purpose: & Apply the persistence correction to raw images\\
-Used in recipes: & \hyperref[drl:lm_img_flat]{\REC{metis_ilm_img_flat}}\\
+Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
@@ -137,9 +137,9 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 
 \subsubsection{Create Master Flat}\label{drl:lm_img_flat}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_lm_img_flat]{\DRL{metis\_lm\_img_flat}} \\
+Name: & \hyperref[drl:lm_img_flat]{\DRL{metis\_lm\_img_flat}} \\
 Purpose: & Create master flat field for the LM-band imaging detector\\
-Used in recipes: & \hyperref[drl:lm_img_flat]{\REC{metis_ilm_img_flat}}\\
+Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
@@ -160,9 +160,9 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 
 \subsubsection{Flag Deviant Pixels in Dark Frame}\label{drl:lm_update_flat_mask}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_update_flat_mask]{\DRL{metis_update_flat_mask}} \\
+Name: & \hyperref[drl:update_flat_mask]{\DRL{metis_update_flat_mask}} \\
 Purpose: & Flag deviant pixels in the master flat and update the image mask\\
-Used in recipes: & \hyperref[drl:lm_img_flat]{\REC{metis_ilm_img_flat}}\\
+Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & flat \texttt{const hdrl\_image * input} \\
