@@ -85,18 +85,19 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 %\clearpage
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:imgprocdatastructs}
+\label{dataitem:masterdark}
 
-
-\paragraph{\hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}} and \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}}\label{dataitem:masterdark}\label{dataitem:masterdark2rg}\label{dataitem:masterdarkgeo}
+%\paragraph{\hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}} and \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}}\label{dataitem:masterdark}\label{dataitem:masterdark2rg}\label{dataitem:masterdarkgeo}
+\paragraph{\hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}}}\label{dataitem:masterdark2rg}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lm_dark]{\FITS{MASTER_DARK_2rg}}\label{dataitem:lm_dark}\\[0.3cm]
+Name: & \hyperref[dataitem:masterdark2rg]{\FITS{MASTER_DARK_2RG}}\\[0.3cm]
 Description: & Master dark frame for LM detector data \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LM} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK,??} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{MASTER_DARK_2rg}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{MASTER_DARK_2RG}\\[0.3cm]
 Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by:  \hyperref[drl:det_dark]{\REC{metis_det_dark}} \\
 Input for recipes: & \hyperref[]{\REC{metis_lm_img_flat}}\\  
@@ -109,7 +110,6 @@ Input for recipes: & \hyperref[]{\REC{metis_lm_img_flat}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:lm_dark]{\PROD{MASTER_DARK_2RG}}}\label{drsstructure:lm_dark}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -120,9 +120,10 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
+\paragraph{\hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}}\label{dataitem:masterdarkgeo}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:n_dark]{\FITS{MASTER_DARK_geo}}\label{dataitem:n_dark}\\[0.3cm]
+Name: & \hyperref[dataitem:masterdarkgeo]{\FITS{MASTER_DARK_GEO}}\\[0.3cm]
 Description: & Master dark frame for N detector data \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{N} \\
@@ -141,7 +142,6 @@ Input for recipes: & \hyperref[]{\REC{metis_n_img_flat}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:n_dark]{\PROD{MASTER_DARK_GEO}}}\label{drsstructure:n_dark}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -152,10 +152,10 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-
+\paragraph{\hyperref[dataitem:masterimgflat2rg]{\PROD{MASTER_IMG_FLAT_2RG}}}\label{dataitem:masterimgflat2rg}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lm_img_flat]{\FITS{MASTER_IMG_FLAT_2RG}}\label{dataitem:lm_img_flat}\\[0.3cm]
+Name: & \hyperref[dataitem:masterimgflat2rg]{\FITS{MASTER_IMG_FLAT_2RG}}\\[0.3cm]
 Description: & Master flat frame for LM image data \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LM} \\
@@ -163,13 +163,12 @@ Description: & Master flat frame for LM image data \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{MASTER_FLAT_IMG_2rg}\\[0.3cm]
 Template: & \TPL{METIS_lm_img_flat}\\
-Created by:  \hyperref[drl:lm_img_flat]{\REC{metis_lm_img_flat}} \\
+Created by: & \hyperref[drl:lm_img_flat]{\REC{metis_lm_img_flat}} \\
 Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
  & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_basic_image_reduce}}\\  
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:lm_img_flat]{\PROD{LM_MASTER_FLAT}}}\label{drsstructure:lmmasterflat}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -179,10 +178,10 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-
+\paragraph{\hyperref[dataitem:masterimgflatgeo]{\PROD{MASTER_IMG_FLAT_GEO}}}\label{dataitem:masterimgflatgeo}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:n_img_flat]{\FITS{MASTER_IMG_FLAT_GEO}}\label{dataitem:n_img_flat}\\[0.3cm]
+Name: & \hyperref[dataitem:masterimgflat2geo]{\FITS{MASTER_IMG_FLAT_GEO}}\\[0.3cm]
 Description: & Master flat frame for N image data \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{N} \\
@@ -196,7 +195,7 @@ Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:n_img_flat]{\PROD{N_MASTER_FLAT}}}\label{drsstructure:nmasterflat}
+%\paragraph{\hyperref[dataitem:n_img_flat]{\PROD{N_MASTER_FLAT}}}\label{drsstructure:nmasterflat}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -205,62 +204,6 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
-
-
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lm_img_flat]{\FITS{MASTER_IMG_FLAT_2RG}}\label{dataitem:lm_img_flat}\\[0.3cm]
-Description: & Master flat frame for LM image data \\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LM} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,??} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{MASTER_FLAT_IMG_2rg}\\[0.3cm]
-Template: & \TPL{METIS_lm_img_flat}\\
-Created by:  \hyperref[drl:lm_img_flat]{\REC{metis_lm_img_flat}} \\
-Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
- & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_basic_image_reduce}}\\  
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
-\end{recipedef}
-\paragraph{\hyperref[dataitem:lm_img_flat]{\PROD{LM_MASTER_FLAT}}}\label{drsstructure:lmmasterflat}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
-
-
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:n_img_flat]{\FITS{MASTER_IMG_FLAT_GEO}}\label{dataitem:n_img_flat}\\[0.3cm]
-Description: & Master flat frame for N image data \\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{N} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,??} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{MASTER_FLAT_IMG_geo}\\[0.3cm]
-Template: & \TPL{METIS_n_img_flat}\\
-Created by:  \hyperref[drl:n_img_flat]{\REC{metis_n_img_flat}} \\
-Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
- & \hyperref[rec:metis_n_img_basic_reduce]{\REC{metis_n_basic_image_reduce}}\\  
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
-\end{recipedef}
-\paragraph{\hyperref[dataitem:n_img_flat]{\PROD{N_MASTER_FLAT}}}\label{drsstructure:nmasterflat}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
-
-
 
 
 \paragraph{\hyperref[dataitem:lmlssrsrfraw]{\RAW{LM_LSS_RSRF_RAW}}}\label{dataitem:lmlssrsrfraw}
