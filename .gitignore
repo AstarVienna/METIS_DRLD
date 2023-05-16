@@ -10,6 +10,7 @@
 *.toc
 *.xdy
 *.blg
+*.bbl
 
 # tikz results (should be in figures/)
 tikz/*.pdf
