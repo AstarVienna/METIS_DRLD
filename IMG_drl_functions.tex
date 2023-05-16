@@ -135,7 +135,7 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 
 
 
-\subsubsection{Create Master Flat}\label{drl:lm_img_flat}
+\subsubsection{Create Master LM Flat}\label{drl:lm_img_flat}
 \begin{recipedef}
 Name: & \hyperref[drl:lm_img_flat]{\DRL{metis\_lm\_img_flat}} \\
 Purpose: & Create master flat field for the LM-band imaging detector\\
@@ -145,7 +145,7 @@ Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
 & parameters for combination method\\
-&  \PROD{BADPIX_MAP_det}   \\
+&  \PROD{BADPIX_MAP_LM}   \\
 QC outputs: & QC LM MASTERFLAT RMS\\
 %Output FITS files: & None \\
 Outputs: & Master Flat\\
@@ -157,29 +157,75 @@ Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
 
-
-\subsubsection{Flag Deviant Pixels in Dark Frame}\label{drl:lm_update_flat_mask}
+\subsubsection{Create N Master Flat}\label{drl:n_img_flat}
 \begin{recipedef}
-Name: & \hyperref[drl:update_flat_mask]{\DRL{metis_update_flat_mask}} \\
-Purpose: & Flag deviant pixels in the master flat and update the image mask\\
+Name: & \hyperref[drl:n_img_flat]{\DRL{metis\_n\_img_flat}} \\
+Purpose: & Create master flat field for the N-band imaging detector\\
+Used in recipes: & \hyperref[sssec:n_img_flatfield]{\REC{metis_n_img_flat}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
+& parameters for combination method\\
+&  \PROD{BADPIX_MAP_N}   \\
+QC outputs: & QC N MASTERFLAT RMS\\
+%Output FITS files: & None \\
+Outputs: & Master Flat\\
+         & \texttt{cpl\_error\_code} \\
+General description: & Determination of master flat for flat fielding \\
+Mathematical description: & Combine images with the same DIT, fit slope of pixels against illumination level \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+
+
+\subsubsection{Flag Deviant Pixels in LM Flat Field}\label{drl:update_lm_flat_mask}
+\begin{recipedef}
+Name: & \hyperref[drl:update_lm_flat_mask]{\DRL{metis_update_lm_flat_mask}} \\
+Purpose: & Flag deviant pixels in the LM master flat and update the image mask\\
 Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & flat \texttt{const hdrl\_image * input} \\
-&  \PROD{BADPIX_MAP_det}   \\
+&  \PROD{BADPIX_MAP_LM}   \\
 & Threshold(s) for deviant pixel detection\\
 QC outputs: & QC LM FLAT NBADPIX\\
-& QC LM FLAT MEAN \#\#\\
-& QC LM FLAT RMS \#\#\\
+            & QC LM FLAT MEAN \#\#\\
+            & QC LM FLAT RMS \#\#\\
 %Output FITS files: & None \\
-         & Updated flat field mask\\
-         & \texttt{cpl\_error\_code} \\
+Outputs:         & Updated flat field mask\\
+                 & \texttt{cpl\_error\_code} \\
 General description: &  Flag deviant pixels in master flat \\
 Mathematical description: & flag pixels outside the provided threshold(s) \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
+
+\subsubsection{Flag Deviant Pixels in N Flat Field}\label{drl:update_n_flat_mask}
+\begin{recipedef}
+Name: & \hyperref[drl:update_n_flat_mask]{\DRL{metis_update_n_flat_mask}} \\
+Purpose: & Flag deviant pixels in the N master flat and update the image mask\\
+Used in recipes: & \hyperref[sssec:n_img_flatfield]{\REC{metis_n_img_flat}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & flat \texttt{const hdrl\_image * input} \\
+&  \PROD{BADPIX_MAP_N}   \\
+& Threshold(s) for deviant pixel detection\\
+QC outputs: & QC N FLAT NBADPIX\\
+            & QC N FLAT MEAN \#\#\\
+            & QC N FLAT RMS \#\#\\
+%Output FITS files: & None \\
+Outputs:         & Updated flat field mask\\
+                 & \texttt{cpl\_error\_code} \\
+General description: &  Flag deviant pixels in master flat \\
+Mathematical description: & flag pixels outside the provided threshold(s) \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+
 
 
 \subsubsection{Detect peak centroid location}\label{drl:img_peakcentroid}
