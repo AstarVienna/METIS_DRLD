@@ -41,7 +41,7 @@ normalised master flat and the number of bad pixels identified by the
 recipe. If a bad-pixel map is provided on input, it is updated,
 otherwise a new one is created.
 
-\begin{recipedef}
+\begin{recipedef}\label{rec:n_img_flat}
   Name:                & \REC{metis_n_img_flat}                                         \\
   Purpose:             & Create master flat field for the N-band imaging detector.      \\
   Requirements:        & \REQ{METIS-6098}                                               \\
@@ -54,15 +54,21 @@ otherwise a new one is created.
   Matched keywords:    & Detector ID                                                    \\
                        & Filter ID                                                      \\
                        & ADC ID                                                         \\
+                       & Flat type (internal or twilight)                               \\
                        & possibly others (e.g.\ coronagraphic mask, \TBD)               \\
   Parameters:          & Combination method (\texttt{mean}, \texttt{median},
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
-                       & Threshold for bad-pixel identification                         \\
-  Algorithm:           & For internal flats: combine \CODE{LAMP OFF} exposures to dark. \\
+                       & Threshold(s) for deviant-pixel identification                  \\
+  Algorithm:           & Call \REC{metis_apply_persistance_correction} to apply the
+                         persistance correction \\
+                       & For internal flats: call \REC{metis_det_dark} with \CODE{LAMP OFF}
+                       images to create dark frame. \\
                        & Subtract internal dark or master dark from flat exposures.     \\
-                       & Fit slope of pixel values against illumination level.          \\
-                       & Add pixels with significant deviations to bad pixel map.       \\
+                       & call \REC{metis_n_img_flat} to fit slope of pixel values against
+                       illumination level. Frames with the same exposure time will be averaged.\\
+                       & Compute median or average of input frames to improve statistics.\\
+                       & Call \REC{metis_update_lm_flat_mask} to flag deviant pixels. \\
   Output data:         & \PROD{MASTER_IMG_FLAT_GEO}                                     \\
                        & \PROD{BADPIX_MAP_GEO}                                          \\
   Expected accuracies: & \TBD                                                           \\
