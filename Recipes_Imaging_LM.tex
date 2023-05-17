@@ -82,8 +82,9 @@ otherwise a new one is created.
 \clearpage
 \subsubsection{LM-band imaging basic reduction}
 \label{sssec:lm_img_basic}
+\label{rec:metis_lm_img_basic_reduce}
 
-\textbf{New recipe -- this may be too basic and could be joined with
+\TODO{New recipe -- this may be too basic and could be joined with
   the background subtraction.}
 
 This recipe performs the basic reduction of raw exposures from the
@@ -134,6 +135,7 @@ Basic statistics of the images can be used to screen for saturation.
 \clearpage
 \subsubsection{LM-band imaging background subtraction}
 \label{sssec:lm_img_background}
+\label{rec:metis_lm_img_background}
 
 This recipe estimates and subtracts the background from LM-band
 imaging data. Thermal background emission from the atmosphere,
@@ -205,6 +207,7 @@ counts within an aperture.}
 
 \subsubsection{LM-band imaging astrometry calibration}
 \label{sssec:lm_img_astrometry_calib}
+\label{rec:metis_lm_img_astrometry_process}
 This recipe is the conversion of the pixel coordinates (X,Y) of objects in an image 
 into their corresponding celestial coordinates of right ascension (RA) and 
 declination (Dec). The recipe for astrometry calibration involves several 
