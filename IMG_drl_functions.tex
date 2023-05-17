@@ -481,3 +481,87 @@ Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
+
+
+\subsubsection{Convert LM Image to Physical Flux}\label{drl:lm_scale_image_flux}
+\begin{recipedef}
+Name: & \hyperref[drl:lm_scale_image_flux]{\DRL{lm_scale_image_flux}} \\
+Purpose: & Calculate the conversion between instrumental and physical flux units \\
+Used in recipes: & \hyperref[sssec:lm_img_calibrate]{\REC{metis_lm_img_cakubrate}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \PROD{LM_SCI_BKG_SUBTRACTED}\\
+         \PROD{FLUXCAL_TAB} \\
+Other inputs: & None \\
+QC outputs: & None\\
+%Output FITS files: & \PROD{LM_STD_COMBINED} \\
+Outputs: & \texttt{cpl\_error\_code} \\
+General description: & Convert instrumental flux to ph/s \\
+Mathematical description: & See Section~\ref{sssec:lm_img_lm_calibrate} \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+
+
+
+\subsubsection{Add LM Calibration Information to Header}\label{drl:lm_update_header_distortion}
+\begin{recipedef}
+Name: & \hyperref[drl:lm_update_header_distortion]{\DRL{lm_update_header_distortion}} \\
+Purpose: & Update the FITS header with calibration data (WCS, distortion, units)  \\
+Used in recipes: & \hyperref[sssec:lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: &   \PROD{LM_SCI_BKG_SUBTRACTED}\\
+       &   \PROD{LM_DISTORTION_TABLE}\\
+QC outputs: & None \\
+Output FITS files: & \PROD{LM_SCI_CALIBRATED} \\
+Outputs: & \texttt{cpl\_error\_code} \\
+General description: & Add disortion, WCS and BUNIT information to FITS header \\
+Mathematical description: & See Section~\ref{sssec:lm_img_calibrate} \\
+Quality assessment: & None \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+
+
+\subsubsection{Convert N Image to Physical Flux}\label{drl:n_scale_image_flux}
+\begin{recipedef}
+Name: & \hyperref[drl:n_scale_image_flux]{\DRL{n_scale_image_flux}} \\
+Purpose: & Calculate the conversion between instrumental and physical flux units \\
+Used in recipes: & \hyperref[sssec:n_img_calibrate]{\REC{metis_n_img_cakubrate}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \PROD{N_SCI_BKG_SUBTRACTED}\\
+         \PROD{FLUXCAL_TAB} \\
+Other inputs: & None \\
+QC outputs: & None\\
+%Output FITS files: & \PROD{N_STD_COMBINED} \\
+Outputs: & \texttt{cpl\_error\_code} \\
+General description: & Convert instrumental flux to ph/s \\
+Mathematical description: & See Section~\ref{sssec:n_img_n_calibrate} \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+
+
+
+\subsubsection{Add N Calibration Information to Header}\label{drl:n_update_header_distortion}
+\begin{recipedef}
+Name: & \hyperref[drl:n_update_header_distortion]{\DRL{n_update_header_distortion}} \\
+Purpose: & Update the FITS header with calibration data (WCS, distortion, units)  \\
+Used in recipes: & \hyperref[sssec:n_img_calibrate]{\REC{metis_n_img_calibrate}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: &   \PROD{N_SCI_BKG_SUBTRACTED}\\
+       &   \PROD{N_DISTORTION_TABLE}\\
+QC outputs: & None \\
+Output FITS files: & \PROD{N_SCI_CALIBRATED} \\
+Outputs: & \texttt{cpl\_error\_code} \\
+General description: & Add disortion and BUNIT information to FITS header \\
+Mathematical description: & See Section~\ref{sssec:n_img_calibrate} \\
+Quality assessment: & None \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}

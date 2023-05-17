@@ -280,7 +280,7 @@ QC parameter will include estimates of the sensitivity for the
 detection of point sources and surface brightness sensitivity
 following \cite{visir_manual}.
 
-\begin{recipedef}\label{rec:lm_img_photstd}
+\begin{recipedef}\label{rec:metis_lm_img_std_process}
   Name:                & \REC{metis_lm_img_std_process}                                               \\
   Purpose:             & Determine conversion factor between detector counts and physical source flux \\
   Type:                & Calibration                                                                  \\
@@ -351,19 +351,21 @@ higher-order polynomial distortion coefficients is written to the FITS
 header. The images are not resampled by this recipe, this is left to
 \REC{metis_lm_img_sci_postprocess}.
 
-\begin{recipedef}
+
+
+\begin{recipedef}\label{rec:metis_lm_img_calibrate}
   Name:              & \REC{metis_lm_img_calibrate}                     \\
   Purpose:           & Convert science images to physical units         \\
                      & Add distortion information                       \\
   Type:              & Calibration                                      \\
-  Templates          &                                                  \\
-  Input data:        & \CODE{LM_SCI_BKG_SUBTRACTED}                     \\
-                     & \CODE{FLUXCAL_TAB}                               \\
-                     & \CODE{LM_DISTORTION_TABLE}                       \\
+  Templates          & ??                                                 \\
+  Input data:        & \PROD{LM_SCI_BKG_SUBTRACTED}                     \\
+                     & \PROD{FLUXCAL_TAB}                               \\
+                     & \PROD{LM_DISTORTION_TABLE}                       \\
   Matched keywords:  & Filter ID                                        \\
   Parameters:        & None (TBD)                                       \\
-  Algorithm:         & Scale image data to ph/s                         \\
-                     & Add header information (\FITS{BUNIT}, WCS, etc.) \\
+  Algorithm:         & call \REC{lm_scale_image_flux} to Scale image data to ph/s \\
+                     & call \REC{lm_add_header_distortion} to add header information (\FITS{BUNIT}, WCS, etc.) \\
   Output data:       & \PROD{LM_SCI_CALIBRATED}                         \\
   QC1 parameters:    & None                                             \\
   hdrl functions:    & \CODE{hdrl_imagelist_mult_scalar}                \\
@@ -371,12 +373,12 @@ header. The images are not resampled by this recipe, this is left to
 
 \begin{figure}[hb]
   \centering
-  % \includegraphics[width=0.6\textwidth]{metis_lm_img_std_process}
-  \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
-  \caption[Recipe: \REC{metis_lm_img_std_process}]{\REC{metis_lm_img_calibrate} --
-    convert images to physical flux units}
+  \includegraphics[width=0.6\textwidth]{lm_img_calibrate}
+  \caption[Recipe: \REC{metis_lm_img_calibrate}]{\REC{metis_lm_img_calibrate} --
+    Convert images to physical flux units and update FITS header}
   \label{fig:metis_lm_img_calibrate}
 \end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
