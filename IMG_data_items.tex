@@ -484,6 +484,33 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}    
+
+
+
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:nstdbkgsubtracted]{\FITS{N_STD_BKG_SUBTRACTED}}\\[0.3cm]
+Description: & Thermal background subtracted images of standard N exposures.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
+Template: & \TPL{METIS_img_n_cal_standard}\\
+            & \TPL{METIS_img_n_*_obs_*}       \\
+Input for recipe: & \hyperref[rec:metis_n_img_background]{\REC{metis\_n\_img\_background}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:nrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:nlssrsrfraw]{\PROD{N\_RSRF\_RAW}}}\label{drsstructure:nrsrfraw}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}    
     
 
 
