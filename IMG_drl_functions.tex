@@ -367,48 +367,6 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
 
 
-\subsubsection{metis\_derive\_gain}\label{drl:metis_derive_gain}
-\begin{recipedef}
-Name: & \hyperref[drl:metis_derive_gain]{\DRL{metis_derive_gain}} \\
-Purpose: & Determine the gain. \\
-Used in recipes: & \hyperref[sssec:metis_det_lingain]{\REC{metis_det_lingain}}\\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-Input: & $n\times$ \texttt{const double * means} \\
-%Other inputs: & None \\
-%QC outputs: & None\\
-%Output FITS files: & None \\
-Outputs: & gain [\TODO{units}]\\
-               & \texttt{cpl\_error\_code} \\
-General description: & Determine the gain as the slope of variance against mean of detlin images. \\
-Mathematical description: & TBD \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & None. \\
-%Unit tests: & See \cite{DRLVT} (TBD). \\
-\end{recipedef}
-%---------------------------------------------------------------------
-
-\subsubsection{metis\_derive\_nonlinearity}\label{drl:metis_derive_nonlinearity}
-\begin{recipedef}
-Name: & \hyperref[drl:metis_derive_nonlinearity]{\DRL{metis_derive_nonlinearity}} \\
-Purpose: & Determine the non-linearity coefficients. \\
-Used in recipes: & \hyperref[sssec:metis_det_lingain]{\REC{metis_det_lingain}}\\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-Input: & $n\times$ \texttt{hdrl\_image * image} Dark corrected non-linearity raws. \\
-%Other inputs: & None \\
-%QC outputs: & None\\
-%Output FITS files: & None \\
-Outputs: & \hyperref[dataitem:linearity]}{\PROD{LINEARITY}} \\
-               & \texttt{cpl\_error\_code} \\
-General description: & Determine the non-linearity coefficients. \\
-Mathematical description: & \TODO{TBD} \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & None. \\
-%Unit tests: & See \cite{DRLVT} (TBD). \\
-\end{recipedef}
-%---------------------------------------------------------------------
-
 \subsubsection{Measure Flux of Standard Star}\label{drl:std_flux}
 \begin{recipedef}
 Name: & \hyperref[drl:calculate_std_fluxl]{\DRL{calculate_std_flux}} \\
