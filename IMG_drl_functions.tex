@@ -278,7 +278,7 @@ Error conditions: & None. \\
 \subsubsection{Measure Flux of Standard Star}\label{drl:std_flux}
 \begin{recipedef}
 Name: & \hyperref[drl:calculate_std_fluxl]{\DRL{calculate_std_flux}} \\
-Purpose: & Calculate flux and position of standard star in detector units \\
+Purpose: & Calculate band flux and position of standard star in detector units \\
 Used in recipes: & \hyperref[sssec:lm_img_photstd]{\REC{metis_lm_img_std_process}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
@@ -294,6 +294,31 @@ Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result
                & \texttt{cpl\_error\_code} \\
 General description: & Photometry of standard star \\
 Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+
+
+\subsubsection{Measure N band Flux of Standard Star}\label{drl:std_flux}
+\begin{recipedef}
+Name: & \hyperref[drl:calculate_std_fluxl]{\DRL{calculate_std_flux}} \\
+Purpose: & Calculate N band flux and position of standard star in detector units \\
+Used in recipes: & \hyperref[sssec:n_img_photstd]{\REC{metis_n_img_std_process}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const hdrl\_image * input} \\
+%Other inputs: & photometric standard catalogue \\
+QC outputs: & \QC{QC N IMG STD BACKGD RMS}\\
+            & \QC{QC N STD PEAK CNTS}\\
+            & \QC{QC N STD APERTURE CNTS}\\
+            & \QC{QC N STD STREHL}\\
+            & \QC{QC N STD AIRMASS}                                                       \\
+%Output FITS files: & \PROD{LM_STD_COMBINED} \\
+Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result structure)  \\
+               & \texttt{cpl\_error\_code} \\
+General description: & Photometry of standard star \\
+Mathematical description: & See Section~\ref{sssec:n_img_photstd} \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
@@ -327,19 +352,20 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 Name: & \hyperref[drl:calculate_std_fluxcal]{\DRL{calculate_std_fluxcal}} \\
 Purpose: & Calculate the conversion between instrumental and physical flux units \\
 Used in recipes: & \hyperref[sssec:lm_img_photstd]{\REC{metis_lm_img_std_process}}\\
+                 & \hyperref[sssec:n_img_photstd]{\REC{metis_n_img_std_process}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & Flux of standard star in instrumental units \\
 Other inputs: & photometric standard catalogue \\
-%QC outputs: & QC DET IMG STD BACKGD RMS\\
-%            & QC DET STD PEAK CNTS\\
-%            & QC DET STD APERTURE CNTS\\
-%            & QC DET STD STREHL\\
+%QC outputs: & \QC{QC DET IMG STD BACKGD RMS}\\
+%            & \QC{QC DET STD PEAK CNTS}\\
+%            & \QC{QC DET STD APERTURE CNTS}\\
+%            & \QC{QC DET STD STREHL}\\
 %Output FITS files: & \PROD{LM_STD_COMBINED} \\
 Outputs: & \PROD{FLUXCAL_TAB} \\
                & \texttt{cpl\_error\_code} \\
 General description: & Calculate flux conversion to physical units \\
-Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
+Mathematical description: & See Section~\ref{sssec:lm_img_photstd},\ref{sssec:n_img_photstd}  \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
@@ -350,17 +376,18 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 Name: & \hyperref[drl:calculate_detection_limits]{\DRL{calculate_detection_limits}} \\
 Purpose: & Calculate Detection Limits \\
 Used in recipes: & \hyperref[sssec:lm_img_photstd]{\REC{metis_lm_img_std_process}}\\
+                 & \hyperref[sssec:lm_img_photstd]{\REC{metis_lm_img_std_process}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: &  \texttt{const hdrl\_image * input} \\
 Other inputs: & \PROD{FLUXCAL_TAB} \\
-QC outputs: & QC DET LM SENSITIVITY\\
-            & QC DET LM AREA SENSITIVITY\\
+QC outputs: & \QC{QC DET SENSITIVITY}\\
+            & \QC{QC DET AREA SENSITIVITY}\\
 %Output FITS files: & \PROD{LM_STD_COMBINED} \\
 Outputs: & detection limits for standard star  \\
                & \texttt{cpl\_error\_code} \\
 General description: & Calculate detection limits of standard star \\
-Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
+Mathematical description: & See Section~\ref{sssec:lm_img_photstd},\ref{sssec:n_img_photstd}  \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\

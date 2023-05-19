@@ -157,7 +157,7 @@ QC parameters will include estimates of the sensitivity for the
 detection of point sources and surface brightness sensitivity
 following \cite{visir_manual}.
 
-\begin{recipedef}
+\begin{recipedef}\label{rec:metis_n_img_std_process}
   Name:                & \REC{metis_n_img_std_process}                                                 \\
   Purpose:             & Determine conversion factor between detector counts and physical source flux. \\
   Type:                & Calibration                                                                   \\
@@ -167,10 +167,10 @@ following \cite{visir_manual}.
   Matched keywords:    & Object ID                                                                     \\
                        & Filter ID                                                                     \\
   Parameters:          & None (TBD)                                                                    \\
-  Algorithm:           & Create object catalogue, identify standard star                               \\
-                       & Measure flux from star in all beams                                           \\
-                       & Compute conversion factor to physical units                                   \\
-                       & Measure background noise (rms) and compute detection limits.                  \\
+  Algorithm:           & call \CODE{n_calculate_std_flux} to measure the flux in all beams\\
+                       & average and normalize flux values \\
+                       & call \CODE{calculate_std_fluxcal} to calculate conversion factor to physical units   \\
+                       & call \CODE{calculate_detection_limits} to compute measured background noise (std, rms) and compute detection limits \\
   Output data:         & \PROD{FLUXCAL_TAB}                                                            \\
   Expected accuracies: & \TBD                                                                          \\
   QC1 parameters:      & \QC{QC N STD PEAK CNTS}                                                       \\
@@ -186,8 +186,8 @@ following \cite{visir_manual}.
 
 \begin{figure}[hb]
   \centering
-  % \includegraphics[width=0.6\textwidth]{metis_n_img_std_process}
-  \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
+   \includegraphics[width=0.6\textwidth]{metis_n_img_std_process}
+  %\resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
   \caption[Recipe: \REC{metis_n_img_std_process}]{\REC{metis_n_img_std_process} --
     compute conversion between ADU and physical flux units.}
   \label{fig:metis_n_img_std_process}
@@ -234,7 +234,7 @@ header receives the keyword \FITS{BUNIT} with value %
 
 \begin{figure}[hb]
   \centering
-   \includegraphics[width=0.6\textwidth]{n_img_std_process}
+   \includegraphics[width=0.6\textwidth]{metis_n_img_calibrate}
   \caption[Recipe: \REC{metis_n_img_calibrate}]{\REC{metis_n_img_calibrate} --
     convert image to physical flux units and update FITS header}
   \label{fig:metis_n_img_calibrate}
