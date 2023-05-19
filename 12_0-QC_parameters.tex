@@ -308,17 +308,11 @@ Comment & \tabularnewline
 
 \subsection{Imaging mode}
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> c74e26f (Rebased to master)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%      PHOTOMETRIC CALIBRATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-<<<<<<< HEAD
 \paragraph{\QC{QC LIN GAIN MEAN}}\label{qc:lingainmean}
 \begin{recipedef}
 Name & \QC{QC LIN GAIN MEAN} \tabularnewline
@@ -349,8 +343,6 @@ Description & Root mean square of the gain values\tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
-=======
->>>>>>> c74e26f (Rebased to master)
 \paragraph{\QC{QC LM IMG STD BACKGD RMS}}\label{qc:lm_img_std_backgd_rms}
 \begin{recipedef}
 Name & \QC{QC LM IMG STD BACKGD RMS} \tabularnewline
@@ -469,9 +461,9 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\paragraph{\QC{QC LM AREA SENSITIVITY}}\label{qc:qc_lm_area_sensitivity}
+\paragraph{\QC{QC N AREA SENSITIVITY}}\label{qc:qc_lm_area_sensitivity}
 \begin{recipedef}
-Name & \QC{QC LM AREA SENSITIVITY} \tabularnewline
+Name & \QC{QC N AREA SENSITIVITY} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -479,7 +471,126 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Description & Sensitivity extended source detections \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\QC{QC N STD PEAK CNTS}}\label{qc:qc_n_std_peak_cnts}
+\begin{recipedef}
+Name & \QC{QC N STD PEAK CNTS} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Description & peak counts of the standard star \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\QC{QC N STD APERTURE CNTS}}\label{qc:qc_n_std_aperture_cnts}
+\begin{recipedef}
+Name & \QC{QC N STD APERTURE CNTS} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Description & aperture counts of the standard star \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\QC{QC N STD STREHL}}\label{qc:qc_n_std_strehl}
+\begin{recipedef}
+Name & \QC{QC N STD STREHL} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Description & strehl ratio of the standard star \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{\QC{QC N STD FLUXCONV}}\label{qc:qc_n_std_fluxconv}
+\begin{recipedef}
+Name & \QC{QC N STD FLUXCONV} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Description & Flux conversion to physical units, determined from the standard star \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{\QC{QC N STD AIRMASS}}\label{qc:qc_n_std_airmass}
+\begin{recipedef}
+Name & \QC{QC N STD AIRMASS} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Description & Airmass of the standard star observation \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\paragraph{\QC{QC N SENSITIVITY}}\label{qc:qc_n_sensitivity}
+\begin{recipedef}
+Name & \QC{QC N SENSITIVITY} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Description & Sensitivity of point source detections \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\paragraph{\QC{QC N AREA SENSITIVITY}}\label{qc:qc_n_area_sensitivity}
+\begin{recipedef}
+Name & \QC{QC N AREA SENSITIVITY} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
 Description & Sensitivity extended source detections \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
