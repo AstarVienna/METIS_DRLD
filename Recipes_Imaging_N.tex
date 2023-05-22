@@ -6,6 +6,12 @@
 \label{n_img_flatfield}
 \label{rec:n_img_flatfield}
 \label{sssec:n_img_flatfield}
+\label{n_img_flat}
+\label{rec:n_img_flat}
+\label{sssec:n_img_flat}
+\label{metis_n_img_flat}
+\label{rec:metis_n_img_flat}
+\label{sssec:metis_n_img_flat}
 
 The purpose of the flat-field calibration is to determine
 pixel-to-pixel gain variations and large scale illumination variations
@@ -43,7 +49,7 @@ normalised master flat and the number of bad pixels identified by the
 recipe. If a bad-pixel map is provided on input, it is updated,
 otherwise a new one is created.
 
-\begin{recipedef}\label{rec:n_img_flat}
+\begin{recipedef}
   Name:                & \REC{metis_n_img_flat}                                         \\
   Purpose:             & Create master flat field for the N-band imaging detector.      \\
   Requirements:        & \REQ{METIS-6098}                                               \\
@@ -149,6 +155,10 @@ correction is applied.
 \label{n_img_std_process}
 \label{rec:n_img_std_process}
 \label{ssec:n_img_std_process}
+\label{sssec:n_img_std_process}
+\label{metis_n_img_std_process}
+\label{rec:metis_n_img_std_process}
+\label{sssec:metis_n_img_std_process}
 
 This recipe determines the conversion from ADU to physical units from
 a chop-nod difference image of a photometric standard star.  The flux
@@ -163,7 +173,7 @@ QC parameters will include estimates of the sensitivity for the
 detection of point sources and surface brightness sensitivity
 following \cite{visir_manual}.
 
-\begin{recipedef}\label{rec:metis_n_img_std_process}
+\begin{recipedef}
   Name:                & \REC{metis_n_img_std_process}                                                 \\
   Purpose:             & Determine conversion factor between detector counts and physical source flux. \\
   Type:                & Calibration                                                                   \\

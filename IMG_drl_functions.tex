@@ -304,7 +304,7 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \begin{recipedef}
 Name: & \hyperref[drl:n_calculate_std_fluxl]{\DRL{n_calculate_std_flux}} \\
 Purpose: & Calculate N band flux and position of standard star in detector units \\
-Used in recipes: & \hyperref[sssec:n_img_photstd]{\REC{metis_n_img_std_process}}\\
+Used in recipes: & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -318,7 +318,7 @@ QC outputs: & \QC{QC N IMG STD BACKGD RMS}\\
 Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result structure)  \\
                & \texttt{cpl\_error\_code} \\
 General description: & Photometry of standard star \\
-Mathematical description: & See Section~\ref{sssec:n_img_photstd} \\
+Mathematical description: & See Section~\ref{n_img_std_process} \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
