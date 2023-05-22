@@ -26,7 +26,7 @@ We also intend to enable the user to include a dedicated line kernel instead, in
   \caption{Methods for the telluric correction to be included in the \ac{METIS} pipeline.}
   \label{Fig:tellcorrmethods}
 \end{figure}
-\subsubsection{Approach for \ac{METIS}:} 
+\subsubsection{Approach for METIS:}
 The modelling approach has become the standard way for the telluric correction in several ESO pipelines as it avoids to spend valuable observing time on taking \ac{TSS} spectra. Since the synthetic transmission function is also noise-free, it also conserves the \ac{SNR} of the science spectrum. It is therefore also foreseen as default method for the \ac{METIS} pipeline.\\
 Nevertheless, there might be situations where the classical way becomes the better option. For example, in case the science object's continuum is too weak to be used for fitting telluric features. In addition, \texttt{molecfit} relies on a number of fitting parameters, which might not lead to the best minimum. In particular, the quality of the fit is very sensitive to the incorporated \ac{LSF}-Kernel, whereas the \ac{LSF} of a \ac{TSS} spectrum is naturally (almost) identical.\\
 We therefore will include three different approaches for the telluric correction in the \ac{METIS} pipeline (cf. Fig.~\ref{Fig:tellcorrmethods}):
