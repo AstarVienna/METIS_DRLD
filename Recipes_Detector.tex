@@ -79,7 +79,7 @@ sequence.
                        & \hyperref[dataitem:badpixmap]{\PROD{BADPIX_MAP_det}}                                \\
   Expected accuracies: & \TODO{TBD}                                                                          \\
   QC1 parameters:      & \hyperref[qc:lingainmean]{\QC{QC LIN GAIN MEAN}}                                    \\
-                       & \hyperref[qc:lingeanrms]{\QC{QC LIN GAIN RMS}}                                      \\
+                       & \hyperref[qc:lingainrms]{\QC{QC LIN GAIN RMS}}                                      \\
                        & \hyperref[qc:linnumbadpix]{\QC{QC LIN NUM BADPIX}}                                  \\
   hdrl functions:      & \CODE{hdrl_imagelist_sub_image}                                                     \\
                        & \CODE{hdrl_bpm_fit_compute}                                                         \\
@@ -98,6 +98,8 @@ sequence.
 
 \subsubsection{Master dark}
 \label{sssec:metis_det_dark}
+\label{rec:det_dark}
+\label{rec:metis_det_dark}
 
 Darks are taken in daytime for all science detectors
 \cite{METIS-calibration_plan}. The data will be classified by detector
@@ -115,7 +117,7 @@ recipe also produces bad pixel masks by identifying hot pixels whose
 dark current differs significantly (by more than $\pm 5\sigma$) from
 the average over the detector.
 
-\begin{recipedef}\label{rec:det_dark}
+\begin{recipedef}
   Name:                & \REC{metis_det_dark}                                                        \\
   Purpose:             & determine the dark current of the detectors                                 \\
   Requirements:        & \REQ{METIS-6063}                                                            \\
