@@ -257,7 +257,7 @@ and calibration parameters.
                        & Measure and evaluate the error.                                              \\
   Output data:         & \PROD{LM_STD_AST_CALIB}                                                      \\
                        & \PROD{ASTROMETRY_TAB}                                                        \\
-  Expected accuracies: & \TBD                                                                         \\
+  Expected accuracies: &  $>$0.1$\arcsec$                                                                    \\
   QC1 parameters:      & \QC{QC LM AST X POS ERR}                                                     \\
                        & \QC{QC LM AST Y POS ERR}                                                     \\
                        & \QC{QC LM AST RA POS ERR}                                                    \\
@@ -270,11 +270,11 @@ and calibration parameters.
 
 \begin{figure}[hb]
   \centering
-  % \includegraphics[width=0.6\textwidth]{metis_lm_img_std_process}
-  \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
-  \caption[Recipe: \REC{metis_lm_img_std_process}]{\REC{metis_lm_img_std_process} --
-    compute conversion between ADU and physical flux units}
-  \label{fig:lm_img_astrometry_calib}
+   \includegraphics[width=1.0\textwidth]{metis_lm_img_astrometry_process}
+  %\resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
+  \caption[Recipe: \REC{metis_lm_img_astrometry_process}]{\REC{metis_lm_img_astrometry_process} --
+    compute conversion between pixel and sky coordinate}
+  \label{fig:metis_lm_img_std_process}
 \end{figure}
 
 
