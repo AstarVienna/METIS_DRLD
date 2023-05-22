@@ -108,8 +108,8 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 \FITS{DO.CATG}: & \FITS{MASTER_DARK_2RG}\\[0.3cm]
 Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by:  \hyperref[drl:det_dark]{\REC{metis_det_dark}} \\
-Input for recipes: & \hyperref[]{\REC{metis_lm_img_flat}}\\  
-& \hyperref[]{\REC{metis_lm_img_basic_reduce}}\\ 
+Input for recipes: & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}}\\
+& \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
 %Input for recipe: & \hyperref[]{\REC{metis_n_img_flat}}\\  %    geo
 %Input for recipe: & \hyperref[]{\REC{METIS_ifu_cal_InternalWave}}\\  %   _ifu
 %Input for recipe: & \hyperref[]{\REC{metis_ifu_rsrf}}\\  %   _ifu
@@ -140,7 +140,7 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 \FITS{DO.CATG}: & \FITS{MASTER_DARK_geo}\\[0.3cm]
 Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by:  \hyperref[drl:det_dark]{\REC{metis_det_dark}} \\
-Input for recipes: & \hyperref[]{\REC{metis_n_img_flat}}\\  
+Input for recipes: & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}}\\
 % The n-band does not have a basic_reduce recipe (according to the association map)
 % & \hyperref[]{\REC{metis_n_img_basic_reduce}}\\
 %Input for recipe: & \hyperref[]{\REC{metis_n_img_flat}}\\  %    geo
@@ -223,10 +223,10 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:badpixmap]{\FITS{BADPIX_MAP_det}}\\[0.3cm]
 Description: & Bad pixel map\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{BADPIX_MAP_det}\\
-OCA keywords: & \hyperref[fits:PRO.catg]{\FITS{PRO.CATG}} \\
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{BADPIX_MAP_det}\\[0.3cm]
 Created by recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}} \\
-Input for recipe: & \hyperref[rec:]{\REC{TODO}}\\
+Input for recipe: & \TODO{TODO} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -245,7 +245,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:linearity]{\PROD{LINEARITY}}\\[0.3cm]
 Description: & Nonlinearity coefficients.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LINEARY}\\
-OCA keywords: & \hyperref[fits:PRO.catg]{\FITS{PRO.CATG}}, \TODO{Which subinstrument} \\
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}, \TODO{Which subinstrument} \\
 \FITS{DO.CATG}: & \FITS{LINEARITY}\\[0.3cm]
 Created by recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}} \\
 Input for recipe: & \hyperref[rec:lsslmrsrf]{\REC{TODO}}\\
