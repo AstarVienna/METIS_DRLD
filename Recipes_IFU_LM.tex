@@ -25,8 +25,7 @@ post-processing recipe (\REC{metis_ifu_combine}).}
 
 This recipe processes daytime wavelength calibration images to derive
 the pixel-to-wavelength relation for the LM integral-field
-spectrograph. The calibration template will use the quantum cascade
-laser (QCL) in the warm calibration unit to finely sample the desired
+spectrograph. The calibration template will use the \ac{QCL} in the warm calibration unit to finely sample the desired
 wavelength range. The image will consist of lines for each wavelength
 and slice. The solution will have to provide for each detector pixel
 $(x,y)$ the slice number $i$, the spatial position $\xi$ along the
@@ -42,7 +41,7 @@ The boundaries of the slice image on the detector are obtained by
 measuring the left and right edges of the wavelength lines and
 interpolating. The slice number is then obtained by counting the
 slices according to the optical design of the spectrograph. The
-wavelength of each line is known from the settings of the QCL, the $x$
+wavelength of each line is known from the settings of the \ac{QCL}, the $x$
 coordinate is obtained by linear interpolation along the line (or
 perhaps using the distortion table from \REC{metis_ifu_distortion} if
 necessary). The functions $f_{i}$ and $g_{i}$ are expected to be
@@ -57,8 +56,8 @@ table extension holds the polynomial coefficients.
   Purpose:             & Determine pixel-to-wavelength transformation.                          \\
   Requirements:        & \REQ{METIS-6074}                                                       \\
   Type:                & Calibration                                                            \\
-  Templates:           & \TPL{METIS_ifu_cal_InternalWave}                                           \\
-  Input data:          & Images taken with WCU QCL source                                       \\
+  Templates:           & \TPL{METIS_ifu_cal_InternalWave}                                       \\
+  Input data:          & Images taken with WCU \ac{QCL} source                                  \\
                        & Master dark                                                            \\
                        & Bad-pixel map                                                          \\
                        & Distortion table (TBD)                                                 \\

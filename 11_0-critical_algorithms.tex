@@ -35,7 +35,7 @@ involving principal component analysis, have been ruled out since PDR.
         \item \textit{Status at FDR}: We will use the algorithm from PyReduce.
         \item \textit{Prototype delivery}: An adaptation of the PyReduce package.
     \end{itemize}
-    \item[5b.] IFU Wavelength calibration and distortion correction (\ref{ssec:criticalwavelengthanddistortion})
+    \item[5b.] \ac{IFU} Wavelength calibration and distortion correction (\ref{ssec:criticalwavelengthanddistortion})
     \begin{itemize}
         \item \textit{Reason at PDR}: A new algorithm is necessary for wavelength calibration and distortion correction for IFU.
         \item \textit{Status at FDR}: We will use the same algorithm as CRIRES.
@@ -79,7 +79,7 @@ The following additional critical algorithms were identified in the period betwe
     \item[11.] ADI algorithm (\ref{ssec:criticaladialgorithm})
     \begin{itemize}
         \item \textit{Reason at FDR}: Considering many of the science cases for METIS are focusing on direct imaging / high contrast imaging we deem it critical that we demonstrate that METIS-like data can be ADI-reduced without major issues.
-        \item \textit{Status at FDR}: ADI algorithms for all HCI observing modes are known from literature, however considering many METIS science cases fall under HCI we demonstrate prototype ADI algorithms for the focal-plane and pupil-plane coronagraphs as well ADI+SDI for the partially undersampled IFU with METIS-like simulated data.
+        \item \textit{Status at FDR}: ADI algorithms for all HCI observing modes are known from literature, however considering many METIS science cases fall under HCI we demonstrate prototype ADI algorithms for the focal-plane and pupil-plane coronagraphs as well ADI+SDI for the partially undersampled \ac{IFU} with METIS-like simulated data.
         \item \textit{Prototype delivery}: Python package.
     \end{itemize}
 \end{enumerate}
@@ -161,7 +161,7 @@ See VISIR pipeline
 }
 
 \subsubsection{LM bands}
-Small ($< 1000 \arcsec$) and slow (1 min timescale) dithered offsets of the field with respect to the LM IMG or IFU detector are expected to be performed by the METIS-internal chopper mirror.
+Small ($< 1000 \arcsec$) and slow (1 min timescale) dithered offsets of the field with respect to the LM IMG or \ac{IFU} detector are expected to be performed by the METIS-internal chopper mirror.
 The pipeline shall determine the sky background from the dithered images and produce background maps without the sources and background-subtracted versions of the maps with the sources.
 For In-field-dithering, this is done by determining a flux scaling factor for each ``dither'' position, aligning the exposures (by either using a 2d cross-correlation routine on bright sources or by using the offset values applied to the chopper), scaling the frames to a common median and removing objects by rejecting the highest and lowest pixels.
 The remaining pixels are then averaged, or medianed, to produce the sky frame which is then scaled to match the median of the object frame before being subtracted.
