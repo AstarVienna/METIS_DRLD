@@ -141,7 +141,8 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by:  \hyperref[drl:det_dark]{\REC{metis_det_dark}} \\
 Input for recipes: & \hyperref[]{\REC{metis_n_img_flat}}\\  
-& \hyperref[]{\REC{metis_n_img_basic_reduce}}\\ 
+% The n-band does not have a basic_reduce recipe (according to the association map)
+% & \hyperref[]{\REC{metis_n_img_basic_reduce}}\\
 %Input for recipe: & \hyperref[]{\REC{metis_n_img_flat}}\\  %    geo
 %Input for recipe: & \hyperref[]{\REC{METIS_ifu_cal_InternalWave}}\\  %   _ifu
 %Input for recipe: & \hyperref[]{\REC{metis_ifu_rsrf}}\\  %   _ifu
@@ -199,7 +200,8 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 Template: & \TPL{METIS_n_img_flat}\\
 Created by:  \hyperref[drl:n_img_flat]{\REC{metis_n_img_flat}} \\
 Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
- & \hyperref[rec:metis_n_img_basic_reduce]{\REC{metis_n_basic_image_reduce}}\\  
+% The n-band does not have a basic_reduce recipe (according to the association map)
+% & \hyperref[rec:metis_n_img_basic_reduce]{\REC{metis_n_basic_image_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -435,7 +437,7 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 \FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_standard}\\
             & \TPL{METIS_img_n_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_n_img_background]{\REC{metis\_n\_img\_background}}\\
+Input for recipe: & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
@@ -573,7 +575,7 @@ Description: & Table of distortion information\\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
 Template: & \TPL{??}\\
-Input for recipe: & \hyperref[rec:??]{\REC{??}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_sci_calibrate]{\REC{metis_lm_img_sci_calibrate}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -599,7 +601,7 @@ Description: & Table of distortion information\\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
 Template: & \TPL{??}\\
-Input for recipe: & \hyperref[rec:??]{\REC{??}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
