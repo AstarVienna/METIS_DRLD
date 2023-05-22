@@ -4,7 +4,7 @@
 
 A draft of the reduction cascade is shown in
 Figs.~\ref{Fig:LMLssAssomap1} and \ref{Fig:LMLssAssomap2} together with the data processing table
-(Table~\ref{Tab:LMLssDatProc}). The first part aims to update the static calibration database, in particular the creation of the gain map (\hyperref[Sec:detector_calibration]{\REC{metis_det_lingain}}) and the determination of the \ac{ADC} slitlosses (\hyperref[rec:metislmadcmslitloss]{\REC{metis_lm_adc_slitloss}}). These are executed only when an update is required, e.g. after a major instrument interention or on yearly basis. The second part comprises the basic calibrations, e.g. the dark correction and the spectroscopic flatfielding via \ac{RSRF}, followed by the third part, the main calibration steps, incorporating the determination of the first guess wavelength solution by means of the laser sources in the \ac{WCU} and the determination of the response curve for the flux calibration. Subsequently, the main reduction is conducted, which applies the previously created master calibration files to the science frames. Both, the flux standard and the science observations are wavelength calibrated with the help of the atmospheric lines visible in the respective spectra. Therefore the main step of the wavelength calibration is carried out in the recipes \hyperref[rec:lsslmflux]{\REC{metis_LM_lss_flux}} and \hyperref[rec:lsslmsci]{\REC{metis_LM_lss_sci}}. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}.
+(Table~\ref{Tab:LMLssDatProc}). The first part aims to update the static calibration database, in particular the creation of the gain map (\hyperref[Sec:detector_calibration]{\REC{metis_det_lingain}}) and the determination of the \ac{ADC} slitlosses (\hyperref[rec:metislmadcmslitloss]{\REC{metis_lm_adc_slitloss}}). These are executed only when an update is required, e.g. after a major instrument interention or on yearly basis. The second part comprises the basic calibrations, e.g. the dark correction and the spectroscopic flatfielding via \ac{RSRF}, followed by the third part, the main calibration steps, incorporating the determination of the first guess wavelength solution by means of the laser sources in the \ac{WCU} and the determination of the response curve for the flux calibration. Subsequently, the main reduction is conducted, which applies the previously created master calibration files to the science frames. Both, the flux standard and the science observations are wavelength calibrated with the help of the atmospheric lines visible in the respective spectra. Therefore the main step of the wavelength calibration is carried out in the recipes \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}} and \hyperref[rec:lsslmsci]{\REC{metis_LM_lss_sci}}. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}.
 
 
 %------------------------------------------------------------------------------------------------------------------
@@ -13,7 +13,7 @@ These recipes are described in Section~\ref{Sec:detector_calibration}.
 
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{Recipe \REC{metis\_LM\_adc\_slitloss}}
-The recipe \hyperref[sssec:adc_slitlosses]{\REC{metis_LM_adc_slitloss}} aims to determine the slit losses induced by the fixed \ac{ADC} positions as function of the object position across the slit. The recipe aims to create a table with slitlosses (\hyperref[dataitem:lmadcslitloss]{\STATCALIB{LM_ADC_SLITLOSS}}), which is added to the static database and used in the recipes \hyperref[rec:lsslmflux]{\REC{metis_LM_lss_flux}}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slitlosses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit losses" in the Calibration Plan \cite{METIS-calibration_plan}. 
+The recipe \hyperref[sssec:adc_slitlosses]{\REC{metis_LM_adc_slitloss}} aims to determine the slit losses induced by the fixed \ac{ADC} positions as function of the object position across the slit. The recipe aims to create a table with slitlosses (\hyperref[dataitem:lmadcslitloss]{\STATCALIB{LM_ADC_SLITLOSS}}), which is added to the static database and used in the recipes \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slitlosses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit losses" in the Calibration Plan \cite{METIS-calibration_plan}. 
 
 
 %------------------------------------------------------------------------------------------------------------------
@@ -146,20 +146,20 @@ the wavelength calibration by means of the first guess solution (\hyperref[datai
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.4\textheight]{figures/metis_lm_lss_std_v0.8_part_1.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_flux}]{\REC{metis_LM_lss_flux} --
-    Flux calibration recipe.}
+  \caption[Recipe: \REC{metis_LM_lss_std}]{\REC{metis_LM_lss_std} --
+    Part 1 of the calibration recipe for processing spectrophotometric and telluric standard stars.}
   \label{Fig:rec_lm_lss_flux1}
 \end{figure}
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.4\textheight]{figures/metis_lm_lss_std_v0.8_part_2.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_flux}]{\REC{metis_LM_lss_flux} --
-    Flux calibration recipe.}
+  \caption[Recipe: \REC{metis_LM_lss_std}]{\REC{metis_LM_lss_std} --
+    Part 2 of the calibration recipe for processing spectrophotometric and telluric standard stars.}
   \label{Fig:rec_lm_lss_flux2}
 \end{figure}
 \clearpage
 \begin{recipedef}
-Name:		& \hyperref[rec:lsslmflux]{\REC{metis_LM_lss_flux}} \\
+Name:		& \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}} \\
 Purpose:	& Flux calibration \\
 Type:		& Calibration\\
 Requirements: & METIS-6084, METIS-6074 \\
