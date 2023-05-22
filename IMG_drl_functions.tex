@@ -275,9 +275,9 @@ Error conditions: & None. \\
 %Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
 
-\subsubsection{Measure LM Band Flux of Standard Star}\label{drl:lm_std_flux}
+\subsubsection{Measure LM Band Flux of Standard Star}\label{drl:lm_calculate_std_flux}
 \begin{recipedef}
-Name: & \hyperref[drl:lm_calculate_std_fluxl]{\DRL{lm_calculate_std_flux}} \\
+Name: & \hyperref[drl:lm_calculate_std_flux]{\DRL{lm_calculate_std_flux}} \\
 Purpose: & Calculate LM band flux and position of standard star in detector units \\
 Used in recipes: & \hyperref[sssec:lm_img_photstd]{\REC{metis_lm_img_std_process}}\\
 %Working remarks: & None \\
@@ -300,7 +300,7 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
 
 
-\subsubsection{Measure N band Flux of Standard Star}\label{drl:n_std_flux}
+\subsubsection{Measure N band Flux of Standard Star}\label{drl:n_std_flux}\label{drl:n_calculate_std_fluxl}
 \begin{recipedef}
 Name: & \hyperref[drl:n_calculate_std_fluxl]{\DRL{n_calculate_std_flux}} \\
 Purpose: & Calculate N band flux and position of standard star in detector units \\
@@ -430,7 +430,7 @@ QC outputs: & None\\
 %Output FITS files: & \PROD{LM_STD_COMBINED} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Convert instrumental flux to ph/s \\
-Mathematical description: & See Section~\ref{sssec:lm_img_lm_calibrate} \\
+Mathematical description: & See Section~\ref{sssec:lm_img_calibrate} \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
@@ -472,7 +472,7 @@ QC outputs: & None\\
 %Output FITS files: & \PROD{N_STD_COMBINED} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Convert instrumental flux to ph/s \\
-Mathematical description: & See Section~\ref{sssec:n_img_n_calibrate} \\
+Mathematical description: & See Section~\ref{sssec:n_img_calibrate} \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
