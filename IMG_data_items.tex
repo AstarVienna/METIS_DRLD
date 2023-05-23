@@ -29,16 +29,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\hyperref[dataitem:detlinraw]}{\RAW{DETLIN_RAW_det}}\label{dataitem:detlinraw}\label{dataitem:detlinraw2rg}\label{dataitem:detlinrawgeo}\label{dataitem:detlinrawifu}
+\paragraph{\hyperref[dataitem:detlinraw]{\RAW{DETLIN_det_RAW}}}\label{dataitem:detlinraw}\label{dataitem:detlinraw2rg}\label{dataitem:detlinrawgeo}\label{dataitem:detlinrawifu}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:detlinraw]{\FITS{DETLIN_RAW_det}}\\[0.3cm]
+Name: & \hyperref[dataitem:detlinraw]{\FITS{DETLIN_det_RAW}}\\[0.3cm]
 Description: & Raw data for non-linearity determination.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,det}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DETLIN}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{DETLIN_RAW_det}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{DETLIN_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
                        & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
@@ -61,7 +61,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:darkinternalraw]}{\RAW{DARK_INTERNAL_det_RAW}}\label{dataitem:darkinternalraw}
+\paragraph{\hyperref[dataitem:darkinternalraw]{\RAW{DARK_INTERNAL_det_RAW}}}\label{dataitem:darkinternalraw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:darkinternalraw]{\FITS{DARK_INTERNAL_det_RAW}}\\[0.3cm]
@@ -244,10 +244,10 @@ See \hyperref[dataitem:badpixmapdet]{\PROD{BADPIX_MAP_det}}.
 \paragraph{\hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}}\label{dataitem:badpixmapgeo}
 See \hyperref[dataitem:badpixmapdet]{\PROD{BADPIX_MAP_det}}.
 
-\paragraph{\hyperref[dataitem:linearity]}{\PROD{LINEARITY}}\label{dataitem:linearity}\label{dataitem:linearity2rg}\label{dataitem:linearitylms}
+\paragraph{\hyperref[dataitem:linearity]}{\PROD{LINEARITY_det}}\label{dataitem:linearity_det}\label{dataitem:linearity}\label{dataitem:linearity2rg}\label{dataitem:linearitylms}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:linearity]{\PROD{LINEARITY}}\\[0.3cm]
+Name: & \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_det}}\\[0.3cm]
 Description: & Nonlinearity coefficients.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LINEARY}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}, \TODO{Which subinstrument} \\
