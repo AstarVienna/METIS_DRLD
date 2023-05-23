@@ -40,7 +40,7 @@ Algorithm:      & subtract master \ac{WCU} "OFF" frame from illumination frame (
                 & median/mean filtering of subtracted images\\
                 & division by blackbody spectrum\\
                 & normalisation to achieve \ac{RSRF}\\
-Output data:	&  \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER\_N\_LSS\_RSRF}} (\FITS{PRO.CATG=MASTER_N_LSS_TRSRF}): \\
+Output data:	&  \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER_N_LSS_RSRF}} (\FITS{PRO.CATG=MASTER_N_LSS_TRSRF}): \\
                 & \hyperref[dataitem:mediannrsrfimg]{\PROD{MEDIAN_N_LSS_RSRF_IMG}}\\
                 & \hyperref[dataitem:meannrsrfimg]{\PROD{MEAN_N_LSS_RSRF_IMG}}\\
 
@@ -76,7 +76,7 @@ Input data:     & $N\times$ \hyperref[dataitem:nlssrsrfpinhraw]{\RAW{N_LSS_RSRF_
                 & \hyperref[dataitem:gainmapgeo]{\STATCALIB{GAIN_MAP_GEO}}  \\
                 & \hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}  \\
                 & \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}  \\
-                &  \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER\_N\_LSS\_RSRF}} \\
+                &  \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER_N_LSS_RSRF}} \\
 Parameters: 	& polynomial degree\\
 Algorithm:      & Detection of the order edges\\
                 & Polynomial fitting\\
@@ -119,7 +119,7 @@ Input data: 	& \hyperref[dataitem:nlssfluxraw]{\RAW{N_LSS_FLUX_RAW}}\\
                 & \hyperref[dataitem:gainmapgeo]{\STATCALIB{GAIN_MAP_GEO}}  \\
                 & \hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}  \\
                 & \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}  \\
-                & \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER\_N\_LSS\_RSRF}} \\
+                & \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER_N_LSS_RSRF}} \\
                 & \hyperref[dataitem:nlsstrace]{\PROD{N_LSS_TRACE}}\\
                 & \hyperref[dataitem:nlssdistsol]{\STATCALIB{N_LSS_DIST_SOL}} \\
                 & \hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}} \\
@@ -140,7 +140,7 @@ Algorithm:      & Application of master calibration files\\
 Output data:	& \hyperref[dataitem:nlssstdobjmap]{\PROD{N_LSS_STD_OBJ_MAP}}: Pixel map of object pixels\\
             	& \hyperref[dataitem:nlssstdskymap]{\PROD{N_LSS_STD_SKY_MAP}}: Pixel map of sky pixels\\
               	& \hyperref[dataitem:nlssstd1d]{\PROD{N_LSS_STD_1D}}  : coadded, wavelength calibrated, collapsed 1D spectrum\\
-                & \hyperref[dataitem:lsslmresp]{\PROD{MASTER\_N\_RESPONSE}}: response function (TBD)\\
+                & \hyperref[dataitem:lsslmresp]{\PROD{MASTER_N_RESPONSE}}: response function (TBD)\\
 Expected accuracies: & 10\% over an atmospheric band (ESO Req. R-MET-107)\\
             & $<30$\% absolute line flux accuracy (R-MET-107)\\
             & $<5$\% absolute flux calibration (R-MET-82)\\
@@ -258,7 +258,7 @@ Input data: 	& \hyperref[dataitem:nlsssciflux1d]{\PROD{N_LSS_SCI_FLUX_1D}}\\
 Parameters: 	& \texttt{molecfit} parameters (c.f. \cite{molecfit})\\
 Algorithm:      & Fit of telluric features visible in the science input spectrum\\
                 & Determination of best-fit parameter set\\
-Output data:	& \hyperref[dataitem:mfbestfittab]{\PROD{MF\_BEST\_FIT\_TAB}}\\
+Output data:	& \hyperref[dataitem:mfbestfittab]{\PROD{MF_BEST_FIT_TAB}}\\
 Expected accuracies: & (TBD)\\
 QC1 parameters: & cf. \cite{molecfit}\\
 \end{recipedef}
@@ -279,7 +279,7 @@ Purpose:	& Calculation of the synthetic transmission \\
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
 Templates:           & None\\
-Input data: 	& \PROD{MF\_BEST\_FIT\_TAB}\\
+Input data: 	& \PROD{MF_BEST_FIT_TAB}\\
                 & \STATCALIB{LSF_Kernel} \\
                 & \EXTCALIB{ATM_PROFILE} \\
                 & \EXTCALIB{HITRAN} \\
