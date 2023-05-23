@@ -71,7 +71,7 @@ sequence.
   Matched keywords:    & Subsystem ID \TODO{TBD}                                                             \\
   Algorithm:           & Subtract instrument dark (\CODE{hdrl_imagelist_sub_image}).                         \\
                        & Compute mean and variance for each frame (\CODE{TBD}).                              \\
-                       & Gain is determined as the slope of variance against mean (\hyperref[drl:metis_derive_gain]{\CODE{metis_derive_gain}}) \\
+https://www.eso.org/sci/software/pycpl/                       & Gain is determined as the slope of variance against mean (\hyperref[drl:metis_derive_gain]{\CODE{metis_derive_gain}}) \\
                        & Fit polynomial of value as a function of DIT and illumination level for each pixel (\hyperref[drl:metis_derive_nonlinearity]{\CODE{metis_derive_nonlinearity}}). \\
                        & Flag pixels with coefficients significantly different from the mean of all pixels. (\CODE{hdrl_bpm_fit_compute}) \\
   Output data:         & \hyperref[dataitem:gainmap]{\PROD{GAIN_MAP_det}}                                    \\
