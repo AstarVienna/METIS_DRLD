@@ -1,10 +1,19 @@
 
 \subsection{Static and external calibration database data items}\label{ssec:caldb_items_structures}
 Static calibrations are data which are updated very rarely only and stay static the most of the time or arise from external sources. The first data are created by specific calibration recipes invoked only once in a while (e.g. the detector linearity and gain determination section~\ref{sssec:metis_det_lingain}). External data either created individually for each frame by \ac{ESO} as in case of the \hyperref[dataitem:persistencemap]{\PROD{PERSISTENCE_MAP}}, or taken from external databases (e.g. \ac{HITRAN} in case of the \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}).
+
 \subsubsection{General calibration database item structures}\label{sssec:generalcaldbdatastructs}
 This section describes items of the static calibration database, which are used in all/more than one, the \ac{IMG} and the \ac{LSS} pipelines. This concerns mainly the detector calibration files.
+
 \paragraph{\hyperref[dataitem:persistencemap]{\PROD{PERSISTENCE_MAP}}}\label{dataitem:persistencemap}
-\paragraph{\hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}} and \hyperref[dataitem:gainmapgeo]{\PROD{GAIN_MAP_GEO}}}\label{dataitem:gainmap}\label{dataitem:gainmapgeo}\label{dataitem:gainmap2rg}
+
+\paragraph{\hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_det}}}\label{dataitem:gainmapdet}\label{dataitem:gainmap}
+
+\paragraph{\hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}}}\label{dataitem:gainmap2rg}
+See \hyperref[dataitem:gainmapdet]{\PROD{GAIN_MAP_det}}.
+
+\paragraph{\hyperref[dataitem:gainmapgeo]{\PROD{GAIN_MAP_GEO}}}\label{dataitem:gainmapgeo}
+See \hyperref[dataitem:gainmapdet]{\PROD{GAIN_MAP_det}}.
 
 %\clearpage
 \subsubsection{LMS calibration database item structures}\label{sssec:lmscaldbdatastructs}
