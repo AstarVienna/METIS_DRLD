@@ -41,7 +41,6 @@
 % Title displayed in the header
 \newcommand{\shorttitle}{Data Reduction Library Design}
 
-\newif\ifshowSVN \showSVNfalse  % flag to show SVN info instead of Issue info
 
 \newcommand{\aj}{The Astronomical Journal}
 \newcommand{\aap}{Astronomy \& Astrophysics}
@@ -99,7 +98,6 @@
 
 \usepackage[many]{tcolorbox}
 \usepackage{multirow}
-\usepackage[autokw=true]{svn-multi}
 
 % does not work with my version of biblatex:
 % \usepackage[defernumbers=true,backend=biber,hyperref=true,url=false]{biblatex}
@@ -115,6 +113,32 @@
    pdfpagelabels=true,
    plainpages=false,
    colorlinks=false]{hyperref}
+
+
+% Git stuff, must by after hyperref
+% The git hash and commit date will be shown when compiling with --shell-escape
+% https://tex.stackexchange.com/a/598669/2775
+\newif\ifshowgit  % flag to show git info instead of Issue info
+% "The control sequence \pdfshellescape is (only?) available in pdftex"
+% http://tex.stackexchange.com/a/13253/2595
+\ifnum\pdfshellescape=1{ %
+    \usepackage[noheader]{gitver}
+    \def\parsegitdate#1-#2-#3 #4\endparse{#3.#2.#1}
+    \makeatletter
+        \edef\gitdate{\@@input|"git log -1 --format=\@percentchar ci"}
+    \makeatother
+
+    \showgittrue
+\else
+    \showgitfalse
+\fi
+
+
+% Check for overleaf https://tex.stackexchange.com/a/598669/2775
+\ifnum\pdfstrcmp{\jobname}{output}=0
+\else
+\fi
+
 
 % does not work with my version:
 %\usepackage[xindy,nopostdot,nogroupskip]{glossaries}
@@ -145,7 +169,6 @@
 
 \usepackage[countmax]{subfloat}
 % ADDING NEW DEFINITIONS -------------------------------------------- start
-\usepackage[autokw=true]{svn-multi}
 \definecolor{listingbg}{gray}{0.95}
 \definecolor{darkgreen}{rgb}{0.0, 0.7, 0.0}
 \definecolor{darkblue} {rgb}{0.0, 0.0, 0.7}
@@ -322,16 +345,12 @@
 %% paragraph column, centred text
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 
-%=== SUBVERSION INFO ==========================================================
-\svnid{$Id$}
-\newcommand{\svnrevisiondate}{\svnday-\svnmonth-\svnyear}  % <<<<< svn date
-
 %=== Header / Footer definition ===============================================
 \newcommand{\headerformat}{%
   \lhead{\small\sffamily
     \begin{tabularx}{\textwidth}{Xlll}
-      \ifshowSVN
-      \shorttitle & \docnumber & SVN \ \svnrev & \svnrevisiondate\\[0.7ex]
+      \ifshowgit
+      \shorttitle & \docnumber & GIT \ \gitVer & \gitdate\\[0.7ex]
       \else
       \shorttitle & \docnumber & \issuenumber & \issuedate\\[0.7ex]
       \fi
@@ -373,7 +392,7 @@
   pdfborder= 0 0 0,
   pdftitle={\shorttitle},
   pdfauthor={\authorname}}
-\pdfinfo{ /CreationDate (D:\svnpdfdate)}
+%\pdfinfo{ /CreationDate (D:\issuedate)}
 
 
 % === biblatex Definitions ====================================================
