@@ -17,77 +17,96 @@ their dedicated HCI reductions. Potentially these three recipes can be combined 
 \label{sssec:adi_img_vc}
 
 
-The following recipe is applicable for ADI post processing for the LM
+The following recipes is applicable for ADI post processing for the LM
 and N band, and CVC/RAVC(/CLC) coronagraphs. An input set of
-observations consists of a time sequence of ADI images in LM or N band, which have already undergone basic calibration.
+observations consists of a time sequence of ADI images in LM or N
+band, which have already undergone basic calibration. 
 
-For each image, the centroid of the central source is determined, distortion corrections are performed, and the images are aligned on a subpixel scale. The median PSF is then estimated and subtracted from all images following the first step of the standard ADI technique of Marois et al (2006).
-Each image is then derotated using the known position angle and coadded to produce the final science image. In addition, the images prior to PSF subtraction are derotated and combined to produce a second final image.
+For each image, the centroid of the central source is determined,
+distortion corrections are performed, and the images are aligned on a
+subpixel scale. The median PSF is then estimated and subtracted from
+all images following the first step of the standard ADI technique of
+Marois et al (2006).  Each image is then derotated using the known
+position angle and coadded to produce the final science image. In
+addition, the images prior to PSF subtraction are derotated and
+combined to produce a second final image.
 
-In addition to the final images, the cube of derotated, PSF subtracted images are used to calculate the raw and post-ADI contrast curves as well as the ADI throughput curve. The intrinsic radial throughput of the coronagraph  is taken from static calibrations while the post-processing losses are estimated from injection and retrieval of artificial companions with a known brightness and separation.
+In addition to the final images, the cube of derotated, PSF subtracted
+images are used to calculate the raw and post-ADI contrast curves as
+well as the ADI throughput curve. The intrinsic radial throughput of
+the coronagraph is taken from static calibrations while the
+post-processing losses are estimated from injection and retrieval of
+artificial companions with a known brightness and separation.
 
-Off-axis unsaturated PSFs which are needed for the ADI process are either collected as part of the observations, static calibrations or available from the QACITS control loop.  If collected as part of the OB they are processed by the regular science recipes (with compensation of any neutral density transmission).
+Off-axis unsaturated PSFs which are needed for the ADI process are
+either collected as part of the observations, static calibrations or
+available from the QACITS control loop.  If collected as part of the
+OB they are processed by the regular science recipes (with
+compensation of any neutral density transmission).
 
-While not part of the PIP specs, the current generation of VIP\_HCI ADI reduction algorithms supports the more detailed Marois et al. 2006 ADI (including an annular optimization step) as well as PCA-based routines.
+While not part of the PIP specs, the current generation of VIP\_HCI
+ADI reduction algorithms supports the more detailed Marois et al. 2006
+ADI (including an annular optimization step) as well as PCA-based
+routines.
 
-\begin{recipedef}
-  Name:                & \REC{metis_lm_adi_ravc}                                        \\
+\begin{recipedef}\label{rec:metis_det_adi_cgrph}
+  Name:                & \REC{metis_det_adi_cgrph}                                        \\
   Purpose:             & Classical ADI post processing for CVC/RAVC(/CLC) coronagraphs      \\
   Requirements:        & \REQ{METIS-5989}                                               \\
+  Templates:           & \TPL{??} \TBD                               \\
   Type:                & Science                                                    \\
-  Input data:          & \PROD{LM_SCI_BASIC_REDUCED}                            \\
-                       & Time series of LM\_SCI\_REDUCED images                      \\
-                       & LM distortion table                               \\
-                       & Coronagraphic throughput map and profile                                                  \\
-                       & Off-axis PSF references                                                  \\
-                       &                                                  \\
-   Matched keywords:   &              \\
-                       &               \\
-                       &               \\
-                       &               \\
-                       &               \\
-  Parameters:          &  combination approach (median,mean,sigclip) \\
-                       &   combination parameters (e.g., N-sigma)          \\
-                       &  start and end limit to contrast curve (in $\lambda/D$) \\
-  & frame exclusion thresholds dependent on AO parameters and centroid offset                \\
-
-  Algorithm:           & Determine centroid of central source \\
-                       & Distortion correction and sub-pixel alignment   \\
-                       & Estimate median PSF   \\
-                       & Subtract median PSF   \\
-                       & De-rotate images   \\
-                       & Coadd images   \\
-  & Calculate contrast curve   \\
-  Output data:       & \PROD{LM_RAVC_SCI_CALIBRATED} (Calibrated Image)                                    \\
-                     & \PROD{LM_RAVC_SCI_CENTRED} (Cube of individually calibrated and recentered images)                                 \\
-                     & \PROD{LM_RAVC_CENTROID_TAB} (Table of star centre estimages)                                 \\
-
-                     & \PROD{LM_RAVC_SCI_SPECKLE} (PSF/speckle image)                                 \\
-                     & \PROD{LM_RAVC_SCI_DEROTATED_PSFSUB_COADD} (Combined derotated image with PSF subtraction)                                 \\
-                     & \PROD{LM_RAVC_SCI_DEROTATED_COADD} (Combined derotated image without PSF subtraction)                                  \\
-                     & \PROD{LM_RAVC_SCI_CONTRAST_RAW} (Raw Contrast Curve)                                 \\
-                     & \PROD{LM_RAVC_SCI_CONTRAST_ADI} (Post ADI Contrast Curve)                                 \\
-                     & \PROD{LM_RAVC_SCI_THROUGHPUT} (ADI Throughput Curve)                               \\
-                     & \PROD{LM_RAVC_SCI_COVERAGEMAP} (ADI Coverage Map: number of frames
-                     \\
-                     & \PROD{LM_RAVC_SCI_SNR} (ADI SNR Map)  \\
-
-  Expected accuracies: & \TBD                                                           \\
-  QC1 parameters:      & \QC{FWHM of PSF by frame}                                      \\
-                       & \QC{Raw and post ADI contrast at seps (1,2,5,10,20,40 lam/D)}                                        \\
-                       & \QC{Mean SNR in ADI map}                                        \\
-                       & \QC{Peak SNR in ADI map}                                         \\
-  hdrl functions:      & \CODE{}                                    \\
-                       & \CODE{}                                 \\
-                       & \CODE{}                                \\
+  Input data:          & \PROD{DET_SCI_BASIC_REDUCED}                            \\
+                       & \PROD{DET_DISTORTION_TABLE} \\
+                       & Coronagraphic throughput map and profile         \\
+                       & Off-axis PSF references                          \\
+   Matched keywords:   & Detector ID             \\
+                       & Filter ID               \\
+                       & Object ID               \\
+                       & coronagraphic mask \TBD\\
+  Parameters:          & combination method (median, mean, sigclip, \dots) \\
+                       & parameters for combination method         \\
+                       & resampling method \\
+                       & parameters for resampling method \\
+                       & start and end limit for contrast curve (in $\lambda/D$) \\
+                       & frame exclusion thresholds dependent on AO parameters and centroid offset \\
+  Algorithm:           & call \hyperref[drl:lm_adi_cgrph_centroid]{\CODE{lm_adi_cgrph_centroid}}  or \hyperref[drl:n_adi_cgrph_centroid]{\CODE{n_adi_cgrph_centroid}} to determine the centroids of the central PSFs \\
+                       & call \hyperref[drl:adi_regrid]{\CODE{adi_regrid}} to apply distortion map and regrid images based on position of central PSFs \\
+                       & call \hyperref[drl:lm_adi_cgrph_psf]{\CODE{lm\_adi\_cgrph\_psf}} or \hyperref[drl:n_adi_cgrph_psf]{\CODE{n\_adi\_cgrph\_psf}} to determine the median PSF \\
+                       & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
+                       & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
+                       & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
+                       & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
+  Output data:       & \PROD{DET_CGRPH_SCI_CALIBRATED}\\ 
+                     & \PROD{DET_CGRPH_SCI_CENTRED} \\
+                     & \PROD{DET_CGRPH_CENTROID_TAB} \\
+                     & \PROD{DET_CGRPH_SCI_SPECKLE} \\
+                     & \PROD{DET_CGRPH_SCI_DEROTATED_PSFSUB_COADD} \\
+                     & \PROD{DET_CGRPH_SCI_DEROTATED_COADD}\\ 
+                     & \PROD{DET_CGRPH_SCI_CONTRAST_RAW} \\
+                     & \PROD{DET_CGRPH_SCI_CONTRAST_ADI} \\
+                     & \PROD{DET_CGRPH_SCI_THROUGHPUT} \\
+                     & \PROD{DET_CGRPH_SCI_COVERAGEMAP}\\
+                     & \PROD{DET_CGRPH_SCI_SNR}\\
+Expected accuracies: & \TBD\\
+QC1 parameters:  & \QC{QC DET CGRPH SCI}\\
+                 & \QC{QC DET CGRPH SCI FWHM NN}\\
+                 & \QC{QC DET CGRPH SCI SNR MEAN}\\
+                 & \QC{QC DET CGRPH SCI SNR PEAK}\\
+                 & \QC{QC DET CGRPH SCI CONTRAST RAW LAMD}\\
+                 & \QC{QC DET CGRPH SCI CONTRAST ADI LAMD}\\
+                 & \QC{QC DET CGRPH SCI}\\
+  hdrl functions:      & \CODE{hdrl_imagelist_collapse}     \\
+                       & \CODE{hdrl_imagelist_sub_image}        \\
+                       & \CODE{hdrl_catalogue_compute}       \\
+                       & \TODO (resampling routine??)
 \end{recipedef}
 
 \begin{figure}[hb]
   \centering
   \includegraphics[width=0.6\textwidth]{./figures/metis_lm_adi_ravc}
-  \caption[Recipe: \REC{metis_lm_adi_ravc}]{\REC{metis_lm_adi_ravc} -- LM ADI post processing for RAVC/CVC(/CLC) coronagraph.
+  \caption[Recipe: \REC{metis_det_adi_ravc}]{\REC{metis_det_adi_ravc} -- DET ADI post processing for RAVC/CVC(/CLC) coronagraph.
     }
-  \label{fig:metis_lm_adi_ravc}
+  \label{fig:metis_det_adi_ravc}
 \end{figure}
 
 
@@ -97,77 +116,94 @@ While not part of the PIP specs, the current generation of VIP\_HCI ADI reductio
 \label{sssec:adi_img_app}
 
 
-The following recipe is applicable for ADI post processing for the LM and N band, in combination with the APP coronagraph. It is very similar to the recipe for RAVC/CVC(/CLC) coronagraphs, with the addition of steps for merging together the two half PSFs, and of applying an angular wedge mask before the derotation and stacking, and contrast curve calculations steps. An input set of observations consists of a time sequence of ADI images in LM/N band, which have already undergone basic calibration.
+The following recipe is applicable for ADI post processing for the LM
+and N band, in combination with the APP coronagraph. It is very
+similar to the recipe for RAVC/CVC(/CLC) coronagraphs, with the
+addition of steps for merging together the two half PSFs, and of
+applying an angular wedge mask before the derotation and stacking, and
+contrast curve calculations steps. An input set of observations
+consists of a time sequence of ADI images in LM/N band, which have
+already undergone basic calibration.
 
-For each image, the centroid of the central source is determined for all three PSFs and distortion corrections are performed. The PSFs are aligned at a sub-pixel scale and extracted; the extracted coronagraphic PSFs are merged to produce a complete PSF and the third PSF is used to form a cube of calibrated leakage PSFs.
-The mean/median/sigmaclipped PSF is estimated and subtracted from each frame of the merged coronagraphic PSF. Each image is
-then derotated to place the off-axis source at the same on-sky angle and coadded to produce the final stacked science image. In addition, the images prior to PSF subtraction are derotated and combined to produce a second final stacked image.
+For each image, the centroid of the central source is determined for
+all three PSFs and distortion corrections are performed. The PSFs are
+aligned at a sub-pixel scale and extracted; the extracted
+coronagraphic PSFs are merged to produce a complete PSF and the third
+PSF is used to form a cube of calibrated leakage PSFs.  The
+mean/median/sigmaclipped PSF is estimated and subtracted from each
+frame of the merged coronagraphic PSF. Each image is then derotated to
+place the off-axis source at the same on-sky angle and coadded to
+produce the final stacked science image. In addition, the images prior
+to PSF subtraction are derotated and combined to produce a second
+final stacked image.
 
-In addition to the final images, the stack of derotated, PSF subtracted images are used to calculate the raw and post-ADI contrast curves as well as the ADI throughput curve and coverage map containing the effective number of included frames.
+In addition to the final images, the stack of derotated, PSF
+subtracted images are used to calculate the raw and post-ADI contrast
+curves as well as the ADI throughput curve and coverage map containing
+the effective number of included frames.
 
 
 
-\begin{recipedef}
-  Name:                & \REC{metis_lm_adi_app}                                        \\
+
+
+\begin{recipedef}\label{rec:metis_det_adi_app}
+  Name:                & \REC{metis_det_adi_app}                                        \\
   Purpose:             & Classical ADI post processing for APP coronagraph      \\
   Requirements:        & \REQ{METIS-5989}                                               \\
+  Templates:           & \TPL{??}                               \\
   Type:                & Science                                                    \\
   Input data:          & \PROD{LM_SCI_BASIC_REDUCED}                            \\
-                       & Time series of LM\_SCI\_REDUCED images                      \\
-                       & LM distortion table                               \\
+                       & \PROD{LM_DISTORTION_TABLE} \\
                        & Off-axis PSF reference                                                  \\
-                       &                                                  \\
-   Matched keywords:   &              \\
-                       &               \\
-                       &               \\
-                       &               \\
-                       &               \\
-  Parameters:          &  combination approach (median,mean,sigclip) \\
-                       &   combination parameters (e.g., N-sigma)          \\
-                       &  start and end limit to contrast curve (in $\lambda/D$) \\
-  & frame exclusion thresholds dependent on AO parameters and centroid offset \\
-
-  Algorithm:           & Determine centroid of central source \\
-                       & Distortion correction and sub-pixel alignment   \\
-                       & sub-pixel PSF extraction and alignment   \\
-                       & Merge coronagraphic PSFs   \\
-                       & Estimate median PSF   \\
-                       & Subtract median PSF   \\
-                       & De-rotate images   \\
-                       & Coadd images   \\
-                       & Calculate contrast curves   \\
-  & Calculate contrast curve   \\
-  Output data:       & \PROD{LM_APP_SCI_CALIBRATED} (Calibrated Image)                                    \\
-                     & \PROD{LM_APP_SCI_CENTRED} (Cube of individually calibrated and recentered images)                                 \\
-                     & \PROD{LM_APP_CENTROID_TAB} (Table of star centre estimates)                                 \\
-
-                     & \PROD{LM_APP_SCI_SPECKLE} (PSF/speckle image)                                 \\
-                     & \PROD{LM_APP_SCI_DEROTATED_PSFSUB} (Combined derotated image with PSF subtraction)                                 \\
-                     & \PROD{LM_APP_SCI_DEROTATED_COADD} (Combined derotated image without PSF subtraction)                                  \\
-                     & \PROD{LM_APP_SCI_CONTRAST_RAW} (Raw Contrast Curve)                                 \\
-                     & \PROD{LM_APP_SCI_CONTRAST_ADI} (Post ADI Contrast Curve)                                 \\
-                     & \PROD{LM_APP_SCI_THROUGHPUT} (ADI Throughput Curve)                               \\
-
-                     & \PROD{LM_APP_SCI_COVERAGEMAP} (ADI Coverage Map: number of frames
-                     \\
-                     & \PROD{LM_APP_SCI_SNR} (ADI SNR Map)                            \\
-
-  Expected accuracies: & \TBD                                                           \\
-  QC1 parameters:      & \QC{FWHM of PSF by frame}                                      \\
-                       & \QC{Raw and post ADI contrast at seps (1,2,5,10,20,40 lam/D)}                                        \\
-                       & \QC{Mean SNR in ADI map}                                        \\
-                       & \QC{Peak SNR in ADI map}                                         \\
-  hdrl functions:      & \CODE{}                                    \\
-                       & \CODE{}                                 \\
-                       & \CODE{}                                \\
+   Matched keywords:   & Detector ID             \\
+                       & Filter ID               \\
+                       & Object ID               \\
+                       & coronagraphic mask, \TBD\\
+   Parameters:         & combination method (median, mean, sigclip, \dots) \\
+                       & parameters for combination method         \\
+                       & resampling method \\
+                       & parameters for resampling method \\
+                       & start and end limit to contrast curve (in $\lambda/D$) \\
+                       & frame exclusion thresholds dependent on AO parameters and centroid offset \\
+  Algorithm:           & call \hyperref[drl:lm_adi_app_centroid]{\CODE{lm_adi_app_centroid}} or  \hyperref[drl:n_adi_app_centroid]{\CODE{n_adi_app_centroid}} to determine the centroids of the central PSFs \\
+                       & call \hyperref[drl:adi_regrid]{\CODE{adi_regrid}} to apply distortion map and regrid images based on position of central PSFs \\
+                       & call \hyperref[drl:lm_merge_app_adi_psf]{\CODE{lm_merge_app_adi_psf}} of  \hyperref[drl:n_merge_app_adi_psf]{\CODE{n_merge_app_adi_psf}} to merge the coronagraphic PSFs \\
+                       & call \hyperref[drl:lm_adi_app_psf]{\CODE{lm\_adi\_app\_psf}} or \hyperref[drl:n_adi_app_psf]{\CODE{n\_adi\_app\_psf}} to determine the median PSF \\
+                       & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
+                       & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
+                       & coadd derotated images with image mask   (\CODE{hdrl_imagelist_collapse})\\
+                       & call \CODE{det_adi_app_contrast} for raw and post processed images \\
+  Output data:       & \PROD{det_APP_SCI_CALIBRATED}\\ 
+                     & \PROD{det_APP_SCI_CENTRED} \\
+                     & \PROD{det_APP_CENTROID_TAB} \\
+                     & \PROD{det_APP_SCI_SPECKLE} \\
+                     & \PROD{det_APP_SCI_DEROTATED_PSFSUB} \\
+                     & \PROD{det_APP_SCI_DEROTATED_COADD} \\
+                     & \PROD{det_APP_SCI_CONTRAST_RAW} \\
+                     & \PROD{det_APP_SCI_CONTRAST_ADI} \\
+                     & \PROD{det_APP_SCI_THROUGHPUT} \\
+                     & \PROD{det_APP_SCI_COVERAGEMAP} \\
+                     & \PROD{det_APP_SCI_SNR} \\
+Expected accuracies: & \TBD                                                           \\
+QC1 parameters:  & \QC{QC DET APP SCI}\\
+                 & \QC{QC DET APP SCI FWHM NN}\\
+                 & \QC{QC DET APP SCI SNR MEAN}\\
+                 & \QC{QC DET APP SCI SNR PEAK}\\
+                 & \QC{QC DET APP SCI CONTRAST RAW LAMD}\\
+                 & \QC{QC DET APP SCI CONTRAST ADI LAMD}\\
+                 & \QC{QC DET APP SCI}\\
+  hdrl functions:      & \CODE{hdrl_imagelist_collapse}     \\
+                       & \CODE{hdrl_imagelist_sub_image}        \\
+                       & \CODE{hdrl_catalogue_compute}       \\
+                       & \CODE{?? resample}       \\
 \end{recipedef}
 
 \begin{figure}[hb]
   \centering
   \includegraphics[width=0.6\textwidth]{./figures/metis_lm_adi_app}
-  \caption[Recipe: \REC{metis_lm_adi_app}]{\REC{metis_lm_adi_app} -- LM ADI post processing for APP coronagraph.
+  \caption[Recipe: \REC{metis_det_adi_app}]{\REC{metis_det_adi_app} -- ADI post processing for APP coronagraph.
     }
-  \label{fig:metis_lm_adi_app}
+  \label{fig:metis_det_adi_app}
 \end{figure}
 
 
@@ -176,52 +212,73 @@ In addition to the final images, the stack of derotated, PSF subtracted images a
 \label{sssec:adi_ifu}
 
 
-The following recipe is applicable for ADI post processing for the IFU data cubes and the RAVC/CVC and APP coronagraphs. As only a single target can be targeted in the limited field of view the methods overlap between coronagraphs.
-For the IFU observations, the input is a set of reduced 3D (spectral and spatial) data cubes on a rectified grid.
+The following recipe is applicable for ADI post processing for the IFU
+data cubes and the RAVC/CVC and APP coronagraphs. As only a single
+target can be targeted in the limited field of view the methods
+overlap between coronagraphs.  For the IFU observations, the input is
+a set of reduced 3D (spectral and spatial) data cubes on a rectified
+grid. Note that the reduction steps after the square pixel reconstruction
+are essentially identical to the non-IFU case, except for an added dimension
+to loop over. 
 
-For each wavelength slice in each cube the centroid is determined by a QACITS-like algorithm in the case of the focal plane coronagraphs (RAVC/CVC) or through 2D cross-correlation with a template PSF for the APP coronagraph. This centroid information is stored in a table together with timestamps, parallactic angle and bad frame flags (based on AO loop status, AO performance, atmospheric parameters and centroid offset).
-As the ADI step requires square pixels following previous work on combining ADI techniques with IFUs (such as SPHERE/IFS, SINFONI), the rectangular spatial grid is interpolated or nearest neighbor filled to produce a square pixel image.
-It is acknowledged that one spatial dimension is undersampled which may lead to reduced performance compared to a Nyquist-sampled PSF.
-The mean/median/sigmaclipped PSF (in time) is estimated for each wavelength and subtracted from each image in the cube.
-After derotation the cubes are combined in time to give a coadded cube. For the APP a wedge shape is used. The limited field of view of the IFU means that only PSF can be centered on the IFU. The derotated cubes are also used to generate post ADI contrast curves and contrast curves with input from the radial coronagraph throughput profile and off-axis PSFs. In addition coverage maps are produced.
+For each wavelength slice in each cube the centroid is determined by a
+QACITS-like algorithm in the case of the focal plane coronagraphs
+(RAVC/CVC) or through 2D cross-correlation with a template PSF for the
+APP coronagraph. This centroid information is stored in a table
+together with timestamps, parallactic angle and bad frame flags (based
+on AO loop status, AO performance, atmospheric parameters and centroid
+offset).  As the ADI step requires square pixels following previous
+work on combining ADI techniques with IFUs (such as SPHERE/IFS,
+SINFONI), the rectangular spatial grid is interpolated or nearest
+neighbor filled to produce a square pixel image.  It is acknowledged
+that one spatial dimension is undersampled which may lead to reduced
+performance compared to a Nyquist-sampled PSF.  The
+mean/median/sigmaclipped PSF (in time) is estimated for each
+wavelength and subtracted from each image in the cube.  After
+derotation the cubes are combined in time to give a coadded cube. For
+the APP a wedge shape is used. The limited field of view of the IFU
+means that only PSF can be centered on the IFU. The derotated cubes
+are also used to generate post ADI contrast curves and contrast curves
+with input from the radial coronagraph throughput profile and off-axis
+PSFs. In addition coverage maps are produced.
 
-While not part of the PIP specs, the current generation of VIP\_HCI ADI reduction algorithms supports
-the more detailed Marois et al. 2006 ADI routine, PCA-based routines, as well as ADI+mSDI processing to improve the speckle PSF estimation with the additional wavelength information.
+While not part of the PIP specs, the current generation of VIP\_HCI
+ADI reduction algorithms supports the more detailed Marois et al. 2006
+ADI routine, PCA-based routines, as well as ADI+mSDI processing to
+improve the speckle PSF estimation with the additional wavelength
+information.
 
 
 
 \begin{recipedef}
-  Name:                & \REC{metis_ifu_adi_ravc}                                        \\
+  Name:                & \REC{metis_ifu_adi_cgrph}\label{rec:metis_ifu_adi_cgrph}                                        \\
   Purpose:             & Classical ADI post processing for APP/CVC/RAVC(/CLC) coronagraphs with LMS IFU      \\
   Requirements:        & \REQ{METIS-5989}                                               \\
+  Templates:           & \TPL{??}                               \\
   Type:                & Science                                                    \\
   Input data:          & \PROD{IFU_SCI_REDUCED}                            \\
-                       & Time series of IFU\_SCI\_REDUCED images                      \\
-                       & IFU distortion table                               \\
+                       & \PROD{IFU_DISTORTION_TABLE}\\
                        & Coronagraphic throughput map and profile                                                  \\
                        & Off-axis PSF references                                                  \\
-                       &                                                  \\
-   Matched keywords:   &              \\
-                       &               \\
-                       &               \\
-                       &               \\
-                       &               \\
-  Parameters:          &  combination approach (median,mean,sigclip) \\
-                       &   combination parameters (e.g., N-sigma)          \\
-                       &  start and end limit to contrast curve (in $\lambda/D$) \\
-  & frame exclusion thresholds dependent on AO parameters and centroid offset \\
-
-  Algorithm:           & Determine centroid of central source \\
-                       & Distortion correction, square pixel reconstruction and sub-pixel alignment   \\
-                       & Estimate median PSF   \\
-                       & Subtract median PSF   \\
-                       & Derotate images   \\
-                       & Coadd images   \\
-                       & Calculate contrast curves   \\
-
+   Matched keywords:   & Detector ID             \\
+                       & Filter ID               \\
+                       & Object ID               \\
+  Parameters:          & combination method (median, mean, sigclip, \dots)\\
+                       & parameters for combination method        \\
+                       & resampling method \\
+                       & parameters for resampling method \\
+                       & start and end limit to contrast curve (in $\lambda/D$) \\
+                       & frame exclusion thresholds dependent on AO parameters and centroid offset \\
+  Algorithm:           & call \hyperref[drl:lm_adi_cgrph_centroid]{\CODE{det_adi_cgrph_centroid}} to determine the centroids of the central PSFs \\
+                       & call \CODE{ifu_adi_regrid} to perform distortion correction, square pixel reconstruction and sub-pixel alignment   \\
+                       & call \hyperref[drl:lm_adi_cgrph_psf]{\CODE{det\_adi\_cgrph\_psf}} to determine the median PSF \\
+                       & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
+                       & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
+                       & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
+                       & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
   Output data:       & \PROD{IFU_RAVC_SCI_CALIBRATED} (Calibrated Cube)                                    \\
                      & \PROD{IFU_RAVC_SCI_CENTRED} (Cube of individually calibrated and recentered cubes)                                 \\
-                     & \PROD{IFU_RAVC_CENTROID_TAB} (Table of star centre estimages)                                 \\
+                     & \PROD{IFU_RAVC_CENTROID_TAB} (Table of star centre estimates)                                 \\
 
                      & \PROD{IFU_RAVC_SCI_SPECKLE} (PSF/speckle cube)                                 \\
                      & \PROD{IFU_RAVC_SCI_DEROTATED_PSFSUB} (Combined derotated cube with PSF subtraction)                                 \\
@@ -238,17 +295,18 @@ the more detailed Marois et al. 2006 ADI routine, PCA-based routines, as well as
                        & \QC{Raw and post ADI contrast at seps (1,2,5,10,20,40 lam/D)}                                        \\
                        & \QC{Mean SNR in ADI map}                                        \\
                        & \QC{Peak SNR in ADI map}                                         \\
-  hdrl functions:      & \CODE{}                                    \\
-                       & \CODE{}                                 \\
-                       & \CODE{}                                \\
+  hdrl functions:      & \CODE{hdrl_imagelist_collapse}     \\
+                       & \CODE{hdrl_imagelist_sub_image}        \\
+                       & \CODE{hdrl_catalogue_compute}       \\
+                       & \CODE{?? resample}       \\
 \end{recipedef}
 
 \begin{figure}[hb]
   \centering
   \includegraphics[width=0.6\textwidth]{./figures/metis_ifu_adi_ravc}
-  \caption[Recipe: \REC{metis_ifu_adi_ravc}]{\REC{metis_ifu_adi_ravc} -- IFU ADI post processing for RAVC coronagraph.
+  \caption[Recipe: \REC{metis_ifu_adi_cgrph}]{\REC{metis_ifu_adi_cgrph} -- IFU ADI post processing for RAVC/CDC/CLC coronagraph.
     }
-  \label{fig:metis_ifu_adi_ravc}
+  \label{fig:metis_ifu_adi_cgrph}
 \end{figure}
 
 %%% Local Variables:
