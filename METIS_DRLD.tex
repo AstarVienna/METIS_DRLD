@@ -136,6 +136,8 @@
 
 % Check for overleaf https://tex.stackexchange.com/a/598669/2775
 \ifnum\pdfstrcmp{\jobname}{output}=0
+    % Apparently overleaf does not compile from their git repo.
+    \showgitfalse
 \else
 \fi
 
