@@ -10,6 +10,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: METIS_DRLD.tex
+          latexmk_shell_escape: true
           post_compile: mv METIS_DRLD.pdf "METIS_DRLD.$(date +'%Y%m%dT%H%M%S').${{ github.sha }}.pdf"
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
