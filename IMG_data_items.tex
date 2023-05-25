@@ -575,7 +575,7 @@ Description: & Table of distortion information\\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
 Template: & \TPL{??}\\
-Input for recipe: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
+Input for recipe: & \hyperref[rec:lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -601,11 +601,124 @@ Description: & Table of distortion information\\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
 Template: & \TPL{??}\\
-Input for recipe: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
+Input for recipe: & \hyperref[rec:lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
 \paragraph{\hyperref[dataitem:n_distortion_table]{\PROD{N\_DISTORTION\_TABLE}}}\label{drsstructure:n_distortion_table}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{??}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}    
+
+
+\paragraph{\hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}}\label{dataitem:lm_distortion_map}
+
+\begin{recipedef}
+\textbf{\ac{FITS} IMAGE file structure:}\\
+Name: & \hyperref[dataitem:lm_distortion_map]{\FITS{lm\_DISTORTION\_MAP}}\\[0.3cm]
+Description: & Map of pixel scale across the detector\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
+Template: & \TPL{METIS_img_lm_cal_distortion}\\
+Input for recipe: & \hyperref[rec:lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:nrsrfraw}\\
+\end{recipedef}
+\paragraph{\hyperref[dataitem:lm_distortion_map]{\PROD{lm\_DISTORTION\_MAP}}}\label{drsstructure:lm_distortion_map}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{??}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}    
+
+
+
+\paragraph{\hyperref[dataitem:n_distortion_map]{\PROD{N_DISTORTION_MAP}}}\label{dataitem:n_distortion_map}
+
+\begin{recipedef}
+\textbf{\ac{FITS} IMAGE file structure:}\\
+Name: & \hyperref[dataitem:n_distortion_map]{\FITS{n\_DISTORTION\_MAP}}\\[0.3cm]
+Description: & Map of pixel scale across the detector\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
+Template: & \TPL{METIS_img_n_cal_distortion}\\
+Input for recipe: & \hyperref[rec:n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:nrsrfraw}\\
+\end{recipedef}
+\paragraph{\hyperref[dataitem:n_distortion_map]{\PROD{n\_DISTORTION\_MAP}}}\label{drsstructure:n_distortion_map}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{??}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}    
+
+
+
+
+\paragraph{\hyperref[dataitem:lm_dist_reduced]{\PROD{LM_DIST_REDUCED}}}\label{dataitem:lm_dist_reduced}
+
+\begin{recipedef}
+\textbf{\ac{FITS} TABLE file structure:}\\
+Name: & \hyperref[dataitem:lm_dist_reduced]{\FITS{LM\_DIST\_REDUCED}}\\[0.3cm]
+Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
+Template: & \TPL{METIS_img_lm_cal_distortion}\\
+Input for recipe: & \hyperref[rec:lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:nrsrfraw}\\
+\end{recipedef}
+\paragraph{\hyperref[dataitem:lm_dist_reduced]{\PROD{LM\_DIST\_REDUCED}}}\label{drsstructure:lm_dist_reduced}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{??}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}    
+
+
+
+
+\paragraph{\hyperref[dataitem:n_dist_reduced]{\PROD{N_DIST_REDUCED}}}\label{dataitem:n_dist_reduced}
+
+\begin{recipedef}
+\textbf{\ac{FITS} TABLE file structure:}\\
+Name: & \hyperref[dataitem:n_dist_reduced]{\FITS{N\_DIST\_REDUCED}}\\[0.3cm]
+Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
+Template: & \TPL{METIS_img_n_cal_distortion}\\
+Input for recipe: & \hyperref[rec:n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:nrsrfraw}\\
+\end{recipedef}
+\paragraph{\hyperref[dataitem:n_dist_reduced]{\PROD{N\_DIST\_REDUCED}}}\label{drsstructure:n_dist_reduced}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
