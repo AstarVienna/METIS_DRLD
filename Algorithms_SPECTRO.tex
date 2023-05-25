@@ -39,6 +39,12 @@ We therefore will include three different approaches for the telluric correction
 Following the development within the \ac{ELT} working group "Telluric Correction", the newest release\footnote{\color{red}RELEASE EXPECTED IN MAY 2023\color{black}} of \texttt{molecfit} will contain some new features, which will be used in the \ac{METIS} pipelines: (a) a routine to correct transmission spectra for airmass. This allows the usage of \ac{TSS} which are at a different airmass than the science target. (b) a method to quantitatively estimate the quality of the telluric correction on the science frames, which will be used for \ac{QC}. (c) a routine to use the wavelength fit as wavelength calibration for the science observations, i.e. to use telluric features as reference frame. For more details on that new features we refer to the \texttt{molecfit} documentation of the upcoming release and the documents in the working group\footnote{\url{https://eso.org/wiki/pub/ELTScience/Telluric_correction/TelluricWG_20230425.pdf}}.\\
 As mentioned above, \texttt{molecfit} will be the default method. It is therefore on the users responsibility, whether a \ac{TSS} is required/desired. However, the selection of the \ac{TSS} should not be arbitrary, but only possible from a provided catalogue.\\
 If possible, these stars will also be used for the absolute flux calibration \color{red}(TBChecked!!!)\color{black}
+%------------------------------------------------------------------------------
+\subsubsection{Estimate for the quality of the telluric correction (\ac{QC}}\label{sssec:tellcorrqc}
+To estimate the quality of the telluric correction we follow the apporach incorporated with \texttt{molecfit} \textit{(***add Ref to new mf version doc***)}:
+\begin{itemize}
+    \item Smoothing the corrected spectrum with a Savitzky-Golay filter\footnote{\url{https://en.wikipedia.org/wiki/Savitzky\%E2\%80\%93Golay_filter}} (\cite{})
+\end{itemize}
 
 %------------------------------------------------------------------------------
 \subsubsection{Other algorithms included in the telluric correction approach}\label{ssec:otheralgstellcorr}
