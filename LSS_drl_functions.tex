@@ -83,6 +83,27 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
+\subsubsection{Normalise TSS spectrum}\label{drl:normtss}
+\begin{recipedef}\label{drl:normflat}
+Name: & \hyperref[drl:normtss]{\DRL{norm\_tss}} \\
+Purpose: & Creates normalised spectra from \ac{TSS} spectra \\
+Used in recipes: & \hyperref[rec:lsslmstd]{\REC{metis\_LM\_lss\_std}} \\
+& \hyperref[rec:lssnstd]{\REC{metis\_N\_lss\_std}} \\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const hdrl\_image * input} \\
+%Other inputs: & None\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Creates normalised \ac{TSS} stectrum \\
+Mathematical description: &  Polynomial fit on regions known to contain continuum only; these regions will be defined in Table \hyperref[dataitem:tssconttab]{\STATCALIB{TSS_CONT_TAB}}\\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
+
+%---------------------------------------------------------------------
 \subsubsection{Detect order traces}\label{drl:tracedetect}
 Used in recipes:\\ 
 \hyperref[rec:lsslmtrace]{\REC{metis\_LM\_lss\_trace}} \newline
