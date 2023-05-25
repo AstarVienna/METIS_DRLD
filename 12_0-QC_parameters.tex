@@ -1971,6 +1971,73 @@ Description & $n$-th coefficient of the polynomial \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\QC{QC LM DISTORT RMS}}\label{qc:qc_lm_distort_rms}
+\begin{recipedef}
+Name & \QC{QC LM DISTORT RMS} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & float \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & pixels \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:lm_img_distortion]{\REC{lm_img_distortion}}\\
+Description & RMS of deviation of the distortion fit from expected values  \tabularnewline
+Comment & None \tabularnewline
+\end{recipedef}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\QC{QC N DISTORT RMS}}\label{qc:qc_n_distort_rms}
+\begin{recipedef}
+Name & \QC{QC N DISTORT RMS} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & float \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & pixels \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:n_img_distortion]{\REC{n_img_distortion}}\\
+Description & RMS of deviation of the distortion fit from expected values  \tabularnewline
+Comment & None \tabularnewline
+\end{recipedef}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\QC{QC LM DISTORT NSOURCE}}\label{qc:qc_lm_distort_nsource}
+\begin{recipedef}
+Name & \QC{QC LM DISTORT NSOURCE} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & int \tabularnewline
+Value & \%i \tabularnewline
+Unit & None \tabularnewline
+Default & None  \tabularnewline
+Range & 0 to number of pinholes \tabularnewline
+Created by & \hyperref[rec:lm_img_distortion]{\REC{lm_img_distortion}}\\
+Description & number of positions used to fit the distortion polynomial  \tabularnewline
+Comment & None \tabularnewline
+\end{recipedef}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\QC{QC N DISTORT NSOURCE}}\label{qc:qc_n_distort_nsource}
+\begin{recipedef}
+Name & \QC{QC N DISTORT NSOURCE} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & int \tabularnewline
+Value & \%i \tabularnewline
+Unit & None \tabularnewline
+Default & None  \tabularnewline
+Range & 0 to number of pinholes \tabularnewline
+Created by & \hyperref[rec:n_img_distortion]{\REC{n_img_distortion}}\\
+Description & number of positions used to fit the distortion polynomial  \tabularnewline
+Comment & None \tabularnewline
+\end{recipedef}
 
 
 

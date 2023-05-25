@@ -473,16 +473,21 @@ pixel scale across the detector will be created.
   Type:                & Calibration                                                     \\
   Input data:          & Images of grid mask in WCU-FP2 or CFO-FP2.                      \\
                        & Image with WCU window closed (background)                       \\
-  Parameters:          & TBD                                                             \\
-  Algorithm:           & Subtract background image.                                      \\
-                       & Measure location of point source images in frames.              \\
-                       & Fit polynomial coefficients to deviations from grid positions.  \\
-  Output data:         & \PROD{LM_DISTORTION_TABLE} (table with polynomial coefficients) \\
-                       & \PROD{LM_DISTORTION_MAP} (pixel scale across detector)          \\
-                       & \PROD{LM_DIST_REDUCED} (reduced grid mask images)               \\
+                       & Grid of pinhole mask positions \\
+                       & Bad pixel map                                                  \\
+  Parameters:          & Parameters for fitting routine      \\
+                       & \TBD \\
+  Algorithm:           & Subtract background image.    (\CODE{hdrl_imagelist_sub_image})                                  \\
+                       & Measure location of point source images in frames (\CODE{hdrl_catalogue_create})             \\
+                       & call \hyperref[drl:fit_distortion]{\CODE{fit_distortion}} to fit polynomial coefficients to deviations from grid positions.  \\
+  Output data:         & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}} \\
+                       & \hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}        \\
+                       & \hyperref[dataitem:lm_dist_reduced]{\PROD{LM_DIST_REDUCED}}               \\
   Expected accuracies: & TBD                                                             \\
-  QC1 parameters:      & \QC{QC LM DISTORT RMS}                                          \\
+  QC1 parameters:      & \hyperref[qc:qc_lm_distort_rms]{\QC{QC LM DISTORT RMS}}                                          \\
+                       & \hyperref[qc:qc_lm_distort_nsource]{\QC{QC LM DISTORT NSOURCE}}  \\
   hdrl functions:      & \CODE{hdrl_catalogue_create}                                    \\
+                       & \CODE{hdrl_imagelist_sub_image}                                \\
 \end{recipedef}
 
 \begin{figure}[hb]

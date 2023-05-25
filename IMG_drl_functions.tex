@@ -498,3 +498,28 @@ Quality assessment: & None \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
+
+
+
+\subsubsection{Fit Distortion Parameters}\label{drl:fit_distortion}
+\begin{recipedef}
+Name: & \hyperref[drl:fit_distortion]{\DRL{fit_distortion}} \\
+Purpose: & Fit optical distortion coefficients based on pinhole mask image  \\
+Used in recipes: & \hyperref[sssec:lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
+                 & \hyperref[sssec:n_img_distortion]{\REC{metis_n_img_distortion}}\\
+%Working remarks: & None \\
+Function Parameters: & parameters for fitting routine \\
+Input: &   Catalogue of detected sources \\
+       &   \PROD{det_PINHOLE_TABLE}\\
+QC outputs: & \QC{QC det DISTORT RMS}  \\
+            & \QC{QC det DISTORT NSOURCE}  \\
+Output FITS files: & \PROD{det_DIST_REDUCED}\\
+                   & \PROD{det_DISTORTION_MAP}\\
+Outputs:  &  \PROD{det_DISTORTION_TABLE} \\
+          & \texttt{cpl\_error\_code} \\
+General description: &  Fit optical distortion coefficients based on pinhole mask image \\
+Mathematical description: & See Section~\ref{sssec:lm_img_distortion} \\
+Quality assessment: & \TBD \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
