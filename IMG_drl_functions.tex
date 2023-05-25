@@ -511,10 +511,11 @@ Used in recipes: & \hyperref[sssec:lm_img_distortion]{\REC{metis_lm_img_distorti
 Function Parameters: & parameters for fitting routine \\
 Input: &   Catalogue of detected sources \\
        &   \PROD{det_PINHOLE_TABLE}\\
-QC outputs: & \QC{QC LM DISTORT RMS}  \\
-Output FITS files: & \PROD{LM_DIST_REDUCED}\\
-                   & \PROD{LM_DISTORTION_MAP}\\
-Outputs:  &  \PROD{LM_DISTORTION_TABLE} \\
+QC outputs: & \QC{QC det DISTORT RMS}  \\
+            & \QC{QC det DISTORT NSOURCE}  \\
+Output FITS files: & \PROD{det_DIST_REDUCED}\\
+                   & \PROD{det_DISTORTION_MAP}\\
+Outputs:  &  \PROD{det_DISTORTION_TABLE} \\
           & \texttt{cpl\_error\_code} \\
 General description: &  Fit optical distortion coefficients based on pinhole mask image \\
 Mathematical description: & See Section~\ref{sssec:lm_img_distortion} \\
