@@ -40,14 +40,14 @@ Following the development within the \ac{ELT} working group "Telluric Correction
 As mentioned above, \texttt{molecfit} will be the default method. It is therefore on the users responsibility, whether a \ac{TSS} is required/desired. However, the selection of the \ac{TSS} should not be arbitrary, but only possible from a provided catalogue.\\
 If possible, these stars will also be used for the absolute flux calibration \color{red}(TBChecked!!!)\color{black}
 %------------------------------------------------------------------------------
-\subsubsection{Estimate for the quality of the telluric correction (\ac{QC})}\label{sssec:tellcorrqc}
-To estimate the quality of the telluric correction we follow the apporach incorporated with \texttt{molecfit} \textit{(***add Ref to new mf version doc***)}:
+\subsubsection{Estimate for the quality of the telluric correction (QC parameters)}\label{sssec:tellcorrqc}
+To estimate the quality of the telluric correction we follow the approach incorporated with the new \texttt{molecfit} version \textit{(***add Ref to new mf version doc***)}:
 \begin{itemize}
     \item Smoothing the corrected spectrum with a Savitzky-Golay filter\footnote{\url{https://en.wikipedia.org/wiki/Savitzky\%E2\%80\%93Golay_filter}}
     \item dividing the corrected spectrum by the smoothed one; This leads to a normalisation to unity and a crude removal of slopes and intrinsic features
-    \item Determine the mean absolute difference of the resulting spectrum, excluding NaN values on the user
-provided spectral ranges (e.g., only spectral ranges with telluric features).
+    \item Determine the mean absolute difference of the resulting spectrum, excluding \texttt{NaN} values on the user provided spectral ranges (e.g., only spectral ranges with telluric features). 
 \end{itemize}
+\textit{....more maybe to follow when mf is released and more info is available}
 
 %------------------------------------------------------------------------------
 \subsubsection{Other algorithms included in the telluric correction approach}\label{ssec:otheralgstellcorr}
