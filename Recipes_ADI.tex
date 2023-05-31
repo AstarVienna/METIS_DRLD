@@ -55,8 +55,8 @@ routines.
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & \TPL{??} \TBD                               \\
   Type:                & Science                                                    \\
-  Input data:          & \PROD{DET_SCI_BASIC_REDUCED}                            \\
-                       & \PROD{DET_DISTORTION_TABLE} \\
+  Input data:          & \hyperref[dataitem:lmscibasicreduced]{\PROD{LM_SCI_BASIC_REDUCED}} or   \hyperref[dataitem:lmscibasicreduced]{\PROD{N_SCI_BASIC_REDUCED}}                         \\
+                       & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}} or \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}} \\
                        & Coronagraphic throughput map and profile         \\
                        & Off-axis PSF references                          \\
    Matched keywords:   & Detector ID             \\
@@ -76,25 +76,24 @@ routines.
                        & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
-  Output data:       & \PROD{DET_CGRPH_SCI_CALIBRATED}\\ 
-                     & \PROD{DET_CGRPH_SCI_CENTRED} \\
-                     & \PROD{DET_CGRPH_CENTROID_TAB} \\
-                     & \PROD{DET_CGRPH_SCI_SPECKLE} \\
-                     & \PROD{DET_CGRPH_SCI_DEROTATED_PSFSUB_COADD} \\
-                     & \PROD{DET_CGRPH_SCI_DEROTATED_COADD}\\ 
-                     & \PROD{DET_CGRPH_SCI_CONTRAST_RAW} \\
-                     & \PROD{DET_CGRPH_SCI_CONTRAST_ADI} \\
-                     & \PROD{DET_CGRPH_SCI_THROUGHPUT} \\
-                     & \PROD{DET_CGRPH_SCI_COVERAGEMAP}\\
-                     & \PROD{DET_CGRPH_SCI_SNR}\\
+  Output data:       & \hyperref[dataitem:det_cgrph_sci_calibrated]{\PROD{DET_CGRPH_SCI_CALIBRATED}}\\ 
+                     & \hyperref[dataitem:det_cgrph_sci_centred]{\PROD{DET_CGRPH_SCI_CENTRED} }\\
+                     & \hyperref[dataitem:det_cgrph_centroid_tab]{\PROD{DET_CGRPH_CENTROID_TAB} }\\
+                     & \hyperref[dataitem:det_cgrph_sci_speckle]{\PROD{DET_CGRPH_SCI_SPECKLE} }\\
+                     & \hyperref[dataitem:det_cgrph_sci_derotated_psfsub]{\PROD{DET_CGRPH_SCI_DEROTATED_PSFSUB} }\\
+                     & \hyperref[dataitem:det_cgrph_sci_derotated]{\PROD{DET_CGRPH_SCI_DEROTATED}}\\ 
+                     & \hyperref[dataitem:det_cgrph_sci_contrast_raw]{\PROD{DET_CGRPH_SCI_CONTRAST_RAW} }\\
+                     & \hyperref[dataitem:det_cgrph_sci_contrast_adi]{\PROD{DET_CGRPH_SCI_CONTRAST_ADI} }\\
+                     & \hyperref[dataitem:det_cgrph_sci_throughput]{\PROD{DET_CGRPH_SCI_THROUGHPUT} }\\
+                     & \hyperref[dataitem:det_cgrph_sci_coverage]{\PROD{DET_CGRPH_SCI_COVERAGE}}\\
+                     & \hyperref[dataitem:det_cgrph_sci_snr]{\PROD{DET_CGRPH_SCI_SNR}}\\
 Expected accuracies: & \TBD\\
-QC1 parameters:  & \QC{QC DET CGRPH SCI}\\
-                 & \QC{QC DET CGRPH SCI FWHM NN}\\
-                 & \QC{QC DET CGRPH SCI SNR MEAN}\\
-                 & \QC{QC DET CGRPH SCI SNR PEAK}\\
-                 & \QC{QC DET CGRPH SCI CONTRAST RAW LAMD}\\
-                 & \QC{QC DET CGRPH SCI CONTRAST ADI LAMD}\\
-                 & \QC{QC DET CGRPH SCI}\\
+QC1 parameters:  & \hyperref[qc:det_cgrph_sci_nexposures]{\QC{QC DET CGRPH SCI NEXPOSURES}}\\
+                 & \hyperref[qc:det_cgrph_sci_fwhm_nn]{\QC{QC DET CGRPH SCI FWHM NN}}\\
+                 & \hyperref[qc:det_cgrph_sci_snr_mean]{\QC{QC DET CGRPH SCI SNR MEAN}}\\
+                 & \hyperref[qc:det_cgrph_sci_snr_peak]{\QC{QC DET CGRPH SCI SNR PEAK}}\\
+                 & \hyperref[qc:det_cgrph_sci_contrast_raw_lamd]{\QC{QC DET CGRPH SCI CONTRAST RAW LAMD}}\\
+                 & \hyperref[qc:det_cgrph_sci_contrast_adi_lamd]{\QC{QC DET CGRPH SCI CONTRAST ADI LAMD}}\\
   hdrl functions:      & \CODE{hdrl_imagelist_collapse}     \\
                        & \CODE{hdrl_imagelist_sub_image}        \\
                        & \CODE{hdrl_catalogue_compute}       \\
@@ -152,8 +151,8 @@ the effective number of included frames.
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & \TPL{??}                               \\
   Type:                & Science                                                    \\
-  Input data:          & \PROD{LM_SCI_BASIC_REDUCED}                            \\
-                       & \PROD{LM_DISTORTION_TABLE} \\
+  Input data:          & \hyperref[dataitem:lmscibasicreduced]{\PROD{LM_SCI_BASIC_REDUCED}}                            \\
+                       & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}} \\
                        & Off-axis PSF reference                                                  \\
    Matched keywords:   & Detector ID             \\
                        & Filter ID               \\
@@ -172,26 +171,25 @@ the effective number of included frames.
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
                        & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images with image mask   (\CODE{hdrl_imagelist_collapse})\\
-                       & call \CODE{det_adi_app_contrast} for raw and post processed images \\
-  Output data:       & \PROD{det_APP_SCI_CALIBRATED}\\ 
-                     & \PROD{det_APP_SCI_CENTRED} \\
-                     & \PROD{det_APP_CENTROID_TAB} \\
-                     & \PROD{det_APP_SCI_SPECKLE} \\
-                     & \PROD{det_APP_SCI_DEROTATED_PSFSUB} \\
-                     & \PROD{det_APP_SCI_DEROTATED_COADD} \\
-                     & \PROD{det_APP_SCI_CONTRAST_RAW} \\
-                     & \PROD{det_APP_SCI_CONTRAST_ADI} \\
-                     & \PROD{det_APP_SCI_THROUGHPUT} \\
-                     & \PROD{det_APP_SCI_COVERAGEMAP} \\
-                     & \PROD{det_APP_SCI_SNR} \\
+                       & call \hyperref[drl:lm_adi_app_contrast]{\CODE{lm_adi_app_contrast}} for raw and post processed images \\
+  Output data:       & \hyperref[dataitem:det_app_sci_calibrated]{\PROD{det_APP_SCI_CALIBRATED}}\\ 
+                     & \hyperref[dataitem:det_app_sci_centred]{\PROD{det_APP_SCI_CENTRED} }\\
+                     & \hyperref[dataitem:det_app_centroid_tab]{\PROD{det_APP_CENTROID_TAB} }\\
+                     & \hyperref[dataitem:det_app_sci_speckle]{\PROD{det_APP_SCI_SPECKLE} }\\
+                     & \hyperref[dataitem:det_app_sci_derotated_psfsub]{\PROD{det_APP_SCI_DEROTATED_PSFSUB} }\\
+                     & \hyperref[dataitem:det_app_sci_derotated]{\PROD{det_APP_SCI_DEROTATED} }\\
+                     & \hyperref[dataitem:det_app_sci_contrast_raw]{\PROD{det_APP_SCI_CONTRAST_RAW} }\\
+                     & \hyperref[dataitem:det_app_sci_contrast_adi]{\PROD{det_APP_SCI_CONTRAST_ADI} }\\
+                     & \hyperref[dataitem:det_app_sci_throughput]{\PROD{det_APP_SCI_THROUGHPUT} }\\
+                     & \hyperref[dataitem:det_app_sci_coverage]{\PROD{det_APP_SCI_COVERAGE} }\\
+                     & \hyperref[dataitem:det_app_sci_snr]{\PROD{det_APP_SCI_SNR} }\\
 Expected accuracies: & \TBD                                                           \\
-QC1 parameters:  & \QC{QC DET APP SCI}\\
-                 & \QC{QC DET APP SCI FWHM NN}\\
-                 & \QC{QC DET APP SCI SNR MEAN}\\
-                 & \QC{QC DET APP SCI SNR PEAK}\\
-                 & \QC{QC DET APP SCI CONTRAST RAW LAMD}\\
-                 & \QC{QC DET APP SCI CONTRAST ADI LAMD}\\
-                 & \QC{QC DET APP SCI}\\
+QC1 parameters:  & \hyperref[qc:det_app_sci_nexposures]{\QC{QC DET APP SCI NEXPOSURES}}\\
+                 & \hyperref[qc:det_app_sci_fwhm_nn]{\QC{QC DET APP SCI FWHM NN}}\\
+                 & \hyperref[qc:det_app_sci_snr_mean]{\QC{QC DET APP SCI SNR MEAN}}\\
+                 & \hyperref[qc:det_app_sci_snr_peak]{\QC{QC DET APP SCI SNR PEAK}}\\
+                 & \hyperref[qc:det_app_sci_contrast_raw_lamd]{\QC{QC DET APP SCI CONTRAST RAW LAMD}}\\
+                 & \hyperref[qc:det_app_sci_contrast_adi_lamd]{\QC{QC DET APP SCI CONTRAST ADI LAMD}}\\
   hdrl functions:      & \CODE{hdrl_imagelist_collapse}     \\
                        & \CODE{hdrl_imagelist_sub_image}        \\
                        & \CODE{hdrl_catalogue_compute}       \\
@@ -256,8 +254,8 @@ information.
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & \TPL{??}                               \\
   Type:                & Science                                                    \\
-  Input data:          & \PROD{IFU_SCI_REDUCED}                            \\
-                       & \PROD{IFU_DISTORTION_TABLE}\\
+  Input data:          & \hyperref[dataitem:ifu_cgrph_sci_reduced]{\PROD{IFU_CGRPH_SCI_REDUCED}}                            \\
+                       & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}\\
                        & Coronagraphic throughput map and profile                                                  \\
                        & Off-axis PSF references                                                  \\
    Matched keywords:   & Detector ID             \\
@@ -270,31 +268,31 @@ information.
                        & start and end limit to contrast curve (in $\lambda/D$) \\
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
   Algorithm:           & call \hyperref[drl:lm_adi_cgrph_centroid]{\CODE{det_adi_cgrph_centroid}} to determine the centroids of the central PSFs \\
-                       & call \CODE{ifu_adi_regrid} to perform distortion correction, square pixel reconstruction and sub-pixel alignment   \\
+                       & call \hyperref[drl:adi_regrid]{\CODE{ifu_adi_regrid}} to perform distortion correction, square pixel reconstruction and sub-pixel alignment   \\
                        & call \hyperref[drl:lm_adi_cgrph_psf]{\CODE{det\_adi\_cgrph\_psf}} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
                        & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
-  Output data:       & \PROD{IFU_RAVC_SCI_CALIBRATED} (Calibrated Cube)                                    \\
-                     & \PROD{IFU_RAVC_SCI_CENTRED} (Cube of individually calibrated and recentered cubes)                                 \\
-                     & \PROD{IFU_RAVC_CENTROID_TAB} (Table of star centre estimates)                                 \\
-
-                     & \PROD{IFU_RAVC_SCI_SPECKLE} (PSF/speckle cube)                                 \\
-                     & \PROD{IFU_RAVC_SCI_DEROTATED_PSFSUB} (Combined derotated cube with PSF subtraction)                                 \\
-                     & \PROD{IFU_RAVC_SCI_DEROTATED_COADD} (Combined derotated cube without PSF subtraction)                                  \\
-                     & \PROD{IFU_RAVC_SCI_CONTRAST_RAW} (Raw Contrast Curves)                                 \\
-                     & \PROD{IFU_RAVC_SCI_CONTRAST_ADI} (Post ADI Contrast Curves)                                 \\
-                     & \PROD{IFU_RAVC_SCI_THROUGHPUT} (ADI Throughput Curves)                               \\
-                     & \PROD{IFU_RAVC_SCI_SNR} (ADI SNR Map)                            \\
-                     
-                                      & \PROD{IFU_RAVC_SCI_COVERAGEMAP} (ADI Coverage Map: number of frames)                            \\
+  Output data:       & \hyperref[dataitem:ifu_cgrph_sci_calibrated]{\PROD{IFU_CGRPH_SCI_CALIBRATED}           }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_centred]{\PROD{IFU_CGRPH_SCI_CENTRED}                                }\\
+                     & \hyperref[dataitem:ifu_cgrph_centroid_tab]{\PROD{IFU_CGRPH_CENTROID_TAB}                                }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_speckle]{\PROD{IFU_CGRPH_SCI_SPECKLE}                               }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_derotated_psfsub]{\PROD{IFU_CGRPH_SCI_DEROTATED_PSFSUB}                                 }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_derotated]{\PROD{IFU_CGRPH_SCI_DEROTATED}                                  }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_contrast_raw]{\PROD{IFU_CGRPH_SCI_CONTRAST_RAW}                                 }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_contrast_adi]{\PROD{IFU_CGRPH_SCI_CONTRAST_ADI}                                 }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_throughput]{\PROD{IFU_CGRPH_SCI_THROUGHPUT}                             }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_snr]{\PROD{IFU_CGRPH_SCI_SNR}                          }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_coverage]{\PROD{IFU_CGRPH_SCI_COVERAGE}}                           \\
 
   Expected accuracies: & \TBD                                                           \\
-  QC1 parameters:      & \QC{FWHM of PSF by frame}                                      \\
-                       & \QC{Raw and post ADI contrast at seps (1,2,5,10,20,40 lam/D)}                                        \\
-                       & \QC{Mean SNR in ADI map}                                        \\
-                       & \QC{Peak SNR in ADI map}                                         \\
+  QC1 parameters: & \hyperref[qc:ifu_cgrph_sci_nexposures]{\QC{QC IFU CGRPH SCI NEXPOSURES}}\\
+                  & \hyperref[qc:ifu_cgrph_sci_fwhm_nn]{\QC{QC IFU CGRPH SCI FWHM NN}}\\
+                  & \hyperref[qc:ifu_cgrph_sci_snr_mean]{\QC{QC IFU CGRPH SCI SNR MEAN}}\\
+                  & \hyperref[qc:ifu_cgrph_sci_snr_peak]{\QC{QC IFU CGRPH SCI SNR PEAK}}\\
+                  & \hyperref[qc:ifu_cgrph_sci_contrast_raw_lamd]{\QC{QC IFU CGRPH SCI CONTRAST RAW LAMD}}\\
+                  & \hyperref[qc:ifu_cgrph_sci_contrast_adi_lamd]{\QC{QC IFU CGRPH SCI CONTRAST ADI LAMD}}\\
   hdrl functions:      & \CODE{hdrl_imagelist_collapse}     \\
                        & \CODE{hdrl_imagelist_sub_image}        \\
                        & \CODE{hdrl_catalogue_compute}       \\
