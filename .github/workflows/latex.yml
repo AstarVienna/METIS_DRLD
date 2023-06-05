@@ -1,5 +1,14 @@
 name: Build LaTeX document
-on: [push]
+on:
+  schedule:
+    - # Run every day at 5:00 UTC
+    - cron: "0 5 * * *"
+
+  pull_request:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   build_latex:
     runs-on: ubuntu-latest
