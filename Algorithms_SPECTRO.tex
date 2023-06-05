@@ -5,7 +5,13 @@
 Due to the dense molecular absorptions arising from the Earth's atmosphere, nearly every \ac{MIR} regime spectrum requires a correction for these telluric features. The required atmospheric transmission curve can be achieved either by specific observations of a telluric standard star (\ac{TSS}, the "classical" way) or by a modelling approach. \\
 %------------------------------------------------------------------------------
 \subsubsection{Classic approach with a standard star:}\label{sssec:tecllcorrclassic}
-A telluric standard star (\ac{TSS}) spectrum is taken ideally directly before/after the science observations near the science target position (or at least at the same airmass) to probe the same pathway through the Earth's atmosphere. This \ac{TSS}-spectrum is processed in the same way as the science spectrum (except the absolute flux calibration). To remove intrinsic stellar features this spectrum is corrected with a model spectrum of this \ac{TSS}. Finally its continuum is normalised to unity. The resulting normalised spectrum (ideally) only contains the fingerprint of the Earth's atmospheric absorptions and can be used for the telluric correction.\\
+A telluric standard star (\ac{TSS}) spectrum is taken ideally directly before/after the science observations near the science target position (or at least at the same airmass) to probe the same pathway through the Earth's atmosphere. The most simplest approach can be described by
+\begin{equation}
+    F_\textrm{sci}=F_{0,\textrm{cal}}*\left(S_\textrm{sci}/S_\textrm{cal}\right)*\left(T_\textrm{SkyCalc_cal} / T_\textrm{SkyCal_sci}\right)
+\end{equation}
+where $S_\textrm{sci}$ and $S_\textrm{cal}$ are the measured fluxes (e.g. in [\ac{ADU}]) of the science target and the standard star and $F_{0,\textrm{cal}}$ is a model of the standard star in physical flux units. Thus, the standard star is used for the flux calibration, i.e. the conversion between \ac{ADU] and physical units to correct for the instrumental throughput. In ca
+
+This \ac{TSS}-spectrum is processed in the same way as the science spectrum (except the absolute flux calibration). To remove intrinsic stellar features this spectrum is corrected with a model spectrum of this \ac{TSS}. Finally its continuum is normalised to unity. The resulting normalised spectrum (ideally) only contains the fingerprint of the Earth's atmospheric absorptions and can be used for the telluric correction.\\
 There are several sources for model spectra available:
 \begin{itemize}
     \item Cohen set (\cite{coh99}): Set of 422 stellar model templates, mainly K and M giants. One of the standard sets in \ac{MIR}.
@@ -13,9 +19,7 @@ There are several sources for model spectra available:
     \item Phoenix library\footnote{\url{https://phoenix.astro.physik.uni-goettingen.de/}}\cite{phoenix}: Library of synthetic medium and high resolution spectra between $0.5...5.5\mu$m covering a wide stellar parameter space ($2,300\textrm{K}\leq T_\textrm{eff}\leq12,000\textrm{K}$; $0.0\leq\log g\leq+6.0$; $-4.0\leq$[Fe/H]$\leq+1.0$; $0.2\leq$[$\alpha$/Fe]$\leq+1.2$). \\
 \end{itemize}
 The \ac{METIS} consortium will soon look into that topic and to assemble a set of appropriate \ac{TSS} stars for each observing mode.
-\begin{equation}
-    F_\textrm{sci}=F_{0,\textrm{cal}}*\left(S_\textrm{sci}/S_\textrm{cal}\right)*\left(T_\textrm{skyCalcal} / T_\textrm{skyCalsci}\right)
-\end{equation}
+
 %------------------------------------------------------------------------------
 \subsubsection{Modelling synthetic transmission spectra:}
 In the last years the modelling method has evolved. It is based on radiative transfer modelling of the Earth's atmosphere. A height model of the Earth's atmosphere containing information of pressure, temperature and the concentration of molecules in combination with a radiative transfer model and a molecular line list is used to calculate a transmission function of the Earth's atmosphere at the time of observations. By fitting specific atmospheric absorption features in the science spectra and varying the input height profile allows to determine the state of the Earth's atmosphere at the time of observation. The best-fit transmission function is finally used for the telluric correction.\\
