@@ -306,30 +306,6 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:ifu_cgrph_centroid_tab]}{\RAW{IFU_CGRPH\_CENTROID\_TAB}}\label{dataitem:ifu_cgrph_centroid_tab}
-\begin{recipedef}
-\textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:ifu_cgrph_centroid_tab]{\FITS{IFU_CGRPH\_CENTROID\_TAB}}\\[0.3cm]
-Description: & Table of source centroid positions for a sequence of ADI images \\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{IFU_CGRPH\_CENTROID\_TAB}\\[0.3cm]
-Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH\_CENTROID\_TAB}}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
-    \item \texttt{hdrl\_image * image: ??}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
-
 
 
 %\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
