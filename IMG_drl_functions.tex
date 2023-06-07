@@ -78,7 +78,7 @@ Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
     
-\subsubsection{Source Extraction}\label{drl:img_source_extraction}
+\subsubsection{Source extraction}\label{drl:img_source_extraction}
 \begin{recipedef}
 Name: & \hyperref[drl:img_source_extraction]{\DRL{img_source_extraction}} \\
 Purpose: &Measure and extract source information for position calibration\\
@@ -94,6 +94,27 @@ Input: & \texttt{const hdrl\_image * input} \\
 Outputs: & star flux [counts] and location [px]\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Measure and extract sources on a image \\
+Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+
+\subsubsection{Astrometry calibration}\label{drl:img_astrometry_calib}
+\begin{recipedef}
+Name: & \hyperref[drl:img_astrometry_calib]{\DRL{img_astrometry_calib}} \\
+Purpose: &Calculate the conversion bewtween pixels and sky coordinates\\
+Used in recipes: & \hyperref[rec:metis_lm_img_astrometry_process]{\REC{metis_lm_img_astrometry_process}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const hdrl\_image * input} \\
+     %\texttt{const ls\_master_dark_image * input} \\
+    %\texttt{const ls\_master_flat_image * input} \\
+%Other inputs: & None \\
+%QC outputs: & None\\
+%Output FITS files: & None \\
+Outputs: & \texttt{cpl\_error\_code} \\
+General description: & Astrometry calibration \\
 Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
