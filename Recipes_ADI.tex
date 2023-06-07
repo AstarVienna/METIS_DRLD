@@ -55,9 +55,9 @@ routines.
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & \TPL{??} \TBD                               \\
   Type:                & Science                                                    \\
-  Input data:          & \hyperref[dataitem:lmscibasicreduced]{\PROD{LM_SCI_BASIC_REDUCED}} \\
+  Input data:          & \hyperref[dataitem:lm_sci_basic_reduced]{\PROD{LM_SCI_BASIC_REDUCED}} \\
 % TODO: There used to be a reference to N_SCI_BASIC_REDUCED here, but that is not defined, should it be added?
-% or   \hyperref[dataitem:nscibasicreduced]{\PROD{N_SCI_BASIC_REDUCED}}                         \\
+% or   \hyperref[dataitem:n_sci_basic_reduced]{\PROD{N_SCI_BASIC_REDUCED}}                         \\
                        & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}} or \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}} \\
                        & Coronagraphic throughput map and profile         \\
                        & Off-axis PSF references                          \\
@@ -73,7 +73,7 @@ routines.
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
   Algorithm:           & call \hyperref[drl:lm_adi_cgrph_centroid]{\CODE{lm_adi_cgrph_centroid}}  or \hyperref[drl:n_adi_cgrph_centroid]{\CODE{n_adi_cgrph_centroid}} to determine the centroids of the central PSFs \\
                        & call \hyperref[drl:adi_regrid]{\CODE{adi_regrid}} to apply distortion map and regrid images based on position of central PSFs \\
-                       & call \hyperref[drl:lm_adi_cgrph_psf]{\CODE{lm\_adi\_cgrph\_psf}} or \hyperref[drl:n_adi_cgrph_psf]{\CODE{n\_adi\_cgrph\_psf}} to determine the median PSF \\
+                       & call \hyperref[drl:lm_adi_cgrph_psf]{\CODE{lm_adi_cgrph_psf}} or \hyperref[drl:n_adi_cgrph_psf]{\CODE{n_adi_cgrph_psf}} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
                        & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
@@ -153,7 +153,7 @@ the effective number of included frames.
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & \TPL{??}                               \\
   Type:                & Science                                                    \\
-  Input data:          & \hyperref[dataitem:lmscibasicreduced]{\PROD{LM_SCI_BASIC_REDUCED}}                            \\
+  Input data:          & \hyperref[dataitem:lm_sci_basic_reduced]{\PROD{LM_SCI_BASIC_REDUCED}}                            \\
                        & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}} \\
                        & Off-axis PSF reference                                                  \\
    Matched keywords:   & Detector ID             \\
@@ -169,7 +169,7 @@ the effective number of included frames.
   Algorithm:           & call \hyperref[drl:lm_adi_app_centroid]{\CODE{lm_adi_app_centroid}} or  \hyperref[drl:n_adi_app_centroid]{\CODE{n_adi_app_centroid}} to determine the centroids of the central PSFs \\
                        & call \hyperref[drl:adi_regrid]{\CODE{adi_regrid}} to apply distortion map and regrid images based on position of central PSFs \\
                        & call \hyperref[drl:lm_merge_app_adi_psf]{\CODE{lm_merge_app_adi_psf}} of  \hyperref[drl:n_merge_app_adi_psf]{\CODE{n_merge_app_adi_psf}} to merge the coronagraphic PSFs \\
-                       & call \hyperref[drl:lm_adi_app_psf]{\CODE{lm\_adi\_app\_psf}} or \hyperref[drl:n_adi_app_psf]{\CODE{n\_adi\_app\_psf}} to determine the median PSF \\
+                       & call \hyperref[drl:lm_adi_app_psf]{\CODE{lm_adi_app_psf}} or \hyperref[drl:n_adi_app_psf]{\CODE{n_adi_app_psf}} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
                        & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images with image mask   (\CODE{hdrl_imagelist_collapse})\\
@@ -271,7 +271,7 @@ information.
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
   Algorithm:           & call \hyperref[drl:lm_adi_cgrph_centroid]{\CODE{det_adi_cgrph_centroid}} to determine the centroids of the central PSFs \\
                        & call \hyperref[drl:adi_regrid]{\CODE{ifu_adi_regrid}} to perform distortion correction, square pixel reconstruction and sub-pixel alignment   \\
-                       & call \hyperref[drl:lm_adi_cgrph_psf]{\CODE{det\_adi\_cgrph\_psf}} to determine the median PSF \\
+                       & call \hyperref[drl:lm_adi_cgrph_psf]{\CODE{det_adi_cgrph_psf}} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
                        & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\

@@ -65,7 +65,7 @@ TBD
 \subsubsection{Normalise RSRF}\label{drl:normrsrf}
 \begin{recipedef}\label{drl:normflat}
 Name: & \hyperref[drl:normflat]{\DRL{norm_flat}} \\
-Purpose: & Creates normalised flats from \hyperref[dataitem:lmlssrsrfraw]{\PROD{LM_LSS_RSRF_RAW}} / \hyperref[dataitem:nlssrsrfraw]{\PROD{N_LSS_RSRF_RAW}}\\
+Purpose: & Creates normalised flats from \hyperref[dataitem:lm_lss_rsrf_raw]{\PROD{LM_LSS_RSRF_RAW}} / \hyperref[dataitem:n_lss_rsrf_raw]{\PROD{N_LSS_RSRF_RAW}}\\
 Used in recipes: & \hyperref[rec:lsslmrsrf]{\REC{metis_LM_lss_rsrf}} \\
 & \hyperref[rec:lssnrsrf]{\REC{metis_N_lss_rsrf}} \\
 %Working remarks: & None \\
@@ -85,10 +85,10 @@ Unit tests: & See \cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Normalise TSS spectrum}\label{drl:normtss}
 \begin{recipedef}\label{drl:norm_tss}
-Name: & \hyperref[drl:normtss]{\DRL{norm\_tss}} \\
+Name: & \hyperref[drl:normtss]{\DRL{norm_tss}} \\
 Purpose: & Creates normalised spectra from \ac{TSS} spectra \\
-Used in recipes: & \hyperref[rec:lsslmstd]{\REC{metis\_LM\_lss\_std}} \\
-& \hyperref[rec:lssnstd]{\REC{metis\_N\_lss\_std}} \\
+Used in recipes: & \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}} \\
+& \hyperref[rec:lssnstd]{\REC{metis_N_lss_std}} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -97,7 +97,7 @@ Input: & \texttt{const hdrl\_image * input} \\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Creates normalised \ac{TSS} stectrum \\
-Mathematical description: &  Polynomial fit on regions known to contain continuum only; these regions will be defined in Table \hyperref[dataitem:tssconttab]{\STATCALIB{TSS_CONT_TAB}}\\
+Mathematical description: &  Polynomial fit on regions known to contain continuum only; these regions will be defined in Table \hyperref[dataitem:tss_cont_tab]{\STATCALIB{TSS_CONT_TAB}}\\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
@@ -116,8 +116,8 @@ TBD
 \subsubsection{Apply RSRF}\label{drl:applyrsrf}
 \begin{recipedef}
 Name: & \hyperref[drl:applyrsrf]{\DRL{apply_rsrf}}\\
-Purpose: & applies \hyperref[dataitem:lsslmrsrfmaster]{\PROD{MASTER_LM_LSS_RSRF}} to LM-frames\newline
-           applies \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER_N_LSS_RSRF}} to N-frames\\
+Purpose: & applies \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} to LM-frames\newline
+           applies \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}} to N-frames\\
 Used in recipes: & \hyperref[rec:lsslmtrace]{\REC{metis_LM_lss_trace}} \newline
                  \hyperref[rec:lssntrace]{\REC{metis_N_lss_trace}} \newline
                  \hyperref[rec:lsslmwave]{\REC{metis_LM_lss_wave}} \newline
@@ -135,7 +135,7 @@ Inputs: & \texttt{const hdrl\_image * input}\\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Normal flatfield process for correcting pixel-to-pixel sensitivities \\
-Mathematical description: & Division by \hyperref[dataitem:lsslmrsrfmaster]{\PROD{MASTER_LM_LSS_RSRF}} or  \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER_N_LSS_RSRF}}, respectively \\
+Mathematical description: & Division by \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} or  \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}, respectively \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
@@ -222,7 +222,7 @@ Unit tests: & See \cite{DRLVT}. \\
 \subsubsection{Apply flux calibration}\label{drl:applyfluxcal}
 \begin{recipedef}
 Name: & \hyperref[drl:applyfluxcal]{\DRL{apply_fluxcal}}\\
-Purpose: & applies \hyperref[dataitem:lsslmresp]{\PROD{MASTER_LM_RESPONSE}} or \hyperref[dataitem:lssnresp]{\PROD{MASTER_N_RESPONSE}} to science frames\\
+Purpose: & applies \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}} or \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}} to science frames\\
 Used in recipes: & \hyperref[rec:lsslmsci]{\REC{metis_LM_lss_sci}} \newline
                  \hyperref[rec:lssnsci]{\REC{metis_N_lss_sci}} \\
 %Working remarks: & None \\

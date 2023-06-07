@@ -1,19 +1,19 @@
 
 \subsection{Static and external calibration database data items}\label{ssec:caldb_items_structures}
-Static calibrations are data which are updated very rarely only and stay static the most of the time or arise from external sources. The first data are created by specific calibration recipes invoked only once in a while (e.g. the detector linearity and gain determination section~\ref{sssec:metis_det_lingain}). External data either created individually for each frame by \ac{ESO} as in case of the \hyperref[dataitem:persistencemap]{\PROD{PERSISTENCE_MAP}}, or taken from external databases (e.g. \ac{HITRAN} in case of the \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}).
+Static calibrations are data which are updated very rarely only and stay static the most of the time or arise from external sources. The first data are created by specific calibration recipes invoked only once in a while (e.g. the detector linearity and gain determination section~\ref{sssec:metis_det_lingain}). External data either created individually for each frame by \ac{ESO} as in case of the \hyperref[dataitem:persistence_map]{\PROD{PERSISTENCE_MAP}}, or taken from external databases (e.g. \ac{HITRAN} in case of the \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}).
 
 \subsubsection{General calibration database item structures}\label{sssec:generalcaldbdatastructs}
 This section describes items of the static calibration database, which are used in all/more than one, the \ac{IMG} and the \ac{LSS} pipelines. This concerns mainly the detector calibration files.
 
-\paragraph{\hyperref[dataitem:persistencemap]{\PROD{PERSISTENCE_MAP}}}\label{dataitem:persistencemap}
+\paragraph{\hyperref[dataitem:persistence_map]{\PROD{PERSISTENCE_MAP}}}\label{dataitem:persistence_map}
 
-\paragraph{\hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_det}}}\label{dataitem:gainmapdet}\label{dataitem:gainmap}
+\paragraph{\hyperref[dataitem:gain_map_det]{\PROD{GAIN_MAP_det}}}\label{dataitem:gain_map_det}\label{dataitem:gainmap}
 
-\paragraph{\hyperref[dataitem:gainmap2rg]{\PROD{GAIN_MAP_2RG}}}\label{dataitem:gainmap2rg}
-See \hyperref[dataitem:gainmapdet]{\PROD{GAIN_MAP_det}}.
+\paragraph{\hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}}\label{dataitem:gain_map_2rg}
+See \hyperref[dataitem:gain_map_det]{\PROD{GAIN_MAP_det}}.
 
-\paragraph{\hyperref[dataitem:gainmapgeo]{\PROD{GAIN_MAP_GEO}}}\label{dataitem:gainmapgeo}
-See \hyperref[dataitem:gainmapdet]{\PROD{GAIN_MAP_det}}.
+\paragraph{\hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}}}\label{dataitem:gain_map_geo}
+See \hyperref[dataitem:gain_map_det]{\PROD{GAIN_MAP_det}}.
 
 %\clearpage
 \subsubsection{LMS calibration database item structures}\label{sssec:lmscaldbdatastructs}
@@ -26,10 +26,10 @@ See \hyperref[dataitem:gainmapdet]{\PROD{GAIN_MAP_det}}.
 \subsubsection{LSS calibration database item structures}\label{sssec:lsscaldbdatastructs}
 \textbf{External static calibration data}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}}}\label{dataitem:atmlinecat}
+\paragraph{\hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}}\label{dataitem:atm_line_cat}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:atmlinecat]{\FITS{ATM_LINE_CAT}}\\[0.3cm]
+Name: & \hyperref[dataitem:atm_line_cat]{\PROD{ATM_LINE_CAT}}\\[0.3cm]
 Description: & Line list of atmospheric emission and absorption lines\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{ATM_LINE_CAT}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -41,7 +41,7 @@ Purpose: & wavelength calibration\\
         & telluric correction\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -52,10 +52,10 @@ Purpose: & wavelength calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:aopsfmodel]{\EXTCALIB{AO_PSF_MODEL}}}\label{dataitem:aopsfmodel}
+\paragraph{\hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}}}\label{dataitem:ao_psf_model}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:aopsfmodel]{\FITS{AO_PSF_MODEL}}\\[0.3cm]
+Name: & \hyperref[dataitem:ao_psf_model]{\PROD{AO_PSF_MODEL}}\\[0.3cm]
 Description: & Model of the \ac{AO} induced \ac{PSF}\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{AO_PSF_MODEL}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -65,7 +65,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & flux calibration\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -76,10 +76,10 @@ Purpose: & flux calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:atmprofile]{\EXTCALIB{ATM_PROFILE}}}\label{dataitem:atmprofile}
+\paragraph{\hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}}}\label{dataitem:atm_profile}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:atmprofile]{\FITS{ATM_PROFILE}}\\[0.3cm]
+Name: & \hyperref[dataitem:atm_profile]{\PROD{ATM_PROFILE}}\\[0.3cm]
 Description: & atmospheric profile containing height information on temperature, pressure and molecular abundances\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{ATM_PROFILE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -90,7 +90,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & telluric correction\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -102,10 +102,10 @@ Purpose: & telluric correction\\
 
 % ##################################################################################### 
 \textbf{Static calibration data}
-\paragraph{\hyperref[dataitem:lasertab]{\STATCALIB{LASER_TAB}}}\label{dataitem:lasertab}
+\paragraph{\hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}}}\label{dataitem:laser_tab}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:atmlinecat]{\FITS{LASER_TAB}}\\[0.3cm]
+Name: & \hyperref[dataitem:laser_tab]{\PROD{LASER_TAB}}\\[0.3cm]
 Description: & Line list of the \ac{WCU} laser sources\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LASER_TAB}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -124,18 +124,18 @@ Purpose: & wavelength calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:tssmodelcat]{\STATCALIB{TSS_MODEL_CAT}}}\label{dataitem:tssmodelcat}
+\paragraph{\hyperref[dataitem:tss_model_cat]{\STATCALIB{TSS_MODEL_CAT}}}\label{dataitem:tss_model_cat}
 TBWritten
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:tssconttab]{\STATCALIB{TSS_CONT_TAB}}}\label{dataitem:tssconttab}
+\paragraph{\hyperref[dataitem:tss_cont_tab]{\STATCALIB{TSS_CONT_TAB}}}\label{dataitem:tss_cont_tab}
 TBWritten
 
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:reffluxcat]{\STATCALIB{REF_FLUX_CAT}}}\label{dataitem:reffluxcat}
+\paragraph{\hyperref[dataitem:ref_flux_cat]{\STATCALIB{REF_FLUX_CAT}}}\label{dataitem:ref_flux_cat}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:reffluxcat]{\FITS{REF_FLUX_CAT}}\\[0.3cm]
+Name: & \hyperref[dataitem:ref_flux_cat]{\PROD{REF_FLUX_CAT}}\\[0.3cm]
 Description: & Catalogue of flux standard stars (reference spectra)\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{REF_FLUX_CAT}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -154,10 +154,10 @@ Purpose: & flux calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmadcslitloss]{\STATCALIB{LM_ADC_SLITLOSS}}}\label{dataitem:lmadcslitloss}
+\paragraph{\hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}}}\label{dataitem:lm_adc_slitloss}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmadcslitloss]{\FITS{LM_ADC_SLITLOSS}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_adc_slitloss]{\PROD{LM_ADC_SLITLOSS}}\\[0.3cm]
 Description: & Table of the LM-band slitlosses as function of the object position across the slit\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_ADC_SLITLOSS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -176,10 +176,10 @@ Purpose: & flux calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nadcslitloss]{\STATCALIB{N_ADC_SLITLOSS}}}\label{dataitem:nadcslitloss}
+\paragraph{\hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}}\label{dataitem:n_adc_slitloss}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nadcslitloss]{\FITS{N_ADC_SLITLOSS}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_adc_slitloss]{\PROD{N_ADC_SLITLOSS}}\\[0.3cm]
 Description: & Table of the N-band slitlosses as function of the object position across the slit\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_ADC_SLITLOSS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -198,10 +198,10 @@ Purpose: & flux calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}}}\label{dataitem:lsfkernel}
+\paragraph{\hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}}}\label{dataitem:lsf_kernel}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lsfkernel]{\FITS{LSF_KERNEL}}\\[0.3cm]
+Name: & \hyperref[dataitem:lsf_kernel]{\PROD{LSF_KERNEL}}\\[0.3cm]
 Description: & Wavelength dependent model of the \ac{LSF}\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LSF_KERNEL}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -220,10 +220,10 @@ Purpose: & telluric correction\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlssdistsol]{\STATCALIB{N_LSS_DIST_SOL}}}\label{dataitem:nlssdistsol}
+\paragraph{\hyperref[dataitem:n_lss_dist_sol]{\STATCALIB{N_LSS_DIST_SOL}}}\label{dataitem:n_lss_dist_sol}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlssdistsol]{\FITS{N_LSS_DIST_SOL}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_dist_sol]{\PROD{N_LSS_DIST_SOL}}\\[0.3cm]
 Description: & N-band geometrical distortion solution\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_DIST_SOL}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -242,10 +242,10 @@ Purpose: & wavelength calibration / rectification\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}}}\label{dataitem:nlsswaveguess}
+\paragraph{\hyperref[dataitem:n_lss_wave_guess]{\STATCALIB{N_LSS_WAVE_GUESS}}}\label{dataitem:n_lss_wave_guess}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlsswaveguess]{\FITS{N_LSS_WAVE_GUESS}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_wave_guess]{\PROD{N_LSS_WAVE_GUESS}}\\[0.3cm]
 Description: & First guess of the N-band wavelength solution\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_WAVE_GUESS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -264,10 +264,10 @@ Purpose: & wavelength calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmsynthtrans]{\STATCALIB{LM_SYNTH_TRANS}}}\label{dataitem:lmsynthtrans}
+\paragraph{\hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}}\label{dataitem:lm_synth_trans}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmsynthtrans]{\FITS{LM_SYNTH_TRANS}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_synth_trans]{\PROD{LM_SYNTH_TRANS}}\\[0.3cm]
 Description: & Synthetic transmission curve to be used for telluric correction of flux standard stars\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_SYNTH_TRANS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -286,10 +286,10 @@ Purpose: & telluric correction of flux standard stars\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nsynthtrans]{\STATCALIB{N_SYNTH_TRANS}}}\label{dataitem:nsynthtrans}
+\paragraph{\hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}}}\label{dataitem:n_synth_trans}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nsynthtrans]{\FITS{N_SYNTH_TRANS}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_synth_trans]{\PROD{N_SYNTH_TRANS}}\\[0.3cm]
 Description: & Synthetic transmission curve to be used for telluric correction of flux standard stars\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_SYNTH_TRANS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
