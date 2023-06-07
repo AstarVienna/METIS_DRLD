@@ -2,24 +2,24 @@
 \subsubsection{Raw data item structures}\label{sssec:imgrawdatastructs}
 
 
-\paragraph{\hyperref[dataitem:lmimageraw]{\RAW{LM_IMAGE_RAW}}}\label{dataitem:lmimageraw}
+\paragraph{\hyperref[dataitem:lm_image_raw]{\RAW{LM_IMAGE_RAW}}}\label{dataitem:lm_image_raw}
 
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmimageraw]{\RAW{LM_IMAGE_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_image_raw]{\RAW{LM_IMAGE_RAW}}\\[0.3cm]
 Description: & Raw exposure of the LM image mode.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
           & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{meti\_lm\_img\_basic\_reduce}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{meti_lm_img_basic_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -29,16 +29,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\hyperref[dataitem:detlinraw]}{\RAW{DETLIN_RAW_det}}\label{dataitem:detlinraw}\label{dataitem:detlinraw2rg}\label{dataitem:detlinrawgeo}\label{dataitem:detlinrawifu}
+\paragraph{\hyperref[dataitem:detlin_det_raw]{\RAW{DETLIN_det_RAW}}}\label{dataitem:detlin_det_raw}\label{dataitem:detlinraw2rg}\label{dataitem:detlinrawgeo}\label{dataitem:detlinrawifu}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:detlinraw]{\FITS{DETLIN_RAW_det}}\\[0.3cm]
+Name: & \hyperref[dataitem:detlin_det_raw]{\PROD{DETLIN_det_RAW}}\\[0.3cm]
 Description: & Raw data for non-linearity determination.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,det}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DETLIN}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{DETLIN_RAW_det}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{DETLIN_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
                        & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
@@ -47,7 +47,7 @@ Input for recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -61,10 +61,10 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:darkinternalraw]}{\RAW{DARK_INTERNAL_det_RAW}}\label{dataitem:darkinternalraw}
+\paragraph{\hyperref[dataitem:dark_internal_det_raw]{\RAW{DARK_INTERNAL_det_RAW}}}\label{dataitem:dark_internal_det_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:darkinternalraw]{\FITS{DARK_INTERNAL_det_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:dark_internal_det_raw]{\PROD{DARK_INTERNAL_det_RAW}}\\[0.3cm]
 Description: & Raw data for dark subtraction in other recipes.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,det}\\
@@ -80,7 +80,7 @@ Input for recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -93,13 +93,13 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:imgprocdatastructs}
 \label{dataitem:masterdark}
 
-\paragraph{\hyperref[dataitem:masterdark2rg]{\PROD{MASTER_DARK_2RG}}}\label{dataitem:masterdark2rg}
+\paragraph{\hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}}\label{dataitem:master_dark_2rg}
 
 
 
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:masterdark2rg]{\FITS{MASTER_DARK_2RG}}\\[0.3cm]
+Name: & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}\\[0.3cm]
 Description: & Master dark frame for LM detector data \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LM} \\
@@ -128,10 +128,10 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}}\label{dataitem:masterdarkgeo}
+\paragraph{\hyperref[dataitem:master_dark_geo]{\PROD{MASTER_DARK_GEO}}}\label{dataitem:master_dark_geo}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:masterdarkgeo]{\FITS{MASTER_DARK_GEO}}\\[0.3cm]
+Name: & \hyperref[dataitem:master_dark_geo]{\PROD{MASTER_DARK_GEO}}\\[0.3cm]
 Description: & Master dark frame for N detector data \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{N} \\
@@ -161,10 +161,10 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:masterimgflat2rg]{\PROD{MASTER_IMG_FLAT_2RG}}}\label{dataitem:masterimgflat2rg}
+\paragraph{\hyperref[dataitem:master_img_flat_2rg]{\PROD{MASTER_IMG_FLAT_2RG}}}\label{dataitem:master_img_flat_2rg}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:masterimgflat2rg]{\FITS{MASTER_IMG_FLAT_2RG}}\\[0.3cm]
+Name: & \hyperref[dataitem:master_img_flat_2rg]{\PROD{MASTER_IMG_FLAT_2RG}}\\[0.3cm]
 Description: & Master flat frame for LM image data \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LM} \\
@@ -187,10 +187,10 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\hyperref[dataitem:masterimgflatgeo]{\PROD{MASTER_IMG_FLAT_GEO}}}\label{dataitem:masterimgflatgeo}
+\paragraph{\hyperref[dataitem:master_img_flat_geo]{\PROD{MASTER_IMG_FLAT_GEO}}}\label{dataitem:master_img_flat_geo}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:masterimgflatgeo]{\FITS{MASTER_IMG_FLAT_GEO}}\\[0.3cm]
+Name: & \hyperref[dataitem:master_img_flat_geo]{\PROD{MASTER_IMG_FLAT_GEO}}\\[0.3cm]
 Description: & Master flat frame for N image data \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{N} \\
@@ -205,7 +205,7 @@ Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:n_img_flat]{\PROD{N_MASTER_FLAT}}}\label{drsstructure:nmasterflat}
+%\paragraph{\hyperref[dataitem:n_master_flat]{\PROD{N_MASTER_FLAT}}}\label{drsstructure:N_MASTER_FLAT}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -216,11 +216,11 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
+\paragraph{\hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}}\label{dataitem:badpix_map_det}\label{dataitem:badpixmap}
 
-\paragraph{\hyperref[dataitem:badpixmap2rg]{\PROD{BADPIX_MAP_2RG}} and \hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}}\label{dataitem:badpixmap}\label{dataitem:badpixmap2rg}\label{dataitem:badpixmapgeo}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:badpixmap]{\FITS{BADPIX_MAP_det}}\\[0.3cm]
+Name: & \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}\\[0.3cm]
 Description: & Bad pixel map\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{BADPIX_MAP_det}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
@@ -230,7 +230,7 @@ Input for recipe: & \TODO{TODO} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -238,11 +238,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
+\paragraph{\hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}}\label{dataitem:badpix_map_2rg}
+See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
 
-\paragraph{\hyperref[dataitem:linearity]}{\PROD{LINEARITY}}\label{dataitem:linearity}\label{dataitem:linearity2rg}\label{dataitem:linearitylms}
+\paragraph{\hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}}\label{dataitem:badpix_map_geo}
+See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
+
+\paragraph{\hyperref[dataitem:linearity]}{\PROD{LINEARITY_det}}\label{dataitem:linearity_det}\label{dataitem:linearity}\label{dataitem:linearity2rg}\label{dataitem:linearitylms}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:linearity]{\PROD{LINEARITY}}\\[0.3cm]
+Name: & \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_det}}\\[0.3cm]
 Description: & Nonlinearity coefficients.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LINEARY}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}, \TODO{Which subinstrument} \\
@@ -252,7 +257,7 @@ Input for recipe: & \hyperref[rec:lsslmrsrf]{\REC{TODO}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -262,23 +267,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 %\clearpage
-\paragraph{\hyperref[dataitem:lmscibasicreduced]{\RAW{LM_SCI_BASIC_REDUCED}}}\label{dataitem:lmscibasicreduced}
+\paragraph{\hyperref[dataitem:lm_sci_basic_reduced]{\RAW{LM_SCI_BASIC_REDUCED}}}\label{dataitem:lm_sci_basic_reduced}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmscibasicreduced]{\RAW{LM_SCI_BASIC_REDUCED}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_sci_basic_reduced]{\RAW{LM_SCI_BASIC_REDUCED}}\\[0.3cm]
 Description: & Science grade detrended exposure of the LM image mode.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{meti\_lm\_img\_basic\_reduce}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{meti_lm_img_basic_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -289,23 +294,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:lmstdbasicreduced]{\RAW{LM_STD_BASIC_REDUCED}}}\label{dataitem:lmstdbasicreduced}
+\paragraph{\hyperref[dataitem:lm_std_basic_reduced]{\RAW{LM_STD_BASIC_REDUCED}}}\label{dataitem:lm_std_basic_reduced}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmstdbasicreduced]{\RAW{LM_STD_BASIC_REDUCED}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_std_basic_reduced]{\RAW{LM_STD_BASIC_REDUCED}}\\[0.3cm]
 Description: & Standard detrended exposure of the LM image mode.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{meti\_lm\_img\_basic\_reduce}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{meti_lm_img_basic_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -316,23 +321,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:lmscibkg]{\RAW{LM_SCI_BKG}}}\label{dataitem:lmscibkg}
+\paragraph{\hyperref[dataitem:lm_sci_bkg]{\RAW{LM_SCI_BKG}}}\label{dataitem:lm_sci_bkg}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmscibkg]{\RAW{LM_SCI_BKG}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_sci_bkg]{\RAW{LM_SCI_BKG}}\\[0.3cm]
 Description: & Thermal background of science LM exposures.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis\_lm\_img\_background}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -343,23 +348,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:lmstdbkg]{\RAW{LM_STD_BKG}}}\label{dataitem:lmstdbkg}
+\paragraph{\hyperref[dataitem:lm_std_bkg]{\RAW{LM_STD_BKG}}}\label{dataitem:lm_std_bkg}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmstdbkg]{\RAW{LM_STD_BKG}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_std_bkg]{\RAW{LM_STD_BKG}}\\[0.3cm]
 Description: & Thermal background of standard LM exposures.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis\_lm\_img\_background}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -370,23 +375,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:lmscibkgsubtracted]{\RAW{LM_SCI_BKG_SUBTRACTED}}}\label{dataitem:lmscibkgsubtracted}
+\paragraph{\hyperref[dataitem:lm_sci_bkg_subtracted]{\RAW{LM_SCI_BKG_SUBTRACTED}}}\label{dataitem:lm_sci_bkg_subtracted}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmscibkgsubtracted]{\RAW{LM_SCI_BKG_SUBTRACTED}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_sci_bkg_subtracted]{\RAW{LM_SCI_BKG_SUBTRACTED}}\\[0.3cm]
 Description: & Thermal background subtracted images of science LM exposures.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis\_lm\_img\_background}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -397,23 +402,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}    
 
 
-\paragraph{\hyperref[dataitem:lmstdbkgsubtracted]{\RAW{LM_STD_BKG_SUBTRACTED}}}\label{dataitem:lmstdbkgsubtracted}
+\paragraph{\hyperref[dataitem:lm_std_bkg_subtracted]{\RAW{LM_STD_BKG_SUBTRACTED}}}\label{dataitem:lm_std_bkg_subtracted}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmstdbkgsubtracted]{\RAW{LM_STD_BKG_SUBTRACTED}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_std_bkg_subtracted]{\RAW{LM_STD_BKG_SUBTRACTED}}\\[0.3cm]
 Description: & Thermal background subtracted images of standard LM exposures.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis\_lm\_img\_background}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -425,23 +430,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:nstdbkgsubtracted]{\RAW{N_STD_BKG_SUBTRACTED}}}\label{dataitem:nstdbkgsubtracted}
+\paragraph{\hyperref[dataitem:n_std_bkg_subtracted]{\RAW{N_STD_BKG_SUBTRACTED}}}\label{dataitem:n_std_bkg_subtracted}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nstdbkgsubtracted]{\FITS{N_STD_BKG_SUBTRACTED}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_std_bkg_subtracted]{\PROD{N_STD_BKG_SUBTRACTED}}\\[0.3cm]
 Description: & Thermal background subtracted images of standard N exposures.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_standard}\\
             & \TPL{METIS_img_n_*_obs_*}       \\
 Input for recipe: & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:nlssrsrfraw]{\PROD{N\_RSRF\_RAW}}}\label{drsstructure:nrsrfraw}
+%\paragraph{\hyperref[dataitem:n_rsrf_raw]{\PROD{N_RSRF_RAW}}}\label{drsstructure:N_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -453,23 +458,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
     
 
 
-\paragraph{\hyperref[dataitem:lmstdstdobjectcat]{\RAW{LM_STD_OBJECT_CAT}}}\label{dataitem:lmstdstdobjectcat}
+\paragraph{\hyperref[dataitem:lm_std_object_cat]{\RAW{LM_STD_OBJECT_CAT}}}\label{dataitem:lm_std_object_cat}
 \begin{recipedef}
 \textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \hyperref[dataitem:lmstdstdobjectcat]{\RAW{LM_STD_OBJECT_CAT}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_std_object_cat]{\RAW{LM_STD_OBJECT_CAT}}\\[0.3cm]
 Description: & Catalog of masked obkects in standard LM exposures.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis\_lm\_img\_background}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -480,23 +485,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}    
 
 
-\paragraph{\hyperref[dataitem:lmstdsciobjectcat]{\RAW{LM_SCI_OBJECT_CAT}}}\label{dataitem:lmstdsciobjectcat}
+\paragraph{\hyperref[dataitem:lm_sci_object_cat]{\RAW{LM_SCI_OBJECT_CAT}}}\label{dataitem:lm_sci_object_cat}
 \begin{recipedef}
 \textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \hyperref[dataitem:lmstdsciobjectcat]{\RAW{LM_SCI_OBJECT_CAT}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_sci_object_cat]{\RAW{LM_SCI_OBJECT_CAT}}\\[0.3cm]
 Description: & Catalog of masked obkects in science LM exposures.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis\_lm\_img\_background}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -517,14 +522,14 @@ Description: & LM band image with flux calibration, WC coordinate system and dis
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
 Input for recipe: & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:lm_sci_calibrated]{\PROD{LM\_SCI\_CALIBRATED}}}\label{drsstructure:lm_sci_combined}
+\paragraph{\hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}}}\label{drsstructure:LM_SCI_CALIBRATED}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -539,20 +544,20 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:n_sci_calibrated]{\FITS{N_SCI_CALIBRATED}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}\\[0.3cm]
 Description: & N band image with flux calibration and distorion information\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_standard}\\
             & \TPL{METIS_img_n_*_obs_*}       \\
 Input for recipe: & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:n_sci_calibrated]{\PROD{N\_SCI\_CALIBRATED}}}\label{drsstructure:n_sci_combined}
+\paragraph{\hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}}\label{drsstructure:N_SCI_CALIBRATED}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -567,19 +572,19 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \begin{recipedef}
 \textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \hyperref[dataitem:lm_distortion_table]{\RAW{LM\_DISTORTION\_TABLE}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_distortion_table]{\RAW{LM_DISTORTION_TABLE}}\\[0.3cm]
 Description: & Table of distortion information\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{??}\\
 Input for recipe: & \hyperref[rec:lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:lm_distortion_table]{\PROD{LM\_DISTORTION\_TABLE}}}\label{drsstructure:lm_distortion_table}
+\paragraph{\hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}}\label{drsstructure:LM_DISTORTION_TABLE}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -593,19 +598,19 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \begin{recipedef}
 \textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \hyperref[dataitem:n_distortion_table]{\FITS{N\_DISTORTION\_TABLE}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}\\[0.3cm]
 Description: & Table of distortion information\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{??}\\
 Input for recipe: & \hyperref[rec:lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:n_distortion_table]{\PROD{N\_DISTORTION\_TABLE}}}\label{drsstructure:n_distortion_table}
+\paragraph{\hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}}\label{drsstructure:N_DISTORTION_TABLE}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -620,19 +625,19 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \begin{recipedef}
 \textbf{\ac{FITS} IMAGE file structure:}\\
-Name: & \hyperref[dataitem:lm_distortion_map]{\FITS{lm\_DISTORTION\_MAP}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_distortion_map]{\PROD{lm_DISTORTION_MAP}}\\[0.3cm]
 Description: & Map of pixel scale across the detector\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_distortion}\\
 Input for recipe: & \hyperref[rec:lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:lm_distortion_map]{\PROD{lm\_DISTORTION\_MAP}}}\label{drsstructure:lm_distortion_map}
+\paragraph{\hyperref[dataitem:lm_distortion_map]{\PROD{lm_DISTORTION_MAP}}}\label{drsstructure:lm_DISTORTION_MAP}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -648,19 +653,19 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \begin{recipedef}
 \textbf{\ac{FITS} IMAGE file structure:}\\
-Name: & \hyperref[dataitem:n_distortion_map]{\FITS{n\_DISTORTION\_MAP}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_distortion_map]{\PROD{n_DISTORTION_MAP}}\\[0.3cm]
 Description: & Map of pixel scale across the detector\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_distortion}\\
 Input for recipe: & \hyperref[rec:n_img_distortion]{\REC{metis_n_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:n_distortion_map]{\PROD{n\_DISTORTION\_MAP}}}\label{drsstructure:n_distortion_map}
+\paragraph{\hyperref[dataitem:n_distortion_map]{\PROD{n_DISTORTION_MAP}}}\label{drsstructure:n_DISTORTION_MAP}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -677,19 +682,19 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \begin{recipedef}
 \textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \hyperref[dataitem:lm_dist_reduced]{\FITS{LM\_DIST\_REDUCED}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_dist_reduced]{\PROD{LM_DIST_REDUCED}}\\[0.3cm]
 Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_distortion}\\
 Input for recipe: & \hyperref[rec:lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:lm_dist_reduced]{\PROD{LM\_DIST\_REDUCED}}}\label{drsstructure:lm_dist_reduced}
+\paragraph{\hyperref[dataitem:lm_dist_reduced]{\PROD{LM_DIST_REDUCED}}}\label{drsstructure:LM_DIST_REDUCED}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -706,19 +711,19 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \begin{recipedef}
 \textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \hyperref[dataitem:n_dist_reduced]{\FITS{N\_DIST\_REDUCED}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_dist_reduced]{\PROD{N_DIST_REDUCED}}\\[0.3cm]
 Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_distortion}\\
 Input for recipe: & \hyperref[rec:n_img_distortion]{\REC{metis_n_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:n_dist_reduced]{\PROD{N\_DIST\_REDUCED}}}\label{drsstructure:n_dist_reduced}
+\paragraph{\hyperref[dataitem:n_dist_reduced]{\PROD{N_DIST_REDUCED}}}\label{drsstructure:N_DIST_REDUCED}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}

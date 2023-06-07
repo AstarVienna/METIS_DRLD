@@ -66,17 +66,17 @@ sequence.
   Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
                        & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
-  Input data:          & \hyperref[dataitem:detlinraw]{\RAW{DETLIN_det_RAW}}: (set of \FITS{FLAT,LAMP} frames taken with increasing DIT) \\
-                       & \hyperref[dataitem:darkinternalraw]{\RAW{DARK_INTERNAL_det_RAW}}: (set of internal darks taken at the start of the template) \\
+  Input data:          & \hyperref[dataitem:detlin_det_raw]{\RAW{DETLIN_det_RAW}}: (set of \FITS{FLAT,LAMP} frames taken with increasing DIT) \\
+                       & \hyperref[dataitem:dark_internal_det_raw]{\RAW{DARK_INTERNAL_det_RAW}}: (set of internal darks taken at the start of the template) \\
   Matched keywords:    & Subsystem ID \TODO{TBD}                                                             \\
   Algorithm:           & Subtract instrument dark (\CODE{hdrl_imagelist_sub_image}).                         \\
                        & Compute mean and variance for each frame (\CODE{TBD}).                              \\
 https://www.eso.org/sci/software/pycpl/                       & Gain is determined as the slope of variance against mean (\hyperref[drl:metis_derive_gain]{\CODE{metis_derive_gain}}) \\
                        & Fit polynomial of value as a function of DIT and illumination level for each pixel (\hyperref[drl:metis_derive_nonlinearity]{\CODE{metis_derive_nonlinearity}}). \\
                        & Flag pixels with coefficients significantly different from the mean of all pixels. (\CODE{hdrl_bpm_fit_compute}) \\
-  Output data:         & \hyperref[dataitem:gainmap]{\PROD{GAIN_MAP_det}}                                    \\
-                       & \hyperref[dataitem:linearity]{\PROD{LINEARITY_det}}                                 \\
-                       & \hyperref[dataitem:badpixmap]{\PROD{BADPIX_MAP_det}}                                \\
+  Output data:         & \hyperref[dataitem:gain_map_det]{\PROD{GAIN_MAP_det}}                                    \\
+                       & \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_det}}                                 \\
+                       & \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}                                \\
   Expected accuracies: & \TODO{TBD}                                                                          \\
   QC1 parameters:      & \hyperref[qc:lingainmean]{\QC{QC LIN GAIN MEAN}}                                    \\
                        & \hyperref[qc:lingainrms]{\QC{QC LIN GAIN RMS}}                                      \\
