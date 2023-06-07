@@ -32,3 +32,6 @@ sed -E 's|(dataitem:[0-9a-zA-Z_]*)|\L\1|g' -i *.tex
 
 
 # TODO, e.g. "(\PROD{SOMETHING})"
+
+# TODO: Fix rec: hyperrefs too, e.g. this is incorrect:
+#    "\hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_CENTROID_TAB}}"
