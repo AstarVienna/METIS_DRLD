@@ -196,9 +196,69 @@ These two methods can also be combined in the way that the modelling approach is
 For the \ac{METIS} pipelines we intend to incorporate both ways (including their combination). A detailed description is given in Section~\ref{ssec:tellcorr}. As both methods are well established, we deem a dedicated prototyping not necessary.
 
 \subsection{Error propagation}\label{ssec:criticalerrorpropagation}
+\label{Sec:critalg_errorprop}
 
+\TODO{The below is copied from the PDR DRS verbatim and needs to be updated.
 HDRL functions do error propogation. Look into docs for these. 
-Understand how HDRL does this and then copy it.
+Understand how HDRL does this and then copy it.}
+All data products from the pipeline should be accompanied by an
+estimate of the uncertainties of the pixel values in the products
+(\REQ{METIS-6681}). Error estimates are necessary for the scientific
+exploitation of the data. They make it possible to assign
+significances to detections and to estimate errors on photometric and
+other measurements in the course of the scientific analysis of the
+images. The uncertainties include noise contributions from photon
+noise associated with the photon counting process over the integration
+time of an exposure, dark current noise, detector read-out noise,
+digitization noise, and possibly other sources.
+
+The basic reduction procedures, such as dark subtraction and
+flat-field correction, add the noise from calibration images to the
+noise of the science exposures. These noise contributions need to be
+tracked through the reduction process by applying standard error
+propagation algorithms.
+
+Photon noise is the major noise component of mid-infrared data. The
+number of electrons, $N_{e}$ libreated in a detector pixel over the
+exposure time follows a Poisson distribution with variance $\sigma^{2}
+= \langle N_{e}\rangle$, where $\langle N_{e}\rangle$ is the expected
+number of electrons.
+
+Pixel values $F$ in a raw image are given in ADU and are related to
+the number of electrons via the gain factor $g$ (in
+$\mathrm{e}^{-}/\mathrm{ADU}$):
+\begin{equation}
+  \label{eq:gain_def}
+  F = g N_{e}.
+\end{equation}
+The expected noise in the image is thus
+\begin{equation}
+  \label{eq:noise_adu}
+  \sigma_{F} = g\sqrt{\langle N_{e}\rangle} = \sqrt{g \langle F\rangle}.
+\end{equation}
+
+It is a mistake to estimate the expected count rate $\langle F\rangle$
+by the actual count rate $F$ for each pixel. For a flux constant in
+space and time this method would give a different estimate
+$\sigma_{F}$ for each pixel in the same exposure, and also for the same pixel
+in different exposures. This in turn leads to the undesirable result
+that the weighted mean of several exposures $i = 1,\dots, N$ is biased
+low as pixel values (drawn from a Poisson distribution) lower than the
+expectation are systematically given larger weight than high pixel
+values:
+\begin{equation}
+  \label{eq:weighted_mean}
+  \overline{F} = \frac{\sum_{i=1}^{N}
+    F_{i}/\sigma_{i}^{2}}{\sum_{i=1}^{N} 1/\sigma_{i}^{2}} =
+  \frac{N}{\sum_{i=1}^{N}1/F_{i}} < \langle F\rangle
+\end{equation}
+
+Photon noise from thermal or sky background is therefore estimated
+from a constant or low-order polynomial fit of the background estimate
+in order to suppress random pixel fluctuations.
+
+Pixel-wise modulation is introduced by the master flat field as this
+quantifies the response of pixels to a constant background flux.
 
 \subsection{N-band image restoration}\label{ssec:criticalnbandimagerestoration}
 \label{ssec:image_restoration}
@@ -273,13 +333,37 @@ $1000\,\mathrm{MiB\,s^{-1}}$ (cf.~Table~\ref{tab:data_rates}). This
 high data rate may present a problem for the observatory pipeline
 which has to deal with the data in real time.  The observatory
 pipeline does not have to perform a full data reduction as described
-in Sect.~\ref{sssec:lms_sci_process}, but merely compute a number of
+in Sect.~\ref{sssec:ifu_sci_process}, but merely compute a number of
 quality control parameters to assess the quality of the data. In the
 course of the development of the observatory recipe dealing with LMS
 science data, the question of data rates will need to be
 considered. If necessary, the performance of the recipe may need to be
 reduced if a high data stream is to be expected. Another option might
 be to compute QC parameters only on a subset of incoming frames.
+
+\begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \captionof{table}{Data rates}\label{tab:data_rates}
+  \begin{tabular}{|l|r|r|c|c|}
+    \hline
+    \multicolumn{1}{|c|}{\textbf{Observing mode}} & \multicolumn{1}{c|}{\textbf{Max.\ Data rate}} & \multicolumn{1}{c|}{\textbf{Max.\ Data volume}} & \multicolumn{1}{c|}{\textbf{Night fraction}} & \multicolumn{1}{c|}{\textbf{Exp.\ Data volume}} \\
+    \multicolumn{1}{|c|}{ }                       & \multicolumn{1}{c|}{[MiB s$^{-1}$]}      & \multicolumn{1}{c|}{[TiB]}                 & \multicolumn{1}{c|}{[per 10h night]}         & \multicolumn{1}{c|}{[TiB]}                 \\
+    \hline\hline
+    \textbf{Imager}                               &                                         &                                           &                                              &                                           \\
+    IMG\_LM (burst mode)                          & 200                                     & 5.49                                      & 0.15                                         & 0.85                                      \\
+    IMG\_NQ (burst mode)                          & 250                                     & 6.87                                      & 0.15                                         & 1.06                                      \\
+    IMG\_NQ (half-cycle average)                  & 80                                     & 2.20                                      & 0.00                                         & 0.00										\\
+    \hline
+    \textbf{Spectroscopy}                         &                                         &                                           &                                              &                                           \\
+    SPEC\_LM                                      & 200                                     & 5.49                                      & 0.08                                         & 0.42                                      \\
+    SPEC\_NQ                                      & 250                                     & 6.87                                      & 0.08                                         & 0.53                                      \\
+    LMS + IMG\_LM parallel (1)                    & 1000                                    & 27.46                                     & 0.15                                         & 4.23                                      \\
+    LMS + IMG\_LM parallel (2)                    & 55                                      & 1.52                                      & 0.38                                         & 0.59                                      \\
+    \hline
+%    \textbf{LM-band HR spectrograph}             & 0.12                                    & 4                                         & 144 GByte                                                                                \\
+%    \hline
+  \end{tabular}
+\end{center}
 
 
 % Additional critical algos
