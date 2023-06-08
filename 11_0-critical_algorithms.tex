@@ -215,8 +215,23 @@ Drizzling from HST?
 
 \subsection{LMS data rate}\label{ssec:criticallmsdatarate}
 
-See data rate document. 
-Hand-wave-y arguments to make this go away.
+\TODO{Placeholder text below is based on the PDR DRS and needs to be updated. See data rate document. Add arguments to make this a non-.}
+\label{ssec:lms_data_rate}
+
+For very bright sources, the LM band spectrograph will have to operate
+with very short exposures, resulting in a high data rate of up to
+$1000\,\mathrm{MiB\,s^{-1}}$ (cf.~Table~\ref{tab:data_rates}). This
+high data rate may present a problem for the observatory pipeline
+which has to deal with the data in real time.  The observatory
+pipeline does not have to perform a full data reduction as described
+in Sect.~\ref{sssec:lms_sci_process}, but merely compute a number of
+quality control parameters to assess the quality of the data. In the
+course of the development of the observatory recipe dealing with LMS
+science data, the question of data rates will need to be
+considered. If necessary, the performance of the recipe may need to be
+reduced if a high data stream is to be expected. Another option might
+be to compute QC parameters only on a subset of incoming frames.
+
 
 % Additional critical algos
 \input{CritAlgo_ADI}
