@@ -1,0 +1,44 @@
+# Region file format: DS9 version 4.1
+global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+wcs;
+line(-500, -51.75, 500, -51.75)  # color=red width=2
+line(-500, -31.05, 500, -31.05)  # color=red width=2
+line(-500, -10.35, 500, -10.35)  # color=red width=2
+line(-500, +10.35, 500, +10.35)  # color=red width=2
+line(-500, +31.05, 500, +31.05)  # color=red width=2
+line(-500, +51.75, 500, +51.75)  # color=red width=2
+
+line(-500, -44.85, 500, -44.85)  # color=yellow dash=2
+line(-500, -24.15, 500, -24.15)  # color=yellow dash=2
+line(-500, -03.35, 500, -03.35)  # color=yellow dash=2
+line(-500, +17.25, 500, +17.25)  # color=yellow dash=2
+line(-500, +37.95, 500, +37.95)  # color=yellow dash=2
+line(-500, +58.65, 500, +58.65)  # color=yellow dash=2
+
+line(-500, -58.65, 500, -58.65)  # color=cyan dash=2
+line(-500, -37.95, 500, -37.95)  # color=cyan dash=2
+line(-500, -17.25, 500, -17.25)  # color=cyan dash=2
+line(-500, +03.45, 500, +03.45)  # color=cyan dash=2
+line(-500, +24.15, 500, +24.15)  # color=cyan dash=2
+line(-500, +44.85, 500, +44.85)  # color=cyan dash=2
+
+line(-51.75, -500, -51.75, 500)  # color=red
+line(-31.05, -500, -31.05, 500)  # color=red
+line(-10.35, -500, -10.35, 500)  # color=red
+line(+10.35, -500, +10.35, 500)  # color=red
+line(+31.05, -500, +31.05, 500)  # color=red
+line(+51.75, -500, +51.75, 500)  # color=red
+
+line(-44.85, -500, -44.85, 500)  # color=yellow dash=2
+line(-24.15, -500, -24.15, 500)  # color=yellow dash=2
+line(-03.35, -500, -03.35, 500)  # color=yellow dash=2
+line(+17.25, -500, +17.25, 500)  # color=yellow dash=2
+line(+37.95, -500, +37.95, 500)  # color=yellow dash=2
+line(+58.65, -500, +58.65, 500)  # color=yellow dash=2
+
+line(-58.65, -500, -58.65, 500)  # color=cyan dash=2
+line(-37.95, -500, -37.95, 500)  # color=cyan dash=2
+line(-17.25, -500, -17.25, 500)  # color=cyan dash=2
+line(+03.45, -500, +03.45, 500)  # color=cyan dash=2
+line(+24.15, -500, +24.15, 500)  # color=cyan dash=2
+line(+44.85, -500, +44.85, 500)  # color=cyan dash=2

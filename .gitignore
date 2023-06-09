@@ -10,6 +10,10 @@
 *.toc
 *.xdy
 *.blg
+*.bbl
+*.fdb_latexmk
+*.fls
+*.synctex.gz
 
 # tikz results (should be in figures/)
 tikz/*.pdf
@@ -28,3 +32,8 @@ auto/
 # pycharm files
 .idea/
 __pycache__/
+
+# vscode and vim
+.vscode/
+.*.swp
+.*.swo

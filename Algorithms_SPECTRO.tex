@@ -1,0 +1,68 @@
+% This section is dedicated to algorithm which are used in all spectroscopic modes
+
+%-----------------------------------------------------------------------------------------
+\subsection{Telluric absorption correction}\label{ssec:tellcorr}
+Due to the dense molecular absorptions arising from the Earth's atmosphere, nearly every \ac{MIR} regime spectrum requires a correction for these telluric features. The required atmospheric transmission curve can be achieved either by specific observations of a telluric standard star (\ac{TSS}, the "classical" way) or by a modelling approach. \\
+%------------------------------------------------------------------------------
+\subsubsection{Classic approach with a standard star:}\label{sssec:tecllcorrclassic}
+A telluric standard star (\ac{TSS}) spectrum is taken ideally directly before/after the science observations near the science target position (or at least at the same airmass) to probe the same pathway through the Earth's atmosphere. The most simplest approach can be described by
+\begin{equation}
+    F_\textrm{sci}=F_{0,\textrm{cal}}*\left(S_\textrm{sci}/S_\textrm{cal}\right)*\left(T_\textrm{SkyCalc\_cal} / T_\textrm{SkyCalc\_sci}\right)
+\end{equation}
+where $S_\textrm{sci}$ and $S_\textrm{cal}$ are the measured fluxes (e.g. in [\ac{ADU}]) of the science target and the standard star and $F_{0,\textrm{cal}}$ is a model of the standard star in physical flux units. Thus, the standard star is used for the flux calibration, i.e. the conversion between \ac{ADU} and physical units to correct for the instrumental throughput. In case there's only a marginal difference in airmass between the science and the calibrator target, the airmass compensation can be achieved with synthetic model spectra of the transmission of the science target $T_\textrm{SkyCalc\_sci}$ and the calibrator $T_\textrm{SkyCalc\_cal}$, e.g. with the tool \texttt{SkyCalc}\footnote{\url{https://www.eso.org/observing/etc/bin/gen/form?INS.MODE=swspectr+INS.NAME=SKYCALC}}. This approach should be sufficient even for the \ac{LSS} mode as the wide wavelength range and the low resolving power does not allow to resolve individual telluric lines anyway. The high-resolution mode (\ac{LMS}) allows a much better determination of the telluric features and is therefore less prone to problems arising with \texttt{molecfit}. For the time being we assume no wavelength-dependent slit-losses e.g. by different peformances of the \ac{AO} in the science and the calibrator observations.  \\
+%For the \ac{LMS} mode a more sophisticated approach could be considered: This \ac{TSS}-spectrum is processed in the same way as the science spectrum (except the absolute flux calibration). To remove intrinsic stellar features this spectrum is corrected with a model spectrum of this \ac{TSS}. Finally its continuum is normalised to unity. The resulting normalised spectrum (ideally) only contains the fingerprint of the Earth's atmospheric absorptions and can be used for the telluric correction.\\
+There are several sources for model spectra available:
+\begin{itemize}
+    \item Cohen set (\cite{coh99}): Set of 422 stellar model templates, mainly K and M giants. One of the standard sets in \ac{MIR}.
+    \item The SPEX \ac{IRTF} Spectral library\footnote{\url{http://irtfweb.ifa.hawaii.edu/~spex/IRTF_Spectral_Library/}}: Set of observed stellar spectra (F to M-type, some carbon and S-type stars and L and T dwarfs) in the range $0.8...5.0\mu$m mostly at a resolving power of $R\equiv\lambda/\Delta\lambda\sim2,000$.
+    \item Phoenix library\footnote{\url{https://phoenix.astro.physik.uni-goettingen.de/}}\cite{phoenix}: Library of synthetic medium and high resolution spectra between $0.5...5.5\mu$m covering a wide stellar parameter space ($2,300\textrm{K}\leq T_\textrm{eff}\leq12,000\textrm{K}$; $0.0\leq\log g\leq+6.0$; $-4.0\leq$[Fe/H]$\leq+1.0$; $0.2\leq$[$\alpha$/Fe]$\leq+1.2$). \\
+\end{itemize}
+The \ac{METIS} consortium will soon look into that topic and to assemble a set of appropriate \ac{TSS} stars for each observing mode.
+
+%------------------------------------------------------------------------------
+\subsubsection{Modelling synthetic transmission spectra:}
+In the last years the modelling method has evolved. It is based on radiative transfer modelling of the Earth's atmosphere. A height model of the Earth's atmosphere containing information of pressure, temperature and the concentration of molecules in combination with a radiative transfer model and a molecular line list is used to calculate a transmission function of the Earth's atmosphere at the time of observations. By fitting specific atmospheric absorption features in the science spectra and varying the input height profile allows to determine the state of the Earth's atmosphere at the time of observation. The best-fit transmission function is finally used for the telluric correction.\\
+In the past years the approach of modelling transmission curves of Earth's atmosphere has made significant progress leading to versatile and mature software packages for the telluric correction. One of these packages is \texttt{molecfit}\footnote{\url{http://www.eso.org/sci/software/pipelines/skytools/molecfit}} (\cite{mf1, mf2, molecfit}). This software is optimised for the ESO framework and ESO instruments and is also foreseen to be used for \ac{METIS}.\\
+The outcome of the \ac{ELT} working group meeting of 2021-03-15 was that future instrument pipelines should include dedicated recipes based on the telluric correction \texttt{telluriccorr} library \cite{telluriccorr}. This package is based on \texttt{molecfit} and will be provided and maintained by \ac{ESO}. The telluric correction will be performed in three dedicated recipes as post-correction   and closely follow the approach as implemented in the \ac{KMOS} pipeline. The three steps comprise the fit of the telluirc features (e.g. \REC{metis_LM_lss_mf_model} for the LM range), the calculation of the transmission curve (e.g. \REC{metis_LM_lss_mf_calctrans}) and the application of the actual correction (e.g. \REC{metis_LM_lss_mf_correct}). For the determination of the \ac{LSF} we primarily rely on the possibilities as offered by the \texttt{telluricorr}/\texttt{molecfit} package, which is based on a fitting of the \ac{LSF} by a combination of a boxcar, Gaussian or Lorentzian. On basis of the commissioning data we will establish a parameter set providing a good starting point for the fits.\\
+We also intend to enable the user to include a dedicated line kernel instead, in case a reliable kernel model can be determined with other (external) tools (e.g. a model-based convolution of an internal \ac{LSF}, the slit-widths and/or an \ac{AO} component). In addition, also external supplementary meteorological data (e.g. provided by an \ac{LHATPRO} radiometer) can be included if the \texttt{telluricorr}/\texttt{molecfit} package offers that possibility.
+%------------------------------------------------------------------------------
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/tell_corr_methods.pdf}
+  \caption{Methods for the telluric correction to be included in the \ac{METIS} pipeline.}
+  \label{Fig:tellcorrmethods}
+\end{figure}
+\subsubsection{Approach for METIS}
+The modelling approach has become the standard way for the telluric correction in several ESO pipelines as it avoids to spend valuable observing time on taking \ac{TSS} spectra. Since the synthetic transmission function is noise-free, it also conserves the \ac{SNR} of the science spectrum. It is therefore  foreseen as default method for the \ac{METIS} pipeline.\\
+However, there might be situations where the classical way becomes the better option. For example, in case the science object's continuum is too weak to be used for fitting telluric absorption features and not enough sky emission is available. In addition, \texttt{molecfit} relies on a number of fitting parameters, which might not lead to the best minimum. In particular, the quality of the fit is very sensitive to the incorporated \ac{LSF}-Kernel, whereas the \ac{LSF} of a \ac{TSS} spectrum is naturally (almost) identical.\\
+We therefore will include three different approaches for the telluric correction in the \ac{METIS} pipeline (cf. Fig.~\ref{Fig:tellcorrmethods}):
+\begin{itemize}
+    \item "\textit{molecfit-on-science}": This is the usual way of using \texttt{molecfit}, i.e. the science spectrum ("\texttt{1D SCIENCE SPECTRUM}") is used to determine the state of the Earth's atmosphere and to calculate a synthetic transmission (left branch in Fig.~\ref{Fig:tellcorrmethods})
+    \item "classical" approach: The transmission of the Earth's atmosphere is determined in the classical way with the help of a \ac{TSS} as described above (right branch in Fig.~\ref{Fig:tellcorrmethods})
+    \item "\textit{molecfit-on-star}": This is a combination of the both methods in the sense that \texttt{molecfit} is applied to \ac{TSS} observations, and the resulting synthetic transmission spectrum is used for the telluric correction of the science target  (middle branch in Fig.~\ref{Fig:tellcorrmethods})
+\end{itemize}
+\textit{Notes:}\\
+Following the development within the \ac{ELT} working group "Telluric Correction", the newest release\footnote{\color{red}RELEASE EXPECTED IN MAY 2023\color{black}} of \texttt{molecfit} will contain some new features, which will be used in the \ac{METIS} pipelines: (a) a routine to correct transmission spectra for airmass. This allows the usage of \ac{TSS} which are at a different airmass than the science target; (b) a method to quantitatively estimate the quality of the telluric correction on the science frames, which will be used for \ac{QC}; (c) a routine to use the wavelength fit as wavelength calibration for the science observations, i.e. to use telluric features as reference frame. For more details on that new features we refer to the \texttt{molecfit} documentation of the upcoming release and the documents in the working group\footnote{\url{https://eso.org/wiki/pub/ELTScience/Telluric_correction/TelluricWG_20230425.pdf}}.\\
+As mentioned above, \texttt{molecfit} will be the default method. It is therefore the users sole responsibility to decide whether a \ac{TSS} is required/desired. However, the selection of the \ac{TSS} should not be arbitrary, but only possible from a provided catalogue.\\
+If possible, these stars will also be used for the absolute flux calibration \color{red}(TBChecked!!!)\color{black}
+
+%------------------------------------------------------------------------------
+\subsubsection{Other algorithms included in the telluric correction approach}\label{ssec:otheralgstellcorr}
+\paragraph{Normalisation of \ac{TSS} continua\newline}\label{ssec:spec_normalisation}
+The normalisation of spectra can be a tricky issue especially for cool stars with plenty intrinsic spectral features. A general approach is therefore not possible. However, we can restrict our routines to stars, which are (a) well-known and (b) model spectra are available. We therefore use the following approach: 
+\begin{itemize}
+    \item For each star we determine spectral regions, which are known to belong to the continuum, i.e. do not contain absorption/emission features, neither intrinsic nor atmospheric.
+    \item These spectral regions are then fit by a polynomial (or alternatively the Rayleigh-Jeans approximation is used). The degree of the polynomial will be determined when the set of \ac{TSS} is established. 
+    \item The \ac{TSS} spectrum is finally divided by this polynomial leading to a spectrum normalised to unity.
+\end{itemize} 
+
+\paragraph{Airmass correction of transmission functions\newline}\label{ssec:airmass_corr}
+\textit{TBWritten; see also approach in latest mf release (and footnote below)}
+
+\paragraph{Quality control parameters for \texttt{molecfit}\newline}\label{ssec_tellcorr_qc_params}
+To estimate the quality of the telluric correction we follow the approach incorporated with the new \texttt{molecfit} version \textit{(***add Ref to new mf version doc***)}:
+\begin{itemize}
+    \item Smoothing the corrected spectrum with a Savitzky-Golay filter\footnote{\url{https://en.wikipedia.org/wiki/Savitzky\%E2\%80\%93Golay_filter}}
+    \item dividing the corrected spectrum by the smoothed one; This leads to a normalisation to unity and a crude removal of slopes and intrinsic features
+    \item Determine the mean absolute difference of the resulting spectrum, excluding \texttt{NaN} values on the user provided spectral ranges (e.g., only spectral ranges with telluric features). 
+\end{itemize}

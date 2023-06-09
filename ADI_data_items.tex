@@ -1,0 +1,987 @@
+
+
+
+\paragraph{\hyperref[dataitem:det_app_sci_calibrated]}{\RAW{DET_APP_SCI_CALIBRATED}}\label{dataitem:det_app_sci_calibrated}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_app_sci_calibrated]{\PROD{DET_APP_SCI_CALIBRATED}}\\[0.3cm]
+Description: & Coronagraphic image after distortion correction \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_APP_SCI_CALIBRATED}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{METIS_APP_SCI_CALIBRATED}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_app_sci_centred]}{\RAW{DET_APP_SCI_CENTRED}}\label{dataitem:det_app_sci_centred}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_app_sci_centred]{\PROD{DET_APP_SCI_CENTRED}}\\[0.3cm]
+Description: & Coronagraphic image after centering on the PSF and subpixel realignment \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_APP_SCI_CENTRED}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{METIS_APP_SCI_CENTRED}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Image Cube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_app_sci_speckle]}{\RAW{DET_APP_SCI_SPECKLE}}\label{dataitem:det_app_sci_speckle}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_app_sci_speckle]{\PROD{DET_APP_SCI_SPECKLE}}\\[0.3cm]
+Description: & PSFZZZSpeckle image from coronagraphic data \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_APP_SCI_SPECKLE}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{METIS_APP_SCI_SPECKLE}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_app_sci_derotated_psfsub]}{\RAW{DET_APP_SCI_DEROTATED_PSFSUB}}\label{dataitem:det_app_sci_derotated_psfsub}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_app_sci_derotated_psfsub]{\PROD{DET_APP_SCI_DEROTATED_PSFSUB}}\\[0.3cm]
+Description: & Coronagraphic image after PSF subtraction, derotation and coaddition  \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_APP_SCI_DEROTATED_PSFSUB}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{METIS_APP_SCI_DEROTATED_PSFSUB}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Image Cube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_app_sci_derotated]}{\RAW{DET_APP_SCI_DEROTATED}}\label{dataitem:det_app_sci_derotated}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_app_sci_derotated]{\PROD{DET_APP_SCI_DEROTATED}}\\[0.3cm]
+Description: & Coronagraphic image after derotation and coaddition \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_APP_SCI_DEROTATED}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{METIS_APP_SCI_DEROTATED}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_app_sci_coverage]}{\RAW{DET_APP_SCI_COVERAGE}}\label{dataitem:det_app_sci_coverage}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_app_sci_coverage]{\PROD{DET_APP_SCI_COVERAGE}}\\[0.3cm]
+Description: & Map of effective number of frames contributing to the final coronographic image \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_APP_SCI_COVERAGE}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{METIS_APP_SCI_COVERAGE}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_app_sci_snr]}{\RAW{DET_APP_SCI_SNR}}\label{dataitem:det_app_sci_snr}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_app_sci_snr]{\PROD{DET_APP_SCI_SNR}}\\[0.3cm]
+Description: & ADI SNR Map \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_APP_SCI_SNR}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{METIS_APP_SCI_SNR}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_app_sci_contrast_raw]}{\RAW{DET_APP_SCI_CONTRAST_RAW}}\label{dataitem:det_app_sci_contrast_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_app_sci_contrast_raw]{\PROD{DET_APP_SCI_CONTRAST_RAW}}\\[0.3cm]
+Description: & Raw contrast curve for ADI observations \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_APP_SCI_CONTRAST_RAW}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{METIS_APP_SCI_CONTRAST_RAW}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: 1D Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_app_sci_contrast_adi]}{\RAW{DET_APP_SCI_CONTRAST_ADI}}\label{dataitem:det_app_sci_contrast_adi}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_app_sci_contrast_adi]{\PROD{DET_APP_SCI_CONTRAST_ADI}}\\[0.3cm]
+Description: & Post-ADI contrast curve for ADI observations  \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_APP_SCI_CONTRAST_ADI}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{METIS_APP_SCI_CONTRAST_ADI}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: 1D Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_app_sci_throughput]}{\RAW{DET_APP_SCI_THROUGHPUT}}\label{dataitem:det_app_sci_throughput}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_app_sci_throughput]{\PROD{DET_APP_SCI_THROUGHPUT}}\\[0.3cm]
+Description: & ADI throughput curve \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_APP_SCI_THROUGHPUT}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{METIS_APP_SCI_THROUGHPUT}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_app_centroid_tab]}{\RAW{DET_APP_CENTROID_TAB}}\label{dataitem:det_app_centroid_tab}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_app_centroid_tab]{\PROD{DET_APP_CENTROID_TAB}}\\[0.3cm]
+Description: & Table of source centroid positions for a sequence of ADI images \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM,N}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_APP_CENTROID_TAB}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{METIS_DET_APP_CENTROID_TAB}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: ??}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+%\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+%OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+%\FITS{DO.CATG}: & \FITS{DET_APP_SCI_CALIBRATED}\\[0.3cm]
+%Templates:             & \TPL{TODO}                                                       \\
+%Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{METIS_APP_SCI_CALIBRATED}}\\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+% \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+%    \item \texttt{hdrl\_image * image: Single Image}
+%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
+
+
+
+
+
+
+
+
+
+
+
+\paragraph{\hyperref[dataitem:det_cgrph_sci_calibrated]}{\RAW{DET_CGRPH_SCI_CALIBRATED}}\label{dataitem:det_cgrph_sci_calibrated}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_sci_calibrated]{\PROD{DET_CGRPH_SCI_CALIBRATED}}\\[0.3cm]
+Description: & Coronagraphic image after distortion correction \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_CGRPH_SCI_CALIBRATED}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{METIS_CGRPH_SCI_CALIBRATED}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_cgrph_sci_centred]}{\RAW{DET_CGRPH_SCI_CENTRED}}\label{dataitem:det_cgrph_sci_centred}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_sci_centred]{\PROD{DET_CGRPH_SCI_CENTRED}}\\[0.3cm]
+Description: & Coronagraphic image after centering on the PSF and subpixel realignment \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_CGRPH_SCI_CENTRED}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{METIS_CGRPH_SCI_CENTRED}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Image Cube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_cgrph_sci_speckle]}{\RAW{DET_CGRPH_SCI_SPECKLE}}\label{dataitem:det_cgrph_sci_speckle}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_sci_speckle]{\PROD{DET_CGRPH_SCI_SPECKLE}}\\[0.3cm]
+Description: & PSFZZZSpeckle image from coronagraphic data \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_CGRPH_SCI_SPECKLE}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{METIS_CGRPH_SCI_SPECKLE}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_cgrph_sci_derotated_psfsub]}{\RAW{DET_CGRPH_SCI_DEROTATED_PSFSUB}}\label{dataitem:det_cgrph_sci_derotated_psfsub}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_sci_derotated_psfsub]{\PROD{DET_CGRPH_SCI_DEROTATED_PSFSUB}}\\[0.3cm]
+Description: & Coronagraphic image after PSF subtraction, derotation and coaddition  \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_CGRPH_SCI_DEROTATED_PSFSUB}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{METIS_CGRPH_SCI_DEROTATED_PSFSUB}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Image Cube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_cgrph_sci_derotated]}{\RAW{DET_CGRPH_SCI_DEROTATED}}\label{dataitem:det_cgrph_sci_derotated}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_sci_derotated]{\PROD{DET_CGRPH_SCI_DEROTATED}}\\[0.3cm]
+Description: & Coronagraphic image after derotation and coaddition \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_CGRPH_SCI_DEROTATED}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{METIS_CGRPH_SCI_DEROTATED}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_cgrph_sci_coverage]}{\RAW{DET_CGRPH_SCI_COVERAGE}}\label{dataitem:det_cgrph_sci_coverage}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_sci_coverage]{\PROD{DET_CGRPH_SCI_COVERAGE}}\\[0.3cm]
+Description: & Map of effective number of frames contributing to the final coronographic image \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_CGRPH_SCI_COVERAGE}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{METIS_CGRPH_SCI_COVERAGE}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_cgrph_sci_snr]}{\RAW{DET_CGRPH_SCI_SNR}}\label{dataitem:det_cgrph_sci_snr}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_sci_snr]{\PROD{DET_CGRPH_SCI_SNR}}\\[0.3cm]
+Description: & ADI SNR Map \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_CGRPH_SCI_SNR}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{METIS_CGRPH_SCI_SNR}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_cgrph_sci_contrast_raw]}{\RAW{DET_CGRPH_SCI_CONTRAST_RAW}}\label{dataitem:det_cgrph_sci_contrast_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_sci_contrast_raw]{\PROD{DET_CGRPH_SCI_CONTRAST_RAW}}\\[0.3cm]
+Description: & Raw contrast curve for ADI observations \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_CGRPH_SCI_CONTRAST_RAW}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{METIS_CGRPH_SCI_CONTRAST_RAW}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: 1D Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_cgrph_sci_contrast_adi]}{\RAW{DET_CGRPH_SCI_CONTRAST_ADI}}\label{dataitem:det_cgrph_sci_contrast_adi}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_sci_contrast_adi]{\PROD{DET_CGRPH_SCI_CONTRAST_ADI}}\\[0.3cm]
+Description: & Post-ADI contrast curve for ADI observations  \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_CGRPH_SCI_CONTRAST_ADI}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{METIS_CGRPH_SCI_CONTRAST_ADI}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: 1D Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_cgrph_sci_throughput]}{\RAW{DET_CGRPH_SCI_THROUGHPUT}}\label{dataitem:det_cgrph_sci_throughput}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_sci_throughput]{\PROD{DET_CGRPH_SCI_THROUGHPUT}}\\[0.3cm]
+Description: & ADI throughput curve \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_CGRPH_SCI_THROUGHPUT}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{METIS_CGRPH_SCI_THROUGHPUT}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_cgrph_centroid_tab]}{\RAW{DET_CGRPH_CENTROID_TAB}}\label{dataitem:det_cgrph_centroid_tab}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_centroid_tab]{\PROD{DET_CGRPH_CENTROID_TAB}}\\[0.3cm]
+Description: & Table of source centroid positions for a sequence of ADI images \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM,N}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DET_CGRPH_CENTROID_TAB}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{METIS_DET_CGRPH_CENTROID_TAB}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: ??}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_cgrph_sci_calibrated]}{\RAW{IFU_CGRPH_SCI_CALIBRATED}}\label{dataitem:ifu_cgrph_sci_calibrated}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_cgrph_sci_calibrated]{\PROD{IFU_CGRPH_SCI_CALIBRATED}}\\[0.3cm]
+Description: & Coronagraphic image after distortion correction \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_CGRPH_SCI_CALIBRATED}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_SCI_CALIBRATED}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: IFU Datacube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_cgrph_sci_centred]}{\RAW{IFU_CGRPH_SCI_CENTRED}}\label{dataitem:ifu_cgrph_sci_centred}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_cgrph_sci_centred]{\PROD{IFU_CGRPH_SCI_CENTRED}}\\[0.3cm]
+Description: & Coronagraphic image after centering on the PSF and subpixel realignment \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_CGRPH_SCI_CENTRED}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_SCI_CENTRED}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: IFU Datacube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_cgrph_sci_speckle]}{\RAW{IFU_CGRPH_SCI_SPECKLE}}\label{dataitem:ifu_cgrph_sci_speckle}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_cgrph_sci_speckle]{\PROD{IFU_CGRPH_SCI_SPECKLE}}\\[0.3cm]
+Description: & PSFZZZSpeckle image from coronagraphic data \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_CGRPH_SCI_SPECKLE}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_SCI_SPECKLE}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: IFU Datacube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_cgrph_sci_derotated_psfsub]}{\RAW{IFU_CGRPH_SCI_DEROTATED_PSFSUB}}\label{dataitem:ifu_cgrph_sci_derotated_psfsub}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_cgrph_sci_derotated_psfsub]{\PROD{IFU_CGRPH_SCI_DEROTATED_PSFSUB}}\\[0.3cm]
+Description: & Coronagraphic image after PSF subtraction, derotation and coaddition  \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_CGRPH_SCI_DEROTATED_PSFSUB}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_SCI_DEROTATED_PSFSUB}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: 4D IFU Cube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_cgrph_sci_derotated]}{\RAW{IFU_CGRPH_SCI_DEROTATED}}\label{dataitem:ifu_cgrph_sci_derotated}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_cgrph_sci_derotated]{\PROD{IFU_CGRPH_SCI_DEROTATED}}\\[0.3cm]
+Description: & Coronagraphic image after derotation and coaddition \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_CGRPH_SCI_DEROTATED}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_SCI_DEROTATED}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: IFU Datacube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_cgrph_sci_coverage]}{\RAW{IFU_CGRPH_SCI_COVERAGE}}\label{dataitem:ifu_cgrph_sci_coverage}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_cgrph_sci_coverage]{\PROD{IFU_CGRPH_SCI_COVERAGE}}\\[0.3cm]
+Description: & Map of effective number of frames contributing to the final coronographic image \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_CGRPH_SCI_COVERAGE}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_SCI_COVERAGE}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: IFU Datacube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_cgrph_sci_snr]}{\RAW{IFU_CGRPH_SCI_SNR}}\label{dataitem:ifu_cgrph_sci_snr}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_cgrph_sci_snr]{\PROD{IFU_CGRPH_SCI_SNR}}\\[0.3cm]
+Description: & ADI SNR Map \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_CGRPH_SCI_SNR}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_SCI_SNR}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: IFU Datacube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_cgrph_sci_contrast_raw]}{\RAW{IFU_CGRPH_SCI_CONTRAST_RAW}}\label{dataitem:ifu_cgrph_sci_contrast_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_cgrph_sci_contrast_raw]{\PROD{IFU_CGRPH_SCI_CONTRAST_RAW}}\\[0.3cm]
+Description: & Raw contrast curve for ADI observations \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_CGRPH_SCI_CONTRAST_RAW}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_SCI_CONTRAST_RAW}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: 2D Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_cgrph_sci_contrast_adi]}{\RAW{IFU_CGRPH_SCI_CONTRAST_ADI}}\label{dataitem:ifu_cgrph_sci_contrast_adi}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_cgrph_sci_contrast_adi]{\PROD{IFU_CGRPH_SCI_CONTRAST_ADI}}\\[0.3cm]
+Description: & Post-ADI contrast curve for ADI observations  \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_CGRPH_SCI_CONTRAST_ADI}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_SCI_CONTRAST_ADI}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: 2D Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_cgrph_sci_throughput]}{\RAW{IFU_CGRPH_SCI_THROUGHPUT}}\label{dataitem:ifu_cgrph_sci_throughput}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_cgrph_sci_throughput]{\PROD{IFU_CGRPH_SCI_THROUGHPUT}}\\[0.3cm]
+Description: & ADI throughput curve \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_CGRPH_SCI_THROUGHPUT}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_SCI_THROUGHPUT}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: IFU Datacube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_cgrph_sci_reduced]}{\RAW{IFU_CGRPH_SCI_REDUCED}}\label{dataitem:ifu_cgrph_sci_reduced}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_cgrph_sci_reduced]{\PROD{IFU_CGRPH_SCI_REDUCED}}\\[0.3cm]
+Description: & IFU dataset after basic reduction \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_CGRPH_SCI_REDUCED}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_SCI_REDUCED}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: IFU Datacube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_distortion_table]}{\RAW{IFU_DISTORTION_TABLE}}\label{dataitem:ifu_distortion_table}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}\\[0.3cm]
+Description: & Table of distortion coefficients for an IFU data set \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_DISTORTION_TABLE}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_DISTORTION_TABLE}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: ??}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:ifu_cgrph_centroid_tab]}{\RAW{IFU_CGRPH_CENTROID_TAB}}\label{dataitem:ifu_cgrph_centroid_tab}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_cgrph_centroid_tab]{\PROD{IFU_CGRPH_CENTROID_TAB}}\\[0.3cm]
+Description: & Table of central source centroids for an IFU cube  \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_CGRPH_CENTROID_TAB}\\[0.3cm]
+Templates:             & \TPL{TODO}                                                       \\
+Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_CENTROID_TAB}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: ??}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+

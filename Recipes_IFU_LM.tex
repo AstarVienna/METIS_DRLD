@@ -22,11 +22,11 @@ post-processing recipe (\REC{metis_ifu_combine}).}
 
 \subsubsection{IFU wavelength calibration}
 \label{sssec:ifu_wavecal}
+\label{rec:metis_ifu_wavecal}
 
 This recipe processes daytime wavelength calibration images to derive
 the pixel-to-wavelength relation for the LM integral-field
-spectrograph. The calibration template will use the quantum cascade
-laser (QCL) in the warm calibration unit to finely sample the desired
+spectrograph. The calibration template will use the \ac{QCL} in the warm calibration unit to finely sample the desired
 wavelength range. The image will consist of lines for each wavelength
 and slice. The solution will have to provide for each detector pixel
 $(x,y)$ the slice number $i$, the spatial position $\xi$ along the
@@ -42,7 +42,7 @@ The boundaries of the slice image on the detector are obtained by
 measuring the left and right edges of the wavelength lines and
 interpolating. The slice number is then obtained by counting the
 slices according to the optical design of the spectrograph. The
-wavelength of each line is known from the settings of the QCL, the $x$
+wavelength of each line is known from the settings of the \ac{QCL}, the $x$
 coordinate is obtained by linear interpolation along the line (or
 perhaps using the distortion table from \REC{metis_ifu_distortion} if
 necessary). The functions $f_{i}$ and $g_{i}$ are expected to be
@@ -57,9 +57,9 @@ table extension holds the polynomial coefficients.
   Purpose:             & Determine pixel-to-wavelength transformation.                          \\
   Requirements:        & \REQ{METIS-6074}                                                       \\
   Type:                & Calibration                                                            \\
-  Templates:           & \TPL{METIS_ifu_cal_InternalWave}                                           \\
-  Input data:          & Images taken with WCU QCL source                                       \\
-                       & Master dark                                                            \\
+  Templates:           & \TPL{METIS_ifu_cal_InternalWave}                                       \\
+  Input data:          & Images taken with WCU \ac{QCL} source                                  \\
+                       & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}            \\
                        & Bad-pixel map                                                          \\
                        & Distortion table (TBD)                                                 \\
   Parameters:          & TBD                                                                    \\
@@ -85,6 +85,7 @@ table extension holds the polynomial coefficients.
 \clearpage
 \subsubsection{IFU relative spectral response function}
 \label{sssec:ifu_rsrf}
+\label{rec:metis_ifu_rsrf}
 
 This recipe creates a spectroscopic master flat and determines the
 relative spectral response function (RSRF) for the four HAWAII2RG
@@ -105,7 +106,7 @@ Requirements:        & \REQ{METIS-6131}, \REQ{METIS-6698}                       
 Type:                & Calibration                                                              \\
 Templates:           & \TPL{METIS_ifu_cal_rsrf}                                                 \\
 Input data:          & Raw flats taken with black-body calibration lamp.                        \\
-                     & \CODE{MASTER_DARK_IFU}                                                   \\
+                     & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}              \\
                      & \CODE{BADPIX_MAP_IFU}                                                    \\
                      & \CODE{IFU_WAVECAL}: image with wavelength at each pixel.                 \\
 Parameters:          & TBD                                                                      \\
@@ -134,6 +135,7 @@ QC1 parameters:      & \QC{QC IFU RSRF NBADPIX}                                 
 \clearpage
 \subsubsection{IFU flux standard reduction}
 \label{sssec:ifu_std_process}
+\label{rec:metis_ifu_std_process}
 
 This recipe reduces and analyses a series of IFU observations of a
 spectroscopic flux standard star. The comparison of the measured
@@ -163,7 +165,7 @@ may be refined by measuring telluric emission and/or absorption lines
   Type:                & Calibration                                                            \\
   Templates:           & \TPL{METIS_ifu_cal_standard}                                           \\
   Input data:          & Raw spectra of flux standard star                                      \\
-                       & Master dark                                                            \\
+                       & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}            \\
                        & Master flat (2D relative spectral response function)                   \\
                        & Bad pixel mask                                                         \\
                        & Wavelength calibration image                                           \\
@@ -197,6 +199,7 @@ may be refined by measuring telluric emission and/or absorption lines
 \clearpage
 \subsubsection{IFU science reduction}
 \label{sssec:ifu_sci_process}
+\label{rec:metis_ifu_sci_process}
 
 This recipe performs basic reduction of raw science exposures applying
 dark and RSRF correction and flux calibration (i.e.~conversion of
@@ -284,7 +287,7 @@ Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                       
                      & \TPL{METIS_ifu_cal_psf}                                                                  \\
 Input data:          & Dithered science exposures.                                                              \\
                      & Blank sky images (if available)                                                          \\
-                     & Master dark                                                                              \\
+                     & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}                              \\
                      & Master flat (2D relative spectral response function)                                     \\
                      & Bad pixel mask                                                                           \\
                      & Wavelength calibration image                                                             \\
@@ -324,6 +327,7 @@ QC1 parameters:      & TBD                                                      
 \clearpage
 \subsubsection{IFU telluric absorption correction}
 \label{sssec:ifu_tellcorr}
+\label{rec:metis_ifu_tellcorr}
 
 This recipe corrects for telluric absorption in a reduced IFU data
 cube. The correction is done via a model atmospheric spectrum derived
@@ -369,6 +373,7 @@ spectrum. The spectrum is extracted from a combined cube
 \clearpage
 \subsubsection{IFU science postprocessing}
 \label{sssec:ifu_sci_postprocess}
+\label{rec:metis_ifu_sci_postprocess}
 
 This recipe combines a number of reduced IFU exposures covering a
 different spatial and wavelength ranges into a single data cube. The
@@ -428,6 +433,7 @@ observatory.
 \clearpage
 \subsubsection{IFU distortion calibration}
 \label{sssec:ifu_distortion}
+\label{rec:metis_ifu_distortion}
 
 Calibration of the geometric distortion of the LMS/IFU is done by
 observing a pin hole mask located in a focal plane within the

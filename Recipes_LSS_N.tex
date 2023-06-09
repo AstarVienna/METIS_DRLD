@@ -11,7 +11,7 @@ dark correction and the spectroscopic flatfielding via \ac{RSRF}, followed by th
 These recipes are described in Section~\ref{Sec:detector_calibration}.
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{Recipe \REC{metis_N_adc_slitloss}}
-The recipe \hyperref[sssec:adc_slitlosses]{\REC{metis_n_adc_slitloss}} aims to determine the slit losses induced by the fixed \ac{ADC} positions as function of the object position across the slit. The recipe aims to create a table with slitlosses (\hyperref[dataitem:nadcslitloss]{\STATCALIB{N_ADC_SLITLOSS}}), which is added to the static database and used in the recipes \hyperref[rec:lssnflux]{\REC{metis_N_lss_flux}}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slitlosses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit losses" in the Calibration Plan \cite{METIS-calibration_plan}. 
+The recipe \hyperref[sssec:adc_slitlosses]{\REC{metis_n_adc_slitloss}} aims to determine the slit losses induced by the fixed \ac{ADC} positions as function of the object position across the slit. The recipe aims to create a table with slitlosses (\hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}), which is added to the static database and used in the recipes \hyperref[rec:lssnflux]{\REC{metis_N_lss_flux}}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slitlosses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit losses" in the Calibration Plan \cite{METIS-calibration_plan}. 
 
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{N-LSS Flatfielding recipe \REC{metis_N_lss_rsrf}:}\label{rec:lssnrsrf}
@@ -30,19 +30,19 @@ Purpose:	& Spectroscopic flatfielding with \ac{RSRF} \\
 Type:		& Calibration\\
 Requirements: & None \\
 Templates:           & \TPL{METIS_spec_n_cal_rsrf} \\
-Input data:     & $N\times$ \hyperref[dataitem:nlssrsrfraw]{\RAW{N_LSS_RSRF_RAW}} \\
-                & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:gainmapgeo]{\STATCALIB{GAIN_MAP_GEO}}  \\
-                & \hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}  \\
-                & \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}  \\
+Input data:     & $N\times$ \hyperref[dataitem:n_lss_rsrf_raw]{\RAW{N_LSS_RSRF_RAW}} \\
+                & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
+                & \hyperref[dataitem:gain_map_n]{\STATCALIB{GAIN_MAP_N}}  \\
+                & \hyperref[dataitem:badpix_map_n]{\PROD{BADPIX_MAP_N}}  \\
+                & \hyperref[dataitem:master_dark_n]{\PROD{MASTER_DARK_N}}  \\
 Parameters: 	& TBD\\
 Algorithm:      & subtract master \ac{WCU} "OFF" frame from illumination frame (done on individual images)\\
                 & median/mean filtering of subtracted images\\
                 & division by blackbody spectrum\\
                 & normalisation to achieve \ac{RSRF}\\
-Output data:	&  \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER\_N\_LSS\_RSRF}} (\FITS{PRO.CATG=MASTER_N_LSS_TRSRF}): \\
-                & \hyperref[dataitem:mediannrsrfimg]{\PROD{MEDIAN_N_LSS_RSRF_IMG}}\\
-                & \hyperref[dataitem:meannrsrfimg]{\PROD{MEAN_N_LSS_RSRF_IMG}}\\
+Output data:	&  \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}} (\FITS{PRO.CATG=MASTER_N_LSS_TRSRF}): \\
+                & \hyperref[dataitem:median_n_lss_rsrf_img]{\PROD{MEDIAN_N_LSS_RSRF_IMG}}\\
+                & \hyperref[dataitem:mean_n_lss_rsrf_img]{\PROD{MEAN_N_LSS_RSRF_IMG}}\\
 
 Expected accuracies: & 3\% (cf. \cite{METIS-calibration_plan} and \cite{METIS_calerrbudget})\\
 QC1 parameters: & \hyperref[qc:nlssrsrfmeanlevel]{\QC{QC N LSS RSRF MEAN LEVEL}}: Mean level of the \ac{RSRF}\\
@@ -71,16 +71,16 @@ Purpose:	& Detection of order location \\
 Type:		& Calibration\\
 Requirements: & None \\
 Templates:           & \TPL{METIS_spec_n_cal_InternalWave} \\
-Input data:     & $N\times$ \hyperref[dataitem:nlssrsrfpinhraw]{\RAW{N_LSS_RSRF_PINH_RAW}} \\
-                & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:gainmapgeo]{\STATCALIB{GAIN_MAP_GEO}}  \\
-                & \hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}  \\
-                & \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}  \\
-                &  \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER\_N\_LSS\_RSRF}} \\
+Input data:     & $N\times$ \hyperref[dataitem:n_lss_rsrf_pinh_raw]{\RAW{N_LSS_RSRF_PINH_RAW}} \\
+                & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
+                & \hyperref[dataitem:gain_map_n]{\STATCALIB{GAIN_MAP_N}}  \\
+                & \hyperref[dataitem:badpix_map_n]{\PROD{BADPIX_MAP_N}}  \\
+                & \hyperref[dataitem:master_dark_n]{\PROD{MASTER_DARK_N}}  \\
+                &  \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}} \\
 Parameters: 	& polynomial degree\\
 Algorithm:      & Detection of the order edges\\
                 & Polynomial fitting\\
-Output data:	& \hyperref[dataitem:nlsstrace]{\PROD{N_LSS_TRACE}} (\FITS{PRO.CATG=N_LSS_TRACE}): Polynomial coefficients\\
+Output data:	& \hyperref[dataitem:n_lss_trace]{\PROD{N_LSS_TRACE}} (\FITS{PRO.CATG=N_LSS_TRACE}): Polynomial coefficients\\
 Expected accuracies: & (TBD)\\
 QC1 parameters: & \hyperref[q:nlsstracelpolydeg]{\QC{QC N LSS TRACE LPOLYDEG}}: Degree of the polynomial fit of the left order edge\\
                 & \hyperref[q:nlsstracelcoeffi]{\QC{QC N LSS TRACE LCOEFF<i>}}: $i$-th coefficient of the polynomial of the left order edge\\
@@ -91,6 +91,10 @@ QC1 parameters: & \hyperref[q:nlsstracelpolydeg]{\QC{QC N LSS TRACE LPOLYDEG}}: 
 \end{recipedef}
 
 \clearpage
+
+%------------------------------------------------------------------------------------------------------------------
+\subsubsection{N-LSS flux calibration recipe \REC{metis_N_lss_std}:}\label{rec:lssnstd}
+\textit{....to be written - based on \REC{metis_N_lss_flux}}
 
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{N-LSS flux calibration recipe \REC{metis_N_lss_flux}:}\label{rec:lssnflux}
@@ -110,20 +114,20 @@ Purpose:	& Flux calibration \\
 Type:		& Calibration\\
 Requirements: & METIS-6084, METIS-6074 \\
 Templates:           & \TPL{METIS_spec_N_cal_standard}\\
-Input data: 	& \hyperref[dataitem:nlssfluxraw]{\RAW{N_LSS_FLUX_RAW}}\\
-                & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:gainmapgeo]{\STATCALIB{GAIN_MAP_GEO}}  \\
-                & \hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}  \\
-                & \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}  \\
-                & \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER\_N\_LSS\_RSRF}} \\
-                & \hyperref[dataitem:nlsstrace]{\PROD{N_LSS_TRACE}}\\
-                & \hyperref[dataitem:nlssdistsol]{\STATCALIB{N_LSS_DIST_SOL}} \\
-                & \hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}} \\
-                & \hyperref[dataitem:nsynthtrans]{\STATCALIB{N_SYNTH_TRANS}}\\
-                & \hyperref[dataitem:aopsfmodel]{\EXTCALIB{AO_PSF_MODEL}} \\
-                & \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}} \\
-                & \hyperref[dataitem:nadcslitloss]{\STATCALIB{N_ADC_SLITLOSS}}\\
-                & \hyperref[dataitem:reffluxcat]{\STATCALIB{REF_FLUX_CAT}} \\                
+Input data: 	& \hyperref[dataitem:n_lss_flux_raw]{\RAW{N_LSS_FLUX_RAW}}\\
+                & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
+                & \hyperref[dataitem:gain_map_n]{\STATCALIB{GAIN_MAP_N}}  \\
+                & \hyperref[dataitem:badpix_map_n]{\PROD{BADPIX_MAP_N}}  \\
+                & \hyperref[dataitem:master_dark_n]{\PROD{MASTER_DARK_N}}  \\
+                & \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}} \\
+                & \hyperref[dataitem:n_lss_trace]{\PROD{N_LSS_TRACE}}\\
+                & \hyperref[dataitem:n_lss_dist_sol]{\STATCALIB{N_LSS_DIST_SOL}} \\
+                & \hyperref[dataitem:n_lss_wave_guess]{\STATCALIB{N_LSS_WAVE_GUESS}} \\
+                & \hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}}\\
+                & \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} \\
+                & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} \\
+                & \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}\\
+                & \hyperref[dataitem:ref_flux_cat]{\STATCALIB{REF_FLUX_CAT}} \\                
 Parameters: 	& (TBD)\\
 Algorithm:      & Application of master calibration files\\
                 & Background removal\\
@@ -133,10 +137,10 @@ Algorithm:      & Application of master calibration files\\
                 & Removing sky lines: Creation and Subtraction of 2D sky\\
                 & Collapsing 2D to 1D spectrum, (see Fig.\,\ref{Fig:rec_N_lss_sci})\\
                 & Determination and application of response curve\\
-Output data:	& \hyperref[dataitem:nlssstdobjmap]{\PROD{N_LSS_STD_OBJ_MAP}}: Pixel map of object pixels\\
-            	& \hyperref[dataitem:nlssstdskymap]{\PROD{N_LSS_STD_SKY_MAP}}: Pixel map of sky pixels\\
-              	& \hyperref[dataitem:nlssstd1d]{\PROD{N_LSS_STD_1D}}  : coadded, wavelength calibrated, collapsed 1D spectrum\\
-                & \hyperref[dataitem:lsslmresp]{\PROD{MASTER\_N\_RESPONSE}}: response function (TBD)\\
+Output data:	& \hyperref[dataitem:n_lss_std_obj_map]{\PROD{N_LSS_STD_OBJ_MAP}}: Pixel map of object pixels\\
+            	& \hyperref[dataitem:n_lss_std_sky_map]{\PROD{N_LSS_STD_SKY_MAP}}: Pixel map of sky pixels\\
+              	& \hyperref[dataitem:n_lss_std_1d]{\PROD{N_LSS_STD_1D}}  : coadded, wavelength calibrated, collapsed 1D spectrum\\
+                & \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}}: response function (TBD)\\
 Expected accuracies: & 10\% over an atmospheric band (ESO Req. R-MET-107)\\
             & $<30$\% absolute line flux accuracy (R-MET-107)\\
             & $<5$\% absolute flux calibration (R-MET-82)\\
@@ -183,19 +187,19 @@ Templates:           & \TPL{METIS_spec_N_acq}, \\
                 & \TPL{METIS_spec_n_obs_AutoChopNodOnSlit}, \\
                 & \TPL{METIS_spec_N_obs_GenericOffset} \\
                 & \TPL{METIS_spec_n_cal_slit}\\
-Input data: 	& \hyperref[dataitem:nlsssciraw]{\RAW{N_LSS_SCI_RAW}}\\
-                & \hyperref[dataitem:persistencemap]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:gainmapgeo]{\STATCALIB{GAIN_MAP_GEO}}  \\
-                & \hyperref[dataitem:badpixmapgeo]{\PROD{BADPIX_MAP_GEO}}  \\
-                & \hyperref[dataitem:masterdarkgeo]{\PROD{MASTER_DARK_GEO}}  \\
-                & \hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER_N_LSS_RSRF}} \\
-                & \hyperref[dataitem:nlsstrace]{\PROD{N_LSS_TRACE}}\\
-                & \hyperref[dataitem:nlssdistsol]{\STATCALIB{N_LSS_DIST_SOL}}\\
-                & \hyperref[dataitem:nlsswaveguess]{\STATCALIB{N_LSS_WAVE_GUESS}}\\
-                & \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}} \\
-                & \hyperref[dataitem:aopsfmodel]{\EXTCALIB{AO_PSF_MODEL}} \\
-                & \hyperref[dataitem:nadcslitloss]{\STATCALIB{N_ADC_SLITLOSS}}\\
-                & \hyperref[dataitem:lssnresp]{\PROD{MASTER_N_RESPONSE}} \\
+Input data: 	& \hyperref[dataitem:n_lss_sci_raw]{\RAW{N_LSS_SCI_RAW}}\\
+                & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
+                & \hyperref[dataitem:gain_map_n]{\STATCALIB{GAIN_MAP_N}}  \\
+                & \hyperref[dataitem:badpix_map_n]{\PROD{BADPIX_MAP_N}}  \\
+                & \hyperref[dataitem:master_dark_n]{\PROD{MASTER_DARK_N}}  \\
+                & \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}} \\
+                & \hyperref[dataitem:n_lss_trace]{\PROD{N_LSS_TRACE}}\\
+                & \hyperref[dataitem:n_lss_dist_sol]{\STATCALIB{N_LSS_DIST_SOL}}\\
+                & \hyperref[dataitem:n_lss_wave_guess]{\STATCALIB{N_LSS_WAVE_GUESS}}\\
+                & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} \\
+                & \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} \\
+                & \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}\\
+                & \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}} \\
 Parameters: 	& (TBD)\\
 Algorithm:      & Application of the detector master calib files\\
                 & wavelength calibration \\
@@ -204,15 +208,15 @@ Algorithm:      & Application of the detector master calib files\\
                 & Coaddition of individual object spectra of one OB\\
                 & Collapsing 2D to 1D spectrum, (see Fig.\,\ref{Fig:rec_N_lss_sci})\\
                 & Application of the response function (flux calibration) \\
-Output data:	& \hyperref[dataitem:nlsssciobjmap]{\PROD{N_LSS_SCI_OBJ_MAP}}: Pixel map of object pixels\\
-            	& \hyperref[dataitem:nlsssciskymap]{\PROD{N_LSS_SCI_SKY_MAP}}: Pixel map of sky pixels\\
-            	& \hyperref[dataitem:nlsssci2d]{\PROD{N_LSS_SCI_2D}}: coadded, wavelength calibrated 2D spectrum\\
+Output data:	& \hyperref[dataitem:n_lss_sci_obj_map]{\PROD{N_LSS_SCI_OBJ_MAP}}: Pixel map of object pixels\\
+            	& \hyperref[dataitem:n_lss_sci_sky_map]{\PROD{N_LSS_SCI_SKY_MAP}}: Pixel map of sky pixels\\
+            	& \hyperref[dataitem:n_lss_sci_2d]{\PROD{N_LSS_SCI_2D}}: coadded, wavelength calibrated 2D spectrum\\
                 & (\FITS{PRO_CATG}: \FITS{N_LSS_2d_coadd_wavecal}) \\
-                & \hyperref[dataitem:nlsssci1d]{\PROD{N_LSS_SCI_1D}}: coadded, wavelength calibrated 1D spectrum\\
+                & \hyperref[dataitem:n_lss_sci_1d]{\PROD{N_LSS_SCI_1D}}: coadded, wavelength calibrated 1D spectrum\\
                 & (\FITS{PRO_CATG}: \FITS{N_LSS_1d_coadd_wavecal}) \\
-                & \hyperref[dataitem:nlsssciflux2d]{\PROD{N_LSS_SCI_FLUX_2D}}: coadded, wavelength calibrated 2D spectrum\\
+                & \hyperref[dataitem:n_lss_sci_flux_2d]{\PROD{N_LSS_SCI_FLUX_2D}}: coadded, wavelength calibrated 2D spectrum\\
                 & (\FITS{PRO_CATG}: \FITS{N_LSS_2d_coadd_wavecal}) \\
-              	& \hyperref[dataitem:nlsssciflux1d]{\PROD{N_LSS_SCI_FLUX_1D}}: coadded, wavelength 1D spectrum\\
+              	& \hyperref[dataitem:n_lss_sci_flux_1d]{\PROD{N_LSS_SCI_FLUX_1D}}: coadded, wavelength 1D spectrum\\
                 & (\FITS{PRO_CATG}: \FITS{N_LSS_1d_coadd_wavecal}) \\
 Expected accuracies: & (TBD)\\
 QC1 parameters: & \hyperref[qc:nlssscisnr]{\QC{QC N LSS SCI SNR}}: Signal-to-noise ration of science spectrum\\
@@ -247,14 +251,14 @@ Purpose:	& Achieve the best fit for modelling the transmission curve to be appli
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
 Templates:           & None\\
-Input data: 	& \hyperref[dataitem:nlsssciflux1d]{\PROD{N_LSS_SCI_FLUX_1D}}\\
-                & \hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}} \\
-                & \hyperref[dataitem:atmprofile]{\EXTCALIB{ATM_PROFILE}} \\
-                & \hyperref[dataitem:atmlinecat]{\EXTCALIB{ATM_LINE_CAT}} \\
+Input data: 	& \hyperref[dataitem:n_lss_sci_flux_1d]{\PROD{N_LSS_SCI_FLUX_1D}}\\
+                & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}} \\
+                & \hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}} \\
+                & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} \\
 Parameters: 	& \texttt{molecfit} parameters (c.f. \cite{molecfit})\\
 Algorithm:      & Fit of telluric features visible in the science input spectrum\\
                 & Determination of best-fit parameter set\\
-Output data:	& \hyperref[dataitem:mfbestfittab]{\PROD{MF\_BEST\_FIT\_TAB}}\\
+Output data:	& \hyperref[dataitem:mf_best_fit_tab]{\PROD{MF_BEST_FIT_TAB}}\\
 Expected accuracies: & (TBD)\\
 QC1 parameters: & cf. \cite{molecfit}\\
 \end{recipedef}
@@ -275,13 +279,13 @@ Purpose:	& Calculation of the synthetic transmission \\
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
 Templates:           & None\\
-Input data: 	& \PROD{MF\_BEST\_FIT\_TAB}\\
+Input data: 	& \PROD{MF_BEST_FIT_TAB}\\
                 & \STATCALIB{LSF_Kernel} \\
                 & \EXTCALIB{ATM_PROFILE} \\
                 & \EXTCALIB{HITRAN} \\
 Parameters: 	& \texttt{molecfit} parameters (c.f.  \cite{molecfit})\\
 Algorithm:      & Calculate the entire transmission curve by means of the best-fit parameters\\
-Output data:	& \hyperref[dataitem:nlsssynthttrans]{\PROD{N_LSS_SYNTH_TRANS}}\\
+Output data:	& \hyperref[dataitem:n_lss_synth_trans]{\PROD{N_LSS_SYNTH_TRANS}}\\
 \\
 Expected accuracies: & (TBD)\\
 QC1 parameters: & cf. \cite{molecfit}\\
@@ -303,12 +307,12 @@ Purpose:	& Apply the synthetic transmission to the science spectra \\
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
 Templates:           & None\\
-Input data: 	& \hyperref[dataitem:nlsssciflux1d]{\PROD{N_LSS_SCI_FLUX_1D}}\\
-                & \hyperref[dataitem:nlsssynthttrans]{\PROD{N_LSS_SYNTH_TRANS}}\\
+Input data: 	& \hyperref[dataitem:n_lss_sci_flux_1d]{\PROD{N_LSS_SCI_FLUX_1D}}\\
+                & \hyperref[dataitem:n_lss_synth_trans]{\PROD{N_LSS_SYNTH_TRANS}}\\
 Parameters: 	& None\\
 Algorithm:      & Apply telluric correction, i.e. divide the input science spectrum\\
                 & by the synthetic transmission\\
-Output data:	& \hyperref[dataitem:nlssscifluxtellcorr1d]{\PROD{N_LSS_SCI_FLUX_TELLCORR_1D}}\\
+Output data:	& \hyperref[dataitem:n_lss_sci_flux_tellcorr_1d]{\PROD{N_LSS_SCI_FLUX_TELLCORR_1D}}\\
 Expected accuracies: & (TBD)\\
 QC1 parameters: & cf. \cite{molecfit}\\
 \end{recipedef}

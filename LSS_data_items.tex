@@ -5,23 +5,23 @@
 
 
 % ##################################################################################### LM RSRF RAW 
-\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\RAW{LM_LSS_RSRF_RAW}}}\label{dataitem:lmlssrsrfraw}
+\paragraph{\hyperref[dataitem:lm_lss_rsrf_raw]{\RAW{LM_LSS_RSRF_RAW}}}\label{dataitem:lm_lss_rsrf_raw}
 
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlssrsrfraw]{\FITS{LM_LSS_RSRF_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_rsrf_raw]{\PROD{LM_LSS_RSRF_RAW}}\\[0.3cm]
 Description: & Raw exposure of the \ac{WCU} flatfield lamp through the \ac{LSS} to achieve the \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,LAMP} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_RAW}\\[0.3cm]
-Template: & \TPL{METIS\_spec_lm_cal_rsrf}\\
-Input for recipe: & \hyperref[rec:lsslmrsrf]{\REC{metis\_lm\_lss\_rsrf}}\\
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
+Template: & \TPL{METIS_spec_lm_cal_rsrf}\\
+Input for recipe: & \hyperref[rec:lsslmrsrf]{\REC{metis_lm_lss_rsrf}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -32,23 +32,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlssrsrfpinhraw]{\RAW{LM_LSS_RSRF_PINH_RAW}}}\label{dataitem:lmlssrsrfpinhraw}
+\paragraph{\hyperref[dataitem:lm_lss_rsrf_pinh_raw]{\RAW{LM_LSS_RSRF_PINH_RAW}}}\label{dataitem:lm_lss_rsrf_pinh_raw}
 \textbf{\textcolor{red}{CAVEAT: These obs are neither defined in the calib plan nor in the template manual yet! ToBe added after FDR}}\normalsize
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlssrsrfpinhraw]{\FITS{LM_LSS_RSRF_PINH_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_rsrf_pinh_raw]{\PROD{LM_LSS_RSRF_PINH_RAW}}\\[0.3cm]
 Description: & Raw exposure of the \ac{WCU} flatfield lamp through the \ac{LSS} to achieve the order detection / distortion model.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,LAMP,PINH} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}, \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti20.name]{\FITS{INS.OPTI20.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM\_LSS_RSRF\_PINH_RAW}\\[0.3cm]
-Template: & \TPL{METIS\_spec_lm_cal_rsrfpinh}\\
-Input for recipe: & \hyperref[rec:lsslmtrace]{\REC{metis\_lm\_lss\_trace}}\\
+\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_PINH_RAW}\\[0.3cm]
+Template: & \TPL{METIS_spec_lm_cal_rsrfpinh}\\
+Input for recipe: & \hyperref[rec:lsslmtrace]{\REC{metis_lm_lss_trace}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -59,22 +59,22 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlsswaveraw]{\RAW{LM_LSS_WAVE_RAW}}}\label{dataitem:lmlsswaveraw}
+\paragraph{\hyperref[dataitem:lm_lss_wave_raw]{\RAW{LM_LSS_WAVE_RAW}}}\label{dataitem:lm_lss_wave_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsswaveraw]{\FITS{LM_LSS_WAVE_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_wave_raw]{\PROD{LM_LSS_WAVE_RAW}}\\[0.3cm]
 Description: & Raw exposure of the \ac{WCU} laser sources through the \ac{LSS} to achieve the first guess of the wavelength calibration.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{WAVE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_LSS_WAVE_RAW}\\[0.3cm]
-Template: & \TPL{METIS\_spec_lm_cal_InternalWave}\\
-Input for recipe: & \hyperref[rec:lsslmwave]{\REC{metis\_lm\_lss\_wave}}\\
+Template: & \TPL{METIS_spec_lm_cal_InternalWave}\\
+Input for recipe: & \hyperref[rec:lsslmwave]{\REC{metis_lm_lss_wave}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -86,22 +86,22 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlssfluxraw]{\RAW{LM_LSS_FLUX_RAW}}}\label{dataitem:lmlssfluxraw}
+\paragraph{\hyperref[dataitem:lm_lss_flux_raw]{\RAW{LM_LSS_FLUX_RAW}}}\label{dataitem:lm_lss_flux_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlssfluxraw]{\FITS{LM_LSS_FLUX_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_flux_raw]{\PROD{LM_LSS_FLUX_RAW}}\\[0.3cm]
 Description: & LM-band long-slit spectroscopy raw exposure of a flux standard star.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{STD} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_LSS_FLUX_RAW}\\[0.3cm]
-Template: & \TPL{METIS\_spec_lm_cal_Standard}\\
-Input for recipe: & \hyperref[rec:lsslmflux]{\REC{metis\_lm\_lss\_flux}}\\
+Template: & \TPL{METIS_spec_lm_cal_Standard}\\
+Input for recipe: & \hyperref[rec:lsslmstd]{\REC{metis_lm_lss_std}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -113,23 +113,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlsssciraw]{\RAW{LM_LSS_SCI_RAW}}}\label{dataitem:lmlsssciraw}
+\paragraph{\hyperref[dataitem:lm_lss_sci_raw]{\RAW{LM_LSS_SCI_RAW}}}\label{dataitem:lm_lss_sci_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsssciraw]{\FITS{LM_LSS_SCI_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_sci_raw]{\PROD{LM_LSS_SCI_RAW}}\\[0.3cm]
 Description: & LM-band long-slit spectroscopy raw exposure of a science object.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCIENCE}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{OBJECT} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_LSS_SCI_RAW}\\[0.3cm]
-Templates:   & \TPL{METIS\_spec_lm_obs_AutoNodOnSlit}\\
-            & \TPL{METIS\_spec_lm_obs_GenericOffset}\\
-Input for recipe: & \hyperref[rec:lsslmsci]{\REC{metis\_lm\_lss\_sci}}\\
+Templates:   & \TPL{METIS_spec_lm_obs_AutoNodOnSlit}\\
+            & \TPL{METIS_spec_lm_obs_GenericOffset}\\
+Input for recipe: & \hyperref[rec:lsslmsci]{\REC{metis_lm_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -141,22 +141,22 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 % ##################################################################################### N RSRF RAW 
-\paragraph{\hyperref[dataitem:nlssrsrfraw]{\RAW{N\_LSS_RSRF\_RAW}}}\label{dataitem:nlssrsrfraw}
+\paragraph{\hyperref[dataitem:n_lss_rsrf_raw]{\RAW{N_LSS_RSRF_RAW}}}\label{dataitem:n_lss_rsrf_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlssrsrfraw]{\FITS{N_LSS_RSRF_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_rsrf_raw]{\PROD{N_LSS_RSRF_RAW}}\\[0.3cm]
 Description: & Raw exposure of the \ac{WCU} flatfield lamp through the \ac{LSS} to achieve the \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,LAMP} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_RAW}\\[0.3cm]
-Template: & \TPL{METIS\_spec_n_cal_rsrf}\\
-Input for recipe: & \hyperref[rec:lssnrsrf]{\REC{metis\_n\_lss\_rsrf}}\\
+\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
+Template: & \TPL{METIS_spec_n_cal_rsrf}\\
+Input for recipe: & \hyperref[rec:lssnrsrf]{\REC{metis_n_lss_rsrf}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -167,22 +167,22 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlsswaveraw]{\RAW{N_LSS_WAVE_RAW}}}\label{dataitem:nlsswaveraw}
+\paragraph{\hyperref[dataitem:n_lss_wave_raw]{\RAW{N_LSS_WAVE_RAW}}}\label{dataitem:n_lss_wave_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlsswaveraw]{\FITS{N_LSS_WAVE_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_wave_raw]{\PROD{N_LSS_WAVE_RAW}}\\[0.3cm]
 Description: & Raw exposure of the \ac{WCU} laser sources through the \ac{LSS} to achieve the first guess of the wavelength calibration (\ac{AIT} phase only).\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{WAVE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}},  \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_WAVE_RAW}\\[0.3cm]
-Template: & \TPL{METIS\_spec_n_cal_InternalWave}\\
-Input for recipe: & \hyperref[rec:lsslmwave]{\REC{metis\_lm\_lss\_wave}}\\
+Template: & \TPL{METIS_spec_n_cal_InternalWave}\\
+Input for recipe: & \hyperref[rec:lsslmwave]{\REC{metis_lm_lss_wave}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -194,23 +194,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlssrsrfpinhraw]{\RAW{N_LSS_RSRF_PINH_RAW}}}\label{dataitem:nlssrsrfpinhraw}
+\paragraph{\hyperref[dataitem:n_lss_rsrf_pinh_raw]{\RAW{N_LSS_RSRF_PINH_RAW}}}\label{dataitem:n_lss_rsrf_pinh_raw}
 \textbf{\textcolor{red}{CAVEAT: These obs are neither defined in the calib plan nor in the template manual yet! ToBe added after FDR}}\normalsize
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlssrsrfpinhraw]{\FITS{N_LSS_RSRF_PINH_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_rsrf_pinh_raw]{\PROD{N_LSS_RSRF_PINH_RAW}}\\[0.3cm]
 Description: & Raw exposure of the \ac{WCU} flatfield lamp through the \ac{LSS} to achieve the order detection / distortion model.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,LAMP,PINH} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti20.name]{\FITS{INS.OPTI20.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N\_LSS_RSRF\_PINH_RAW}\\[0.3cm]
-Template: & \TPL{METIS\_spec_n_cal_rsrfpinh}\\
-Input for recipe: & \hyperref[rec:lsslmtrace]{\REC{metis\_n\_lss\_trace}}\\
+\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_PINH_RAW}\\[0.3cm]
+Template: & \TPL{METIS_spec_n_cal_rsrfpinh}\\
+Input for recipe: & \hyperref[rec:lsslmtrace]{\REC{metis_n_lss_trace}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -220,22 +220,22 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlssfluxraw]{\RAW{N_LSS_FLUX_RAW}}}\label{dataitem:nlssfluxraw}
+\paragraph{\hyperref[dataitem:n_lss_flux_raw]{\RAW{N_LSS_FLUX_RAW}}}\label{dataitem:n_lss_flux_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlssfluxraw]{\FITS{N_LSS_FLUX_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_flux_raw]{\PROD{N_LSS_FLUX_RAW}}\\[0.3cm]
 Description: & N-band long-slit spectroscopy raw exposure of a flux standard star.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{STD} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_FLUX_RAW}\\[0.3cm]
-Template: & \TPL{METIS\_spec_lm_cal_Standard}\\
-Input for recipe: & \hyperref[rec:lssnflux]{\REC{metis\_n\_lss\_flux}}\\
+Template: & \TPL{METIS_spec_lm_cal_Standard}\\
+Input for recipe: & \hyperref[rec:lssnflux]{\REC{metis_n_lss_flux}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -246,22 +246,22 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlsssciraw]{\RAW{N_LSS_SCI_RAW}}}\label{dataitem:nlsssciraw}
+\paragraph{\hyperref[dataitem:n_lss_sci_raw]{\RAW{N_LSS_SCI_RAW}}}\label{dataitem:n_lss_sci_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlsssciraw]{\FITS{N_LSS_SCI_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_sci_raw]{\PROD{N_LSS_SCI_RAW}}\\[0.3cm]
 Description: & N-band long-slit spectroscopy raw exposure of a science object.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCIENCE}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{OBJECT} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}} , \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_SCI_RAW}\\[0.3cm]
-Templates:   & \TPL{METIS\_spec_n_obs_AutoChopNodOnSlit}\\
-Input for recipe: & \hyperref[rec:lssnsci]{\REC{metis\_n\_lss\_sci}}\\
+Templates:   & \TPL{METIS_spec_n_obs_AutoChopNodOnSlit}\\
+Input for recipe: & \hyperref[rec:lssnsci]{\REC{metis_n_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -276,23 +276,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:lssprocdatastructs}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lsslmrsrfmaster]{\PROD{MASTER_LM_LSS_RSRF}}}\label{dataitem:lsslmrsrfmaster}
+\paragraph{\hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}}}\label{dataitem:master_lm_lss_rsrf}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lsslmrsrfmaster]{\FITS{MASTER_LM_LSS_RSRF}}\\[0.3cm]
+Name: & \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}}\\[0.3cm]
 Description: & LM-band \ac{LSS} Master \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_LM_LSS_RSRF}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & \FITS{MASTER_LM_LSS_RSRF}\\[0.3cm]
-Created by: & \hyperref[rec:lsslmrsrf]{\REC{metis\_lm\_lss\_rsrf}}\\
-Input for recipes: & \hyperref[rec:lsslmtrace]{\REC{metis\_lm\_lss\_trace}}\\
-                   & \hyperref[rec:lsslmwave]{\REC{metis\_lm\_lss\_wave}}\\
-                   & \hyperref[rec:lsslmflux]{\REC{metis\_lm\_lss\_flux}}\\
-                   & \hyperref[rec:lsslmsci]{\REC{metis\_lm\_lss\_sci}}\\
+Created by: & \hyperref[rec:lsslmrsrf]{\REC{metis_lm_lss_rsrf}}\\
+Input for recipes: & \hyperref[rec:lsslmtrace]{\REC{metis_lm_lss_trace}}\\
+                   & \hyperref[rec:lsslmwave]{\REC{metis_lm_lss_wave}}\\
+                   & \hyperref[rec:lsslmstd]{\REC{metis_lm_lss_std}}\\
+                   & \hyperref[rec:lsslmsci]{\REC{metis_lm_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -303,20 +303,20 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:medianlmrsrfimg]{\PROD{MEDIAN_LM_LSS_RSRF_IMG}}}\label{dataitem:medianlmrsrfimg}
+\paragraph{\hyperref[dataitem:median_lm_lss_rsrf_img]{\PROD{MEDIAN_LM_LSS_RSRF_IMG}}}\label{dataitem:median_lm_lss_rsrf_img}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:medianlmrsrfimg]{\FITS{MEDIAN_LM_LSS_RSRF_IMG}}\\[0.3cm]
+Name: & \hyperref[dataitem:median_lm_lss_rsrf_img]{\PROD{MEDIAN_LM_LSS_RSRF_IMG}}\\[0.3cm]
 Description: & LM-band \ac{LSS} Median \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_LM_LSS_RSRF}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lsslmrsrf]{\REC{metis\_lm\_lss\_rsrf}}\\
+Created by: & \hyperref[rec:lsslmrsrf]{\REC{metis_lm_lss_rsrf}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} only\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -326,20 +326,20 @@ Comment: & intermediate data product used for \ac{QC} only\\
 \end{enumerate}
 \end{datastructdef}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:meanlmrsrfimg]{\PROD{MEAN_LM_LSS_RSRF_IMG}}}\label{dataitem:meanlmrsrfimg}
+\paragraph{\hyperref[dataitem:mean_lm_lss_rsrf_img]{\PROD{MEAN_LM_LSS_RSRF_IMG}}}\label{dataitem:mean_lm_lss_rsrf_img}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:meanlmrsrfimg]{\FITS{MEAN_LM_LSS_RSRF_IMG}}\\[0.3cm]
+Name: & \hyperref[dataitem:mean_lm_lss_rsrf_img]{\PROD{MEAN_LM_LSS_RSRF_IMG}}\\[0.3cm]
 Description: & LM-band \ac{LSS} Mean \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MEAN_LM_LSS_RSRF_IMG}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lsslmrsrf]{\REC{metis\_lm\_lss\_rsrf}}\\
+Created by: & \hyperref[rec:lsslmrsrf]{\REC{metis_lm_lss_rsrf}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} only\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -350,22 +350,22 @@ Comment: & intermediate data product used for \ac{QC} only\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lssnrsrfmaster]{\PROD{MASTER_N_LSS_RSRF}}}\label{dataitem:lssnrsrfmaster}
+\paragraph{\hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}}\label{dataitem:master_n_lss_rsrf}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lssnrsrfmaster]{\FITS{MASTER_N_LSS_RSRF}}\\[0.3cm]
+Name: & \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}\\[0.3cm]
 Description: & LM-band \ac{LSS} Master \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_N_LSS_RSRF}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
 \FITS{DO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
-Created by: & \hyperref[rec:lssnrsrf]{\REC{metis\_n\_lss\_rsrf}}\\
-Input for recipes: & \hyperref[rec:lssntrace]{\REC{metis\_n\_lss\_trace}}\\
-                   & \hyperref[rec:lssnflux]{\REC{metis\_n\_lss\_flux}}\\
-                   & \hyperref[rec:lssnsci]{\REC{metis\_n\_lss\_sci}}\\
+Created by: & \hyperref[rec:lssnrsrf]{\REC{metis_n_lss_rsrf}}\\
+Input for recipes: & \hyperref[rec:lssntrace]{\REC{metis_n_lss_trace}}\\
+                   & \hyperref[rec:lssnflux]{\REC{metis_n_lss_flux}}\\
+                   & \hyperref[rec:lssnsci]{\REC{metis_n_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -378,20 +378,20 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:mediannrsrfimg]{\PROD{MEDIAN_N_LSS_RSRF_IMG}}}\label{dataitem:mediannrsrfimg}
+\paragraph{\hyperref[dataitem:median_n_lss_rsrf_img]{\PROD{MEDIAN_N_LSS_RSRF_IMG}}}\label{dataitem:median_n_lss_rsrf_img}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:mediannrsrfimg]{\FITS{MEDIAN_N_LSS_RSRF_IMG}}\\[0.3cm]
+Name: & \hyperref[dataitem:median_n_lss_rsrf_img]{\PROD{MEDIAN_N_LSS_RSRF_IMG}}\\[0.3cm]
 Description: & LM-band \ac{LSS} Median \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MEDIAN_N_LSS_RSRF_IMG}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lssnrsrf]{\REC{metis\_n\_lss\_rsrf}}\\
+Created by: & \hyperref[rec:lssnrsrf]{\REC{metis_n_lss_rsrf}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} only\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -402,20 +402,20 @@ Comment: & intermediate data product used for \ac{QC} only\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:meannrsrfimg]{\PROD{MEAN_N_LSS_RSRF_IMG}}}\label{dataitem:meannrsrfimg}
+\paragraph{\hyperref[dataitem:mean_n_lss_rsrf_img]{\PROD{MEAN_N_LSS_RSRF_IMG}}}\label{dataitem:mean_n_lss_rsrf_img}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:meannrsrfimg]{\FITS{MEAN_N_LSS_RSRF_IMG}}\\[0.3cm]
+Name: & \hyperref[dataitem:mean_n_lss_rsrf_img]{\PROD{MEAN_N_LSS_RSRF_IMG}}\\[0.3cm]
 Description: & LM-band \ac{LSS} Mean \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MEAN_N_LSS_RSRF_IMG}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lssnrsrf]{\REC{metis\_n\_lss\_rsrf}}\\
+Created by: & \hyperref[rec:lssnrsrf]{\REC{metis_n_lss_rsrf}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} only\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -427,15 +427,15 @@ Comment: & intermediate data product used for \ac{QC} only\\
 
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlsstrace]{\PROD{LM_LSS_TRACE}}}\label{dataitem:lmlsstrace}
+\paragraph{\hyperref[dataitem:lm_lss_trace]{\PROD{LM_LSS_TRACE}}}\label{dataitem:lm_lss_trace}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsstrace]{\FITS{LM_LSS_TRACE}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_trace]{\PROD{LM_LSS_TRACE}}\\[0.3cm]
 Description: & Polynomial fit of the LM order edges (i.e. order location on chip)\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_TRACE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_LSS_TRACE}\\[0.3cm]
-Created by: & \hyperref[rec:lsslmtrace]{\REC{metis\_lm\_lss\_trace}}\\
+Created by: & \hyperref[rec:lsslmtrace]{\REC{metis_lm_lss_trace}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & wavelength calibration / rectification\\
 \end{recipedef}
@@ -450,15 +450,15 @@ Purpose: & wavelength calibration / rectification\\
 
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlsstrace]{\PROD{N_LSS_TRACE}}}\label{dataitem:nlsstrace}
+\paragraph{\hyperref[dataitem:n_lss_trace]{\PROD{N_LSS_TRACE}}}\label{dataitem:n_lss_trace}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlsstrace]{\FITS{N_LSS_TRACE}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_trace]{\PROD{N_LSS_TRACE}}\\[0.3cm]
 Description: & Polynomial fit of the N order edges (i.e. order location on chip)\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_TRACE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_TRACE}\\[0.3cm]
-Created by: & \hyperref[rec:lssntrace]{\REC{metis\_n\_lss\_trace}}\\
+Created by: & \hyperref[rec:lssntrace]{\REC{metis_n_lss_trace}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -471,15 +471,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlsscurve]{\PROD{LM_LSS_CURVE}}}\label{dataitem:lmlsscurve}
+\paragraph{\hyperref[dataitem:lm_lss_curve]{\PROD{LM_LSS_CURVE}}}\label{dataitem:lm_lss_curve}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsscurve]{\FITS{LM_LSS_CURVE}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_curve]{\PROD{LM_LSS_CURVE}}\\[0.3cm]
 Description: & Slit curvature table\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_CURVE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_LSS_CURVE}\\[0.3cm]
-Created by: & \hyperref[rec:lsslmwave]{\REC{metis\_lm\_lss\_wave}}\\
+Created by: & \hyperref[rec:lsslmwave]{\REC{metis_lm_lss_wave}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -492,15 +492,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlssdistsol]{\PROD{LM_LSS_DIST_SOL}}}\label{dataitem:lmlssdistsol}
+\paragraph{\hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}}}\label{dataitem:lm_lss_dist_sol}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlssdistsol]{\FITS{LM_LSS_DIST_SOL}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}}\\[0.3cm]
 Description: & LM-band geometrical distortion solution\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_DIST_SOL}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_LSS_DIST_SOL}\\[0.3cm]
-Created by: & \hyperref[rec:lsslmwave]{\REC{metis\_lm\_lss\_wave}}\\
+Created by: & \hyperref[rec:lsslmwave]{\REC{metis_lm_lss_wave}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -513,15 +513,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlsswaveguess]{\PROD{LM_LSS_WAVE_GUESS}}}\label{dataitem:lmlsswaveguess}
+\paragraph{\hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}}}\label{dataitem:lm_lss_wave_guess}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsswaveguess]{\FITS{LM_LSS_WAVE_GUESS}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}}\\[0.3cm]
 Description: & First guess of the N-band wavelength solution\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_WAVE_GUESS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_LSS_WAVE_GUESS}\\[0.3cm]
-Created by: & \hyperref[rec:lsslmwave]{\REC{metis\_lm\_lss\_wave}}\\
+Created by: & \hyperref[rec:lsslmwave]{\REC{metis_lm_lss_wave}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -535,20 +535,20 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlssstdobjmap]{\PROD{LM_LSS_STD_OBJ_MAP}}}\label{dataitem:lmlssstdobjmap}
+\paragraph{\hyperref[dataitem:lm_lss_std_obj_map]{\PROD{LM_LSS_STD_OBJ_MAP}}}\label{dataitem:lm_lss_std_obj_map}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlssstdobjmap]{\FITS{LM_LSS_STD_OBJ_MAP}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_std_obj_map]{\PROD{LM_LSS_STD_OBJ_MAP}}\\[0.3cm]
 Description: & Image with detected object pixels of the flux standard star.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_STD_OBJ_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lsslmflux]{\REC{metis\_lm\_lss\_flux}}\\
+Created by: & \hyperref[rec:lsslmstd]{\REC{metis_lm_lss_std}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -559,20 +559,20 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlssstdskymap]{\PROD{LM_LSS_STD_SKY_MAP}}}\label{dataitem:lmlssstdskymap}
+\paragraph{\hyperref[dataitem:lm_lss_std_sky_map]{\PROD{LM_LSS_STD_SKY_MAP}}}\label{dataitem:lm_lss_std_sky_map}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlssstdskymap]{\FITS{LM_LSS_STD_SKY_MAP}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_std_sky_map]{\PROD{LM_LSS_STD_SKY_MAP}}\\[0.3cm]
 Description: & Image with detected sky pixels of the flux standard star observation.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_STD_SKY_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lsslmflux]{\REC{metis\_lm\_lss\_flux}}\\
+Created by: & \hyperref[rec:lsslmstd]{\REC{metis_lm_lss_std}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -582,20 +582,20 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \end{enumerate}
 \end{datastructdef}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlssstd1d]{\PROD{LM_LSS_STD_1D}}}\label{dataitem:lmlssstd1d}
+\paragraph{\hyperref[dataitem:lm_lss_std_1d]{\PROD{LM_LSS_STD_1D}}}\label{dataitem:lm_lss_std_1d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlssstd1d]{\FITS{LM_LSS_STD_1D}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_std_1d]{\PROD{LM_LSS_STD_1D}}\\[0.3cm]
 Description: & Extracted 1d flux standard star spectrum.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_STD_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & \FITS{LM_LSS_STD_1D}\\[0.3cm]
-Created by: & \hyperref[rec:lsslmflux]{\REC{metis\_lm\_lss\_flux}}\\
+Created by: & \hyperref[rec:lsslmstd]{\REC{metis_lm_lss_std}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product also used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -607,20 +607,20 @@ Comment: & intermediate data product also used for \ac{QC}\\
 
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlssstdobjmap]{\PROD{N_LSS_STD_OBJ_MAP}}}\label{dataitem:nlssstdobjmap}
+\paragraph{\hyperref[dataitem:n_lss_std_obj_map]{\PROD{N_LSS_STD_OBJ_MAP}}}\label{dataitem:n_lss_std_obj_map}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlssstdobjmap]{\FITS{N_LSS_STD_OBJ_MAP}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_std_obj_map]{\PROD{N_LSS_STD_OBJ_MAP}}\\[0.3cm]
 Description: & Image with detected object pixels of the flux standard star..\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_STD_OBJ_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lssnflux]{\REC{metis\_n\_lss\_flux}}\\
+Created by: & \hyperref[rec:lssnflux]{\REC{metis_n_lss_flux}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -630,20 +630,20 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \end{enumerate}
 \end{datastructdef}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlssstdskymap]{\PROD{N_LSS_STD_SKY_MAP}}}\label{dataitem:nlssstdskymap}
+\paragraph{\hyperref[dataitem:n_lss_std_sky_map]{\PROD{N_LSS_STD_SKY_MAP}}}\label{dataitem:n_lss_std_sky_map}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlssstdskymap]{\FITS{N_LSS_STD_SKY_MAP}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_std_sky_map]{\PROD{N_LSS_STD_SKY_MAP}}\\[0.3cm]
 Description: & Image with detected plain sky pixels of the flux standard star observation.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_STD_SKY_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lssnflux]{\REC{metis\_n\_lss\_flux}}\\
+Created by: & \hyperref[rec:lssnflux]{\REC{metis_n_lss_flux}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -654,20 +654,20 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlssstd1d]{\PROD{N_LSS_STD_1D}}}\label{dataitem:nlssstd1d}
+\paragraph{\hyperref[dataitem:n_lss_std_1d]{\PROD{N_LSS_STD_1D}}}\label{dataitem:n_lss_std_1d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlssstd1d]{\FITS{N_LSS_STD_1D}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_std_1d]{\PROD{N_LSS_STD_1D}}\\[0.3cm]
 Description: & Extracted 1d science spectrum.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_STD_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}} \\
 \FITS{DO.CATG}: & \FITS{N_LSS_STD_1D}\\[0.3cm]
-Created by: & \hyperref[rec:lssnflux]{\REC{metis\_n\_lss\_flux}}\\
+Created by: & \hyperref[rec:lssnflux]{\REC{metis_n_lss_flux}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product also used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -678,20 +678,20 @@ Comment: & intermediate data product also used for \ac{QC}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlsssciobjmap]{\PROD{LM_LSS_SCI_OBJ_MAP}}}\label{dataitem:lmlsssciobjmap}
+\paragraph{\hyperref[dataitem:lm_lss_sci_obj_map]{\PROD{LM_LSS_SCI_OBJ_MAP}}}\label{dataitem:lm_lss_sci_obj_map}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsssciobjmap]{\FITS{LM_LSS_SCI_OBJ_MAP}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_sci_obj_map]{\PROD{LM_LSS_SCI_OBJ_MAP}}\\[0.3cm]
 Description: & Image with detected object pixels of the science observation.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_SCI_OBJ_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lsslmsci]{\REC{metis\_lm\_lss\_sci}}\\
+Created by: & \hyperref[rec:lsslmsci]{\REC{metis_lm_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -701,20 +701,20 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \end{enumerate}
 \end{datastructdef}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlsssciskymap]{\PROD{LM_LSS_SCI_SKY_MAP}}}\label{dataitem:lmlsssciskymap}
+\paragraph{\hyperref[dataitem:lm_lss_sci_sky_map]{\PROD{LM_LSS_SCI_SKY_MAP}}}\label{dataitem:lm_lss_sci_sky_map}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsssciskymap]{\FITS{LM_LSS_SCI_SKY_MAP}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_sci_sky_map]{\PROD{LM_LSS_SCI_SKY_MAP}}\\[0.3cm]
 Description: & Image with detected plain sky pixels of the science observation.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_SCI_SKY_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lsslmsci]{\REC{metis\_lm\_lss\_sci}}\\
+Created by: & \hyperref[rec:lsslmsci]{\REC{metis_lm_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -724,20 +724,20 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \end{enumerate}
 \end{datastructdef}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlsssci2d]{\PROD{LM_LSS_SCI_2D}}}\label{dataitem:lmlsssci2d}
+\paragraph{\hyperref[dataitem:lm_lss_sci_2d]{\PROD{LM_LSS_SCI_2D}}}\label{dataitem:lm_lss_sci_2d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsssci2d]{\FITS{LM_LSS_SCI_2D}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_sci_2d]{\PROD{LM_LSS_SCI_2D}}\\[0.3cm]
 Description: & rectified 2d LM-band spectrum of the science object.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_SCI_2D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & \FITS{LM_LSS_SCI_2D}\\[0.3cm]
-Created by: & \hyperref[rec:lsslmsci]{\REC{metis\_lm\_lss\_sci}}\\
+Created by: & \hyperref[rec:lsslmsci]{\REC{metis_lm_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product also used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -748,20 +748,20 @@ Comment: & intermediate data product also used for \ac{QC}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlsssci1d]{\PROD{LM_LSS_SCI_1D}}}\label{dataitem:lmlsssci1d}
+\paragraph{\hyperref[dataitem:lm_lss_sci_1d]{\PROD{LM_LSS_SCI_1D}}}\label{dataitem:lm_lss_sci_1d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsssci1d]{\FITS{LM_LSS_SCI_1D}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_sci_1d]{\PROD{LM_LSS_SCI_1D}}\\[0.3cm]
 Description: & Extracted 1d science spectrum.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_SCI_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & \FITS{LM_LSS_SCI_1D}\\[0.3cm]
-Created by: & \hyperref[rec:lsslmsci]{\REC{metis\_lm\_lss\_sci}}\\
+Created by: & \hyperref[rec:lsslmsci]{\REC{metis_lm_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -773,20 +773,20 @@ Comment: & intermediate data product used for \ac{QC}\\
 
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlsssciobjmap]{\PROD{N_LSS_SCI_OBJ_MAP}}}\label{dataitem:nlsssciobjmap}
+\paragraph{\hyperref[dataitem:n_lss_sci_obj_map]{\PROD{N_LSS_SCI_OBJ_MAP}}}\label{dataitem:n_lss_sci_obj_map}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlsssciobjmap]{\FITS{N_LSS_SCI_OBJ_MAP}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_sci_obj_map]{\PROD{N_LSS_SCI_OBJ_MAP}}\\[0.3cm]
 Description: & Image with detected object pixels of the science frame.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_SCI_OBJ_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lssnsci]{\REC{metis\_n\_lss\_sci}}\\
+Created by: & \hyperref[rec:lssnsci]{\REC{metis_n_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -797,20 +797,20 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlsssciskymap]{\PROD{N_LSS_SCI_SKY_MAP}}}\label{dataitem:nlsssciskymap}
+\paragraph{\hyperref[dataitem:n_lss_sci_sky_map]{\PROD{N_LSS_SCI_SKY_MAP}}}\label{dataitem:n_lss_sci_sky_map}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlsssciskymap]{\FITS{N_LSS_SCI_SKY_MAP}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_sci_sky_map]{\PROD{N_LSS_SCI_SKY_MAP}}\\[0.3cm]
 Description: & Image with detected plain sky pixels of the science frame.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_SCI_SKY_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lssnsci]{\REC{metis\_n\_lss\_sci}}\\
+Created by: & \hyperref[rec:lssnsci]{\REC{metis_n_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -820,20 +820,20 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \end{enumerate}
 \end{datastructdef}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlsssci2d]{\PROD{N_LSS_SCI_2D}}}\label{dataitem:nlsssci2d}
+\paragraph{\hyperref[dataitem:n_lss_sci_2d]{\PROD{N_LSS_SCI_2D}}}\label{dataitem:n_lss_sci_2d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlsssci2d]{\FITS{N_LSS_SCI_2D}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_sci_2d]{\PROD{N_LSS_SCI_2D}}\\[0.3cm]
 Description: & rectified 2d N-band spectrum of the science object.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_SCI_2D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}} \\
 \FITS{DO.CATG}: & \FITS{N_LSS_SCI_2D}\\[0.3cm]
-Created by: & \hyperref[rec:lssnsci]{\REC{metis\_n\_lss\_sci}}\\
+Created by: & \hyperref[rec:lssnsci]{\REC{metis_n_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product also used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -843,20 +843,20 @@ Comment: & intermediate data product also used for \ac{QC}\\
 \end{enumerate}
 \end{datastructdef}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlsssci1d]{\PROD{N_LSS_SCI_1D}}}\label{dataitem:nlsssci1d}
+\paragraph{\hyperref[dataitem:n_lss_sci_1d]{\PROD{N_LSS_SCI_1D}}}\label{dataitem:n_lss_sci_1d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlsssci1d]{\FITS{N_LSS_SCI_1D}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_sci_1d]{\PROD{N_LSS_SCI_1D}}\\[0.3cm]
 Description: & Extracted 1d science spectrum.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_SCI_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}} \\
 \FITS{DO.CATG}: & \FITS{N_LSS_SCI_1D}\\[0.3cm]
-Created by: & \hyperref[rec:lsslmsci]{\REC{metis\_lm\_lss\_sci}}\\
+Created by: & \hyperref[rec:lsslmsci]{\REC{metis_lm_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -866,16 +866,20 @@ Comment: & intermediate data product used for \ac{QC}\\
 \end{enumerate}
 \end{datastructdef}
 
+% ##################################################################################### 
+\paragraph{\hyperref[dataitem:tss_transmission]{\PROD{TSS_TRANSMISSION}}}\label{dataitem:tss_transmission}
+
+TBWritten
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lsslmresp]{\PROD{MASTER\_LM\_RESPONSE}}}\label{dataitem:lsslmresp}
+\paragraph{\hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}}}\label{dataitem:master_lm_response}
 \begin{recipedef}
-Name: & \hyperref[dataitem:lsslmresp]{\PROD{MASTER\_LM\_RESPONSE}}\\[0.3cm]
+Name: & \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}}\\[0.3cm]
 Description: & Master LM-band response function for absolute flux calibration \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS{INS.SPEC.SETUP}\\
 \FITS{PRO.CATG}: & \FITS{TBD} \\[0.3cm]
-Produced by recipe: & \hyperref[rec:lsslmflux]{\REC{metis\_LM_lss\_flux}} \\
-Input for recipe(s): & \hyperref[rec:lsslmsci]{\REC{metis\_LM\_LSS\_sci}}\\
+Produced by recipe: & \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_flux}} \\
+Input for recipe(s): & \hyperref[rec:lsslmsci]{\REC{metis_LM_LSS_sci}}\\
 QC Parameters: &  TBD\\
 Processing FITS Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
@@ -890,14 +894,14 @@ Data structure:
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lssnresp]{\PROD{MASTER\_N_RESPONSE}}}\label{dataitem:lssnresp}
+\paragraph{\hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}}}\label{dataitem:master_n_response}
 \begin{recipedef}
-Name: & \hyperref[dataitem:lssnresp]{\PROD{MASTER\_N_RESPONSE}}\\[0.3cm]
+Name: & \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}}\\[0.3cm]
 Description: & Master N-band response function for absolute flux calibration \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS{INS.SPEC.SETUP}\\
 \FITS{PRO.CATG}: & \FITS{TBD} \\[0.3cm]
-Produced by recipe: & \hyperref[rec:lssnflux]{\REC{metis\_N_lss\_flux}} \\
-Input for recipe(s): & \hyperref[rec:lssnsci]{\REC{metis\_N\_LSS\_sci}}\\
+Produced by recipe: & \hyperref[rec:lssnflux]{\REC{metis_N_lss_flux}} \\
+Input for recipe(s): & \hyperref[rec:lssnsci]{\REC{metis_N_LSS_sci}}\\
 QC Parameters: &  TBD\\
 Processing FITS Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
@@ -911,10 +915,10 @@ Data structure:
 \end{enumerate}
 \end{datastructdef}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:mfbestfittab]{\PROD{MF_BEST_FIT_TAB}}}\label{dataitem:mfbestfittab}
+\paragraph{\hyperref[dataitem:mf_best_fit_tab]{\PROD{MF_BEST_FIT_TAB}}}\label{dataitem:mf_best_fit_tab}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:mfbestfittab]{\FITS{MF_BEST_FIT_TAB}}\\[0.3cm]
+Name: & \hyperref[dataitem:mf_best_fit_tab]{\PROD{MF_BEST_FIT_TAB}}\\[0.3cm]
 Description: & Table of best-fit \texttt{molecfit} values\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MF_BEST_FIT_TAB}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -933,10 +937,10 @@ Purpose: & wavelength calibration / rectification\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlsssynthttrans]{\PROD{LM_LSS_SYNTH_TRANS}}}\label{dataitem:lmlsssynthttrans}
+\paragraph{\hyperref[dataitem:lm_lss_synth_trans]{\PROD{LM_LSS_SYNTH_TRANS}}}\label{dataitem:lm_lss_synth_trans}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsssynthttrans]{\FITS{LM_LSS_SYNTH_TRANS}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_synth_trans]{\PROD{LM_LSS_SYNTH_TRANS}}\\[0.3cm]
 Description: & Synthetic transmission curve to be used for telluric correction of flux standard stars\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_SYNTH_TRANS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -953,10 +957,10 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlsssynthttrans]{\PROD{N_LSS_SYNTH_TRANS}}}\label{dataitem:nlsssynthttrans}
+\paragraph{\hyperref[dataitem:n_lss_synth_trans]{\PROD{N_LSS_SYNTH_TRANS}}}\label{dataitem:n_lss_synth_trans}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlsssynthttrans]{\FITS{N_LSS_SYNTH_TRANS}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_synth_trans]{\PROD{N_LSS_SYNTH_TRANS}}\\[0.3cm]
 Description: & Synthetic transmission curve to be used for telluric correction of flux standard stars\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_SYNTH_TRANS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
@@ -986,20 +990,20 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \subsubsection{Final data item structures}\label{sssec:lssfinaldatastructs}
 The pipeline aims for final data products following the data format described in the \ac{SDP}-document (\cite{ESO-products_standard}). We therefore give here only those final files, which are intended to be supplementary final data products.
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlsssciflux2d]{\PROD{LM_LSS_SCI_FLUX_2D}}}\label{dataitem:lmlsssciflux2d}
+\paragraph{\hyperref[dataitem:lm_lss_sci_flux_2d]{\PROD{LM_LSS_SCI_FLUX_2D}}}\label{dataitem:lm_lss_sci_flux_2d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsssciflux2d]{\FITS{LM_LSS_SCI_FLUX_2D}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_sci_flux_2d]{\PROD{LM_LSS_SCI_FLUX_2D}}\\[0.3cm]
 Description: & rectified flux-calibrated 2d LM-band spectrum of the science object.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_SCI_FLUX_2D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & \FITS{LM_LSS_SCI_FLUX_2D}\\[0.3cm]
-Created by: & \hyperref[rec:lsslmsci]{\REC{metis\_lm\_lss\_sci}}\\
+Created by: & \hyperref[rec:lsslmsci]{\REC{metis_lm_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product also used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -1010,20 +1014,20 @@ Comment: & intermediate data product also used for \ac{QC}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlsssciflux2d]{\PROD{N_LSS_SCI_FLUX_2D}}}\label{dataitem:nlsssciflux2d}
+\paragraph{\hyperref[dataitem:n_lss_sci_flux_2d]{\PROD{N_LSS_SCI_FLUX_2D}}}\label{dataitem:n_lss_sci_flux_2d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlsssciflux2d]{\FITS{N_LSS_SCI_FLUX_2D}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_sci_flux_2d]{\PROD{N_LSS_SCI_FLUX_2D}}\\[0.3cm]
 Description: & rectified flux-calibrated 2d N-band spectrum of the science object.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_SCI_FLUX_2D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}} \\
 \FITS{DO.CATG}: & \FITS{N_LSS_SCI_FLUX_2D}\\[0.3cm]
-Created by: & \hyperref[rec:lssnsci]{\REC{metis\_n\_lss\_sci}}\\
+Created by: & \hyperref[rec:lssnsci]{\REC{metis_n_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product also used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -1034,20 +1038,20 @@ Comment: & intermediate data product also used for \ac{QC}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlsssciflux1d]{\PROD{LM_LSS_SCI_FLUX_1D}}}\label{dataitem:lmlsssciflux1d}
+\paragraph{\hyperref[dataitem:lm_lss_sci_flux_1d]{\PROD{LM_LSS_SCI_FLUX_1D}}}\label{dataitem:lm_lss_sci_flux_1d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsssciflux1d]{\FITS{LM_LSS_SCI_FLUX_1D}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_sci_flux_1d]{\PROD{LM_LSS_SCI_FLUX_1D}}\\[0.3cm]
 Description: & Extracted, flux-calibrated 1d science spectrum.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_SCI_FLUX_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & \FITS{LM_LSS_SCI_FLUX_1D}\\[0.3cm]
-Created by: & \hyperref[rec:lsslmsci]{\REC{metis\_lm\_lss\_sci}}\\
+Created by: & \hyperref[rec:lsslmsci]{\REC{metis_lm_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -1058,20 +1062,20 @@ Comment: & intermediate data product used for \ac{QC}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlsssciflux1d]{\PROD{N_LSS_SCI_FLUX_1D}}}\label{dataitem:nlsssciflux1d}
+\paragraph{\hyperref[dataitem:n_lss_sci_flux_1d]{\PROD{N_LSS_SCI_FLUX_1D}}}\label{dataitem:n_lss_sci_flux_1d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlsssciflux1d]{\FITS{N_LSS_SCI_FLUX_1D}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_sci_flux_1d]{\PROD{N_LSS_SCI_FLUX_1D}}\\[0.3cm]
 Description: & Extracted, flux-calibrated 1d science spectrum.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_SCI_FLUX_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}} \\
 \FITS{DO.CATG}: & \FITS{N_LSS_SCI_FLUX_1D}\\[0.3cm]
-Created by: & \hyperref[rec:lsslmsci]{\REC{metis\_lm\_lss\_sci}}\\
+Created by: & \hyperref[rec:lsslmsci]{\REC{metis_lm_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -1081,13 +1085,16 @@ Comment: & intermediate data product used for \ac{QC}\\
 \end{enumerate}
 \end{datastructdef}
 
+% ##################################################################################### 
+\paragraph{\hyperref[dataitem:lm_lss_tss_wave]{\STATCALIB{LM_LSS_TSS_WAVE}}}\label{dataitem:lm_lss_tss_wave}
+TBWritten
 
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lmlssscifluxtellcorr1d]{\PROD{LM_LSS_SCI_FLUX_TELLCORR_1D}}}\label{dataitem:lmlssscifluxtellcorr1d}
+\paragraph{\hyperref[dataitem:lm_lss_sci_flux_tellcorr_1d]{\PROD{LM_LSS_SCI_FLUX_TELLCORR_1D}}}\label{dataitem:lm_lss_sci_flux_tellcorr_1d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lmlsssciflux1d]{\FITS{LM_LSS_SCI_FLUX_TELLCORR_1D}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_lss_sci_flux_tellcorr_1d]{\PROD{LM_LSS_SCI_FLUX_TELLCORR_1D}}\\[0.3cm]
 Description: & Extracted, flux-calibrated 1d science spectrum.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_SCI_FLUX_TELLCORR_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
@@ -1097,7 +1104,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -1107,10 +1114,10 @@ Comment: & intermediate data product used for \ac{QC}\\
 \end{enumerate}
 \end{datastructdef}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:nlssscifluxtellcorr1d]{\PROD{N_LSS_SCI_FLUX_TELLCORR_1D}}}\label{dataitem:nlssscifluxtellcorr1d}
+\paragraph{\hyperref[dataitem:n_lss_sci_flux_tellcorr_1d]{\PROD{N_LSS_SCI_FLUX_TELLCORR_1D}}}\label{dataitem:n_lss_sci_flux_tellcorr_1d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:nlsssciflux1d]{\FITS{N_LSS_SCI_FLUX_TELLCORR_1D}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_lss_sci_flux_tellcorr_1d]{\PROD{N_LSS_SCI_FLUX_TELLCORR_1D}}\\[0.3cm]
 Description: & Extracted, flux-calibrated, telluric corrected 1d science spectrum.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_SCI_FLUX_TELLCORR_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}} \\
@@ -1120,7 +1127,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lmlssrsrfraw]{\PROD{LM\_RSRF\_RAW}}}\label{drsstructure:lmrsrfraw}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}

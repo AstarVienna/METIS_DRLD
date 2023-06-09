@@ -1,0 +1,47 @@
+\subsection{Detector Functions}\label{sec:drl_functions_det}
+
+%---------------------------------------------------------------------
+\subsubsection{Determine Dark Frames}\label{drl:det_dark}
+\begin{recipedef}
+Name: & \hyperref[drl:det_dark]{\DRL{metis_determine_dark}} \\
+Purpose: & Determine the dark current of the detectors and create dark images\\
+Used in recipes: & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}, \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
+& parameters for combination method\\
+QC outputs: & QC DARK MEAN\\
+& QC DARK MEDIAN\\
+& QC DARK RMS\\
+%Output FITS files: & None \\
+Outputs: & Dark frame\\
+               & \texttt{cpl\_error\_code} \\
+General description: & Determination of dark frames for subtraction of dark current \\
+Mathematical description: & Median or mean of input images, with sigma clipping \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
+
+\subsubsection{Flag Deviant Pixels in Dark Frame}\label{drl:update_dark_mask}
+\begin{recipedef}
+Name: & \hyperref[drl:update_dark_mask]{\DRL{metis_update_dark_mask}} \\
+Purpose: & Flag deviant (hot, cold, bad) pixels in the master dark and update the image mask\\
+Used in recipes: & \hyperref[drl:det_dark]{\REC{metis_det_dark}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const hdrl\_image * input} \\ 
+Other inputs: & Threshold(s) for deviant pixel detection \\
+QC outputs: & QC DARK NHOTPIX\\
+& QC DARK NCOLDPIX \\
+& QC DARK NBADPIX \\
+%Output FITS files: & None \\
+Outputs: & Updated dark frame mask\\
+               & \texttt{cpl\_error\_code} \\
+General description: & Flag deviant (hot/cold/bad) pixels in master dark \\
+Mathematical description: & flag pixels outside the provided thresholds \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
