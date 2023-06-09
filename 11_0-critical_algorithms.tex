@@ -408,7 +408,7 @@ from real data needs to be investigated.
 
 \subsection{IFU data rate}\label{ssec:criticalifudatarate}
 
-\TODO{Placeholder text below is based on the PDR DRS and needs to be updated. See data rate document. Add arguments to make this a non-.}
+\TODO{Placeholder text below is based on the PDR DRS and needs to be updated. In partucalr verify the table still makes sense. See data rate document. Add arguments to make this a non-issue.}
 \label{ssec:ifu_data_rate}
 
 For very bright sources, the LM band spectrograph will have to operate
@@ -425,12 +425,14 @@ considered. If necessary, the performance of the recipe may need to be
 reduced if a high data stream is to be expected. Another option might
 be to compute QC parameters only on a subset of incoming frames.
 
-\begin{center}
-  \renewcommand{\arraystretch}{1.3}
-  \captionof{table}{Data rates}\label{tab:data_rates}
+% \begin{center}
+%   \renewcommand{\arraystretch}{1.3}
+%   \captionof{table}{Data rates}\label{tab:data_rates}
+\begin{table}
+  \caption{Data rates}\label{tab:data_rates}
   \begin{tabular}{|l|r|r|c|c|}
     \hline
-    \multicolumn{1}{|c|}{\textbf{Observing mode}} & \multicolumn{1}{c|}{\textbf{Max.\ Data rate}} & \multicolumn{1}{c|}{\textbf{Max.\ Data volume}} & \multicolumn{1}{c|}{\textbf{Night fraction}} & \multicolumn{1}{c|}{\textbf{Exp.\ Data volume}} \\
+    \multicolumn{1}{|c|}{\textbf{Observing mode}} & \multicolumn{1}{c|}{\textbf{Max.\ rate}} & \multicolumn{1}{c|}{\textbf{Max.\ volume}} & \multicolumn{1}{c|}{\textbf{Night fraction}} & \multicolumn{1}{c|}{\textbf{Exp.\  volume}} \\
     \multicolumn{1}{|c|}{ }                       & \multicolumn{1}{c|}{[MiB s$^{-1}$]}     & \multicolumn{1}{c|}{[TiB]}                & \multicolumn{1}{c|}{[per 10h night]}         & \multicolumn{1}{c|}{[TiB]}                \\
     \hline\hline
     \textbf{Imager}                               &                                         &                                           &                                              &                                           \\
@@ -447,7 +449,8 @@ be to compute QC parameters only on a subset of incoming frames.
 %    \textbf{LM-band HR spectrograph}             & 0.12                                    & 4                                         & 144 GByte                                                                                \\
 %    \hline
   \end{tabular}
-\end{center}
+\end{table}
+% \end{center}
 
 
 % Additional critical algos
