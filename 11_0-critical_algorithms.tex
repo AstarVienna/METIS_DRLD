@@ -181,9 +181,60 @@ The mean of all nod-difference frames is the final background-subtracted image.
 Additionally, the optimal extraction (PSF-weighting) will be used to subtract the positive/negative source images from the final background-subtract image (2/3/4 depending on the relative chopping/nodding directions) to produce a single stacked image of the sources of interest.
 
 \subsection{Wavelength calibration and distortion correction}\label{ssec:criticalwavelengthanddistortion}
+\TODO{Pyreduce, will be described by Nadeen.
+IMG modes are not critical, see recipes.}
+\subsubsection{LSS Wavelength calibration and distortion correction}\label{ssec:criticalwavelengthanddistortionlss}
+\TODO{The text below is copied from the PDR DRS and needs to be updated.}
+\subsection{Wavelength calibration algorithm and distortion correction}\label{Sec:critalg_wavecal}
 
-Pyreduce, will be described by Nadeen
-IMG modes are not critical, see recipes
+The MIR range is dominated by thermal and line emission in the Earth's
+atmosphere. These emission lines can be used to determine both, the
+curvature/ tilt-distortion of the LSS spectrograph and subsequently
+the wavelength calibration
+in the following way (cf.\ Fig.\,\ref{fig:lm_lss_dist_wave}):\\
+\begin{itemize}
+\item In a first step, atmospheric emission line peaks are detected in
+  detector rows in dispersion direction (green and yellow dots in in
+  Fig.\,\ref{fig:lm_lss_dist_wave}) (the same procedure might be
+  applied to absorption features).
+\item Assuming that these peaks are located in the very neighborhood
+  in dispersion direction, it is possible to cross identifying them on
+  each of the pixel rows (yellow dots in
+  Fig.\,\ref{fig:lm_lss_dist_wave}).
+\item The distortion along a line is then determined by fitting a
+  polynomial (e.g.\ Chebyshev polynomial) along these associated
+  points (purple line).  This polynomial solution might rely on first
+  guesses for the distortions introduced by the fixed ADCs and is used
+  to determine the rectification. The WCU lamp spectrum might provide
+  a 0\textsuperscript{th}-order guess, which is refined with a table,
+  which includes information on the distortion introduced by the
+  grisms (\STATCALIB{GRISM_TAB}).
+\item Since we know the wavelength range (from the optical system), a
+  cross correlation of the lines with respect to the molecular
+  emission lines from line databases
+  (e.g. HITRAN\footnote{\url{https://hitran.org/}},
+  \STATCALIB{ATM_LINE_TAB}) is possible.
+\end{itemize}
+Special emphasis has to be drawn that the rows to detect the
+atmospheric emission lines are not
+to cover the science objects, since intrinsic target emission lines
+might disturb the cross correlation.\\
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textheight]{wavecal_distortion.png}
+  \caption[Algorithm for wavelength calibration and distortion
+  determination]{%
+    Sketch of the intended algorithm for the wavelength calibration
+    and distortion determination (raw VISIR@VLT frame). Emission lines
+    arising from our Earth's atmosphere can be used to determine the
+    wavelength calibration and the distortions (see text for more
+    details).}
+  \label{fig:lm_lss_dist_wave}
+\end{figure}
+
+\subsubsection{IFU Wavelength calibration and distortion correction}\label{ssec:criticalwavelengthanddistortionifu}
+\TODO{Placeholder}
 
 \subsection{Telluric correction}\label{ssec:criticaltelluriccorrection}
 Telluric correction, i.e. the removal of absorption features arising in the Earth's atmosphere, is a critical issue as the imprint of molecular species present in our air may vary on different timescales down to minutes due to changes in their composition and their amount. In particular the \ac{MIR} range is affected (see App~\ref{app:atmo_trans}).\\
@@ -347,12 +398,12 @@ be to compute QC parameters only on a subset of incoming frames.
   \begin{tabular}{|l|r|r|c|c|}
     \hline
     \multicolumn{1}{|c|}{\textbf{Observing mode}} & \multicolumn{1}{c|}{\textbf{Max.\ Data rate}} & \multicolumn{1}{c|}{\textbf{Max.\ Data volume}} & \multicolumn{1}{c|}{\textbf{Night fraction}} & \multicolumn{1}{c|}{\textbf{Exp.\ Data volume}} \\
-    \multicolumn{1}{|c|}{ }                       & \multicolumn{1}{c|}{[MiB s$^{-1}$]}      & \multicolumn{1}{c|}{[TiB]}                 & \multicolumn{1}{c|}{[per 10h night]}         & \multicolumn{1}{c|}{[TiB]}                 \\
+    \multicolumn{1}{|c|}{ }                       & \multicolumn{1}{c|}{[MiB s$^{-1}$]}     & \multicolumn{1}{c|}{[TiB]}                & \multicolumn{1}{c|}{[per 10h night]}         & \multicolumn{1}{c|}{[TiB]}                \\
     \hline\hline
     \textbf{Imager}                               &                                         &                                           &                                              &                                           \\
     IMG\_LM (burst mode)                          & 200                                     & 5.49                                      & 0.15                                         & 0.85                                      \\
     IMG\_NQ (burst mode)                          & 250                                     & 6.87                                      & 0.15                                         & 1.06                                      \\
-    IMG\_NQ (half-cycle average)                  & 80                                     & 2.20                                      & 0.00                                         & 0.00										\\
+    IMG\_NQ (half-cycle average)                  & 80                                      & 2.20                                      & 0.00                                         & 0.00                                      \\
     \hline
     \textbf{Spectroscopy}                         &                                         &                                           &                                              &                                           \\
     SPEC\_LM                                      & 200                                     & 5.49                                      & 0.08                                         & 0.42                                      \\
