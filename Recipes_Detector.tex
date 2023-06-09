@@ -133,8 +133,11 @@ the average over the detector.
                        & Compute median or average of input frames to improve statistics.            \\  % separate routine, or part of determine dark
                        & call \REC{metis_update_dark_mask} to flag deviant pixels \\
   Output data:         & \PROD{MASTER_DARK_det}                                                      \\
-                       & \PROD{BPM_COLD_det}                                                         \\
-                       & \PROD{BPM_HOT_det}                                                          \\
+% The BPM_COLD_det and BPM_HOT_det do not seem to add value that BADPIX_MAP_det
+% does not already provide. Furthermore, the COLD/HOT specific items are not
+% otherwise used in the design, so it seems simpler to just remove them.
+%                       & \PROD{BPM_COLD_det}                                                         \\
+%                       & \PROD{BPM_HOT_det}                                                          \\
                        & \PROD{BADPIX_MAP_det}                                                          \\
   Expected accuracies: & \TBD                                                                         \\
   QC1 parameters:      & \QC{QC DARK MEAN}                                                              \\
