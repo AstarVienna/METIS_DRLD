@@ -179,7 +179,7 @@ following \cite{visir_manual}.
   Purpose:             & Determine conversion factor between detector counts and physical source flux. \\
   Type:                & Calibration                                                                   \\
   Templates:           & \TPL{METIS_img_n_cal_standard}                                                \\
-  Input data:          & \CODE{N_STD_BKG_SUBTRACTED}                                                   \\
+  Input data:          & \PROD{N_STD_BKG_SUBTRACTED}                                                   \\
                        & photometric standard catalogue                                                \\
   Matched keywords:    & Object ID                                                                     \\
                        & Filter ID                                                                     \\
@@ -283,7 +283,7 @@ included in the pipeline (cf.\ Sect.~8.8 of \cite{DRLS}).
   Name:              & \REC{metis_n_img_restore}                                     \\
   Purpose:           & Restore a single positive beam from chop-nod difference image \\
   Type:              & Science                                                       \\
-  Input data:        & \CODE{N_SCI_CALIBRATED}                                       \\
+  Input data:        & \PROD{N_SCI_CALIBRATED}                                       \\
   Parameters:        & size of cutout region                                         \\
   Algorithm:         & Cut regions around beams                                      \\
                      & Add regions with appropriate signs                            \\

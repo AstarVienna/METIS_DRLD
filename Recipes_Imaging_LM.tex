@@ -188,8 +188,8 @@ counts within an aperture.}
   Type:             & Calibration                                               \\
   Templates:        & \TPL{METIS_img_lm_cal_standard}                           \\
                     & \TPL{METIS_img_lm_*_obs_*}                                \\
-  Input data:       & \CODE{LM_SCI_BASIC_REDUCED}                               \\
-                    & \CODE{LM_STD_BASIC_REDUCED}                               \\
+  Input data:       & \PROD{LM_SCI_BASIC_REDUCED}                               \\
+                    & \PROD{LM_STD_BASIC_REDUCED}                               \\
   Matched keywords: & dither position (\CODE{SKY}? \TBD)                        \\
   Algorithm:        & Average all or \CODE{SKY} exposures with object rejection \\
                     & Subtract background                                       \\
@@ -247,7 +247,7 @@ and calibration parameters.
   Purpose:             & Determine conversion factor between pixel and world coordinates              \\
   Type:                & Calibration                                                                  \\
   Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
-  Input data:          & \CODE{LM_STD_BKG_SUBTRACTED}                                                 \\
+  Input data:          & \PROD{LM_STD_BKG_SUBTRACTED}                                                 \\
                        & photometric standard catalogue                                               \\
   Matched keywords:    & OBJECT ID                                                                    \\
                        & FILTER ID                                                                    \\
@@ -304,7 +304,7 @@ following \cite{visir_manual}.
   Purpose:             & Determine conversion factor between detector counts and physical source flux \\
   Type:                & Calibration                                                                  \\
   Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
-  Input data:          & \CODE{LM_STD_AST_CALIB}                                                 \\
+  Input data:          & \PROD{LM_STD_AST_CALIB}                                                 \\
                        & photometric standard catalogue                                               \\
   Matched keywords:    & OBJECT ID                                                                    \\
                        & FILTER ID                                                                    \\
