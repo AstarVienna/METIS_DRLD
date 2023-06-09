@@ -29,6 +29,8 @@ sed -E 's|([A-Z]+)\{([0-9a-zA-Z_]*)}}}\\label\{drsstructure:[0-9a-zA-Z_:]*}|\1\{
 # Then make all the labels lowercase
 sed -E 's|(dataitem:[0-9a-zA-Z_]*)|\L\1|g' -i *.tex
 
+# After compiling the document twire, count broken dataitem links with
+# grep Hyper METIS_DRLD.log | grep dataitem | awk '{print $5}' | sort | uniq -c | sort -nr
 
 
 # TODO, e.g. "(\PROD{SOMETHING})"
