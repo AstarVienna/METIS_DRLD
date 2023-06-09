@@ -94,6 +94,14 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:imgprocdatastructs}
 \label{dataitem:masterdark}
 
+\paragraph{\hyperref[dataitem:master_dark_det]{\PROD{MASTER_DARK_det}}}\label{dataitem:master_dark_det}
+Depending on context, a \hyperref[dataitem:master_dark_det]{\PROD{MASTER_DARK_det}} can refer to either a
+\begin{enumerate}
+\item \hyperref[dataitem:master_dark_n]{\PROD{MASTER_DARK_N}}
+\item \hyperref[dataitem:master_dark_lm]{\PROD{MASTER_DARK_LM}}
+\item \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}
+\end{enumerate}
+
 \paragraph{\hyperref[dataitem:master_dark_lm]{\PROD{MASTER_DARK_LM}}}\label{dataitem:master_dark_lm}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -202,7 +210,7 @@ Description: & Master flat frame for LM image data \\[0.3cm]
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LM} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,??} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{MASTER_FLAT_IMG_lm}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{MASTER_FLAT_IMG_LM}\\[0.3cm]
 Template: & \TPL{METIS_lm_img_flat}\\
 Created by: & \hyperref[drl:lm_img_flat]{\REC{metis_lm_img_flat}} \\
 Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
@@ -632,9 +640,9 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \paragraph{\hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}}}\label{dataitem:det_distortion_table}
 Depending on context, a \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}} can refer to either a
 \begin{enumerate}
+\item \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}
 \item \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}
-\item \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}
-\item \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}
+\item \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}
 \end{enumerate}
 
 \paragraph{\hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}}\label{dataitem:lm_distortion_table}
@@ -688,6 +696,14 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}    
+
+\paragraph{\hyperref[dataitem:det_distortion_map]{\PROD{det_DISTORTION_MAP}}}\label{dataitem:det_distortion_map}
+Depending on context, a \hyperref[dataitem:det_distortion_map]{\PROD{det_DISTORTION_MAP}} can refer to either a
+\begin{enumerate}
+\item \hyperref[dataitem:n_distortion_map]{\PROD{n_DISTORTION_MAP}}
+\item \hyperref[dataitem:lm_distortion_map]{\PROD{lm_DISTORTION_MAP}}
+% \item \hyperref[dataitem:ifu_distortion_map]{\PROD{ifu_distortion_map}}
+\end{enumerate}
 
 
 \paragraph{\hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}}\label{dataitem:lm_distortion_map}
@@ -745,6 +761,13 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}    
 
 
+\paragraph{\hyperref[dataitem:det_dist_reduced]{\PROD{det_DIST_REDUCED}}}\label{dataitem:det_dist_reduced}
+Depending on context, a \hyperref[dataitem:det_dist_reduced]{\PROD{det_DIST_REDUCED}} can refer to either a
+\begin{enumerate}
+\item \hyperref[dataitem:n_dist_reduced]{\PROD{N_DIST_REDUCED}}
+\item \hyperref[dataitem:lm_dist_reduced]{\PROD{LM_DIST_REDUCED}}
+% \item \hyperref[dataitem:ifu_dist_reduced]{\PROD{IFU_DIST_REDUCED}}
+\end{enumerate}
 
 
 \paragraph{\hyperref[dataitem:lm_dist_reduced]{\PROD{LM_DIST_REDUCED}}}\label{dataitem:lm_dist_reduced}
@@ -804,4 +827,11 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}}\label{dataitem:fluxcal_tab}
-\TODO{Placeholder for \PROD{FLUXCAL_TAB}}
+\TODO{Placeholder for \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}}
+
+\paragraph{\hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}}}\label{dataitem:lm_std_combined}
+\TODO{Placeholder for \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}}}
+
+\paragraph{\hyperref[dataitem:det_pinhole_table]{\PROD{det_PINHOLE_TABLE}}}\label{dataitem:det_pinhole_table}
+\TODO{Placeholder for \hyperref[dataitem:det_pinhole_table]{\PROD{det_PINHOLE_TABLE}}}
+

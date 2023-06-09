@@ -94,7 +94,7 @@ illuminating the field of view with the black-body calibration lamp at
 two different temperatures. The RSRF is then determined by dividing
 the image by the known lamp continuum shape for the respective
 temperature. We refer to the two-dimensional image obtained by this
-division as \PROD{MASTER_FLAT} and the one-dimensional reponse
+division as \PROD{MASTER_FLAT_IFU} and the one-dimensional reponse
 function obtained by averaging at constant wavelength as
 \PROD{RSRF}. The bad pixel mask can be updated by identifying pixels
 that deviate strongly from their neighbours.
@@ -107,8 +107,8 @@ Type:                & Calibration                                              
 Templates:           & \TPL{METIS_ifu_cal_rsrf}                                                 \\
 Input data:          & Raw flats taken with black-body calibration lamp.                        \\
                      & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}              \\
-                     & \CODE{BADPIX_MAP_IFU}                                                    \\
-                     & \CODE{IFU_WAVECAL}: image with wavelength at each pixel.                 \\
+                     & \PROD{BADPIX_MAP_IFU}                                                    \\
+                     & \PROD{IFU_WAVECAL}: image with wavelength at each pixel.                 \\
 Parameters:          & TBD                                                                      \\
 Algorithm:           & Create continuum image by mapping Planck spectrum at $T_{\mathrm{lamp}}$ to
                        wavelength image.                                                        \\
@@ -338,7 +338,7 @@ An automatic telluric correction can be performed as part of
 better to do the telluric correction as a separate post-processing
 step with a user-defined aperture for the extraction of a 1D object
 spectrum. The spectrum is extracted from a combined cube
-(\CODE{IFU_SCI_COMBINED}) but may be applied to other products of
+(\PROD{IFU_SCI_COMBINED}) but may be applied to other products of
 \REC{metis_ifu_sci_process} specified in the input set of frames.
 
 \begin{recipedef}
