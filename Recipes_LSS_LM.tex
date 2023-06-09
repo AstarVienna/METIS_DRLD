@@ -35,9 +35,9 @@ Requirements: & None \\
 Templates:           & \TPL{METIS_spec_lm_cal_rsrf} \\
 Input data:     & $N\times$ \hyperref[dataitem:lm_lss_rsrf_raw]{\RAW{LM_LSS_RSRF_RAW}} \\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:gain_map_2rg]{\STATCALIB{GAIN_MAP_2RG}}  \\
-                & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
-                & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
+                & \hyperref[dataitem:gain_map_lm]{\STATCALIB{GAIN_MAP_LM}}  \\
+                & \hyperref[dataitem:badpix_map_lm]{\PROD{BADPIX_MAP_LM}}  \\
+                & \hyperref[dataitem:master_dark_lm]{\PROD{MASTER_DARK_LM}}  \\
 Parameters: 	& TBD\\
 Algorithm:      & subtract master \ac{WCU} "OFF" frame from illumination frame (done on individual images)\\
                 & median/mean filtering of subtracted images\\
@@ -76,9 +76,9 @@ Requirements: & None \\
 Templates:           & \TPL{METIS_spec_lm_cal_InternalWave}  \\
 Input data:     & $N\times$ \hyperref[dataitem:lm_lss_rsrf_pinh_raw]{\RAW{LM_LSS_RSRF_PINH_RAW}} \\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:gain_map_2rg]{\STATCALIB{GAIN_MAP_2RG}}  \\
-                & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
-                & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
+                & \hyperref[dataitem:gain_map_lm]{\STATCALIB{GAIN_MAP_LM}}  \\
+                & \hyperref[dataitem:badpix_map_lm]{\PROD{BADPIX_MAP_LM}}  \\
+                & \hyperref[dataitem:master_dark_lm]{\PROD{MASTER_DARK_LM}}  \\
                 & \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} \\
 Parameters: 	& polynomial degree\\
 Algorithm:      & Detection of the order edges\\
@@ -115,9 +115,9 @@ Requirements: & METIS-6084, METIS-1371, METIS-6074 \\
 Templates:           & \TPL{METIS_spec_lm_cal_internalwave}, \\
 Input data: 	& \hyperref[dataitem:lm_lss_wave_raw]{\RAW{LM_LSS_WAVE_RAW}}\\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:gain_map_2rg]{\STATCALIB{GAIN_MAP_2RG}}  \\
-                & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
-                & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
+                & \hyperref[dataitem:gain_map_lm]{\STATCALIB{GAIN_MAP_LM}}  \\
+                & \hyperref[dataitem:badpix_map_lm]{\PROD{BADPIX_MAP_LM}}  \\
+                & \hyperref[dataitem:master_dark_lm]{\PROD{MASTER_DARK_LM}}  \\
                 & \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} \\
                 & \hyperref[dataitem:lm_lss_trace]{\PROD{LM_LSS_TRACE}} \\
                 & \hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}} \\
@@ -166,9 +166,9 @@ Requirements: & METIS-6084, METIS-6074 \\
 Templates:           & \TPL{METIS_spec_lm_cal_standard}\\
 Input data: 	& \hyperref[dataitem:lm_lss_flux_raw]{\RAW{LM_LSS_FLUX_RAW}}\\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:gain_map_2rg]{\STATCALIB{GAIN_MAP_2RG}}  \\
-                & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
-                & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
+                & \hyperref[dataitem:gain_map_lm]{\STATCALIB{GAIN_MAP_LM}}  \\
+                & \hyperref[dataitem:badpix_map_lm]{\PROD{BADPIX_MAP_LM}}  \\
+                & \hyperref[dataitem:master_dark_lm]{\PROD{MASTER_DARK_LM}}  \\
                 & \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} \\
                 & \hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}} \\
                 & \hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}} \\
@@ -242,9 +242,9 @@ Templates:           & \TPL{METIS_spec_lm_acq}, \\
                 & \TPL{METIS_spec_lm_cal_SlitAdc}\\
 Input data: 	& \hyperref[dataitem:lm_lss_sci_raw]{\RAW{LM_LSS_SCI_RAW}}\\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:gain_map_2rg]{\STATCALIB{GAIN_MAP_2RG}}  \\
-                & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
-                & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
+                & \hyperref[dataitem:gain_map_lm]{\STATCALIB{GAIN_MAP_LM}}  \\
+                & \hyperref[dataitem:badpix_map_lm]{\PROD{BADPIX_MAP_LM}}  \\
+                & \hyperref[dataitem:master_dark_lm]{\PROD{MASTER_DARK_LM}}  \\
                 & \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} \\
                 & \hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}} \\
                 & \hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}} \\
