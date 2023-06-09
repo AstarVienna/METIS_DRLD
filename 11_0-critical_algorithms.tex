@@ -59,13 +59,13 @@ involving principal component analysis, have been ruled out since PDR.
         \item \textit{Status at FDR}: Extended sources have been excluded, and the VISIR algorithm will be used for compact sources.
         \item \textit{Prototype delivery}: None.
     \end{itemize}
-    \item[9.] LMS image and cube reconstruction (\ref{ssec:criticallmsimageandcubereconstruction})
+    \item[9.] IFU image and cube reconstruction (\ref{ssec:criticalifuimageandcubereconstruction})
     \begin{itemize}
         \item \textit{Reason at PDR}: Due to the width of the slices in the LM integral-field spectrograph of $20.7 mas$, the PSF is undersampled in the across-slice direction, and there is no known cube reconstruction algorithm.
         \item \textit{Status at FDR}: A prototype algorithm is implemented in Python.
         \item \textit{Prototype delivery}: Python package.
     \end{itemize}
-    \item[10.] LMS data rate (\ref{ssec:criticallmsdatarate})
+    \item[10.] IFU data rate (\ref{ssec:criticalifudatarate})
     \begin{itemize}
         \item \textit{Reason at PDR}: For very bright sources, the LM band spectrograph will have to operate with very short exposures, resulting in a high data rate of up to $1000 \mathrm{MiB}s^{-1}$ which may present a problem for the observatory pipeline which has to deal with the data in real time.
         \item \textit{Status at FDR}: The data rate is under control and does not require prototyping.
@@ -186,7 +186,7 @@ Observations in the mid-infrared are affected by the high sky background, the te
 A proper background correction is thus essential to ensure accurate photometric and spectroscopic analysis of the observed sources.
 As METIS will face an unprecedented level of complexity in the background subtraction due to (1) the high background dominated by the large number of warm mirrors, (2) the internal chopping, and (3) the complexities of nodding with an AO-corrected instrument, a dedicated research project has been started to better understand the origin of chop-residuals and to evaluate chop-only background removal strategies.
 Hence, the dedicated pipeline algorithms will ultimately depend on the chosen strategy for each METIS detector, e.g.\ dithering, classical chop-nod, chop-counter-chop (in 1D or 2D), drift scanning.
-%This is particularly relevant for the NQ bands where, for instance, the instability of the AQUARIUS detector response demands chopping at much higher frequencies.
+%This is particularly relevant for the N bands where, for instance, the instability of the AQUARIUS detector response demands chopping at much higher frequencies.
 More details on dedicated research project and the proposed strategies are given in the Calibration Plan \cite{METIS-calibration_plan} which serves as the base for the following.
 
 \TODO{
@@ -353,7 +353,7 @@ Look at how VISIR does this.
 Need to look at sub-pixel chop shifts, and whether the images need to be resampled.
 Plate scale distortions are not really a issue, because we only care about compact objects.}
 
-Images in the NQ band are taken in a sequence of chopped and nodded
+Images in the N band are taken in a sequence of chopped and nodded
 exposures. The combination of these exposures results in an image with
 one or more positive and negative images (``beams'') of the target
 source, depending on the pattern of chops and nods. Image restoration
@@ -369,7 +369,7 @@ results of the investigations into background strategies that are
 on-going within the METIS consortium.
 
 
-\subsection{LMS image and cube reconstruction}\label{ssec:criticallmsimageandcubereconstruction}
+\subsection{IFU image and cube reconstruction}\label{ssec:criticalifuimageandcubereconstruction}
 \label{ssec:image_reconstruction}
 \TODO{The text below is copied verbatim from the PDR DRS and needs to be updated.}
 
@@ -384,7 +384,7 @@ envisaged:
 \item Take three more exposures with the same across-slice dither
   pattern.
 \end{itemize}
-The pattern is visualised in Fig.~\ref{fig:lms_pattern}. In principle,
+The pattern is visualised in Fig.~\ref{fig:ifu_pattern}. In principle,
 this pattern yields a sampling of the field at a third of the slice
 width (i.e.~7\,mas) in both spatial directions, which would be
 sufficient for a full sampling of the PSF. How to implement this
@@ -393,23 +393,23 @@ from real data needs to be investigated.
 
 \begin{figure}[hb]
   \centering
-  \resizebox{0.8\textwidth}{!}{\includegraphics{PSF_LMS_slices}}
-  \caption[LMS dithering and rotation pattern]{%
-    LMS observation pattern overlaid on a METIS SCAO PSF (by Marcus
-    Feldt, MPIA). Red horizontal lines mark the LMS slices of a first
+  \resizebox{0.8\textwidth}{!}{\includegraphics{PSF_IFU_slices}}
+  \caption[IFU dithering and rotation pattern]{%
+    IFU observation pattern overlaid on a METIS SCAO PSF (by Marcus
+    Feldt, MPIA). Red horizontal lines mark the IFU slices of a first
     exposure. The following exposures are spatially offset by a third
     of the slice width up and down, indicated by the green and cyan
     dashed lines. The field is then rotated by 90 degrees and three
     more exposures are taken with the slices marked by the vertical
     red and dashed green and cyan lines. The result is a regular
     sampling on a grid of width $1/3$ the slice width, i.e.~7\,mas.}
-  \label{fig:lms_pattern}
+  \label{fig:ifu_pattern}
 \end{figure}
 
-\subsection{LMS data rate}\label{ssec:criticallmsdatarate}
+\subsection{IFU data rate}\label{ssec:criticalifudatarate}
 
 \TODO{Placeholder text below is based on the PDR DRS and needs to be updated. See data rate document. Add arguments to make this a non-.}
-\label{ssec:lms_data_rate}
+\label{ssec:ifu_data_rate}
 
 For very bright sources, the LM band spectrograph will have to operate
 with very short exposures, resulting in a high data rate of up to
@@ -419,7 +419,7 @@ which has to deal with the data in real time.  The observatory
 pipeline does not have to perform a full data reduction as described
 in Sect.~\ref{sssec:ifu_sci_process}, but merely compute a number of
 quality control parameters to assess the quality of the data. In the
-course of the development of the observatory recipe dealing with LMS
+course of the development of the observatory recipe dealing with IFU
 science data, the question of data rates will need to be
 considered. If necessary, the performance of the recipe may need to be
 reduced if a high data stream is to be expected. Another option might
@@ -435,14 +435,14 @@ be to compute QC parameters only on a subset of incoming frames.
     \hline\hline
     \textbf{Imager}                               &                                         &                                           &                                              &                                           \\
     IMG\_LM (burst mode)                          & 200                                     & 5.49                                      & 0.15                                         & 0.85                                      \\
-    IMG\_NQ (burst mode)                          & 250                                     & 6.87                                      & 0.15                                         & 1.06                                      \\
-    IMG\_NQ (half-cycle average)                  & 80                                      & 2.20                                      & 0.00                                         & 0.00                                      \\
+    IMG\_N (burst mode)                           & 250                                     & 6.87                                      & 0.15                                         & 1.06                                      \\
+    IMG\_N  (half-cycle average)                  & 80                                      & 2.20                                      & 0.00                                         & 0.00                                      \\
     \hline
     \textbf{Spectroscopy}                         &                                         &                                           &                                              &                                           \\
     SPEC\_LM                                      & 200                                     & 5.49                                      & 0.08                                         & 0.42                                      \\
-    SPEC\_NQ                                      & 250                                     & 6.87                                      & 0.08                                         & 0.53                                      \\
-    LMS + IMG\_LM parallel (1)                    & 1000                                    & 27.46                                     & 0.15                                         & 4.23                                      \\
-    LMS + IMG\_LM parallel (2)                    & 55                                      & 1.52                                      & 0.38                                         & 0.59                                      \\
+    SPEC\_N                                       & 250                                     & 6.87                                      & 0.08                                         & 0.53                                      \\
+    IFU + IMG\_LM parallel (1)                    & 1000                                    & 27.46                                     & 0.15                                         & 4.23                                      \\
+    IFU + IMG\_LM parallel (2)                    & 55                                      & 1.52                                      & 0.38                                         & 0.59                                      \\
     \hline
 %    \textbf{LM-band HR spectrograph}             & 0.12                                    & 4                                         & 144 GByte                                                                                \\
 %    \hline
