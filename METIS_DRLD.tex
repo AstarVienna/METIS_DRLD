@@ -180,7 +180,7 @@
 
 %\setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
-%% Write a raw FITS file like this: \RAW{LM_SCI_RAW}
+%% Write a raw FITS file like this: \hyperref[dataitem:lm_sci_raw]{\RAW{LM_SCI_RAW}}
 \makeatletter
 \lstdefinestyle{RAWstyle}{%
   basicstyle=\ttfamily\color{fits}%
@@ -229,7 +229,7 @@
 \makeatother
 \newcommand{\TPL}[1]{\lstinline[style=TPLstyle]!#1!}
 
-%% Write products like this: \PROD{SOME_THING}
+%% Write products like this: \hyperref[dataitem:some_thing]{\PROD{SOME_THING}}
 \makeatletter
 \lstdefinestyle{PRODstyle}{%
   basicstyle=\ttfamily\color{darkorange}%
