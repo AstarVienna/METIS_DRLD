@@ -94,6 +94,14 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:imgprocdatastructs}
 \label{dataitem:masterdark}
 
+\paragraph{\hyperref[dataitem:master_dark_det]{\PROD{MASTER_DARK_det}}}\label{dataitem:master_dark_det}
+Depending on context, a \hyperref[dataitem:master_dark_det]{\PROD{MASTER_DARK_det}} can refer to either a
+\begin{enumerate}
+\item \hyperref[dataitem:master_dark_n]{\PROD{MASTER_DARK_N}}
+\item \hyperref[dataitem:master_dark_lm]{\PROD{MASTER_DARK_LM}}
+\item \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}
+\end{enumerate}
+
 \paragraph{\hyperref[dataitem:master_dark_lm]{\PROD{MASTER_DARK_LM}}}\label{dataitem:master_dark_lm}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -632,9 +640,9 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \paragraph{\hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}}}\label{dataitem:det_distortion_table}
 Depending on context, a \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}} can refer to either a
 \begin{enumerate}
+\item \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}
 \item \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}
-\item \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}
-\item \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}
+\item \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}
 \end{enumerate}
 
 \paragraph{\hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}}\label{dataitem:lm_distortion_table}
