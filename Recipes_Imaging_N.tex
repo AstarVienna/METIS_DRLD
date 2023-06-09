@@ -102,6 +102,7 @@ otherwise a new one is created.
 \subsubsection{N-band imaging chop-nod combination}
 \label{img_n_chopnod}
 \label{rec:img_n_chopnod}
+\label{rec:metis_n_img_chopnod}
 \label{sssec:img_n_chopnod}
 
 This recipe combines a set of exposures taken at all positions of a
@@ -217,6 +218,7 @@ following \cite{visir_manual}.
 \label{n_img_calibrate}
 \label{rec:n_img_calibrate}
 \label{sssec:n_img_calibrate}
+\label{rec:metis_n_img_calibrate}
 
 This recipe applies the flux calibration to the chop-nod difference
 image. A unique geometric calibration is not possible at this point,
@@ -233,7 +235,7 @@ values are in units of photons per second per centimetre squared. The
 header receives the keyword \FITS{BUNIT} with value %
 \CODE{'photon.s**(-1).cm**(-2)'}.
 
-\begin{recipedef}\label{rec:metis_n_img_calibrate}
+\begin{recipedef}
   Name:              & \REC{metis_n_img_calibrate}                      \\
   Purpose:           & Convert science image to physical units          \\
                      & Add distortion information                       \\

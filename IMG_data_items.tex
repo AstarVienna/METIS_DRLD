@@ -411,16 +411,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:lm_sci_bkg_subtracted]{\RAW{LM_SCI_BKG_SUBTRACTED}}}\label{dataitem:lm_sci_bkg_subtracted}
+\paragraph{\hyperref[dataitem:lm_sci_bkg_subtracted]{\PROD{LM_SCI_BKG_SUBTRACTED}}}\label{dataitem:lm_sci_bkg_subtracted}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lm_sci_bkg_subtracted]{\RAW{LM_SCI_BKG_SUBTRACTED}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_sci_bkg_subtracted]{\PROD{LM_SCI_BKG_SUBTRACTED}}\\[0.3cm]
 Description: & Thermal background subtracted images of science LM exposures.\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:pro.tech]{\FITS{PRO.TECH}}: & \FITS{IMG} \\[0.3cm]
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.tech]{\FITS{PRO.TECH}}, \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{LM_SCI_BKG_SUBTRACTED}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
 Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
@@ -431,26 +430,26 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.tech]{\FITS{PRO.TECH}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}    
 
 
-\paragraph{\hyperref[dataitem:lm_std_bkg_subtracted]{\RAW{LM_STD_BKG_SUBTRACTED}}}\label{dataitem:lm_std_bkg_subtracted}
+\paragraph{\hyperref[dataitem:lm_std_bkg_subtracted]{\PROD{LM_STD_BKG_SUBTRACTED}}}\label{dataitem:lm_std_bkg_subtracted}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lm_std_bkg_subtracted]{\RAW{LM_STD_BKG_SUBTRACTED}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_std_bkg_subtracted]{\PROD{LM_STD_BKG_SUBTRACTED}}\\[0.3cm]
 Description: & Thermal background subtracted images of standard LM exposures.\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_STD_BKG_SUBTRACTED}\\
+\hyperref[fits:pro.tech]{\FITS{PRO.TECH}}: & \FITS{TODO} \\[0.3cm]
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.tech]{\FITS{PRO.TECH}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{LM_STD_BKG_SUBTRACTED}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
+Produced by recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
+Input for recipe: & \hyperref[rec:lm_img_astrometry_calib]{\REC{rec:lm_img_astrometry_calib}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -458,26 +457,53 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.tech]{\FITS{PRO.TECH}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}    
 
 
+\paragraph{\hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}}\label{dataitem:n_sci_bkg_subtracted}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}\\[0.3cm]
+Description: & Thermal background subtracted images of science N exposures.\\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_SCI_BKG_SUBTRACTED}\\
+\hyperref[fits:pro.tech]{\FITS{PRO.TECH}}: & \FITS{TODO} \\[0.3cm]
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.tech]{\FITS{PRO.TECH}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{N_SCI_BKG_SUBTRACTED}\\[0.3cm]
+Template: & \TPL{METIS_img_n_cal_standard}\\
+            & \TPL{METIS_img_n_*_obs_*}       \\
+Produced by recipe: & \hyperref[rec:metis_n_img_chopnod]{\REC{metis_n_img_chopnod}} \\
+Input for recipe: & \hyperref[rec:metis_n_img_calibrate]{\REC{metis_n_img_calibrate}} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.tech]{\FITS{PRO.TECH}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
 
-\paragraph{\hyperref[dataitem:n_std_bkg_subtracted]{\RAW{N_STD_BKG_SUBTRACTED}}}\label{dataitem:n_std_bkg_subtracted}
+
+
+\paragraph{\hyperref[dataitem:n_std_bkg_subtracted]{\PROD{N_STD_BKG_SUBTRACTED}}}\label{dataitem:n_std_bkg_subtracted}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:n_std_bkg_subtracted]{\PROD{N_STD_BKG_SUBTRACTED}}\\[0.3cm]
 Description: & Thermal background subtracted images of standard N exposures.\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_STD_BKG_SUBTRACTED}\\
+\hyperref[fits:pro.tech]{\FITS{PRO.TECH}}: & \FITS{TODO} \\[0.3cm]
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.tech]{\FITS{PRO.TECH}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{N_STD_BKG_SUBTRACTED}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_standard}\\
             & \TPL{METIS_img_n_*_obs_*}       \\
+Produced by recipe: & \hyperref[rec:metis_n_img_chopnod]{\REC{metis_n_img_chopnod}} \\
 Input for recipe: & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
@@ -486,7 +512,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.tech]{\FITS{PRO.TECH}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -778,4 +804,4 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}}\label{dataitem:fluxcal_tab}
-\TODO{Placeholder for \PROD{FLUXCAL_TAB}
+\TODO{Placeholder for \PROD{FLUXCAL_TAB}}
