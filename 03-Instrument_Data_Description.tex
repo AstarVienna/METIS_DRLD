@@ -32,7 +32,7 @@ When more than one subsystem is recording data simultaneously, then
 more than one FITS file is created by one observing template.
 
 The LM and NQ imagers are single-chip sub-instruments, hence the
-imaging data will appear in the primary HDU of the FITS file. The LMS
+imaging data will appear in the primary HDU of the FITS file. The IFU
 integral-field spectrograph consists of four chips, hence the FITS
 file will consist of an empty primary data unit, whose header holds
 information pertaining to the exposure as a whole, and four extension
@@ -196,13 +196,14 @@ determination of the chop/nod positions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{LM-band Integral Field Unit}
-\label{ssec:instrument_data_LMS}
+\label{ssec:instrument_data_IFU}
 
 METIS will contain an image slicing integral-field unit (IFU) for
 high-resolution spectroscopy in L- and M-band ($R\approx
-100,000$). This will be referred to as ``LMS'' (LM spectrograph).
+100,000$).
+This used to be referred to as ``\ac{LMS}'', but will be refered to as ``\ac{IFU}'' to prevent confusion.
 
-The LMS is equipped with a $2\times2$ mosaic of HAWAII2RG detectors
+The IFU is equipped with a $2\times2$ mosaic of HAWAII2RG detectors
 separated by small gaps. A number of rows and columns along the edges
 of the detector will be masked (see Sect.~8.2 of \cite{DRLS}).
 
@@ -231,7 +232,7 @@ Fig.~\ref{fig:IFU_detector_layout}, respectively.
     \includegraphics{LMS_detector_layout_normal_tikz}}\hfill
   \resizebox{0.495\textwidth}{!}{%
     \includegraphics{LMS_detector_layout_extended_tikz}}
-  \caption[LMS detector layout]{Layout of the LMS/IFU detector mosaic
+  \caption[IFU detector layout]{Layout of the IFU detector mosaic
     in the nominal (left) and extended (right) modes. The dispersion
     direction is horizontal. In the nominal mode, all 28 slices cover
     the same wavelength range. In the extended mode, slices marked by
@@ -253,7 +254,7 @@ exposures with DIT/NDIT are taken. Depending on the setting of the
 template parameter \FITS{DET CUBE MODE} all the DITs may be stored as
 layers of a 3D cube (burst mode) or co-added into a 2D image.
 
-As the LMS contains an array of four detectors, there will be four
+As the IFU contains an array of four detectors, there will be four
 image or cube extensions in the FITS file for one exposure.
 
 The primary header of the FITS file will contain all information that
@@ -261,7 +262,7 @@ pertains to the exposure. This will include information on the
 position of the internal chopper, the telescope offsets, and the type
 of observation (\FITS{DPR.TYPE=OBJECT} or \FITS{SKY}).
 
-A typical sequence of LMS exposures will go through a series of
+A typical sequence of IFU exposures will go through a series of
 dispersion grating settings in order to fill gaps in the instantaneous
 wavelength coverage (``spectral dithering''). Finally, the field will be
 rotated by 90~degrees and the observing sequence repeated to permit
@@ -272,7 +273,7 @@ complex sequence can be uniquely identified.
 
 %%\begin{center}
 %%\begin{table}
-%%\caption[LMS data keywords]{Columns foreseen for the LMS FITS files.}
+%%\caption[IFU data keywords]{Columns foreseen for the IFU FITS files.}
 %%\label{tab:lms_colums}
 %%\begin{tabular}{|l|l|p{10cm}|}
 %%  \hline
