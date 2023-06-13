@@ -16,6 +16,8 @@ from codes.drld_parser.hacks import (
     HACK_RECIPE_TEMPLATES,
 )
 
+PATTERN_TEX_COMMENT = re.compile(r"(?<!\\)%.*$")
+
 
 def guess_dataitem_type(name, raise_exception=False):
     """Guess the dataitem type from DataItemReferences.
@@ -183,7 +185,9 @@ class Recipe:
         rows2 = []
         thisline = ""
         for line in rows1:
-            thisline += line
+            # Remove any trailing comments
+            line2 = PATTERN_TEX_COMMENT.sub("", line).strip()
+            thisline += line2
             if thisline.endswith("\\\\"):
                 rows2.append(thisline)
                 thisline = ""
@@ -194,6 +198,10 @@ class Recipe:
             # TODO: Do something sensible if there is no &
             if "&" in line
         ]
+
+        for row in rows3:
+            msg = f"Wrong number of columns: {row}"
+            assert len(row) == 2, msg
 
         rows4 = [(aa.strip().strip(":").strip(), bb.strip()) for aa, bb in rows3]
 
@@ -243,20 +251,22 @@ class Recipe:
 
                     # First, from the DRLD:
                     #   Where _det appears in FITS keywords of input or product files,
-                    #   it is taken to mean _2RG, _GEO or _LMS
+                    #   it is taken to mean _LM, N or _IFU
                     #   according to the detector array for which data are being processed.
-                    # But do _IFU instead of _LMS.
 
                     # Second, split these:
                     #         Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \PROD{IFU_SCI_REDUCED_TAC})
                     value = []
                     for val in value1:
                         if val.name and "det" in val.name:
-                            assert val.name.endswith("_det")
-                            for postfix in ["_2RG", "_GEO", "_IFU"]:
+                            #  det_APP_SCI_CALIBRATED or DETLIN_det_RAW
+                            msg = f"There are too many or wrong 'det's in f{val.name}."
+                            assert val.name.endswith("_det") or val.name.startswith("det_") or "_det_" in val.name, msg
+                            assert val.name.count("det") == 1, msg
+                            for postfix in ["LM", "N", "IFU"]:
                                 value.append(
                                     DataItemReference(
-                                        name=val.name.replace("_det", postfix),
+                                        name=val.name.replace("det", postfix),
                                         dtype=val.dtype,
                                         hyperref=val.hyperref,
                                         description=val.description,
@@ -381,8 +391,9 @@ class DataReductionLibraryDesign:
         # look-ahead or look-backwards in Python regular expressions.
 
         # TODO: differentiate between PROD, EXTCALIB, STATCALIB, and RAW
+        # TODO: Add support for drlstructure
         dataitems1 = re.findall(
-            r"[^%](\\paragraph{\\hyperref\[(.*?)]{\\[A-Z]+{(.*?)}}}\\label{(.*?)}*)\n",
+            r"[^%](\\paragraph{\\hyperref\[(.*?)]{\\[A-Z]+{(.*?)}}}\\label{(dataitem.*?)}.*)\n",
             data_all,
         )
 
@@ -410,7 +421,7 @@ class DataReductionLibraryDesign:
                     [name2, hyperref2, labels],
                 ]
             else:
-                assert hyperref == label
+                assert hyperref == label, f"Hyperref '{hyperref}' is not equal to label '{label}' for line '{line}'"
                 # namel = name.lower().replace("_", "")
                 # print(f"dataitem:{namel}" == hyperref, name, hyperref)
                 dataitems2 += [[name, hyperref, [label]]]
