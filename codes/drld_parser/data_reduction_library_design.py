@@ -430,9 +430,25 @@ class DataReductionLibraryDesign:
                 # print(f"dataitem:{namel}" == hyperref, name, hyperref)
                 dataitems2 += [[name, hyperref, [label]]]
 
+        dataitems4 = []
+        for [name, hyperref, labels] in dataitems2:
+            if "det" in name:
+                # TODO: Harmonize with the other one
+                assert name.count("det") == 1, f"Too many 'det's in f{name}"
+                for name_det in ["LM", "N", "IFU", "det"]:
+                    dataitems4.append([
+                        name.replace("det", name_det),
+                        hyperref,
+                        labels,
+                    ])
+            else:
+                dataitems4.append([name, hyperref, labels])
+
         dataitems3 = {}
-        for name, hyperref, labels in dataitems2:
-            assert name not in dataitems3
+        for name, hyperref, labels in dataitems4:
+            # Check disable, because the _det_ dataitems can indeed have
+            # more than one paragraph.
+            # assert name not in dataitems3, f"Duplicate dataitem: {name}"
             dataitems3[name] = DataItem(
                 name=name,
                 hyperref=hyperref,
