@@ -5,9 +5,6 @@ graph METISDPS {
    "metis_det_adi_cgrph" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_det_adi_cgrph"];
    "metis_det_adi_app" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_det_adi_app"];
    "metis_ifu_adi_cgrph\label{rec:metis_ifu_adi_cgrph}" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_ifu_adi_cgrph\label{rec:metis_ifu_adi_cgrph}"];
-   "metis_det_lingain" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_det_lingain"];
-   "metis_det_dark" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_det_dark"];
-   "metis_det_persistence" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_det_persistence"];
    "metis_ifu_wavecal" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_ifu_wavecal"];
    "metis_ifu_rsrf" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_ifu_rsrf"];
    "metis_ifu_std_process" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_ifu_std_process"];
@@ -47,10 +44,14 @@ graph METISDPS {
    "metis_lm_lss_mf_model" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_LM_lss_mf_model"];
    "metis_lm_lss_mf_calctrans" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_LM_lss_mf_calctrans"];
    "metis_lm_lss_mf_correct" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_LM_lss_mf_correct"];
+   "metis_det_lingain" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_det_lingain"];
+   "metis_det_dark" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_det_dark"];
+   "metis_det_persistence" [shape=box, fillcolor="#d2a9bc", style=filled, label="metis_det_persistence"];
    "persistence_map" [shape=box, fillcolor="#b7ffff", style=filled, label="PERSISTENCE_MAP"];
-   "gain_map_det" [shape=box, fillcolor="#c5dbb7", style=filled, label="GAIN_MAP_det"];
    "gain_map_lm" [shape=box, fillcolor="#fffad8", style=filled, label="GAIN_MAP_LM"];
    "gain_map_n" [shape=box, fillcolor="#fffad8", style=filled, label="GAIN_MAP_N"];
+   "gain_map_ifu" [shape=box, fillcolor="#c5dbb7", style=filled, label="GAIN_MAP_IFU"];
+   "gain_map_det" [shape=box, fillcolor="#c5dbb7", style=filled, label="GAIN_MAP_DET"];
    "atm_line_cat" [shape=box, fillcolor="#b7ffff", style=filled, label="ATM_LINE_CAT"];
    "ao_psf_model" [shape=box, fillcolor="#b7ffff", style=filled, label="AO_PSF_MODEL"];
    "atm_profile" [shape=box, fillcolor="#b7ffff", style=filled, label="ATM_PROFILE"];
@@ -85,18 +86,24 @@ graph METISDPS {
    "ifu_sci_background" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_SCI_BACKGROUND"];
    "ifu_dist_reduced" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_DIST_REDUCED"];
    "lm_image_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_IMAGE_RAW"];
-   "detlin_det_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="DETLIN_det_RAW"];
-   "dark_internal_det_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="DARK_INTERNAL_det_RAW"];
-   "master_dark_det" [shape=box, fillcolor="#c5dbb7", style=filled, label="MASTER_DARK_det"];
+   "detlin_lm_raw" [shape=box, fillcolor="#ebebeb", style=filled, label="DETLIN_LM_RAW"];
+   "detlin_n_raw" [shape=box, fillcolor="#ebebeb", style=filled, label="DETLIN_N_RAW"];
+   "detlin_ifu_raw" [shape=box, fillcolor="#ebebeb", style=filled, label="DETLIN_IFU_RAW"];
+   "detlin_det_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="DETLIN_DET_RAW"];
+   "dark_internal_lm_raw" [shape=box, fillcolor="#ebebeb", style=filled, label="DARK_INTERNAL_LM_RAW"];
+   "dark_internal_n_raw" [shape=box, fillcolor="#ebebeb", style=filled, label="DARK_INTERNAL_N_RAW"];
+   "dark_internal_ifu_raw" [shape=box, fillcolor="#ebebeb", style=filled, label="DARK_INTERNAL_IFU_RAW"];
+   "dark_internal_det_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="DARK_INTERNAL_DET_RAW"];
    "master_dark_lm" [shape=box, fillcolor="#c5dbb7", style=filled, label="MASTER_DARK_LM"];
-   "master_dark_ifu" [shape=box, fillcolor="#c5dbb7", style=filled, label="MASTER_DARK_IFU"];
    "master_dark_n" [shape=box, fillcolor="#c5dbb7", style=filled, label="MASTER_DARK_N"];
+   "master_dark_ifu" [shape=box, fillcolor="#c5dbb7", style=filled, label="MASTER_DARK_IFU"];
+   "master_dark_det" [shape=box, fillcolor="#c5dbb7", style=filled, label="MASTER_DARK_DET"];
    "master_img_flat_lm" [shape=box, fillcolor="#c5dbb7", style=filled, label="MASTER_IMG_FLAT_LM"];
    "master_img_flat_n" [shape=box, fillcolor="#c5dbb7", style=filled, label="MASTER_IMG_FLAT_N"];
-   "badpix_map_det" [shape=box, fillcolor="#c5dbb7", style=filled, label="BADPIX_MAP_det"];
    "badpix_map_lm" [shape=box, fillcolor="#c5dbb7", style=filled, label="BADPIX_MAP_LM"];
    "badpix_map_n" [shape=box, fillcolor="#c5dbb7", style=filled, label="BADPIX_MAP_N"];
    "badpix_map_ifu" [shape=box, fillcolor="#c5dbb7", style=filled, label="BADPIX_MAP_IFU"];
+   "badpix_map_det" [shape=box, fillcolor="#c5dbb7", style=filled, label="BADPIX_MAP_DET"];
    "lm_sci_basic_reduced" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_SCI_BASIC_REDUCED"];
    "lm_std_basic_reduced" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_STD_BASIC_REDUCED"];
    "lm_sci_bkg" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_SCI_BKG"];
@@ -111,18 +118,23 @@ graph METISDPS {
    "n_sci_calibrated" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_SCI_CALIBRATED"];
    "lm_sci_coadd" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_SCI_COADD"];
    "lm_sci_restored" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_SCI_RESTORED"];
-   "det_distortion_table" [shape=box, fillcolor="#c5dbb7", style=filled, label="det_DISTORTION_TABLE"];
    "lm_distortion_table" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_DISTORTION_TABLE"];
    "n_distortion_table" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_DISTORTION_TABLE"];
-   "det_distortion_map" [shape=box, fillcolor="#c5dbb7", style=filled, label="det_DISTORTION_MAP"];
+   "ifu_distortion_table" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_DISTORTION_TABLE"];
+   "det_distortion_table" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_DISTORTION_TABLE"];
    "lm_distortion_map" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_DISTORTION_MAP"];
    "n_distortion_map" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_DISTORTION_MAP"];
-   "det_dist_reduced" [shape=box, fillcolor="#c5dbb7", style=filled, label="det_DIST_REDUCED"];
+   "ifu_distortion_map" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_DISTORTION_MAP"];
+   "det_distortion_map" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_DISTORTION_MAP"];
    "lm_dist_reduced" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_DIST_REDUCED"];
    "n_dist_reduced" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_DIST_REDUCED"];
+   "det_dist_reduced" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_DIST_REDUCED"];
    "fluxcal_tab" [shape=box, fillcolor="#c5dbb7", style=filled, label="FLUXCAL_TAB"];
    "lm_std_combined" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_STD_COMBINED"];
-   "det_pinhole_table" [shape=box, fillcolor="#c5dbb7", style=filled, label="det_PINHOLE_TABLE"];
+   "lm_pinhole_table" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_PINHOLE_TABLE"];
+   "n_pinhole_table" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_PINHOLE_TABLE"];
+   "ifu_pinhole_table" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_PINHOLE_TABLE"];
+   "det_pinhole_table" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_PINHOLE_TABLE"];
    "lm_lss_rsrf_raw" [shape=box, fillcolor="#ebebeb", style=filled, label="LM_LSS_RSRF_RAW"];
    "lm_lss_rsrf_pinh_raw" [shape=box, fillcolor="#ebebeb", style=filled, label="LM_LSS_RSRF_PINH_RAW"];
    "lm_lss_wave_raw" [shape=box, fillcolor="#ebebeb", style=filled, label="LM_LSS_WAVE_RAW"];
@@ -171,6 +183,103 @@ graph METISDPS {
    "lm_lss_tss_wave" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_LSS_TSS_WAVE"];
    "lm_lss_sci_flux_tellcorr_1d" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_LSS_SCI_FLUX_TELLCORR_1D"];
    "n_lss_sci_flux_tellcorr_1d" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_LSS_SCI_FLUX_TELLCORR_1D"];
+   "lm_app_sci_calibrated" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_APP_SCI_CALIBRATED"];
+   "n_app_sci_calibrated" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_APP_SCI_CALIBRATED"];
+   "ifu_app_sci_calibrated" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_APP_SCI_CALIBRATED"];
+   "det_app_sci_calibrated" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_APP_SCI_CALIBRATED"];
+   "lm_app_sci_centred" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_APP_SCI_CENTRED"];
+   "n_app_sci_centred" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_APP_SCI_CENTRED"];
+   "ifu_app_sci_centred" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_APP_SCI_CENTRED"];
+   "det_app_sci_centred" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_APP_SCI_CENTRED"];
+   "lm_app_sci_speckle" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_APP_SCI_SPECKLE"];
+   "n_app_sci_speckle" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_APP_SCI_SPECKLE"];
+   "ifu_app_sci_speckle" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_APP_SCI_SPECKLE"];
+   "det_app_sci_speckle" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_APP_SCI_SPECKLE"];
+   "lm_app_sci_derotated_psfsub" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_APP_SCI_DEROTATED_PSFSUB"];
+   "n_app_sci_derotated_psfsub" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_APP_SCI_DEROTATED_PSFSUB"];
+   "ifu_app_sci_derotated_psfsub" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_APP_SCI_DEROTATED_PSFSUB"];
+   "det_app_sci_derotated_psfsub" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_APP_SCI_DEROTATED_PSFSUB"];
+   "lm_app_sci_derotated" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_APP_SCI_DEROTATED"];
+   "n_app_sci_derotated" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_APP_SCI_DEROTATED"];
+   "ifu_app_sci_derotated" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_APP_SCI_DEROTATED"];
+   "det_app_sci_derotated" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_APP_SCI_DEROTATED"];
+   "lm_app_sci_coverage" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_APP_SCI_COVERAGE"];
+   "n_app_sci_coverage" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_APP_SCI_COVERAGE"];
+   "ifu_app_sci_coverage" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_APP_SCI_COVERAGE"];
+   "det_app_sci_coverage" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_APP_SCI_COVERAGE"];
+   "lm_app_sci_snr" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_APP_SCI_SNR"];
+   "n_app_sci_snr" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_APP_SCI_SNR"];
+   "ifu_app_sci_snr" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_APP_SCI_SNR"];
+   "det_app_sci_snr" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_APP_SCI_SNR"];
+   "lm_app_sci_contrast_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_APP_SCI_CONTRAST_RAW"];
+   "n_app_sci_contrast_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_APP_SCI_CONTRAST_RAW"];
+   "ifu_app_sci_contrast_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_APP_SCI_CONTRAST_RAW"];
+   "det_app_sci_contrast_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_APP_SCI_CONTRAST_RAW"];
+   "lm_app_sci_contrast_adi" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_APP_SCI_CONTRAST_ADI"];
+   "n_app_sci_contrast_adi" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_APP_SCI_CONTRAST_ADI"];
+   "ifu_app_sci_contrast_adi" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_APP_SCI_CONTRAST_ADI"];
+   "det_app_sci_contrast_adi" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_APP_SCI_CONTRAST_ADI"];
+   "lm_app_sci_throughput" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_APP_SCI_THROUGHPUT"];
+   "n_app_sci_throughput" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_APP_SCI_THROUGHPUT"];
+   "ifu_app_sci_throughput" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_APP_SCI_THROUGHPUT"];
+   "det_app_sci_throughput" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_APP_SCI_THROUGHPUT"];
+   "lm_app_centroid_tab" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_APP_CENTROID_TAB"];
+   "n_app_centroid_tab" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_APP_CENTROID_TAB"];
+   "ifu_app_centroid_tab" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_APP_CENTROID_TAB"];
+   "det_app_centroid_tab" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_APP_CENTROID_TAB"];
+   "lm_cgrph_sci_calibrated" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_cgrph_SCI_CALIBRATED"];
+   "n_cgrph_sci_calibrated" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_cgrph_SCI_CALIBRATED"];
+   "ifu_cgrph_sci_calibrated" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_SCI_CALIBRATED"];
+   "det_cgrph_sci_calibrated" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_cgrph_SCI_CALIBRATED"];
+   "lm_cgrph_sci_centred" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_cgrph_SCI_CENTRED"];
+   "n_cgrph_sci_centred" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_cgrph_SCI_CENTRED"];
+   "ifu_cgrph_sci_centred" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_SCI_CENTRED"];
+   "det_cgrph_sci_centred" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_cgrph_SCI_CENTRED"];
+   "lm_cgrph_sci_speckle" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_cgrph_SCI_SPECKLE"];
+   "n_cgrph_sci_speckle" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_cgrph_SCI_SPECKLE"];
+   "ifu_cgrph_sci_speckle" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_SCI_SPECKLE"];
+   "det_cgrph_sci_speckle" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_cgrph_SCI_SPECKLE"];
+   "lm_cgrph_sci_derotated_psfsub" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_cgrph_SCI_DEROTATED_PSFSUB"];
+   "n_cgrph_sci_derotated_psfsub" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_cgrph_SCI_DEROTATED_PSFSUB"];
+   "ifu_cgrph_sci_derotated_psfsub" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_SCI_DEROTATED_PSFSUB"];
+   "det_cgrph_sci_derotated_psfsub" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_cgrph_SCI_DEROTATED_PSFSUB"];
+   "lm_cgrph_sci_derotated" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_cgrph_SCI_DEROTATED"];
+   "n_cgrph_sci_derotated" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_cgrph_SCI_DEROTATED"];
+   "ifu_cgrph_sci_derotated" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_SCI_DEROTATED"];
+   "det_cgrph_sci_derotated" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_cgrph_SCI_DEROTATED"];
+   "lm_cgrph_sci_coverage" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_cgrph_SCI_COVERAGE"];
+   "n_cgrph_sci_coverage" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_cgrph_SCI_COVERAGE"];
+   "ifu_cgrph_sci_coverage" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_SCI_COVERAGE"];
+   "det_cgrph_sci_coverage" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_cgrph_SCI_COVERAGE"];
+   "lm_cgrph_sci_snr" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_cgrph_SCI_SNR"];
+   "n_cgrph_sci_snr" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_cgrph_SCI_SNR"];
+   "ifu_cgrph_sci_snr" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_SCI_SNR"];
+   "det_cgrph_sci_snr" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_cgrph_SCI_SNR"];
+   "lm_cgrph_sci_contrast_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_cgrph_SCI_CONTRAST_RAW"];
+   "n_cgrph_sci_contrast_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_cgrph_SCI_CONTRAST_RAW"];
+   "ifu_cgrph_sci_contrast_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_SCI_CONTRAST_RAW"];
+   "det_cgrph_sci_contrast_raw" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_cgrph_SCI_CONTRAST_RAW"];
+   "lm_cgrph_sci_contrast_adi" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_cgrph_SCI_CONTRAST_ADI"];
+   "n_cgrph_sci_contrast_adi" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_cgrph_SCI_CONTRAST_ADI"];
+   "ifu_cgrph_sci_contrast_adi" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_SCI_CONTRAST_ADI"];
+   "det_cgrph_sci_contrast_adi" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_cgrph_SCI_CONTRAST_ADI"];
+   "lm_cgrph_sci_throughput" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_cgrph_SCI_THROUGHPUT"];
+   "n_cgrph_sci_throughput" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_cgrph_SCI_THROUGHPUT"];
+   "ifu_cgrph_sci_throughput" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_SCI_THROUGHPUT"];
+   "det_cgrph_sci_throughput" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_cgrph_SCI_THROUGHPUT"];
+   "lm_cgrph_centroid_tab" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_cgrph_CENTROID_TAB"];
+   "n_cgrph_centroid_tab" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_cgrph_CENTROID_TAB"];
+   "ifu_cgrph_centroid_tab" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_CENTROID_TAB"];
+   "det_cgrph_centroid_tab" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_cgrph_CENTROID_TAB"];
+   "ifu_cgrph_sci_reduced" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_SCI_REDUCED"];
+   "lm_cgrph_psf_median" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_cgrph_PSF_MEDIAN"];
+   "n_cgrph_psf_median" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_cgrph_PSF_MEDIAN"];
+   "ifu_cgrph_psf_median" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_cgrph_PSF_MEDIAN"];
+   "det_cgrph_psf_median" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_cgrph_PSF_MEDIAN"];
+   "lm_app_psf_median" [shape=box, fillcolor="#c5dbb7", style=filled, label="LM_app_PSF_MEDIAN"];
+   "n_app_psf_median" [shape=box, fillcolor="#c5dbb7", style=filled, label="N_app_PSF_MEDIAN"];
+   "ifu_app_psf_median" [shape=box, fillcolor="#c5dbb7", style=filled, label="IFU_app_PSF_MEDIAN"];
+   "det_app_psf_median" [shape=box, fillcolor="#c5dbb7", style=filled, label="DET_app_PSF_MEDIAN"];
    "metis_spec_lm_acq" [shape=box, fillcolor="white", style=filled, label="METIS_spec_lm_acq"];
    "metis_spec_n_acq" [shape=box, fillcolor="white", style=filled, label="METIS_spec_n_acq"];
    "metis_img_lm_obs_autojitter" [shape=box, fillcolor="white", style=filled, label="METIS_img_lm_obs_AutoJitter"];
@@ -229,21 +338,14 @@ graph METISDPS {
    "metis_ifu_cal_detlin" [shape=box, fillcolor="white", style=filled, label="METIS_ifu_cal_DetLin"];
    "unknown_c8f1a389" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_c8f1a389"];
    "unknown_6a56345e" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_6a56345e"];
-   "det_cgrph_sci_calibrated" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="DET_CGRPH_SCI_CALIBRATED"];
    "unknown_474640f7" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_474640f7"];
    "unknown_7ac6e324" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_7ac6e324"];
    "unknown_c7097235" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_c7097235"];
    "unknown_6a21108a" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_6a21108a"];
-   "det_cgrph_sci_derotated" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="DET_CGRPH_SCI_DEROTATED"];
    "unknown_b0a7cced" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_b0a7cced"];
    "unknown_147ab381" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_147ab381"];
    "unknown_99c9550b" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_99c9550b"];
-   "det_cgrph_sci_coverage" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="DET_CGRPH_SCI_COVERAGE"];
-   "det_cgrph_sci_snr" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="DET_CGRPH_SCI_SNR"];
    "unknown_0fb8b534" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_0fb8b534"];
-   "lm_app_sci_calibrated" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LM_APP_SCI_CALIBRATED"];
-   "n_app_sci_calibrated" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="N_APP_SCI_CALIBRATED"];
-   "ifu_app_sci_calibrated" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_APP_SCI_CALIBRATED"];
    "unknown_98b47d5f" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_98b47d5f"];
    "unknown_31371676" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_31371676"];
    "unknown_314c9a67" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_314c9a67"];
@@ -254,8 +356,6 @@ graph METISDPS {
    "unknown_4b226fc9" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_4b226fc9"];
    "unknown_14754504" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_14754504"];
    "unknown_9db9a9bb" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_9db9a9bb"];
-   "ifu_cgrph_sci_reduced" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_CGRPH_SCI_REDUCED"];
-   "ifu_distortion_table" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_DISTORTION_TABLE"];
    "unknown_c8f1a389" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_c8f1a389"];
    "unknown_6a56345e" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_6a56345e"];
    "unknown_40643ce9" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_40643ce9"];
@@ -268,18 +368,6 @@ graph METISDPS {
    "unknown_21979639" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_21979639"];
    "unknown_887ad701" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_887ad701"];
    "unknown_e41e93d3" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_e41e93d3"];
-   "ifu_cgrph_sci_coverage" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_CGRPH_SCI_COVERAGE"];
-   "detlin_lm_raw" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="DETLIN_LM_RAW"];
-   "detlin_n_raw" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="DETLIN_N_RAW"];
-   "detlin_ifu_raw" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="DETLIN_IFU_RAW"];
-   "dark_internal_lm_raw" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="DARK_INTERNAL_LM_RAW"];
-   "dark_internal_n_raw" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="DARK_INTERNAL_N_RAW"];
-   "dark_internal_ifu_raw" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="DARK_INTERNAL_IFU_RAW"];
-   "gain_map_ifu" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="GAIN_MAP_IFU"];
-   "linearity_lm" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LINEARITY_LM"];
-   "linearity_n" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LINEARITY_N"];
-   "linearity_ifu" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LINEARITY_IFU"];
-   "unknown_2921db96" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_2921db96"];
    "unknown_0481a9ee" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_0481a9ee"];
    "unknown_f53b7c34" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_f53b7c34"];
    "unknown_48c28347" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_48c28347"];
@@ -298,7 +386,6 @@ graph METISDPS {
    "unknown_6535513b" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_6535513b"];
    "unknown_f0a3e0a1" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_f0a3e0a1"];
    "unknown_68abf670" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_68abf670"];
-   "ifu_distortion_table" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="IFU_DISTORTION_TABLE"];
    "unknown_ec407ac6" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_ec407ac6"];
    "unknown_4a905aa0" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_4a905aa0"];
    "unknown_20d000b4" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_20d000b4"];
@@ -332,6 +419,10 @@ graph METISDPS {
    "unknown_3895b747" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_3895b747"];
    "unknown_2fa0be9b" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_2fa0be9b"];
    "unknown_20d000b4" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_20d000b4"];
+   "linearity_lm" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LINEARITY_LM"];
+   "linearity_n" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LINEARITY_N"];
+   "linearity_ifu" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="LINEARITY_IFU"];
+   "unknown_2921db96" [shape=box, fillcolor="#c5dbb7", color=red, style="filled,dashed", penwidth="4.0", label="UNKNOWN_2921db96"];
    "tbd" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="TBD"];
    "??" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="??"];
    "??" [shape=box, fillcolor=white, color=red, style="filled,dashed", penwidth="4.0", label="??"];
@@ -373,22 +464,6 @@ graph METISDPS {
     "unknown_887ad701" -- "metis_ifu_adi_cgrph\label{rec:metis_ifu_adi_cgrph}"
     "unknown_e41e93d3" -- "metis_ifu_adi_cgrph\label{rec:metis_ifu_adi_cgrph}"
     "ifu_cgrph_sci_coverage" -- "metis_ifu_adi_cgrph\label{rec:metis_ifu_adi_cgrph}"
-    "gain_map_lm" -- "metis_det_lingain"
-    "gain_map_n" -- "metis_det_lingain"
-    "gain_map_ifu" -- "metis_det_lingain"
-    "linearity_lm" -- "metis_det_lingain"
-    "linearity_n" -- "metis_det_lingain"
-    "linearity_ifu" -- "metis_det_lingain"
-    "badpix_map_lm" -- "metis_det_lingain"
-    "badpix_map_n" -- "metis_det_lingain"
-    "badpix_map_ifu" -- "metis_det_lingain"
-    "master_dark_lm" -- "metis_det_dark"
-    "master_dark_n" -- "metis_det_dark"
-    "master_dark_ifu" -- "metis_det_dark"
-    "badpix_map_lm" -- "metis_det_dark"
-    "badpix_map_n" -- "metis_det_dark"
-    "badpix_map_ifu" -- "metis_det_dark"
-    "persistence_map" -- "metis_det_persistence"
     "ifu_wavecal" -- "metis_ifu_wavecal"
     "master_flat_ifu" -- "metis_ifu_rsrf"
     "rsrf_ifu" -- "metis_ifu_rsrf"
@@ -483,6 +558,22 @@ graph METISDPS {
     "mf_best_fit_tab" -- "metis_lm_lss_mf_model"
     "lm_lss_synth_trans" -- "metis_lm_lss_mf_calctrans"
     "lm_lss_sci_flux_tellcorr_1d" -- "metis_lm_lss_mf_correct"
+    "gain_map_lm" -- "metis_det_lingain"
+    "gain_map_n" -- "metis_det_lingain"
+    "gain_map_ifu" -- "metis_det_lingain"
+    "linearity_lm" -- "metis_det_lingain"
+    "linearity_n" -- "metis_det_lingain"
+    "linearity_ifu" -- "metis_det_lingain"
+    "badpix_map_lm" -- "metis_det_lingain"
+    "badpix_map_n" -- "metis_det_lingain"
+    "badpix_map_ifu" -- "metis_det_lingain"
+    "master_dark_lm" -- "metis_det_dark"
+    "master_dark_n" -- "metis_det_dark"
+    "master_dark_ifu" -- "metis_det_dark"
+    "badpix_map_lm" -- "metis_det_dark"
+    "badpix_map_n" -- "metis_det_dark"
+    "badpix_map_ifu" -- "metis_det_dark"
+    "persistence_map" -- "metis_det_persistence"
     "metis_det_adi_cgrph" -- "lm_sci_basic_reduced"
     "metis_det_adi_cgrph" -- "n_distortion_table"
     "metis_det_adi_cgrph" -- "unknown_c8f1a389"
@@ -494,13 +585,6 @@ graph METISDPS {
     "metis_ifu_adi_cgrph\label{rec:metis_ifu_adi_cgrph}" -- "ifu_distortion_table"
     "metis_ifu_adi_cgrph\label{rec:metis_ifu_adi_cgrph}" -- "unknown_c8f1a389"
     "metis_ifu_adi_cgrph\label{rec:metis_ifu_adi_cgrph}" -- "unknown_6a56345e"
-    "metis_det_lingain" -- "detlin_lm_raw"
-    "metis_det_lingain" -- "detlin_n_raw"
-    "metis_det_lingain" -- "detlin_ifu_raw"
-    "metis_det_lingain" -- "dark_internal_lm_raw"
-    "metis_det_lingain" -- "dark_internal_n_raw"
-    "metis_det_lingain" -- "dark_internal_ifu_raw"
-    "metis_det_dark" -- "unknown_2921db96"
     "metis_ifu_wavecal" -- "unknown_0481a9ee"
     "metis_ifu_wavecal" -- "master_dark_ifu"
     "metis_ifu_wavecal" -- "unknown_f53b7c34"
@@ -691,13 +775,16 @@ graph METISDPS {
     "metis_lm_lss_mf_calctrans" -- "atm_line_cat"
     "metis_lm_lss_mf_correct" -- "lm_lss_sci_flux_1d"
     "metis_lm_lss_mf_correct" -- "lm_lss_synth_trans"
+    "metis_det_lingain" -- "detlin_lm_raw"
+    "metis_det_lingain" -- "detlin_n_raw"
+    "metis_det_lingain" -- "detlin_ifu_raw"
+    "metis_det_lingain" -- "dark_internal_lm_raw"
+    "metis_det_lingain" -- "dark_internal_n_raw"
+    "metis_det_lingain" -- "dark_internal_ifu_raw"
+    "metis_det_dark" -- "unknown_2921db96"
     "metis_det_adi_cgrph" -- "tbd"
     "metis_det_adi_app" -- "??"
     "metis_ifu_adi_cgrph\label{rec:metis_ifu_adi_cgrph}" -- "??"
-    "metis_det_lingain" -- "metis_img_lm_cal_detlin"
-    "metis_det_lingain" -- "metis_img_n_cal_detlin"
-    "metis_det_lingain" -- "metis_ifu_cal_detlin"
-    "metis_det_dark" -- "metis_gen_cal_dark"
     "metis_ifu_wavecal" -- "metis_ifu_cal_internalwave"
     "metis_ifu_rsrf" -- "metis_ifu_cal_rsrf"
     "metis_ifu_std_process" -- "metis_ifu_cal_standard"
@@ -754,4 +841,8 @@ graph METISDPS {
     "metis_lm_lss_sci" -- "metis_spec_lm_obs_autonodonslit"
     "metis_lm_lss_sci" -- "metis_spec_lm_obs_genericoffset"
     "metis_lm_lss_sci" -- "metis_spec_lm_cal_slitadc"
+    "metis_det_lingain" -- "metis_img_lm_cal_detlin"
+    "metis_det_lingain" -- "metis_img_n_cal_detlin"
+    "metis_det_lingain" -- "metis_ifu_cal_detlin"
+    "metis_det_dark" -- "metis_gen_cal_dark"
 }
