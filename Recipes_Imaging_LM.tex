@@ -218,67 +218,76 @@ counts within an aperture.}
 
 \clearpage
 
-\subsubsection{LM-band imaging astrometry calibration}
-\label{lm_img_astrometry_calib}
-\label{rec:lm_img_astrometry_calib}
-\label{sssec:lm_img_astrometry_calib}
-\label{metis_lm_img_astrometry_process}
-\label{rec:metis_lm_img_astrometry_process}
-\label{sssec:metis_lm_img_astrometry_process}
-This recipe is the conversion of the pixel coordinates (X,Y) of objects in an image
-into their corresponding celestial coordinates of right ascension (RA) and 
-declination (Dec). The recipe for astrometry calibration involves several 
-steps that must be carried out precisely to achieve accurate results.
-
-The first step of the recipe involves identifying a set of reference stars 
-in the image, whose coordinates are well known and can be obtained from a 
-catalog. This requires careful selection and verification of the reference stars, 
-as their accuracy determines the accuracy of the final calibration.
-
-The next step is to use these reference stars to establish a mapping between 
-the image's pixel coordinates and their corresponding celestial coordinates. This 
-is achieved through a process called plate solving, which involves solving a set 
-of mathematical equations to determine the transformation between pixel and celestial 
-coordinates. This process requires careful selection of the appropriate transform function 
-and calibration parameters.
-
-\begin{recipedef}
-  Name:                & \REC{metis_lm_img_astrometry_process}                                               \\
-  Purpose:             & Determine conversion factor between pixel and world coordinates              \\
-  Type:                & Calibration                                                                  \\
-  Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
-  Input data:          & \PROD{LM_STD_BKG_SUBTRACTED}                                                 \\
-                       & photometric standard catalogue                                               \\
-  Matched keywords:    & OBJECT ID                                                                    \\
-                       & FILTER ID                                                                    \\
-  Parameters:          & Distortion correction functions                                              \\
-  Algorithm:           & Measure position of stars in pixel coordinates                               \\
-                       & Compute conversion factor to world coordinates                               \\
-                       & Measure and evaluate the error.                                              \\
-  Output data:         & \PROD{LM_STD_AST_CALIB}                                                      \\
-                       & \PROD{ASTROMETRY_TAB}                                                        \\
-  Expected accuracies: &  $>$0.1$\arcsec$                                                                    \\
-  QC1 parameters:      & \QC{QC LM AST X POS ERR}                                                     \\
-                       & \QC{QC LM AST Y POS ERR}                                                     \\
-                       & \QC{QC LM AST RA POS ERR}                                                    \\
-                       & \QC{QC LM AST DEC POS ERR}                                                    \\
-  hdrl function:       & \CODE{hdrl_strehl_compute}                                                   \\
-                       & \CODE{hdrl_catalogue_compute}                                                \\
-                       & \CODE{hdrl_efficiency_compute}                                               \\
-                       & \CODE{hdrl_imagelist_collapse}                                               \\
-\end{recipedef}
-
-\begin{figure}[hb]
-  \centering
-   \includegraphics[width=1.0\textwidth]{metis_lm_img_astrometry_process}
-  %\resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
-  \caption[Recipe: \REC{metis_lm_img_astrometry_process}]{\REC{metis_lm_img_astrometry_process} --
-    compute conversion between pixel and sky coordinate}
-  \label{fig:metis_lm_img_astrometry_process}
-\end{figure}
-
-
-\clearpage
+% \subsubsection{LM-band imaging astrometry calibration}
+%
+% HB: I've commented the lm_img_astrometry_calib recipe out as it seems
+%     not necessary. The two outputs as defined are:
+%     - LM_STD_AST_CALIB: this is raw data produced by the
+%       template METIS_img_lm_cal_standard, and thus should not be the
+%       output of a recipe.
+%     - ASTROMETRY_TAB: this seems equivalent to LM_DISTORTION_TABLE, or
+%       at least very similar.
+%
+% \label{lm_img_astrometry_calib}
+% \label{rec:lm_img_astrometry_calib}
+% \label{sssec:lm_img_astrometry_calib}
+% \label{metis_lm_img_astrometry_process}
+% \label{rec:metis_lm_img_astrometry_process}
+% \label{sssec:metis_lm_img_astrometry_process}
+% This recipe is the conversion of the pixel coordinates (X,Y) of objects in an image
+% into their corresponding celestial coordinates of right ascension (RA) and
+% declination (Dec). The recipe for astrometry calibration involves several
+% steps that must be carried out precisely to achieve accurate results.
+%
+% The first step of the recipe involves identifying a set of reference stars
+% in the image, whose coordinates are well known and can be obtained from a
+% catalog. This requires careful selection and verification of the reference stars,
+% as their accuracy determines the accuracy of the final calibration.
+%
+% The next step is to use these reference stars to establish a mapping between
+% the image's pixel coordinates and their corresponding celestial coordinates. This
+% is achieved through a process called plate solving, which involves solving a set
+% of mathematical equations to determine the transformation between pixel and celestial
+% coordinates. This process requires careful selection of the appropriate transform function
+% and calibration parameters.
+%
+% \begin{recipedef}
+%   Name:                & \REC{metis_lm_img_astrometry_process}                                               \\
+%   Purpose:             & Determine conversion factor between pixel and world coordinates              \\
+%   Type:                & Calibration                                                                  \\
+%   Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
+%   Input data:          & \PROD{LM_STD_BKG_SUBTRACTED}                                                 \\
+%                        & photometric standard catalogue                                               \\
+%   Matched keywords:    & OBJECT ID                                                                    \\
+%                        & FILTER ID                                                                    \\
+%   Parameters:          & Distortion correction functions                                              \\
+%   Algorithm:           & Measure position of stars in pixel coordinates                               \\
+%                        & Compute conversion factor to world coordinates                               \\
+%                        & Measure and evaluate the error.                                              \\
+%   Output data:         & \PROD{LM_STD_AST_CALIB}                                                      \\
+%                        & \PROD{ASTROMETRY_TAB}                                                        \\
+%   Expected accuracies: &  $>$0.1$\arcsec$                                                                    \\
+%   QC1 parameters:      & \QC{QC LM AST X POS ERR}                                                     \\
+%                        & \QC{QC LM AST Y POS ERR}                                                     \\
+%                        & \QC{QC LM AST RA POS ERR}                                                    \\
+%                        & \QC{QC LM AST DEC POS ERR}                                                    \\
+%   hdrl function:       & \CODE{hdrl_strehl_compute}                                                   \\
+%                        & \CODE{hdrl_catalogue_compute}                                                \\
+%                        & \CODE{hdrl_efficiency_compute}                                               \\
+%                        & \CODE{hdrl_imagelist_collapse}                                               \\
+% \end{recipedef}
+%
+% \begin{figure}[hb]
+%   \centering
+%    \includegraphics[width=1.0\textwidth]{metis_lm_img_astrometry_process}
+%   %\resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
+%   \caption[Recipe: \REC{metis_lm_img_astrometry_process}]{\REC{metis_lm_img_astrometry_process} --
+%     compute conversion between pixel and sky coordinate}
+%   \label{fig:metis_lm_img_astrometry_process}
+% \end{figure}
+%
+%
+% \clearpage
 
 \subsubsection{LM-band imaging photometric standard analysis}
 \label{lm_img_photstd}
@@ -304,7 +313,7 @@ following \cite{visir_manual}.
   Purpose:             & Determine conversion factor between detector counts and physical source flux \\
   Type:                & Calibration                                                                  \\
   Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
-  Input data:          & \PROD{LM_STD_AST_CALIB}                                                 \\
+  Input data:          & \PROD{LM_STD_BKG_SUBTRACTED}                                                 \\
                        & photometric standard catalogue                                               \\
   Matched keywords:    & OBJECT ID                                                                    \\
                        & FILTER ID                                                                    \\
