@@ -16,7 +16,8 @@ from codes.drld_parser.hacks import (
     HACK_RECIPE_TEMPLATES,
 )
 
-PATTERN_TEX_COMMENT = re.compile(r"(?<!\\)%.*$")
+PATTERN_TEX_COMMENT = re.compile(r"(?<!\\)%[^\n]*")
+# Anything that is: not a backslash, then a percent, then anything not a newline
 
 
 def guess_dataitem_type(name, raise_exception=False):
@@ -348,13 +349,16 @@ class DataReductionLibraryDesign:
         recipes = {}
         for filename in files_drld:
             data = open(filename, encoding="utf8").read()
+            # Remove comments
+            data2 = PATTERN_TEX_COMMENT.sub("", data)
             srecipes = [
                 dd.split("\\end{recipedef}")[0]
-                for dd in data.split("\\begin{recipedef}")
+                for dd in data2.split("\\begin{recipedef}")
                 if "recipe parameters" in dd.lower() or "qc1" in dd.lower()
             ]
             for stable in srecipes:
                 recipe = Recipe.parse_recipe_from_table(stable)
+                assert recipe.name is not None, f"Recipe has no name: {stable}"
                 recipes[recipe.name] = recipe
 
         return recipes
