@@ -77,8 +77,8 @@ otherwise a new one is created.
                        illumination level. Frames with the same exposure time will be averaged.\\
                        & Compute median or average of input frames to improve statistics.\\
                        & Call \REC{metis_update_lm_flat_mask} to flag deviant pixels. \\
-  Output data:         & \PROD{MASTER_IMG_FLAT_N}                                       \\
-                       & \PROD{BADPIX_MAP_N}                                            \\
+  Output data:         & \hyperref[dataitem:master_img_flat_n]{\PROD{MASTER_IMG_FLAT_N}}                                       \\
+                       & \hyperref[dataitem:badpix_map_n]{\PROD{BADPIX_MAP_N}}                                            \\
   Expected accuracies: & \TBD                                                           \\
   QC1 parameters:      & \QC{QC N MASTERFLAT RMS}                                       \\
                        & \QC{QC N FLAT NBADPIX}                                         \\
@@ -135,8 +135,8 @@ correction is applied.
                      & Nod position                                                 \\
   Parameters:        & TBD                                                          \\
   Algorithm:         & Add/subtract images to subtract background                   \\
-  Output data:       & \PROD{N_SCI_BKG_SUBTRACTED}                                  \\
-                     & \PROD{N_STD_BKG_SUBTRACTED}                                  \\
+  Output data:       & \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}                                  \\
+                     & \hyperref[dataitem:n_std_bkg_subtracted]{\PROD{N_STD_BKG_SUBTRACTED}}                                  \\
   QC1 parameters:    & \QC{N IMG PEAK CNTS}                                         \\
   hdrl functions:    & \CODE{hdrl_imagelist_collapse}                               \\
 \end{recipedef}
@@ -179,7 +179,7 @@ following \cite{visir_manual}.
   Purpose:             & Determine conversion factor between detector counts and physical source flux. \\
   Type:                & Calibration                                                                   \\
   Templates:           & \TPL{METIS_img_n_cal_standard}                                                \\
-  Input data:          & \PROD{N_STD_BKG_SUBTRACTED}                                                   \\
+  Input data:          & \hyperref[dataitem:n_std_bkg_subtracted]{\PROD{N_STD_BKG_SUBTRACTED}}                                                   \\
                        & photometric standard catalogue                                                \\
   Matched keywords:    & Object ID                                                                     \\
                        & Filter ID                                                                     \\
@@ -188,7 +188,7 @@ following \cite{visir_manual}.
                        & average and normalize flux values \\
                        & call \CODE{calculate_std_fluxcal} to calculate conversion factor to physical units   \\
                        & call \CODE{calculate_detection_limits} to compute measured background noise (std, rms) and compute detection limits \\
-  Output data:         & \PROD{FLUXCAL_TAB}                                                            \\
+  Output data:         & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                            \\
   Expected accuracies: & \TBD                                                                          \\
   QC1 parameters:      & \QC{QC N STD PEAK CNTS}                                                       \\
                        & \QC{QC N STD APERTURE CNTS}                                                   \\
@@ -241,14 +241,14 @@ header receives the keyword \FITS{BUNIT} with value %
                      & Add distortion information                       \\
   Type:              & Calibration                                      \\
   Templates:         &                                                  \\
-  Input data:        & \PROD{N_SCI_BKG_SUBTRACTED}                      \\
-                     & \PROD{FLUXCAL_TAB}                               \\
-                     & \PROD{N_DISTORTION_TABLE}                        \\
+  Input data:        & \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}                      \\
+                     & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                               \\
+                     & \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}                        \\
   Matched keywords:  & Filter ID                                        \\
   Parameters:        & TBD                                              \\
   Algorithm:         & call \REC{n_scale_image_flux} to Scale image data to ph/s \\
                      & call \REC{n_add_header_distortion} to add header information (\FITS{BUNIT}, etc.)\\
-  Output data:       & \PROD{N_SCI_CALIBRATED}                          \\
+  Output data:       & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}                          \\
   QC1 parameters:    & None                                             \\
 \end{recipedef}
 
@@ -283,11 +283,11 @@ included in the pipeline (cf.\ Sect.~8.8 of \cite{DRLS}).
   Name:              & \REC{metis_n_img_restore}                                     \\
   Purpose:           & Restore a single positive beam from chop-nod difference image \\
   Type:              & Science                                                       \\
-  Input data:        & \PROD{N_SCI_CALIBRATED}                                       \\
+  Input data:        & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}                                       \\
   Parameters:        & size of cutout region                                         \\
   Algorithm:         & Cut regions around beams                                      \\
                      & Add regions with appropriate signs                            \\
-  Output data:       & \PROD{N_SCI_RESTORED}                                         \\
+  Output data:       & \hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}}                                         \\
   QC1 parameters:    & None                                                          \\
   hdrl functions:    & \CODE{hdrl_imagelist_collapse}                                \\
 \end{recipedef}

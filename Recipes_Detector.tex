@@ -132,13 +132,13 @@ the average over the detector.
                        & Call function \REC{metis_determine_dark} for each set of files\\
                        & Compute median or average of input frames to improve statistics.            \\  % separate routine, or part of determine dark
                        & call \REC{metis_update_dark_mask} to flag deviant pixels \\
-  Output data:         & \PROD{MASTER_DARK_det}                                                      \\
+  Output data:         & \hyperref[dataitem:master_dark_det]{\PROD{MASTER_DARK_det}}                                                      \\
 % The BPM_COLD_det and BPM_HOT_det do not seem to add value that BADPIX_MAP_det
 % does not already provide. Furthermore, the COLD/HOT specific items are not
 % otherwise used in the design, so it seems simpler to just remove them.
-%                       & \PROD{BPM_COLD_det}                                                         \\
-%                       & \PROD{BPM_HOT_det}                                                          \\
-                       & \PROD{BADPIX_MAP_det}                                                          \\
+%                       & \hyperref[dataitem:bpm_cold_det]{\PROD{BPM_COLD_det}}                                                         \\
+%                       & \hyperref[dataitem:bpm_hot_det]{\PROD{BPM_HOT_det}}                                                          \\
+                       & \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}                                                          \\
   Expected accuracies: & \TBD                                                                         \\
   QC1 parameters:      & \QC{QC DARK MEAN}                                                              \\
                        & \QC{QC DARK MEDIAN}                                                            \\
@@ -180,7 +180,7 @@ archive.
   Templates:           & --                                    \\
   Parameters:          & \TBD                                  \\
   Algorithm:           & see hdrl functions:                   \\
-  Output data:         & \PROD{PERSISTENCE_MAP}                \\
+  Output data:         & \hyperref[dataitem:persistence_map]{\PROD{PERSISTENCE_MAP}}                \\
   Expected accuracies: & \TBD                                  \\
   QC1 parameters:      & see hdrl functions:                   \\
   hdrl functions:      & \TBD (\CODE{hdrl_persistence_compute} \\
