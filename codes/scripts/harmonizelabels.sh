@@ -24,7 +24,7 @@ sed -E 's|([A-Z]+)\{([0-9a-zA-Z_]*)}}}\\label\{drsstructure:[0-9a-zA-Z_:]*}|\1\{
 
 # Convert all PRODs that are not yet a link. That is, " \PROD{SOMETHING}"
 # Run manually
-#sed -E 's! \\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}! \\hyperref\[dataitem:\2]\{\\\1\{\2}}!g' -i *.tex
+sed -E 's! \\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}! \\hyperref\[dataitem:\2]\{\\\1\{\2}}!g' -i *.tex
 
 # Then make all the labels lowercase
 sed -E 's|(dataitem:[0-9a-zA-Z_]*)|\L\1|g' -i *.tex
