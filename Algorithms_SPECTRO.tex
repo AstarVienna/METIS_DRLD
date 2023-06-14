@@ -62,11 +62,14 @@ As mentioned above, \texttt{molecfit} will be the default method. It is therefor
 %    \item The \ac{TSS} spectrum is finally divided by this polynomial leading to a spectrum normalised to unity.
 %\end{itemize} 
 
-\paragraph{Airmass correction of transmission functions\newline}\label{ssec:airmass_corr}
-
+%\paragraph{Airmass correction of transmission functions\newline}\label{ssec:airmass_corr}
+%As mentioned above
+%\begin{equation}
+%    \left(T_\textrm{SkyCalc\_cal} / T_\textrm{SkyCalc\_sci}\right)
+%\end{equation}
 
 \paragraph{Quality control parameters for \texttt{molecfit}\newline}\label{ssec_tellcorr_qc_params}
-To estimate the quality of the telluric correction we follow the approach incorporated with the new \texttt{molecfit} version \textit{(***add Ref to new mf version doc***)}:
+To estimate the quality of the telluric correction we follow the approach incorporated with the new \texttt{molecfit} version 4.3.1:
 \begin{itemize}
     \item Smoothing the corrected spectrum with a Savitzky-Golay filter\footnote{\url{https://en.wikipedia.org/wiki/Savitzky\%E2\%80\%93Golay_filter}}
     \item dividing the corrected spectrum by the smoothed one; This leads to a normalisation to unity and a crude removal of slopes and intrinsic features
