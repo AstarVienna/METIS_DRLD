@@ -721,8 +721,44 @@ Comment & None \tabularnewline
 
 \subsection{IFU mode}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{\QC{QC IFU STD FWHM}}\label{qc:qc_igu_std_fwhm}
+\begin{recipedef}
+Name & \QC{QC IFU STD FWHM} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & pixels \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_ifu_photstd]{\REC{metis_ifu_photstd}}\\
+Description & FWHM of the standard star PSF averaged over central wavelength bins \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{\QC{QC IFU STD ELLIP}}\label{qc:qc_ifu_std_ellip}
+\begin{recipedef}
+Name & \QC{QC IFU STD ELLIP} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_ifu_photstd]{\REC{metis_ifu_photstd}}\\
+Description & Ellipticity of the standard star PSF averaged over central wavelength bins  \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
 \subsection{Long-slit spectroscopy mode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 %%      LM-Band
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
