@@ -374,7 +374,24 @@ Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
-Description & FWHM of the standard star \tabularnewline
+Description & FWHM of the standard star PSF \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{\QC{QC LM STD ELLIP}}\label{qc:qc_lm_std_ellip}
+\begin{recipedef}
+Name & \QC{QC LM STD ELLIP} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Description & Ellipticity of the standard star PSF \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
@@ -493,6 +510,41 @@ Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
 Description & strehl ratio of the standard star \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{\QC{QC N STD FWHM}}\label{qc:qc_n_std_fwhm}
+\begin{recipedef}
+Name & \QC{QC N STD FWHM} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Description & FWHM of the standard star PSF \tabularnewline
+Comment & \tabularnewline
+\end{recipedef}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{\QC{QC N STD ELLIP}}\label{qc:qc_n_std_ellip}
+\begin{recipedef}
+Name & \QC{QC N STD ELLIP} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & n/a \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Description & Ellipticity of the standard star PSF \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
