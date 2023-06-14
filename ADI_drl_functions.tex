@@ -16,7 +16,7 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
 QC outputs: & QC LM CGRPH FWHM NN TBD\\
 %Output FITS files: & None \\
-Outputs: & \PROD{lm_cgrph_CENTROID_TAB}\\
+Outputs: & \hyperref[dataitem:lm_cgrph_centroid_tab]{\PROD{lm_cgrph_CENTROID_TAB}}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Centroiding of source in LM band coronagraphic images \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging}  \\
@@ -38,7 +38,7 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
 QC outputs: & QC N CGRPH FWHM NN TBD\\
 %Output FITS files: & None \\
-Outputs: & \PROD{n_cgrph_CENTROID_TAB}\\
+Outputs: & \hyperref[dataitem:n_cgrph_centroid_tab]{\PROD{n_cgrph_CENTROID_TAB}}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Centroiding of source in N band coronagraphic images \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging}  \\
@@ -61,7 +61,7 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
 QC outputs: & QC LM APP FWHM NN TBD\\
 %Output FITS files: & None \\
-Outputs: & \PROD{lm_app_CENTROID_TAB}\\
+Outputs: & \hyperref[dataitem:lm_app_centroid_tab]{\PROD{lm_app_CENTROID_TAB}}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Centroiding of source in LM band APP coronagraphic images \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging}  \\
@@ -83,7 +83,7 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
 QC outputs: & QC N APP FWHM NN TBD\\
 %Output FITS files: & None \\
-Outputs: & \PROD{n_app_CENTROID_TAB}\\
+Outputs: & \hyperref[dataitem:n_app_centroid_tab]{\PROD{n_app_CENTROID_TAB}}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Centroiding of source in N band APP coronagraphic images \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging}  \\
@@ -104,11 +104,11 @@ Used in recipes: & \hyperref[rec:metis_det_adi_cgrph]{\REC{metis_det_adi_cgrph}}
 Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      & parameters for combination method\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       &  \PROD{lm_cgrph_CENTROID_TAB}\\
+       &  \hyperref[dataitem:lm_cgrph_centroid_tab]{\PROD{lm_cgrph_CENTROID_TAB}}\\
 %Other inputs: & None \\
 QC outputs: & QC DET CGRPH SCI FWHM ??\\
 %Output FITS files: & None \\
-Outputs: & \PROD{lm_cgrph_PSF_MEDIAN}\\
+Outputs: & \hyperref[dataitem:lm_cgrph_psf_median]{\PROD{lm_cgrph_PSF_MEDIAN}}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images\ \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
@@ -129,11 +129,11 @@ Used in recipes: & \hyperref[rec:metis_det_adi_cgrph]{\REC{metis_det_adi_cgrph}}
 Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      & parameters for combination method\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       &  \PROD{n_cgrph_CENTROID_TAB}\\
+       &  \hyperref[dataitem:n_cgrph_centroid_tab]{\PROD{n_cgrph_CENTROID_TAB}}\\
 %Other inputs: & None \\
 QC outputs: & QC DET CGRPH SCI FWHM ??\\
 %Output FITS files: & None \\
-Outputs: & \PROD{n_cgrph_PSF_MEDIAN}\\
+Outputs: & \hyperref[dataitem:n_cgrph_psf_median]{\PROD{n_cgrph_PSF_MEDIAN}}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images\ \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
@@ -154,11 +154,11 @@ Used in recipes: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
 Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      & parameters for combination method\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       &  \PROD{lm_app_CENTROID_TAB}\\
+       &  \hyperref[dataitem:lm_app_centroid_tab]{\PROD{lm_app_CENTROID_TAB}}\\
 %Other inputs: & None \\
 QC outputs: & QC DET APP SCI FWHM ??\\
 %Output FITS files: & None \\
-Outputs: & \PROD{lm_app_PSF_MEDIAN}\\
+Outputs: & \hyperref[dataitem:lm_app_psf_median]{\PROD{lm_app_PSF_MEDIAN}}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images\ \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
@@ -179,11 +179,11 @@ Used in recipes: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
 Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      & parameters for combination method\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       &  \PROD{n_app_CENTROID_TAB}\\
+       &  \hyperref[dataitem:n_app_centroid_tab]{\PROD{n_app_CENTROID_TAB}}\\
 %Other inputs: & None \\
 QC outputs: & QC DET APP SCI FWHM ??\\
 %Output FITS files: & None \\
-Outputs: & \PROD{n_app_PSF_MEDIAN}\\
+Outputs: & \hyperref[dataitem:n_app_psf_median]{\PROD{n_app_PSF_MEDIAN}}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images  for the APP coronograph \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
@@ -246,11 +246,11 @@ Used in recipes: & \hyperref[rec:metis_det_adi_cgrph]{\REC{metis_det_adi_cgrph}}
 Function Parameters: & Resampling method\\
                      & parameters for resampling method\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       & \PROD{det_cgrph_CENTROID_TAB}\\
-       & \PROD{det_DISTORTION_TABLE}\\
+       & \hyperref[dataitem:det_cgrph_centroid_tab]{\PROD{det_cgrph_CENTROID_TAB}}\\
+       & \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}}\\
 %Other inputs: & Parameters for regridding \\
 QC outputs: & None\\
-Output FITS files: & \PROD{det_cgrph_SCI_CENTRED} \\
+Output FITS files: & \hyperref[dataitem:det_cgrph_sci_centred]{\PROD{det_cgrph_SCI_CENTRED}} \\
 Outputs: &   \texttt{cpl\_error\_code} \\
 General description: & Apply the distortion correction and align images on a subpixel scale \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
@@ -271,11 +271,11 @@ Used in recipes: & \hyperref[rec:metis_det_adi_cgrph]{\REC{metis_det_adi_cgrph}}
 Function Parameters: & Resampling method\\
                      & parameters for resampling method\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       & \PROD{det_cgrph_CENTROID_TAB}\\
-       & \PROD{det_DISTORTION_TABLE}]]\\
+       & \hyperref[dataitem:det_cgrph_centroid_tab]{\PROD{det_cgrph_CENTROID_TAB}}\\
+       & \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}}]]\\
 %Other inputs: & Parameters for regridding \\
 QC outputs: & None\\
-Output FITS files: & \PROD{det_cgrph_SCI_CENTRED} \\
+Output FITS files: & \hyperref[dataitem:det_cgrph_sci_centred]{\PROD{det_cgrph_SCI_CENTRED}} \\
 Outputs: &   \texttt{cpl\_error\_code} \\
 General description: & Apply the distortion correction, perform square pixel reconstruction, and align images on a subpixel scale \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
@@ -298,9 +298,9 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
 QC outputs: &  QC DET CGRPH SCI SNR MEAN \\
             &  QC DET CGRPH SCI SNR PEAK \\
-Output FITS files: & \PROD{det_cgrph_SCI_DEROTATED_PSFSUB} \\
-                   & \PROD{det_cgrph_SCI_DEROTATED} \\
-%Outputs: & \PROD{det_cgrph_PSF_MEDIAN}\\
+Output FITS files: & \hyperref[dataitem:det_cgrph_sci_derotated_psfsub]{\PROD{det_cgrph_SCI_DEROTATED_PSFSUB}} \\
+                   & \hyperref[dataitem:det_cgrph_sci_derotated]{\PROD{det_cgrph_SCI_DEROTATED}} \\
+%Outputs: & \hyperref[dataitem:det_cgrph_psf_median]{\PROD{det_cgrph_PSF_MEDIAN}}\\
 %                & \texttt{cpl\_error\_code} \\
 General description: & derotate a sequence of ADI images \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
@@ -322,9 +322,9 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
 QC outputs: & QC DET CGRPH SCI CONTRAST RAW LAMD\\
             & QC DET CGRPH SCI CONTRAST ADI LAMD\\
-  Output FITS files: & \PROD{det_cgrph_SCI_CONTRAST_RAW} \\
-                     & \PROD{det_cgrph_SCI_CONTRAST_ADI} \\
-                     & \PROD{det_cgrph_SCI_THROUGHPUT} \\
+  Output FITS files: & \hyperref[dataitem:det_cgrph_sci_contrast_raw]{\PROD{det_cgrph_SCI_CONTRAST_RAW}} \\
+                     & \hyperref[dataitem:det_cgrph_sci_contrast_adi]{\PROD{det_cgrph_SCI_CONTRAST_ADI}} \\
+                     & \hyperref[dataitem:det_cgrph_sci_throughput]{\PROD{det_cgrph_SCI_THROUGHPUT}} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: &  Calculate contrast curves for a sequence of LM band coronagraphic images, for the  RAVC/CDC/CLC coronagraph\\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
@@ -347,9 +347,9 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
 QC outputs: & QC DET CGRPH SCI CONTRAST RAW LAMD\\
             & QC DET CGRPH SCI CONTRAST ADI LAMD\\
-  Output FITS files: & \PROD{det_cgrph_SCI_CONTRAST_RAW} \\
-                     & \PROD{det_cgrph_SCI_CONTRAST_ADI} \\
-                     & \PROD{det_cgrph_SCI_THROUGHPUT} \\
+  Output FITS files: & \hyperref[dataitem:det_cgrph_sci_contrast_raw]{\PROD{det_cgrph_SCI_CONTRAST_RAW}} \\
+                     & \hyperref[dataitem:det_cgrph_sci_contrast_adi]{\PROD{det_cgrph_SCI_CONTRAST_ADI}} \\
+                     & \hyperref[dataitem:det_cgrph_sci_throughput]{\PROD{det_cgrph_SCI_THROUGHPUT}} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: &  Calculate contrast curves for a sequence of N band coronagraphic images, for the  RAVC/CDC/CLC coronagraph\\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
@@ -372,9 +372,9 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
 QC outputs: & QC DET APP SCI CONTRAST RAW LAMD\\
             & QC DET APP SCI CONTRAST ADI LAMD\\
-  Output FITS files: & \PROD{det_app_SCI_CONTRAST_RAW} \\
-                     & \PROD{det_app_SCI_CONTRAST_ADI} \\
-                     & \PROD{det_app_SCI_THROUGHPUT} \\
+  Output FITS files: & \hyperref[dataitem:det_app_sci_contrast_raw]{\PROD{det_app_SCI_CONTRAST_RAW}} \\
+                     & \hyperref[dataitem:det_app_sci_contrast_adi]{\PROD{det_app_SCI_CONTRAST_ADI}} \\
+                     & \hyperref[dataitem:det_app_sci_throughput]{\PROD{det_app_SCI_THROUGHPUT}} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: &  Calculate contrast curves for a sequence of LM band coronagraphic images, for the  APP coronagraph\\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
@@ -397,9 +397,9 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
 QC outputs: & QC DET APP SCI CONTRAST RAW LAMD\\
             & QC DET APP SCI CONTRAST ADI LAMD\\
-  Output FITS files: & \PROD{det_APP_SCI_CONTRAST_RAW} \\
-                     & \PROD{det_APP_SCI_CONTRAST_ADI} \\
-                     & \PROD{det_APP_SCI_THROUGHPUT} \\
+  Output FITS files: & \hyperref[dataitem:det_app_sci_contrast_raw]{\PROD{det_APP_SCI_CONTRAST_RAW}} \\
+                     & \hyperref[dataitem:det_app_sci_contrast_adi]{\PROD{det_APP_SCI_CONTRAST_ADI}} \\
+                     & \hyperref[dataitem:det_app_sci_throughput]{\PROD{det_APP_SCI_THROUGHPUT}} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: &  Calculate contrast curves for a sequence of N band coronagraphic images, for the  APP coronagraph\\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\

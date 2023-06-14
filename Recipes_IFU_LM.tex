@@ -65,7 +65,7 @@ table extension holds the polynomial coefficients.
   Parameters:          & TBD                                                                    \\
   Algorithm:           & Measure line locations (left and right edges, centroid by Gaussian fit)\\
                        & Compute wavelength solution $\xi(x,y, i)$, $\lambda(x, y, i)$          \\
-  Output data:         & \PROD{IFU_WAVECAL}                                                     \\
+  Output data:         & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}                                                     \\
   Expected accuracies: & TBD                                                                    \\
   QC1 parameters:      & \QC{QC IFU WAVECAL RMS}                                                \\
                        & \QC{QC IFU WAVECAL NLINES}                                             \\
@@ -94,7 +94,7 @@ illuminating the field of view with the black-body calibration lamp at
 two different temperatures. The RSRF is then determined by dividing
 the image by the known lamp continuum shape for the respective
 temperature. We refer to the two-dimensional image obtained by this
-division as \PROD{MASTER_FLAT_IFU} and the one-dimensional reponse
+division as \hyperref[dataitem:master_flat_ifu]{\PROD{MASTER_FLAT_IFU}} and the one-dimensional reponse
 function obtained by averaging at constant wavelength as
 \PROD{RSRF}. The bad pixel mask can be updated by identifying pixels
 that deviate strongly from their neighbours.
@@ -107,17 +107,17 @@ Type:                & Calibration                                              
 Templates:           & \TPL{METIS_ifu_cal_rsrf}                                                 \\
 Input data:          & Raw flats taken with black-body calibration lamp.                        \\
                      & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}              \\
-                     & \PROD{BADPIX_MAP_IFU}                                                    \\
-                     & \PROD{IFU_WAVECAL}: image with wavelength at each pixel.                 \\
+                     & \hyperref[dataitem:badpix_map_ifu]{\PROD{BADPIX_MAP_IFU}}                                                    \\
+                     & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}: image with wavelength at each pixel.                 \\
 Parameters:          & TBD                                                                      \\
 Algorithm:           & Create continuum image by mapping Planck spectrum at $T_{\mathrm{lamp}}$ to
                        wavelength image.                                                        \\
                      & Divide exposures by continuum image.                                     \\
                      & Average exposures to yield master flat (2D RSRF).                        \\
                      & Average in spatial direction to obtain relative response function        \\
-Output data:         & \PROD{MASTER_FLAT_IFU}                                                   \\
-                     & \PROD{RSRF_IFU}                                                          \\
-                     & \PROD{BADPIX_MAP_IFU}                                                    \\
+Output data:         & \hyperref[dataitem:master_flat_ifu]{\PROD{MASTER_FLAT_IFU}}                                                   \\
+                     & \hyperref[dataitem:rsrf_ifu]{\PROD{RSRF_IFU}}                                                          \\
+                     & \hyperref[dataitem:badpix_map_ifu]{\PROD{BADPIX_MAP_IFU}}                                                    \\
 Expected accuracies: & TBD                                                                      \\
 QC1 parameters:      & \QC{QC IFU RSRF NBADPIX}                                                    \\
                      & (more TBD)                                                               \\
@@ -178,11 +178,11 @@ may be refined by measuring telluric emission and/or absorption lines
                        & Extract 1D spectrum of star                                            \\
                        & Compute and apply telluric correction                                  \\
                        & Compute conversion to physical units as function of wavelength.        \\
-  Output data:         & \PROD{IFU_STD_REDUCED_CUBE}                                            \\
-                       & \PROD{IFU_STD_BACKGROUND_CUBE}                                         \\
-                       & \PROD{IFU_STD_REDUCED_1D}                                              \\
-                       & \PROD{IFU_STD_TELLURIC_1D}                                             \\
-                       & \PROD{FLUXCAL_TAB}                                                     \\
+  Output data:         & \hyperref[dataitem:ifu_std_reduced_cube]{\PROD{IFU_STD_REDUCED_CUBE}}                                            \\
+                       & \hyperref[dataitem:ifu_std_background_cube]{\PROD{IFU_STD_BACKGROUND_CUBE}}                                         \\
+                       & \hyperref[dataitem:ifu_std_reduced_1d]{\PROD{IFU_STD_REDUCED_1D}}                                              \\
+                       & \hyperref[dataitem:ifu_std_telluric_1d]{\PROD{IFU_STD_TELLURIC_1D}}                                             \\
+                       & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                     \\
   Expected accuracies: & TBD                                                                    \\
   QC1 parameters:      & \QC{QC IFU STD STRAYLIGHT MEAN}                                        \\
 \end{recipedef}
@@ -303,15 +303,15 @@ Algorithm:           & Subtract dark, divide by master flat                     
                      & Rectify spectra and assemble cube                                                        \\
                      & Extract 1D object spectrum                                                               \\
                      & Compute telluric correction and apply to reduced images and cube                         \\
-Output data:         & \PROD{IFU_SCI_REDUCED} (2D, per exposure)                                                \\
-                     & \PROD{IFU_SCI_REDUCED_TAC} (2D, per exposure)                                            \\
-                     & \PROD{IFU_SCI_BACKGROUND} (2D, per exposure)                                             \\
-                     & \PROD{IFU_SCI_REDUCED_CUBE} (3D, per exposure)                                           \\
-                     & \PROD{IFU_SCI_REDUCED_CUBE_TAC} (3D, per exposure)                                       \\
-                     & \PROD{IFU_SCI_COMBINED} (3D)                                                             \\
-                     & \PROD{IFU_SCI_COMBINED_TAC} (3D)                                                         \\
-                     & \PROD{IFU_SCI_OBJECT_1D}  (1D)                                                           \\
-                     & \PROD{IFU_SCI_TELLURIC_1D}                                                               \\
+Output data:         & \hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}} (2D, per exposure)                                                \\
+                     & \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}} (2D, per exposure)                                            \\
+                     & \hyperref[dataitem:ifu_sci_background]{\PROD{IFU_SCI_BACKGROUND}} (2D, per exposure)                                             \\
+                     & \hyperref[dataitem:ifu_sci_reduced_cube]{\PROD{IFU_SCI_REDUCED_CUBE}} (3D, per exposure)                                           \\
+                     & \hyperref[dataitem:ifu_sci_reduced_cube_tac]{\PROD{IFU_SCI_REDUCED_CUBE_TAC}} (3D, per exposure)                                       \\
+                     & \hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}} (3D)                                                             \\
+                     & \hyperref[dataitem:ifu_sci_combined_tac]{\PROD{IFU_SCI_COMBINED_TAC}} (3D)                                                         \\
+                     & \hyperref[dataitem:ifu_sci_object_1d]{\PROD{IFU_SCI_OBJECT_1D}}  (1D)                                                           \\
+                     & \hyperref[dataitem:ifu_sci_telluric_1d]{\PROD{IFU_SCI_TELLURIC_1D}}                                                               \\
 Expected accuracies: & TBD                                                                                      \\
 QC1 parameters:      & TBD                                                                                      \\
 \end{recipedef}
@@ -347,16 +347,16 @@ spectrum. The spectrum is extracted from a combined cube
   Requirements:        & \REQ{METIS-6091}                                                                \\
   Type:                & Calibration / post processing                                                   \\
   Templates:           & ---                                                                             \\
-  Input data:          & \PROD{IFU_SCI_COMBINED} -- reduced combined IFU cube                            \\
-                       & \STATCALIB{LSF_KERNEL} -- Line spread kernel to be used with \CODE{molecfit}         \\
-                       & \EXTCALIB{ATM_PROFILE} -- Atmospheric input profile to be used with \CODE{molecfit} \\
+  Input data:          & \hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}} -- reduced combined IFU cube                            \\
+                       & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}} -- Line spread kernel to be used with \CODE{molecfit}         \\
+                       & \hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}} -- Atmospheric input profile to be used with \CODE{molecfit} \\
   Parameters:          & extraction aperture parameters                                                  \\
                        & \CODE{molecfit} parameters                                                      \\
                        & atmospheric profile incl.\ radiometer data                                      \\
                        & line spread kernel                                                              \\
   Algorithm:           & extract 1D spectrum                                                             \\
                        & Application of molecfit                                                         \\
-  Output data:         & \PROD{IFU_SCI_REDUCED_TAC}                                                      \\
+  Output data:         & \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}                                                      \\
   Expected accuracies: & TBD                                                                             \\
   QC1 parameters:      & TBD                                                                             \\
 \end{recipedef}
@@ -410,13 +410,13 @@ observatory.
   Requirements:   & \REQ{METIS-6131}                                                           \\
   Type:           & Science                                                                    \\
   Templates:      & ---                                                                        \\
-  Input data:     & Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \PROD{IFU_SCI_REDUCED_TAC}) \\
+  Input data:     & Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}) \\
   Parameters:     & TBD                                                                        \\
   Algorithm:      & Determine cubic output grid encompassing all input cubes                   \\
                   & Resample input cubes to output grid                                        \\
                   & Coadd                                                                      \\
-  Output data:    & \PROD{IFU_SCI_COADD}                                                       \\
-                  & \PROD{IFU_SCI_COADD_ERROR}                                                 \\
+  Output data:    & \hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}                                                       \\
+                  & \hyperref[dataitem:ifu_sci_coadd_error]{\PROD{IFU_SCI_COADD_ERROR}}                                                 \\
   QC1 parameters: & ---                                                                        \\
 \end{recipedef}
 
@@ -451,8 +451,8 @@ indication of the variation of spectral resolution across the field of view.
   Input data:          & Images of multi-pinhole mask.                                               \\
   Parameters:          & TBD                                                                         \\
   Algorithm:           & Calculate table mapping pixel position to position on sky.                  \\
-  Output data:         & \PROD{IFU_DISTORTION_TABLE}                                                 \\
-                       & \PROD{IFU_DIST_REDUCED}                                                     \\
+  Output data:         & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}                                                 \\
+                       & \hyperref[dataitem:ifu_dist_reduced]{\PROD{IFU_DIST_REDUCED}}                                                     \\
   Expected accuracies: & TBD                                                                         \\
   QC1 parameters:      & \QC{QC IFU DISTORT RMS}: RMS deviation between measured position and model \\
                        & \QC{QC IFU DISTORT FWHM}:   Measured FWHM of spots                            \\

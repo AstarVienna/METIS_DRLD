@@ -62,8 +62,8 @@ otherwise a new one is created.
   with the same exposure time will be averaged.\\
                        & Compute median or average of input frames to improve statistics.\\
                        & Call \REC{metis_update_lm_flat_mask} to flag deviant pixels. \\
-  Output data:         & \PROD{MASTER_IMG_FLAT_LM}                                      \\
-                       & \PROD{BADPIX_MAP_LM}                                           \\
+  Output data:         & \hyperref[dataitem:master_img_flat_lm]{\PROD{MASTER_IMG_FLAT_LM}}                                      \\
+                       & \hyperref[dataitem:badpix_map_lm]{\PROD{BADPIX_MAP_LM}}                                           \\
   Expected accuracies: & \TBD                                                           \\
   QC1 parameters:      & \QC{QC LM MASTERFLAT RMS}                                      \\
                        & \QC{QC LM FLAT NBADPIX}                                        \\
@@ -122,8 +122,8 @@ Basic statistics of the images can be used to screen for saturation.
                     & Analyse and remove masked regions  \\
                     & Subtract dark, divide by flat       \\
                     & Remove blank sky pattern                \\
-  Output data:      & \PROD{LM_SCI_BASIC_REDUCED}       \\
-                    & \PROD{LM_STD_BASIC_REDUCED}       \\
+  Output data:      & \hyperref[dataitem:lm_sci_basic_reduced]{\PROD{LM_SCI_BASIC_REDUCED}}       \\
+                    & \hyperref[dataitem:lm_std_basic_reduced]{\PROD{LM_STD_BASIC_REDUCED}}       \\
   QC1 parameters:   & \QC{QC LM IMG MEDIAN}             \\
                     & \QC{QC LM IMG STANDARD DEVIATION} \\
                     & \QC{QC LM IMG PEAK}               \\
@@ -188,17 +188,17 @@ counts within an aperture.}
   Type:             & Calibration                                               \\
   Templates:        & \TPL{METIS_img_lm_cal_standard}                           \\
                     & \TPL{METIS_img_lm_*_obs_*}                                \\
-  Input data:       & \PROD{LM_SCI_BASIC_REDUCED}                               \\
-                    & \PROD{LM_STD_BASIC_REDUCED}                               \\
+  Input data:       & \hyperref[dataitem:lm_sci_basic_reduced]{\PROD{LM_SCI_BASIC_REDUCED}}                               \\
+                    & \hyperref[dataitem:lm_std_basic_reduced]{\PROD{LM_STD_BASIC_REDUCED}}                               \\
   Matched keywords: & dither position (\CODE{SKY}? \TBD)                        \\
   Algorithm:        & Average all or \CODE{SKY} exposures with object rejection \\
                     & Subtract background                                       \\
-  Output data:      & \PROD{LM_SCI_BKG}                                         \\
-                    & \PROD{LM_STD_BKG}                                         \\
-                    & \PROD{LM_SCI_BKG_SUBTRACTED}                              \\
-                    & \PROD{LM_STD_BKG_SUBTRACTED}                              \\
-                    & \PROD{LM_SCI_OBJECT_CAT}                                  \\
-                    & \PROD{LM_STD_OBJECT_CAT}                                  \\
+  Output data:      & \hyperref[dataitem:lm_sci_bkg]{\PROD{LM_SCI_BKG}}                                         \\
+                    & \hyperref[dataitem:lm_std_bkg]{\PROD{LM_STD_BKG}}                                         \\
+                    & \hyperref[dataitem:lm_sci_bkg_subtracted]{\PROD{LM_SCI_BKG_SUBTRACTED}}                              \\
+                    & \hyperref[dataitem:lm_std_bkg_subtracted]{\PROD{LM_STD_BKG_SUBTRACTED}}                              \\
+                    & \hyperref[dataitem:lm_sci_object_cat]{\PROD{LM_SCI_OBJECT_CAT}}                                  \\
+                    & \hyperref[dataitem:lm_std_object_cat]{\PROD{LM_STD_OBJECT_CAT}}                                  \\
   QC1 parameters:   & \QC{QC LM IMG BKG MEDIAN}                                 \\
                     & \QC{QC LM IMG BKG MEDIAN DEVIATION}                       \\
   hdrl functions:   & \CODE{hdrl_imagelist_sub_image}                           \\
@@ -256,7 +256,7 @@ counts within an aperture.}
 %   Purpose:             & Determine conversion factor between pixel and world coordinates              \\
 %   Type:                & Calibration                                                                  \\
 %   Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
-%   Input data:          & \PROD{LM_STD_BKG_SUBTRACTED}                                                 \\
+%   Input data:          & \hyperref[dataitem:lm_std_bkg_subtracted]{\PROD{LM_STD_BKG_SUBTRACTED}}                                                 \\
 %                        & photometric standard catalogue                                               \\
 %   Matched keywords:    & OBJECT ID                                                                    \\
 %                        & FILTER ID                                                                    \\
@@ -264,8 +264,8 @@ counts within an aperture.}
 %   Algorithm:           & Measure position of stars in pixel coordinates                               \\
 %                        & Compute conversion factor to world coordinates                               \\
 %                        & Measure and evaluate the error.                                              \\
-%   Output data:         & \PROD{LM_STD_AST_CALIB}                                                      \\
-%                        & \PROD{ASTROMETRY_TAB}                                                        \\
+%   Output data:         & \hyperref[dataitem:lm_std_ast_calib]{\PROD{LM_STD_AST_CALIB}}                                                      \\
+%                        & \hyperref[dataitem:astrometry_tab]{\PROD{ASTROMETRY_TAB}}                                                        \\
 %   Expected accuracies: &  $>$0.1$\arcsec$                                                                    \\
 %   QC1 parameters:      & \QC{QC LM AST X POS ERR}                                                     \\
 %                        & \QC{QC LM AST Y POS ERR}                                                     \\
@@ -313,7 +313,7 @@ following \cite{visir_manual}.
   Purpose:             & Determine conversion factor between detector counts and physical source flux \\
   Type:                & Calibration                                                                  \\
   Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
-  Input data:          & \PROD{LM_STD_BKG_SUBTRACTED}                                                 \\
+  Input data:          & \hyperref[dataitem:lm_std_bkg_subtracted]{\PROD{LM_STD_BKG_SUBTRACTED}}                                                 \\
                        & photometric standard catalogue                                               \\
   Matched keywords:    & OBJECT ID                                                                    \\
                        & FILTER ID                                                                    \\
@@ -323,8 +323,8 @@ following \cite{visir_manual}.
                        & call \REC{calculate_std_flux} on the stacked image to get flux of the star in detector units\\
                        & call \REC{caluculate_std_fluxcal} to calculate the conversion factor to physical units    \\
                        & call \REC{calculate_detection_limits} to compute measure background noise (std,rms) and compute detection limits \\
-  Output data:         & \PROD{LM_STD_COMBINED}                                                       \\
-                       & \PROD{FLUXCAL_TAB}                                                           \\
+  Output data:         & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}}                                                       \\
+                       & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                           \\
   Expected accuracies: & \TBD                                                                         \\
   QC1 parameters:      & \QC{QC LM IMG STD BACKGD RMS}                                                \\
                        & \QC{QC LM STD PEAK CNTS}                                                     \\
@@ -389,14 +389,14 @@ header. The images are not resampled by this recipe, this is left to
                      & Add distortion information                       \\
   Type:              & Calibration                                      \\
   Templates          & ??                                                 \\
-  Input data:        & \PROD{LM_SCI_BKG_SUBTRACTED}                     \\
-                     & \PROD{FLUXCAL_TAB}                               \\
-                     & \PROD{LM_DISTORTION_TABLE}                       \\
+  Input data:        & \hyperref[dataitem:lm_sci_bkg_subtracted]{\PROD{LM_SCI_BKG_SUBTRACTED}}                     \\
+                     & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                               \\
+                     & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}                       \\
   Matched keywords:  & Filter ID                                        \\
   Parameters:        & None (TBD)                                       \\
   Algorithm:         & call \REC{lm_scale_image_flux} to Scale image data to ph/s \\
                      & call \REC{lm_add_header_distortion} to add header information (\FITS{BUNIT}, WCS, etc.) \\
-  Output data:       & \PROD{LM_SCI_CALIBRATED}                         \\
+  Output data:       & \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}}                         \\
   QC1 parameters:    & None                                             \\
   hdrl functions:    & \CODE{hdrl_imagelist_mult_scalar}                \\
 \end{recipedef}
@@ -444,10 +444,10 @@ the observatory.
                        & Determine output pixel grid encompassing all input images. \\
                        & Resample images to output pixel grid.                      \\
                        & Coadd.                                                     \\
-  Output data:         & \PROD{LM_SCI_COADD} (coadded, mosaiced image)              \\
+  Output data:         & \hyperref[dataitem:lm_sci_coadd]{\PROD{LM_SCI_COADD}} (coadded, mosaiced image)              \\
 % TheLM_SCI_COADD_ERROR and LM_SCI_COADD_CONTRIB can be layers in LM_SCI_COADD
-%                        & \PROD{LM_SCI_COADD_ERROR} (coadded, mosaiced error image)  \\
-%                        & \PROD{LM_SCI_COADD_CONTRIB} (contribution map)             \\
+%                        & \hyperref[dataitem:lm_sci_coadd_error]{\PROD{LM_SCI_COADD_ERROR}} (coadded, mosaiced error image)  \\
+%                        & \hyperref[dataitem:lm_sci_coadd_contrib]{\PROD{LM_SCI_COADD_CONTRIB}} (contribution map)             \\
   Expected accuracies: & TBD                                                        \\
   QC1 parameters:      & \QC{QC LM SCI NEXPOSURE}                                   \\
 \end{recipedef}

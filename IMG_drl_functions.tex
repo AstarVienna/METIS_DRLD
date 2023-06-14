@@ -126,7 +126,7 @@ Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-Other inputs: \PROD{PERSISTENCE_MAP} \\
+Other inputs: \hyperref[dataitem:persistence_map]{\PROD{PERSISTENCE_MAP}} \\
 QC outputs: ??\\
 %Output FITS files: & None \\
 Outputs: & Corrected raw images\\
@@ -151,7 +151,7 @@ Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
 & parameters for combination method\\
-&  \PROD{BADPIX_MAP_LM}   \\
+&  \hyperref[dataitem:badpix_map_lm]{\PROD{BADPIX_MAP_LM}}   \\
 QC outputs: & QC LM MASTERFLAT RMS\\
 %Output FITS files: & None \\
 Outputs: & Master Flat\\
@@ -173,7 +173,7 @@ Used in recipes: & \hyperref[sssec:n_img_flatfield]{\REC{metis_n_img_flat}}\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
 & parameters for combination method\\
-&  \PROD{BADPIX_MAP_N}   \\
+&  \hyperref[dataitem:badpix_map_n]{\PROD{BADPIX_MAP_N}}   \\
 QC outputs: & QC N MASTERFLAT RMS\\
 %Output FITS files: & None \\
 Outputs: & Master Flat\\
@@ -194,7 +194,7 @@ Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & flat \texttt{const hdrl\_image * input} \\
-&  \PROD{BADPIX_MAP_LM}   \\
+&  \hyperref[dataitem:badpix_map_lm]{\PROD{BADPIX_MAP_LM}}   \\
 & Threshold(s) for deviant pixel detection\\
 QC outputs: & QC LM FLAT NBADPIX\\
             & QC LM FLAT MEAN \#\#\\
@@ -217,7 +217,7 @@ Used in recipes: & \hyperref[sssec:n_img_flatfield]{\REC{metis_n_img_flat}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & flat \texttt{const hdrl\_image * input} \\
-&  \PROD{BADPIX_MAP_N}   \\
+&  \hyperref[dataitem:badpix_map_n]{\PROD{BADPIX_MAP_N}}   \\
 & Threshold(s) for deviant pixel detection\\
 QC outputs: & QC N FLAT NBADPIX\\
             & QC N FLAT MEAN \#\#\\
@@ -289,7 +289,7 @@ QC outputs: & \QC{QC LM IMG STD BACKGD RMS}\\
             & \QC{QC LM STD APERTURE CNTS}\\
             & \QC{QC LM STD STREHL}\\
             & \QC{QC LM STD AIRMASS}                                                       \\
-%Output FITS files: & \PROD{LM_STD_COMBINED} \\
+%Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
 Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result structure)  \\
                & \texttt{cpl\_error\_code} \\
 General description: & Photometry of standard star \\
@@ -314,7 +314,7 @@ QC outputs: & \QC{QC N IMG STD BACKGD RMS}\\
             & \QC{QC N STD APERTURE CNTS}\\
             & \QC{QC N STD STREHL}\\
             & \QC{QC N STD AIRMASS}                                                       \\
-%Output FITS files: & \PROD{LM_STD_COMBINED} \\
+%Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
 Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result structure)  \\
                & \texttt{cpl\_error\_code} \\
 General description: & Photometry of standard star \\
@@ -338,7 +338,7 @@ Other inputs: & position and flux of stars in detector units (hdrl\_catalogue\_r
 %            & QC DET STD PEAK CNTS\\
 %            & QC DET STD APERTURE CNTS\\
 %            & QC DET STD STREHL\\
-Output FITS files: & \PROD{LM_STD_COMBINED} \\
+Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & shifting and stacking of a sequence of images \\
 Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
@@ -360,8 +360,8 @@ Other inputs: & photometric standard catalogue \\
 %            & QC DET STD PEAK CNTS\\
 %            & QC DET STD APERTURE CNTS\\
 %            & QC DET STD STREHL\\
-%Output FITS files: & \PROD{LM_STD_COMBINED} \\
-Outputs: & \PROD{FLUXCAL_TAB} \\
+%Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
+Outputs: & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}} \\
                & \texttt{cpl\_error\_code} \\
 General description: & Calculate flux conversion to physical units \\
 Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
@@ -378,10 +378,10 @@ Used in recipes: & \hyperref[sssec:lm_img_photstd]{\REC{metis_lm_img_std_process
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: &  \texttt{const hdrl\_image * input} \\
-Other inputs: & \PROD{FLUXCAL_TAB} \\
+Other inputs: & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}} \\
 QC outputs: & QC DET LM SENSITIVITY\\
             & QC DET LM AREA SENSITIVITY\\
-%Output FITS files: & \PROD{LM_STD_COMBINED} \\
+%Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
 Outputs: & detection limits for standard star  \\
                & \texttt{cpl\_error\_code} \\
 General description: & Calculate detection limits of standard star \\
@@ -423,11 +423,11 @@ Purpose: & Calculate the conversion between instrumental and physical flux units
 Used in recipes: & \hyperref[sssec:lm_img_calibrate]{\REC{metis_lm_img_cakubrate}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \PROD{LM_SCI_BKG_SUBTRACTED}\\
-         \PROD{FLUXCAL_TAB} \\
+Input: & \hyperref[dataitem:lm_sci_bkg_subtracted]{\PROD{LM_SCI_BKG_SUBTRACTED}}\\
+         \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}} \\
 Other inputs: & None \\
 QC outputs: & None\\
-%Output FITS files: & \PROD{LM_STD_COMBINED} \\
+%Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Convert instrumental flux to ph/s \\
 Mathematical description: & See Section~\ref{sssec:lm_img_calibrate} \\
@@ -445,10 +445,10 @@ Purpose: & Update the FITS header with calibration data (WCS, distortion, units)
 Used in recipes: & \hyperref[sssec:lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &   \PROD{LM_SCI_BKG_SUBTRACTED}\\
-       &   \PROD{LM_DISTORTION_TABLE}\\
+Input: &   \hyperref[dataitem:lm_sci_bkg_subtracted]{\PROD{LM_SCI_BKG_SUBTRACTED}}\\
+       &   \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}\\
 QC outputs: & None \\
-Output FITS files: & \PROD{LM_SCI_CALIBRATED} \\
+Output FITS files: & \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Add disortion, WCS and BUNIT information to FITS header \\
 Mathematical description: & See Section~\ref{sssec:lm_img_calibrate} \\
@@ -465,11 +465,11 @@ Purpose: & Calculate the conversion between instrumental and physical flux units
 Used in recipes: & \hyperref[sssec:n_img_calibrate]{\REC{metis_n_img_cakubrate}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \PROD{N_SCI_BKG_SUBTRACTED}\\
-         \PROD{FLUXCAL_TAB} \\
+Input: & \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}\\
+         \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}} \\
 Other inputs: & None \\
 QC outputs: & None\\
-%Output FITS files: & \PROD{N_STD_COMBINED} \\
+%Output FITS files: & \hyperref[dataitem:n_std_combined]{\PROD{N_STD_COMBINED}} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Convert instrumental flux to ph/s \\
 Mathematical description: & See Section~\ref{sssec:n_img_calibrate} \\
@@ -487,10 +487,10 @@ Purpose: & Update the FITS header with calibration data (WCS, distortion, units)
 Used in recipes: & \hyperref[sssec:n_img_calibrate]{\REC{metis_n_img_calibrate}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &   \PROD{N_SCI_BKG_SUBTRACTED}\\
-       &   \PROD{N_DISTORTION_TABLE}\\
+Input: &   \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}\\
+       &   \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}\\
 QC outputs: & None \\
-Output FITS files: & \PROD{N_SCI_CALIBRATED} \\
+Output FITS files: & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Add disortion and BUNIT information to FITS header \\
 Mathematical description: & See Section~\ref{sssec:n_img_calibrate} \\
@@ -510,12 +510,12 @@ Used in recipes: & \hyperref[sssec:lm_img_distortion]{\REC{metis_lm_img_distorti
 %Working remarks: & None \\
 Function Parameters: & parameters for fitting routine \\
 Input: &   Catalogue of detected sources \\
-       &   \PROD{det_PINHOLE_TABLE}\\
+       &   \hyperref[dataitem:det_pinhole_table]{\PROD{det_PINHOLE_TABLE}}\\
 QC outputs: & \QC{QC det DISTORT RMS}  \\
             & \QC{QC det DISTORT NSOURCE}  \\
-Output FITS files: & \PROD{det_DIST_REDUCED}\\
-                   & \PROD{det_DISTORTION_MAP}\\
-Outputs:  &  \PROD{det_DISTORTION_TABLE} \\
+Output FITS files: & \hyperref[dataitem:det_dist_reduced]{\PROD{det_DIST_REDUCED}}\\
+                   & \hyperref[dataitem:det_distortion_map]{\PROD{det_DISTORTION_MAP}}\\
+Outputs:  &  \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}} \\
           & \texttt{cpl\_error\_code} \\
 General description: &  Fit optical distortion coefficients based on pinhole mask image \\
 Mathematical description: & See Section~\ref{sssec:lm_img_distortion} \\
