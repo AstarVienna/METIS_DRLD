@@ -141,7 +141,9 @@ QC1 parameters: & \hyperref[qc:lmlsswavepolydeg]{\QC{QC LM LSS WAVE POLYDEG}}: D
 \clearpage
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{LM-LSS standard star calibration recipe \REC{metis_LM_lss_std}:}\label{rec:lsslmstd}
-\textit{Following text to be updated....!!} This recipe aims at processing standard stars used for the absolute flux calibration and (optionally) for the telluric feature removal: As first step the detector master calibration files derived previously are applied followed by the background subtraction, if needed the distortion correction (\hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}}), and
+\TODO{Finish following text} 
+
+This recipe aims at processing standard stars used for the absolute flux calibration and (optionally) for the telluric feature removal: As first step the detector master calibration files derived previously are applied followed by the background subtraction, if needed the distortion correction (\hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}}), and
 the wavelength calibration by means of the first guess solution (\hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}}) and the telluric sky lines (c.f. Sect.\,8.5 in \cite{DRLS}). Then the recipe extracts the standard star spectrum object, removes sky background, collapses the 2D to 1D spectra. To better compare the corresponding model spectrum a telluric correction is required. This is done by means of the standard star observations itself, as 
 
 It is on the user's decision whether the standard star is used for the absolute flux calibration only, or also used for the telluric correction of the science target.
