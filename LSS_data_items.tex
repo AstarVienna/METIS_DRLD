@@ -513,6 +513,27 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 % ##################################################################################### 
+\paragraph{\hyperref[dataitem:lm_lss_std_wave]{\PROD{LM_LSS_STD_WAVE}}}\label{dataitem:lm_lss_std_wave}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}}\\[0.3cm]
+Description: & LM-band geometrical distortion solution\\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_LSS_DIST_SOL}\\
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{DO.CATG}: & \FITS{LM_LSS_DIST_SOL}\\[0.3cm]
+Created by: & \hyperref[rec:lsslmwave]{\REC{metis_lm_lss_wave}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_table * table: Tables}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+% ##################################################################################### 
 \paragraph{\hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}}}\label{dataitem:lm_lss_wave_guess}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
