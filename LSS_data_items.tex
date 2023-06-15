@@ -867,9 +867,27 @@ Comment: & intermediate data product used for \ac{QC}\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:tss_transmission]{\PROD{TSS_TRANSMISSION}}}\label{dataitem:tss_transmission}
+\paragraph{\hyperref[dataitem:std_transmission]{\PROD{STD_TRANSMISSION}}}\label{dataitem:std_transmission}
+\begin{recipedef}
+Name: & \hyperref[dataitem:std_transmission]{\PROD{STD_TRANSMISSION}}\\[0.3cm]
+Description: & Transmission curve derived by means of the \ac{STD} star \\[0.3cm]
+OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS{INS.SPEC.SETUP}\\
+\FITS{PRO.CATG}: & \FITS{TBD} \\[0.3cm]
+Produced by recipe: & \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}} \\
+Input for recipe(s): & \hyperref[rec:lsslmsci]{\REC{metis_LM_LSS_sci}}\\
+QC Parameters: &  TBD\\
+Processing FITS Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+Corresponding \ac{CPL} structure:
+\begin{datastructdef}
+Data structure:
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords ()}
+    \item \texttt{hdrl\_imagelist * images: Images}
+    \item \texttt{cpl\_propertylist ** extkeywords: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
 
-TBWritten
 
 % ##################################################################################### 
 \paragraph{\hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}}}\label{dataitem:master_lm_response}
@@ -878,7 +896,7 @@ Name: & \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}}\\[0.3c
 Description: & Master LM-band response function for absolute flux calibration \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS{INS.SPEC.SETUP}\\
 \FITS{PRO.CATG}: & \FITS{TBD} \\[0.3cm]
-Produced by recipe: & \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_flux}} \\
+Produced by recipe: & \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}} \\
 Input for recipe(s): & \hyperref[rec:lsslmsci]{\REC{metis_LM_LSS_sci}}\\
 QC Parameters: &  TBD\\
 Processing FITS Keywords: & provided at \ac{PAE}\\
