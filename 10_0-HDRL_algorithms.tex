@@ -1,12 +1,16 @@
 \clearpage
 \section{HDRL algorithms}\label{sec:hdrl_algorithms}
-%-----------------------------------------------------------------------------------------------------------
-\subsection{HDRL for IFU}\label{ssec:hdrllms}
 
+The METIS DRS will make good use of \ac{HDRL} functions and data structures, not
+the least by relying on its built-in error-propagation. The recipe descriptions
+(Ch.~\ref{sec:pipeline_recipes}) list the functions that will be used, so this
+information is not repeated here.
 
 %-----------------------------------------------------------------------------------------------------------
 \subsection{HDRL for IMG}\label{ssec:hdrlimg}
 
+We do not foresee a need for new \ac{HDRL} algorithms for imaging parts of the DRS.
+\TODO{Is this true? Should we argue for ADI or anything else?}
 
 
 %-----------------------------------------------------------------------------------------------------------
@@ -19,12 +23,27 @@ We are currently intending the usage of the following \ac{HDRL} algorithms for s
     \item \texttt{hdrl\_utils\_airmass()}: To compute the airmass
 \end{itemize}
 
-In the meanwhile there are well developed algorithms available for spectroscopy-specific tasks, which are already in use in ESO pipelines and which can be generalized to be used in the \ac{HDRL}. This especially applies to algorithms developed by Nicolai Piskunov and collaborators (\cite{pis21}, \cite{pis02}). We therefore recommend to include their following algorithms into the \ac{HDRL}:
+In the meanwhile there are well developed algorithms available for spectroscopy-specific tasks, which are already in use in ESO pipelines and which can be generalized to be used in the \ac{HDRL}. This especially applies to algorithms developed by Piskunov and collaborators (\cite{pis21}, \cite{pis02}). We therefore recommend including their following algorithms into the \ac{HDRL}:
 \begin{itemize}
     \item flatfield normalisation
-    \item slit decomposition
     \item curvature determination
+    \item slit decomposition
     \item wavelength calibration
     \item continuum normalisation
 \end{itemize}
-As some of these algorithms are already implemented in the CRIRES+ pipeline and are therefore already based on \ac{CPL} an inclusion into \ac{HDRL} should be possible.
+As some of these algorithms are already implemented in the \ac{CRIRES}+ pipeline
+and are therefore already based on \ac{CPL} an inclusion into \ac{HDRL} should
+be possible.
+
+%-----------------------------------------------------------------------------------------------------------
+\subsection{HDRL for IFU}
+\label{ssec:hdrllms}
+
+Similar to the LSS above, the reduction of the IFU will rely on the algorithms
+from the \ac{CRIRES} pipeline, as shown for the distortion correction algorithm
+in Ch.~\ref{ssec:criticalwavelengthanddistortionifu} where this pipeline
+directly gets applied to METIS simulations.
+
+The METIS DRS will benefit from the availability of these routines in ESO-CPL
+form in any case, either by adapting and maintaining its own version of the
+functionality, or preferably by using their integration into the HDRL. 
