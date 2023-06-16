@@ -18,7 +18,7 @@ The recipe \hyperref[sssec:adc_slitlosses]{\REC{metis_n_adc_slitloss}} aims to d
 The recipe \REC{metis_N_lss_rsrf} aims to create a spectroscopic master flatfield for determining the pixel-to-pixel sensitivity and to enable the order location algorithm (\REC{metis_N_ss_trace}).
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_n_lss_rsrf_v0,82.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_n_lss_rsrf_v0.82.pdf}
   \caption[Recipe: \REC{metis_N_lss_rsrf}]{\REC{metis_N_lss_rsrf} --
     Spectroscopic faltfielding with \ac{RSRF}.}
   \label{Fig:rec_n_lss_rsrf}
@@ -59,7 +59,7 @@ The recipe \REC{metis_N_lss_trace} aims at detecting the orders and a polynomial
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_N_lss_trace_v0,82.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_N_lss_trace_v0.82.pdf}
   \caption[Recipe: \REC{metis_N_lss_trace}]{\REC{metis_N_lss_trace} --
     Detection and polynomial fitting of the order location.}
   \label{Fig:rec_N_lss_wave}
@@ -167,7 +167,7 @@ QC1 parameters: & \hyperref[qc:nlssstdbackgdmean]{\QC{QC N LSS STD BACKGD MEAN}}
 The science calibration recipe comprises the extraction of the object (i.e. separation of object/sky pixels), removing the sky lines, the application of the response curve previously defined, the 2D to 1D collapse and the coaddition. In contrast to the flux standard star reduction, the telluric correction on the science data is done in a dedicated recipe afterwards to achieve best quality for the correction.
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.38\textheight]{figures/metis_N_lss_sci_v0,82.pdf}
+  \includegraphics[width=0.38\textheight]{figures/metis_N_lss_sci_v0.82.pdf}
   \caption[Recipe: \REC{metis_N_lss_sci}]{\REC{metis_N_lss_sci} --
     Science reduction recipe.}
   \label{Fig:rec_N_lss_sci}
@@ -234,7 +234,7 @@ The telluric correction will be done with the package \texttt{molecfit}\footnote
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_N_lss_mf_model_v0,82.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_N_lss_mf_model_v0.82.pdf}
   \caption[Recipe: \REC{metis_N_lss_mf_model}]{\REC{metis_N_lss_mf_model} --
     Recipe to achieve the best-fit for the calculation of the synthetic transmission curve for the telluric correction.}
   \label{Fig:rec_N_lss_mf_model}
@@ -262,7 +262,7 @@ QC1 parameters: & cf. \cite{molecfit}\\
 \subsubsection{N-LSS telluric correction recipe \REC{metis_N_lss_mf_calctrans}:}\label{rec:NLSSmfcalctrans}
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_N_lss_mf_calctrans_v0,82.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_N_lss_mf_calctrans_v0.82.pdf}
   \caption[Recipe: \REC{metis_N_lss_mf_calctrans}]{\REC{metis_N_lss_mf_calctrans} --
     Recipe to calculate the synthetic transmission to be applied as telluric correction.}
   \label{Fig:rec_N_lss_mf_calctrans}
@@ -290,7 +290,7 @@ QC1 parameters: & cf. \cite{molecfit}\\
 \subsubsection{N-LSS telluric correction recipe \REC{metis_N_lss_mf_correct}:}\label{rec:NLSSmfcorrect}
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_N_lss_mf_correct_v0,82.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_N_lss_mf_correct_v0.82.pdf}
   \caption[Recipe: \REC{metis_N_lss_mf_correct}]{\REC{metis_N_lss_mf_correct} --
     Recipe to apply the telluric correction.}
   \label{Fig:rec_N_lss_mf_correct}
