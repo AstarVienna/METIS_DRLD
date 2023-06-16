@@ -231,7 +231,7 @@ Description: & N-band long-slit spectroscopy raw exposure of a flux standard sta
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_FLUX_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_lm_cal_Standard}\\
-Input for recipe: & \hyperref[rec:lssnflux]{\REC{metis_n_lss_flux}}\\
+Input for recipe: & \hyperref[rec:lssnstd]{\REC{metis_n_lss_flux}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -360,7 +360,7 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.o
 \FITS{DO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
 Created by: & \hyperref[rec:lssnrsrf]{\REC{metis_n_lss_rsrf}}\\
 Input for recipes: & \hyperref[rec:lssntrace]{\REC{metis_n_lss_trace}}\\
-                   & \hyperref[rec:lssnflux]{\REC{metis_n_lss_flux}}\\
+                   & \hyperref[rec:lssnstd]{\REC{metis_n_lss_flux}}\\
                    & \hyperref[rec:lssnsci]{\REC{metis_n_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -615,7 +615,7 @@ Description: & Image with detected object pixels of the flux standard star..\\[0
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_STD_OBJ_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lssnflux]{\REC{metis_n_lss_flux}}\\
+Created by: & \hyperref[rec:lssnstd]{\REC{metis_n_lss_flux}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -638,7 +638,7 @@ Description: & Image with detected plain sky pixels of the flux standard star ob
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_STD_SKY_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
-Created by: & \hyperref[rec:lssnflux]{\REC{metis_n_lss_flux}}\\
+Created by: & \hyperref[rec:lssnstd]{\REC{metis_n_lss_flux}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC} and as mask\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -662,7 +662,7 @@ Description: & Extracted 1d science spectrum.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_STD_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}} \\
 \FITS{DO.CATG}: & \FITS{N_LSS_STD_1D}\\[0.3cm]
-Created by: & \hyperref[rec:lssnflux]{\REC{metis_n_lss_flux}}\\
+Created by: & \hyperref[rec:lssnstd]{\REC{metis_n_lss_flux}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product also used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -918,7 +918,7 @@ Name: & \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}}\\[0.3cm]
 Description: & Master N-band response function for absolute flux calibration \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS{INS.SPEC.SETUP}\\
 \FITS{PRO.CATG}: & \FITS{TBD} \\[0.3cm]
-Produced by recipe: & \hyperref[rec:lssnflux]{\REC{metis_N_lss_flux}} \\
+Produced by recipe: & \hyperref[rec:lssnstd]{\REC{metis_N_lss_flux}} \\
 Input for recipe(s): & \hyperref[rec:lssnsci]{\REC{metis_N_LSS_sci}}\\
 QC Parameters: &  TBD\\
 Processing FITS Keywords: & provided at \ac{PAE}\\
