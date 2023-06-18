@@ -57,6 +57,8 @@ as `dark' frames that captur thermal emission within the
 instrument. This is subtracted from all other exposures in the
 sequence.
 
+This satisfies \REQ{METIS-5997}.
+
 \newpage
 \begin{recipedef}
   Name:                & \REC{metis_det_lingain}                                                             \\
@@ -116,6 +118,8 @@ corresponding to the four detectors in the focal-plane array. The
 recipe also produces bad pixel masks by identifying hot pixels whose
 dark current differs significantly (by more than $\pm 5\sigma$) from
 the average over the detector.
+
+This fulfills \REQ{METIS-6063}.
 
 \begin{recipedef}
   Name:                & \REC{metis_det_dark}                                                        \\
