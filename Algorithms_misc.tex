@@ -22,6 +22,12 @@ The variance $N_{c}^{2}$ is related to the signal $S_{c}$ via \cite[Section 9.1]
 where $g$ is the gain and $R_{c}$ the readout noise. All quantities with subscript $c$ are in counts (ADU).
 
 \subsubsection{Conversion of wavelengths between vacuum and air regime}\label{ssec:vacair}
+
+Since METIS measures spectral lines inside a vacuum cryostat, it only makes
+sense that the DRL will use vacuum wavelengths throughout, both for long-slit
+and IFU spectroscopy. The line lists are an external input to the pipeline, and
+if needed the wavelengths can be transformed as follows.
+
 For the conversion of $\lambda_\textrm{vac}$ to $\lambda_\textrm{air}$ the \ac{IAU} standard formula provided by Donald Morton \cite{mor00} $\lambda_\textrm{air}=\lambda_\textrm{vac}/n$ is used, where
 
 \begin{eqnarray}\label{eq:air2vac}
@@ -39,17 +45,6 @@ The reverse transform $\lambda_\textrm{air}$ to $\lambda_\textrm{vac}$ was deriv
     n&=1 + 0.000083366242 + \frac{0.0240892687}{(130.106592452 - s^2)} + \frac{0.00015997409}{(38.925687933 - s^2)}
 \end{aligned}\right.
 \end{eqnarray}
-
-All wavelengths in the \ac{LSS} spectroscopic pipeline are given in the vacuum regime. \textcolor{red}{TBD: Also in IFU?}
-
-\subsubsection{Centroid fit}
-\label{sssec:centroid}
-TBWritten
-
-\subsubsection{Line shape fit}
-\label{sssec:linefit}
-TBWritten about Gaussian line fitting
-
 
 %%% Local Variables:
 %%% TeX-master: "METIS_DRLD"
