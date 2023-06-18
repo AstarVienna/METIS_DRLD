@@ -238,7 +238,7 @@
 \newcommand{\PROD}[1]{\lstinline[style=PRODstyle]!#1!}
 
 %% Write requirements like this: \REQ{METIS-xxxx}
-\newcommand{\REQ}[1]{\textcolor{brown}{#1}}
+\newcommand{\REQ}[1]{\href{https://polarion.astron.nl/polarion/\#/project/METIS/workitem?id=#1}{\textcolor{brown}{#1}}}
 
 %% external calib files
 \makeatletter
@@ -498,6 +498,12 @@ presented for \ac{PDR} and supersedes that document for \ac{FDR}.
 \subsection{Acronyms}
 \label{ssec:acronyms}
 \input{acronyms.tex}
+
+\subsection{Requirements}
+
+The following table lists the pipeline requirements and provides links to Polarion and the relevant place in this document.
+
+\include{Requirements}
 
 \clearpage
 
