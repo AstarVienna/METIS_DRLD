@@ -19,7 +19,7 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Outputs: & Non-linearity corrected images [px]\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Correction of detector non-linearity \\
-Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Mathematical description: & TBD \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
@@ -39,7 +39,7 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Outputs: & Crosstalk corrected images [px]\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Correction of detector crosstalk \\
-Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Mathematical description: & TBD \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
@@ -62,7 +62,7 @@ Input: & \texttt{const hdrl\_image * input} \\
 Outputs: & Detrended images [px]\\
                 & \texttt{cpl\_error\_code} \\
 General description: & De-trending the raw image \\
-Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Mathematical description: & TBD \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
@@ -86,14 +86,14 @@ Input: & \texttt{const hdrl\_image * input} \\
 Outputs: & Building sky background from images [px]\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Removing sky backround from images \\
-Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Mathematical description: & TBD \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
         
     
-\subsubsection{Remove skybackground}\label{drl:img_skybackground_removal}
+\subsubsection{Remove sky background}\label{drl:img_skybackground_removal}
 \begin{recipedef}
 Name: & \hyperref[drl:img_skybackground_removal]{\DRL{img_skybackground_removal}} \\
 Purpose: &Remove sky background signals\\
@@ -110,7 +110,7 @@ Input: & \texttt{const hdrl\_image * input} \\
 Outputs: & Removing sky background from images [px]\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Removing sky backround from images \\
-Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Mathematical description: & TBD \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
@@ -409,7 +409,7 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Outputs: & Location of detected peak [px]\\
                & \texttt{cpl\_error\_code} \\
 General description: & Detection of a source by centroid fit \\
-Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Mathematical description: & standard method \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
