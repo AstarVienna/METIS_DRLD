@@ -1,25 +1,11 @@
-
     
-    \hypertarget{lms-distortion}{%
-\section{LMS distortion}\label{lms-distortion}}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{16}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k}{import} \PY{o}{*}
-\PY{k+kn}{from} \PY{n+nn}{astropy}\PY{n+nn}{.}\PY{n+nn}{io}\PY{n+nn}{.}\PY{n+nn}{fits} \PY{k}{import} \PY{n+nb}{open} \PY{k}{as} \PY{n}{fo}
-\PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{Image}\PY{p}{,} \PY{n}{display}
-\end{Verbatim}
-\end{tcolorbox}
-
     The following is a summary of the steps that were taken to apply the
 CRIRES+ data reduction to simulation the METIS LMS IFU. * ScopeSim runs
 * Insert data into CRIRES frames * Order tracing * Tilt determination *
 Extracting 1D spectra * Assigning Wavelength and spatial scale to pixels
 in 2D spectra
 
-    \hypertarget{scopesim}{%
-\subsection{ScopeSim}\label{scopesim}}
+    \textbf{ScopeSim}
 
 As of april 2022, when these simulations were carried out, the
 release-version of the simulator did not support the IFU mode of METIS.
@@ -32,8 +18,7 @@ of the spectrograph to arbitrary 3.55micon. In addition, it retrieves
 the wavelength scale from one of the slices, in order to later ingest it
 into the CRIRES-pipeline.
 
-    \hypertarget{crires-drs}{%
-\subsection{CRIRES DRS}\label{crires-drs}}
+    \textbf{CRIRES DRS}
 
 The upgraded CRIRES is a cross-dispersed echelle slit-spectrograph for
 the near-infrared bands YJHKLM. It uses three of the same HAWAII2RG
@@ -53,8 +38,7 @@ ScopeSim produces frames for all four of the LMS detectors. Simply
 ignoring the fourth, the pixel values were copied into a raw frame
 CRIRES, thus preserving its headers and replacing the data.
 
-    \hypertarget{order-tracing}{%
-\subsection{Order tracing}\label{order-tracing}}
+    \textbf{Order tracing}
 
 By ``trace'' we mean the polynomial in detector coordinates (x,y) that
 describes the mid-line of the spectral order. This is done by smoothing
@@ -78,50 +62,54 @@ The output file is \texttt{CIRES\_sky\_tw.fits} which is a table that
 now has the traces for each slice. In addition to the mid-line, it also
 has the polynomials for the upper and lower edges of each slice.
 
-    \hypertarget{slit-tilt}{%
-\subsection{Slit tilt}\label{slit-tilt}}
+    \textbf{Slit tilt}
 
 Next up is measuring the orientation of the ``slit'' in each slice,
 i.e.~the tilt of spectral lines w.r.t. the detector columns. Using the
 trace from the previous step, each slice gets rectified by shifting
-columns by integer values according to the trace. Then a peak-finder is
-run on each row to find spectral lines, which are then fitted with
-Gaussians to determine their line centers. Comparing how the
-line-centers change with detector rows, allows us to fit the slit tilt
-as a polynomyal P(y). In order to reject outliers and ensure a smooth
-change in the tilt, the \emph{coefficients} of the tilt polynomials are
-then each fit as P(x). These coefficients are saved in an updated
-FITS-table, called \texttt{CIRES\_sky\_tw\_tw.fits}. Using the included
-script that evaluates the polynomials and plots them on top of the sky
-frame, we can have a look at the result.
+columns by integer values according to the trace.
+
+Then a peak-finder is run on each row to find spectral lines, which are
+then fitted with Gaussians to determine their line centers. Comparing
+how the line-centers change with detector rows, allows us to fit the
+slit tilt as a polynomyal P(y). In order to reject outliers and ensure a
+smooth change in the tilt, the \emph{coefficients} of the tilt
+polynomials are then each fit as P(x).
+
+These coefficients are saved in an updated FITS-table, called
+\texttt{CIRES\_sky\_tw\_tw.fits}. Using the included script that
+evaluates the polynomials and plots them on top of the sky frame, we can
+have a look at the result.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{3}{\boxspacing}
+\prompt{In}{incolor}{25}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{o}{\PYZpc{}}\PY{k}{run} show\PYZus{}trace\PYZus{}curv.py CIRES\PYZus{}sky\PYZus{}tw\PYZus{}tw.fits CIRES\PYZus{}sky.fits \PYZsh{} only plots the top two detectors
+\PY{o}{\PYZpc{}}\PY{k}{run} show\PYZus{}trace\PYZus{}curv.py CIRES\PYZus{}sky\PYZus{}tw\PYZus{}tw.fits CIRES\PYZus{}sky.fits
+\PY{c+c1}{\PYZsh{} (This plots only the top row of two detectors)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_7_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_5_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{17}{\boxspacing}
+\prompt{In}{incolor}{26}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Zooming in allows to perceive the tilt in the regularly plotted vertical lines that align with the data.}
+\PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{Image}\PY{p}{,} \PY{n}{display}
 \PY{n}{display}\PY{p}{(}\PY{n}{Image}\PY{p}{(}\PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lms\PYZus{}sky\PYZus{}tracetilt\PYZus{}zoom.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_8_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_6_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{6}{\boxspacing}
+\prompt{In}{incolor}{27}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{tilts} \PY{o}{=} \PY{n}{fo}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CIRES\PYZus{}sky\PYZus{}tw\PYZus{}tw.fits}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SlitPolyB}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
 \PY{n}{tilts}
@@ -129,7 +117,7 @@ frame, we can have a look at the result.
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{6}{\boxspacing}
+\prompt{Out}{outcolor}{27}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 array([[-1.45030918e-02,  4.97644175e-06, -8.81093015e-10],
        [-1.71465266e-02,  1.19526702e-05, -4.11230539e-09],
@@ -152,54 +140,49 @@ array([[-1.45030918e-02,  4.97644175e-06, -8.81093015e-10],
 center, we find that the slit angle varies between 0.5 and 0.9 degrees.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{13}{\boxspacing}
+\prompt{In}{incolor}{28}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{dx}\PY{o}{=}\PY{n}{polyval}\PY{p}{(}\PY{n}{tilts}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1024}\PY{p}{,}\PY{l+m+mi}{2048}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{} reverse order of coeffs in python}
+\PY{n}{dx}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{polyval}\PY{p}{(}\PY{n}{tilts}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1024}\PY{p}{,}\PY{l+m+mi}{2048}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{} reverse order of coeffs in python}
 \PY{n}{dx}
 \end{Verbatim}
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{13}{\boxspacing}
+\prompt{Out}{outcolor}{28}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 array([-0.01567386, -0.00851955, -0.00847581])
 \end{Verbatim}
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{14}{\boxspacing}
+\prompt{In}{incolor}{29}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{degrees}\PY{p}{(}\PY{n}{arctan}\PY{p}{(}\PY{n}{dx}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Tilt angles}
+\PY{n}{np}\PY{o}{.}\PY{n}{degrees}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arctan}\PY{p}{(}\PY{n}{dx}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Tilt angles}
 \end{Verbatim}
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{14}{\boxspacing}
+\prompt{Out}{outcolor}{29}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 array([-0.89797241, -0.48812261, -0.48561642])
 \end{Verbatim}
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{18}{\boxspacing}
+\prompt{In}{incolor}{30}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{dx}\PY{o}{*}\PY{l+m+mi}{80} \PY{c+c1}{\PYZsh{} pixel difference between top and bottom of a slice, \PYZti{}80pix high}
 \end{Verbatim}
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{18}{\boxspacing}
+\prompt{Out}{outcolor}{30}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 array([-1.25390868, -0.68156423, -0.67806467])
 \end{Verbatim}
 \end{tcolorbox}
         
-    \hypertarget{extracting-into-1d-spectra}{%
-\subsection{Extracting into 1D
-spectra}\label{extracting-into-1d-spectra}}
-
-\hypertarget{fake-wavelengths}{%
-\subsubsection{Fake wavelengths}\label{fake-wavelengths}}
+    \textbf{Extracting into 1D spectra}
 
 Before we use the ``TW''-table from above to extract 1D-spectra, we need
 to fix the wavelength scale that is also part of the table (TW stands
@@ -211,13 +194,13 @@ of orders, instead we set the wavelength of one slice (saved into
 detector.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{29}{\boxspacing}
+\prompt{In}{incolor}{31}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{tw}\PY{o}{=}\PY{n}{fo}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CIRES\PYZus{}sky\PYZus{}tw\PYZus{}tw.fits}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{k}{for} \PY{n}{detec} \PY{o+ow}{in} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{:}
     \PY{n}{lam}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{load}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lam\PYZus{}}\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s1}{.npy}\PY{l+s+s1}{\PYZsq{}}\PY{o}{\PYZpc{}}\PY{k}{detec})
-    \PY{n}{x}\PY{o}{=}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{lam}\PY{p}{)}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1} 
-    \PY{n}{p}\PY{o}{=}\PY{n}{polyfit}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{lam}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+    \PY{n}{x}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{lam}\PY{p}{)}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1} 
+    \PY{n}{p}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{polyfit}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{lam}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
     \PY{n+nb}{print}\PY{p}{(}\PY{n}{p}\PY{p}{)}
     \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n}{tw}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CHIP}\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s1}{.INT1}\PY{l+s+s1}{\PYZsq{}}\PY{o}{\PYZpc{}}\PY{k}{detec}].data:
         \PY{n}{row}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Wavelength}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{=}\PY{n}{p}
@@ -246,14 +229,14 @@ sky spectrum is not included in this package and we display the pre-made
 figure here.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{20}{\boxspacing}
+\prompt{In}{incolor}{32}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{display}\PY{p}{(}\PY{n}{Image}\PY{p}{(}\PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lms\PYZus{}skyrecover.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_17_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_15_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -265,8 +248,7 @@ extracted. This nicely illustrates the task of the wavelength
 calibration, namely to determine this shift by cross-correlation, but
 this in not part of the current exercise.
 
-    \hypertarget{d-spectra}{%
-\subsection{2D spectra}\label{d-spectra}}
+    \textbf{2D spectra}
 
 Collapsing slices (or parts of one) into 1D spectra is certainly useful,
 not the least for calibrations. But METIS is all about spatial
@@ -282,7 +264,7 @@ this delta-x gets converted to delta-lambda using the wavelength
 solution.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{31}{\boxspacing}
+\prompt{In}{incolor}{33}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} plot missing, due to technical difficulties, this is a stand\PYZhy{}in from CRIRES\PYZhy{}data.}
 \PY{n}{display}\PY{p}{(}\PY{n}{Image}\PY{p}{(}\PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{crires\PYZus{}2d\PYZus{}rect.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
@@ -290,7 +272,7 @@ solution.
 \end{tcolorbox}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_20_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_18_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
