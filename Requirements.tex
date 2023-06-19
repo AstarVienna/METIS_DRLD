@@ -1,3 +1,9 @@
+
+The following table connects the requirements (Polarion-links) to the relevant
+place in this document. All pipeline subsystem requirements are listed; an entry
+stating \emph{N/A} in the last column indicates that this document does not
+provide evidence to verify the requirement in question. See \cite{DRLVT} for information about their verification.
+
 \begin{longtable}[c]{|l|l|l|}
 	\caption{Requirements compliance}
 	\endfirsthead
@@ -9,10 +15,10 @@
 		\REQ{METIS-6058} & Data reduction package & \ref{sec:pipeline_recipes} \\
 		\REQ{METIS-6059} & DRS for Quick-Look and Operational Data QC & \ref{sec:pipeline_recipes} \\
 		\REQ{METIS-6060} & Interactive data reduction system &  \ref{sec:pipeline_recipes}\\
-		\REQ{METIS-6061} & Reduced simulated data products &  \\
-		\REQ{METIS-6062} & Software Assurance Requirements &  \\
+		\REQ{METIS-6061} & Reduced simulated data products & \ref{ssec:reduced_data_format} \\
+		\REQ{METIS-6062} & Software Assurance Requirements & N/A \\
 		\REQ{METIS-6063} & Master dark frames & \ref{rec:metis_det_dark} \\
-		\REQ{METIS-6065} & System Engineering Management Plan &  \\
+		\REQ{METIS-6065} & System Engineering Management Plan & N/A \\
 		\REQ{METIS-6067} & PIP Requirement Precedence & N/A  \\
 		\REQ{METIS-6069} & METIS Standards & N/A \\
 		\REQ{METIS-6070} & METIS coordinate systems definition &  \\
@@ -25,7 +31,7 @@
 		\REQ{METIS-6078} & Electrical power consumption of DRS work station &  \\
 		\REQ{METIS-6080} & FITS format and meta-data of generated data &  \\
 		\REQ{METIS-6081} & FITS keywords &  \\
-		\REQ{METIS-6082} & Data products conformity to ESO standards &  \\
+		\REQ{METIS-6082} & Data products conformity to ESO standards &  \ref{ssec:reduced_data_format}\\
 		\REQ{METIS-6083} & Material usage &  \\
 		\REQ{METIS-6084} & Low-resolution slit spectroscopy &  \\
 		\REQ{METIS-6085} & Background subtraction in IMG-LM with dedicated sky observations & \ref{rec:metis_lm_img_background} \\
@@ -35,7 +41,7 @@
 		\REQ{METIS-6089} & Masked region of the N-band detector &  \\
 		\REQ{METIS-6090} & Masked region of the IMG\_LM detector &  \\
 		\REQ{METIS-6091} & Telluric calibration recipe &  \\
-		\REQ{METIS-6092} & METIS Internal Interfaces &  \\
+		\REQ{METIS-6092} & METIS Internal Interfaces & N/A \\
 		\REQ{METIS-6093} & Format and content of the raw data &  \\
 		\REQ{METIS-6094} & Background subtraction in chopping-nodding mode & \ref{rec:metis_n_img_chopnod} \\
 		\REQ{METIS-6096} & LM-band imaging flatfield &  \\
