@@ -53,6 +53,9 @@ In general, there are four major steps in each of the two cascades:
 \end{figure}
 \clearpage
 
+\newgeometry{bottom=0.5cm, right=0.1cm, left=0.1cm}
+% This geometry makes the tables/figures fit, but messes up the header a bit.
+
 \begin{landscape}
 \begin{figure}[ht]
   \centering
@@ -233,6 +236,8 @@ In general, there are four major steps in each of the two cascades:
   \end{center}
 \end{table}
 \end{landscape}
+
+\restoregeometry
 
 \subsubsection{Static calibration database}\label{lss:static_calib}
 The static calibration database comprises several data sets, some are updated from time to time:
