@@ -1,6 +1,6 @@
 \subsection{Long-Slit Spectroscopy in L/M- and N-bands}\label{lss:overview}
 \subsubsection{The workflow cascades}\label{lss:cascade_overview}
-The purpose of the pipeline is to correct or remove contributions from
+The purpose of these workflows is to correct or remove contributions from
 the instrument, telescope, and atmosphere and generate science-grade
 data products for the L/M- and N-band \ac{LSS}
 mode. Since the detector properties are not fully specified, especially of the new Geosnap, we currently assume
@@ -19,8 +19,7 @@ atmosphere in several respects:
   approaches like \texttt{molecfit} heavily rely on accurate
   atmospheric input profiles, which represent the actual state and
   composition of the Earth's atmosphere. This especially applies to
-  the \ac{PWV} content since this is the most
-  dominant and most variable species.
+  the \ac{PWV} content since this is the most dominant and most variable species. We also include the classical approach for the telluric correction by means of deriving the Earth's atmoopshere transmission with the help of standard stars.
 \item Atmospheric dispersion: \ac{METIS} will have \ac{ADC}s compensating the
   effect of atmospheric dispersion. However, for technical reasons
   these ADCs are fixed at several positions. This means that the
