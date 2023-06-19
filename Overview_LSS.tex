@@ -117,9 +117,9 @@ In general, there are four major steps in each of the two cascades:
     		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}} & \\
     		& & & & \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} &\\    
-    		& & & & \hyperref[dataitem:tss_model_cat]{\STATCALIB{TSS_MODEL_CAT}} &\\    
-    		& & & & \hyperref[dataitem:tss_cont_tab]{\STATCALIB{TSS_CONT_TAB}} &\\    
-    		& & & & \hyperref[dataitem:ref_flux_cat]{\STATCALIB{REF_FLUX_CAT}} &\\    \hline
+%    		& & & & \hyperref[dataitem:tss_model_cat]{\STATCALIB{TSS_MODEL_CAT}} &\\    
+%    		& & & & \hyperref[dataitem:tss_cont_tab]{\STATCALIB{TSS_CONT_TAB}} &\\    
+    		& & & & \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_FLUX_CAT}} &\\    \hline
     \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:lsslmsci]{\REC{metis_LM_lss_sci}} & Object name &  \hyperref[dataitem:gain_map_lm]{\PROD{GAIN_MAP_LM}} & Science grade spectrum\\
     		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}} &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	& \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
@@ -192,10 +192,10 @@ In general, there are four major steps in each of the two cascades:
     		& \CODE{DPR.TECH==SPECTRUM}   &			   & Grism		& \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  Slit & \hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}} & \\
     		& & & & \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}} &\\
-    		& & & &  \hyperref[dataitem:ref_flux_cat]{\STATCALIB{REF_FLUX_CAT}} &\\
+    		& & & &  \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_FLUX_CAT}} &\\
     		& & & & \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} &\\
     		& & & & \hyperref[dataitem:n_lss_dist_sol]{\STATCALIB{N_LSS_DIST_SOL}} &\\
-    		& & & & \hyperref[dataitem:ref_flux_cat]{\STATCALIB{REF_FLUX_CAT}} &\\
+    		& & & & \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_FLUX_CAT}} &\\
     \hline
     \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:lssnsci]{\REC{metis_N_lss_sci}} & Object name & \hyperref[dataitem:gain_map_n]{\PROD{GAIN_MAP_N}}  & Science grade spectrum\\
     		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time &  \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} &\\
