@@ -15,7 +15,7 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 \FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
           & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{meti_lm_img_basic_reduce}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -43,7 +43,7 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
                        & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
-Input for recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}}\\
+Input for recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
 
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -76,7 +76,7 @@ Templates:           & \TPL{METIS_img_lm_cal_DetLin}                            
                        & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
                     & \TODO{Many more} \\
-Input for recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}}\\
+Input for recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
                   & \TODO{Many more} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -214,7 +214,7 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 Template: & \TPL{METIS_lm_img_flat}\\
 Created by: & \hyperref[drl:lm_img_flat]{\REC{metis_lm_img_flat}} \\
 Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
- & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_basic_image_reduce}}\\  
+ & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -241,7 +241,7 @@ Template: & \TPL{METIS_n_img_flat}\\
 Created by:  \hyperref[drl:n_img_flat]{\REC{metis_n_img_flat}} \\
 Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
 % The n-band does not have a basic_reduce recipe (according to the association map)
-% & \hyperref[rec:metis_n_img_basic_reduce]{\REC{metis_n_basic_image_reduce}}\\
+% & \hyperref[rec:metis_n_basic_image_reduce]{\REC{metis_n_basic_image_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -265,7 +265,7 @@ Description: & Bad pixel map\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{BADPIX_MAP_det}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{BADPIX_MAP_det}\\[0.3cm]
-Created by recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}} \\
+Created by recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}} \\
 Input for recipe: & \TODO{TODO} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -296,8 +296,10 @@ Description: & Nonlinearity coefficients.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LINEARY}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}, \TODO{Which subinstrument} \\
 \FITS{DO.CATG}: & \FITS{LINEARITY}\\[0.3cm]
-Created by recipe: & \hyperref[rec:metisdetlingain]{\REC{metis_det_lingain}} \\
-Input for recipe: & \hyperref[rec:lsslmrsrf]{\REC{TODO}}\\
+Created by recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}} \\
+Input for recipe: & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}}\\
+& \hyperref[rec:metis_n_img_chopnod]{\REC{metis_n_img_chopnod}}\\
+ & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -323,7 +325,7 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 \FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{meti_lm_img_basic_reduce}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -350,7 +352,7 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 \FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{meti_lm_img_basic_reduce}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -457,7 +459,7 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.t
 Template: & \TPL{METIS_img_lm_cal_standard}\\
             & \TPL{METIS_img_lm_*_obs_*}       \\
 Produced by recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
-% Input for recipe: & \hyperref[rec:lm_img_astrometry_calib]{\REC{rec:lm_img_astrometry_calib}}\\
+% Input for recipe: & \hyperref[rec:rec]{\REC{rec:lm_img_astrometry_calib}}\\
 Input for recipe: & None\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -668,7 +670,7 @@ Description: & Table of distortion information\\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{??}\\
-Input for recipe: & \hyperref[rec:lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -694,7 +696,7 @@ Description: & Table of distortion information\\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{??}\\
-Input for recipe: & \hyperref[rec:lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
@@ -729,7 +731,7 @@ Description: & Map of pixel scale across the detector\\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_distortion}\\
-Input for recipe: & \hyperref[rec:lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
@@ -757,7 +759,7 @@ Description: & Map of pixel scale across the detector\\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_distortion}\\
-Input for recipe: & \hyperref[rec:n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Input for recipe: & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
@@ -793,7 +795,7 @@ Description: & Table of polynomial coefficients for distortion correction\\[0.3c
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_distortion}\\
-Input for recipe: & \hyperref[rec:lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
@@ -822,7 +824,7 @@ Description: & Table of polynomial coefficients for distortion correction\\[0.3c
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_distortion}\\
-Input for recipe: & \hyperref[rec:n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Input for recipe: & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
