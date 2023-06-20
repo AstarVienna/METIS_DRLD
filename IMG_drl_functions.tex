@@ -80,25 +80,6 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
     
 
 
-\subsubsection{Apply Persistance Correction}\label{drl:img_apply_persistence_correction}
-\begin{recipedef}
-Name: & \hyperref[drl:img_apply_persistence_correction]{\DRL{metis_img_apply_persistence_correction}} \\
-Purpose: & Apply the persistence correction to raw images\\
-Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-Other inputs: \hyperref[dataitem:persistence_map]{\PROD{PERSISTENCE_MAP}} \\
-QC outputs: ??\\
-%Output FITS files: & None \\
-Outputs: & Corrected raw images\\
-         & \texttt{cpl\_error\_code} \\
-General description: & Persistence correction of raw images \\
-Mathematical description: & see Section~\ref{sec_persistence_correction} \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT} (TBD). \\
-Unit tests: & See \cite{DRLVT} (TBD). \\
-\end{recipedef}
 
 
 
