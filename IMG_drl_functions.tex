@@ -5,45 +5,7 @@
 
 %\subsubsection{Function for basic processing}
 
-\subsubsection{Non-linearity Correction}\label{drl:img_nonlinear_correction}
-\begin{recipedef}
-Name: & \hyperref[drl:img_nonlinear_correction]{\DRL{img_nonlinear_correction}} \\
-Purpose: &Correction for detector non-linearity\\
-Used in recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-%Other inputs: & None \\
-%QC outputs: & None\\
-%Output FITS files: & None \\
-Outputs: & Non-linearity corrected images [px]\\
-                & \texttt{cpl\_error\_code} \\
-General description: & Correction of detector non-linearity \\
-Mathematical description: & TBD \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT} (TBD). \\
-Unit tests: & See \cite{DRLVT} (TBD). \\
-\end{recipedef}
 
-\subsubsection{Crosstalk correction}\label{drl:img_crosstalk_correction}
-\begin{recipedef}
-Name: & \hyperref[drl:img_crosstalk_correction]{\DRL{img_crosstalk_correction}} \\
-Purpose: &Correction for detector crosstalk\\
-Used in recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-%Other inputs: & None \\
-%QC outputs: & None\\
-%Output FITS files: & None \\
-Outputs: & Crosstalk corrected images [px]\\
-                & \texttt{cpl\_error\_code} \\
-General description: & Correction of detector crosstalk \\
-Mathematical description: & TBD \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT} (TBD). \\
-Unit tests: & See \cite{DRLVT} (TBD). \\
-\end{recipedef}
 
 
 \subsubsection{Detrending}\label{drl:img_detrend}
