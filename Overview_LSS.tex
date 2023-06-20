@@ -145,8 +145,8 @@ In general, there are four major steps in each of the two cascades:
     \label{Tab:LMLssDatProc2}
     \begin{tabular}{|l|l|l|l|l|l|}  
     \hline
-      Data Type   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
-    (Templates) & Keywords	 & Processing steps	&		&	  &	\\
+      Input   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
+    data & Keywords	 & Processing steps	&		&	  &	\\
     \hline    
             Science grade spectrum & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:LMLSSmfmodel]{\REC{metis_LM_lss_mf_model}} & Object name & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}}	 & Best-fit \\
     		processed \ac{STD} spectrum& \CODE{DPR.TYPE==OBJECT}   &			  & & \hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}}  & \texttt{molecfit} parameters\\
@@ -158,8 +158,8 @@ In general, there are four major steps in each of the two cascades:
     		& \CODE{DPR.TECH==TBD}  &			&		& 	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
-            & \CODE{DPR.CATG==SCIENCE} &  \hyperref[rec:LMLSSmfcorrect]{\REC{metis_LM_lss_mf_correct}} & Object name & 	 & Absorption corrected\\
-    		& \CODE{DPR.TYPE==LSS}   &			   & & synthetic Transmission curve  & science spectrum\\
+            & \CODE{DPR.CATG==SCIENCE} &  \hyperref[rec:LMLSSmfcorrect]{\REC{metis_LM_lss_mf_correct}} & Object name & synthetic Transmission & Absorption corrected\\
+    		& \CODE{DPR.TYPE==LSS}   &			   & &    & science spectrum\\
     		& \CODE{DPR.TECH==TBD}  &			&		&	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & & \\
     \hline
@@ -217,9 +217,9 @@ In general, there are four major steps in each of the two cascades:
     \hline
     \TPL{STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:lssnstd]{\REC{metis_N_lss_std}} & Object name (\ac{STD} star) & \hyperref[dataitem:gain_map_n]{\PROD{GAIN_MAP_N}} & Instrumental\\
     		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \hyperref[dataitem:n_lss_wave_guess]{\STATCALIB{N_LSS_WAVE_GUESS}} & response function\\
-    		& \CODE{DPR.TECH==SPECTRUM}   &			   & Grism		& \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  Slit & \hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}} & \\
-    		& & & & \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}} &\\
+    		& \CODE{DPR.TECH==SPECTRUM}   &			   & Grism		& \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}	& transmission (optional)\\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  &  Slit & \hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}} & wavelength correction\\
+    		& & & & \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}} & (optional)\\
     		& & & &  \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}} &\\
     		& & & & \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} &\\
     		& & & & \hyperref[dataitem:n_lss_dist_sol]{\STATCALIB{N_LSS_DIST_SOL}} &\\
@@ -245,11 +245,11 @@ In general, there are four major steps in each of the two cascades:
     \label{Tab:NLssDatProc2}
     \begin{tabular}{|l|l|l|l|l|l|}
       \hline
-      Data Type   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
-    (Templates) & Keywords	 & Processing steps	&		&	  &	\\
+      Input   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
+    data & Keywords	 & Processing steps	&		&	  &	\\
     \hline
-    & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:NLSSmfmodel]{\REC{metis_N_lss_mf_model}} & Object name & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}}	 & Best-fit \\
-    		& \CODE{DPR.TYPE==OBJECT}   &			  & & \hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}}  & \texttt{molecfit} parameters\\
+    Science grade spectrum & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:NLSSmfmodel]{\REC{metis_N_lss_mf_model}} & Object name & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}}	 & Best-fit \\
+    	\ac{STD} star spectrum	& \CODE{DPR.TYPE==OBJECT}   &			  & & \hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}}  & \texttt{molecfit} parameters\\
     		& \CODE{DPR.TECH==TBD}  &			&		& \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & start parameter set & \\
     \hline
