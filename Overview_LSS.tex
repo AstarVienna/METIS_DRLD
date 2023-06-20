@@ -94,9 +94,8 @@ In general, there are four major steps in each of the two cascades:
 \begin{table}
   \footnotesize
   \begin{center}
-    \caption[Data Processing table for LM long-slit spectroscopy]{%
-      Data Processing table for LM long-slit spectroscopy
-      calibration mode; }\bigskip
+    \caption[Data Processing table for LM long-slit spectroscopy (cf. Fig.~\ref{Fig:LMLssAssomap1}: Main calibration]{%
+      Data Processing table for LM long-slit spectroscopy:  Main calibration}\bigskip
     \label{Tab:LMLssDatProc1}
     \begin{tabular}{|l|l|l|l|l|l|}
       \hline
@@ -141,14 +140,13 @@ In general, there are four major steps in each of the two cascades:
 \begin{table}
   \footnotesize
   \begin{center}
-    \caption[Data Processing table for LM long-slit spectroscopy Part 2]{%
-      Data Processing table for LM long-slit spectroscopy
-      calibration mode Part 2; }\bigskip
+    \caption[Data Processing table for LM long-slit spectroscopy (cf. Fig.~\ref{Fig:LMLssAssomap2}): Post-calibration / telluric correction with \texttt{molecfit}]{%
+      Data Processing table for LM long-slit spectroscopy: Post-calibration / telluric correction with \texttt{molecfit} }\bigskip
     \label{Tab:LMLssDatProc2}
     \begin{tabular}{|l|l|l|l|l|l|}    
     \hline
-            & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:LMLSSmfmodel]{\REC{metis_LM_lss_mf_model}} & Object name & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}}	 & Best-fit \\
-    		& \CODE{DPR.TYPE==OBJECT}   &			  & & \hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}}  & \texttt{molecfit} parameters\\
+            Science grade spectrum & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:LMLSSmfmodel]{\REC{metis_LM_lss_mf_model}} & Object name & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}}	 & Best-fit \\
+    		processed \ac{STD} spectrum& \CODE{DPR.TYPE==OBJECT}   &			  & & \hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}}  & \texttt{molecfit} parameters\\
     		& \CODE{DPR.TECH==TBD}  &			&		& \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
     		& \CODE{PRO.CATG==TBD}   &  &  & start parameter set & \\
     \hline
