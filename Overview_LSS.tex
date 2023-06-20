@@ -41,7 +41,7 @@ In general, there are four major steps in each of the two cascades:
 \begin{itemize}
     \item \textbf{Preparation steps:} This contains the recipes, which are invoked only rarely, e.g. after major instrument interventions, or on monthly/yearly basis to update the static calibration database. These recipes are therefore not shown in the cascade in Figs.~\ref{Fig:LMLssAssomap1}/\ref{Fig:LMLssAssomap2} and \ref{Fig:NLssAssomap1}/\ref{Fig:NLssAssomap2} and the corresponding data processing tables. In case of the \ac{LSS} pipeline this concerns the creation of the gain maps/linearity checks (see Section~\ref{sssec:metis_det_lingain}), the determination of the slit losses induced by the fixed positions of the ADCs (cf. Section~\ref{sssec:adc_slitlosses} and Section "Calibration of slit losses" in Calibration plan \cite{METIS-calibration_plan}) and the zero position of the chopping mirror (see Section~\ref{ssec:metisimgchophome} and Section "Chopper Home Position" in \cite{METIS-calibration_plan} for more details). 
     \item \textbf{Basic steps}: The basic steps aim for correcting the detector influence, in particular the dark correction and the determination of the master \ac{RSRF}. A special case is the persistence correction, which is (optionally) done as first step in the individual recipes. The basic function for that will be provided by \ac{ESO}\footnote{c.f. \ac{ELT} working group on detectors/persistence} and is not a dedicated recipe. 
-    \item \textbf{Calibration/correction steps}: This is the main part which incorporates the order trace detection, distortion, wavelength and flux correction. In case a dedicated standard star is provided, a transmission curve is created for the telluric correction.
+    \item \textbf{Calibration/correction steps}: This is the main part which incorporates the order trace detection, distortion, wavelength and flux correction. In case a dedicated \ac{STD} star is provided, a transmission curve is created for the telluric correction.
     \item \textbf{Post-calibration steps}: After having calibrated spectra at hand, the last step is the telluric absorption correction with \texttt{molecfit}. This is optional in case the user decided not to use the classic approach with a standard star.
 \end{itemize}
 
@@ -120,11 +120,11 @@ In general, there are four major steps in each of the two cascades:
     		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
-    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}}& Object name (Flux STD) & \hyperref[dataitem:gain_map_lm]{\PROD{GAIN_MAP_LM}} & Instrumental\\
-    \TPL{TELL,STD} & \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} & response function\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}} & \\
-    		& & & & \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} &\\    
+    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}}& Object name (\ac{STD} star) & \hyperref[dataitem:gain_map_lm]{\PROD{GAIN_MAP_LM}} & Instrumental\\
+      & \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} & response function\\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}& Transmission (optionally)\\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}} & Wavelength correction \\
+    		& & & & \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} & (optionally)\\    
 %    		& & & & \hyperref[dataitem:tss_model_cat]{\STATCALIB{TSS_MODEL_CAT}} &\\    
 %    		& & & & \hyperref[dataitem:tss_cont_tab]{\STATCALIB{TSS_CONT_TAB}} &\\    
     		& & & & \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}} &\\    \hline
