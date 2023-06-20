@@ -8,8 +8,8 @@ Purpose: & Removal of order background contamination (e.g. stray light)\\
 Used in recipes: & \hyperref[rec:lsslmrsrf]{\REC{metis_LM_lss_rsrf}} \newline
                   \hyperref[rec:lssnrsrf]{\REC{metis_N_lss_rsrf}} \newline
                   \hyperref[rec:lsslmwave]{\REC{metis_LM_lss_wave}} \newline
-                  \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_flux}} \newline
-                  \hyperref[rec:lssnstd]{\REC{metis_N_lss_flux}} \newline
+                  \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}} \newline
+                  \hyperref[rec:lssnstd]{\REC{metis_N_lss_std}} \newline
                   \hyperref[rec:lsslmsci]{\REC{metis_LM_lss_sci}}\newline
                   \hyperref[rec:lssnsci]{\REC{metis_N_lss_sci}}\\
 %Working remarks: & None \\
@@ -83,10 +83,10 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Normalise TSS spectrum}\label{drl:normtss}
+\subsubsection{Normalise spectrum}\label{drl:normspec}
 \begin{recipedef}\label{drl:norm_tss}
-Name: & \hyperref[drl:normtss]{\DRL{norm_tss}} \\
-Purpose: & Creates normalised spectra from \ac{TSS} spectra \\
+Name: & \hyperref[drl:normspec]{\DRL{norm_spec}} \\
+Purpose: & Creates unity-normalised version from an input \ac{STD} spectra \\
 Used in recipes: & \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}} \\
 & \hyperref[rec:lssnstd]{\REC{metis_N_lss_std}} \\
 %Working remarks: & None \\
@@ -96,8 +96,8 @@ Input: & \texttt{const hdrl\_image * input} \\
 %QC outputs: & None \\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
-General description: & Creates normalised \ac{TSS} stectrum \\
-Mathematical description: &  Polynomial fit on regions known to contain continuum only; these regions will be defined in Table \hyperref[dataitem:tss_cont_tab]{\STATCALIB{TSS_CONT_TAB}}\\
+General description: & Creates normalised version of a \ac{STD} input stectrum  by fitting the continuum and subsequent division of the fit\\
+Mathematical description: &  Polynomial fit on regions known to contain continuum only; these regions will be defined in Table \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}}\\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
@@ -121,8 +121,8 @@ Purpose: & applies \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RS
 Used in recipes: & \hyperref[rec:lsslmtrace]{\REC{metis_LM_lss_trace}} \newline
                  \hyperref[rec:lssntrace]{\REC{metis_N_lss_trace}} \newline
                  \hyperref[rec:lsslmwave]{\REC{metis_LM_lss_wave}} \newline
-                 \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_flux}} \newline
-                 \hyperref[rec:lssnstd]{\REC{metis_N_lss_flux}} \newline
+                 \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}} \newline
+                 \hyperref[rec:lssnstd]{\REC{metis_N_lss_std}} \newline
                  \hyperref[rec:lsslmsci]{\REC{metis_LM_lss_sci}} \newline
                  \hyperref[rec:lssnsci]{\REC{metis_N_lss_sci}} \newline 
                  \hyperref[rec:metislmadcmslitloss]{\REC{metis_lm_adc_slitloss}} \newline
@@ -165,8 +165,8 @@ Unit tests: & See \cite{DRLVT}. \\
 \subsubsection{Detect line peak}\label{drl:linedetect}
 Used in recipes:\\ 
 \hyperref[rec:lsslmwave]{\REC{metis_LM_lss_wave}} \newline
-\hyperref[rec:lsslmstd]{\REC{metis_LM_lss_flux}} \newline
-\hyperref[rec:lssnstd]{\REC{metis_N_lss_flux}} \newline
+\hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}} \newline
+\hyperref[rec:lssnstd]{\REC{metis_N_lss_std}} \newline
 \hyperref[rec:lsslmsci]{\REC{metis_LM_lss_sci}} \newline
 \hyperref[rec:lssnsci]{\REC{metis_N_lss_sci}} \newline
 TBD
@@ -178,8 +178,8 @@ TBD
 \begin{recipedef}
 Name: & \hyperref[drl:determineresponse]{\DRL{determine_response}}\\
 Purpose: & Determination of the spectral response function\\
-Used in recipes: &  \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_flux}} \newline
-                 \hyperref[rec:lssnstd]{\REC{metis_N_lss_flux}} \\
+Used in recipes: &  \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}} \newline
+                 \hyperref[rec:lssnstd]{\REC{metis_N_lss_std}} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_LM\_lsstrum1d * input} \\
@@ -199,8 +199,8 @@ Unit tests: & See \cite{DRLVT}. \\
 \begin{recipedef}
 Name: & \hyperref[drl:extractobject]{\DRL{extract_object}}\\
 Purpose: & Extract object spectrum from 2D-spectrum\\
-Used in recipes: & \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_flux}} \newline
-                 \hyperref[rec:lssnstd]{\REC{metis_N_lss_flux}} \newline
+Used in recipes: & \hyperref[rec:lsslmstd]{\REC{metis_LM_lss_std}} \newline
+                 \hyperref[rec:lssnstd]{\REC{metis_N_lss_std}} \newline
                  \hyperref[rec:lsslmsci]{\REC{metis_LM_lss_sci}} \newline
                  \hyperref[rec:lssnsci]{\REC{metis_N_lss_sci}} \\
 %Working remarks: & None \\
