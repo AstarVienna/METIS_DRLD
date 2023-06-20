@@ -35,7 +35,7 @@ atmosphere in several respects:
 %mostly based on the same algorithms. We therefore focus here on the LM-band only.
 
 Figures~\ref{Fig:LMLssAssomap1} and \ref{Fig:LMLssAssomap2} show the reduction cascade and the association map for the recipes handling L/M-long-slit
-spectroscopy data.  Table2~\ref{Tab:LMLssDatProc1} and ~\ref{Tab:LMLssDatProc2} contain the data processing table for this mode. For the N-band \ac{LSS} mode the cascade and the data processing table is given in Figs. \ref{Fig:NLssAssomap1} and \ref{Fig:NLssAssomap2} and Table~\ref{Tab:NLssDatProc}, respectively (cf. also Fig.~\ref{Fig:LSScascadelegend}).
+spectroscopy data.  Table2~\ref{Tab:LMLssDatProc1} and ~\ref{Tab:LMLssDatProc2} contain the data processing table for this mode. For the N-band \ac{LSS} mode the cascade and the data processing table is given in Figs. \ref{Fig:NLssAssomap1} and \ref{Fig:NLssAssomap2} and Tables~\ref{Tab:NLssDatProc1} and ~\ref{Tab:NLssDatProc2}, respectively (cf. also Fig.~\ref{Fig:LSScascadelegend}).
 
 In general, there are four major steps in each of the two cascades:
 \begin{itemize}
@@ -195,10 +195,9 @@ In general, there are four major steps in each of the two cascades:
 \begin{table}
   \footnotesize
   \begin{center}
-    \caption[Data Processing table for N-band long-slit spectroscopy]{%
-      Data Processing table for N long-slit spectroscopy
-      calibration mode}\bigskip
-    \label{Tab:NLssDatProc}
+    \caption[Data Processing table for N long-slit spectroscopy (cf. Fig.~\ref{Fig:LNLssAssomap1}): Main calibration]{%
+      Data Processing table for N long-slit spectroscopy (cf. Fig.~\ref{Fig:NLssAssomap1}: Main calibration}\bigskip
+    \label{Tab:NLssDatProc1}
     \begin{tabular}{|l|l|l|l|l|l|}
       \hline
       Data Type   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
@@ -232,15 +231,18 @@ In general, there are four major steps in each of the two cascades:
     		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \hyperref[dataitem:n_lss_wave_guess]{\STATCALIB{N_LSS_WAVE_GUESS}} & \\
     		& & & & \hyperref[dataitem:n_lss_dist_sol]{\STATCALIB{N_LSS_DIST_SOL}} &\\
     \hline
+    \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 
             
 \begin{table}
   \footnotesize
   \begin{center}
-    \caption[Data Processing table for N-band long-slit spectroscopy]{%
-      Data Processing table for N long-slit spectroscopy
-      calibration mode}\bigskip
-    \label{Tab:NLssDatProc}
+    \caption[Data Processing table for N long-slit spectroscopy (cf. Fig.~\ref{Fig:NLssAssomap2}): Post-calibration / telluric correction with \texttt{molecfit}]{%
+      Data Processing table for N long-slit spectroscopy (cf. Fig.~\ref{Fig:LNLssAssomap2}): Post-calibration / telluric correction with \texttt{molecfit} }\bigskip
+    \label{Tab:NLssDatProc2}
     \begin{tabular}{|l|l|l|l|l|l|}
       \hline
       Data Type   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
