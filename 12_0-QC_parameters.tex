@@ -719,9 +719,9 @@ Description & Number of bad pixels as derived in \hyperref[rec:metis_det_lingain
 Comment & None \tabularnewline
 \end{recipedef}
 
-\subsection{IFU mode}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{IFU mode}
+\label{ssec:qc_ifu}
 
 \paragraph{\QC{QC IFU STD FWHM}}\label{qc:qc_igu_std_fwhm}
 \begin{recipedef}
@@ -738,8 +738,6 @@ Description & FWHM of the standard star PSF averaged over central wavelength bin
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \paragraph{\QC{QC IFU STD ELLIP}}\label{qc:qc_ifu_std_ellip}
 \begin{recipedef}
 Name & \QC{QC IFU STD ELLIP} \tabularnewline
@@ -755,8 +753,28 @@ Description & Ellipticity of the standard star PSF averaged over central wavelen
 Comment & \tabularnewline
 \end{recipedef}
 
-\subsection{Long-slit spectroscopy mode}
+
+
+\paragraph{\QC{QC IFU WAVECAL LINE WIDTH}}\label{qc:qc_ifu_wavecal_line_width}
+\begin{recipedef}
+Name & \QC{QC IFU WAVECAL LINE WIDTH} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & pix \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \hyperref[rec:rec:metis_ifu_wavecal]{\REC{rec:metis_ifu_wavecal}}\\
+Description &  The width (FWHM) of the laser line is measured by fitting a Gaussian to it.  \tabularnewline
+Comment & This fullfils \REQ{METIS-6073} \tabularnewline
+\end{recipedef}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Long-slit spectroscopy mode}
 
 
 %%      LM-Band
