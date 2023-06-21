@@ -50,7 +50,7 @@ recipe. If a bad-pixel map is provided on input, it is updated,
 otherwise a new one is created.
 
 \begin{recipedef}
-  Name:                & \REC{metis_n_img_flat}                                         \\
+  Name:                & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}}                                         \\
   Purpose:             & Create master flat field for the N-band imaging detector.      \\
   Requirements:        & \REQ{METIS-6098}                                               \\
   Type:                & Calibration                                                    \\
@@ -68,15 +68,15 @@ otherwise a new one is created.
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
                        & Threshold(s) for deviant-pixel identification                  \\
-  Algorithm:           & Call \REC{metis_apply_persistance_correction} to apply the
+  Algorithm:           & Call \DRL{metis_apply_persistance_correction} to apply the
                          persistance correction \\
-                       & For internal flats: call \REC{metis_det_dark} with \CODE{LAMP OFF}
+                       & For internal flats: call \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}} with \CODE{LAMP OFF}
                        images to create dark frame. \\
                        & Subtract internal dark or master dark from flat exposures.     \\
-                       & call \REC{metis_n_img_flat} to fit slope of pixel values against
+                       & call \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}} to fit slope of pixel values against
                        illumination level. Frames with the same exposure time will be averaged.\\
                        & Compute median or average of input frames to improve statistics.\\
-                       & Call \REC{metis_update_lm_flat_mask} to flag deviant pixels. \\
+                       & Call \DRL{metis_update_lm_flat_mask} to flag deviant pixels. \\
   Output data:         & \hyperref[dataitem:master_img_flat_n]{\PROD{MASTER_IMG_FLAT_N}}                                       \\
                        & \hyperref[dataitem:badpix_map_n]{\PROD{BADPIX_MAP_N}}                                            \\
   Expected accuracies: & \TBD                                                           \\
@@ -121,7 +121,7 @@ correction is applied.
 This fulfills \REQ{METIS-6094}.
 
 \begin{recipedef}
-  Name:              & \REC{metis_n_img_chopnod}                                    \\
+  Name:              & \hyperref[rec:metis_n_img_chopnod]{\REC{metis_n_img_chopnod}}                                    \\
   Purpose:           & chop/nod combination of exposures for background subtraction \\
   Type:              & Calibration, Science                                         \\
  Templates:          & \TPL{METIS_img_n_cal_standard}                              \\
@@ -177,7 +177,7 @@ detection of point sources and surface brightness sensitivity
 following \cite{visir_manual}.
 
 \begin{recipedef}
-  Name:                & \REC{metis_n_img_std_process}                                                 \\
+  Name:                & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}                                                 \\
   Purpose:             & Determine conversion factor between detector counts and physical source flux. \\
   Type:                & Calibration                                                                   \\
   Templates:           & \TPL{METIS_img_n_cal_standard}                                                \\
@@ -186,10 +186,10 @@ following \cite{visir_manual}.
   Matched keywords:    & Object ID                                                                     \\
                        & Filter ID                                                                     \\
   Parameters:          & None (TBD)                                                                    \\
-  Algorithm:           & call \CODE{n_calculate_std_flux} to measure the flux in all beams\\
+  Algorithm:           & call \DRL{n_calculate_std_flux} to measure the flux in all beams\\
                        & average and normalize flux values \\
-                       & call \CODE{calculate_std_fluxcal} to calculate conversion factor to physical units   \\
-                       & call \CODE{calculate_detection_limits} to compute measured background noise (std, rms) and compute detection limits \\
+                       & call \DRL{calculate_std_fluxcal} to calculate conversion factor to physical units   \\
+                       & call \DRL{calculate_detection_limits} to compute measured background noise (std, rms) and compute detection limits \\
   Output data:         & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                            \\
   Expected accuracies: & \TBD                                                                          \\
   QC1 parameters:      & \QC{QC N STD PEAK CNTS}                                                       \\
@@ -238,7 +238,7 @@ header receives the keyword \FITS{BUNIT} with value %
 \CODE{'photon.s**(-1).cm**(-2)'}.
 
 \begin{recipedef}
-  Name:              & \REC{metis_n_img_calibrate}                      \\
+  Name:              & \hyperref[rec:metis_n_img_calibrate]{\REC{metis_n_img_calibrate}}                      \\
   Purpose:           & Convert science image to physical units          \\
                      & Add distortion information                       \\
   Type:              & Calibration                                      \\
@@ -248,8 +248,8 @@ header receives the keyword \FITS{BUNIT} with value %
                      & \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}                        \\
   Matched keywords:  & Filter ID                                        \\
   Parameters:        & TBD                                              \\
-  Algorithm:         & call \REC{n_scale_image_flux} to Scale image data to ph/s \\
-                     & call \REC{n_add_header_distortion} to add header information (\FITS{BUNIT}, etc.)\\
+  Algorithm:         & call \DRL{n_scale_image_flux} to Scale image data to ph/s \\
+                     & call \DRL{n_add_header_distortion} to add header information (\FITS{BUNIT}, etc.)\\
   Output data:       & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}                          \\
   QC1 parameters:    & None                                             \\
 \end{recipedef}
@@ -281,8 +281,8 @@ Algorithms for image restoration of extended sources exist but it
 remains \TBD\ whether these are sufficiently simple and robust to be
 included in the pipeline (cf.\ Sect.~8.8 of \cite{DRLS}).
 
-\begin{recipedef}
-  Name:              & \REC{metis_n_img_restore}                                     \\
+\begin{recipedef}\label{rec:metis_n_img_restore}
+  Name:              & \hyperref[rec:metis_n_img_restore]{\REC{metis_n_img_restore}}                                     \\
   Purpose:           & Restore a single positive beam from chop-nod difference image \\
   Type:              & Science                                                       \\
   Input data:        & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}                                       \\
@@ -319,7 +319,7 @@ other pipeline product. In addition to the distortion table, a map of
 pixel scale across the detector will be created.
 
 \begin{recipedef}
-  Name:                & \REC{metis_n_img_distortion}                                   \\
+  Name:                & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}                                   \\
   Purpose:             & Determine optical distortion coefficients for the N imager.    \\
   Templates:           & \TPL{METIS_img_n_cal_distortion}                               \\
   Type:                & Calibration                                                    \\
@@ -331,7 +331,7 @@ pixel scale across the detector will be created.
                        & \TBD \\
   Algorithm:           & Subtract background image.  (\CODE{hdrl_imagelist_sub_image})                                       \\
                        & Measure location of point source images in frames.   (\CODE{hdrl_catalogue_create})            \\
-                       & call \hyperref[drl:fit_distortion]{\CODE{fit_distortion}} to fit polynomial coefficients to deviations from grid positions. \\
+                       & call \hyperref[drl:fit_distortion]{\DRL{fit_distortion}} to fit polynomial coefficients to deviations from grid positions. \\
   Output data:         & \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}} \\
                        & \hyperref[dataitem:n_distortion_map]{\PROD{N_DISTORTION_MAP}}        \\
                        & \hyperref[dataitem:n_dist_reduced]{\PROD{N_DIST_REDUCED}}             \\
@@ -346,7 +346,7 @@ pixel scale across the detector will be created.
   \centering
   \includegraphics[width=0.6\textwidth]{metis_n_img_distortion}
   \caption[Recipe: \REC{metis_n_img_distortion}]{%
-    \REC{metis_n_img_distortion} -- \CODE{IMG_N} distortion calibration}
+    \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}} -- \CODE{IMG_N} distortion calibration}
   \label{fig:metis_n_img_distortion}
 \end{figure}
 
