@@ -4,6 +4,8 @@ place in this document. All pipeline subsystem requirements are listed; an entry
 stating \emph{N/A} in the last column indicates that this document does not
 provide evidence to verify the requirement in question. See \cite{DRLVT} for information about their verification.
 
+Requirements marked with $\star$ are commented on individually below the table.
+
 \begin{longtable}[c]{|l|l|l|}
 	\caption{Requirements compliance}
 	\endfirsthead
@@ -25,11 +27,11 @@ provide evidence to verify the requirement in question. See \cite{DRLVT} for inf
 		\REQ{METIS-6071} & External Interfaces to METIS &  N/A \\
 		\REQ{METIS-6072} & Parallel observing mode IMG-LM and LMS &  \\
 		\REQ{METIS-6073} & LMS Spectral Resolution & \ref{qc:qc_ifu_wavecal_line_width} \\
-		\REQ{METIS-6074} & Wavelength calibration &  \\
-		\REQ{METIS-6075} & Burst mode data rates &  \\
-		\REQ{METIS-6077} & Operational use cases &  \\
-		\REQ{METIS-6078} & Electrical power consumption of DRS work station &  \\
-		\REQ{METIS-6080} & FITS format and meta-data of generated data &  \\
+		\REQ{METIS-6074} & Wavelength calibration & \ref{rec:metis_lm_lss_wave}, \ref{rec:metis_n_lss_std} \ref{rec:metis_ifu_wavecal}\\
+		\REQ{METIS-6075} & Burst mode data rates & \ref{ssec:criticalifudatarate} \\
+		\REQ{METIS-6077} & Operational use cases &  $\star$ \\
+		\REQ{METIS-6078} & Electrical power consumption of DRS work station &  N/A \\
+		\REQ{METIS-6080} & FITS format and meta-data of generated data & \ref{ssec:reduced_data_format} \\
 		\REQ{METIS-6081} & FITS keywords &  \\
 		\REQ{METIS-6082} & Data products conformity to ESO standards &  \ref{ssec:reduced_data_format}\\
 		\REQ{METIS-6083} & Material usage & N/A \\
@@ -54,7 +56,7 @@ provide evidence to verify the requirement in question. See \cite{DRLVT} for inf
 		\REQ{METIS-6265} & LMS straylight &  \\
 		\REQ{METIS-6267} & Design Life &  \\
 		\REQ{METIS-6309} & Masked regions of the LMS detectors &  \\
-		\REQ{METIS-6681} & Error propagation &  \\
+		\REQ{METIS-6681} & Error propagation & \ref{Sec:critalg_errorprop} \\
 		\REQ{METIS-6698} & Characterisation and correction of relative spectral response function &  \\
 		\REQ{METIS-6733} & Auxiliary Parameters in Data Products &  \\
 		\REQ{METIS-6923} & QC parameters for permanent monitoring &  \\
@@ -74,3 +76,11 @@ provide evidence to verify the requirement in question. See \cite{DRLVT} for inf
 		\REQ{METIS-10300} & Wavelength-to-pixel calibration uncertainty during AIT  &  \\ 
     \hline
 \end{longtable}
+
+Notes on individual requirements:
+
+\noindent\REQ{METIS-6077} refers to the operational use cases
+\emph{observation}, \emph{calibration} and \emph{maintenance}. As such there is
+no single point in this document to point to for verification evidence. The
+recipes can be found in Chapter \ref{sec:pipeline_recipes} and cover all of
+these use cases.
