@@ -1,19 +1,22 @@
 \subsection{LM IFU: integral-field spectroscopy}
 \label{ssec:overview_ifu}
 
-The \ac{IFU} pipeline has not yet been revised since PDR, hence the
-description in \cite{DRLS} applies. For reference, the association map
-is shown in Fig.~\ref{Fig:IfuAssomap}.
+% The \ac{IFU} pipeline has not yet been revised since PDR, hence the
+% description in \cite{DRLS} applies.
+% For reference, t
+The association map is shown in Fig.~\ref{Fig:IfuAssomap}.
 
+\TODO{
 We will consider rearranging the recipes to be in line with the
 imaging pipelines. This would entail handling basic reduction and
 background subtraction for of both science and standard exposures in
-common recipes (\REC{metis_ifu_basic}, \REC{metis_ifu_background}),
+common recipes (\CODE{metis_ifu_basic}, \CODE{metis_ifu_background}),
 then having a recipe to analyse the standard observations
-(\REC{metis_ifu_std_process}). The science exposures are then fully
-calibrated (\REC{metis_ifu_calibrate}). A full set of exposures would
+(\CODE{metis_ifu_std_process}). The science exposures are then fully
+calibrated (\CODE{metis_ifu_calibrate}). A full set of exposures would
 then be assembled and restored with a fully sampled PSF in a
-post-processing recipe (\REC{metis_ifu_combine}).
+post-processing recipe (\CODE{metis_ifu_combine}).
+}
 
 \begin{landscape}
 \begin{figure}[ht]
