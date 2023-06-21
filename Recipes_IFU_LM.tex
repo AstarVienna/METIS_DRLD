@@ -44,7 +44,7 @@ interpolating. The slice number is then obtained by counting the
 slices according to the optical design of the spectrograph. The
 wavelength of each line is known from the settings of the \ac{QCL}, the $x$
 coordinate is obtained by linear interpolation along the line (or
-perhaps using the distortion table from \REC{metis_ifu_distortion} if
+perhaps using the distortion table from \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}} if
 necessary). The functions $f_{i}$ and $g_{i}$ are expected to be
 sufficiently accurately described by low-order polynomials.
 
@@ -53,7 +53,7 @@ extension mapping wavelength across each detector in the array. A
 table extension holds the polynomial coefficients.
 
 \begin{recipedef}
-  Name:                & \REC{metis_ifu_wavecal}                                                \\
+  Name:                & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}                                                \\
   Purpose:             & Determine pixel-to-wavelength transformation.                          \\
   Requirements:        & \REQ{METIS-6074}                                                       \\
   Type:                & Calibration                                                            \\
@@ -100,7 +100,7 @@ function obtained by averaging at constant wavelength as
 that deviate strongly from their neighbours.
 
 \begin{recipedef}
-Name:                & \REC{metis_ifu_rsrf}                                                     \\
+Name:                & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}}                                                     \\
 Purpose:             & Create relative spectral response function for the IFU detector.         \\
 Requirements:        & \REQ{METIS-6131}, \REQ{METIS-6698}                                       \\
 Type:                & Calibration                                                              \\
@@ -159,7 +159,7 @@ may be refined by measuring telluric emission and/or absorption lines
 (by fitting with \lstinline{molecfit}).
 
 \begin{recipedef}
-  Name:                & \REC{metis_ifu_std_process}                                            \\
+  Name:                & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}                                            \\
   Purpose:             & Determine conversion between detector counts and physical source flux. \\
   Requirements:        & \REQ{METIS-6131}                                                       \\
   Type:                & Calibration                                                            \\
@@ -191,7 +191,7 @@ may be refined by measuring telluric emission and/or absorption lines
   \centering
   \includegraphics[width=0.7\textwidth]{metis_ifu_std_process}
   \caption[Recipe: \REC{metis_ifu_std_process}]{%
-    \REC{metis_ifu_std_process} -- reduction of IFU flux standard
+    \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}} -- reduction of IFU flux standard
     frames and flux calibration (not all data products are shown).}
   \label{fig:metis_ifu_std_process}
 \end{figure}
@@ -250,8 +250,8 @@ Various levels of output data can be envisaged:
 \item A spectral cube obtained by combining all exposures taken within
   a template. This step involves the image reconstruction discussed in
   Sect.~8.9 of \cite{DRLS}. Whether this step is included
-  in the present recipe \REC{metis_ifu_sci_process} or is postponed to
-  the more general recipe \REC{metis_ifu_sci_postprocess} is TBD. It
+  in the present recipe \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} or is postponed to
+  the more general recipe \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}} is TBD. It
   may be formally required to do the image reconstruction here if
   templates are set up to obtain a fixed set of spatially dithered and
   rotated exposures aimed at reconstructing a fully sampled PSF in
@@ -271,7 +271,7 @@ that are taken in parallel with the IFU exposures, similar to
 \REC{metis_lm_img_sci_process} (Sect.~\ref{ssec:recipes_img_lm}).
 
 \begin{recipedef}
-Name:                & \REC{metis_ifu_sci_process}                                                              \\
+Name:                & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}                                                              \\
 Purpose:             & Reduction of individual science exposures.                                               \\
 Requirements:        & \REQ{METIS-6131}                                                                         \\
 Type:                & Science                                                                                  \\
@@ -320,7 +320,7 @@ QC1 parameters:      & TBD                                                      
   \centering
   \includegraphics[width=0.7\textwidth]{metis_ifu_sci_process}
   \caption[Recipe: \REC{metis_ifu_sci_process}]{%
-    \REC{metis_ifu_sci_process} -- reduction of IFU science frames.}
+    \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} -- reduction of IFU science frames.}
   \label{fig:metis_ifu_sci_process}
 \end{figure}
 
@@ -342,7 +342,7 @@ spectrum. The spectrum is extracted from a combined cube
 \REC{metis_ifu_sci_process} specified in the input set of frames.
 
 \begin{recipedef}
-  Name:                & \REC{metis_ifu_tellcorr}                                                        \\
+  Name:                & \hyperref[rec:metis_ifu_tellcorr]{\REC{metis_ifu_tellcorr}}                                                        \\
   Purpose:             & Remove telluric absorption features                                             \\
   Requirements:        & \REQ{METIS-6091}                                                                \\
   Type:                & Calibration / post processing                                                   \\
@@ -405,7 +405,7 @@ The recipe is only used in the science-grade pipelines, not at the
 observatory.
 
 \begin{recipedef}
-  Name:           & \REC{metis_ifu_sci_postprocess}                                            \\
+  Name:           & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}}                                            \\
   Purpose:        & Coaddition and mosaicing of reduced science cubes.                         \\
   Requirements:   & \REQ{METIS-6131}                                                           \\
   Type:           & Science                                                                    \\
@@ -424,7 +424,7 @@ observatory.
   \centering
   \includegraphics[width=0.7\textwidth]{metis_ifu_sci_postprocess}
   \caption[Recipe: \REC{metis_ifu_sci_postprocess}]{%
-    \REC{metis_ifu_sci_postprocess} -- post-processing (coaddition) of
+    \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}} -- post-processing (coaddition) of
     reduced IFU science frames.}
   \label{fig:metis_ifu_sci_postprocess}
 \end{figure}
@@ -443,7 +443,7 @@ array to sky positions. Measurement of the FWHM of the spots gives an
 indication of the variation of spectral resolution across the field of view.
 
 \begin{recipedef}
-  Name:                & \REC{metis_ifu_distortion}                                                  \\
+  Name:                & \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}}                                                  \\
   Purpose:             & Determine geometric distortion coefficients for the IFU.                    \\
   Requirements:        & \REQ{METIS-6087}, \REQ{METIS-6073}                                          \\
   Type:                & Calibration                                                                 \\
@@ -463,7 +463,7 @@ indication of the variation of spectral resolution across the field of view.
   \centering
   \includegraphics[width=0.6\textwidth]{metis_ifu_distortion}
   \caption[Recipe: \REC{metis_ifu_distortion}]{%
-    \REC{metis_ifu_distortion} -- IFU distortion calibration}
+    \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}} -- IFU distortion calibration}
   \label{fig:metis_ifu_distortion}
 \end{figure}
 

@@ -37,7 +37,7 @@ recipe. If a bad-pixel map is provided on input, it is updated,
 otherwise a new one is created.
 
 \begin{recipedef}
-  Name:                & \REC{metis_lm_img_flat}                                        \\
+  Name:                & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}}                                        \\
   Purpose:             & Create master flat field for the LM-band imaging detector.     \\
   Requirements:        & \REQ{METIS-6096}                                               \\
   Type:                & Calibration                                                    \\
@@ -56,9 +56,9 @@ otherwise a new one is created.
                        & Parameters for combination methods                             \\
                          & Threshold(s) for deviant-pixel identification                  \\
  Algorithm:            & Call \DRL{metis_apply_persistance_correction} to apply the persistance correction \\
-                         & For internal flats: call \REC{metis_det_dark} with \CODE{LAMP OFF} images to create dark frame. \\
+                         & For internal flats: call \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}} with \CODE{LAMP OFF} images to create dark frame. \\
  & Subtract internal dark or master dark from flat exposures.     \\
-  & call \REC{metis_lm_img_flat} to fit slope of pixel values against illumination level. Frames
+  & call \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}} to fit slope of pixel values against illumination level. Frames
   with the same exposure time will be averaged.\\
                        & Compute median or average of input frames to improve statistics.\\
                        & Call \DRL{metis_update_lm_flat_mask} to flag deviant pixels. \\
@@ -106,7 +106,7 @@ Basic statistics of the images can be used to screen for saturation.
   channel offset correction and crosstalk (see \cite{matisse_minutes}).}
 
 \begin{recipedef}
-  Name:             & \REC{metis_lm_img_basic_reduce}   \\
+  Name:             & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}   \\
   Purpose:          & apply basic reduction of images   \\
   Type:             & Calibration, Science              \\
   Templates:        & \TPL{METIS_img_lm_cal_standard}  \\
@@ -185,7 +185,7 @@ counts within an aperture.}
 \TODO{Is this good enough for HCI images or do we need more?}
 
 \begin{recipedef}
-  Name:             & \REC{metis_lm_img_background}                             \\
+  Name:             & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}                             \\
   Purpose:          & estimate and subtract background                          \\
   Type:             & Calibration                                               \\
   Templates:        & \TPL{METIS_img_lm_cal_standard}                           \\
@@ -254,7 +254,7 @@ counts within an aperture.}
 % and calibration parameters.
 %
 % \begin{recipedef}
-%   Name:                & \REC{metis_lm_img_astrometry_process}                                               \\
+%   Name:                & \hyperref[rec:metis_lm_img_astrometry_process]{\REC{metis_lm_img_astrometry_process}}                                               \\
 %   Purpose:             & Determine conversion factor between pixel and world coordinates              \\
 %   Type:                & Calibration                                                                  \\
 %   Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
@@ -311,7 +311,7 @@ detection of point sources and surface brightness sensitivity
 following \cite{visir_manual}.
 
 \begin{recipedef}\label{rec:metis_lm_img_std_process}
-  Name:                & \REC{metis_lm_img_std_process}                                               \\
+  Name:                & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}                                               \\
   Purpose:             & Determine conversion factor between detector counts and physical source flux \\
   Type:                & Calibration                                                                  \\
   Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
@@ -386,7 +386,7 @@ header. The images are not resampled by this recipe, this is left to
 
 
 \begin{recipedef}\label{rec:metis_lm_img_calibrate}
-  Name:              & \REC{metis_lm_img_calibrate}                     \\
+  Name:              & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}                     \\
   Purpose:           & Convert science images to physical units         \\
                      & Add distortion information                       \\
   Type:              & Calibration                                      \\
@@ -433,7 +433,7 @@ This recipe will only be used in the science-grade pipelines, not at
 the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant with \REQ{METIS-6104}.
 
 \begin{recipedef}\label{rec:metis_lm_img_sci_postprocess}
-  Name:                & \REC{metis_lm_img_sci_postprocess}                         \\
+  Name:                & \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}}                         \\
   Purpose:             & Coadd reduced images.                                      \\
   Requirements:        & \REQ{METIS-6104}                                           \\
   Templates:           & ---                                                        \\
@@ -458,7 +458,7 @@ the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant
   \centering
   \includegraphics[width=0.7\textwidth]{metis_lm_img_sci_postprocess}
   \caption[Recipe: \REC{metis_lm_img_sci_postprocess}]{%
-    \REC{metis_lm_img_sci_postprocess} -- post-processing (coaddition)
+    \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}} -- post-processing (coaddition)
     of reduced \CODE{IMG_LM} science frames.}
   \label{fig:metis_lm_img_sci_postprocess}
 \end{figure}
@@ -479,7 +479,7 @@ other pipeline product. In addition to the distortion table, a map of
 pixel scale across the detector will be created.
 
 \begin{recipedef}
-  Name:                & \REC{metis_lm_img_distortion}                                   \\
+  Name:                & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}                                   \\
   Purpose:             & Determine optical distortion coefficients for the LM imager.    \\
   Requirements:        & \REQ{METIS-6087}                                                \\
   Templates:           & \TPL{METIS_img_lm_cal_distortion}                               \\
@@ -507,7 +507,7 @@ pixel scale across the detector will be created.
   \centering
   \includegraphics[width=0.6\textwidth]{metis_lm_img_distortion}
   \caption[Recipe: \REC{metis_lm_img_distortion}]{%
-    \REC{metis_lm_img_distortion} -- LM IMG distortion calibration}
+    \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}} -- LM IMG distortion calibration}
   \label{fig:metis_lm_img_distortion}
 \end{figure}
 
