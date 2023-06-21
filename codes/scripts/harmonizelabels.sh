@@ -30,7 +30,21 @@ sed -E 's!\\REC\{([0-9a-zA-Z_]*)([}: ]+)\\label\{rec:[0-9a-zA-Z_:]*}!\\REC\{\1\2
 # Convert all PRODs that are not yet a link. That is, " \PROD{SOMETHING}"
 # Run manually
 sed -E 's! \\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}! \\hyperref\[dataitem:\2]\{\\\1\{\2}}!g' -i -- *.tex
-#sed -E 's! \\(REC)\{([0-9a-zA-Z_]+)}! \\hyperref\[rec:\2]\{\\\1\{\2}}!g' -i -- *.tex
+
+# \REC is also used in subsection headers, those should not be hyperrefs.
+# \subsubsection{Recipes \REC{metis_det_lingain} and \REC{metis_det_dark}}
+# So first replace those with a placeholder.
+sed -E 's!(subsection.*\\)REC!\1QQQQQQ!g' -i -- *.tex
+# Do it twice, because occasionally there are two in a header.
+sed -E 's!(subsection.*\\)REC!\1QQQQQQ!g' -i -- *.tex
+# \REC is also used in the short captions for the table of contents.
+#   \caption[Recipe: \REC{metis_lm_img_flat}]{\REC{metis_lm_img_flat} ... }
+# This can be determined by checking for the closing ].
+# Then add a hyperref to all \REC.
+sed -E 's! \\REC\{([0-9a-zA-Z_]+)}([^]])! \\hyperref\[rec:\1]\{\\REC\{\1}}\2!g' -i -- *.tex
+# Finally replace the placeholder again.
+sed -E 's!(subsection.*\\)QQQQQQ!\1REC!g' -i -- *.tex
+sed -E 's!(subsection.*\\)QQQQQQ!\1REC!g' -i -- *.tex
 
 # Then make all the labels lowercase
 sed -E 's|(dataitem:[0-9a-zA-Z_]*)|\L\1|g' -i -- *.tex
