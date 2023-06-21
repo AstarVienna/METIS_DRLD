@@ -32,7 +32,7 @@ array for which data are being processed.
 The recipe determines detector (non-)linearity and absolute detector
 gain from a set of flat-field frames taken with the broad-band lamp
 over a range of detector exposure times (DITs) and flux levels. The
-recipe structure will be similar as for \REC{detmon_ir_lg}
+recipe structure will be similar as for \CODE{detmon_ir_lg} % Not a \REC because it is not our recipe
 \cite{detmon-manual}; however, further insight into detector behaviour
 (in particular of GeoSnap) may necessitate development of more complex
 procedures.
@@ -133,9 +133,9 @@ This fulfills \REQ{METIS-6063}.
                        & Parameters for combination methods                                          \\
                        & Thresholds for deviant-pixel identification                                      \\
   Algorithm:           & Group files by detector and \texttt{DIT}, based on header keywords           \\
-                       & Call function \REC{metis_determine_dark} for each set of files\\
+                       & Call function \DRL{metis_determine_dark} for each set of files\\
                        & Compute median or average of input frames to improve statistics.            \\  % separate routine, or part of determine dark
-                       & call \REC{metis_update_dark_mask} to flag deviant pixels \\
+                       & call \DRL{metis_update_dark_mask} to flag deviant pixels \\
   Output data:         & \hyperref[dataitem:master_dark_det]{\PROD{MASTER_DARK_det}}                                                      \\
 % The BPM_COLD_det and BPM_HOT_det do not seem to add value that BADPIX_MAP_det
 % does not already provide. Furthermore, the COLD/HOT specific items are not

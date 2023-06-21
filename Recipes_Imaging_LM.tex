@@ -55,13 +55,13 @@ otherwise a new one is created.
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
                          & Threshold(s) for deviant-pixel identification                  \\
- Algorithm:            & Call \REC{metis_apply_persistance_correction} to apply the persistance correction \\
+ Algorithm:            & Call \DRL{metis_apply_persistance_correction} to apply the persistance correction \\
                          & For internal flats: call \REC{metis_det_dark} with \CODE{LAMP OFF} images to create dark frame. \\
  & Subtract internal dark or master dark from flat exposures.     \\
   & call \REC{metis_lm_img_flat} to fit slope of pixel values against illumination level. Frames
   with the same exposure time will be averaged.\\
                        & Compute median or average of input frames to improve statistics.\\
-                       & Call \REC{metis_update_lm_flat_mask} to flag deviant pixels. \\
+                       & Call \DRL{metis_update_lm_flat_mask} to flag deviant pixels. \\
   Output data:         & \hyperref[dataitem:master_img_flat_lm]{\PROD{MASTER_IMG_FLAT_LM}}                                      \\
                        & \hyperref[dataitem:badpix_map_lm]{\PROD{BADPIX_MAP_LM}}                                           \\
   Expected accuracies: & \TBD                                                           \\
@@ -320,11 +320,11 @@ following \cite{visir_manual}.
   Matched keywords:    & OBJECT ID                                                                    \\
                        & FILTER ID                                                                    \\
   Parameters:          & None (TBD)                                                                   \\
-  Algorithm:           & Call \REC{calculate_std_flux} to measure flux in input images                      \\
-                       & call \REC{recentre_img} to recentre and stack images                         \\
-                       & call \REC{calculate_std_flux} on the stacked image to get flux of the star in detector units\\
-                       & call \REC{caluculate_std_fluxcal} to calculate the conversion factor to physical units    \\
-                       & call \REC{calculate_detection_limits} to compute measure background noise (std,rms) and compute detection limits \\
+  Algorithm:           & Call \DRL{calculate_std_flux} to measure flux in input images                      \\
+                       & call \DRL{recentre_img} to recentre and stack images                         \\
+                       & call \DRL{calculate_std_flux} on the stacked image to get flux of the star in detector units\\
+                       & call \DRL{caluculate_std_fluxcal} to calculate the conversion factor to physical units    \\
+                       & call \DRL{calculate_detection_limits} to compute measure background noise (std,rms) and compute detection limits \\
   Output data:         & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}}                                                       \\
                        & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                           \\
   Expected accuracies: & \TBD                                                                         \\
@@ -396,8 +396,8 @@ header. The images are not resampled by this recipe, this is left to
                      & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}                       \\
   Matched keywords:  & Filter ID                                        \\
   Parameters:        & None (TBD)                                       \\
-  Algorithm:         & call \REC{lm_scale_image_flux} to Scale image data to ph/s \\
-                     & call \REC{lm_add_header_distortion} to add header information (\FITS{BUNIT}, WCS, etc.) \\
+  Algorithm:         & call \DRL{lm_scale_image_flux} to Scale image data to ph/s \\
+                     & call \DRL{lm_add_header_distortion} to add header information (\FITS{BUNIT}, WCS, etc.) \\
   Output data:       & \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}}                         \\
   QC1 parameters:    & None                                             \\
   hdrl functions:    & \CODE{hdrl_imagelist_mult_scalar}                \\
