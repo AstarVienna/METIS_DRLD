@@ -61,6 +61,32 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
+\paragraph{\hyperref[dataitem:dark_det_raw]{\RAW{DARK_det_RAW}}}\label{dataitem:dark_det_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:dark_det_raw]{\PROD{DARK_det_RAW}}\\[0.3cm]
+Description: & Raw data for dark subtraction in other recipes.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,det}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DARK_INTERNAL_det}\\[0.3cm]
+Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
+                       & \TPL{METIS_img_n_cal_DetLin}                                                        \\
+                       & \TPL{METIS_ifu_cal_DetLin}                                                          \\
+                    & \TODO{Many more} \\
+Input for recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+                  & \TODO{Many more} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item TODO
+\end{enumerate}
+\end{datastructdef}
 
 \paragraph{\hyperref[dataitem:dark_internal_det_raw]{\RAW{DARK_INTERNAL_det_RAW}}}\label{dataitem:dark_internal_det_raw}
 \begin{recipedef}
