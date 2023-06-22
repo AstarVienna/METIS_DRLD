@@ -48,6 +48,24 @@ The following header keywords are mandatory for the data processing to function:
 
 \subsection{Specification of FITS header keywords used in imaging and spectroscopy recipes}{}\label{sec:allheaderkeywords}
 
+\subsubsection{DET\textit{n}.ID}\label{fits:det.id}
+\begin{recipedef}
+Name & DET\textit{n}.ID \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & none \tabularnewline
+Comment & keyword to identify detector  \tabularnewline
+        & 2RG = Hawaii 2RG from the \ac{IMG}/\ac{LSS}  \tabularnewline
+        & \acIFU: IFU detectors \tabularnewline
+Default & 1.0 \tabularnewline
+Range & 0.0..3600.0 \tabularnewline
+Description & Detector integration time (average when NDIT $>$ 1) \tabularnewline
+\end{recipedef}
+
+
+
 \subsubsection{DET\textit{n}.DIT}\label{fits:det.dit}
 \begin{recipedef}
 Name & DET\textit{n}.DIT \tabularnewline
