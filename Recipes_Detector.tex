@@ -127,7 +127,9 @@ This fulfills \REQ{METIS-6063}.
   Requirements:        & \REQ{METIS-6063}                                                            \\
   Type:                & Calibration                                                                 \\
   Templates:           & \TPL{METIS_gen_cal_dark}                                                    \\
-  Input data:          & Detector linearity map and a set of DARK frames from various detectors with various integration times. \\
+  Input data:          & \hyperref[dataitem:linearity_det]{\EXTCALIB{LINEARITY_2RG}}  \\
+                       & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
+                       & \hyperref[dataitem:dark]{\EXTCALIB{DARK_RAW}}  \\
   Parameters:          & Combination method (\texttt{median}, \texttt{mean},
                          \texttt{sigclip},\dots)                                                  \\
                        & Parameters for combination methods                                          \\
@@ -157,7 +159,7 @@ This fulfills \REQ{METIS-6063}.
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.5\textwidth]{metis_det_dark.pdf}
+  \includegraphics[width=0.5\textwidth]{figures/metis_det_dark_v0.83.pdf}
   \caption[Recipe: \REC{metis_det_dark}]{\REC{metis_det_dark} -- creation of master
     dark and bad pixel maps}
   \label{Fig:rec_det_dark}
