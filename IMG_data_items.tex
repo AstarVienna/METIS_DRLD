@@ -75,15 +75,18 @@ Templates:           & \TPL{METIS_img_lm_cal_DetLin}                            
                        & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
                     & \TODO{Many more} \\
-Input for recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
-                  & \TODO{Many more} \\
+Input for recipe: & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
+
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+
     \item TODO
 \end{enumerate}
 \end{datastructdef}
