@@ -102,21 +102,21 @@ In general, there are four major steps in each of the two cascades:
       Data Type   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
     (Templates) & Keywords	 & Processing steps	&		&	  &	\\
     \hline
-    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \hyperref[sssec:metis_det_dark]{\REC{metis_det_dark}} & Exposure time	&	\hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}& Averaged dark frame\\
-    		& \CODE{DPR.TYPE==DARK}  &			&		&	\hyperref[dataitem:linearity_2rg]{\PROD{LINEARITY_2RG}} & Bad pixel map\\
-    		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
+    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \hyperref[sssec:metis_det_dark]{\REC{metis_det_dark}} & Exposure time	&	\hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}} & Averaged dark frame\\
+    		& \CODE{DPR.TYPE==DARK}  &			&		&	\hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} & Bad pixel map\\
+    		& \CODE{DPR.TECH==IMAGE}  &			&		&	 & \\
     \hline
-    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} & Exposure time	& \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}	& Averaged, normalized flatfield\\
-    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	& 	& \\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	& \\
+    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} & Exposure time	& \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}	& Averaged, normalized flatfield\\
+    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	& 	\hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} & \\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	\hyperref[dataitem:linearity_det]{\PROD{LINEARITY_2RG}} & \\
     \hline
-         	& \CODE{DPR.CATG==CALIB} &\hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} & Exposure time	& \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}	& Order location\\
-    		& \CODE{DPR.TYPE==FLAT}  &			&		&	& (polynomial fit)\\
+         	& \CODE{DPR.CATG==CALIB} &\hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} & Exposure time	&	\hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}& Order location\\
+    		& \CODE{DPR.TYPE==FLAT}  &			&		&	 \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}& (polynomial fit)\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
-    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} &\hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} & Exposure time &  \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} & wavelength solution\\
-    		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Grism & \hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}} &\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	& \\
+    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} &\hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} & Exposure time &   & wavelength solution\\
+    		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Grism & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} &\\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	\hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}}& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
     \TPL{STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}& Object name (\ac{STD} star) & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} & Instrumental\\
