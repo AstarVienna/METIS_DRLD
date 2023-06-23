@@ -36,8 +36,10 @@ sed -E 's!\\QC\{([0-9a-zA-Z<>#_ ]*)([}: ]+)\\label\{qc:[0-9a-zA-Z_:<>#]*}!\\QC\{
 
 # Convert all PRODs that are not yet a link. That is, " \PROD{SOMETHING}"
 sed -E 's! \\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}! \\hyperref\[dataitem:\2]\{\\\1\{\2}}!g' -i -- *.tex
+
 # Convert all QC that do not yet have a hyperref.
-sed -E 's! \\(QC)\{([0-9a-zA-Z_ ]+)}! \\hyperref\[qc:\2]\{\\\1\{\2}}!g' -i -- *.tex
+# TODO: enable
+#sed -E 's! \\(QC)\{([0-9a-zA-Z_ ]+)}! \\hyperref\[qc:\2]\{\\\1\{\2}}!g' -i -- *.tex
 
 # \REC is also used in subsection headers, those should not be hyperrefs.
 # \subsubsection{Recipes \REC{metis_det_lingain} and \REC{metis_det_dark}}
