@@ -32,19 +32,16 @@ Description: & Persistence map\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{PERSISTENCE_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{PERSISTENCE_MAP}\\[0.3cm]
-Source: & \ac{ESO} (created with recipe \hyperref[rec:metis_det_persistence])\REC{metis_det_persistence}\\
+Source: & \ac{ESO} created with recipe \REC{metis_det_persistence}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-Purpose: & wavelength calibration\\
-        & sky emission removal\\
-        & telluric correction\\
+Purpose: & removal of persistence patterns\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
-    \item \texttt{cpl\_table * table: Tables}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.tech]{\FITS{PRO.TECH}},  \hyperref[fits:det.id]{\FITS{DET.ID}}) (more tbd)}
+    \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
