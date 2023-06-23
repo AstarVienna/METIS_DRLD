@@ -201,27 +201,28 @@ In general, there are four major steps in each of the two cascades:
     \label{Tab:NLssDatProc1}
     \begin{tabular}{|l|l|l|l|l|l|}
       \hline
-      Data Type   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
-    (Templates) & Keywords	 & Processing steps	&		&	  &	\\
+      Data Type   & Classification & Recipe (Level)	& FITS Keywords & static/external  & Products\\
+    (Templates) & Keywords	 & Processing steps	&		&	CalibDB  &	\\
     \hline
-    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \hyperref[sssec:metis_det_dark]{\REC{metis_det_dark}} & Exposure time	& 	& Averaged dark frame\\
+    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \hyperref[sssec:metis_det_dark]{\REC{metis_det_dark}} & Exposure time	& 	\hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}} & Averaged dark frame\\
     		& \CODE{DPR.TYPE==DARK}  &			&		&	\hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}} & Bad pixel map\\
-    		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
+    		& \CODE{DPR.TECH==IMAGE}  &			&		&	\hyperref[dataitem:linearity_det]{\PROD{LINEARITY_GEO}} & \\
     \hline
-    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} & Exposure time	& 	& Averaged, normalized flatfield (\ac{RSRF}\\
+    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} & Exposure time	& \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}	& Averaged, normalized flatfield (\ac{RSRF}\\
     		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	&	\hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}} & Bad pixel map\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	& \\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	\hyperref[dataitem:linearity_det]{\PROD{LINEARITY_GEO}} & \\
     \hline
-         	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace} }& Exposure time	& 	& Order location\\
+         	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace} }& Exposure time	& 	\hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}} & Order location\\
     		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	&	\hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}} & (polynomial fit)\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	& \\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	 \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_GEO}} & \\
     \hline
-    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} & Object name (\ac{STD} star) & \hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}} & Instrumental\\
-    		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \hyperref[dataitem:n_lss_wave_guess]{\STATCALIB{N_LSS_WAVE_GUESS}} & response function\\
-    		& \CODE{DPR.TECH==SPECTRUM}   &			   & Grism		& \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}	& transmission (optional)\\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  Slit & \hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}} & wavelength correction\\
-    		& & & & \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}} & (optional)\\
-    		& & & &  \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}} &\\
+    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} & Object name (\ac{STD} star) & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}} & Instrumental\\
+    		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}} & response function\\
+    		& \CODE{DPR.TECH==SPECTRUM}   &			   & Grism		& \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_GEO}} & transmission (optional)\\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  &  Slit & \hyperref[dataitem:n_lss_wave_guess]{\STATCALIB{N_LSS_WAVE_GUESS}} & wavelength correction\\
+    		& & & &  \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}	 & (optional)\\
+    		& & & & \hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}} &\\
+    		& & & &  \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}} &\\
     		& & & & \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} &\\
     		& & & & \hyperref[dataitem:n_lss_dist_sol]{\STATCALIB{N_LSS_DIST_SOL}} &\\
     		& & & & \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}} &\\
@@ -233,7 +234,6 @@ In general, there are four major steps in each of the two cascades:
     		& & & & \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}} &\\
     		& & & & \hyperref[dataitem:n_lss_wave_guess]{\STATCALIB{N_LSS_WAVE_GUESS}} &\\
     		& & & & \hyperref[dataitem:n_lss_dist_sol]{\STATCALIB{N_LSS_DIST_SOL}} &\\
-    \hline
     \hline
     \end{tabular}
   \end{center}
@@ -248,8 +248,8 @@ In general, there are four major steps in each of the two cascades:
     \label{Tab:NLssDatProc2}
     \begin{tabular}{|l|l|l|l|l|l|}
       \hline
-      Input   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
-    data & Keywords	 & Processing steps	&		&	  &	\\
+      Input   & Classification & Recipe (Level)	& FITS Keywords & static/external & Products\\
+    data & Keywords	 & Processing steps	&		&	CalibDB  &	\\
     \hline
     Science grade spectrum & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:metis_n_lss_mf_model]{\REC{metis_N_lss_mf_model}} & Object name & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}}	 & Best-fit \\
     	\ac{STD} star spectrum	& \CODE{DPR.TYPE==OBJECT}   &			  & & \hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}}  & \texttt{molecfit} parameters\\
