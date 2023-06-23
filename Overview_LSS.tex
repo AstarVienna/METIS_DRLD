@@ -104,7 +104,7 @@ In general, there are four major steps in each of the two cascades:
     \hline
     \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \hyperref[sssec:metis_det_dark]{\REC{metis_det_dark}} & Exposure time	&	\hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}} & Averaged dark frame\\
     		& \CODE{DPR.TYPE==DARK}  &			&		&	\hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} & Bad pixel map\\
-    		& \CODE{DPR.TECH==IMAGE}  &			&		&	 & \\
+    		& \CODE{DPR.TECH==IMAGE}  &			&		&	\hyperref[dataitem:linearity_det]{\PROD{LINEARITY_2RG}} & \\
     \hline
     \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} & Exposure time	& \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}	& Averaged, normalized flatfield\\
     		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	& 	\hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} & \\
@@ -112,25 +112,26 @@ In general, there are four major steps in each of the two cascades:
     \hline
          	& \CODE{DPR.CATG==CALIB} &\hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} & Exposure time	&	\hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}& Order location\\
     		& \CODE{DPR.TYPE==FLAT}  &			&		&	 \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}& (polynomial fit)\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	\hyperref[dataitem:linearity_det]{\PROD{LINEARITY_2RG}} & \\
     \hline
     \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} &\hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} & Exposure time & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  & wavelength solution\\
     		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Grism & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} &\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	\hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}}& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	\hyperref[dataitem:linearity_det]{\PROD{LINEARITY_2RG}}& \\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}} & \\
     \hline
-    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}& Object name (\ac{STD} star) & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} & Instrumental\\
-      & \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} & response function\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}& Transmission (optionally)\\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}} & Wavelength correction \\
-    		& & & & \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} & (optionally)\\    
-%    		& & & & \hyperref[dataitem:tss_model_cat]{\STATCALIB{TSS_MODEL_CAT}} &\\    
+    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}& Object name (\ac{STD} star) & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}} & Instrumental\\
+      & \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time &  & response function\\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} & Transmission (optionally)\\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} & Wavelength correction \\
+    		& & & & \hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}} & (optionally)\\  
+    		& & & & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}} &\\    
+    		& & & &  \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} &\\    
 %    		& & & & \hyperref[dataitem:tss_cont_tab]{\STATCALIB{TSS_CONT_TAB}} &\\    
     		& & & & \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}} &\\    \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} & Object name &  \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} & Science grade spectrum\\
-    		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}} &\\
-    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	& \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
-    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit  &  & \\
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} & Object name & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  & Science grade spectrum\\
+    		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} &\\
+    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&\hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}} & \\
+    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit  &  \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
     \hline
     \end{tabular}
   \end{center}
