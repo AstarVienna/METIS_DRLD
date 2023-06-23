@@ -27,12 +27,12 @@ See \hyperref[dataitem:gain_map_det]{\PROD{GAIN_MAP_det}}.
 \paragraph{\hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}}\label{dataitem:persistence_map}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:atm_line_cat]{\PROD{ATM_LINE_CAT}}\\[0.3cm]
-Description: & Line list of atmospheric emission and absorption lines\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{ATM_LINE_CAT}\\
+Name: & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{PERSISTENCE_MAP}}\\[0.3cm]
+Description: & Persistence map\\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{PERSISTENCE_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{ATM_LINE_CAT}\\[0.3cm]
-Source: & \ac{HITRAN} database (\url{https://hitran.org/})\\
+\FITS{DO.CATG}: & \FITS{PERSISTENCE_MAP}\\[0.3cm]
+Source: & \ac{ESO} (created with recipe \hyperref[rec:metis_det_persistence])\REC{metis_det_persistence}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & wavelength calibration\\
         & sky emission removal\\
@@ -53,7 +53,7 @@ Purpose: & wavelength calibration\\
 \paragraph{\hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}}\label{dataitem:atm_line_cat}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:atm_line_cat]{\PROD{ATM_LINE_CAT}}\\[0.3cm]
+Name: & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}\\[0.3cm]
 Description: & Line list of atmospheric emission and absorption lines\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{ATM_LINE_CAT}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
