@@ -102,24 +102,24 @@ In general, there are four major steps in each of the two cascades:
       Data Type   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
     (Templates) & Keywords	 & Processing steps	&		&	  &	\\
     \hline
-    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \hyperref[sssec:metis_det_dark]{\REC{metis_det_dark}} & Exposure time	&	\hyperref[dataitem:gain_map_lm]{\PROD{GAIN_MAP_LM}}& Averaged dark frame\\
+    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \hyperref[sssec:metis_det_dark]{\REC{metis_det_dark}} & Exposure time	&	\hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}& Averaged dark frame\\
     		& \CODE{DPR.TYPE==DARK}  &			&		&	& Bad pixel map\\
     		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
     \hline
-    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} & Exposure time	& \hyperref[dataitem:gain_map_lm]{\PROD{GAIN_MAP_LM}}	& Averaged, normalized flatfield\\
+    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} & Exposure time	& \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}	& Averaged, normalized flatfield\\
     		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	& 	& \\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	& \\
     \hline
-         	& \CODE{DPR.CATG==CALIB} &\hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} & Exposure time	& \hyperref[dataitem:gain_map_lm]{\PROD{GAIN_MAP_LM}}	& Order location\\
+         	& \CODE{DPR.CATG==CALIB} &\hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} & Exposure time	& \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}	& Order location\\
     		& \CODE{DPR.TYPE==FLAT}  &			&		&	& (polynomial fit)\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	& \\
     \hline
-    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} &\hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} & Exposure time &  \hyperref[dataitem:gain_map_lm]{\PROD{GAIN_MAP_LM}} & wavelength solution\\
+    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} &\hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} & Exposure time &  \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} & wavelength solution\\
     		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Grism & \hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}} &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  & & \\
     \hline
-    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}& Object name (\ac{STD} star) & \hyperref[dataitem:gain_map_lm]{\PROD{GAIN_MAP_LM}} & Instrumental\\
+    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}& Object name (\ac{STD} star) & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} & Instrumental\\
       & \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} & response function\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}& Transmission (optionally)\\
     		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}} & Wavelength correction \\
@@ -127,7 +127,7 @@ In general, there are four major steps in each of the two cascades:
 %    		& & & & \hyperref[dataitem:tss_model_cat]{\STATCALIB{TSS_MODEL_CAT}} &\\    
 %    		& & & & \hyperref[dataitem:tss_cont_tab]{\STATCALIB{TSS_CONT_TAB}} &\\    
     		& & & & \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}} &\\    \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} & Object name &  \hyperref[dataitem:gain_map_lm]{\PROD{GAIN_MAP_LM}} & Science grade spectrum\\
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} & Object name &  \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}} & Science grade spectrum\\
     		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}} &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	& \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit  &  & \\
@@ -203,19 +203,19 @@ In general, there are four major steps in each of the two cascades:
       Data Type   & Classification & Recipe (Level)	& FITS Keywords & static CalibDB & Products\\
     (Templates) & Keywords	 & Processing steps	&		&	  &	\\
     \hline
-    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \hyperref[sssec:metis_det_dark]{\REC{metis_det_dark}} & Exposure time	& \hyperref[dataitem:gain_map_n]{\PROD{GAIN_MAP_N}}	& Averaged dark frame\\
+    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \hyperref[sssec:metis_det_dark]{\REC{metis_det_dark}} & Exposure time	& \hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}}	& Averaged dark frame\\
     		& \CODE{DPR.TYPE==DARK}  &			&		&	& Bad pixel map\\
     		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
     \hline
-    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} & Exposure time	& \hyperref[dataitem:gain_map_n]{\PROD{GAIN_MAP_N}}	& Averaged, normalized flatfield (\ac{RSRF}\\
+    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} & Exposure time	& \hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}}	& Averaged, normalized flatfield (\ac{RSRF}\\
     		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	&	& Bad pixel map\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	& \\
     \hline
-         	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace} }& Exposure time	& \hyperref[dataitem:gain_map_n]{\PROD{GAIN_MAP_N}}	& Order location\\
+         	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace} }& Exposure time	& \hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}}	& Order location\\
     		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	&	& (polynomial fit)\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	& \\
     \hline
-    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} & Object name (\ac{STD} star) & \hyperref[dataitem:gain_map_n]{\PROD{GAIN_MAP_N}} & Instrumental\\
+    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} & Object name (\ac{STD} star) & \hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}} & Instrumental\\
     		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \hyperref[dataitem:n_lss_wave_guess]{\STATCALIB{N_LSS_WAVE_GUESS}} & response function\\
     		& \CODE{DPR.TECH==SPECTRUM}   &			   & Grism		& \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}	& transmission (optional)\\
     		& \CODE{PRO.CATG==SPECTRUM}   &  &  Slit & \hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}} & wavelength correction\\
@@ -225,7 +225,7 @@ In general, there are four major steps in each of the two cascades:
     		& & & & \hyperref[dataitem:n_lss_dist_sol]{\STATCALIB{N_LSS_DIST_SOL}} &\\
     		& & & & \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}} &\\
     \hline
-    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} & Object name & \hyperref[dataitem:gain_map_n]{\PROD{GAIN_MAP_N}}  & Science grade spectrum\\
+    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} & Object name & \hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}}  & Science grade spectrum\\
     		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time &  \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} &\\
     		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&\hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}	& \\
     		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \hyperref[dataitem:n_lss_wave_guess]{\STATCALIB{N_LSS_WAVE_GUESS}} & \\
@@ -273,8 +273,8 @@ In general, there are four major steps in each of the two cascades:
 \subsubsection{Static calibration database}\label{lss:static_calib}
 The static calibration database comprises several data sets, some are updated from time to time:
 \begin{itemize}
-    \item \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}, \hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}}: These are the detector gain maps of the detectors (2RG=Hawaii2RG, LM-band; GEO=Geosnap, N-band), which are created by the recipe \hyperref[sssec:metis_det_lingain]{\REC{metis_det_lingain}} (see Section~\ref{sssec:metis_det_lingain}). This recipe also checks the linearity of the pixels and is carried out every once in a while (yearly, TBD, see \cite{METIS-calibration_plan}) as we assume the detectors to be fairly stable.
-    \item \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_2RG}}, \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_GEO}}: These are the coefficients for the correction of the linearity of the individual pixels. Also created by the recipe \hyperref[sssec:metis_det_lingain]{\REC{metis_det_lingain}} (see Section~\ref{sssec:metis_det_lingain}). This recipe also checks the linearity of the pixels and is carried out every once in a while (yearly, TBD, see \cite{METIS-calibration_plan}) as we assume the detectors to be fairly stable.
+    \item \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}, \hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}}: These are the detector gain maps of the detectors (2RG=Hawaii2RG, LM-band; GEO=Geosnap, N-band), which are created by the recipe \hyperref[sssec:metis_det_lingain]{\REC{metis_det_lingain}} (see Section~\ref{sssec:metis_det_lingain}). This recipe is carried out every once in a while (yearly, TBD, see \cite{METIS-calibration_plan}) as we assume the detectors to be fairly stable.
+    \item \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_2RG}}, \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_GEO}}: These are the coefficients for the correction of the linearity of the individual pixels. Also created by the recipe \hyperref[sssec:metis_det_lingain]{\REC{metis_det_lingain}} (see Section~\ref{sssec:metis_det_lingain}). 
     \item \hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}}: The \ac{WCU} provides laser sources for the first guess of the wavelength solution. The main laser frequencies are fixed (\cite{METIS-calibration_plan}) and given in a static table.
     \item \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}: The main wavelength calibration will be done by means of atmospheric lines, most probably based on the \ac{HITRAN}\footnote{\url{https://hitran.org/}}. They are given in a static catalogue. This database is also required by the telluric correction package \texttt{molecfit}.
     \item \hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}/\hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}}: For the determination of the continuum of flux standard stars a rough telluric correction is needed. We intend to also offer the possibility to apply static transmission curves for that purpose for performance reasons. These static transmission curves will be determined during commissioning via \texttt{molecfit}.
