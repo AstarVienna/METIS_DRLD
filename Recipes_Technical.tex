@@ -93,7 +93,7 @@ Purpose:	& Determination of the \ac{ADC} induced slit losses \\
 Type:		& Calibration\\
 Requirements: & TBD \\
 Templates:           & \TPL{METIS_spec_lm_cal_SlitAdc} \\
-Input data:     & \hyperref[dataitem:lm_slitlosses_raw]\FITS{LM_SLITLOSSES_RAW} \\
+Input data:     & \hyperref[dataitem:lm_slitlosses_raw]{\FITS{LM_SLITLOSSES_RAW}} \\
 %                & \FITS{LM_WCU_OFF_RAW} \\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:linearity_det]{\STATCALIB{LINEARITY_2RG}}  \\
@@ -108,7 +108,7 @@ Algorithm:      & remove detector signature\\
                 & detect reference source from \ac{WCU} via centroid peak detection\\
                 & apply aperture photometry\\
                 & calculate (simple) slitloss model (details to be defined)\\
-Output data:	& Slit loss model as function of the wavelength and object position across the slit (\hyperref[dataitem:lm_adc_slitloss]\STATCALIB{LM_ADC_SLITLOSS}) \\
+Output data:	& Slit loss model as function of the wavelength and object position across the slit (\hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}}) \\
 Expected accuracies: & 3\% (cf. \cite{METIS_calerrbudget})\\
 QC1 parameters: & \QC{TBD}: TBD\\
 \end{recipedef}
@@ -128,7 +128,7 @@ Purpose:	& Determination of the \ac{ADC} induced slit losses \\
 Type:		& Calibration\\
 Requirements: & TBD \\
 Templates:           & \TPL{METIS_spec_n_cal_slit} \\
-Input data:     & \hyperref[dataitem:n_slitlosses_raw]\FITS{N_SLITLOSSES_RAW} \\
+Input data:     & \hyperref[dataitem:n_slitlosses_raw]{\FITS{N_SLITLOSSES_RAW}} \\
 %                & \FITS{N_WCU_OFF_RAW} \\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:linearity_det]{\STATCALIB{LINEARITY_GEO}}  \\
@@ -143,7 +143,7 @@ Algorithm:      & remove detector signature\\
                 & detect reference source from \ac{WCU} via centroid peak detection\\
                 & apply aperture photometry\\
                 & calculate (simple) slitloss model (details to be defined)\\
-Output data:	& Slit loss model as function of the wavelength and object position across the slit (\hyperref[dataitem:n_adc_slitloss]\STATCALIB{N_ADC_SLITLOSS}) \\
+Output data:	& Slit loss model as function of the wavelength and object position across the slit (\hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}) \\
 Expected accuracies: & 3\% (cf. \cite{METIS_calerrbudget})\\
 QC1 parameters: & \QC{TBD}: TBD\\
 \end{recipedef}
