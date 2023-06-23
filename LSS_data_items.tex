@@ -2,7 +2,7 @@
 \subsection{LSS mode data items}\label{ssec:lss_drl_items_structures}
 \subsubsection{Raw data item structures}\label{sssec:lssrawdatastructs}
 
-% ##################################################################################### LM RSRF RAW 
+% ##################################################################################### LM SLITLOSS RAW 
 \paragraph{\hyperref[dataitem:lm_slitlosses_raw]{\RAW{LM_SLITLOSSES_RAW}}}\label{dataitem:lm_slitlosses_raw}
 
 \begin{recipedef}
@@ -23,13 +23,32 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
+\TODO{Add CPL structure}
 \end{datastructdef}
 
+% ##################################################################################### LM SLITLOSS RAW 
+\paragraph{\hyperref[dataitem:n_slitlosses_raw]{\RAW{N_SLITLOSSES_RAW}}}\label{dataitem:n_slitlosses_raw}
+
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:n_slitlosses_raw]{\RAW{N_SLITLOSSES_RAW}}\\[0.3cm]
+Description: & Raw exposure for determining the \ac{ADC} slitlosses.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{SLITLOSS,N} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  more TBD\\
+\FITS{DO.CATG}: & \FITS{N_SLITLOSS_RAW}\\[0.3cm]
+Template: & \TPL{METIS_spec_n_cal_SlitAdc}\\
+Input for recipes: & \hyperref[rec:metis_n_lss_std]{\REC{metis_n_lss_std}}\\
+& \hyperref[rec:metis_n_lss_sci]{\REC{metis_n_lss_sci}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\TODO{Add CPL structure}
+\end{datastructdef}
 
 
 % ##################################################################################### LM RSRF RAW 
