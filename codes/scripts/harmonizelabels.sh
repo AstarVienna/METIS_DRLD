@@ -34,24 +34,10 @@ sed -E 's!\\REC\{([0-9a-zA-Z_]*)([}: ]+)\\label\{rec:[0-9a-zA-Z_:]*}!\\REC\{\1\2
 # \paragraph{\QC{QC N LSS SCI WAVECAL POLYCOEFF<n>}}\label{qc:nlsssciwavecalpolycoeffn}
 sed -E 's!\\QC\{([0-9a-zA-Z<>#_ ]*)([}: ]+)\\label\{qc:[0-9a-zA-Z_:<>#]*}!\\QC\{\1\2\\label\{qc:\1}!g' -i -- *.tex
 
-# The QC ones can have spaces, we need to removed those
-# \hyperref[qc:QC LIN GAIN MEAN]{\QC{QC LIN GAIN MEAN}}
-# \paragraph{\QC{QC DARK MEAN}}\label{qc:QC DARK MEAN}
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
-
 # Convert all PRODs that are not yet a link. That is, " \PROD{SOMETHING}"
 sed -E 's! \\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}! \\hyperref\[dataitem:\2]\{\\\1\{\2}}!g' -i -- *.tex
-# Convert all QCC that are not yet a QC.
-#sed -E 's! \\(QC)\{([0-9a-zA-Z_ ]+)}! \\hyperref\[dataitem:\2]\{\\\1\{\2}}!g' -i -- *.tex
+# Convert all QC that do not yet have a hyperref.
+sed -E 's! \\(QC)\{([0-9a-zA-Z_ ]+)}! \\hyperref\[qc:\2]\{\\\1\{\2}}!g' -i -- *.tex
 
 # \REC is also used in subsection headers, those should not be hyperrefs.
 # \subsubsection{Recipes \REC{metis_det_lingain} and \REC{metis_det_dark}}
@@ -67,16 +53,32 @@ sed -E 's! \\REC\{([0-9a-zA-Z_]+)}([^]])! \\hyperref\[rec:\1]\{\\REC\{\1}}\2!g' 
 # Finally replace the placeholder again.
 sed -E 's!(subsection.*\\)QQQQQQ!\1REC!g' -i -- *.tex
 sed -E 's!(subsection.*\\)QQQQQQ!\1REC!g' -i -- *.tex
+
+
+# The QC ones can have spaces, we need to removed those
+# \hyperref[qc:QC LIN GAIN MEAN]{\QC{QC LIN GAIN MEAN}}
+# \paragraph{\QC{QC DARK MEAN}}\label{qc:QC DARK MEAN}
+sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
+sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
+sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
+sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
+sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
+sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
+sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
+sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
+sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
+sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex
+
+
+
 # Then make all the labels lowercase
 sed -E 's|(dataitem:[0-9a-zA-Z_]*)|\L\1|g' -i -- *.tex
 sed -E 's|(rec:[0-9a-zA-Z_]*)|\L\1|g' -i -- *.tex
-sed -E 's|(qc:[0-9a-zA-Z_]*)|\L\1|g' -i -- *.tex
+sed -E 's|(qc:[0-9a-zA-Z_<>#]*)|\L\1|g' -i -- *.tex
+
 
 # After compiling the document twice, count broken dataitem links with
 # grep Hyper METIS_DRLD.log | grep dataitem | awk '{print $5}' | sort | uniq -c | sort -nr
 
 
 # TODO, e.g. "(\PROD{SOMETHING})"
-
-# TODO: Fix rec: hyperrefs too, e.g. this is incorrect:
-#    "\hyperref[rec:metis_ifu_adi_cgrph]{\REC{IFU_CGRPH_CENTROID_TAB}}"
