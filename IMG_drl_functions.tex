@@ -81,9 +81,6 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 
 
 
-
-
-
 \subsubsection{Create Master LM Flat}\label{drl:lm_img_flat}
 \begin{recipedef}
 Name: & \hyperref[drl:lm_img_flat]{\DRL{metis_lm_img_flat}} \\
@@ -94,7 +91,7 @@ Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
 & parameters for combination method\\
-&  \hyperref[dataitem:badpix_map_lm]{\PROD{BADPIX_MAP_LM}}   \\
+&  \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}   \\
 QC outputs: & QC LM MASTERFLAT RMS\\
 %Output FITS files: & None \\
 Outputs: & Master Flat\\
@@ -116,7 +113,7 @@ Used in recipes: & \hyperref[sssec:n_img_flatfield]{\REC{metis_n_img_flat}}\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
 & parameters for combination method\\
-&  \hyperref[dataitem:badpix_map_n]{\PROD{BADPIX_MAP_N}}   \\
+&  \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}   \\
 QC outputs: & QC N MASTERFLAT RMS\\
 %Output FITS files: & None \\
 Outputs: & Master Flat\\
@@ -137,7 +134,7 @@ Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & flat \texttt{const hdrl\_image * input} \\
-&  \hyperref[dataitem:badpix_map_lm]{\PROD{BADPIX_MAP_LM}}   \\
+&  \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}   \\
 & Threshold(s) for deviant pixel detection\\
 QC outputs: & QC LM FLAT NBADPIX\\
             & QC LM FLAT MEAN \#\#\\
@@ -160,7 +157,7 @@ Used in recipes: & \hyperref[sssec:n_img_flatfield]{\REC{metis_n_img_flat}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & flat \texttt{const hdrl\_image * input} \\
-&  \hyperref[dataitem:badpix_map_n]{\PROD{BADPIX_MAP_N}}   \\
+&  \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}   \\
 & Threshold(s) for deviant pixel detection\\
 QC outputs: & QC N FLAT NBADPIX\\
             & QC N FLAT MEAN \#\#\\
