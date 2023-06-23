@@ -180,7 +180,7 @@ may be refined by measuring telluric emission and/or absorption lines
                        & Extract 1D spectrum of star                                            \\
                        & Compute and apply telluric correction                                  \\
                        & Compute conversion to physical units as function of wavelength.        \\
-  Output data:         & \hyperref[dataitem:ifu_std_reduced_cube]{\PROD{IFU_STD_REDUCED_CUBE}}                                            \\
+  Output data:         & \hyperref[dataitem:ifu_std_reduced_cube]{\PROD{IFU_STD_REDUCED_CUBE}}  \\
                        & \hyperref[dataitem:ifu_std_background_cube]{\PROD{IFU_STD_BACKGROUND_CUBE}}                                         \\
                        & \hyperref[dataitem:ifu_std_reduced_1d]{\PROD{IFU_STD_REDUCED_1D}}                                              \\
                        & \hyperref[dataitem:ifu_std_telluric_1d]{\PROD{IFU_STD_TELLURIC_1D}}                                             \\
@@ -301,19 +301,19 @@ Parameters:          & telluric correction (yes/no)                             
 Algorithm:           & Subtract dark, divide by master flat                                                     \\
                      & Estimate stray light and subtract                                                        \\
                      & Estimate background from dithered science exposures or blank-sky exposures and subtract. \\
-                     & Apply flux calibration .                                                                 \\
+                     & Apply flux calibration.                                                                  \\
                      & Rectify spectra and assemble cube                                                        \\
                      & Extract 1D object spectrum                                                               \\
                      & Compute telluric correction and apply to reduced images and cube                         \\
-Output data:         & \hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}} (2D, per exposure)                                                \\
-                     & \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}} (2D, per exposure)                                            \\
-                     & \hyperref[dataitem:ifu_sci_background]{\PROD{IFU_SCI_BACKGROUND}} (2D, per exposure)                                             \\
-                     & \hyperref[dataitem:ifu_sci_reduced_cube]{\PROD{IFU_SCI_REDUCED_CUBE}} (3D, per exposure)                                           \\
-                     & \hyperref[dataitem:ifu_sci_reduced_cube_tac]{\PROD{IFU_SCI_REDUCED_CUBE_TAC}} (3D, per exposure)                                       \\
-                     & \hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}} (3D)                                                             \\
-                     & \hyperref[dataitem:ifu_sci_combined_tac]{\PROD{IFU_SCI_COMBINED_TAC}} (3D)                                                         \\
-                     & \hyperref[dataitem:ifu_sci_object_1d]{\PROD{IFU_SCI_OBJECT_1D}}  (1D)                                                           \\
-                     & \hyperref[dataitem:ifu_sci_telluric_1d]{\PROD{IFU_SCI_TELLURIC_1D}}                                                               \\
+Output data:         & \hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}} (2D, per exposure)           \\
+                     & \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}} (2D, per exposure)   \\
+                     & \hyperref[dataitem:ifu_sci_background]{\PROD{IFU_SCI_BACKGROUND}} (2D, per exposure)     \\
+                     & \hyperref[dataitem:ifu_sci_reduced_cube]{\PROD{IFU_SCI_REDUCED_CUBE}} (3D, per exposure) \\
+                     & \hyperref[dataitem:ifu_sci_reduced_cube_tac]{\PROD{IFU_SCI_REDUCED_CUBE_TAC}} (3D, per exposure) \\
+                     & \hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}} (3D)                       \\
+                     & \hyperref[dataitem:ifu_sci_combined_tac]{\PROD{IFU_SCI_COMBINED_TAC}} (3D)               \\
+                     & \hyperref[dataitem:ifu_sci_object_1d]{\PROD{IFU_SCI_OBJECT_1D}}  (1D)                    \\
+                     & \hyperref[dataitem:ifu_sci_telluric_1d]{\PROD{IFU_SCI_TELLURIC_1D}}                      \\
 Expected accuracies: & TBD                                                                                      \\
 QC1 parameters:      & TBD                                                                                      \\
 \end{recipedef}
@@ -325,6 +325,65 @@ QC1 parameters:      & TBD                                                      
     \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} -- reduction of IFU science frames.}
   \label{fig:metis_ifu_sci_process}
 \end{figure}
+
+The algorithm described here is inspired by the spectro-perfectionism of Bolton \& Schlegel (2010, \cite{Bolton-Schlegel2010}).
+
+We start with a forward model
+\begin{equation}
+  \label{eq:forward_model}
+  \vec{d} = \mat{A}\vec{m} + \vec{e},
+\end{equation}
+where $\vec{d}$ and $\vec{m}$ are the data images and the model image, respectively,
+both written as one-dimensional arrays (the six data images are collated into one array
+$\vec{d}$).\footnote{The mapping from two-dimensional to one-dimensional arrays is in
+principle arbitrary and can be chosen such that the model matrix $\mat{A}$ has a convenient form.
+For the time being, the code uses the numpy method \lstinline{flatten()},
+which returns the array in the sequence that it is stored in computer memory.}
+The vector $\vec{e}$ is the irreducible noise vector.
+The data $\vec{d}$ are sampled on rectangular pixels $8.2\times 20.7\,\mathrm{mas^{2}}$,
+the model $\vec{m}$ is constructed to be sampled on square pixels $8.2\times 8.2\,\mathrm{mas^{2}}$
+and aligned with the short side of the data pixels.
+The model matrix $\mat{A}$ describes how the model flux is distributed onto the data grid.
+A matrix element $\mat{A}_{ij}$ thus gives the geometric fraction of model pixel $j$ that overlaps with the data pixel $i$.
+Fig.~\ref{fig:pixel_overlap} shows the situation for pixels that overlap completely in the $x$-direction.
+In the code, we allow for partial overlap in the $x$-direction as well, so that the matrix element is
+\begin{equation}
+    \mat{A}_{ij} = f(\delta x_{ij}; w_d, w_m) f(\delta y_{ij}; h_d, h_m),
+    \label{eq:model_matrix_element}
+\end{equation}
+where $w_{d}$, $h_{d}$, $w_{m}$ and $h_{m}$ are the width and height of the pixels in the data and model grids, respectively.
+
+The function $f$ is given by
+\begin{equation}
+  \label{eq:overlap}
+  f(\delta; D_{d}, D_{m}) =
+  \begin{cases}
+    \quad 1,
+    & \text{if}\quad\abs{\delta} \leq \frac{D_{d} - D_{m}}{2} \\
+    \frac{D_{d} + D_{m}}{2D_{m}} - \frac{1}{D_{m}}\abs{\delta},\quad
+    & \text{if}\quad\frac{D_{d} - D_{m}}{2} < \abs{\delta} < \frac{D_{d} + D_{m}}{2} \\
+    \quad 0,
+    & \text{if}\quad\abs{\delta} \geq \frac{D_{d} + D_{m}}{2}
+  \end{cases}
+\end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{pixel_overlap.pdf}
+    \caption{%
+        The left panel shows a data pixel of size $D_{m}\times D_{d}$,
+        overlapping with three model pixels of size $D_{m}\times D_{m}$.
+        The pixels are aligned in the $x$-direction, so the overlap
+        (which gives the matrix element of the model matrix $\mat{A}$)
+        depends only on the distance $\delta = y_{\mathrm{data}} - y_{\mathrm{model}}$
+        of the pixel centres through a stepwise linear function as shown on the right and given in Eq.~\eqref{eq:overlap}.
+    }
+  \label{fig:pixel_overlap}
+\end{figure}
+
+in the case where the data and model pixels grid are not aligned, a more complex algorithm must be used.
+
+%We do not consider here the case where the data and model pixel grids are not aligned. This would be necessary if there was significant field rotation during the observing sequence.
 
 \clearpage
 \subsubsection{IFU telluric absorption correction}
@@ -399,9 +458,9 @@ positions and orientations of the exposures may differ as follows: \TODO{Referen
   wavelength gaps between echelle order coverage.
 \end{description}
 
-In order to allow coaddition of data from separate OBs, possibly taken
+In order to allow co-addition of data from separate OBs, possibly taken
 months apart, the wavelengths will be corrected to the heliocentric
-reference system before coaddition.
+reference system before co-addition.
 
 The recipe is only used in the science-grade pipelines, not at the
 observatory.
