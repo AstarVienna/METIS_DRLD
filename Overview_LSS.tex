@@ -103,7 +103,7 @@ In general, there are four major steps in each of the two cascades:
     (Templates) & Keywords	 & Processing steps	&		&	  &	\\
     \hline
     \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \hyperref[sssec:metis_det_dark]{\REC{metis_det_dark}} & Exposure time	&	\hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}& Averaged dark frame\\
-    		& \CODE{DPR.TYPE==DARK}  &			&		&	& Bad pixel map\\
+    		& \CODE{DPR.TYPE==DARK}  &			&		&	\hyperref[dataitem:linearity_2rg]{\PROD{LINEARITY_2RG}} & Bad pixel map\\
     		& \CODE{DPR.TECH==IMAGE}  &			&		&	& \\
     \hline
     \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} & Exposure time	& \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}	& Averaged, normalized flatfield\\
