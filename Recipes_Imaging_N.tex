@@ -81,7 +81,7 @@ otherwise a new one is created.
                        & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}                                            \\
   Expected accuracies: & \TBD                                                           \\
   QC1 parameters:      & \QC{QC N MASTERFLAT RMS}                                       \\
-                       & \QC{QC N FLAT NBADPIX}                                         \\
+                       & \QC{QC N MASTERFLAT NBADPIX}                                         \\
                        & \QC{QC N FLAT MEAN ##}                                         \\
                        & \QC{QC N FLAT RMS ##}                                          \\
   hdrl functions:      & \CODE{hdrl_bpm_fit_compute}                                    \\
@@ -337,7 +337,7 @@ pixel scale across the detector will be created.
                        & \hyperref[dataitem:n_dist_reduced]{\PROD{N_DIST_REDUCED}}             \\
   Expected accuracies: & TBD                                                            \\
   QC1 parameters:      & \hyperref[qc:qc_n_distort_rms]{\QC{QC N DISTORT RMS} }                                         \\
-                       & \hyperref[qc:qc_n_distort_nsource]{\QC{QC LM DISTORT NSOURCE}}  \\
+                       & \hyperref[qc:qc_lm_distort_nsource]{\QC{QC LM DISTORT NSOURCE}}  \\
   hdrl functions:      & \CODE{hdrl_catalogue_create}                                   \\
                        & \CODE{hdrl_imagelist_sub_image}                                \\
 \end{recipedef}
