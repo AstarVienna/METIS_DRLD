@@ -93,8 +93,8 @@ Purpose:	& Determination of the \ac{ADC} induced slit losses \\
 Type:		& Calibration\\
 Requirements: & TBD \\
 Templates:           & \TPL{METIS_spec_lm_cal_SlitAdc} \\
-Input data:     & \FITS{LM_SLITLOSSES_RAW} \\
-                & \FITS{LM_WCU_OFF_RAW} \\
+Input data:     & \hyperref[dataitem:lm_slitlosses_raw]\FITS{LM_SLITLOSSES_RAW} \\
+%                & \FITS{LM_WCU_OFF_RAW} \\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:linearity_det]{\STATCALIB{LINEARITY_2RG}}  \\
                 & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}  \\
@@ -103,7 +103,7 @@ Input data:     & \FITS{LM_SLITLOSSES_RAW} \\
                 & \hyperref[dataitem:master_img_flat_lm]{\PROD{MASTER_IMG_FLAT_LM}}  \\
 Parameters: 	& TBD\\
 Algorithm:      & remove detector signature\\
-                & remove median background\\
+                & remove dark background\\
                 & apply flatfield\\
                 & detect reference source from \ac{WCU} via centroid peak detection\\
                 & apply aperture photometry\\
@@ -128,8 +128,8 @@ Purpose:	& Determination of the \ac{ADC} induced slit losses \\
 Type:		& Calibration\\
 Requirements: & TBD \\
 Templates:           & \TPL{METIS_spec_n_cal_slit} \\
-Input data:     & \FITS{N_SLITLOSSES_RAW} \\
-                & \FITS{N_WCU_OFF_RAW} \\
+Input data:     & \hyperref[dataitem:n_slitlosses_raw]\FITS{N_SLITLOSSES_RAW} \\
+%                & \FITS{N_WCU_OFF_RAW} \\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
                 & \hyperref[dataitem:linearity_det]{\STATCALIB{LINEARITY_GEO}}  \\
                 & \hyperref[dataitem:gain_map_geo]{\STATCALIB{GAIN_MAP_GEO}}  \\
@@ -138,7 +138,7 @@ Input data:     & \FITS{N_SLITLOSSES_RAW} \\
                 & \hyperref[dataitem:master_img_flat_n]{\PROD{MASTER_IMG_FLAT_N}}  \\
 Parameters: 	& TBD\\
 Algorithm:      & remove detector signature\\
-                & remove median background\\
+                & remove dark\\
                 & apply flatfield\\
                 & detect reference source from \ac{WCU} via centroid peak detection\\
                 & apply aperture photometry\\
