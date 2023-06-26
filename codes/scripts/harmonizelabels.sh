@@ -23,7 +23,7 @@ sed -E 's!(dataitem|rec):[0-9a-zA-Z_]*]\{\\([A-Z]+)\{([0-9a-zA-Z_ ]+)!\1:\3]\{\\
 sed -E 's!(qc):[0-9a-zA-Z_<>#]*]\{\\([A-Z]+)\{([0-9a-zA-Z_<># ]+)!\1:\3]\{\\\2\{\3!g' -i -- *.tex
 
 # Then copy the name into the label
-sed -E 's!([A-Z]+)\{([0-9a-zA-Z_]*)}}}\\label\{\\(dataitem|rec):[0-9a-zA-Z_:]*}!\1\{\2}}}\\label\{\3:\2}!g' -i -- *.tex
+sed -E 's!([A-Z]+)\{([0-9a-zA-Z_]*)}}}\\label\{(dataitem|rec):[0-9a-zA-Z_:]*}!\1\{\2}}}\\label\{\3:\2}!g' -i -- *.tex
 sed -E 's|([A-Z]+)\{([0-9a-zA-Z_]*)}}}\\label\{drsstructure:[0-9a-zA-Z_:]*}|\1\{\2}}}\\label\{drsstructure:\2}|g' -i -- *.tex
 
 # Also copy name into the label for recipes.
