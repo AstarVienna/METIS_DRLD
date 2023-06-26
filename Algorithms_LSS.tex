@@ -24,8 +24,15 @@ Order rectification is achieved using the PyReduce algorithm described by \cite{
 
 %-----------------------------------------------------------------------------------------
 \subsubsection{Wavelength calibration strategy}\label{ssec:wavecal}
+The wavelength calibration (i.e. the pixel-to-wavelength relation) of the \ac{LSS} modes is done in a two-step approach:
+\begin{itemize}
+    \item First guess: The first guess is based on laser sources in the \ac{WCU} and during commissioning.  In the LM range, two fixed-frequency lasers ($@3.39$µm and $@5.26$µm) and one tuneable ($4.68....4.78$µm) is foreseen in the \ac{WCU} to be taken on daily basis (cf. \cite{METIS-calibration_plan}). In the N-band, a laser source will only be available during \ac{AIV}. As we assume the instrument to be very stable, that approach should be sufficient to achieve a first guess solution for the low-resolution N-band spectroscopy.
+    \item For the final calibration 
+\end{itemize}
+
+
 %\paragraph{Spectral resolving power}
-We first estimate the spectral resolving power of the \ac{LSS} mode for the different slits incorporated in the spectrograph. More fancy text to follow \textit{Maybe that part should go somewhere else....?}\cite{METIS-system_analysis}
+%We first estimate the spectral resolving power of the \ac{LSS} mode for the different slits incorporated in the spectrograph. More fancy text to follow \textit{Maybe that part should go somewhere else....?}\cite{METIS-system_analysis}
 %\begin{table}
 %\begin{center}
 %\begin{tabular}{c|cccc|cc|cc}
@@ -46,14 +53,14 @@ We first estimate the spectral resolving power of the \ac{LSS} mode for the diff
 % & & & proj. Slit & & & & & \\
 %Slit & Width$^a$ & Length$^a$ & $L$-band & $M$-band & $N$-band & $L$-band & $M$-band & $N$-band \\
 %ID & [mas] & [mas] & [pixel] & [pixel] & [pixel] & Resolution$^b$ & Resolution$^b$ & Resolution$^b$ \\
-\hline
-Slit A & 19.0 & 8000.0 & 2.352e-03 & 1.266e-03 & 8.621e-03 & 1509 & 3830 & 1218 \\
-Slit B & 28.6 & 8000.0 & 3.540e-03 & 1.906e-03 & 1.298e-02 & 1003 & 2544 & 809 \\
-Slit C & 38.1 & 8000.0 & 4.716e-03 & 2.539e-03 & 1.729e-02 & 752 & 1910 & 608 \\
-Slit D & 57.1 & 8000.0 & 7.068e-03 & 3.806e-03 & 2.591e-02 & 502 & 1274 & 405 \\
-Slit E & 114.2 & 8000.0 & 1.414e-02 & 7.612e-03 & 5.182e-02 & 251 & 637 & 203 \\
-\end{tabular}
-\caption{Estimate of the LSS spectral resolving power in all three bands with respect to the different slits;\newline $^a$ from% Tab.~4-2 in \cite{METIS-system_analysis} \newline $^b$ at $\lambda_\textrm{cent}$ (see Tab.~\ref{tab:bands_specres1})%\label{tab:bands_specres2}}
+%\hline
+%Slit A & 19.0 & 8000.0 & 2.352e-03 & 1.266e-03 & 8.621e-03 & 1509 & 3830 & 1218 \\
+%Slit B & 28.6 & 8000.0 & 3.540e-03 & 1.906e-03 & 1.298e-02 & 1003 & 2544 & 809 \\
+%Slit C & 38.1 & 8000.0 & 4.716e-03 & 2.539e-03 & 1.729e-02 & 752 & 1910 & 608 \\
+%Slit D & 57.1 & 8000.0 & 7.068e-03 & 3.806e-03 & 2.591e-02 & 502 & 1274 & 405 \\
+%Slit E & 114.2 & 8000.0 & 1.414e-02 & 7.612e-03 & 5.182e-02 & 251 & 637 & 203 \\
+%\end{tabular}
+%\caption{Estimate of the LSS spectral resolving power in all three bands with respect to the different slits;\newline $^a$ from% Tab.~4-2 in \cite{METIS-system_analysis} \newline $^b$ at $\lambda_\textrm{cent}$ (see Tab.~\ref{tab:bands_specres1})%\label{tab:bands_specres2}}
 %\end{center}
 %\end{table}
 
