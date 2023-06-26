@@ -10,6 +10,7 @@ from ..drld_parser.data_reduction_library_design import (
     DataItemReference,
     guess_dataitem_type,
 )
+from ..drld_parser.hacks import TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI
 from ..drld_parser.template_manual import METIS_TemplateManual
 
 
@@ -132,11 +133,20 @@ class TestDataReductionLibraryDesign:
     @pytest.mark.xfail(
         reason="There are many references to templates that do not exits."
     )
-    def test_all_templates_used_also_exist(self):
+    def test_all_templates_used_also_exist_hard(self):
+        self.all_templates_used_also_exist(hard=True)
+
+    def test_all_templates_used_also_exist_soft(self):
+        self.all_templates_used_also_exist(hard=False)
+
+    def all_templates_used_also_exist(self, hard=True):
+
         # TODO: hack_rename_template_names_drld and
         #  TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI are currently not
         #  used anymore.
-        names_existing = METIS_TemplateManual.templates.keys()
+        names_existing = set(METIS_TemplateManual.templates.keys())
+        if not hard:
+            names_existing = names_existing.union(set(TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI))
         names_used = METIS_DataReductionLibraryDesign.template_names_used
         names_existing_lower = [name.lower() for name in names_existing]
         names_not_existing = [
