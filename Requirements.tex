@@ -48,31 +48,31 @@ Requirements marked with $\star$ are commented on individually below the table.
 		\REQ{METIS-6094} & Background subtraction in chopping-nodding mode & \ref{rec:metis_n_img_chopnod} \\
 		\REQ{METIS-6096} & LM-band imaging flatfield & \ref{rec:metis_lm_img_flat} \\
 		\REQ{METIS-6098} & N-band imaging flatfield & \ref{rec:metis_n_img_flat} \\
-		\REQ{METIS-6104} & IMG-LM data products & \ref{rec:lm_img_postprocess} \\
-		\REQ{METIS-6105} & IMG-N data products &  \\
+		\REQ{METIS-6104} & IMG-LM data products & \ref{rec:lm_img_calibrate}, \ref{rec:lm_img_postprocess} \\
+		\REQ{METIS-6105} & IMG-N data products & \ref{rec:n_img_calibrate}, \ref{rec:n_img_restoration} \\
 		\REQ{METIS-6112} & SPEC-LM data products &  \\
 		\REQ{METIS-6113} & SPEC-N data products &  \\
 		\REQ{METIS-6131} & LMS data products &  \\
 		\REQ{METIS-6265} & LMS straylight &  \\
-		\REQ{METIS-6267} & Design Life &  \\
+		\REQ{METIS-6267} & Design Life & N/A \\
 		\REQ{METIS-6309} & Masked regions of the LMS detectors &  \\
 		\REQ{METIS-6681} & Error propagation & \ref{Sec:critalg_errorprop} \\
 		\REQ{METIS-6698} & Characterisation and correction of relative spectral response function &  \\
-		\REQ{METIS-6733} & Auxiliary Parameters in Data Products &  \\
+		\REQ{METIS-6733} & Auxiliary Parameters in Data Products & \ref{ssec:reduced_data_format} \\
 		\REQ{METIS-6923} & QC parameters for permanent monitoring &  \\
 		\REQ{METIS-7244} & Parallel observing mode IMG-LM and IMG-N &  \\
 		\REQ{METIS-7245} & Parallel observing mode LSS-LM and LSS-N &  \\
-		\REQ{METIS-9145} & Persistence Correction &  \\
-		\REQ{METIS-9150} & Calibration of atmospheric dispersion correction and slit losses &  \\
-		\REQ{METIS-9151} & Fringing correction &  \\
+		\REQ{METIS-9145} & Persistence Correction & \ref{rec:metis_det_persistence} \\
+		\REQ{METIS-9150} & Calibration of atmospheric dispersion correction and slit losses & \ref{sssec:adc_slitlosses} \\
+		\REQ{METIS-9151} & Fringing correction & \ref{rec:metis_fringing_correction} \\
 		\REQ{METIS-9212} & IMG-LM\_(RA/C)VC data products &  \\
 		\REQ{METIS-9213} & IMG-LM\_APP data products &  \\
 		\REQ{METIS-9214} & IMG-N\_CVC data products &  \\
 		\REQ{METIS-9215} & LMS\_(RA/C)VC data products &  \\
 		\REQ{METIS-9216} & LMS\_APP data products &  \\
-		\REQ{METIS-9355} & Code documentation &  \\
-		\REQ{METIS-9626} & AO Telemetry in Science Data Products &  \\
-		\REQ{METIS-9627} & Data provenance &  \\
+		\REQ{METIS-9355} & Code documentation & \ref{sec:drl_functions} \\
+		\REQ{METIS-9626} & AO Telemetry in Science Data Products &  \ref{ssec:reduced_data_format}\\
+		\REQ{METIS-9627} & Data provenance & \ref{ssec:reduced_data_format} \\
 		\REQ{METIS-10300} & Wavelength-to-pixel calibration uncertainty during AIT  &  \\ 
     \hline
 \end{longtable}

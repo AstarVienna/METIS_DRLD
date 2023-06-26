@@ -312,10 +312,18 @@ complex sequence can be uniquely identified.
 \subsection{Reduced data format}
 \label{ssec:reduced_data_format}
 
-All data products, both intermediary and final ones, will be provided in FITS format. Final data products will be saved according to \cite{ESO-products_standard}. If there are additional meta-data necessary for archiving, processing, analysis, and distribution, they will be added.
-This fulfills \REQ{METIS-6061}, \REQ{METIS-6080} and \REQ{METIS-6082}.
+All data products, both intermediary and final ones, will be provided in FITS format. Final data products will be saved according to \cite{ESO-products_standard}, fulfilling \REQ{METIS-6061} and \REQ{METIS-6080}.
 
-The list of data products can be found in Ch.~\ref{sec:drl_data_structures}.
+If there are additional meta-data necessary for archiving, processing, analysis, and distribution, they will be added. \REQ{METIS-6082}.
+
+By default, recipes propagate the FITS headers of the \emph{first raw frame} in
+the input \ac{SOF} to the data products. This includes the meteorological,
+astronomical and atmospheric site parameters, fulfilling \REQ{METIS-6733}. The same is true for \ac{AO} Telemetry, satisfying \REQ{METIS-9626}.
+
+The saving-functions provided by ESO \ac{CPL}, given the list of input frames, add this list to the headers of data products, thus providing provenance information in compliance with \REQ{METIS-9627}.
+
+The list of individual data products can be found in
+Ch.~\ref{sec:drl_data_structures}.
 
 % THE END
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
