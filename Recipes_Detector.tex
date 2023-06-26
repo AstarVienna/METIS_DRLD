@@ -169,13 +169,8 @@ This fulfills \REQ{METIS-6063}.
 \subsubsection{Persistence map creation recipe \REC{metis_det_persistence}}
 \label{sssec:metis_det_persistence}
 
-Infrared detectors are prone to persistence due to charges trapped on a
-variety of timescales. The correction for a given science or
-calibration exposure is built from a sequence of exposures preceding
-the exposure in question. As these may include exposures taken for
-another proprietary programme, the recipe is run by ESO on data taken
-from the science archive and its products are again ingested into the
-archive. 
+Infrared detectors are prone to persistence due to charges trapped on a variety of timescales. The correction for a given science or
+calibration exposure is built from a sequence of exposures preceding the exposure in question. As these may include exposures taken for another proprietary programme, the recipe is run by ESO on data taken from the science archive and its products are again ingested into the archive. The recipe will make use of the \ac{HDRL} function for the creation of the persistence map, which is provided by \ac{ESO}.
 
 \begin{recipedef}\label{rec:metis_det_persistence}
   Name:                & \hyperref[rec:metis_det_persistence]{\REC{metis_det_persistence}}           \\
