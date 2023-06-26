@@ -58,7 +58,7 @@ HACK_TEMPLATE_NAMES_IN_WIKI = {
 #  referenced in the Recipes are dealt with in HACK_RECIPE_TEMPLATES.
 HACK_TEMPLATE_NAMES_IN_DRLD = {
     ("*", "METIS_img_nq_cal_DetLin"): "METIS_img_n_cal_DetLin",
-    ("*", "METIS_all_cal_dark"): "METIS_gen_cal_dark",
+    # ("*", "METIS_all_cal_dark"): "METIS_gen_cal_dark",
     # ("*", "METIS_img_n_cal_LampFlat"): "",
     (
         "Recipes_Imaging_LM",
@@ -76,10 +76,10 @@ HACK_TEMPLATE_NAMES_IN_DRLD = {
     # ("Recipes_LSS_N", "METIS_spec_N_cal_slit_adc"): "metis_spec_lm_cal_slitadc",
     ("Recipes_LSS_N", "METIS_spec_N_cal_slit_adc"): "metis_spec_n_cal_slit",
     # Maybe should exist?
-    (
-        "Recipadces_LSS_N",
-        "METIS_spec_N_obs_GenericOffset",
-    ): "metis_spec_lm_obs_genericoffset",
+    # (
+    #     "Recipadces_LSS_N",
+    #     "METIS_spec_N_obs_GenericOffset",
+    # ): "metis_spec_lm_obs_genericoffset",
     # Which one?
     # ("Recipes_Technical", "METIS_spec_n_cal_SlitAdc"): "metis_spec_lm_cal_slitadc",
     ("Recipes_Technical", "METIS_spec_n_cal_SlitAdc"): "metis_spec_n_cal_slit",
@@ -160,9 +160,11 @@ HACK_RECIPE_TEMPLATES = {
 }
 
 TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI = [
+    # Should exist according to Wolfgang:
     "METIS_spec_lm_cal_rsrfpinh",
     "METIS_spec_n_cal_rsrfpinh",
-    "METIS_img_nq_cal_DetLin",
+    # Not sure:
+    "METIS_spec_N_obs_GenericOffset",
 ]
 
 

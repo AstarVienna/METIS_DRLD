@@ -10,6 +10,7 @@ from ..drld_parser.data_reduction_library_design import (
     DataItemReference,
     guess_dataitem_type,
 )
+from ..drld_parser.hacks import TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI
 from ..drld_parser.template_manual import METIS_TemplateManual
 
 
@@ -24,37 +25,67 @@ class TestDataReductionLibraryDesign:
         """Another way to find the datatimes."""
         sglob = str(METIS_DataReductionLibraryDesign.path_drld / "*.tex")
         paths_tex = glob.glob(sglob)
-        lines1 = [
+        lines_single = [
             line
             for path in paths_tex
             for line in open(path).readlines()
             if "paragraph" in line and "dataitem" in line and not line.startswith("%")
         ]
-        lines_with_and = [line for line in lines1 if " and " in line]
+        lines_full = []
+        for line in lines_single:
+            lmulti = [line]
+            for lmn in ["LM", "N", "IFU", "2RG", "GEO"]:
+                if f"{{{lmn}_" in line:
+                    lmulti.append(line.replace(f"{{{lmn}_", "{det_"))
+                if f"_{lmn}}}" in line:
+                    lmulti.append(line.replace(f"_{lmn}}}", "_det}"))
+                if f"_{lmn}_" in line:
+                    lmulti.append(line.replace(f"_{lmn}_", "_det_"))
+                if "{det_" in line:
+                    lmulti.append(line.replace("{det_", f"{{{lmn}_"))
+                if "_det}" in line:
+                    lmulti.append(line.replace("_det}", f"_{lmn}}}"))
+                if "_det_" in line:
+                    lmulti.append(line.replace("_det_", f"_{lmn}_"))
+            lines_full.append(lmulti)
 
-        is_used = numpy.zeros(len(lines1), dtype=bool)
+
+        lines_with_and = [line for line in lines_full if " and " in line]
+
+        is_used = numpy.zeros(len(lines_full), dtype=bool)
         not_found = []
         found_more_than_once = []
 
         # Are all dataitems in the DRLD also in the lines above?
         for di in METIS_DataReductionLibraryDesign.dataitems:
-            found = numpy.array([di in line for line in lines1])
+            found = numpy.array([
+                any(di in line for line in lmulti) for lmulti in lines_full
+            ])
+            foundsingle = numpy.array([
+                # IFU_SCI_COMBINED is there, but also IFU_SCI_COMBINED_TAC,
+                # and they should all have a drsstructure line as well
+                di in line and f"{di}_" not in line and "drsstructure" not in line
+                for line in lines_single
+            ])
             if not found.any():
                 not_found.append(di)
-            if found.sum() > 1:
+            if foundsingle.sum() > 1:
                 found_more_than_once.append(di)
-            is_used |= found
+            is_used |= found | foundsingle
 
         # Are all lines used for some dataitem?
-        not_parsed = [line for line, used in zip(lines1, is_used) if not used]
+        not_used_anywhere = [(linesingle, linefull) for linesingle, linefull, used in zip(lines_single, lines_full, is_used) if not used]
 
         assert not not_found
         assert not found_more_than_once
-        assert not not_parsed
+        assert not not_used_anywhere
         assert all(is_used)
-        assert len(lines1) + len(lines_with_and) == len(
-            METIS_DataReductionLibraryDesign.dataitems
-        )
+        assert not lines_with_and
+        # TODO: Perhaps remove all the _det_ ones and put the actual data
+        # product there.
+        # assert len(lines_full) + len(lines_with_and) == len(
+        #     METIS_DataReductionLibraryDesign.dataitems
+        # )
 
     def test_template_and_recipe_names_do_not_overlap(self):
         names_recipes = {
@@ -102,11 +133,20 @@ class TestDataReductionLibraryDesign:
     @pytest.mark.xfail(
         reason="There are many references to templates that do not exits."
     )
-    def test_all_templates_used_also_exist(self):
+    def test_all_templates_used_also_exist_hard(self):
+        self.all_templates_used_also_exist(hard=True)
+
+    def test_all_templates_used_also_exist_soft(self):
+        self.all_templates_used_also_exist(hard=False)
+
+    def all_templates_used_also_exist(self, hard=True):
+
         # TODO: hack_rename_template_names_drld and
         #  TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI are currently not
         #  used anymore.
-        names_existing = METIS_TemplateManual.templates.keys()
+        names_existing = set(METIS_TemplateManual.templates.keys())
+        if not hard:
+            names_existing = names_existing.union(set(TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI))
         names_used = METIS_DataReductionLibraryDesign.template_names_used
         names_existing_lower = [name.lower() for name in names_existing]
         names_not_existing = [
@@ -182,13 +222,10 @@ class TestDataReductionLibraryDesign:
             _ = guess_dataitem_type(dn, raise_exception=True)
 
     def test_datatypes_are_known(self):
-        dtypes = [
-            diref.dtype
-            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
-            for diref in recipe.input_data + recipe.output_data
-        ]
-        # TODO: They should never be FITS or CODE
-        assert set(dtypes) == {"PROD", "RAW", "EXTCALIB", "STATCALIB", "FITS", "CODE"}
+        datatypes_acceptable = {"PROD", "RAW", "EXTCALIB", "STATCALIB"}
+        for recipe in METIS_DataReductionLibraryDesign.recipes.values():
+            for diref in recipe.input_data + recipe.output_data:
+                assert diref.dtype in datatypes_acceptable, f"Dataitem {diref.name} has type {diref.dtype} which is not allowed."
 
     @pytest.mark.xfail(reason="Some are still FITS or CODE")
     def test_datatypes_are_known_strict(self):
@@ -229,18 +266,19 @@ class TestDataReductionLibraryDesign:
 
 class TestFindLatexInputs:
     def test_find_latex_inputs(self):
-        fns_expected = [
+        fns_expected = {
             "CalDB_data_items.tex",
             "LMS_data_items.tex",
             "IMG_data_items.tex",
             "LSS_data_items.tex",
-        ]
+            "ADI_data_items.tex",
+        }
         path = (
             METIS_DataReductionLibraryDesign.path_drld / "09_0-DRL-Data-Structures.tex"
         )
         paths_input = find_latex_inputs(path)
-        filenames_input = [pp.name for pp in paths_input]
-        assert filenames_input == fns_expected
+        filenames_input = {pp.name for pp in paths_input}
+        assert filenames_input == fns_expected, f"Found more dataitems: {filenames_input - fns_expected}, or less: {fns_expected - filenames_input}"
 
 
 class TestParseDataItemReference:

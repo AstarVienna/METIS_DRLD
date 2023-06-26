@@ -176,10 +176,19 @@ class Recipe:
     @staticmethod
     def parse_recipe_from_table(stable):
         """Parse a Recipe from a table"""
-        rows1 = [
+        rows1a = [
             line.strip()
             for line in stable.splitlines()
             if line.strip() and not line.strip().startswith("%")
+        ]
+        # Some recipes start with
+        # \begin{recipedef}\label{rec:metisimgchophome}\label{rec:metis_img_chophome}
+        # So rows1a starts with
+        # \label{rec:metisimgchophome}\label{rec:metis_img_chophome}
+        # Remove that line
+        # TODO: perhaps do something useful with the labels
+        rows1 = [
+            row for row in rows1a if not row.startswith(r"\label")
         ]
 
         # Concatenate lines.. Aargh
@@ -254,6 +263,7 @@ class Recipe:
                     #   Where _det appears in FITS keywords of input or product files,
                     #   it is taken to mean _LM, N or _IFU
                     #   according to the detector array for which data are being processed.
+                    # TODO: Perhaps we should go back to _2RG and _GEO for _LM and _N
 
                     # Second, split these:
                     #         Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \PROD{IFU_SCI_REDUCED_TAC})
@@ -264,7 +274,7 @@ class Recipe:
                             msg = f"There are too many or wrong 'det's in f{val.name}."
                             assert val.name.endswith("_det") or val.name.startswith("det_") or "_det_" in val.name, msg
                             assert val.name.count("det") == 1, msg
-                            for postfix in ["LM", "N", "IFU"]:
+                            for postfix in ["LM", "N", "IFU", "GEO", "2RG"]:
                                 value.append(
                                     DataItemReference(
                                         name=val.name.replace("det", postfix),
@@ -304,7 +314,7 @@ class Recipe:
                 # print(field, ":::", value)
 
             # noinspection PyUnresolvedReferences
-            assert field in Recipe.__dataclass_fields__, f"Field cannot be found {row[0]}"
+            assert field in Recipe.__dataclass_fields__, f"Field {field} cannot be found {row[0]}"
 
             # Cannot yet add the value to thedata dictionary because the value
             # might continue on other rows.
@@ -385,8 +395,12 @@ class DataReductionLibraryDesign:
 
         data_all = (
             "\n"
-            + "\n".join(
-                open(pp).read() for pp in [path_dataitems] + paths_with_dataitems
+            + "\n".join("\n".join([
+                ll
+                for ll in open(pp).readlines()
+                if not ll.strip().startswith("%")
+            ])
+                for pp in [path_dataitems] + paths_with_dataitems
             )
             + "\n"
         )
@@ -435,7 +449,7 @@ class DataReductionLibraryDesign:
             if "det" in name:
                 # TODO: Harmonize with the other one
                 assert name.count("det") == 1, f"Too many 'det's in f{name}"
-                for name_det in ["LM", "N", "IFU", "det"]:
+                for name_det in ["LM", "N", "IFU", "2RG", "GEO", "det"]:
                     dataitems4.append([
                         name.replace("det", name_det),
                         hyperref,
@@ -454,7 +468,6 @@ class DataReductionLibraryDesign:
                 hyperref=hyperref,
                 labels=labels,
             )
-
         return dataitems3
 
     def get_template_names_used(self):
@@ -469,7 +482,10 @@ class DataReductionLibraryDesign:
         not_templates += [rec.lower() for rec in not_templates]
         template_names = []
         for filename in self.filenames_tex + self.filenames_tikz:
-            datat = open(filename, encoding="utf8").read()
+            datat1 = open(filename, encoding="utf8").readlines()
+            datat = "\n".join(
+                line for line in datat1 if not line.strip().startswith("%")
+            )
             tpls_macro = [
                 tsii.replace("\\", "")
                 for tsii in re.findall("\\\\TPL{(M.*?)}", datat, re.IGNORECASE)
@@ -479,7 +495,11 @@ class DataReductionLibraryDesign:
                 tsii.replace("\\", "").replace("$ast$", "*")
                 for tsii in
                 # re.findall("metis\\\\_[iaogps][a-z_\\*\\\\]*", datat, re.IGNORECASE)
-                re.findall("metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
+                # Include negative lookbehind (<?![:{]) to exclude any possible
+                # template name that has a : or { before it, because it is probably
+                # e.g. drl:metis_derive_gain, or \DRL{metis_derive_gain}.
+                # Any \TPL{metis_derive_gain} is caught in tpls_macro above
+                re.findall("(<?![:{])metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
             ]
             # TODO: does not work for tikz
             template_names += [
