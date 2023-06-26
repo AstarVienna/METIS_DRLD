@@ -130,8 +130,10 @@ This fulfills \REQ{METIS-6094}.
                      & \TPL{METIS_img_n_cvc_obs_AutoChop}                           \\
 %                     & \TPL{METIS_img_n_clc_obs_FixedSkyOffset}                     \\
                      & \TPL{METIS_img_n_cal_psf}                                    \\
-  Input data:        & Chopped/nodded science or standard images                    \\
-                     & Bad-pixel map                                                \\
+                     & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
+                     & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
+  Input data:        & \RAW{N_IMAGE_RAW} (Chopped/nodded science or standard images) \\
+                     & \PROD{BADPIX_MAP_GEO} Bad-pixel map                          \\
   Matched keywords:  & Filter ID                                                    \\
                      & Chop position                                                \\
                      & Nod position                                                 \\
