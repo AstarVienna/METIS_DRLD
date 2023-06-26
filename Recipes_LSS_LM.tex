@@ -42,9 +42,9 @@ Algorithm:      & subtract master \ac{WCU} "OFF" frame from illumination frame (
                 & median/mean filtering of subtracted images\\
                 & division by blackbody spectrum\\
                 & normalisation to achieve \ac{RSRF}\\
-Output data:	& \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} (\FITS{PRO.CATG=MASTER_LM_LSS_RSRF}): \\
-                & \hyperref[dataitem:median_lm_lss_rsrf_img]{\PROD{MEDIAN_LM_LSS_RSRF_IMG}}\\
-                & \hyperref[dataitem:mean_lm_lss_rsrf_img]{\PROD{MEAN_LM_LSS_RSRF_IMG}}\\
+Output data:	& \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} (\FITS{PRO.CATG=MASTER_LM_LSS_RSRF}): master flatfield/\ac{RSRF} \\
+                & \hyperref[dataitem:median_lm_lss_rsrf_img]{\PROD{MEDIAN_LM_LSS_RSRF_IMG}}: median map (\ac{QC)\\
+                & \hyperref[dataitem:mean_lm_lss_rsrf_img]{\PROD{MEAN_LM_LSS_RSRF_IMG}}: mean map (\ac{QC)\\
 Expected accuracies: & 3\% (cf. \cite{METIS-calibration_plan} and \cite{METIS_calerrbudget})\\
 QC1 parameters: & \hyperref[qc:qc_lm_lss_rsrf_mean_level]{\QC{QC LM LSS RSRF MEAN LEVEL}}: Mean level of the \ac{RSRF}\\
                 & \hyperref[qc:qc_lm_lss_rsrf_median_level]{\QC{QC LM LSS RSRF MEDIAN LEVEL}}: Median level of the \ac{RSRF}\\
@@ -129,7 +129,7 @@ Parameters: 	& (TBD)\\
 Algorithm:      & Application of detector master calibration files\\
                 & Determination and application of the distortion correction\\
                 & Determination of the first guess of the wavelength solution by polynomial fit of the detected laser source lines\\
-Output data:	& \hyperref[dataitem:lm_lss_curve]{\PROD{LM_LSS_CURVE}} (\FITS{PRO.CATG=LM_LSS_CURVE}): Curvature \\
+Output data:	& \hyperref[dataitem:lm_lss_curve]{\PROD{LM_LSS_CURVE}} (\FITS{PRO.CATG=LM_LSS_CURVE}): Curvature properties (\ac{QC)} \\
                 & \hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}} (\FITS{PRO.CATG=LM_LSS_DIST_SOL}): Distortion solution\\
                 & \hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}} (\FITS{PRO.CATG=LM_LSS_WAVE_GUESS}): Wavelength first guess\\
 Expected accuracies: & 1/5th of a pixel after post-processing (cf. \cite{METIS-calibration_plan})\\
@@ -197,12 +197,12 @@ Algorithm:      & Application of master calibration files\\
                 & Removing sky lines: Creation and Subtraction of 2D sky\\
                 & Collapsing 2D to 1D spectrum, (see Fig.\,\ref{Fig:rec_lm_lss_sci})\\
                 & Determination and application of response curve\\
-Output data:	& \hyperref[dataitem:lm_lss_std_obj_map]{\PROD{LM_LSS_STD_OBJ_MAP}}: Pixel map of object pixels\\
-            	& \hyperref[dataitem:lm_lss_std_sky_map]{\PROD{LM_LSS_STD_SKY_MAP}}: Pixel map of sky pixels\\
+Output data:	& \hyperref[dataitem:lm_lss_std_obj_map]{\PROD{LM_LSS_STD_OBJ_MAP}}: Pixel map of object pixels (\ac{QC})\\
+            	& \hyperref[dataitem:lm_lss_std_sky_map]{\PROD{LM_LSS_STD_SKY_MAP}}: Pixel map of sky pixels (\ac{QC})\\
               	& \hyperref[dataitem:lm_lss_std_1d]{\PROD{LM_LSS_STD_1D}}: coadded, wavelength calibrated, collapsed 1D spectrum\\
               	& \hyperref[dataitem:lm_lss_std_wave]{\PROD{LM_LSS_STD_WAVE}}: Wavelength solution derived from the \ac{STD} star (optional)\\
-            	& \hyperref[dataitem:std_transmission]{\PROD{STD_TRANSMISSION}}: Transmission function derived by means of the \ac{STD} (optional)\\        
-                & \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}}: response function \\
+            	& \hyperref[dataitem:std_transmission]{\PROD{STD_TRANSMISSION}}: Transmission function derived by means of the \ac{STD} (\ac{QC})\\        
+                & \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}}: response function (optionally including the transmission) \\
 Expected accuracies: & 10\% over an atmospheric band (ESO Req. R-MET-107)\\
             & $<30$\% absolute line flux accuracy (R-MET-107)\\
             & $<5$\% absolute flux calibration (R-MET-82)\\
@@ -230,7 +230,7 @@ QC1 parameters: & \hyperref[qc:qc_lm_lss_std_backgd_mean]{\QC{QC LM LSS STD BACK
 \end{recipedef}
 
 \subsubsection{LM-LSS science reduction recipe \REC{metis_LM_lss_sci}:}\label{rec:metis_lm_lss_sci}
-The science calibration recipe comprises the extraction of the object (i.e. separation of object/sky pixels), removing the sky lines, the application of the response curve previously defined, the 2D to 1D collapse and the co-addition. It also applies an absolute flux calibration (optionally with the telluric correction in one step, cf. Section~\ref{sec:})
+The science calibration recipe comprises the extraction of the object (i.e. separation of object/sky pixels), removing the sky lines, the application of the response curve previously defined, the 2D to 1D collapse and the co-addition. It also applies an absolute flux calibration (optionally with the telluric correction in one step, cf. Section~\ref{ssec:tellcorr}).
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.36\textheight]{figures/metis_lm_lss_sci_v0.83.pdf}
@@ -272,8 +272,8 @@ Algorithm:      & Application of the detector master calib files\\
                 & Coaddition of individual object spectra of one OB\\
                 & Collapsing 2D to 1D spectrum, (see Fig.\,\ref{Fig:rec_lm_lss_sci})\\
                 & Application of the response function (flux calibration) \\
-Output data:	& \hyperref[dataitem:lm_lss_sci_obj_map]{\PROD{LM_LSS_SCI_OBJ_MAP}}: Pixel map of object pixels\\
-            	& \hyperref[dataitem:lm_lss_sci_sky_map]{\PROD{LM_LSS_SCI_SKY_MAP}}: Pixel map of sky pixels\\
+Output data:	& \hyperref[dataitem:lm_lss_sci_obj_map]{\PROD{LM_LSS_SCI_OBJ_MAP}}: Pixel map of object pixels (\ac{QC})\\
+            	& \hyperref[dataitem:lm_lss_sci_sky_map]{\PROD{LM_LSS_SCI_SKY_MAP}}: Pixel map of sky pixels (\ac{QC})\\
             	& \hyperref[dataitem:lm_lss_sci_2d]{\PROD{LM_LSS_SCI_2D}}: coadded, wavelength calibrated 2D spectrum\\
                 & (\FITS{PRO_CATG}: \FITS{LM_LSS_2d_coadd_wavecal}) \\
                 & \hyperref[dataitem:lm_lss_sci_1d]{\PROD{LM_LSS_SCI_1D}}: coadded, wavelength calibrated 1D spectrum\\
