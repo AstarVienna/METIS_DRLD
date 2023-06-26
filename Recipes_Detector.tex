@@ -28,7 +28,7 @@ array for which data are being processed.
 \label{rec:metis_det_lingain}
 \label{rec:metisdetlingain}
 
-The recipe \REC{metis_det_lingain} determines detector (non-)linearity and absolute detector
+The recipe \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}} determines detector (non-)linearity and absolute detector
 gain from a set of flat-field frames taken with the broad-band lamp
 over a range of detector exposure times (DITs) and flux levels. The
 recipe structure will be similar as for \CODE{detmon_ir_lg} % Not a \REC because it is not our recipe
@@ -68,7 +68,7 @@ This satisfies \REQ{METIS-5997}.
                        & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
   Input data:          & \hyperref[dataitem:detlin_det_raw]{\RAW{DETLIN_det_RAW}}: (set of \FITS{FLAT,LAMP} frames taken with increasing DIT) \\
-                       & \hyperref[dataitem:dark_internal_det_raw]{\RAW{DARK_INTERNAL_det_RAW}}: (set of internal darks taken at the start of the template) \\
+                       & \hyperref[dataitem:det_wcu_off_raw]{\RAW{det_WCU_OFF_RAW}}: (set of internal darks taken at the start of the template) \\
   Matched keywords:    & Subsystem ID \TODO{TBD}                                                             \\
   Algorithm:           & Subtract instrument dark (\CODE{hdrl_imagelist_sub_image}).                         \\
                        & Compute mean and variance for each frame (\CODE{TBD}).                              \\
