@@ -162,7 +162,7 @@ HACK_RECIPE_TEMPLATES = {
 TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI = [
     "METIS_spec_lm_cal_rsrfpinh",
     "METIS_spec_n_cal_rsrfpinh",
-    "METIS_img_nq_cal_DetLin",
+    # "METIS_img_nq_cal_DetLin",
 ]
 
 

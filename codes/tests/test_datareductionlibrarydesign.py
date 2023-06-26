@@ -182,13 +182,10 @@ class TestDataReductionLibraryDesign:
             _ = guess_dataitem_type(dn, raise_exception=True)
 
     def test_datatypes_are_known(self):
-        dtypes = [
-            diref.dtype
-            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
-            for diref in recipe.input_data + recipe.output_data
-        ]
-        # TODO: They should never be FITS or CODE
-        assert set(dtypes) == {"PROD", "RAW", "EXTCALIB", "STATCALIB", "FITS", "CODE"}
+        datatypes_acceptable = {"PROD", "RAW", "EXTCALIB", "STATCALIB"}
+        for recipe in METIS_DataReductionLibraryDesign.recipes.values():
+            for diref in recipe.input_data + recipe.output_data:
+                assert diref.dtype in datatypes_acceptable, f"Dataitem {diref.name} has type {diref.dtype} which is not allowed."
 
     @pytest.mark.xfail(reason="Some are still FITS or CODE")
     def test_datatypes_are_known_strict(self):
@@ -229,18 +226,19 @@ class TestDataReductionLibraryDesign:
 
 class TestFindLatexInputs:
     def test_find_latex_inputs(self):
-        fns_expected = [
+        fns_expected = {
             "CalDB_data_items.tex",
             "LMS_data_items.tex",
             "IMG_data_items.tex",
             "LSS_data_items.tex",
-        ]
+            "ADI_data_items.tex",
+        }
         path = (
             METIS_DataReductionLibraryDesign.path_drld / "09_0-DRL-Data-Structures.tex"
         )
         paths_input = find_latex_inputs(path)
-        filenames_input = [pp.name for pp in paths_input]
-        assert filenames_input == fns_expected
+        filenames_input = {pp.name for pp in paths_input}
+        assert filenames_input == fns_expected, f"Found more dataitems: {filenames_input - fns_expected}, or less: {fns_expected - filenames_input}"
 
 
 class TestParseDataItemReference:

@@ -176,10 +176,19 @@ class Recipe:
     @staticmethod
     def parse_recipe_from_table(stable):
         """Parse a Recipe from a table"""
-        rows1 = [
+        rows1a = [
             line.strip()
             for line in stable.splitlines()
             if line.strip() and not line.strip().startswith("%")
+        ]
+        # Some recipes start with
+        # \begin{recipedef}\label{rec:metisimgchophome}\label{rec:metis_img_chophome}
+        # So rows1a starts with
+        # \label{rec:metisimgchophome}\label{rec:metis_img_chophome}
+        # Remove that line
+        # TODO: perhaps do something useful with the labels
+        rows1 = [
+            row for row in rows1a if not row.startswith(r"\label")
         ]
 
         # Concatenate lines.. Aargh
@@ -254,6 +263,7 @@ class Recipe:
                     #   Where _det appears in FITS keywords of input or product files,
                     #   it is taken to mean _LM, N or _IFU
                     #   according to the detector array for which data are being processed.
+                    # TODO: Perhaps we should go back to _2RG and _GEO for _LM and _N
 
                     # Second, split these:
                     #         Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \PROD{IFU_SCI_REDUCED_TAC})
@@ -264,7 +274,7 @@ class Recipe:
                             msg = f"There are too many or wrong 'det's in f{val.name}."
                             assert val.name.endswith("_det") or val.name.startswith("det_") or "_det_" in val.name, msg
                             assert val.name.count("det") == 1, msg
-                            for postfix in ["LM", "N", "IFU"]:
+                            for postfix in ["LM", "N", "IFU", "GEO", "2RG"]:
                                 value.append(
                                     DataItemReference(
                                         name=val.name.replace("det", postfix),
@@ -304,7 +314,7 @@ class Recipe:
                 # print(field, ":::", value)
 
             # noinspection PyUnresolvedReferences
-            assert field in Recipe.__dataclass_fields__, f"Field cannot be found {row[0]}"
+            assert field in Recipe.__dataclass_fields__, f"Field {field} cannot be found {row[0]}"
 
             # Cannot yet add the value to thedata dictionary because the value
             # might continue on other rows.
@@ -435,7 +445,7 @@ class DataReductionLibraryDesign:
             if "det" in name:
                 # TODO: Harmonize with the other one
                 assert name.count("det") == 1, f"Too many 'det's in f{name}"
-                for name_det in ["LM", "N", "IFU", "det"]:
+                for name_det in ["LM", "N", "IFU", "2RG", "GEO", "det"]:
                     dataitems4.append([
                         name.replace("det", name_det),
                         hyperref,
