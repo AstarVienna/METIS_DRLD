@@ -38,8 +38,8 @@ Algorithm:      & subtract master \ac{WCU} "OFF" frame from illumination frame (
                 & division by blackbody spectrum\\
                 & normalisation to achieve \ac{RSRF}\\
 Output data:	&  \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}} (\FITS{PRO.CATG=MASTER_N_LSS_TRSRF}): master flatfield/\ac{RSRF} \\
-                & \hyperref[dataitem:median_n_lss_rsrf_img]{\PROD{MEDIAN_N_LSS_RSRF_IMG}}: \\
-                & \hyperref[dataitem:mean_n_lss_rsrf_img]{\PROD{MEAN_N_LSS_RSRF_IMG}}\\
+                & \hyperref[dataitem:median_n_lss_rsrf_img]{\PROD{MEDIAN_N_LSS_RSRF_IMG}}: median map (\ac{QC})\\
+                & \hyperref[dataitem:mean_n_lss_rsrf_img]{\PROD{MEAN_N_LSS_RSRF_IMG}}: mean map (\ac{QC})\\
 
 Expected accuracies: & 3\% (cf. \cite{METIS-calibration_plan} and \cite{METIS_calerrbudget})\\
 QC1 parameters: & \hyperref[qc:qc_n_lss_rsrf_mean_level]{\QC{QC N LSS RSRF MEAN LEVEL}}: Mean level of the \ac{RSRF}\\
@@ -92,11 +92,10 @@ QC1 parameters: & \hyperref[qc:qc_n_lss_trace_lpolydeg]{\QC{QC N LSS TRACE LPOLY
 
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{N-LSS standard star recipe \REC{metis_N_lss_std}:}\label{rec:metis_n_lss_std}
-Flux calibration with spectrophotometric standard stars: As first step the detector master calibration files derived previously are applied followed by the background subtraction, if needed the distortion correction (\PROD{N_DIST_SOL}), and
-the wavelength calibration by means of the first guess solution (\PROD{N_WAVE_GUESS}) and the telluric sky lines (c.f. Sect.\,8.5 in \cite{DRLS}).
- Then the recipe extracts the standard star spectrum object, removes sky lines, collapses the 2D to 1D spectra and applies a telluric correction in an automated way to the standard star spectrum (in contrast to the science observations, which are telluric corrected in a dedicated recipe to achieve the best correction). The response curve is obtained by comparing the extracted spectrum with a model and/or another reference spectrum of the standard star. Currently it is foreseen to use the same standard stars as in \ac{CRIRES}/CRIRES+ and \ac{VISIR}. It is under investigation whether more stars are needed.
+This recipe aims at processing standard stars used for the absolute flux calibration and (optionally) for the telluric feature removal: As first step the detector master calibration files derived previously are applied followed by the background subtraction, if needed the distortion correction (\hyperref[dataitem:n_lss_dist_sol]{\PROD{N_LSS_DIST_SOL}}), and
+the wavelength calibration by means of the first guess solution (\hyperref[dataitem:n_lss_wave_guess]{\PROD{N_LSS_WAVE_GUESS}}) and the telluric sky lines (c.f. Sect.\,8.5 in \cite{DRLS}). Then the recipe removes sky background, extracts the standard star spectrum object and collapses the 2D to 1D spectra. In case the \ac{STD} is used only for the flux calibration, a telluric correction is required to better compare the corresponding model spectrum. This is done by means of the standard star observations itself or (optionally) with a synthetic transmission curve (either a standard curve derived by the ESO Skycalc Tool\footnote{\url{https://www.eso.org/observing/etc/bin/gen/form?INS.MODE=swspectr+INS.NAME=SKYCALC}}, a standard curve (\hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}}) or \texttt{molecfit}. It is on the user's decision whether the standard star is used for the absolute flux calibration only, or also used for the telluric correction of the science target. The response function is then calculated as ratio of the measured 1d-\ac{STD} spectrum and a detailed model containing absolute flux information.
 
- This is in compliance with \REQ{METIS-6074}.
+Please note that the procedure of the \ac{STD} handling changes when the classical method for the telluric correction is chosen. The reason is that in the response function, also the telluric features of the \ac{STD} star have to be present to be able to apply a combination of the telluric absorption removal and the conversion towards physical flux units (cf. Section~\ref{ssec:tellcorr}). In the case of using \texttt{molecfit}, a telluric correction is applied to the \ac{STD} spectrum to better determine the response function and only the response is delivered to the science recipes. In case of the classical approach with a \ac{STD}, the response function shall also contain the telluric features of the \ac{STD}, and therefore a telluric correction beforehand is counterproductive.\\
 
 \begin{figure}[ht]
   \centering
@@ -136,10 +135,11 @@ Algorithm:      & Application of master calibration files\\
                 & Removing sky lines: Creation and Subtraction of 2D sky\\
                 & Collapsing 2D to 1D spectrum, (see Fig.\,\ref{Fig:rec_N_lss_sci})\\
                 & Determination and application of response curve\\
-Output data:	& \hyperref[dataitem:n_lss_std_obj_map]{\PROD{N_LSS_STD_OBJ_MAP}}: Pixel map of object pixels\\
-            	& \hyperref[dataitem:n_lss_std_sky_map]{\PROD{N_LSS_STD_SKY_MAP}}: Pixel map of sky pixels\\
+Output data:	& \hyperref[dataitem:n_lss_std_obj_map]{\PROD{N_LSS_STD_OBJ_MAP}}: Pixel map of object pixels (\ac{QC})\\
+            	& \hyperref[dataitem:n_lss_std_sky_map]{\PROD{N_LSS_STD_SKY_MAP}}: Pixel map of sky pixels (\ac{QC})\\
               	& \hyperref[dataitem:n_lss_std_1d]{\PROD{N_LSS_STD_1D}}  : coadded, wavelength calibrated, collapsed 1D spectrum\\
-                & \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}}: response function (TBD)\\
+                & \hyperref[dataitem:std_transmission]{\PROD{STD_TRANSMISSION}}: Transmission curve derived by menas of the \ac{STD} star (\ac{QC)}\\
+                & \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}}: response function (optionally including the transmission)\\
 Expected accuracies: & 10\% over an atmospheric band (ESO Req. R-MET-107)\\
             & $<30$\% absolute line flux accuracy (R-MET-107)\\
             & $<5$\% absolute flux calibration (R-MET-82)\\
@@ -208,8 +208,8 @@ Algorithm:      & Application of the detector master calib files\\
                 & Coaddition of individual object spectra of one OB\\
                 & Collapsing 2D to 1D spectrum, (see Fig.\,\ref{Fig:rec_N_lss_sci})\\
                 & Application of the response function (flux calibration) \\
-Output data:	& \hyperref[dataitem:n_lss_sci_obj_map]{\PROD{N_LSS_SCI_OBJ_MAP}}: Pixel map of object pixels\\
-            	& \hyperref[dataitem:n_lss_sci_sky_map]{\PROD{N_LSS_SCI_SKY_MAP}}: Pixel map of sky pixels\\
+Output data:	& \hyperref[dataitem:n_lss_sci_obj_map]{\PROD{N_LSS_SCI_OBJ_MAP}}: Pixel map of object pixels (\ac{QC})\\
+            	& \hyperref[dataitem:n_lss_sci_sky_map]{\PROD{N_LSS_SCI_SKY_MAP}}: Pixel map of sky pixels (\ac{QC})\\
             	& \hyperref[dataitem:n_lss_sci_2d]{\PROD{N_LSS_SCI_2D}}: coadded, wavelength calibrated 2D spectrum\\
                 & (\FITS{PRO_CATG}: \FITS{N_LSS_2d_coadd_wavecal}) \\
                 & \hyperref[dataitem:n_lss_sci_1d]{\PROD{N_LSS_SCI_1D}}: coadded, wavelength calibrated 1D spectrum\\
