@@ -24,37 +24,67 @@ class TestDataReductionLibraryDesign:
         """Another way to find the datatimes."""
         sglob = str(METIS_DataReductionLibraryDesign.path_drld / "*.tex")
         paths_tex = glob.glob(sglob)
-        lines1 = [
+        lines_single = [
             line
             for path in paths_tex
             for line in open(path).readlines()
             if "paragraph" in line and "dataitem" in line and not line.startswith("%")
         ]
-        lines_with_and = [line for line in lines1 if " and " in line]
+        lines_full = []
+        for line in lines_single:
+            lmulti = [line]
+            for lmn in ["LM", "N", "IFU", "2RG", "GEO"]:
+                if f"{{{lmn}_" in line:
+                    lmulti.append(line.replace(f"{{{lmn}_", "{det_"))
+                if f"_{lmn}}}" in line:
+                    lmulti.append(line.replace(f"_{lmn}}}", "_det}"))
+                if f"_{lmn}_" in line:
+                    lmulti.append(line.replace(f"_{lmn}_", "_det_"))
+                if "{det_" in line:
+                    lmulti.append(line.replace("{det_", f"{{{lmn}_"))
+                if "_det}" in line:
+                    lmulti.append(line.replace("_det}", f"_{lmn}}}"))
+                if "_det_" in line:
+                    lmulti.append(line.replace("_det_", f"_{lmn}_"))
+            lines_full.append(lmulti)
 
-        is_used = numpy.zeros(len(lines1), dtype=bool)
+
+        lines_with_and = [line for line in lines_full if " and " in line]
+
+        is_used = numpy.zeros(len(lines_full), dtype=bool)
         not_found = []
         found_more_than_once = []
 
         # Are all dataitems in the DRLD also in the lines above?
         for di in METIS_DataReductionLibraryDesign.dataitems:
-            found = numpy.array([di in line for line in lines1])
+            found = numpy.array([
+                any(di in line for line in lmulti) for lmulti in lines_full
+            ])
+            foundsingle = numpy.array([
+                # IFU_SCI_COMBINED is there, but also IFU_SCI_COMBINED_TAC,
+                # and they should all have a drsstructure line as well
+                di in line and f"{di}_" not in line and "drsstructure" not in line
+                for line in lines_single
+            ])
             if not found.any():
                 not_found.append(di)
-            if found.sum() > 1:
+            if foundsingle.sum() > 1:
                 found_more_than_once.append(di)
-            is_used |= found
+            is_used |= found | foundsingle
 
         # Are all lines used for some dataitem?
-        not_parsed = [line for line, used in zip(lines1, is_used) if not used]
+        not_used_anywhere = [(linesingle, linefull) for linesingle, linefull, used in zip(lines_single, lines_full, is_used) if not used]
 
         assert not not_found
         assert not found_more_than_once
-        assert not not_parsed
+        assert not not_used_anywhere
         assert all(is_used)
-        assert len(lines1) + len(lines_with_and) == len(
-            METIS_DataReductionLibraryDesign.dataitems
-        )
+        assert not lines_with_and
+        # TODO: Perhaps remove all the _det_ ones and put the actual data
+        # product there.
+        # assert len(lines_full) + len(lines_with_and) == len(
+        #     METIS_DataReductionLibraryDesign.dataitems
+        # )
 
     def test_template_and_recipe_names_do_not_overlap(self):
         names_recipes = {

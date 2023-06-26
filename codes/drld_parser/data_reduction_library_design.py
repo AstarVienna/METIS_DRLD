@@ -395,8 +395,12 @@ class DataReductionLibraryDesign:
 
         data_all = (
             "\n"
-            + "\n".join(
-                open(pp).read() for pp in [path_dataitems] + paths_with_dataitems
+            + "\n".join("\n".join([
+                ll
+                for ll in open(pp).readlines()
+                if not ll.strip().startswith("%")
+            ])
+                for pp in [path_dataitems] + paths_with_dataitems
             )
             + "\n"
         )
@@ -464,7 +468,6 @@ class DataReductionLibraryDesign:
                 hyperref=hyperref,
                 labels=labels,
             )
-
         return dataitems3
 
     def get_template_names_used(self):
