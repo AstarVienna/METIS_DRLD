@@ -110,7 +110,15 @@ Basic statistics of the images can be used to screen for saturation.
   Purpose:          & apply basic reduction of images   \\
   Type:             & Calibration, Science              \\
   Templates:        & \TPL{METIS_img_lm_cal_standard}  \\
-                    & \TPL{METIS_img_lm_*_obs_*}       \\
+%                     & \TPL{METIS_img_lm_*_obs_*}       \\
+                    & \TPL{METIS_img_lm_obs_AutoJitter} \\
+                    & \TPL{METIS_img_lm_obs_GenericOffset} \\
+                    & \TPL{METIS_img_lm_obs_FixedSkyOffset} \\
+                    & \TPL{METIS_img_lm_app_obs_FixedOffset} \\
+                    & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
+                    & \TPL{METIS_img_lm_cal_psf}             \\
+                    & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
+                    & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
   Input data:       & Dithered images (standard, science) \\
                     & Blank sky images (if available)   \\
                     & Masked detector region (if available)  \\
@@ -189,7 +197,14 @@ counts within an aperture.}
   Purpose:          & estimate and subtract background                          \\
   Type:             & Calibration                                               \\
   Templates:        & \TPL{METIS_img_lm_cal_standard}                           \\
-                    & \TPL{METIS_img_lm_*_obs_*}                                \\
+%                     & \TPL{METIS_img_lm_*_obs_*}                                \\
+                    & \TPL{METIS_img_lm_obs_AutoJitter} \\
+                    & \TPL{METIS_img_lm_obs_GenericOffset} \\
+                    & \TPL{METIS_img_lm_obs_FixedSkyOffset} \\
+                    & \TPL{METIS_img_lm_app_obs_FixedOffset} \\
+                    & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
+                    & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
+                    & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
   Input data:       & \hyperref[dataitem:lm_sci_basic_reduced]{\PROD{LM_SCI_BASIC_REDUCED}}                               \\
                     & \hyperref[dataitem:lm_std_basic_reduced]{\PROD{LM_STD_BASIC_REDUCED}}                               \\
   Matched keywords: & dither position (\CODE{SKY}? \TBD)                        \\
