@@ -88,8 +88,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\hyperref[dataitem:dark_internal_det_raw]{\RAW{DARK_INTERNAL_det_RAW}}}
-\label{dataitem:dark_internal_det_raw}
+\paragraph{\hyperref[dataitem:dark_internal_det_raw]{\RAW{DARK_INTERNAL_det_RAW}}}\label{dataitem:dark_internal_det_raw}
 \TODO{What is this good for??? We have darks defined in \ref{dataitem:dark_det_raw}}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -315,8 +314,7 @@ See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
 \paragraph{\hyperref[dataitem:badpix_map_ifu]{\PROD{BADPIX_MAP_IFU}}}\label{dataitem:badpix_map_ifu}
 See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
 
-\paragraph{\hyperref[dataitem:linearity]}{\PROD{LINEARITY_det}}\label{dataitem:linearity_det}
-\label{dataitem:linearity}\label{dataitem:linearity_lm}\label{dataitem:linearity_ifu}\label{dataitem:linearity_n}
+\paragraph{\hyperref[dataitem:linearity_det]{\PROD{LINEARITY_det}}}\label{dataitem:linearity_det}\label{dataitem:linearity}\label{dataitem:linearity_lm}\label{dataitem:linearity_ifu}\label{dataitem:linearity_n}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_det}}\\[0.3cm]
@@ -741,8 +739,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \paragraph{\hyperref[dataitem:det_distortion_map]{\PROD{det_DISTORTION_MAP}}}\label{dataitem:det_distortion_map}
 Depending on context, a \hyperref[dataitem:det_distortion_map]{\PROD{det_DISTORTION_MAP}} can refer to either a
 \begin{enumerate}
-\item \hyperref[dataitem:n_distortion_map]{\PROD{n_DISTORTION_MAP}}
-\item \hyperref[dataitem:lm_distortion_map]{\PROD{lm_DISTORTION_MAP}}
+\item \hyperref[dataitem:n_distortion_map]{\PROD{N_DISTORTION_MAP}}
+\item \hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}
 % \item \hyperref[dataitem:ifu_distortion_map]{\PROD{ifu_distortion_map}}
 \end{enumerate}
 
@@ -751,7 +749,7 @@ Depending on context, a \hyperref[dataitem:det_distortion_map]{\PROD{det_DISTORT
 
 \begin{recipedef}
 \textbf{\ac{FITS} IMAGE file structure:}\\
-Name: & \hyperref[dataitem:lm_distortion_map]{\PROD{lm_DISTORTION_MAP}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}\\[0.3cm]
 Description: & Map of pixel scale across the detector\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
@@ -763,7 +761,7 @@ Input for recipe: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_dis
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:lm_distortion_map]{\PROD{lm_DISTORTION_MAP}}}\label{drsstructure:lm_DISTORTION_MAP}
+\paragraph{\hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}}\label{drsstructure:LM_DISTORTION_MAP}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -779,7 +777,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \begin{recipedef}
 \textbf{\ac{FITS} IMAGE file structure:}\\
-Name: & \hyperref[dataitem:n_distortion_map]{\PROD{n_DISTORTION_MAP}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_distortion_map]{\PROD{N_DISTORTION_MAP}}\\[0.3cm]
 Description: & Map of pixel scale across the detector\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
@@ -791,7 +789,7 @@ Input for recipe: & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_disto
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:n_distortion_map]{\PROD{n_DISTORTION_MAP}}}\label{drsstructure:n_DISTORTION_MAP}
+\paragraph{\hyperref[dataitem:n_distortion_map]{\PROD{N_DISTORTION_MAP}}}\label{drsstructure:n_distortion_map}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
