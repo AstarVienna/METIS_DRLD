@@ -263,6 +263,24 @@ class TestDataReductionLibraryDesign:
                     problems.append((recipe.name, template))
         assert not problems
 
+    def test_template_manual_templates_are_used(self):
+        """Go through the template manual and check whether we use those templates."""
+        templates_expected = [
+            template
+            for template in METIS_TemplateManual.templates.values()
+            if template.ttype in ["Calibration", "Observing"]
+        ]
+        templates_used = {
+            template.lower()
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            for template in recipe.templates
+        }
+        templates_missing = [
+            template.name
+            for template in templates_expected
+            if template.name.lower() not in templates_used
+        ]
+        assert not templates_missing
 
 class TestFindLatexInputs:
     def test_find_latex_inputs(self):
