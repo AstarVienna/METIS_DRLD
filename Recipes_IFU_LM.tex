@@ -327,10 +327,9 @@ QC1 parameters:      & TBD                                                      
 \end{figure}
 
 
-For the purposes of this prototype, we start from \emph{recified} data,
+For the purposes of this prototype, we start from \emph{rectified} data,
 i.~e.~a data cube with two spatial axes $x$ and $y$ and a wavelength axis $\lambda$,
 which is orthogonal to the spatial slices. The data are linearly sampled on all three axes.
-
 The field of view is shown in Fig.~\ref{fig:op_concept}.
 
 \begin{figure}
@@ -362,12 +361,13 @@ both written as one-dimensional arrays (the six data images are collated into on
 $\vec{d}$).\footnote{The mapping from two-dimensional to one-dimensional arrays is in
 principle arbitrary and can be chosen such that the model matrix $\mat{A}$ has a convenient form.
 For the time being, the code uses the numpy method \lstinline{flatten()},
-which returns the array in the sequence that it is stored in computer memory.}
+which returns the array as it is stored in computer memory.}
 The vector $\vec{e}$ is the irreducible noise vector.
-The data $\vec{d}$ are sampled on rectangular pixels $8.2\times 20.7\,\mathrm{mas^{2}}$,
-the model $\vec{m}$ is constructed to be sampled on square pixels $8.2\times 8.2\,\mathrm{mas^{2}}$
+The data $\vec{d}$ are sampled on rectangular pixels $8.2 \times 20.7\,\mathrm{mas^{2}}$,
+while the model $\vec{m}$ is constructed to be sampled on square pixels $8.2 \times 8.2\,\mathrm{mas^{2}}$
 and aligned with the short side of the data pixels.
 The model matrix $\mat{A}$ describes how the model flux is distributed onto the data grid.
+
 A matrix element $\mat{A}_{ij}$ thus gives the geometric fraction of model pixel $j$ that overlaps with the data pixel $i$.
 Fig.~\ref{fig:pixel_overlap} shows the situation for pixels that overlap completely in the $x$-direction.
 In the code, we allow for partial overlap in the $x$-direction as well, so that the matrix element is
@@ -412,7 +412,7 @@ a more complex algorithm for determination of overlap must be used:
 
 \begin{enumerate}
     \item For each pair of data and model pixels, the distance between their centres is computed.
-        If it is larger than $\sqrt{\left(D_{dx} + D_{mx}\right)^2 + \left(D_{dy} + D_{my}\right)^2}$,
+        If it is larger than $\frac{1}{2}\sqrt{\left(D_{dx} + D_{mx}\right)^2 + \left(D_{dy} + D_{my}\right)^2}$,
         there is certainly no overlap and the computation may proceed with the next pair.
     \item Otherwise, the overlap is computed as follows:
         Since both pixels are rectangles, the overlap is guaranteed to be a convex polygon
