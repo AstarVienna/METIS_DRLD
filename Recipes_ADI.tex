@@ -256,7 +256,11 @@ information.
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & \TPL{??}                               \\
   Type:                & Science                                                    \\
-  Input data:          & \hyperref[dataitem:ifu_cgrph_sci_reduced]{\PROD{IFU_CGRPH_SCI_REDUCED}}                            \\
+% HB 20230626: The IFU_CGRPH_SCI_REDUCED is currently not produced by any
+%    recipe. It is probably a subclass of IFU_SCI_REDUCED, so for
+%    now I'm just listing IFU_SCI_REDUCED here.
+%   Input data:          & \hyperref[dataitem:ifu_cgrph_sci_reduced]{\PROD{IFU_CGRPH_SCI_REDUCED}}                            \\
+  Input data:          & \hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}}                            \\
                        & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}\\
                        & Coronagraphic throughput map and profile                                                  \\
                        & Off-axis PSF references                                                  \\

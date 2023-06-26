@@ -907,30 +907,32 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-
-\paragraph{\hyperref[dataitem:ifu_cgrph_sci_reduced]{\RAW{IFU_cgrph_SCI_REDUCED}}}\label{dataitem:ifu_cgrph_sci_reduced}
-\begin{recipedef}
-\textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:ifu_cgrph_sci_reduced]{\PROD{IFU_cgrph_SCI_REDUCED}}\\[0.3cm]
-Description: & IFU dataset after basic reduction \\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_REDUCED}\\[0.3cm]
-Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
-    \item \texttt{hdrl\_image * image: IFU Datacube}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
+% HB 20230626: The IFU_CGRPH_SCI_REDUCED is currently not produced by any
+%    recipe. It is probably a subclass of IFU_SCI_REDUCED.
+%    For now I've just used IFU_SCI_REDUCED in metis_ifu_adi_cgrph
+% \paragraph{\hyperref[dataitem:ifu_cgrph_sci_reduced]{\RAW{IFU_cgrph_SCI_REDUCED}}}\label{dataitem:ifu_cgrph_sci_reduced}
+% \begin{recipedef}
+% \textbf{\ac{FITS} image structure:}\\
+% Name: & \hyperref[dataitem:ifu_cgrph_sci_reduced]{\PROD{IFU_cgrph_SCI_REDUCED}}\\[0.3cm]
+% Description: & IFU dataset after basic reduction \\[0.3cm]
+% \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
+% \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+% \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
+% OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+% \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_REDUCED}\\[0.3cm]
+% Templates:             & \TPL{TODO}                                                       \\
+% Input for recipe: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}\\
+% Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+% %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+% \end{recipedef}
+% \begin{datastructdef}
+% \textbf{Corresponding \ac{CPL} structure:}
+% \begin{enumerate}
+%  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+%     \item \texttt{hdrl\_image * image: IFU Datacube}
+%     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+% \end{enumerate}
+% \end{datastructdef}
 
 
 
