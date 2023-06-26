@@ -3,23 +3,16 @@
 The purpose of these workflows is to correct or remove contributions from
 the instrument, telescope, and atmosphere and generate science-grade
 data products for the L/M- and N-band \ac{LSS}
-mode. Since the detector properties are not fully specified, especially of the new Geosnap, we currently assume
-basically the same reduction cascade for both spectral ranges LM and
-N, respectively. The only major difference at the time being is the absence of \ac{WCU} laser sources in the N-band, which are only available during \ac{AIT} phase to generate a first guess of the pixel-to-wavelength relation. Therefore the first guess wavelength solution in the N-band will be based on that \ac{AIT} data. As we assume the instrument to be very stable, that approach should be sufficient for the low-resolution N-band spectroscopy. In the LM range, two fix-frequency lasers ($@3.39$µm and $@5.26$µm) and one tuneable ($4.68....4.78$µm) is foreseen in the \ac{WCU} to be taken on daily basis (cf. \cite{METIS-calibration_plan}). Although mainly foreseen to be used for the high-resolution spectroscopy \ac{IFU} mode, we can use these laser sources for the LM-band \ac{LSS} as well.
+mode. Since the Geosnap detector is still under investigation, we currently assume basically the same reduction cascade for both spectral ranges LM and N, respectively. The major differences at the time being are the subtraction methods for the sky background (nodding in LM, chop-nodding in N band) and the absence of \ac{WCU} laser sources in the N-band, which are only available during \ac{AIT} phase to generate a first guess of the pixel-to-wavelength relation. Therefore the first guess wavelength solution in the N-band will be based on that \ac{AIT} data. As we assume the instrument to be very stable, that approach should be sufficient for the low-resolution N-band spectroscopy. In the LM range, two fixed-frequency lasers ($@3.39$µm and $@5.26$µm) and one tuneable ($4.68....4.78$µm) is foreseen in the \ac{WCU} to be taken on daily basis (cf. \cite{METIS-calibration_plan}). Although mainly foreseen to be used for the high-resolution spectroscopy \ac{IFU} mode, we can use these laser sources for the LM-band \ac{LSS} as well.
 
-Special emphasis has to be drawn to the effects of the Earth's
-atmosphere in several respects:
+Special emphasis has to be drawn to the effects of the Earth's atmosphere in several respects:
 \begin{itemize}
 \item Wavelength calibration: Absorption/emission features are intended to be
   used for the wavelength calibration. Thus, a good knowledge on /
   identification of these features is crucial for the accuracy of the
   wavelength calibration.
-\item Telluric correction: In the MIR regime telluric absorption is
-  one of the most dominant effects visible in spectra. Modelling
-  approaches like \texttt{molecfit} heavily rely on accurate
-  atmospheric input profiles, which represent the actual state and
-  composition of the Earth's atmosphere. This especially applies to
-  the \ac{PWV} content since this is the most dominant and most variable species. We also include the classical approach for the telluric correction, i.e. deriving the Earth's atmoopshere transmission by means of standard stars.
+\item Telluric correction: In the MIR regime telluric absorption is -among others- one of the most dominant effects visible in    
+ spectra. Modelling approaches like \texttt{molecfit} heavily rely on accurate atmospheric input profiles, which represent the actual state and composition of the Earth's atmosphere. This especially applies to the \ac{PWV} content since this is the most dominant and most variable species. We also include the classical approach for the telluric correction (i.e. deriving the Earth's atmosphere transmission by means of standard stars) to be able to achieve a good removal of sky emission in case \texttt{molecfit} appears to be insufficient.
 \item Atmospheric dispersion: \ac{METIS} will have \ac{ADC}s compensating the
   effect of atmospheric dispersion. However, for technical reasons
   these ADCs are fixed at several positions. This means that the
@@ -39,9 +32,9 @@ spectroscopy data.  Tables~\ref{Tab:LMLssDatProc1} and ~\ref{Tab:LMLssDatProc2} 
 
 In general, there are four major steps in each of the two cascades:
 \begin{itemize}
-    \item \textbf{Preparation steps:} This contains the recipes, which are invoked only rarely, e.g. after major instrument interventions, or on monthly/yearly basis to update the static calibration database. These recipes are therefore not shown in the cascade in Figs.~\ref{Fig:LMLssAssomap1}/\ref{Fig:LMLssAssomap2} and \ref{Fig:NLssAssomap1}/\ref{Fig:NLssAssomap2} and the corresponding data processing tables. In case of the \ac{LSS} pipeline this concerns the creation of the gain maps/linearity checks (see Section~\ref{sssec:metis_det_lingain}), the determination of the slit losses induced by the fixed positions of the ADCs (cf. Section~\ref{sssec:adc_slitlosses} and Section "Calibration of slit losses" in Calibration plan \cite{METIS-calibration_plan}) and the zero position of the chopping mirror (see Section~\ref{ssec:metisimgchophome} and Section "Chopper Home Position" in \cite{METIS-calibration_plan} for more details). 
-    \item \textbf{Basic steps}: The basic steps aim for correcting the detector influence, in particular the dark correction and the determination of the master \ac{RSRF}. A special case is the persistence correction, which is (optionally) done as first step in the individual recipes. The basic function for that will be provided by \ac{ESO}\footnote{c.f. \ac{ELT} working group on detectors/persistence} and is not a dedicated recipe. 
-    \item \textbf{Calibration/correction steps}: This is the main part which incorporates the order trace detection, distortion, wavelength and flux correction. In case a dedicated \ac{STD} star is provided, a transmission curve is created for the telluric correction.
+    \item \textbf{Preparation steps:} This part contains the recipes, which are invoked only rarely, e.g. after major instrument interventions, or on monthly/yearly basis to update the static calibration database. These recipes are therefore not shown in the cascade in Figs.~\ref{Fig:LMLssAssomap1}/\ref{Fig:LMLssAssomap2} and \ref{Fig:NLssAssomap1}/\ref{Fig:NLssAssomap2} and the corresponding data processing tables. In case of the \ac{LSS} pipeline this concerns the creation of the gain maps/linearity checks (see Section~\ref{sssec:metis_det_lingain}), the determination of the slit losses induced by the fixed positions of the ADCs (cf. Section~\ref{sssec:adc_slitlosses} and Section "Calibration of slit losses" in Calibration plan \cite{METIS-calibration_plan}) and the zero position of the chopping mirror (see Section~\ref{ssec:metisimgchophome} and Section "Chopper Home Position" in \cite{METIS-calibration_plan} for more details). 
+    \item \textbf{Basic steps}: The basic steps aim for correcting the detector influence, in particular the dark correction and the determination of the master \ac{RSRF}. A special case is the persistence correction, which is (optionally) done as second step in the individual recipes after the linearity correction. The basic function for that will be provided by \ac{ESO}\footnote{c.f. \ac{ELT} working group on detectors/persistence} and is not a dedicated recipe. 
+    \item \textbf{Calibration/correction steps}: This is the main part which incorporates the order trace detection, distortion, wavelength and absolute flux calibration. In case a dedicated \ac{STD} star is provided, a transmission curve is created for the telluric correction.
     \item \textbf{Post-calibration steps}: After having calibrated spectra at hand, the last step is the telluric absorption correction with \texttt{molecfit}. This is optional in case the user decided not to use the classic approach with a standard star.
 \end{itemize}
 

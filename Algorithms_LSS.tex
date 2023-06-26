@@ -24,44 +24,51 @@ Order rectification is achieved using the PyReduce algorithm described by \cite{
 
 %-----------------------------------------------------------------------------------------
 \subsubsection{Wavelength calibration strategy}\label{ssec:wavecal}
-\paragraph{Spectral resolving power}
-We first estimate the spectral resolving power of the \ac{LSS} mode for the different slits incorporated in the spectrograph. More fancy text to follow \textit{Maybe that part should go somewhere else....?}\cite{METIS-system_analysis}
-\begin{table}
-\begin{center}
-\begin{tabular}{c|cccc|cc|cc}
-Band & $\lambda_\textrm{min}$ & $\lambda_\textrm{cent}$ & $\lambda_\textrm{max}$ & $\Delta\lambda$  & $\lambda_\textrm{min}$ y-Pos & $\lambda_\textrm{min}$ y-Pos & Dispersion & Dispersion \\
- & [$\mu$m] & [$\mu$m] & [$\mu$m]& on chip [$\mu$m] & on chip [mm] & on chip [mm] & [$\mu$m/mm] & [$\mu$m/pixel]\\
-\hline
-L & 2.9 & 3.55 & 4.2 & 1.300 & 17.856 & -16.704 & 3.762e-02 & 6.771e-04 \\
-M & 4.5 & 4.85 & 5.2 & 0.700 & 17.856 & -16.704 & 2.025e-02 & 3.646e-04 \\
-N & 7.5 & 10.5 & 13.5 & 6.000 & -18.801 & 16.911 & 1.680e-01 & 3.024e-03 \\
-\end{tabular}
-\caption{Spectral dispersion of the long-slit spectrograph in all three bands\label{tab:bands_specres1}}
-\end{center}
-\end{table}
+The wavelength calibration (i.e. the pixel-to-wavelength relation) of the \ac{LSS} modes is done in a two-step approach:
+\begin{itemize}
+    \item First guess: The first guess is based on laser sources in the \ac{WCU} and during commissioning.  In the LM range, two fixed-frequency lasers ($@3.39$µm and $@5.26$µm) and one tuneable ($4.68....4.78$µm) is foreseen in the \ac{WCU} to be taken on daily basis (cf. \cite{METIS-calibration_plan}). In the N-band, a laser source will only be available during \ac{AIV}. As we assume the instrument to be very stable, that approach should be sufficient to achieve a first guess solution for the low-resolution N-band spectroscopy.
+    \item For the final calibration atmospheric lines are used in the recipes \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} and \hyperref[rec:metis_n_lss_wave]{\REC{metis_N_lss_wave}}, which are used in the \texttt{pyreduce} package as reference frame.
+    \item Optionally: the package \texttt{molecfit} in its newest version has a new function implemented, which allows a fine-tuning of the wavelength calibration by means of fitting atmospheric features. It is to be tested during commissioning, whether this step is required.
+\end{itemize}
 
-\begin{table}
-\begin{center}
-\begin{tabular}{c|cc|ccc|ccc}
- & & & proj. Slit & & & & & \\
-Slit & Width$^a$ & Length$^a$ & $L$-band & $M$-band & $N$-band & $L$-band & $M$-band & $N$-band \\
-ID & [mas] & [mas] & [pixel] & [pixel] & [pixel] & Resolution$^b$ & Resolution$^b$ & Resolution$^b$ \\
-\hline
-Slit A & 19.0 & 8000.0 & 2.352e-03 & 1.266e-03 & 8.621e-03 & 1509 & 3830 & 1218 \\
-Slit B & 28.6 & 8000.0 & 3.540e-03 & 1.906e-03 & 1.298e-02 & 1003 & 2544 & 809 \\
-Slit C & 38.1 & 8000.0 & 4.716e-03 & 2.539e-03 & 1.729e-02 & 752 & 1910 & 608 \\
-Slit D & 57.1 & 8000.0 & 7.068e-03 & 3.806e-03 & 2.591e-02 & 502 & 1274 & 405 \\
-Slit E & 114.2 & 8000.0 & 1.414e-02 & 7.612e-03 & 5.182e-02 & 251 & 637 & 203 \\
-\end{tabular}
-\caption{Estimate of the LSS spectral resolving power in all three bands with respect to the different slits;\newline $^a$ from Tab.~4-2 in \cite{METIS-system_analysis} \newline $^b$ at $\lambda_\textrm{cent}$ (see Tab.~\ref{tab:bands_specres1})\label{tab:bands_specres2}}
-\end{center}
-\end{table}
+
+%\paragraph{Spectral resolving power}
+%We first estimate the spectral resolving power of the \ac{LSS} mode for the different slits incorporated in the spectrograph. More fancy text to follow \textit{Maybe that part should go somewhere else....?}\cite{METIS-system_analysis}
+%\begin{table}
+%\begin{center}
+%\begin{tabular}{c|cccc|cc|cc}
+%Band & $\lambda_\textrm{min}$ & $\lambda_\textrm{cent}$ & $\lambda_\textrm{max}$ & $\Delta\lambda$  & $\lambda_\textrm{min}$ y-Pos & %$\lambda_\textrm{min}$ y-Pos & Dispersion & Dispersion \\
+% & [$\mu$m] & [$\mu$m] & [$\mu$m]& on chip [$\mu$m] & on chip [mm] & on chip [mm] & [$\mu$m/mm] & [$\mu$m/pixel]\\
+%\hline
+%L & 2.9 & 3.55 & 4.2 & 1.300 & 17.856 & -16.704 & 3.762e-02 & 6.771e-04 \\
+%M & 4.5 & 4.85 & 5.2 & 0.700 & 17.856 & -16.704 & 2.025e-02 & 3.646e-04 \\
+%N & 7.5 & 10.5 & 13.5 & 6.000 & -18.801 & 16.911 & 1.680e-01 & 3.024e-03 \\
+%\end{tabular}
+%\caption{Spectral dispersion of the long-slit spectrograph in all three bands\label{tab:bands_specres1}}
+%\end{center}
+%\end{table}
+
+%\begin{table}
+%\begin{center}
+%\begin{tabular}{c|cc|ccc|ccc}
+% & & & proj. Slit & & & & & \\
+%Slit & Width$^a$ & Length$^a$ & $L$-band & $M$-band & $N$-band & $L$-band & $M$-band & $N$-band \\
+%ID & [mas] & [mas] & [pixel] & [pixel] & [pixel] & Resolution$^b$ & Resolution$^b$ & Resolution$^b$ \\
+%\hline
+%Slit A & 19.0 & 8000.0 & 2.352e-03 & 1.266e-03 & 8.621e-03 & 1509 & 3830 & 1218 \\
+%Slit B & 28.6 & 8000.0 & 3.540e-03 & 1.906e-03 & 1.298e-02 & 1003 & 2544 & 809 \\
+%Slit C & 38.1 & 8000.0 & 4.716e-03 & 2.539e-03 & 1.729e-02 & 752 & 1910 & 608 \\
+%Slit D & 57.1 & 8000.0 & 7.068e-03 & 3.806e-03 & 2.591e-02 & 502 & 1274 & 405 \\
+%Slit E & 114.2 & 8000.0 & 1.414e-02 & 7.612e-03 & 5.182e-02 & 251 & 637 & 203 \\
+%\end{tabular}
+%\caption{Estimate of the LSS spectral resolving power in all three bands with respect to the different slits;\newline $^a$ from% Tab.~4-2 in \cite{METIS-system_analysis} \newline $^b$ at $\lambda_\textrm{cent}$ (see Tab.~\ref{tab:bands_specres1})%\label{tab:bands_specres2}}
+%\end{center}
+%\end{table}
 
 
 %-----------------------------------------------------------------------------------------
-\subsubsection{Spectroscopic flux calibration strategy for the LSS}\label{ssec:fluxcal}
-Flux calibration implies the conversion of \ac{ADU}s to physical units. This is done by comparing the observed spectrum of a standard star with its reference spectrum as seen without atmospheric and instrument/telescope signatures, facilitating the response function to be determined. The response function describes the optical throughput of the optical system, i.e. the instrumental effect on the flux. In principle this is a standard procedure based on the comparison of an observed spectrum of a spectro-photometric standard star with its flux calibrated model. In principle, also \ac{TSS} can be used in case the \ac{SNR} of the observed spectrum is sufficient enough and in case a good model is available.\\
-For the \ac{LSS} mode of \ac{METIS} we intend to implement the approach as described in the \ac{HDRL} will be closely followed (cf. \cite{hdrl-manual}). This method incorporates an automatic telluric correction of the standard star, which can be disabled. This might be useful in case the user decided to observe a dedicated \ac{TSS}. The recipes \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} and \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} will derive a transmission function by means of the \ac{TSS}, which will be used for the telluric correction of the chosen flux standard star. 
+%\subsubsection{Spectroscopic flux calibration strategy for the LSS}\label{ssec:fluxcal}
+
 
 %\textcolor{red}{TBD: slit flux losses due to PSF (cf. MICADO)?????}
 
