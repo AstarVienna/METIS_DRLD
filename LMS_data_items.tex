@@ -451,27 +451,6 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:ifu_sci_reduced_cube]{\PROD{IFU_SCI_REDUCED_CUBE}}}\label{dataitem:ifu_sci_reduced_cube}
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_reduced_cube]{\PROD{IFU_SCI_REDUCED_CUBE}}\\[0.3cm]
-Description: & Rectified spectral cube with a linear wavelength grid. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_REDUCED_CUBE}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_REDUCED_CUBE}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-% Purpose: & \\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
-    \item \texttt{hdrl\_imagelist * image: Spectral cube}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
-
 
 
 
@@ -639,7 +618,6 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:ifu_sci_coadd_error]{\PROD{IFU_SCI_COADD_ERROR}}}\label{dataitem:ifu_sci_coadd_error}
-\paragraph{\hyperref[dataitem:ifu_sci_coadd_error]{\PROD{IFU_SCI_COADD_ERROR}}}\label{dataitem:ifu_sci_coadd_error}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:ifu_sci_coadd_error]{\PROD{IFU_SCI_COADD_ERROR}}\\[0.3cm]
@@ -669,7 +647,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} TABLE file structure:}\\
 Name: & \hyperref[dataitem:ifu_dist_reduced]{\PROD{IFU_DIST_REDUCED}}\\[0.3cm]
 Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_COADD_ERROR}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_DIST_REDUCED}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{IFU_DIST_REDUCED}\\[0.3cm]
 Created by: & \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}}\\
