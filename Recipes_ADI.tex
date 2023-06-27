@@ -78,17 +78,17 @@ routines.
                        & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
-  Output data:       & \hyperref[dataitem:det_cgrph_sci_calibrated]{\PROD{DET_CGRPH_SCI_CALIBRATED}}\\ 
-                     & \hyperref[dataitem:det_cgrph_sci_centred]{\PROD{DET_CGRPH_SCI_CENTRED} }\\
-                     & \hyperref[dataitem:det_cgrph_centroid_tab]{\PROD{DET_CGRPH_CENTROID_TAB} }\\
-                     & \hyperref[dataitem:det_cgrph_sci_speckle]{\PROD{DET_CGRPH_SCI_SPECKLE} }\\
-                     & \hyperref[dataitem:det_cgrph_sci_derotated_psfsub]{\PROD{DET_CGRPH_SCI_DEROTATED_PSFSUB} }\\
-                     & \hyperref[dataitem:det_cgrph_sci_derotated]{\PROD{DET_CGRPH_SCI_DEROTATED}}\\ 
-                     & \hyperref[dataitem:det_cgrph_sci_contrast_raw]{\PROD{DET_CGRPH_SCI_CONTRAST_RAW} }\\
-                     & \hyperref[dataitem:det_cgrph_sci_contrast_adi]{\PROD{DET_CGRPH_SCI_CONTRAST_ADI} }\\
-                     & \hyperref[dataitem:det_cgrph_sci_throughput]{\PROD{DET_CGRPH_SCI_THROUGHPUT} }\\
-                     & \hyperref[dataitem:det_cgrph_sci_coverage]{\PROD{DET_CGRPH_SCI_COVERAGE}}\\
-                     & \hyperref[dataitem:det_cgrph_sci_snr]{\PROD{DET_CGRPH_SCI_SNR}}\\
+  Output data:       & \hyperref[dataitem:det_cgrph_sci_calibrated]{\PROD{det_cgrph_SCI_CALIBRATED}}\\
+                     & \hyperref[dataitem:det_cgrph_sci_centred]{\PROD{det_cgrph_SCI_CENTRED} }\\
+                     & \hyperref[dataitem:det_cgrph_centroid_tab]{\PROD{det_cgrph_CENTROID_TAB} }\\
+                     & \hyperref[dataitem:det_cgrph_sci_speckle]{\PROD{det_cgrph_SCI_SPECKLE} }\\
+                     & \hyperref[dataitem:det_cgrph_sci_derotated_psfsub]{\PROD{det_cgrph_SCI_DEROTATED_PSFSUB} }\\
+                     & \hyperref[dataitem:det_cgrph_sci_derotated]{\PROD{det_cgrph_SCI_DEROTATED}}\\
+                     & \hyperref[dataitem:det_cgrph_sci_contrast_raw]{\PROD{det_cgrph_SCI_CONTRAST_RAW} }\\
+                     & \hyperref[dataitem:det_cgrph_sci_contrast_adi]{\PROD{det_cgrph_SCI_CONTRAST_ADI} }\\
+                     & \hyperref[dataitem:det_cgrph_sci_throughput]{\PROD{det_cgrph_SCI_THROUGHPUT} }\\
+                     & \hyperref[dataitem:det_cgrph_sci_coverage]{\PROD{det_cgrph_SCI_COVERAGE}}\\
+                     & \hyperref[dataitem:det_cgrph_sci_snr]{\PROD{det_cgrph_SCI_SNR}}\\
 Expected accuracies: & \TBD\\
 QC1 parameters:  & \hyperref[qc:qc_det_cgrph_sci_nexposures]{\QC{QC DET CGRPH SCI NEXPOSURES}}\\
                  & \hyperref[qc:qc_det_cgrph_sci_fwhm_nn]{\QC{QC DET CGRPH SCI FWHM NN}}\\
@@ -256,10 +256,10 @@ information.
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & None                               \\
   Type:                & Science                                                    \\
-% HB 20230626: The IFU_CGRPH_SCI_REDUCED is currently not produced by any
+% HB 20230626: The IFU_cgrph_SCI_REDUCED is currently not produced by any
 %    recipe. It is probably a subclass of IFU_SCI_REDUCED, so for
 %    now I'm just listing IFU_SCI_REDUCED here.
-%   Input data:          & \hyperref[dataitem:ifu_cgrph_sci_reduced]{\PROD{IFU_CGRPH_SCI_REDUCED}}                            \\
+%   Input data:          & \hyperref[dataitem:ifu_cgrph_sci_reduced]{\PROD{IFU_cgrph_SCI_REDUCED}}                            \\
   Input data:          & \hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}}                            \\
                        & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}\\
                        & Coronagraphic throughput map and profile                                                  \\
@@ -280,17 +280,17 @@ information.
                        & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
-  Output data:       & \hyperref[dataitem:ifu_cgrph_sci_calibrated]{\PROD{IFU_CGRPH_SCI_CALIBRATED}           }\\
-                     & \hyperref[dataitem:ifu_cgrph_sci_centred]{\PROD{IFU_CGRPH_SCI_CENTRED}                                }\\
-                     & \hyperref[dataitem:ifu_cgrph_centroid_tab]{\PROD{IFU_CGRPH_CENTROID_TAB}                                }\\
-                     & \hyperref[dataitem:ifu_cgrph_sci_speckle]{\PROD{IFU_CGRPH_SCI_SPECKLE}                               }\\
-                     & \hyperref[dataitem:ifu_cgrph_sci_derotated_psfsub]{\PROD{IFU_CGRPH_SCI_DEROTATED_PSFSUB}                                 }\\
-                     & \hyperref[dataitem:ifu_cgrph_sci_derotated]{\PROD{IFU_CGRPH_SCI_DEROTATED}                                  }\\
-                     & \hyperref[dataitem:ifu_cgrph_sci_contrast_raw]{\PROD{IFU_CGRPH_SCI_CONTRAST_RAW}                                 }\\
-                     & \hyperref[dataitem:ifu_cgrph_sci_contrast_adi]{\PROD{IFU_CGRPH_SCI_CONTRAST_ADI}                                 }\\
-                     & \hyperref[dataitem:ifu_cgrph_sci_throughput]{\PROD{IFU_CGRPH_SCI_THROUGHPUT}                             }\\
-                     & \hyperref[dataitem:ifu_cgrph_sci_snr]{\PROD{IFU_CGRPH_SCI_SNR}                          }\\
-                     & \hyperref[dataitem:ifu_cgrph_sci_coverage]{\PROD{IFU_CGRPH_SCI_COVERAGE}}                           \\
+  Output data:       & \hyperref[dataitem:ifu_cgrph_sci_calibrated]{\PROD{IFU_cgrph_SCI_CALIBRATED}           }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_centred]{\PROD{IFU_cgrph_SCI_CENTRED}                                }\\
+                     & \hyperref[dataitem:ifu_cgrph_centroid_tab]{\PROD{IFU_cgrph_CENTROID_TAB}                                }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_speckle]{\PROD{IFU_cgrph_SCI_SPECKLE}                               }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_derotated_psfsub]{\PROD{IFU_cgrph_SCI_DEROTATED_PSFSUB}                                 }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_derotated]{\PROD{IFU_cgrph_SCI_DEROTATED}                                  }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_contrast_raw]{\PROD{IFU_cgrph_SCI_CONTRAST_RAW}                                 }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_contrast_adi]{\PROD{IFU_cgrph_SCI_CONTRAST_ADI}                                 }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_throughput]{\PROD{IFU_cgrph_SCI_THROUGHPUT}                             }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_snr]{\PROD{IFU_cgrph_SCI_SNR}                          }\\
+                     & \hyperref[dataitem:ifu_cgrph_sci_coverage]{\PROD{IFU_cgrph_SCI_COVERAGE}}                           \\
 
   Expected accuracies: & \TBD                                                           \\
   QC1 parameters: & \hyperref[qc:qc_ifu_cgrph_sci_nexposures]{\QC{QC IFU CGRPH SCI NEXPOSURES}}\\
