@@ -289,8 +289,8 @@ included in the pipeline (cf.\ Sect.~8.8 of \cite{DRLS}).
   Type:              & Science                                                       \\
   Input data:        & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}                                       \\
   Parameters:        & size of cutout region                                         \\
-  Algorithm:         & Call cutout_region to cut regions around beams                \\
-                     & Add regions with appropriate signs (hdrl_imagelist_collapse)   \\
+  Algorithm:         & Call \DRL{cutout_region} to cut regions around beams                \\
+                     & Add regions with appropriate signs (\CODE{hdrl_imagelist_collapse})   \\
   Output data:       & \hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}}                                         \\
   QC1 parameters:    & None                                                          \\
   hdrl functions:    & \CODE{hdrl_imagelist_collapse}                                \\
