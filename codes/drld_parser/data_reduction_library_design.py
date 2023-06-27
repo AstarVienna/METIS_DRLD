@@ -727,7 +727,7 @@ class DataReductionLibraryDesign:
 
         return dataitems3
 
-    def get_dataitems(self):
+    def get_dataitems_full(self):
         r"""Read all DataItems defined in 'DRL DATA ITEMS AND STRUCTURES'.
 
         The DataItems are all defined in 09_0-DRL-Data-Structures.tex, which
@@ -774,6 +774,9 @@ class DataReductionLibraryDesign:
             dataitems3[dataitem.name] = dataitem
 
         return dataitems3
+
+    get_dataitems = get_dataitems_headers_only
+    # get_dataitems = get_dataitems_full
 
     def get_template_names_used(self):
         """
