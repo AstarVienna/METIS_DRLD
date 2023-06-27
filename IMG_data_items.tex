@@ -696,8 +696,30 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \paragraph{\hyperref[dataitem:lm_sci_coadd]{\PROD{LM_SCI_COADD}}}\label{dataitem:lm_sci_coadd}
 \TODO{Placeholder for \hyperref[dataitem:lm_sci_coadd]{\PROD{LM_SCI_COADD}}.}
 
-\paragraph{\hyperref[dataitem:lm_sci_restored]{\PROD{LM_SCI_RESTORED}}}\label{dataitem:lm_sci_restored}
-\TODO{Placeholder for \hyperref[dataitem:lm_sci_restored]{\PROD{LM_SCI_RESTORED}}.}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}}\\[0.3cm]
+Description: & N band image with a single positive beam restored from chop-nod image\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
+% Template: & \TPL{METIS_img_n_cal_standard}\\
+%             & \TPL{METIS_img_n_*_obs_*}       \\
+Input for recipe: & \hyperref[rec:metis_n_img_restore]{\REC{metis_n_img_restore}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:nrsrfraw}\\
+\end{recipedef}
+\paragraph{\hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}}}\label{drsstructure:N_SCI_RESTORED}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}    
 
 \paragraph{\hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}}}\label{dataitem:n_sci_restored}
 \TODO{Placeholder for \hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}}.}
