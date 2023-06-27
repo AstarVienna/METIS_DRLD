@@ -155,6 +155,177 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
+
+% ##################################################################################### N RSRF RAW
+\paragraph{\hyperref[dataitem:lm_flat_raw]{\RAW{LM_FLAT_RAW}}}\label{dataitem:lm_flat_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:lm_flat_raw]{\RAW{LM_FLAT_RAW}}\\[0.3cm]
+Description: & Flat field image taken with lamp or sky. \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LM} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,LAMP} or \FITS{FLAT,TWILIGHT} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}\\
+\FITS{DO.CATG}: & \FITS{LM_FLAT_RAW}\\[0.3cm]
+Template: & \TPL{METIS_img_lm_cal_InternalFlat}\\
+                       & \TPL{METIS_img_lm_cal_TwilightFlat}                               \\
+Input for recipe: & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}})}
+    \item \texttt{hdrl\_image ** image: Four images}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+% #####################################################################################
+\paragraph{\hyperref[dataitem:n_flat_raw]{\RAW{N_FLAT_RAW}}}\label{dataitem:n_flat_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:n_flat_raw]{\RAW{N_FLAT_RAW}}\\[0.3cm]
+Description: & Flat field image taken with lamp or sky. \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{N} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,LAMP} or \FITS{FLAT,TWILIGHT} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}\\
+\FITS{DO.CATG}: & \FITS{N_FLAT_RAW}\\[0.3cm]
+Template: & \TPL{METIS_img_n_cal_InternalFlat}\\
+                       & \TPL{METIS_img_n_cal_TwilightFlat}                               \\
+Input for recipe: & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}})}
+    \item \texttt{hdrl\_image * image: Singe image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+% #####################################################################################
+\paragraph{\hyperref[dataitem:lm_distortion_raw]{\RAW{LM_DISTORTION_RAW}}}\label{dataitem:lm_distortion_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:lm_distortion_raw]{\RAW{LM_DISTORTION_RAW}}\\[0.3cm]
+Description: & Images of grid mask in WCU-FP2 or CFO-FP2.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LM} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DISTORTION} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{LM_DISTORTION_RAW}\\[0.3cm]
+Template: & \TPL{METIS_img_lm_cal_distortion}\\
+Input for recipe: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+% #####################################################################################
+\paragraph{\hyperref[dataitem:n_distortion_raw]{\RAW{N_DISTORTION_RAW}}}\label{dataitem:n_distortion_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:n_distortion_raw]{\RAW{N_DISTORTION_RAW}}\\[0.3cm]
+Description: & Images of grid mask in WCU-FP2 or CFO-FP2.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{N} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DISTORTION} \\[0.3cm]
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{N_DISTORTION_RAW}\\[0.3cm]
+Template: & \TPL{METIS_img_n_cal_distortion}\\
+Input for recipe: & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+
+
+
+\subsubsection{External calibration data item structures}\label{sssec:imgextcalibdatastructs}
+
+
+\paragraph{\hyperref[dataitem:lm_detector_mask]{\EXTCALIB{LM_DETECTOR_MASK}}}\label{dataitem:lm_detector_mask}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:lm_detector_mask]{\EXTCALIB{LM_DETECTOR_MASK}}\\[0.3cm]
+Description: & Masked region for LM detector \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{DPR.CATG}}: & \FITS{LM_DETECTOR_MASK}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{DO.CATG}: & \FITS{LM_DETECTOR_MASK}\\[0.3cm]
+Input for recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}}}\label{dataitem:fluxstd_catalog}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}}\\[0.3cm]
+Description: & Catalog of standard stars \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{DPR.CATG}}: & \FITS{FLUXSTD_CATALOG}\\
+OCA keywords: & None \\
+\FITS{DO.CATG}: & \FITS{FLUXSTD_CATALOG}\\[0.3cm]
+Input for recipes: & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+\end{recipedef}
+% \begin{datastructdef}
+% \textbf{Corresponding \ac{CPL} structure:}
+% \begin{enumerate}
+%     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+%     \item \texttt{hdrl\_image * image: Single image}
+%     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+% \end{enumerate}
+% \end{datastructdef}
+
+
+
+
+
+
+
+
+
+
+
+
+
 %\clearpage
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:imgprocdatastructs}
 \label{dataitem:masterdark}
@@ -275,7 +446,7 @@ Description: & Master flat frame for LM image data \\[0.3cm]
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LM} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,??} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{MASTER_FLAT_IMG_LM}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{MASTER_IMG_FLAT_LM}\\[0.3cm]
 Template: & \TPL{METIS_lm_img_flat}\\
 Created by: & \hyperref[drl:lm_img_flat]{\REC{metis_lm_img_flat}} \\
 Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\

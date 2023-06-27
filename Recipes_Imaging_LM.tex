@@ -43,9 +43,9 @@ otherwise a new one is created.
   Type:                & Calibration                                                    \\
   Templates:           & \TPL{METIS_img_lm_cal_InternalFlat}                            \\
                        & \TPL{METIS_img_lm_cal_TwilightFlat}                               \\
-  Input data:          & Flat field images taken with lamp or sky.                      \\
-                       & Master dark (for twilight flats)                               \\
-                       & Bad pixel map                                                  \\
+  Input data:          & \hyperref[dataitem:lm_flat_raw]{\RAW{LM_FLAT_RAW}} (Flat field images taken with lamp or sky.) \\
+                       & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}} (for twilight flats) \\
+                       & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}} \\
   Matched keywords:    & Detector ID                                                    \\
                        & Filter ID                                                      \\
                        & ADC ID                                                         \\
@@ -119,11 +119,11 @@ Basic statistics of the images can be used to screen for saturation.
                     & \TPL{METIS_img_lm_cal_psf}             \\
                     & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
                     & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
-  Input data:       & Dithered images (standard, science) \\
-                    & Blank sky images (if available)   \\
-                    & Masked detector region (if available)  \\
-                    & Master dark                       \\
-                    & Master flat                       \\
+  Input data:       & \hyperref[dataitem:lm_image_raw]{\RAW{LM_IMAGE_RAW}} (Dithered images (standard, science) \\
+                     & \hyperref[dataitem:ifu_sky_raw]{\RAW{IFU_SKY_RAW}} (Blank sky images, if available.) \\
+                    & \hyperref[dataitem:lm_detector_mask]{\EXTCALIB{LM_DETECTOR_MASK}} (if available)  \\
+                    & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}} \\
+                    & \hyperref[dataitem:master_img_flat_lm]{\PROD{MASTER_IMG_FLAT_LM}} \\
   Matched keywords: & DIT (for dark)                    \\
                     & Filter ID (for flat)              \\
   Algorithm:        & Remove crosstalk, correct non-linearity \\
@@ -331,7 +331,7 @@ following \cite{visir_manual}.
   Type:                & Calibration                                                                  \\
   Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
   Input data:          & \hyperref[dataitem:lm_std_bkg_subtracted]{\PROD{LM_STD_BKG_SUBTRACTED}}                                                 \\
-                       & photometric standard catalogue                                               \\
+                       & \hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}} (photometric standard catalogue) \\
   Matched keywords:    & OBJECT ID                                                                    \\
                        & FILTER ID                                                                    \\
   Parameters:          & None (TBD)                                                                   \\
@@ -454,8 +454,8 @@ the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant
   Requirements:        & \REQ{METIS-6104}                                           \\
   Templates:           & None                                                       \\
   Type:                & Science                                                    \\
-  Input data:          & Calibrated science images (\PROD{LM_SCI_CALIBRATED})       \\
-                       & Associated bad-pixel maps (\PROD{BADPIX_MAP_LM})           \\
+  Input data:          & \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}} (Calibrated science images)       \\
+                       & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}} (Associated bad-pixel maps)           \\
   Parameters:          & None (TBD).                                                \\
   Algorithm:           & Check and refine WCS of input images by cross-correlation  \\
                        & \hspace{1em} (on object catalogue or on image).            \\
@@ -500,10 +500,10 @@ pixel scale across the detector will be created.
   Requirements:        & \REQ{METIS-6087}                                                \\
   Templates:           & \TPL{METIS_img_lm_cal_distortion}                               \\
   Type:                & Calibration                                                     \\
-  Input data:          & Images of grid mask in WCU-FP2 or CFO-FP2.                      \\
-                       & Image with WCU window closed (background)                       \\
-                       & Grid of pinhole mask positions \\
-                       & Bad pixel map                                                  \\
+  Input data:          & \hyperref[dataitem:lm_distortion_raw]{\RAW{LM_DISTORTION_RAW}} (Images of grid mask in WCU-FP2 or CFO-FP2.)\\
+                       & \hyperref[dataitem:lm_wcu_off_raw]{\RAW{LM_WCU_OFF_RAW}} \\
+% TODO: put back:                       & Grid of pinhole mask positions \\
+                       & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}} \\
   Parameters:          & Parameters for fitting routine      \\
                        & \TBD \\
   Algorithm:           & Subtract background image.    (\CODE{hdrl_imagelist_sub_image})                                  \\
