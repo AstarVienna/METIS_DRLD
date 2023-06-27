@@ -89,6 +89,223 @@ class DataItem:
     name: str = None
     hyperref: str = None
     labels: List[str] = None
+    description: str = None
+    pro_catg: str = None
+    dpr_catg: str = None
+    dpr_type: str = None
+    dpr_tech: str = None
+    do_catg: str = None
+    oca_keywords: str = None
+    created_by: str = None
+    input_for_recipes: str = None
+
+    @classmethod
+    def from_paragraph(cls, sparagraph):
+        """Parse a dataitem from a paragraph with a recipedef table."""
+        lines1 = [line.strip() for line in sparagraph.splitlines() if not line.strip().startswith("%")]
+        line_header = lines1[0]
+        # E.g. \paragraph{\hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}}\label{dataitem:master_n_lss_rsrf}
+        regex_header = re.compile(r"\\paragraph{\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}}\\label{(?P<label>.*?)}")
+        match = regex_header.match(line_header)
+        group = match.groupdict()
+        hyperref = group["hyperref"]
+        dtype = group["dtype"]
+        name = group["name"]
+        label = group["label"]
+        assert hyperref == label
+        assert label.startswith("dataitem")
+        assert hyperref == f"dataitem:{name.lower()}"
+
+        lines2 = itertools.dropwhile(
+            lambda line: not line.startswith(r"\begin{recipedef}"),
+            lines1,
+        )
+        lines3 = itertools.takewhile(
+            lambda line: not line.startswith(r"\end{recipedef}"),
+            lines2,
+        )
+        from pprint import pprint
+        rows1a = [
+            line.replace("[0.3cm]", "")
+            for line in list(lines3)[1:]
+        ]
+
+        # The rest is based on Recipe.parse_recipe_from_table and therefore
+        # just as horific
+
+        # Some recipes start with
+        # \begin{recipedef}\label{rec:metisimgchophome}\label{rec:metis_img_chophome}
+        # So rows1a starts with
+        # \label{rec:metisimgchophome}\label{rec:metis_img_chophome}
+        # Remove that line
+        # TODO: perhaps do something useful with the labels
+        rows1b = [
+            row for row in rows1a if not row.startswith(r"\label")
+        ]
+        # Some recipes have the label in the name
+        #   Name:                & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}\label{rec:metis_ifu_adi_cgrph}                                        \\
+        # So remove those as well.
+        rows1c = [
+            row.split(r"\label") for row in rows1b
+        ]
+        rows1 = [
+            row[0] if len(row) == 1 else row[0] + r"\\"
+            for row in rows1c
+        ]
+
+        # Concatenate lines.. Aargh
+        rows2 = []
+        thisline = ""
+        for line in rows1:
+            # Remove any trailing comments
+            line2 = PATTERN_TEX_COMMENT.sub("", line).strip()
+            thisline += line2
+            if thisline.endswith("\\\\"):
+                rows2.append(thisline)
+                thisline = ""
+
+        rows3 = [
+            line.strip().strip("\\").strip().split("&")
+            for line in rows2
+            # TODO: Do something sensible if there is no &
+            if "&" in line
+        ]
+
+        for row in rows3:
+            msg = f"Wrong number of columns: {row}"
+            assert len(row) == 2, msg
+
+        rows4 = [(aa.strip().strip(":").strip(), bb.strip()) for aa, bb in rows3]
+
+        to_skip = {
+            r"processing_\ac{fits}_keywords"
+        }
+
+        value = ""
+        field_old = ""
+        thedata = {}
+        for row in rows4:
+            field1 = row[0].lower().replace(" ", "_")
+            field1 = re.sub("label{.*?}", "", field1)
+            if field1 == "":
+                value += "\n" + row[1]
+                continue
+
+            # Previous one must be finished
+            if field_old:
+                if field_old == "templates":
+                    value = re.sub("\\\\TPL{(.*?)}", " \\1 ", value)
+                    value = value.replace(",", " ")
+                    if "tbd" in value.lower():
+                        value = ["TBD"]
+                    elif value.lower() == "none" or "--" in value:
+                        value = []
+                    else:
+                        value = value.split()
+                        value = [
+                            HACK_RECIPE_TEMPLATES.get(
+                                (thedata["name"], vi.lower()), vi.lower()
+                            )
+                            for vi in value
+                        ]
+                    # There could be a * in one of the templates, e.g.
+                    # "metis_img_lm_*_obs_*". However, it is not possible
+                    # to expand those here, because there is no knowledge
+                    # about which templates exist at this stage.
+                elif field_old in ["output_data", "input_data"]:
+                    # TODO: These should all be \PROD{something} but are not
+                    # TODO: Some of these are multiline, do not ignore those! e.g.:
+                    #   \hyperref[dataitem:nlsssci1d]{\PROD{N_LSS_SCI_1D}}: coadded, wavelength calibrated 1D spectrum\\
+                    #   & (\FITS{PRO_CATG}: \FITS{N_LSS_1d_coadd_wavecal}) \\
+                    value1 = [
+                        DataItemReference.from_recipe_line(val)
+                        for val in value.split("\n")
+                        if not val.startswith("(")
+                    ]
+                    # Some fields need to be split.
+                    # TODO: These are 'or' clauses probably, need to verify that and add support for those.
+
+                    # First, from the DRLD:
+                    #   Where _det appears in FITS keywords of input or product files,
+                    #   it is taken to mean _LM, N or _IFU
+                    #   according to the detector array for which data are being processed.
+                    # TODO: Perhaps we should go back to _2RG and _GEO for _LM and _N
+
+                    # Second, split these:
+                    #         Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \PROD{IFU_SCI_REDUCED_TAC})
+                    value = []
+                    for val in value1:
+                        if val.name and "det" in val.name:
+                            #  det_APP_SCI_CALIBRATED or DETLIN_det_RAW
+                            msg = f"There are too many or wrong 'det's in f{val.name}."
+                            assert val.name.endswith("_det") or val.name.startswith("det_") or "_det_" in val.name, msg
+                            assert val.name.count("det") == 1, msg
+                            for postfix in ["LM", "N", "IFU", "GEO", "2RG"]:
+                                value.append(
+                                    DataItemReference(
+                                        name=val.name.replace("det", postfix),
+                                        dtype=val.dtype,
+                                        hyperref=val.hyperref,
+                                        description=val.description,
+                                    )
+                                )
+                        elif val.name and "PROD" in val.name:
+                            # There is only one case of this it seems.
+                            # Then the name becomes
+                            #  'IFU_SCI_REDUCED}, PROD{IFU_SCI_REDUCED_TAC'
+                            names_new = val.name.split("}, PROD{")
+                            assert len(names_new) == 2
+                            for name_new in names_new:
+                                value.append(
+                                    DataItemReference(
+                                        name=name_new,
+                                        dtype=val.dtype,
+                                        hyperref=val.hyperref,
+                                        description=val.description,
+                                    )
+                                )
+                        else:
+                            value.append(val)
+
+                thedata[field_old] = value
+
+            field = HACK_BAD_NAMES.get(field1, field1)
+            if field1 in HACK_BAD_NAMES:
+                print(f"{field1} should be renamed to {field}.")
+            value = row[1]
+
+            if "name" in field:
+                value = re.sub(r"\\REC{(.*?)}", "\\1", value)
+                value = re.sub(r"\\hyperref\[.*?]{(.*?)}", "\\1", value)
+                # print(field, ":::", value)
+
+            if "fits:" in field:
+                # E.g.
+                # field: hyperref[fits:pro.catg]{\fits{pro.catg}}
+                # value: \\FITS{MASTER_N_LSS_RSRF}
+                field = re.sub(r"hyperref.*?\\fits{(.*?)}}", "\\1", field)
+                field = field.replace(".", "_")
+            elif "fits" in field:
+                # E.g.
+                # field: fits{do.catg}
+                # value: \\FITS{MASTER_N_LSS_RSRF}
+                field = field.replace("fits{", "").strip("}")
+                field = field.replace(".", "_")
+
+
+            # noinspection PyUnresolvedReferences
+            assert field in cls.__dataclass_fields__ or field in to_skip, f"Field {field} cannot be found {row[0]}"
+
+            # Cannot yet add the value to thedata dictionary because the value
+            # might continue on other rows.
+            field_old = field
+
+        for field in to_skip:
+            if field in thedata:
+                thedata.pop(field)
+
+        return cls(**thedata)
+
 
 
 @dataclasses.dataclass

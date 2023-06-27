@@ -9,7 +9,7 @@ from ..drld_parser.data_reduction_library_design import (
     METIS_DataReductionLibraryDesign,
     find_latex_inputs,
     DataItemReference,
-    guess_dataitem_type,
+    guess_dataitem_type, DataItem,
 )
 from ..drld_parser.hacks import (
     TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI,
@@ -359,3 +359,33 @@ class TestParseDataItemReference:
         assert diref.dtype == "PROD"
         assert diref.hyperref is None
         assert diref.description == "Calibrated science images"
+
+
+def test_parse_dataitem_from_paragraph():
+    """Test parsing of dataitem."""
+
+    stable = r"""\paragraph{\hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}}\label{dataitem:master_n_lss_rsrf}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}\\[0.3cm]
+Description: & LM-band \ac{LSS} Master \ac{RSRF}.\\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_N_LSS_RSRF}\\
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
+\FITS{DO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
+Created by: & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_n_lss_rsrf}}\\
+Input for recipes: & \hyperref[rec:metis_n_lss_trace]{\REC{metis_n_lss_trace}}\\
+                   & \hyperref[rec:metis_n_lss_std]{\REC{metis_n_lss_std}}\\
+                   & \hyperref[rec:metis_n_lss_sci]{\REC{metis_n_lss_sci}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}})}
+    \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}"""
+    dataitem = DataItem.from_paragraph(stable)
