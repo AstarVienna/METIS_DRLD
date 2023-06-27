@@ -56,9 +56,9 @@ otherwise a new one is created.
   Type:                & Calibration                                                    \\
   Templates:           & \TPL{METIS_img_n_cal_InternalFlat}                             \\
                        & \TPL{METIS_img_n_cal_TwilightFlat}                               \\
-  Input data:          & Flat field images taken with lamp or sky.                      \\
-                       & Master dark (for twilight flats)                               \\
-                       & Bad pixel map                                                  \\
+  Input data:          & \hyperref[dataitem:n_flat_raw]{\RAW{N_FLAT_RAW}} \\
+                       & \hyperref[dataitem:master_img_flat_n]{\PROD{MASTER_IMG_FLAT_N}} (for twilight flats)                               \\
+                       & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}                                                  \\
   Matched keywords:    & Detector ID                                                    \\
                        & Filter ID                                                      \\
                        & ADC ID                                                         \\
@@ -184,7 +184,7 @@ following \cite{visir_manual}.
   Type:                & Calibration                                                                   \\
   Templates:           & \TPL{METIS_img_n_cal_standard}                                                \\
   Input data:          & \hyperref[dataitem:n_std_bkg_subtracted]{\PROD{N_STD_BKG_SUBTRACTED}}                                                   \\
-                       & photometric standard catalogue                                                \\
+                       & \hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}} \\
   Matched keywords:    & Object ID                                                                     \\
                        & Filter ID                                                                     \\
   Parameters:          & None (TBD)                                                                    \\
@@ -324,10 +324,10 @@ pixel scale across the detector will be created.
   Purpose:             & Determine optical distortion coefficients for the N imager.    \\
   Templates:           & \TPL{METIS_img_n_cal_distortion}                               \\
   Type:                & Calibration                                                    \\
-  Input data:          & Images of grid mask in WCU-FP2 or CFO-FP2.                     \\
-                       & Image with WCU window closed (background).                     \\
-                       & Grid of pinhole mask positions \\
-                       & Bad pixel map                                                  \\
+  Input data:          & \hyperref[dataitem:n_distortion_raw]{\RAW{N_DISTORTION_RAW}} (Images of grid mask in WCU-FP2 or CFO-FP2.)\\
+                       & \hyperref[dataitem:n_wcu_off_raw]{\RAW{N_WCU_OFF_RAW}} \\
+% TODO: put back:                       & Grid of pinhole mask positions \\
+                       & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}} \\
   Parameters:          & Parameters for fitting routine \\
                        & \TBD \\
   Algorithm:           & Subtract background image.  (\CODE{hdrl_imagelist_sub_image})                                       \\
