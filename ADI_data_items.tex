@@ -12,7 +12,7 @@ Description: & Coronagraphic image after distortion correction \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
 \FITS{DO.CATG}: & \FITS{LM_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Templates:             & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -36,7 +36,7 @@ Description: & Coronagraphic image after distortion correction \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
 \FITS{DO.CATG}: & \FITS{N_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Templates:             & \TPL{METIS_img_n_cvc_obs_AutoChop} \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -61,7 +61,7 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 \FITS{DO.CATG}: & \FITS{IFU_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
                        & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset} \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -76,18 +76,18 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_app_sci_calibrated]{\RAW{det_APP_SCI_CALIBRATED}}}\label{dataitem:det_app_sci_calibrated}
+\paragraph{\hyperref[dataitem:lm_app_sci_calibrated]{\RAW{LM_APP_SCI_CALIBRATED}}}\label{dataitem:lm_app_sci_calibrated}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:det_app_sci_calibrated]{\PROD{det_APP_SCI_CALIBRATED}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_app_sci_calibrated]{\PROD{LM_APP_SCI_CALIBRATED}}\\[0.3cm]
 Description: & Coronagraphic image after distortion correction \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_APP_SCI_CALIBRATED}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_APP_SCI_CALIBRATED}\\[0.3cm]
 Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -103,18 +103,18 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_app_sci_centred]{\RAW{det_APP_SCI_CENTRED}}}\label{dataitem:det_app_sci_centred}
+\paragraph{\hyperref[dataitem:lm_app_sci_centred]{\RAW{LM_APP_SCI_CENTRED}}}\label{dataitem:lm_app_sci_centred}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:det_app_sci_centred]{\PROD{det_APP_SCI_CENTRED}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_app_sci_centred]{\PROD{LM_APP_SCI_CENTRED}}\\[0.3cm]
 Description: & Coronagraphic image after centering on the PSF and subpixel realignment \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_APP_SCI_CENTRED}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_APP_SCI_CENTRED}\\[0.3cm]
 Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -130,18 +130,18 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_app_sci_speckle]{\RAW{det_APP_SCI_SPECKLE}}}\label{dataitem:det_app_sci_speckle}
+\paragraph{\hyperref[dataitem:lm_app_sci_speckle]{\RAW{LM_APP_SCI_SPECKLE}}}\label{dataitem:lm_app_sci_speckle}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:det_app_sci_speckle]{\PROD{det_APP_SCI_SPECKLE}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_app_sci_speckle]{\PROD{LM_APP_SCI_SPECKLE}}\\[0.3cm]
 Description: & PSFZZZSpeckle image from coronagraphic data \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_APP_SCI_SPECKLE}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_APP_SCI_SPECKLE}\\[0.3cm]
 Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -157,18 +157,18 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_app_sci_derotated_psfsub]{\RAW{det_APP_SCI_DEROTATED_PSFSUB}}}\label{dataitem:det_app_sci_derotated_psfsub}
+\paragraph{\hyperref[dataitem:lm_app_sci_derotated_psfsub]{\RAW{LM_APP_SCI_DEROTATED_PSFSUB}}}\label{dataitem:lm_app_sci_derotated_psfsub}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:det_app_sci_derotated_psfsub]{\PROD{det_APP_SCI_DEROTATED_PSFSUB}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_app_sci_derotated_psfsub]{\PROD{LM_APP_SCI_DEROTATED_PSFSUB}}\\[0.3cm]
 Description: & Coronagraphic image after PSF subtraction, derotation and coaddition  \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_APP_SCI_DEROTATED_PSFSUB}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_APP_SCI_DEROTATED_PSFSUB}\\[0.3cm]
 Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -184,18 +184,18 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_app_sci_derotated]{\RAW{det_APP_SCI_DEROTATED}}}\label{dataitem:det_app_sci_derotated}
+\paragraph{\hyperref[dataitem:lm_app_sci_derotated]{\RAW{LM_APP_SCI_DEROTATED}}}\label{dataitem:lm_app_sci_derotated}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:det_app_sci_derotated]{\PROD{det_APP_SCI_DEROTATED}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_app_sci_derotated]{\PROD{LM_APP_SCI_DEROTATED}}\\[0.3cm]
 Description: & Coronagraphic image after derotation and coaddition \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_APP_SCI_DEROTATED}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_APP_SCI_DEROTATED}\\[0.3cm]
 Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -211,18 +211,18 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_app_sci_coverage]{\RAW{det_APP_SCI_COVERAGE}}}\label{dataitem:det_app_sci_coverage}
+\paragraph{\hyperref[dataitem:lm_app_sci_coverage]{\RAW{LM_APP_SCI_COVERAGE}}}\label{dataitem:lm_app_sci_coverage}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:det_app_sci_coverage]{\PROD{det_APP_SCI_COVERAGE}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_app_sci_coverage]{\PROD{LM_APP_SCI_COVERAGE}}\\[0.3cm]
 Description: & Map of effective number of frames contributing to the final coronographic image \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_APP_SCI_COVERAGE}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_APP_SCI_COVERAGE}\\[0.3cm]
 Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -238,18 +238,18 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_app_sci_snr]{\RAW{det_APP_SCI_SNR}}}\label{dataitem:det_app_sci_snr}
+\paragraph{\hyperref[dataitem:lm_app_sci_snr]{\RAW{LM_APP_SCI_SNR}}}\label{dataitem:lm_app_sci_snr}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:det_app_sci_snr]{\PROD{det_APP_SCI_SNR}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_app_sci_snr]{\PROD{LM_APP_SCI_SNR}}\\[0.3cm]
 Description: & ADI SNR Map \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_APP_SCI_SNR}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_APP_SCI_SNR}\\[0.3cm]
 Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -265,18 +265,18 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_app_sci_contrast_raw]{\RAW{det_APP_SCI_CONTRAST_RAW}}}\label{dataitem:det_app_sci_contrast_raw}
+\paragraph{\hyperref[dataitem:lm_app_sci_contrast_raw]{\RAW{LM_APP_SCI_CONTRAST_RAW}}}\label{dataitem:lm_app_sci_contrast_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:det_app_sci_contrast_raw]{\PROD{det_APP_SCI_CONTRAST_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_app_sci_contrast_raw]{\PROD{LM_APP_SCI_CONTRAST_RAW}}\\[0.3cm]
 Description: & Raw contrast curve for ADI observations \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_APP_SCI_CONTRAST_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_APP_SCI_CONTRAST_RAW}\\[0.3cm]
 Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -292,18 +292,18 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_app_sci_contrast_adi]{\RAW{det_APP_SCI_CONTRAST_ADI}}}\label{dataitem:det_app_sci_contrast_adi}
+\paragraph{\hyperref[dataitem:lm_app_sci_contrast_adi]{\RAW{LM_APP_SCI_CONTRAST_ADI}}}\label{dataitem:lm_app_sci_contrast_adi}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:det_app_sci_contrast_adi]{\PROD{det_APP_SCI_CONTRAST_ADI}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_app_sci_contrast_adi]{\PROD{LM_APP_SCI_CONTRAST_ADI}}\\[0.3cm]
 Description: & Post-ADI contrast curve for ADI observations  \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_APP_SCI_CONTRAST_ADI}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_APP_SCI_CONTRAST_ADI}\\[0.3cm]
 Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -319,18 +319,18 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_app_sci_throughput]{\RAW{det_APP_SCI_THROUGHPUT}}}\label{dataitem:det_app_sci_throughput}
+\paragraph{\hyperref[dataitem:lm_app_sci_throughput]{\RAW{LM_APP_SCI_THROUGHPUT}}}\label{dataitem:lm_app_sci_throughput}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:det_app_sci_throughput]{\PROD{det_APP_SCI_THROUGHPUT}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_app_sci_throughput]{\PROD{LM_APP_SCI_THROUGHPUT}}\\[0.3cm]
 Description: & ADI throughput curve \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_APP_SCI_THROUGHPUT}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_APP_SCI_THROUGHPUT}\\[0.3cm]
 Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
                   & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}\\
                   & \hyperref[rec:metis_det_adi_cgrph]{\REC{metis_det_adi_cgrph}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -348,19 +348,18 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_app_centroid_tab]{\RAW{det_APP_CENTROID_TAB}}}\label{dataitem:det_app_centroid_tab}
-\label{dataitem:n_app_centroid_tab}\label{dataitem:lm_app_centroid_tab}
+\paragraph{\hyperref[dataitem:lm_app_centroid_tab]{\RAW{LM_APP_CENTROID_TAB}}}\label{dataitem:lm_app_centroid_tab}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:det_app_centroid_tab]{\PROD{det_APP_CENTROID_TAB}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_app_centroid_tab]{\PROD{LM_APP_CENTROID_TAB}}\\[0.3cm]
 Description: & Table of source centroid positions for a sequence of ADI images \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM,N}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_APP_CENTROID_TAB}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_APP_CENTROID_TAB}\\[0.3cm]
 Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -389,9 +388,9 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 %\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 %OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-%\FITS{DO.CATG}: & \FITS{det_APP_SCI_CALIBRATED}\\[0.3cm]
+%\FITS{DO.CATG}: & \FITS{LM_APP_SCI_CALIBRATED}\\[0.3cm]
 %Templates:             & \TPL{TODO}                                                       \\
-%Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+%Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 %Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 %\end{recipedef}
@@ -415,6 +414,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:det_cgrph_sci_calibrated]{\RAW{det_cgrph_SCI_CALIBRATED}}}\label{dataitem:det_cgrph_sci_calibrated}
+\label{dataitem:lm_cgrph_sci_calibrated}\label{dataitem:n_cgrph_sci_calibrated}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
 Name: & \hyperref[dataitem:det_cgrph_sci_calibrated]{\PROD{det_cgrph_SCI_CALIBRATED}}\\[0.3cm]
@@ -442,6 +442,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:det_cgrph_sci_centred]{\RAW{det_cgrph_SCI_CENTRED}}}\label{dataitem:det_cgrph_sci_centred}
+\label{dataitem:lm_cgrph_sci_centred}\label{dataitem:n_cgrph_sci_centred}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
 Name: & \hyperref[dataitem:det_cgrph_sci_centred]{\PROD{det_cgrph_SCI_CENTRED}}\\[0.3cm]
@@ -469,6 +470,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:det_cgrph_sci_speckle]{\RAW{det_cgrph_SCI_SPECKLE}}}\label{dataitem:det_cgrph_sci_speckle}
+\label{dataitem:lm_cgrph_sci_speckle}\label{dataitem:n_cgrph_sci_speckle}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
 Name: & \hyperref[dataitem:det_cgrph_sci_speckle]{\PROD{det_cgrph_SCI_SPECKLE}}\\[0.3cm]
@@ -496,6 +498,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:det_cgrph_sci_derotated_psfsub]{\RAW{det_cgrph_SCI_DEROTATED_PSFSUB}}}\label{dataitem:det_cgrph_sci_derotated_psfsub}
+\label{dataitem:lm_cgrph_sci_derotated_psfsub}\label{dataitem:n_cgrph_sci_derotated_psfsub}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
 Name: & \hyperref[dataitem:det_cgrph_sci_derotated_psfsub]{\PROD{det_cgrph_SCI_DEROTATED_PSFSUB}}\\[0.3cm]
@@ -523,6 +526,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:det_cgrph_sci_derotated]{\RAW{det_cgrph_SCI_DEROTATED}}}\label{dataitem:det_cgrph_sci_derotated}
+\label{dataitem:lm_cgrph_sci_derotated}\label{dataitem:n_cgrph_sci_derotated}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
 Name: & \hyperref[dataitem:det_cgrph_sci_derotated]{\PROD{det_cgrph_SCI_DEROTATED}}\\[0.3cm]
@@ -550,6 +554,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:det_cgrph_sci_coverage]{\RAW{det_cgrph_SCI_COVERAGE}}}\label{dataitem:det_cgrph_sci_coverage}
+\label{dataitem:lm_cgrph_sci_coverage}\label{dataitem:n_cgrph_sci_coverage}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
 Name: & \hyperref[dataitem:det_cgrph_sci_coverage]{\PROD{det_cgrph_SCI_COVERAGE}}\\[0.3cm]
@@ -577,6 +582,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:det_cgrph_sci_snr]{\RAW{det_cgrph_SCI_SNR}}}\label{dataitem:det_cgrph_sci_snr}
+\label{dataitem:lm_cgrph_sci_snr}\label{dataitem:n_cgrph_sci_snr}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
 Name: & \hyperref[dataitem:det_cgrph_sci_snr]{\PROD{det_cgrph_SCI_SNR}}\\[0.3cm]
@@ -604,6 +610,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:det_cgrph_sci_contrast_raw]{\RAW{det_cgrph_SCI_CONTRAST_RAW}}}\label{dataitem:det_cgrph_sci_contrast_raw}
+\label{dataitem:lm_cgrph_sci_contrast_raw}\label{dataitem:n_cgrph_sci_contrast_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
 Name: & \hyperref[dataitem:det_cgrph_sci_contrast_raw]{\PROD{det_cgrph_SCI_CONTRAST_RAW}}\\[0.3cm]
@@ -631,6 +638,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:det_cgrph_sci_contrast_adi]{\RAW{det_cgrph_SCI_CONTRAST_ADI}}}\label{dataitem:det_cgrph_sci_contrast_adi}
+\label{dataitem:lm_cgrph_sci_contrast_adi}\label{dataitem:n_cgrph_sci_contrast_adi}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
 Name: & \hyperref[dataitem:det_cgrph_sci_contrast_adi]{\PROD{det_cgrph_SCI_CONTRAST_ADI}}\\[0.3cm]
@@ -657,25 +665,45 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_cgrph_sci_throughput]{\RAW{det_cgrph_SCI_THROUGHPUT}}}\label{dataitem:det_cgrph_sci_throughput}
+\paragraph{\hyperref[dataitem:lm_cgrph_sci_throughput]{\PROD{LM_cgrph_SCI_THROUGHPUT}}}\label{dataitem:lm_cgrph_sci_throughput}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:det_cgrph_sci_throughput]{\PROD{det_cgrph_SCI_THROUGHPUT}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_cgrph_sci_throughput]{\PROD{LM_cgrph_SCI_THROUGHPUT}}\\[0.3cm]
 Description: & ADI throughput curve \\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_cgrph_SCI_THROUGHPUT}\\[0.3cm]
-Templates:             & \TPL{TODO}                                                       \\
-Input for recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{metis_det_adi_cgrph}}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_cgrph_SCI_THROUGHPUT}\\
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
+\FITS{DO.CATG}: & \FITS{LM_cgrph_SCI_THROUGHPUT}\\[0.3cm]
+Created by recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{metis_det_adi_cgrph}}\\
+Input for recipe: & None\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+\paragraph{\hyperref[dataitem:n_cgrph_sci_throughput]{\PROD{N_cgrph_SCI_THROUGHPUT}}}\label{dataitem:n_cgrph_sci_throughput}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:n_cgrph_sci_throughput]{\PROD{N_cgrph_SCI_THROUGHPUT}}\\[0.3cm]
+Description: & ADI throughput curve \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_cgrph_SCI_THROUGHPUT}\\
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
+\FITS{DO.CATG}: & \FITS{N_cgrph_SCI_THROUGHPUT}\\[0.3cm]
+Created by recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{metis_det_adi_cgrph}}\\
+Input for recipe: & None\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
