@@ -455,6 +455,10 @@ class DataReductionLibraryDesign:
                         hyperref,
                         labels,
                     ])
+                # Also add the one with placeholders.
+                # TODO: Either only add the ones with placeholders, or the
+                # ones with the placeholders filled in.
+                dataitems4.append([name, hyperref, labels])
             else:
                 dataitems4.append([name, hyperref, labels])
 
@@ -468,6 +472,7 @@ class DataReductionLibraryDesign:
                 hyperref=hyperref,
                 labels=labels,
             )
+
         return dataitems3
 
     def get_template_names_used(self):
