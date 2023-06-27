@@ -10,4 +10,4 @@ METIS_DRLD.pdf: \
 	@texfot pdflatex $< -file-line-error -shell-escape -jobname=$(subst, .pdf,,$@) -halt-on-error -synctex=1 -interaction=nonstopmode $@
 
 clean:
-	rm *.out *.aux *.log *.lof *.bbl *.bcf *.run.xml *.toc *.blg
+	rm *.out *.aux *.log *.lof *.bbl *.bcf *.run.xml *.toc *.blg *.lot METIS_DRLD.pdf
