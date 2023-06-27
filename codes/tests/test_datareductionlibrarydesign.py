@@ -179,7 +179,6 @@ class TestDataReductionLibraryDesign:
         assert not bad_input_data
         assert not bad_output_data
 
-    @pytest.mark.xfail(reason="Most data is not yet defined...")
     def test_all_recipe_data_is_defined(self):
         bad_input_data = [
             (recipe.name, diref)
@@ -228,7 +227,6 @@ class TestDataReductionLibraryDesign:
             for diref in recipe.input_data + recipe.output_data:
                 assert diref.dtype in datatypes_acceptable, f"Dataitem {diref.name} has type {diref.dtype} which is not allowed."
 
-    @pytest.mark.xfail(reason="Some are still FITS or CODE")
     def test_datatypes_are_known_strict(self):
         dtypes = [
             diref.dtype
