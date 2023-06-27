@@ -245,14 +245,11 @@ class TestDataReductionLibraryDesign:
                 # TODO: Why do we process METIS_spec_lm_acq and METIS_spec_n_acq
                 assert (
                     template is None
-                    or template.ttype in ["Calibration", "Observing"]
+                    or template.ttype in ["Calibration", "Observing", "Engineering"]
                     or template.name
                     in METIS_DataReductionLibraryDesign.templates_acquisition_used
                 )
 
-    @pytest.mark.xfail(
-        reason="metis_spec_n_obs_genericoffset does not exist, there is a TBD and some asterisks."
-    )
     def test_whether_templates_are_understood(self):
         problems = []
         for recipe in METIS_DataReductionLibraryDesign.recipes.values():
