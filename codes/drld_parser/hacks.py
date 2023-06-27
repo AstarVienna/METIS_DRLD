@@ -57,24 +57,25 @@ HACK_TEMPLATE_NAMES_IN_WIKI = {
 # TODO: HACK_TEMPLATE_NAMES_IN_DRLD is now less necessary, as all templates
 #  referenced in the Recipes are dealt with in HACK_RECIPE_TEMPLATES.
 HACK_TEMPLATE_NAMES_IN_DRLD = {
-    ("*", "METIS_img_nq_cal_DetLin"): "METIS_img_n_cal_DetLin",
+    # ("*", "METIS_img_nq_cal_DetLin"): "METIS_img_n_cal_DetLin",
     # ("*", "METIS_all_cal_dark"): "METIS_gen_cal_dark",
     # ("*", "METIS_img_n_cal_LampFlat"): "",
-    (
-        "Recipes_Imaging_LM",
-        "METIS_all_cal_TwilightFlat",
-    ): "METIS_img_lm_cal_TwilightFlat",
-    ("Recipes_Imaging_N", "METIS_all_cal_TwilightFlat"): "METIS_img_n_cal_TwilightFlat",
-    ("metis_n_img_flat", "METIS_all_cal_TwilightFlat"): "METIS_img_n_cal_TwilightFlat",
+    # (
+    #     "Recipes_Imaging_LM",
+    #     "METIS_all_cal_TwilightFlat",
+    # ): "METIS_img_lm_cal_TwilightFlat",
+    # ("Recipes_Imaging_N", "METIS_all_cal_TwilightFlat"): "METIS_img_n_cal_TwilightFlat",
+    # ("metis_n_img_flat", "METIS_all_cal_TwilightFlat"): "METIS_img_n_cal_TwilightFlat",
+
     # Seems wrong in DRLD:
-    (
-        "Recipes_LSS_N",
-        "METIS_spec_N_obs_AutoNodOnSlit",
-    ): "metis_spec_n_obs_autochopnodonslit",
-    ("Recipes_LSS_LM", "METIS_spec_lm_cal_slit_adc"): "metis_spec_lm_cal_slitadc",
+    # (
+    #     "Recipes_LSS_N",
+    #     "METIS_spec_N_obs_AutoNodOnSlit",
+    # ): "metis_spec_n_obs_autochopnodonslit",
+    # ("Recipes_LSS_LM", "METIS_spec_lm_cal_slit_adc"): "metis_spec_lm_cal_slitadc",
     # Maybe should exist? # TODO: should be metis_spec_n_cal_slit ?
     # ("Recipes_LSS_N", "METIS_spec_N_cal_slit_adc"): "metis_spec_lm_cal_slitadc",
-    ("Recipes_LSS_N", "METIS_spec_N_cal_slit_adc"): "metis_spec_n_cal_slit",
+    # ("Recipes_LSS_N", "METIS_spec_N_cal_slit_adc"): "metis_spec_n_cal_slit",
     # Maybe should exist?
     # (
     #     "Recipadces_LSS_N",
@@ -82,32 +83,33 @@ HACK_TEMPLATE_NAMES_IN_DRLD = {
     # ): "metis_spec_lm_obs_genericoffset",
     # Which one?
     # ("Recipes_Technical", "METIS_spec_n_cal_SlitAdc"): "metis_spec_lm_cal_slitadc",
-    ("Recipes_Technical", "METIS_spec_n_cal_SlitAdc"): "metis_spec_n_cal_slit",
-    (
-        "Recipes_IFU_LM",
-        "METIS_ifu_app_obs_GenericOffset",
-    ): "metis_ifu_obs_genericoffset",
-    # Pinhole is internal wave?
-    ("LSS_data_items", "METIS_spec_lm_cal_rsrfpinh"): "metis_spec_lm_cal_internalwave",
-    ("LSS_data_items", "METIS_spec_n_cal_rsrfpinh"): "metis_spec_n_cal_internalwave",
-    ("Recipes_LSS_LM", "METIS_spec_lm_cal_rsrfpinh"): "metis_spec_lm_cal_internalwave",
-    ("Recipes_LSS_N", "METIS_spec_n_cal_rsrfpinh"): "metis_spec_n_cal_internalwave",
+    # ("Recipes_Technical", "METIS_spec_n_cal_SlitAdc"): "metis_spec_n_cal_slit",
+    # (
+    #     "Recipes_IFU_LM",
+    #     "METIS_ifu_app_obs_GenericOffset",
+    # ): "metis_ifu_obs_genericoffset",
+    # Pinhole is internal wave? No apparently this template should be added
+    # ("LSS_data_items", "METIS_spec_lm_cal_rsrfpinh"): "metis_spec_lm_cal_internalwave",
+    # ("LSS_data_items", "METIS_spec_n_cal_rsrfpinh"): "metis_spec_n_cal_internalwave",
+    # ("Recipes_LSS_LM", "METIS_spec_lm_cal_rsrfpinh"): "metis_spec_lm_cal_internalwave",
+    # ("Recipes_LSS_N", "METIS_spec_n_cal_rsrfpinh"): "metis_spec_n_cal_internalwave",
+
     # and these as well?
-    ("Recipes_IFU_LM", "METIS_ifu_cal_LampWave"): "metis_ifu_cal_internalwave",
-    ("metis_ifu_wavecal", "METIS_ifu_cal_LampWave"): "metis_ifu_cal_internalwave",
+    # ("Recipes_IFU_LM", "METIS_ifu_cal_LampWave"): "metis_ifu_cal_internalwave",
+    # ("metis_ifu_wavecal", "METIS_ifu_cal_LampWave"): "metis_ifu_cal_internalwave",
     # Unknown
-    ("metis_n_img_flat", "METIS_img_n_cal_LampFlat"): "metis_img_n_cal_internalflat",
-    (
-        "metis_lm_img_flat",
-        "METIS_all_cal_TwilightFlat",
-    ): "metis_img_lm_cal_twilightflat",
-    ("metis_lm_img_flat", "METIS_img_lm_cal_LampFlat"): "metis_img_lm_cal_internalflat",
+    # ("metis_n_img_flat", "METIS_img_n_cal_LampFlat"): "metis_img_n_cal_internalflat",
+    # (
+    #     "metis_lm_img_flat",
+    #     "METIS_all_cal_TwilightFlat",
+    # ): "metis_img_lm_cal_twilightflat",
+    # ("metis_lm_img_flat", "METIS_img_lm_cal_LampFlat"): "metis_img_lm_cal_internalflat",
     # App stuff
-    (
-        "Recipes_IFU_LM",
-        "METIS_ifu_ext_app_obs_GenericOffset",
-    ): "metis_ifu_ext_obs_genericoffset",
-    ("Recipes_Imaging_N", "METIS_img_nq_cal_standard"): "metis_img_n_cal_standard",
+    # (
+    #     "Recipes_IFU_LM",
+    #     "METIS_ifu_ext_app_obs_GenericOffset",
+    # ): "metis_ifu_ext_obs_genericoffset",
+    # ("Recipes_Imaging_N", "METIS_img_nq_cal_standard"): "metis_img_n_cal_standard",
     # Investigate
 }
 
