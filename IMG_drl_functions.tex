@@ -360,7 +360,7 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \begin{recipedef}
 Name: & \hyperref[drl:lm_scale_image_flux]{\DRL{lm_scale_image_flux}} \\
 Purpose: & Calculate the conversion between instrumental and physical flux units \\
-Used in recipes: & \hyperref[sssec:lm_img_calibrate]{\REC{metis_lm_img_cakubrate}}\\
+Used in recipes: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \hyperref[dataitem:lm_sci_bkg_subtracted]{\PROD{LM_SCI_BKG_SUBTRACTED}}\\
@@ -402,7 +402,7 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \begin{recipedef}
 Name: & \hyperref[drl:n_scale_image_flux]{\DRL{n_scale_image_flux}} \\
 Purpose: & Calculate the conversion between instrumental and physical flux units \\
-Used in recipes: & \hyperref[sssec:n_img_calibrate]{\REC{metis_n_img_cakubrate}}\\
+Used in recipes: & \hyperref[rec:metis_n_img_calibrate]{\REC{metis_n_img_calibrate}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}\\
@@ -424,7 +424,7 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \begin{recipedef}
 Name: & \hyperref[drl:n_update_header_distortion]{\DRL{n_update_header_distortion}} \\
 Purpose: & Update the FITS header with calibration data (WCS, distortion, units)  \\
-Used in recipes: & \hyperref[sssec:n_img_calibrate]{\REC{metis_n_img_calibrate}}\\
+Used in recipes: & \hyperref[rec:metis_n_img_calibrate]{\REC{metis_n_img_calibrate}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: &   \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}\\
@@ -445,8 +445,8 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \begin{recipedef}
 Name: & \hyperref[drl:fit_distortion]{\DRL{fit_distortion}} \\
 Purpose: & Fit optical distortion coefficients based on pinhole mask image  \\
-Used in recipes: & \hyperref[sssec:lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
-                 & \hyperref[sssec:n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Used in recipes: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
+                 & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
 %Working remarks: & None \\
 Function Parameters: & parameters for fitting routine \\
 Input: &   Catalogue of detected sources \\
