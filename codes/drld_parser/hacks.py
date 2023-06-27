@@ -191,6 +191,11 @@ HACK_INCORRECT_INPUT_DATA = {
     # "LM_SCI_BADPIX": "BADPIX_MAP_2RG",
 }
 
+HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT = {
+    # Output of metis_img_chophome is to be used by the ICS.
+    "metis_img_chophome",
+}
+
 
 def hack_rename_template_header(name_template_file, name_template_header):
     """Some template files on the wiki have incorrect headers.

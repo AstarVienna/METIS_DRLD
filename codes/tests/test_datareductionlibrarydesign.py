@@ -11,7 +11,10 @@ from ..drld_parser.data_reduction_library_design import (
     DataItemReference,
     guess_dataitem_type,
 )
-from ..drld_parser.hacks import TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI
+from ..drld_parser.hacks import (
+    TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI,
+    HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT,
+)
 from ..drld_parser.template_manual import METIS_TemplateManual
 
 
@@ -162,7 +165,6 @@ class TestDataReductionLibraryDesign:
             not names_not_existing
         ), f"Non existing template names: {names_not_existing}"
 
-    @pytest.mark.xfail(reason="Soooooo many recipes have bad input and output!")
     def test_all_recipe_data_has_a_name(self):
         bad_input_data = [
             (recipe.name, diref)
@@ -175,6 +177,7 @@ class TestDataReductionLibraryDesign:
             for recipe in METIS_DataReductionLibraryDesign.recipes.values()
             for diref in recipe.output_data
             if diref.name is None
+            and recipe.name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT
         ]
         if bad_input_data:
             pprint(bad_input_data)
