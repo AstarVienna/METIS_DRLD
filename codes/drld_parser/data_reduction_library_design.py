@@ -288,8 +288,8 @@ class DataItem:
                 thedata[field_old] = value
 
             field = HACK_BAD_NAMES.get(field1, field1)
-            if field1 in HACK_BAD_NAMES:
-                print(f"{field1} should be renamed to {field}.")
+            # if field1 in HACK_BAD_NAMES:
+            #     print(f"{field1} should be renamed to {field}.")
             value = row[1]
 
             if "name" in field:
@@ -770,13 +770,23 @@ class DataReductionLibraryDesign:
             dataitem = DataItem.from_paragraph(sparagraph)
             if dataitem.name is None:
                 continue
-            assert dataitem.name not in dataitems3
+
+            name = dataitem.name
+            dataitem_existing = dataitems3.get(name, None)
+            # E.g. MASTER_DARK_2RG can be added while MASTER_DARK_det is there
+            assert dataitem_existing is None or 'det' in dataitem_existing.name
             dataitems3[dataitem.name] = dataitem
+
+            if "det" in name:
+                # TODO: Harmonize with the other one
+                assert name.count("det") == 1, f"Too many 'det's in f{name}"
+                for name_det in ["LM", "N", "IFU", "2RG", "GEO", "det"]:
+                    dataitems3[name.replace("det", name_det)] = dataitem
 
         return dataitems3
 
-    get_dataitems = get_dataitems_headers_only
-    # get_dataitems = get_dataitems_full
+    # get_dataitems = get_dataitems_headers_only
+    get_dataitems = get_dataitems_full
 
     def get_template_names_used(self):
         """
