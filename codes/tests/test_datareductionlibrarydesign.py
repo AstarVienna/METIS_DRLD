@@ -176,6 +176,10 @@ class TestDataReductionLibraryDesign:
             for diref in recipe.output_data
             if diref.name is None
         ]
+        if bad_input_data:
+            pprint(bad_input_data)
+        if bad_output_data:
+            pprint(bad_output_data)
         assert not bad_input_data
         assert not bad_output_data
 
