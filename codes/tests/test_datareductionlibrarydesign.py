@@ -253,12 +253,16 @@ class TestDataReductionLibraryDesign:
                 )
 
     def test_whether_templates_are_understood(self):
+        template_not_in_manual = [
+            tn.lower() for tn in TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI
+        ]
         problems = []
         for recipe in METIS_DataReductionLibraryDesign.recipes.values():
             for template in recipe.templates:
                 if (
                     template is not None
                     and METIS_TemplateManual.get_template(template) is None
+                    and template not in template_not_in_manual
                 ):
                     problems.append((recipe.name, template))
         assert not problems

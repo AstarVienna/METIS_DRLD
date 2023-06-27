@@ -166,6 +166,8 @@ TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI = [
     "METIS_spec_lm_cal_rsrfpinh",
     "METIS_spec_n_cal_rsrfpinh",
     # Not sure:
+    "METIS_spec_lm_obs_AutoChopNodOnSlit",
+    # Should not be there according to WK:
     "METIS_spec_N_obs_GenericOffset",
 ]
 
