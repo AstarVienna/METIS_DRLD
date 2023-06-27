@@ -187,8 +187,18 @@ class Recipe:
         # \label{rec:metisimgchophome}\label{rec:metis_img_chophome}
         # Remove that line
         # TODO: perhaps do something useful with the labels
-        rows1 = [
+        rows1b = [
             row for row in rows1a if not row.startswith(r"\label")
+        ]
+        # Some recipes have the label in the name
+        #   Name:                & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}\label{rec:metis_ifu_adi_cgrph}                                        \\
+        # So remove those as well.
+        rows1c = [
+            row.split(r"\label") for row in rows1b
+        ]
+        rows1 = [
+            row[0] if len(row) == 1 else row[0] + r"\\"
+            for row in rows1c
         ]
 
         # Concatenate lines.. Aargh

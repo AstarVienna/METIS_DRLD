@@ -1,6 +1,81 @@
 \TODO{Many of these use the table for RAW data, while they should use the table for PROD data.}
 
 
+\paragraph{\hyperref[dataitem:lm_off_axis_psf_raw]{\RAW{LM_OFF_AXIS_PSF_RAW}}}\label{dataitem:lm_off_axis_psf_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:lm_off_axis_psf_raw]{\PROD{LM_OFF_AXIS_PSF_RAW}}\\[0.3cm]
+Description: & Coronagraphic image after distortion correction \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{PSF,OFFAXIS}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{LM_OFF_AXIS_PSF_RAW}\\[0.3cm]
+Templates:             & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+\paragraph{\hyperref[dataitem:n_off_axis_psf_raw]{\RAW{N_OFF_AXIS_PSF_RAW}}}\label{dataitem:n_off_axis_psf_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:n_off_axis_psf_raw]{\PROD{N_OFF_AXIS_PSF_RAW}}\\[0.3cm]
+Description: & Coronagraphic image after distortion correction \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,N}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{PSF,OFFAXIS}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{N_OFF_AXIS_PSF_RAW}\\[0.3cm]
+Templates:             & \TPL{METIS_img_n_cvc_obs_AutoChop} \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+\paragraph{\hyperref[dataitem:ifu_off_axis_psf_raw]{\RAW{IFU_OFF_AXIS_PSF_RAW}}}\label{dataitem:ifu_off_axis_psf_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:ifu_off_axis_psf_raw]{\PROD{IFU_OFF_AXIS_PSF_RAW}}\\[0.3cm]
+Description: & Coronagraphic image after distortion correction \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{PSF,OFFAXIS}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_OFF_AXIS_PSF_RAW}\\[0.3cm]
+Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
+                       & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset} \\
+Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image ** image: Four Images}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
 \paragraph{\hyperref[dataitem:det_app_sci_calibrated]{\RAW{det_APP_SCI_CALIBRATED}}}\label{dataitem:det_app_sci_calibrated}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
@@ -256,6 +331,8 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 \FITS{DO.CATG}: & \FITS{det_APP_SCI_THROUGHPUT}\\[0.3cm]
 Templates:             & \TPL{TODO}                                                       \\
 Input for recipe: & \hyperref[rec:metis_det_adi_app]{\REC{metis_det_adi_app}}\\
+                  & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}\\
+                  & \hyperref[rec:metis_det_adi_cgrph]{\REC{metis_det_adi_cgrph}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
