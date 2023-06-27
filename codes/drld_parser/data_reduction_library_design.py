@@ -97,7 +97,12 @@ class DataItem:
     do_catg: str = None
     oca_keywords: str = None
     created_by: str = None
-    input_for_recipes: str = None
+    input_for: str = None
+    templates: str = None
+    dtype: str = None
+    name_header: str = None
+    dtype_header: str = None
+    sparagraph: str = None
 
     @classmethod
     def from_paragraph(cls, sparagraph):
@@ -115,6 +120,8 @@ class DataItem:
         assert hyperref == label
         assert label.startswith("dataitem")
         assert hyperref == f"dataitem:{name.lower()}"
+
+
 
         lines2 = itertools.dropwhile(
             lambda line: not line.startswith(r"\begin{recipedef}"),
@@ -178,12 +185,23 @@ class DataItem:
         rows4 = [(aa.strip().strip(":").strip(), bb.strip()) for aa, bb in rows3]
 
         to_skip = {
-            r"processing_\ac{fits}_keywords"
+            r"processing_\ac{fits}_keywords",
+            "purpose",
+            "comment",
+            "pro_tech",
+            "qc_parameters",
+            "processing_fits_keywords",
         }
 
         value = ""
         field_old = ""
-        thedata = {}
+        thedata = {
+            "name_header": name,
+            "dtype_header": dtype,
+            "labels": [label],
+            "hyperref": hyperref,
+            "sparagraph": sparagraph,
+        }
         for row in rows4:
             field1 = row[0].lower().replace(" ", "_")
             field1 = re.sub("label{.*?}", "", field1)
@@ -275,7 +293,9 @@ class DataItem:
             value = row[1]
 
             if "name" in field:
-                value = re.sub(r"\\REC{(.*?)}", "\\1", value)
+                dtype = re.match(r".*?\\([A-Z]+){.*?}", value).group(1)
+                thedata["dtype"] = dtype
+                value = re.sub(r"\\[A-Z]+{(.*?)}", "\\1", value)
                 value = re.sub(r"\\hyperref\[.*?]{(.*?)}", "\\1", value)
                 # print(field, ":::", value)
 
@@ -303,6 +323,11 @@ class DataItem:
         for field in to_skip:
             if field in thedata:
                 thedata.pop(field)
+
+        if "name" not in thedata:
+            thedata["name"] = thedata["name_header"]
+        if "dtype" not in thedata:
+            thedata["dtype"] = thedata["dtype_header"]
 
         return cls(**thedata)
 
@@ -600,7 +625,7 @@ class DataReductionLibraryDesign:
 
         return recipes
 
-    def get_dataitems(self):
+    def get_dataitems_headers_only(self):
         r"""Read all DataItems defined in 'DRL DATA ITEMS AND STRUCTURES'.
 
         The DataItems are all defined in 09_0-DRL-Data-Structures.tex, which
@@ -699,6 +724,54 @@ class DataReductionLibraryDesign:
                 hyperref=hyperref,
                 labels=labels,
             )
+
+        return dataitems3
+
+    def get_dataitems(self):
+        r"""Read all DataItems defined in 'DRL DATA ITEMS AND STRUCTURES'.
+
+        The DataItems are all defined in 09_0-DRL-Data-Structures.tex, which
+        \input's all *_data_item.tex files. Those files have paragraphs like
+
+        \paragraph{\hyperref[dataitem:lmlsssciflux2d]{\PROD{LM_LSS_SCI_FLUX_2D}}}\label{dataitem:lmlsssciflux2d}
+
+        but some are
+
+        '\\paragraph{\\hyperref[dataitem:masterdark2rg]{\\PROD{MASTER_DARK_2RG}} and \\hyperref[dataitem:masterdarkgeo]{\\PROD{MASTER_DARK_GEO}}}\\label{dataitem:masterdark}\\label{dataitem:masterdark2rg}\\label{dataitem:masterdarkgeo}'
+
+        or
+
+        \paragraph{\hyperref[dataitem:lsfkernel]{\STATCALIB{LSF_KERNEL}}}\label{dataitem:lsfkernel}
+
+        """
+        path_dataitems = self.path_drld / "09_0-DRL-Data-Structures.tex"
+        paths_with_dataitems = find_latex_inputs(path_dataitems)
+
+        data_all = (
+            "\n"
+            + "\n".join("".join([
+                ll
+                for ll in open(pp).readlines()
+                if not ll.strip().startswith("%")
+            ])
+                for pp in [path_dataitems] + paths_with_dataitems
+            )
+            + "\n"
+        )
+
+        dataitems1 = data_all.split("\\paragraph")
+
+        dataitems3 = {}
+        # dataitems[0] is the preamble of the section
+        for sparagraph in dataitems1[1:]:
+            if "drsstructure" in sparagraph:
+                continue
+            sparagraph = "\\paragraph" + sparagraph
+            dataitem = DataItem.from_paragraph(sparagraph)
+            if dataitem.name is None:
+                continue
+            assert dataitem.name not in dataitems3
+            dataitems3[dataitem.name] = dataitem
 
         return dataitems3
 

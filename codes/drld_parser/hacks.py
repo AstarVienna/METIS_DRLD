@@ -181,6 +181,14 @@ HACK_BAD_NAMES = {
     # "hdrl_function": "hdrl_functions",
     # "requirement": "requirements",
     # "template": "templates",
+
+    "source": "created_by",
+    "input_for_recipes": "input_for",
+    "input_for_recipe": "input_for",
+    "template": "templates",
+    "created_by_recipe": "created_by",
+    "produced_by_recipe": "created_by",
+    "input_for_recipe(s)": "input_for",
 }
 
 HACK_INCORRECT_INPUT_DATA = {
