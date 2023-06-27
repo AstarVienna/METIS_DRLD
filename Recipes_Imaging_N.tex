@@ -289,8 +289,8 @@ included in the pipeline (cf.\ Sect.~8.8 of \cite{DRLS}).
   Type:              & Science                                                       \\
   Input data:        & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}                                       \\
   Parameters:        & size of cutout region                                         \\
-  Algorithm:         & Cut regions around beams                                      \\
-                     & Add regions with appropriate signs                            \\
+  Algorithm:         & Call \DRL{cutout_region} to cut regions around beams                \\
+                     & Add regions with appropriate signs (\CODE{hdrl_imagelist_collapse})   \\
   Output data:       & \hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}}                                         \\
   QC1 parameters:    & None                                                          \\
   hdrl functions:    & \CODE{hdrl_imagelist_collapse}                                \\
@@ -298,8 +298,7 @@ included in the pipeline (cf.\ Sect.~8.8 of \cite{DRLS}).
 
 \begin{figure}[hb]
   \centering
-  % \includegraphics[width=0.6\textwidth]{metis_n_img_std_process}
-  \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
+   \includegraphics[width=0.6\textwidth]{metis_n_img_restore}
   \caption[Recipe: \REC{metis_n_img_restore}]{\REC{metis_n_img_restore} --
     Create a single positive image from chop-nod difference image}
   \label{fig:metis_n_img_restore}

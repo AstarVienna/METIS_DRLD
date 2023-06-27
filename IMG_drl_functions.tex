@@ -463,3 +463,23 @@ Quality assessment: & \TBD \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
+
+
+\subsubsection{Cutout Region Around Beam}\label{drl:cutout_region}
+\begin{recipedef}
+Name: & \hyperref[drl:cutout_region]{\DRL{cutout_region}} \\
+Purpose: & Cutout a region around a beam in N band image  \\
+Used in recipes: & \hyperref[sssec:n_img_restoration]{\REC{metis_n_img_restore}}\\
+%Working remarks: & None \\
+Function Parameters: & Size of cutout region \\
+Input: &   \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}} \\
+QC outputs: None \\
+%Output FITS files:\hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}} \\
+%Outputs:  &  \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}} \\
+%          & \texttt{cpl\_error\_code} \\
+General description: & Cutout a region around the positive and negative beams in an N-band image \\
+Mathematical description: & See Section~\ref{sssec:n_img_restoration} \\
+Quality assessment: & \TBD \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
