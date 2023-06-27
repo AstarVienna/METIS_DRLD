@@ -100,9 +100,6 @@ class TestDataReductionLibraryDesign:
         }
         assert not (names_recipes & names_templates)
 
-    @pytest.mark.xfail(
-        reason="There are several recipes mentioned that do not exist..."
-    )
     def test_all_recipe_names_used_also_exist(self):
         names_existing = METIS_DataReductionLibraryDesign.recipes.keys()
         names_used = METIS_DataReductionLibraryDesign.recipe_names_used
