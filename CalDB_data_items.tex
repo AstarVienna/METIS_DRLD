@@ -7,7 +7,27 @@ This section describes items of the static calibration database, which are used 
 
 \paragraph{\hyperref[dataitem:gain_map_det]{\PROD{GAIN_MAP_det}}}\label{dataitem:gain_map_det}\label{dataitem:gainmap}
 \label{dataitem:gain_map_2rg}\label{dataitem:gain_map_geo}\label{dataitem:gain_map_ifu}
-\TODO{Placeholder for \hyperref[dataitem:gain_map_det]{\PROD{GAIN_MAP_det}}}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:gain_map_det]{\STATCALIB{GAIN_MAP_det}}\\[0.3cm]
+Description: & Gain map\\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{GAIN_MAP_det}\\
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{DO.CATG}: & \FITS{GAIN_MAP_det}\\[0.3cm]
+Created by recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}} \\
+% Input for recipe: & \hyperref[rec:]{\REC{}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+Purpose: & Correcting for differences in gain.\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.tech]{\FITS{PRO.TECH}},  \hyperref[fits:det.id]{\FITS{DET.ID}}) (more tbd)}
+    \item \texttt{hdrl\_image ** image: Images image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
 
 %\clearpage
 \subsubsection{IFU calibration database item structures}\label{sssec:lmscaldbdatastructs}
