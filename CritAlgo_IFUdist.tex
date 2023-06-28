@@ -53,7 +53,7 @@ command executed was
 # esorex cr2res_util_trace trace_sky.sof
 \end{verbatim}
 
-, where \texttt{trace\_sky.sof} contains only one line, pretending the
+where \texttt{trace\_sky.sof} contains only one line, pretending the
 sky frame is a FLAT (which is what is usually used for tracing)
 
 \begin{verbatim}
@@ -91,12 +91,12 @@ have a look at the result.
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_7_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\begin{center}
+\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_7_0.png}
+\end{center}
+{ \hspace*{\fill} \\}
+
+\begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{26}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Zooming in allows to perceive the tilt in the regularly plotted vertical lines that align with the data.}
@@ -105,12 +105,12 @@ have a look at the result.
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_8_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\begin{center}
+\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_8_0.png}
+\end{center}
+{ \hspace*{\fill} \\}
+
+\begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{27}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{tilts} \PY{o}{=} \PY{n}{fo}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CIRES\PYZus{}sky\PYZus{}tw\PYZus{}tw.fits}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SlitPolyB}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
@@ -118,7 +118,7 @@ have a look at the result.
 \end{Verbatim}
 \end{tcolorbox}
 
-            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
 \prompt{Out}{outcolor}{27}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 array([[-1.45030918e-02,  4.97644175e-06, -8.81093015e-10],
@@ -137,11 +137,11 @@ array([[-1.45030918e-02,  4.97644175e-06, -8.81093015e-10],
        [-1.04358752e-02,  2.52729614e-06,  1.30881039e-09]])
 \end{Verbatim}
 \end{tcolorbox}
-        
-    When we evaluate one of the polynomials at the detector edges and
+
+When we evaluate one of the polynomials at the detector edges and
 center, we find that the slit angle varies between 0.5 and 0.9 degrees.
 
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{28}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{dx}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{polyval}\PY{p}{(}\PY{n}{tilts}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1024}\PY{p}{,}\PY{l+m+mi}{2048}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{} reverse order of coeffs in python}
@@ -149,35 +149,35 @@ center, we find that the slit angle varies between 0.5 and 0.9 degrees.
 \end{Verbatim}
 \end{tcolorbox}
 
-            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
 \prompt{Out}{outcolor}{28}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 array([-0.01567386, -0.00851955, -0.00847581])
 \end{Verbatim}
 \end{tcolorbox}
-        
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+
+\begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{29}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{np}\PY{o}{.}\PY{n}{degrees}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arctan}\PY{p}{(}\PY{n}{dx}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Tilt angles}
 \end{Verbatim}
 \end{tcolorbox}
 
-            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
 \prompt{Out}{outcolor}{29}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 array([-0.89797241, -0.48812261, -0.48561642])
 \end{Verbatim}
 \end{tcolorbox}
-        
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+
+\begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{30}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{dx}\PY{o}{*}\PY{l+m+mi}{80} \PY{c+c1}{\PYZsh{} pixel difference between top and bottom of a slice, \PYZti{}80pix high}
 \end{Verbatim}
 \end{tcolorbox}
 
-            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
 \prompt{Out}{outcolor}{30}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 array([-1.25390868, -0.68156423, -0.67806467])
@@ -236,10 +236,10 @@ figure here.
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{center}
+\begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_17_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
+\end{center}
+{ \hspace*{\fill} \\}
 
 In blue the input spectrum, in orange and green the spectra from the two
 detectors that cover the slice. Vertical offset and scaling are
@@ -263,20 +263,20 @@ from the mid-line, to get the displacement in dispersion direction. Then
 this delta-x gets converted to delta-lambda using the wavelength
 solution.
 
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{33}{\boxspacing}
+\begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+    \prompt{In}{incolor}{33}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} plot missing, due to technical difficulties, this is a stand\PYZhy{}in from CRIRES\PYZhy{}data.}
 \PY{n}{display}\PY{p}{(}\PY{n}{Image}\PY{p}{(}\PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{crires\PYZus{}2d\PYZus{}rect.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{center}
+\begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_20_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    Any non-linear spatial distortion along the slice, as measured from the
+\end{center}
+{ \hspace*{\fill} \\}
+
+Any non-linear spatial distortion along the slice, as measured from the
 full field-of-view of the LM-Imager, or by illuminating the IFU slices
 with the grid of the pin-hole mask in the WCU, can be added to the
 spatial scale as a last step.
