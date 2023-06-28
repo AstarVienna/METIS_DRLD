@@ -1214,6 +1214,25 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\hyperref[dataitem:det_pinhole_table]{\PROD{det_PINHOLE_TABLE}}}\label{dataitem:det_pinhole_table}
-\TODO{Placeholder for \hyperref[dataitem:det_pinhole_table]{\PROD{det_PINHOLE_TABLE}}}
+\paragraph{\hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}}}\label{dataitem:pinhole_table}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}}\\[0.3cm]
+Description: & Stacked LM band exposures. \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{PINHOLE_TABLE} \\[0.3cm]
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{DO.CATG}: & \FITS{PINHOLE_TABLE}\\[0.3cm]
+% TODO: Source
+Used in recipes: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
+                 & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
 
