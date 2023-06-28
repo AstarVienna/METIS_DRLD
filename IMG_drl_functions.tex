@@ -82,7 +82,11 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \begin{recipedef}
 Name: & \hyperref[drl:img_source_extraction]{\DRL{img_source_extraction}} \\
 Purpose: &Measure and extract source information for position calibration\\
-Used in recipes: & \hyperref[rec:metis_lm_img_astrometry_process]{\REC{metis_lm_img_astrometry_process}}\\
+% HB 20230628: The metis_lm_img_astrometry_process seems unnecessary, so it
+%    is commented out. See https://github.com/AstarVienna/METIS_DRLD/pull/65
+%    where we can discuss this further.
+%Used in recipes: & \hyperref[rec:metis_lm_img_astrometry_process]{\REC{metis_lm_img_astrometry_process}}\\
+Used in recipes: & None\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -94,7 +98,8 @@ Input: & \texttt{const hdrl\_image * input} \\
 Outputs: & star flux [counts] and location [px]\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Measure and extract sources on a image \\
-Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+%Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Mathematical description: & TBD \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
@@ -115,7 +120,8 @@ Input: & \texttt{const hdrl\_image * input} \\
 %Output FITS files: & None \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Astrometry calibration \\
-Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+%Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Mathematical description: & TBD \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
@@ -136,7 +142,8 @@ Input: & \texttt{const hdrl\_image * input} \\
 %Output FITS files: & None \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Image resample and coadding \\
-Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+%Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Mathematical description: & TBD \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
