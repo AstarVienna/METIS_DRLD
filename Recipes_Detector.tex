@@ -69,7 +69,7 @@ This satisfies \REQ{METIS-5997}.
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
   Input data:          & \hyperref[dataitem:detlin_det_raw]{\RAW{DETLIN_det_RAW}}: (set of \FITS{FLAT,LAMP} frames taken with increasing DIT) \\
                        & \hyperref[dataitem:det_wcu_off_raw]{\RAW{det_WCU_OFF_RAW}}: (set of internal darks taken at the start of the template) \\
-  Matched keywords:    & Subsystem ID \TODO{TBD}                                                             \\
+ % Matched keywords:    & Subsystem ID \TODO{TBD}                                                             \\
   Algorithm:           & Subtract instrument dark (\CODE{hdrl_imagelist_sub_image}).                         \\
                        & Compute mean and variance for each frame (\CODE{TBD}).                              \\
                        & Gain is determined as the slope of variance against mean (\hyperref[drl:metis_derive_gain]{\DRL{metis_derive_gain}}) \\
@@ -172,30 +172,31 @@ This fulfills \REQ{METIS-6063}.
 \label{rec:metis_det_persistence}
 
 Infrared detectors are prone to persistence due to charges trapped on a variety of timescales. The correction for a given science or
-calibration exposure is built from a sequence of exposures preceding the exposure in question. As these may include exposures taken for another proprietary programme, the recipe is run by ESO on data taken from the science archive and its products are again ingested into the archive. The recipe will make use of the \ac{HDRL} function for the creation of the persistence map, which is provided by \ac{ESO}.
+calibration exposure is built from a sequence of exposures preceding the exposure in question. As these may include exposures taken for another proprietary programme, the recipe is run by ESO on data taken from the science archive and its products are again ingested into the archive. The recipe will make use of the \ac{HDRL} function for the creation of the persistence map, which will be provided by \ac{ESO} in the future.\\
+We will update this Section as soon as more information is available.
 
-\begin{recipedef}
-  Name:                & \hyperref[rec:metis_det_persistence]{\REC{metis_det_persistence}}           \\
-  Purpose:             & compute persistence correction maps        \\
-  Requirements:        & \REQ{METIS-9145}                      \\
-  Type:                & Calibration                           \\
-  Templates:           & --                                    \\
-  Parameters:          & \TBD                                  \\
-  Algorithm:           & see hdrl functions:                   \\
-  Output data:         & \hyperref[dataitem:persistence_map]{\PROD{PERSISTENCE_MAP}}                \\
-  Expected accuracies: & \TBD                                  \\
-  QC1 parameters:      & see hdrl functions:                   \\
-  hdrl functions:      & \TBD (\CODE{hdrl_persistence_compute} \\
-\end{recipedef}
+%\begin{recipedef}
+%  Name:                & \hyperref[rec:metis_det_persistence]{\REC{metis_det_persistence}}           \\
+%  Purpose:             & compute persistence correction maps        \\
+%  Requirements:        & \REQ{METIS-9145}                      \\
+%  Type:                & Calibration                           \\
+%  Templates:           & --                                    \\
+%  Parameters:          & \TBD                                  \\
+%  Algorithm:           & see hdrl functions:                   \\
+%  Output data:         & \hyperref[dataitem:persistence_map]{\PROD{PERSISTENCE_MAP}}                \\
+%  Expected accuracies: & \TBD                                  \\
+%  QC1 parameters:      & see hdrl functions:                   \\
+%  hdrl functions:      & \TBD (\CODE{hdrl_persistence_compute} \\
+%\end{recipedef}
 
-\begin{figure}[hb]
-  \centering
-  \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
-  \caption[Recipe:
-  \REC{metis_det_persistence}]{\REC{metis_det_persistence} -- creation
-    of persistence correction frames.}
-  \label{Fig:rec_det_persistence}
-\end{figure}
+%\begin{figure}[hb]
+%  \centering
+%  \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
+%  \caption[Recipe:
+%  \REC{metis_det_persistence}]{\REC{metis_det_persistence} -- creation
+%    of persistence correction frames.}
+%  \label{Fig:rec_det_persistence}
+%\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
