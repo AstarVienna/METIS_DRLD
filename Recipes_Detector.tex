@@ -69,7 +69,7 @@ This satisfies \REQ{METIS-5997}.
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
   Input data:          & \hyperref[dataitem:detlin_det_raw]{\RAW{DETLIN_det_RAW}}: (set of \FITS{FLAT,LAMP} frames taken with increasing DIT) \\
                        & \hyperref[dataitem:det_wcu_off_raw]{\RAW{det_WCU_OFF_RAW}}: (set of internal darks taken at the start of the template) \\
-  Matched keywords:    & Subsystem ID \TODO{TBD}                                                             \\
+ % Matched keywords:    & Subsystem ID \TODO{TBD}                                                             \\
   Algorithm:           & Subtract instrument dark (\CODE{hdrl_imagelist_sub_image}).                         \\
                        & Compute mean and variance for each frame (\CODE{TBD}).                              \\
                        & Gain is determined as the slope of variance against mean (\hyperref[drl:metis_derive_gain]{\DRL{metis_derive_gain}}) \\
