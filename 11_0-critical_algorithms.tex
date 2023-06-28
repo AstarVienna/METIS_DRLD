@@ -507,14 +507,14 @@ a more complex algorithm for determination of overlap must be used:
         area: no overlap, a single point or a line segment.
     \item For each pair of rectangular pixels there are a total of 24 candidate vertices:
         \begin{itemize}
-            \item Each vertex of a data pixel is also a vertex of the overlap,
+            \item Each vertex of a data pixel is also a vertex of the overlap polygon,
                 if and only if it lies within the model pixel (4 candidate vertices).
-            \item Each vertex of a model pixel is also a vertex of the overlap,
+            \item Each vertex of a model pixel is also a vertex of the overlap polygon,
                 if and only if it lies within the data pixel (4 candidate vertices).
             \item Each intersection of an edge of a data pixel with an edge of a model pixel
                 is necessarily a vertex of the overlap polygon ($4 \times 4 = 16$ candidate vertices).
         \end{itemize}
-    \item The coordinates of the barycentre of the vertices is found
+    \item The coordinates of the barycentre of the vertices are found
         as the arithmetic mean of their $x$ and $y$ coordinates.
     \item The vertices are ordered by their azimuth from the barycentre,
         in order to ensure that the resulting shape is a simple polygon.
@@ -551,8 +551,6 @@ the pixel noises are correlated and $\mat{C}$ is non-diagonal.
 As an approximation, the pixel noises could be treated as uncorrelated, in which case $\mat{C}$ would be diagonal.
 If $\mat{C}$ were further approximated by the unit matrix (giving an unweighted least-squares reconstruction),
 $\mat{S}$ would be independent of the data and could be reused and even be provided as a static calibration in the METIS pipeline.
-
-
 
 \subsection{IFU data rate}\label{ssec:criticalifudatarate}
 
