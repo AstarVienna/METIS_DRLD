@@ -1218,7 +1218,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}}\\[0.3cm]
-Description: & Stacked LM band exposures. \\[0.3cm]
+Description: & Table of pinhole locations. \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{PINHOLE_TABLE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{PINHOLE_TABLE}\\[0.3cm]
@@ -1231,7 +1231,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
-    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{hdrl\_table * image: table with pinhole locations}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
