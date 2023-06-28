@@ -904,7 +904,25 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:lm_sci_coadd]{\PROD{LM_SCI_COADD}}}\label{dataitem:lm_sci_coadd}
-\TODO{Placeholder for \hyperref[dataitem:lm_sci_coadd]{\PROD{LM_SCI_COADD}}.}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:lm_sci_coadd]{\PROD{LM_SCI_COADD}}\\[0.3cm]
+Description: & Coadded, mosaiced LM image. \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_SCI_COADD} \\[0.3cm]
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{DO.CATG}: & \FITS{LM_SCI_COADD}\\[0.3cm]
+Input for recipe: & None \\
+Produced by recipe: & \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
 
 \paragraph{\hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}}}\label{dataitem:n_sci_restored}
 \begin{recipedef}
@@ -1129,19 +1147,17 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:lm_pupil_reduced]{\PROD{LM_PUPIL_REDUCED}}\\[0.3cm]
 Description: & Reduced pupil image in LM mode. \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_PUPIL_REDUCED} \\[0.3cm]
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_PUPIL_REDUCED}\\[0.3cm]
 % TODO: Is there a calibration recipe?
 Input for recipe: & None \\
 Produced by recipe: & \hyperref[rec:metis_pupil_imaging]{\REC{metis_pupil_imaging}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1178,7 +1194,25 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \TODO{Placeholder for \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}}
 
 \paragraph{\hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}}}\label{dataitem:lm_std_combined}
-\TODO{Placeholder for \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}}}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}}\\[0.3cm]
+Description: & Stacked LM band exposures. \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_STD_COMBINED} \\[0.3cm]
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{DO.CATG}: & \FITS{LM_STD_COMBINED}\\[0.3cm]
+Input for recipe: & None \\
+Produced by recipe: & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
 
 \paragraph{\hyperref[dataitem:det_pinhole_table]{\PROD{det_PINHOLE_TABLE}}}\label{dataitem:det_pinhole_table}
 \TODO{Placeholder for \hyperref[dataitem:det_pinhole_table]{\PROD{det_PINHOLE_TABLE}}}
