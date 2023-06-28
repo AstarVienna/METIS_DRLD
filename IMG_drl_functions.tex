@@ -103,8 +103,8 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \subsubsection{Astrometry calibration}\label{drl:img_astrometry_calib}
 \begin{recipedef}
 Name: & \hyperref[drl:img_astrometry_calib]{\DRL{img_astrometry_calib}} \\
-Purpose: &Calculate the conversion bewtween pixels and sky coordinates\\
-Used in recipes: & \hyperref[rec:metis_lm_img_astrometry_process]{\REC{metis_lm_img_astrometry_process}}\\
+Purpose: &Check and refine WCS of input images by cross-correlation and dtermine the grid\\
+Used in recipes: & \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -121,6 +121,26 @@ Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
 
+\subsubsection{Image Resample and Coadding}\label{drl:img_resample_coadding}
+\begin{recipedef}
+Name: & \hyperref[drl:img_resample_coadding]{\DRL{img_resample_coadding}} \\
+Purpose: &Calculate the conversion bewtween pixels and sky coordinates\\
+Used in recipes: & \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const hdrl\_image * input} \\
+     %\texttt{const ls\_master_dark_image * input} \\
+    %\texttt{const ls\_master_flat_image * input} \\
+%Other inputs: & None \\
+%QC outputs: & None\\
+%Output FITS files: & None \\
+Outputs: & \texttt{cpl\_error\_code} \\
+General description: & Image resample and coadding \\
+Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT} (TBD). \\
+Unit tests: & See \cite{DRLVT} (TBD). \\
+\end{recipedef}
 
 
 \subsubsection{Create Master LM Flat}\label{drl:lm_img_flat}
