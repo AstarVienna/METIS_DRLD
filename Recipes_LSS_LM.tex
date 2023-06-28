@@ -172,7 +172,9 @@ Name:		& \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
 Purpose:	& Flux calibration \\
 Type:		& Calibration\\
 Requirements: & METIS-6084, METIS-6074 \\
-Templates:      & \TPL{METIS_spec_lm_cal_standard}\\
+Templates:      & \TPL{METIS_spec_lm_acq}, \\
+                & \TPL{METIS_spec_lmn_acq}, \\
+                & \TPL{METIS_spec_lm_cal_standard}\\
                 & \TPL{METIS_spec_lmn_obs_AutoChopNodOnSlit}\\
 Input data: 	& \hyperref[dataitem:lm_lss_std_raw]{\RAW{LM_LSS_STD_RAW}}\\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
@@ -248,7 +250,7 @@ Purpose:    & Science data calibration\\
 Type:		& Science reduction\\
 Requirements: & METIS-6084 \\
 Templates:      & \TPL{METIS_spec_lm_acq}, \\
-                & \TPL{METIS_spec_lm_acq}, \\
+                & \TPL{METIS_spec_lmn_acq}, \\
                 & \TPL{METIS_spec_lm_obs_AutoNodOnSlit}, \\
                 & \TPL{METIS_spec_lm_obs_GenericOffset} \\
                 & \TPL{METIS_spec_lm_cal_SlitAdc}\\
