@@ -137,9 +137,13 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
                        & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
-%                     & \TODO{Many more} \\
+                       & \TPL{METIS_img_n_cal_distortion} \\
+                       & \TPL{METIS_spec_lm_cal_SlitAdc} \\
+                       & \TPL{METIS_spec_n_cal_slit} \\
 Input for recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
-%                   & \TODO{Many more} \\
+                   & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}} \\
+                   & \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \\
+                   & \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -620,13 +624,10 @@ Description: & Science grade detrended exposure of the LM image mode.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_SCI_BASIC_REDUCED} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_SCI_BASIC_REDUCED}\\[0.3cm]
-% TODO: Is there a calibration recipe?
 Input for recipe: & \\
 Produced by recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -646,11 +647,9 @@ Description: & Standard detrended exposure of the LM image mode.\\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_STD_BASIC_REDUCED}\\[0.3cm]
 Produced by recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
-Input for recipe: & \\ % TODO
+Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -670,11 +669,9 @@ Description: & Thermal background of science LM exposures.\\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_SCI_BKG}\\[0.3cm]
 Produced by recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
-Input for recipe: & \\ % TODO
+Input for recipe: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -1170,7 +1167,6 @@ Description: & Reduced pupil image in LM mode. \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_PUPIL_REDUCED} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_PUPIL_REDUCED}\\[0.3cm]
-% TODO: Is there a calibration recipe?
 Input for recipe: & None \\
 Produced by recipe: & \hyperref[rec:metis_pupil_imaging]{\REC{metis_pupil_imaging}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -1193,7 +1189,6 @@ Description: & Reduced pupil image in N mode. \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_PUPIL_REDUCED} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_PUPIL_REDUCED}\\[0.3cm]
-% TODO: Is there a calibration recipe?
 Input for recipe: & None \\
 Produced by recipe: & \hyperref[rec:metis_pupil_imaging]{\REC{metis_pupil_imaging}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
