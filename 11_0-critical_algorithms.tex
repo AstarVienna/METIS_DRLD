@@ -61,13 +61,16 @@ involving principal component analysis, have been ruled out since PDR.
     \end{itemize}
     \item[9.] IFU image and cube reconstruction (\ref{ssec:criticalifuimageandcubereconstruction})
     \begin{itemize}
-        \item \textit{Reason at PDR}: Due to the width of the slices in the LM integral-field spectrograph of $20.7 mas$, the PSF is undersampled in the across-slice direction, and there is no known cube reconstruction algorithm.
+        \item \textit{Reason at PDR}: Due to the width of the slices in the LM integral-field spectrograph of $20.7\,\mathrm{mas}$,
+            the PSF is undersampled in the across-slice direction, and there is no known cube reconstruction algorithm.
         \item \textit{Status at FDR}: A prototype algorithm is implemented in Python.
         \item \textit{Prototype delivery}: Python package.
     \end{itemize}
     \item[10.] IFU data rate (\ref{ssec:criticalifudatarate})
     \begin{itemize}
-        \item \textit{Reason at PDR}: For very bright sources, the LM band spectrograph will have to operate with very short exposures, resulting in a high data rate of up to $1000 \mathrm{MiB}s^{-1}$ which may present a problem for the observatory pipeline which has to deal with the data in real time.
+        \item \textit{Reason at PDR}: For very bright sources, the LM band spectrograph will have to operate with very short exposures,
+            resulting in a high data rate of up to $1000 \mathrm{MiB}s^{-1}$ which may present a problem for
+            the observatory pipeline which has to deal with the data in real time.
         \item \textit{Status at FDR}: The data rate is under control and does not require prototyping.
         \item \textit{Prototype delivery}: None.
     \end{itemize}
@@ -85,11 +88,11 @@ The following additional critical algorithms were identified in the period betwe
 \end{enumerate}
 
 % Export these to individual files if they become too wordy
-\subsection{Persistence correction}\label{ssec:criticalpersistencecorrection}
+\subsection{Persistence correction}
+\label{ssec:criticalpersistencecorrection}
 \label{sec_persistence_correction}
 Persistence is a major issue in modern IR detectors, in particular in the Hawaii2RG devices (HgCdTe based, see Fig.~\ref{fig:h2rg_persistence} [taken from LBT website\footnote{\url{https://sites.google.com/a/lbto.org/luci/instrument-characteristics/detector\#TOC-Persistence}\label{fn:persistence}}]).
 This detector type also shows significant differences between the individual chips.
-%The Aquarius (Si:As) seems to be less affected.
 Fortunately, this pattern can be corrected via simple subtraction as a very first step.
 
 \begin{figure}[ht]
@@ -100,7 +103,7 @@ Fortunately, this pattern can be corrected via simple subtraction as a very firs
   \label{fig:h2rg_persistence}
 \end{figure}
 
-However, since the determination of this pattern relies on observations previously done, this approach requires access to these data, which might arise from completely other observing runs and are therefore proprietory.
+However, since the determination of this pattern relies on observations previously done, this approach requires access to these data, which might arise from completely other observing runs and are therefore proprietary.
 Therefore, the avoidance of persistence, i.e. a sophisticated planning / persistence management should be one of the major goals for the planning of the observations and the operational concept.
 % It is not yet clear in how far a persistence correction is to be implemented in the pipelines.
 %We therefore include that for the time being without detailed specification and assume this persistence maps to be external calibration input to the pipeline.
@@ -122,17 +125,16 @@ For the METIS detectors similar masks as in MATISSE are forseen in order to corr
 In~\cite{matisse_minutes}, the correction is described as follows:
 
 \begin{displayquote}
-Cross-talk correction is done in two steps using the masked pixels in the vertical direction, which are equivalent to two masked outputs.
-\begin{itemize}
-    \item Step 1 : The [w]hole line is corrected by an offset.
-    \item Step 2 : Each pixel is corrected using the corresponding masked pixel in terms of raw
-number in the two vertical masked outputs.
-\end{itemize}
+    Cross-talk correction is done in two steps using the masked pixels in the vertical direction, which are equivalent to two masked outputs.
+    \begin{itemize}
+        \item Step 1 : The [w]hole line is corrected by an offset.
+        \item Step 2 : Each pixel is corrected using the corresponding masked pixel in terms of raw
+            number in the two vertical masked outputs.
+    \end{itemize}
 \end{displayquote}
 
 Fig.~\ref{fig:detmasks} taken from \cite{matisse_minutes}, the minutes
-of a detector meeting between the METIS and MATISSE consortia held in
-May 2017 in Bonn.
+of a detector meeting between the METIS and MATISSE consortia held in May 2017 in Bonn.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textheight]{detmasks}
@@ -160,10 +162,9 @@ May 2017 in Bonn.
   \label{fig:crosstalk2}
 \end{figure}
 
-
 \TODO{
-Look into the MATISSE docs as to how this was done
-Delivers a bias/dark/ron value?
+    Look into the MATISSE docs as to how this was done
+    Delivers a bias/dark/ron value?
 }
 
 \subsection{Bad pixel determination}\label{ssec:criticalbadpixeldetermination}
@@ -176,22 +177,29 @@ Using  several exposure times / flux levels, non-linearities in pixels can be fo
 We intend to introduce a bad pixel classification similar to the convention introduced in the X-Shooter Pipeline Manual (cf.\ Section 11.3 in~\cite{xshooter_manual}), adapted to our needs.
 
 \TODO{
-Surely every other instrument on planet earth has some sort of algo for this.
-Need to determine the format of the bad pixel mask (bool?)
-Take XSHOOTER as example ftp://ftp.eso.org/pub/dfs/pipelines/xshooter/xshoo-pipeline-manual-12.19.1.pdf
+    Surely every other instrument on planet earth has some sort of algo for this.
+    Need to determine the format of the bad pixel mask (bool?)
+    Take XSHOOTER as example ftp://ftp.eso.org/pub/dfs/pipelines/xshooter/xshoo-pipeline-manual-12.19.1.pdf
 }
 
 \subsection{Background subtraction}\label{ssec:criticalbackgroundsubtraction}
 Observations in the mid-infrared are affected by the high sky background, the telescope background, and detector variations and non-linearities.
 A proper background correction is thus essential to ensure accurate photometric and spectroscopic analysis of the observed sources.
-As METIS will face an unprecedented level of complexity in the background subtraction due to (1) the high background dominated by the large number of warm mirrors, (2) the internal chopping, and (3) the complexities of nodding with an AO-corrected instrument, a dedicated research project has been started to better understand the origin of chop-residuals and to evaluate chop-only background removal strategies.
+As METIS will face an unprecedented level of complexity in the background subtraction due to
+\begin{enumerate}
+    \item the high background dominated by the large number of warm mirrors,
+    \item the internal chopping, and
+    \item the complexities of nodding with an AO-corrected instrument,
+        a dedicated research project has been started to better understand
+        the origin of chop-residuals and to evaluate chop-only background removal strategies.
+\end{enumerate}
+
 Hence, the dedicated pipeline algorithms will ultimately depend on the chosen strategy for each METIS detector, e.g.\ dithering, classical chop-nod, chop-counter-chop (in 1D or 2D), drift scanning.
 %This is particularly relevant for the N bands where, for instance, the instability of the AQUARIUS detector response demands chopping at much higher frequencies.
 More details on dedicated research project and the proposed strategies are given in the Calibration Plan \cite{METIS-calibration_plan} which serves as the base for the following.
 
 \TODO{
-N-band: Standard chop and nod using telescope chopper and internal nodder
-See VISIR pipeline
+    N-band: Standard chop and nod using telescope chopper and internal nodder. See VISIR pipeline.
 }
 
 \subsubsection{LM bands}
@@ -215,49 +223,47 @@ The mean of all nod-difference frames is the final background-subtracted image.
 Additionally, the optimal extraction (PSF-weighting) will be used to subtract the positive/negative source images from the final background-subtract image (2/3/4 depending on the relative chopping/nodding directions) to produce a single stacked image of the sources of interest.
 
 \subsection{Wavelength calibration and distortion correction}\label{ssec:criticalwavelengthanddistortion}
-\TODO{Pyreduce, will be described by Nadeen.
-IMG modes are not critical, see recipes.}
+\TODO{Pyreduce, will be described by Nadeen.  IMG modes are not critical, see recipes.}
+
 \subsubsection{LSS Wavelength calibration and distortion correction}\label{ssec:criticalwavelengthanddistortionlss}
 \TODO{The text below is copied from the PDR DRS and needs to be updated.}
 
 The MIR range is dominated by thermal and line emission in the Earth's
 atmosphere. These emission lines can be used to determine both, the
-curvature/ tilt-distortion of the LSS spectrograph and subsequently
-the wavelength calibration
-in the following way (cf.\ Fig.\,\ref{fig:lm_lss_dist_wave}):\\
+curvature / tilt-distortion of the LSS spectrograph and subsequently
+the wavelength calibration in the following way (cf.\ Fig.\,\ref{fig:lm_lss_dist_wave}):
+
 \begin{itemize}
-\item In a first step, atmospheric emission line peaks are detected in
-  detector rows in dispersion direction (green and yellow dots in in
-  Fig.\,\ref{fig:lm_lss_dist_wave}) (the same procedure might be
-  applied to absorption features).
-\item Assuming that these peaks are located in the very neighborhood
-  in dispersion direction, it is possible to cross identifying them on
-  each of the pixel rows (yellow dots in
-  Fig.\,\ref{fig:lm_lss_dist_wave}).
-\item The distortion along a line is then determined by fitting a
-  polynomial (e.g.\ Chebyshev polynomial) along these associated
-  points (purple line).  This polynomial solution might rely on first
-  guesses for the distortions introduced by the fixed ADCs and is used
-  to determine the rectification. The WCU lamp spectrum might provide
-  a 0\textsuperscript{th}-order guess, which is refined with a table,
-  which includes information on the distortion introduced by the
-  grisms (\STATCALIB{GRISM_TAB}).
-\item Since we know the wavelength range (from the optical system), a
-  cross correlation of the lines with respect to the molecular
-  emission lines from line databases
-  (e.g. HITRAN\footnote{\url{https://hitran.org/}},
-  \hyperref[dataitem:atm_line_cat]{\STATCALIB{ATM_LINE_CAT}}) is possible.
+  \item In a first step, atmospheric emission line peaks are detected in
+    detector rows in dispersion direction (green and yellow dots in in
+    Fig.\,\ref{fig:lm_lss_dist_wave}) (the same procedure might be
+    applied to absorption features).
+  \item Assuming that these peaks are located in the very neighborhood
+    in dispersion direction, it is possible to cross identifying them on
+    each of the pixel rows (yellow dots in
+    Fig.\,\ref{fig:lm_lss_dist_wave}).
+  \item The distortion along a line is then determined by fitting a
+    polynomial (e.g.\ Chebyshev polynomial) along these associated
+    points (purple line).  This polynomial solution might rely on first
+    guesses for the distortions introduced by the fixed ADCs and is used
+    to determine the rectification. The WCU lamp spectrum might provide
+    a 0\textsuperscript{th}-order guess, which is refined with a table,
+    which includes information on the distortion introduced by the
+    grisms (\STATCALIB{GRISM_TAB}).
+  \item Since we know the wavelength range (from the optical system), a
+    cross correlation of the lines with respect to the molecular
+    emission lines from line databases
+    (e.g.\ HITRAN\footnote{\url{https://hitran.org/}},
+    \hyperref[dataitem:atm_line_cat]{\STATCALIB{ATM_LINE_CAT}}) is possible.
 \end{itemize}
-Special emphasis has to be drawn that the rows to detect the
-atmospheric emission lines are not
-to cover the science objects, since intrinsic target emission lines
-might disturb the cross correlation.\\
+
+Special emphasis has to be drawn that the rows to detect the atmospheric emission lines are not
+to cover the science objects, since intrinsic target emission lines might disturb the cross correlation.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textheight]{wavecal_distortion.png}
-  \caption[Algorithm for wavelength calibration and distortion
-  determination]{%
+  \caption[Algorithm for wavelength calibration and distortion determination]{%
     Sketch of the intended algorithm for the wavelength calibration
     and distortion determination (raw VISIR@VLT frame). Emission lines
     arising from our Earth's atmosphere can be used to determine the
@@ -271,7 +277,11 @@ might disturb the cross correlation.\\
 \input{CritAlgo_IFUdist}
 
 \subsection{Telluric correction}\label{ssec:criticaltelluriccorrection}
-Telluric correction, i.e. the removal of absorption features arising in the Earth's atmosphere, is a critical issue as the imprint of molecular species present in our air may vary on different timescales down to minutes due to changes in their composition and their amount. In particular the \ac{MIR} range is affected (see App~\ref{app:atmo_trans}).\\
+Telluric correction, i.e. the removal of absorption features arising in the Earth's atmosphere,
+is a critical issue as the imprint of molecular species present in our air may vary on different timescales
+down to minutes due to changes in their composition and their amount.
+In particular the \ac{MIR} range is affected (see App~\ref{app:atmo_trans}).
+
 There are two well established ways to correct for these absorptions:
 \begin{itemize}
     \item \textit{Classical approach}: A telluric standard star (\ac{TSS}) spectrum is taken ideally directly before/after the science observations at the same airmass. This \ac{TSS}-spectrum is processed in the same way as the science spectrum (except the absolute flux calibration) and finally its continuum is normalised to unity. In addition, a model of this specific \ac{TSS} spectrum is used to remove intrinsic spectral features. The remaining normalised spectrum (ideally) only contains the fingerprint of the Earth's atmospheric absorptions and can be used for the telluric correction. In case the model spectrum also contains absolute flux values, this star could also be appropriate for the absolute flux calibration.
