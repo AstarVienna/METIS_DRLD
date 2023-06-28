@@ -1,25 +1,27 @@
-    
-    The following is a summary of the steps that were taken to apply the
-CRIRES+ data reduction to simulation the METIS LMS IFU. * ScopeSim runs
-* Insert data into CRIRES frames * Order tracing * Tilt determination *
-Extracting 1D spectra * Assigning Wavelength and spatial scale to pixels
-in 2D spectra
+The following is a summary of the steps that were taken to apply the
+CRIRES+ data reduction to simulation the METIS LMS IFU.
+\begin{itemize}
+    \item ScopeSim runs
+    \item Insert data into CRIRES frames
+    \item Order tracing
+    \item Tilt determination
+    \item Extracting 1D spectra
+    \item Assigning Wavelength and spatial scale to pixels in 2D spectra
+\end{itemize}
 
-    \textbf{ScopeSim}
-
-As of april 2022, when these simulations were carried out, the
+\paragraph{ScopeSim}
+As of April 2022, when these simulations were carried out, the
 release-version of the simulator did not support the IFU mode of METIS.
 Therefore a development version of the LMS-branch was istalled, after
 instructions from the team. The mode was set such that the The scipt
 that creates the frame with the sky spectrum is called
 \texttt{lms\_sky.py} and does very little besides calling the simulator
 with default arguments, and istructing it to set the central wavelength
-of the spectrograph to arbitrary 3.55micon. In addition, it retrieves
+of the spectrograph to arbitrary $3.55 \micron$. In addition, it retrieves
 the wavelength scale from one of the slices, in order to later ingest it
 into the CRIRES-pipeline.
 
-    \textbf{CRIRES DRS}
-
+\paragraph{CRIRES DRS}
 The upgraded CRIRES is a cross-dispersed echelle slit-spectrograph for
 the near-infrared bands YJHKLM. It uses three of the same HAWAII2RG
 detectors that METIS will use four of. The fact that CRIRES images
@@ -38,7 +40,7 @@ ScopeSim produces frames for all four of the LMS detectors. Simply
 ignoring the fourth, the pixel values were copied into a raw frame
 CRIRES, thus preserving its headers and replacing the data.
 
-    \textbf{Order tracing}
+\paragraph{Order tracing}
 
 By ``trace'' we mean the polynomial in detector coordinates (x,y) that
 describes the mid-line of the spectral order. This is done by smoothing
@@ -62,7 +64,7 @@ The output file is \texttt{CIRES\_sky\_tw.fits} which is a table that
 now has the traces for each slice. In addition to the mid-line, it also
 has the polynomials for the upper and lower edges of each slice.
 
-    \textbf{Slit tilt}
+\paragraph{Slit tilt}
 
 Next up is measuring the orientation of the ``slit'' in each slice,
 i.e.~the tilt of spectral lines w.r.t. the detector columns. Using the
@@ -181,9 +183,8 @@ array([-0.89797241, -0.48812261, -0.48561642])
 array([-1.25390868, -0.68156423, -0.67806467])
 \end{Verbatim}
 \end{tcolorbox}
-        
-    \textbf{Extracting into 1D spectra}
 
+\paragraph{Extracting into 1D spectra}
 Before we use the ``TW''-table from above to extract 1D-spectra, we need
 to fix the wavelength scale that is also part of the table (TW stands
 for TraceWave-table in CRIRES-lingo), because otherwise the spectra
@@ -213,7 +214,7 @@ detector.
 [ 3.52304458e+00  1.29677244e-05 -2.01943107e-11]
     \end{Verbatim}
 
-    The following command runs the optimal extraction which collapses the
+The following command runs the optimal extraction which collapses the
 full height of each slice into a 1D-spectrum, taking the trace and slit
 tilt into account and iterating to minimize the residual error. (We
 arbitrarily select ``order \#3''; again this is CRIRES-numbering and has
@@ -239,8 +240,8 @@ figure here.
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LMS distortion_files/LMS distortion_17_0.png}
     \end{center}
     { \hspace*{\fill} \\}
-    
-    In blue the input spectrum, in orange and green the spectra from the two
+
+In blue the input spectrum, in orange and green the spectra from the two
 detectors that cover the slice. Vertical offset and scaling are
 arbitrary. The slight offset in wavelength is due to the mismatch in
 slice number between the assigned wavelength and the one that got
@@ -248,8 +249,7 @@ extracted. This nicely illustrates the task of the wavelength
 calibration, namely to determine this shift by cross-correlation, but
 this in not part of the current exercise.
 
-    \textbf{2D spectra}
-
+\paragraph{2D spectra}
 Collapsing slices (or parts of one) into 1D spectra is certainly useful,
 not the least for calibrations. But METIS is all about spatial
 resolution, of course, so this whole exercise would be incomplete
