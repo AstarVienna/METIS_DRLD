@@ -189,6 +189,7 @@ HACK_BAD_NAMES = {
     "created_by_recipe": "created_by",
     "produced_by_recipe": "created_by",
     "input_for_recipe(s)": "input_for",
+    "used_in_recipes": "input_for",
 }
 
 HACK_INCORRECT_INPUT_DATA = {
