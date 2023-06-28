@@ -1191,7 +1191,26 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \paragraph{\hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}}\label{dataitem:fluxcal_tab}
-\TODO{Placeholder for \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}}
+% TODO: FLUXCAL_TAB is wrong, it should be an image, see https://github.com/AstarVienna/METIS_DRLD/issues/87
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}\\[0.3cm]
+Description: & Conversion between instrumental and physical flux units. \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{FLUXCAL_TAB} \\[0.3cm]
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{DO.CATG}: & \FITS{FLUXCAL_TAB}\\[0.3cm]
+Input for recipe: & None \\
+Produced by recipe: & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{hdrl\_table * table: table}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
 
 \paragraph{\hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}}}\label{dataitem:lm_std_combined}
 \begin{recipedef}
