@@ -1096,8 +1096,44 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \paragraph{\hyperref[dataitem:det_cgrph_psf_median]{\PROD{det_cgrph_PSF_MEDIAN}}}\label{dataitem:det_cgrph_psf_median}
 \label{dataitem:lm_cgrph_psf_median}\label{dataitem:n_cgrph_psf_median}
-\TODO{Placeholder for \hyperref[dataitem:det_cgrph_psf_median]{\PROD{det_cgrph_PSF_MEDIAN}}. This data item is only used internally within a recipe.}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_psf_median]{\PROD{det_cgrph_PSF_MEDIAN}}\\[0.3cm]
+Description: & Median PSF \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_PSF_MEDIAN}\\
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
+\FITS{DO.CATG}: & \FITS{det_cgrph_PSF_MEDIAN}\\[0.3cm]
+Created by recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{metis_det_adi_cgrph}}\\
+Input for recipe: & None\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
 
 \paragraph{\hyperref[dataitem:det_app_psf_median]{\PROD{det_app_PSF_MEDIAN}}}\label{dataitem:det_app_psf_median}
 \label{dataitem:lm_app_psf_median}\label{dataitem:n_app_psf_median}
-\TODO{Placeholder for \hyperref[dataitem:det_app_psf_median]{\PROD{det_app_PSF_MEDIAN}}. This data item is only used internally within a recipe.}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_app_psf_median]{\PROD{det_app_PSF_MEDIAN}}\\[0.3cm]
+Description: & Median PSF \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_app_PSF_MEDIAN}\\
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
+\FITS{DO.CATG}: & \FITS{det_app_PSF_MEDIAN}\\[0.3cm]
+Created by recipe: & \hyperref[rec:metis_det_adi_cgrph]{\REC{metis_det_adi_cgrph}}\\
+Input for recipe: & None\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
