@@ -42,5 +42,12 @@ METIS_DRLD.pdf: \
 
 all: METIS_DRLD.pdf
 
+clean_tikz: clean
+	# Ensure the tikz files are newer than the pdfs in the figures directory.
+	# Not part of clean itself, because different texlive versions might
+	# generate different figures, and we don't want people to have to deal
+	# with that.
+	touch tikz/*
+
 clean:
-	rm -f *.out *.aux *.log *.lof *.bbl *.bcf *.run.xml *.toc *.blg *.lot $(figures_from_tikz) METIS_DRLD.pdf
+	rm -f *.out *.aux *.log *.lof *.bbl *.bcf *.run.xml *.toc *.blg *.lot METIS_DRLD.pdf
