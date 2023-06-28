@@ -379,22 +379,21 @@ investigate these algorithms until FDR, taking into account the
 results of the investigations into background strategies that are
 on-going within the METIS consortium.
 
-
 \subsection{IFU image and cube reconstruction}
 \label{ssec:criticalifuimageandcubereconstruction}
 \label{ssec:image_reconstruction}
 
-\TODO{The text below is copied verbatim from the PDR DRS and needs to be updated.}
-
 Due to the width of the slices in the LM integral-field spectrograph
 of 20.7\,mas, the PSF is undersampled in the across-slice direction.
-In order to fully sample the PSF, the following observing sequence is
-envisaged:
+In order to fully sample the PSF, the following observing sequence is envisaged:
 \begin{itemize}
     \item Take three exposures, each offset perpendicular to the slice by a third of the slice width.
+    % Maybe this could be more than a third, for instance 4/3 or 10/3, in order to help eliminate bad pixels:
+    % The same model pixel would be always covered by three distinct hardware pixels
     \item Rotate the field by 90 degrees (with the derotator).
     \item Take three more exposures with the same across-slice dither pattern.
 \end{itemize}
+
 The pattern is visualised in Fig.~\ref{fig:ifu_pattern}. In principle,
 this pattern yields a sampling of the field at a third of the slice
 width (i.e.~7\,mas) in both spatial directions, which would be
