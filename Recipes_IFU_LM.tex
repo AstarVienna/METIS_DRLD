@@ -55,7 +55,7 @@ table extension holds the polynomial coefficients.
  This is in compliance with \REQ{METIS-6074}.
 
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}                                                \\
+  Name:                & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}              \\
   Purpose:             & Determine pixel-to-wavelength transformation.                          \\
   Requirements:        & \REQ{METIS-6074}                                                       \\
   Type:                & Calibration                                                            \\
@@ -66,8 +66,8 @@ table extension holds the polynomial coefficients.
                        & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}   \\
   Parameters:          & None                                                                   \\
   Algorithm:           & Measure line locations (left and right edges, centroid by Gaussian fit)\\
-                       & Compute wavelength solution $\xi(x,y, i)$, $\lambda(x, y, i)$          \\
-  Output data:         & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}                                                     \\
+                       & Compute wavelength solution $\xi(x, y, i)$, $\lambda(x, y, i)$         \\
+  Output data:         & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}                    \\
   Expected accuracies: & TBD                                                                    \\
   QC1 parameters:      & \QC{QC IFU WAVECAL RMS}                                                \\
                        & \QC{QC IFU WAVECAL NLINES}                                             \\
