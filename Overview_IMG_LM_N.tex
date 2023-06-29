@@ -4,7 +4,7 @@
 \textbf{Note: The pipeline layout has been modified compared to the
   PDR design in order to achieve better modularity. Basic reduction
   and background subtraction have been split into two recipes that now
-  are applied to both standard and science data. Integration of \ac{HCI}
+  are applied to both standard and science data. ADI recipes have been added since PDR however integration of \ac{HCI}
   into this workflow requires more work: \ac{HCI} images will be treated
   the same way at least through basic reduction, possibly through
   background subtraction. \ac{ADI} combination may require a separate
@@ -45,8 +45,8 @@ The association maps for the current designs of the imaging pipelines
 in~LM and~N are shown in Figs.~\ref{fig:IMG_LM_Assomap}
 and~\ref{fig:IMG_N_Assomap}, respectively.
 
-\TODO{For \ac{HCI} data, \ac{ADI} may need to be part of reduction recipe if
-  individual background subtracted images are the goal?}
+%\TODO{For \ac{HCI} data, \ac{ADI} may need to be part of reduction recipe if
+%  individual background subtracted images are the goal?} We provide ADI recipes since PDR.
 
 \begin{landscape}
   \begin{figure}
