@@ -47,9 +47,9 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Subtract WCU OFF frame from frame}\label{drl:subtrwcuoffillum}
+\subsubsection{Subtract WCU OFF frame from frame}\label{drl:subtractwcuoffillum}
 \begin{recipedef}\label{rec:subtrwcuoffillum}
-Name: & \hyperref[drl:subtract_wcu_off_illum]{\DRL{subtrwcuoffillum}} \\
+Name: & \hyperref[drl:subtractwcuoffillum]{\DRL{subtract_wcu_off_illum}} \\
 Purpose: & Subtract a WCU-OFF frame \\
 Used in recipes: & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
 \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
@@ -62,7 +62,7 @@ Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
-General description: & Determines the tilt and shear of the orders using the sky emission lines \\
+General description: & Subtracts a WCU-OFF frame from an WCU image \\
 Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
@@ -71,7 +71,7 @@ Unit tests: & See \cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Calculate blackbody spectrum}\label{drl:calcbb}
 \begin{recipedef}\label{rec:calcbb}
-Name: & \hyperref[drl:calc_bb]{\DRL{calcbb}} \\
+Name: & \hyperref[drl:calcbb]{\DRL{calcbb}} \\
 Purpose: & Calculate blackbody spectrum \\
 Used in recipes: & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
 \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
@@ -82,8 +82,8 @@ Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
-General description: & Determines the tilt and shear of the orders using the sky emission lines \\
-Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+General description: & Calculates a blackbody spectrum for the \ac{RSRF} normalisation\\
+Mathematical description: &  usual Planck formula\\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
@@ -190,14 +190,14 @@ Unit tests: & See \cite{DRLVT}. \\
 %\end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Detect line peak}\label{drl:linedetect}
-Used in recipes:\\ 
-\hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \newline
-\hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \newline
-\hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \newline
-\hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \newline
-\hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \newline
-TBD
+%\subsubsection{Detect line peak}\label{drl:linedetect}
+%Used in recipes:\\ 
+%\hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \newline
+%\hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \newline
+%\hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \newline
+%\hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \newline
+%\hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \newline
+%TBD
 
 
 
@@ -267,4 +267,24 @@ Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
+%---------------------------------------------------------------------
+\subsubsection{Apply telluric correction}\label{drl:applytellcorr}
+\begin{recipedef}
+Name: & \hyperref[drl:applytellcorr]{\DRL{apply_tellcorr}}\\
+Purpose: & applies \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}} or \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}} to science frames\\
+Used in recipes: & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \newline
+                 \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+%Input FITS files: & None \\
+Inputs: & \texttt{const hdrl\_image * input}\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Applies the absolute flux calibration to science frames \\
+%Mathematical description: & Applies projection from detector space to $(y, \lambda)$-space\\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
 
