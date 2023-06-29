@@ -48,19 +48,47 @@ Unit tests: & See \cite{DRLVT}. \\
 
 %---------------------------------------------------------------------
 \subsubsection{Subtract WCU OFF frame from frame}\label{drl:subtrwcuoffillum}
-Used in recipes:\\ 
-\hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \newline
-\hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \newline
-\hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \newline
-\hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} \newline
-%\hyperref[rec:]{\REC{}} \newline
-TBD
+\begin{recipedef}\label{rec:subtrwcuoffillum}
+Name: & \hyperref[drl:subtract_wcu_off_illum]{\DRL{subtrwcuoffillum}} \\
+Purpose: & Subtract a WCU-OFF frame \\
+Used in recipes: & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
+\hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
+\hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \\
+\hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} \\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const hdrl\_image * input} \\
+Other inputs: & None\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Determines the tilt and shear of the orders using the sky emission lines \\
+Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
 %---------------------------------------------------------------------
 \subsubsection{Calculate blackbody spectrum}\label{drl:calcbb}
-Used in recipes:\\ 
-\hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \newline
-\hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \newline
-TBD
+\begin{recipedef}\label{rec:calcbb}
+Name: & \hyperref[drl:calc_bb]{\DRL{calcbb}} \\
+Purpose: & Calculate blackbody spectrum \\
+Used in recipes: & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
+\hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const hdrl\_image * input} \\
+Other inputs: & None\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Determines the tilt and shear of the orders using the sky emission lines \\
+Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
+
 %---------------------------------------------------------------------
 \subsubsection{Normalise RSRF}\label{drl:normrsrf}
 \begin{recipedef}\label{drl:normflat}
