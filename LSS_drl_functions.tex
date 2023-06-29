@@ -71,7 +71,7 @@ Unit tests: & See \cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Calculate blackbody spectrum}\label{drl:calcbb}
 \begin{recipedef}\label{rec:calcbb}
-Name: & \hyperref[drl:calcbb]{\DRL{calcbb}} \\
+Name: & \hyperref[drl:calcbb]{\DRL{calc_bb}} \\
 Purpose: & Calculate blackbody spectrum \\
 Used in recipes: & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
 \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
@@ -271,7 +271,7 @@ Unit tests: & See \cite{DRLVT}. \\
 \subsubsection{Apply telluric correction}\label{drl:applytellcorr}
 \begin{recipedef}
 Name: & \hyperref[drl:applytellcorr]{\DRL{apply_tellcorr}}\\
-Purpose: & applies \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}} or \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}} to science frames\\
+Purpose: & applies \hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}} and \hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}} to corresponding standard star spectrum\\
 Used in recipes: & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \newline
                  \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
 %Working remarks: & None \\
