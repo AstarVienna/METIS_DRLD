@@ -44,10 +44,10 @@ available from the QACITS control loop.  If collected as part of the
 OB they are processed by the regular science recipes (with
 compensation of any neutral density transmission).
 
-While not part of the PIP specs, the current generation of VIP\_HCI
-ADI reduction algorithms supports the more detailed Marois et al. 2006
-ADI (including an annular optimization step) as well as PCA-based
-routines.
+%While not part of the PIP specs, the current generation of VIP\_HCI
+%ADI reduction algorithms supports the more detailed Marois et al. 2006
+%ADI (including an annular optimization step) as well as PCA-based
+%routines.
 
 \begin{recipedef}\label{rec:metis_det_adi_cgrph}
   Name:                & \hyperref[rec:metis_det_adi_cgrph]{\REC{metis_det_adi_cgrph}}                                        \\
@@ -66,7 +66,8 @@ routines.
    Matched keywords:   & Detector ID             \\
                        & Filter ID               \\
                        & Object ID               \\
-                       & coronagraphic mask \TBD\\
+                       & coronagraphic mask %\TBD
+                       \\
   Parameters:          & combination method (median, mean, sigclip, \dots) \\
                        & parameters for combination method         \\
                        & resampling method \\
@@ -101,7 +102,7 @@ QC1 parameters:  & \hyperref[qc:qc_det_cgrph_sci_nexposures]{\QC{QC DET CGRPH SC
   hdrl functions:      & \CODE{hdrl_imagelist_collapse}     \\
                        & \CODE{hdrl_imagelist_sub_image}        \\
                        & \CODE{hdrl_catalogue_compute}       \\
-                       & \TODO (resampling routine??)
+                       & \CODE{?? resample}
 \end{recipedef}
 
 \begin{figure}[hb]
@@ -161,7 +162,8 @@ the effective number of included frames.
    Matched keywords:   & Detector ID             \\
                        & Filter ID               \\
                        & Object ID               \\
-                       & coronagraphic mask, \TBD\\
+                       & coronagraphic mask, %\TBD
+                       \\
    Parameters:         & combination method (median, mean, sigclip, \dots) \\
                        & parameters for combination method         \\
                        & resampling method \\
@@ -249,11 +251,11 @@ are also used to generate post ADI contrast curves and contrast curves
 with input from the radial coronagraph throughput profile and off-axis
 PSFs. In addition coverage maps are produced.
 
-While not part of the PIP specs, the current generation of VIP\_HCI
-ADI reduction algorithms supports the more detailed Marois et al. 2006
-ADI routine, PCA-based routines, as well as ADI+mSDI processing to
-improve the speckle PSF estimation with the additional wavelength
-information.
+%While not part of the PIP specs, the current generation of VIP\_HCI
+%ADI reduction algorithms supports the more detailed Marois et al. 2006
+%ADI routine, PCA-based routines, as well as ADI+mSDI processing to
+%improve the speckle PSF estimation with the additional wavelength
+%information.
 
 
 
