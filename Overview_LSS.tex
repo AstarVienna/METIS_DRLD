@@ -13,10 +13,7 @@ Special emphasis has to be drawn to the effects of the Earth's atmosphere in sev
   wavelength calibration.
 \item Telluric correction: In the MIR regime telluric absorption is -among others- one of the most dominant effects visible in    
  spectra. Modelling approaches like \texttt{molecfit} heavily rely on accurate atmospheric input profiles, which represent the actual state and composition of the Earth's atmosphere. This especially applies to the \ac{PWV} content since this is the most dominant and most variable species. We also include the classical approach for the telluric correction (i.e. deriving the Earth's atmosphere transmission by means of standard stars) to be able to achieve a good removal of sky emission in case \texttt{molecfit} appears to be insufficient.
-\item Atmospheric dispersion: \ac{METIS} will have \ac{ADC}s compensating the
-  effect of atmospheric dispersion. However, for technical reasons
-  these ADCs are fixed at several positions. This means that the
-  compensation is only partially. This leads to two practical effects:
+\item Atmospheric dispersion: \ac{METIS} will have \ac{ADC}s compensating the effect of atmospheric dispersion. However, for technical reasons these ADCs are fixed at several positions. This means that the     compensation is only partially, leading to two practical effects:
   (a) wavelength-dependent slit losses, and (b) distortions in both,
   the spatial and the spectral direction (see \cite{METIS-ADC_study}
   for more details). For both, the pipeline needs to correct
