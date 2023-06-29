@@ -77,11 +77,12 @@ Used in recipes: & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
 \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input} \\
+Input: & temperature parameter \\
 Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
+            & \texttt{const hdrl\_spectrum1D * output}\\
 General description: & Calculates a blackbody spectrum for the \ac{RSRF} normalisation\\
 Mathematical description: &  usual Planck formula\\
 Quality assessment: & Through QC parameters \\
@@ -132,11 +133,11 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Detect order traces}\label{drl:tracedetect}
-Used in recipes:\\ 
-\hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} \newline
-\hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}} \newline
-TBD
+%\subsubsection{Detect order traces}\label{drl:tracedetect}
+%Used in recipes:\\ 
+%\hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} \newline
+%\hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}} \newline
+%TBD
 
 
 
@@ -210,8 +211,8 @@ Used in recipes: &  \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \new
                  \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_LM\_lsstrum1d * input} \\
-Other inputs: & \texttt{const hdrl\_LM\_lsstrum1d * input}\\
+Input: & \texttt{const hdrl\_spectrum1D * input} \\
+Other inputs: & \texttt{const hdrl\_spectrum1D * input}\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
