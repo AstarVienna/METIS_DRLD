@@ -81,6 +81,9 @@
 
 \usepackage[pdftex]{graphicx}
 \graphicspath{{./figures/}}
+\makeatletter
+\def\input@path{{./}{./tikz/}}
+\makeatother
 
 \usepackage{fancyhdr}
 \setlength{\headheight}{19pt} % ...at least 18.26802pt
@@ -181,98 +184,15 @@
 \usepackage{csquotes}
 
 \usepackage[countmax]{subfloat}
-% ADDING NEW DEFINITIONS -------------------------------------------- start
-\definecolor{listingbg}{gray}{0.95}
-\definecolor{darkgreen}{rgb}{0.0, 0.7, 0.0}
-\definecolor{darkblue} {rgb}{0.0, 0.0, 0.7}
-\definecolor{cyan} {rgb}{0.0, 0.4, 0.4}
-\definecolor{darkred}  {rgb}{0.7, 0.0, 0.0}
-\definecolor{darkorange}{rgb}{1.0, 0.49, 0.0}
-\definecolor{violett}{rgb}{255, 0, 255}
-\definecolor{turq}{rgb}{0.0, 0.7, 0.8}
-\definecolor{fits}{rgb}{0.4, 0.1, 1}
-
 
 %\setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
-%% Write a raw FITS file like this: \hyperref[dataitem:lm_sci_raw]{\RAW{LM_SCI_RAW}}
-\makeatletter
-\lstdefinestyle{RAWstyle}{%
-  basicstyle=\ttfamily\color{fits}%
-  \lst@ifdisplaystyle\scriptsize\fi}
-\makeatother
-\newcommand{\RAW}[1]{\lstinline[style=RAWstyle]!#1!}
 
-%% Write parameters like this: \PAR{DARK_LM}
-\makeatletter
-\lstdefinestyle{PARstyle}{%
-  basicstyle=\ttfamily\color{cyan}%
-  \lst@ifdisplaystyle\scriptsize\fi}
-\makeatother
-\newcommand{\PAR}[1]{\lstinline[style=PARstyle]!#1!}
 
-%% Write DRL functions names like this: \DRL{function}
-\makeatletter
-\lstdefinestyle{DRLstyle}{%
-  basicstyle=\ttfamily\color{violett}%
-  \lst@ifdisplaystyle\scriptsize\fi}
-\makeatother
-\newcommand{\DRL}[1]{\lstinline[style=DRLstyle]!#1!}
+% ADDING NEW DEFINITIONS -------------------------------------------- start
+\input{normal_style}
 
-%% Write recipe names like this: \REC{metis_do_stuff}
-\makeatletter
-\lstdefinestyle{RECstyle}{%
-  basicstyle=\ttfamily\color{darkgreen}%
-  \lst@ifdisplaystyle\scriptsize\fi}
-\makeatother
-\newcommand{\REC}[1]{ \texorpdfstring{\lstinline[style=RECstyle]!#1!}%
-                   {-{}-enable-so-version}}
-
-%% Write QC parameters like this: \QC{QC_SOMETHING_OR_OTHER}
-\makeatletter
-\lstdefinestyle{QCstyle}{%
-  basicstyle=\ttfamily\color{darkblue}%
-  \lst@ifdisplaystyle\scriptsize\fi}
-\makeatother
-\newcommand{\QC}[1]{\lstinline[style=QCstyle]!#1!}
-
-%% Write templates like this: \TPL{DARK_LM}
-\makeatletter
-\lstdefinestyle{TPLstyle}{%
-  basicstyle=\ttfamily\color{darkred}%
-  \lst@ifdisplaystyle\scriptsize\fi}
-\makeatother
-\newcommand{\TPL}[1]{\lstinline[style=TPLstyle]!#1!}
-
-%% Write products like this: \hyperref[dataitem:some_thing]{\PROD{SOME_THING}}
-\makeatletter
-\lstdefinestyle{PRODstyle}{%
-  basicstyle=\ttfamily\color{darkorange}%
-  \lst@ifdisplaystyle\scriptsize\fi}
-\makeatother
-\newcommand{\PROD}[1]{\lstinline[style=PRODstyle]!#1!}
-
-%% Write requirements like this: \REQ{METIS-xxxx}
-\newcommand{\REQ}[1]{\href{https://polarion.astron.nl/polarion/\#/project/METIS/workitem?id=#1}{\textcolor{brown}{#1}}}
-
-%% external calib files
-\makeatletter
-\lstdefinestyle{EXTCALIBstyle}{%
-  basicstyle=\ttfamily\color{Turquoise}%
-  \lst@ifdisplaystyle\scriptsize\fi}
-\makeatother
-\newcommand{\EXTCALIB}[1]{\lstinline[style=EXTCALIBstyle]!#1!}
-
-% static calib files
-\makeatletter
-\lstdefinestyle{STATCALIBstyle}{%
-  basicstyle=\ttfamily\color{teal}%
-  \lst@ifdisplaystyle\scriptsize\fi}
-\makeatother
-\newcommand{\STATCALIB}[1]{\lstinline[style=STATCALIBstyle]!#1!}
-
-%% Write FITS keywords (and values) like this: \FITS{EXPTIME}
-\newcommand{\FITS}[1]{\lstinline[]!#1!}
+\input{styles_data}
 
 %% Write code snippets like this: \CODE{SOMETHING==ELSE}
 %% (I know, this is a bit stupid)
