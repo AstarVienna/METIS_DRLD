@@ -15,7 +15,9 @@
   %\draw[help lines, green](-5, 0) grid (8, 11);
 
   %% Main reduction flow
-  \node (template) [template] {METIS\_all\_cal\_dark};
+  \node (template) [template] {%
+    METIS\_gen\_cal\_dark\\
+    METIS\_gen\_cal\_InsDark};
   \pic (start) [below=0.75cm of template] {start};
   \node (input) [below=0.75cm of start-m, input] {\textsl{N} DARK\_RAW};
   \node (step1) [below of=input, redstep] {%
