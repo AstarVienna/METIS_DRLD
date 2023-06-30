@@ -214,7 +214,7 @@ same echelle order are grouped and processing is iterated over the
 echelle orders.
 
 % from https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-9141
-For the LM band detectors in the IFU, the pixels on the edges of the detectors shall be masked with the following widths \cite{matisse_minutes} (\REQ{METIS-9141}):
+For the LM band detectors in the IFU, the pixels on the edges of the detectors shall be masked with the following widths \cite{matisse_minutes} (\REQ{METIS-9141}) (Fig.~\ref{fig:ifu_detector_masking}):
 \begin{itemize}
 \item 64 columns on each ``outside'' of the 2x2 detector array in the dispersion direction
 \item 0 columns on each ``inside'' of the 2x2 detector array in the dispersion direction
@@ -231,7 +231,7 @@ Note: We define rows and columns in the H2RG detector as follow:
   \includegraphics[width=0.7\textwidth]{LMS_detector_masking}
   \caption[Recipe: \REC{metis_ifu_sci_process}]{%
     The IFU masking scheme. Masked regions are in light blue.}
-  \label{fig:metis_ifu_sci_process}
+  \label{fig:ifu_detector_masking}
 \end{figure}
 
 
