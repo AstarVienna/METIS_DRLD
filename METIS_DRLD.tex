@@ -110,6 +110,8 @@
 \usepackage[many]{tcolorbox}
 \usepackage{multirow}
 
+\input{recipe_config}
+
 % does not work with my version of biblatex:
 % \usepackage[defernumbers=true,backend=biber,hyperref=true,url=false]{biblatex}
 \usepackage[%
@@ -201,7 +203,9 @@
 %% Use environment recipedef to define a new recipe.
 \newenvironment{recipedef}
 {% begin code
-  \begin{tcolorbox}[breakable,enhanced jigsaw]%
+% The enhanced jigsaw conflicts with tikz figures, and doesn't seem to do anything.
+%   \begin{tcolorbox}[breakable,enhanced jigsaw]%
+  \begin{tcolorbox}[breakable]%
     \begin{longtable}{p{0.24\hsize}p{0.69\hsize}}}
       {% end code
     \end{longtable}%
@@ -210,7 +214,9 @@
 %% Use environment datastructdef to define the data structure of a data item (see e.g. LSS_data_structures.tex)
 \newenvironment{datastructdef}
 {% begin code
-  \begin{tcolorbox}[breakable,enhanced jigsaw]%
+% The enhanced jigsaw conflicts with tikz figures, and doesn't seem to do anything.
+%   \begin{tcolorbox}[breakable,enhanced jigsaw]%
+  \begin{tcolorbox}[breakable]%
     \begin{longtable}{p{0.97\hsize}}}
       {% end code
     \end{longtable}%
