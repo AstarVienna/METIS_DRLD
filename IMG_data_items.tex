@@ -335,25 +335,25 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \subsubsection{External calibration data item structures}\label{sssec:imgextcalibdatastructs}
 
 
-\paragraph{\hyperref[dataitem:lm_detector_mask]{\EXTCALIB{LM_DETECTOR_MASK}}}\label{dataitem:lm_detector_mask}
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lm_detector_mask]{\EXTCALIB{LM_DETECTOR_MASK}}\\[0.3cm]
-Description: & Masked region for LM detector \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{DPR.CATG}}: & \FITS{LM_DETECTOR_MASK}\\
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM_DETECTOR_MASK}\\[0.3cm]
-Input for recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
+% \paragraph{\hyperref[dataitem:lm_detector_mask]{\EXTCALIB{LM_DETECTOR_MASK}}}\label{dataitem:lm_detector_mask}
+% \begin{recipedef}
+% \textbf{\ac{FITS} file structure:}\\
+% Name: & \hyperref[dataitem:lm_detector_mask]{\EXTCALIB{LM_DETECTOR_MASK}}\\[0.3cm]
+% Description: & Masked region for LM detector \\[0.3cm]
+% \hyperref[fits:pro.catg]{\FITS{DPR.CATG}}: & \FITS{LM_DETECTOR_MASK}\\
+% OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+% \FITS{DO.CATG}: & \FITS{LM_DETECTOR_MASK}\\[0.3cm]
+% Input for recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+% Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+% \end{recipedef}
+% \begin{datastructdef}
+% \textbf{Corresponding \ac{CPL} structure:}
+% \begin{enumerate}
+%     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+%     \item \texttt{hdrl\_image * image: Single image}
+%     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+% \end{enumerate}
+% \end{datastructdef}
 
 
 
@@ -545,7 +545,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}\\[0.3cm]
-Description: & Bad pixel map\\[0.3cm]
+Description: & Bad pixel map. Also contains detector masks. \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{BADPIX_MAP_det}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{BADPIX_MAP_det}\\[0.3cm]
