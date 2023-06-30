@@ -203,6 +203,28 @@ Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
+%---------------------------------------------------------------------
+\subsubsection{Remove sky background}\label{drl:removeskybackground}
+\begin{recipedef}\label{rec:removeskybackground}
+Name: & \hyperref[drl:removeskybackground]{\DRL{remove_sky_background}} \\
+Purpose: & Remove sky background from spectra \\
+Used in recipes: & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
+& \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+& \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
+& \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & \texttt{const hdrl\_image * input} \\
+Other inputs: & None\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Determines the tilt and shear of the orders using the sky emission lines \\
+Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
 
 %---------------------------------------------------------------------
 \subsubsection{Slit curvature detection}\label{drl:slitcurvature}
@@ -210,6 +232,10 @@ Unit tests: & See \cite{DRLVT}. \\
 Name: & \hyperref[drl:slitcurvature]{\DRL{slit_curvature}} \\
 Purpose: & Determines the slit curvature along the orders \\
 Used in recipes: & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \\
+& \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
+& \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+& \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
+& \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -228,8 +254,12 @@ Unit tests: & See \cite{DRLVT}. \\
 \subsubsection{Order trace detection}\label{drl:detectordertrace}
 \begin{recipedef}\label{rec:detectordertrace}
 Name: & \hyperref[drl:detectordertrace]{\DRL{detect_order_trace}} \\
-Purpose: & Determines the slit curvature along the orders \\
+Purpose: & Determines the order traces on the detectors\\
 Used in recipes: & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \\
+& \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_sci}} \\
+& \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+& \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_sci}} \\
+& \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -237,7 +267,7 @@ Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
-General description: & Determines the tilt and shear of the orders using the sky emission lines \\
+General description: & Determines the order locations on the detectors \\
 Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
