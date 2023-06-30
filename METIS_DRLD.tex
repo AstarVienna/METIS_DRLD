@@ -396,7 +396,9 @@
 \titleformat{\section}{\LARGE\sffamily\scshape}{\thesection}{1em}{\textsc{}}
 \titleformat{\subsection}{\Large\sffamily}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{\large\sffamily}{\thesubsubsection}{1em}{}
-\titleformat{\paragraph}{\sffamily}{\theparagraph}{1em}{}
+% The paragraph title format seems to cause a tcolorbox Warning:
+% Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before break' or set page breaks manually 
+% \titleformat{\paragraph}{\sffamily}{\theparagraph}{1em}{}
 
 \setlength\heavyrulewidth{1.5pt}
 
