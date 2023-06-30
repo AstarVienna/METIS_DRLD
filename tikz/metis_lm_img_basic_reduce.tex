@@ -29,8 +29,9 @@
 
   %% input box
   \node (input) [below=0.75cm of start-m, input] {%
-    \textsl{N} \hyperref[dataitem:lm_sci_raw]{\RAW{LM_SCI_RAW}} \\
-    \textsl{N} \hyperref[dataitem:lm_std_raw]{\RAW{LM_STD_RAW}} \\
+    \textsl{N} \hyperref[dataitem:lm_image_raw]{\RAW{LM_IMAGE_RAW}} \\
+% TODO: This recipe is also for STD data
+%     \textsl{N} \hyperref[dataitem:lm_std_raw]{\RAW{LM_STD_RAW}} \\
     \textsl{M} \hyperref[dataitem:ifu_sky_raw]{\RAW{IFU_SKY_RAW}}};
 
 
@@ -94,7 +95,7 @@
   \node (connect_masterflat) [connection] at
   ($(step_dark)!0.5!(step_flat)$){};
   \node (flatin) [left=of connect_masterflat, calproduct]{%
-    \hyperref[dataitem:master_flat_2rg]{\STATCALIB{MASTER_FLAT_2RG}}};
+    \hyperref[dataitem:master_img_flat_n]{\STATCALIB{MASTER_IMG_FLAT_N}}};
   \draw (flatin) -- (connect_masterflat);
 
   \node (connect_bpm) [connection] at
