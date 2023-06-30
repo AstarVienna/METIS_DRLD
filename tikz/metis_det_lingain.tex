@@ -23,15 +23,15 @@
   %% Main reduction workflow
 
   \node (template) [template]{%
-    \TPL{METIS\_img\_lm\_cal\_DetLin}\\
-    \TPL{METIS\_img\_n\_cal\_DetLin}\\
-    \TPL{METIS\_ifu\_cal\_DetLin}};
+    \TPL{METIS_img_lm_cal_DetLin}\\
+    \TPL{METIS_img_n_cal_DetLin}\\
+    \TPL{METIS_ifu_cal_DetLin}};
 
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input] {%
-    \textsl{N} \RAW{DETLIN_det_RAW}\\
-    \RAW{det_WCU_OFF_RAW}};
+    \textsl{N} \hyperref[dataitem:detlin_det_raw]{\RAW{DETLIN_det_RAW}}\\
+    \hyperref[dataitem:det_wcu_off_raw]{\RAW{det_WCU_OFF_RAW}}};
 
   \node (step_persistence) [below=2.0cm of input, redstep] {%
     apply persistence correction};
@@ -74,19 +74,19 @@
   \node (connectgain) [connection] at
   ($(step_gain)!0.5!(step_linearity)$){};
   \node (gainmap) [right=of connectgain, calproduct]{%
-    \STATCALIB{GAIN\_MAP\_det}};
+    \hyperref[dataitem:gain_map_det]{\STATCALIB{GAIN_MAP_det}}};
   \draw (connectgain) -- (gainmap);
 
   \node (connectlin) [connection] at
   ($(step_linearity)!0.5!(step_thresholding)$) {};
   \node (linearity) [right=of connectlin, calproduct]{%
-    \STATCALIB{LINEARITY\_det}};
+    \hyperref[dataitem:linearity_det]{\STATCALIB{LINEARITY_det}}};
   \draw (connectlin) -- (linearity);
 
   \node (connectbpm) [connection] at
   ($(step_thresholding)!0.35!(stop-t)$) {};
   \node (bpm) [right=of connectbpm, calproduct]{%
-    \STATCALIB{BADPIX\_MAP\_det}};
+    \hyperref[dataitem:badpix_map_det]{\STATCALIB{BADPIX_MAP_det}}};
   \draw (connectbpm) -- (bpm);
 
   %% Frame around recipe
