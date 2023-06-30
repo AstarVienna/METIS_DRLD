@@ -133,7 +133,7 @@ Algorithm:      & Application of detector master calibration files\\
 Output data:	& \hyperref[dataitem:lm_lss_curve]{\PROD{LM_LSS_CURVE}} (\FITS{PRO.CATG=LM_LSS_CURVE}): Curvature properties (\ac{QC}) \\
                 & \hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}} (\FITS{PRO.CATG=LM_LSS_DIST_SOL}): Distortion solution\\
                 & \hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}} (\FITS{PRO.CATG=LM_LSS_WAVE_GUESS}): Wavelength first guess\\
-Expected accuracies: & 1/5th of a pixel after post-processing (cf. \cite{METIS-calibration_plan})\\
+Expected accuracies: & 1/10th of a pixel after post-processing (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
 QC1 parameters: & \hyperref[qc:qc_lm_lss_wave_polydeg]{\QC{QC LM LSS WAVE POLYDEG}}: Degree of the first guess polynomial\\
                 & \hyperref[qc:qc_lm_lss_wave_coeff<i>]{\QC{QC LM LSS WAVE COEFF<i>}}: $i$-th coefficient of the polynomial\\
                 & \hyperref[qc:qc_lm_lss_wave_nlines]{\QC{QC LM LSS WAVE NLINES}}: Number of detected (laser) lines; should be constant\\
@@ -329,7 +329,7 @@ Parameters: 	& \texttt{molecfit} parameters (c.f. \cite{molecfit})\\
 Algorithm:      & Fit of telluric features visible in the science input spectrum\\
                 & Determination of best-fit parameter set\\
 Output data:	& \hyperref[dataitem:mf_best_fit_tab]{\PROD{MF_BEST_FIT_TAB}}: Table with best-fit parameters\\
-Expected accuracies: & (TBD)\\
+Expected accuracies: & n/a\\
 QC1 parameters: & cf. \cite{molecfit}\\
 \end{recipedef}
 
