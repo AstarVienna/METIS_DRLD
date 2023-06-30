@@ -1,9 +1,10 @@
-% Document preamble. Comment out for final figure! Footer too!
-\documentclass[tikz, margin=5mm, dvipsnames]{standalone}
-\usepackage{listings}
-\input{black_style}
-\input{styles_data}
-\begin{document}
+% % Document preamble. Comment out for final figure! Footer too!
+% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+% \usepackage{hyperref}
+% \usepackage{listings}
+% \input{black_style}
+% \input{styles_data}
+% \begin{document}
 
 
 \input{black_style}
@@ -17,20 +18,20 @@
   node distance=2cm and 3.5cm]
   \sffamily
 
-  %% Grid for orientation. Comment out for final figure!
-  \draw[help lines, green](-5, 0) grid (8, 11);
+%   % Grid for orientation. Comment out for final figure!
+%   \draw[help lines, green](-5, 0) grid (8, 11);
 
   %%% Put workflow commands here:
   %% Main reduction workflow
 
   \node (template) [template] {%
-    \TPL{METIS\_img\_lm\_cal\_InternalFlat}\\
-    \TPL{METIS\_img\_lm\_cal\_TwilightFlat}};
+    \TPL{METIS_img_lm_cal_InternalFlat}\\
+    \TPL{METIS_img_lm_cal_TwilightFlat}};
 
   \pic (start)[below=0.75cm of template]{start};
 
   \node (input) [below=0.75cm of start-m, input] {%
-    \textsl{N} \RAW{LM\_FLAT\_RAW}};
+    \textsl{N} \hyperref[dataitem:lm_flat_raw]{\RAW{LM_FLAT_RAW}}};
 
   \node (step_persistence) [below=2.0cm of input, redstep] {%
     apply persistence correction};
@@ -54,7 +55,7 @@
   \node (connectpers) [connection] at
   ($(input)!0.65!(step_persistence)$){};
   \node (persistence) [left=of connectpers, external]{%
-    \EXTCALIB{PERSISTENCE\_MAP}};
+    \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}};
   \draw (persistence) -- (connectpers);
 
 %   \node (connectparams) [connection] at
@@ -67,13 +68,13 @@
   \node (connectbpm) [connection] at
   ($(step_persistence)!0.3!(step_signature)$){};
   \node (bpmin) [left=of connectbpm, calproduct]{%
-    \STATCALIB{BADPIX\_MAP\_2RG}};
+    \hyperref[dataitem:badpix_map_2rg]{\STATCALIB{BADPIX_MAP_2RG}}};
   \draw (bpmin) -- (connectbpm);
 
   \node (connection_masterdark) [connection] at
   ($(step_persistence)!0.7!(step_signature)$){};
   \node (darkin) [left=of connection_masterdark, calproduct]{%
-    \STATCALIB{MASTER\_DARK\_2RG}};
+    \hyperref[dataitem:master_dark_2rg]{\STATCALIB{MASTER_DARK_2RG}}};
   \draw (darkin) -- (connection_masterdark);
 
   \node (connectflat) [connection] at
@@ -98,5 +99,5 @@
 \input{normal_style}
 
 
-% Document footer. Comment out for final figure! Header too!
-\end{document}
+% % Document footer. Comment out for final figure! Header too!
+% \end{document}
