@@ -1,11 +1,40 @@
 \clearpage
 \section{Development plan}\label{sec:development_plan}
 
-This section describes the development plan for the METIS data reduction software to comply with the the specifications given in the in the ESO dataflow deliverables standards document (\cite{1618}). The time lines are subject to regular updates and review with
+This section describes the development plan for the METIS data reduction software to comply with the the specifications given in the in the ESO dataflow deliverables standards document (\cite{1618}). The time schedule is subject to regular updates and review in close cooperation with
+
 \begin{itemize}
     \item AIT team: coordination of the pipeline implementation schedule
     \item ICS team: coordination with ICS implementation schedule to test the data flow between ICS and pipeline and check consistency of FITS keywords
     \item Detector group: coordination when detector characteristics become available
-    \item ESO: check consistency of FITS keywords, QC parameters
+    \item ESO: check consistency of FITS keywords, QC parameters and coordinate required input to software recipe development (detector persistence, ...)
 \end{itemize}
 
+\begin{table}
+  \newcommand{\yes}{\tikz\fill[scale=0.35,color=green!50!black](0,.35) -- (.25,0) -- (0.9,.7) -- (.25,.15) -- cycle;}
+  \newcommand{\no}{\textcolor{red!50!black}{---}}
+    \caption[Overview of required calibrations per instrument mode]{Overview of required calibrations per instrument mode.
+    The IFU modes refer to both the nominal configuration and to the extended wavelength configuration. From \cite{METIS-calibration_plan}.}
+  \label{tab:calibrations_per_mode}
+  \centering\scriptsize
+  \begin{tabularx}{\textwidth}{lcccXccccc}
+    \hline
+                           & Dark & Flat & Wave & Background subtraction & Telluric & Flux & Distortion & NCPA + PSF & RSRF \\
+    \hline\hline
+    \CODE{IMG_LM}          & \yes & \yes & \no  & Dither         & \no      & \yes & \yes       & \no        & \no  \\
+    \CODE{IMG_LM_(RA/C)VC} & \yes & \yes & \no  & ADI            & \no      & \yes & \yes       & \yes       & \no  \\
+    \CODE{IMG_LM_CLC}      & \yes & \yes & \no  & ADI            & \no      & \yes & \yes       & \yes       & \no  \\
+    \CODE{IMG_LM_APP}      & \yes & \yes & \no  & Dither + ADI   & \no      & \yes & \yes       & \yes       & \no  \\
+    \CODE{SPEC_LM}         & \yes & \no  & \yes & Dither along slit & \yes  & \yes & \yes       & \no        & \yes \\
+    \CODE{IFU}             & \yes & \no  & \yes & Dither         & \yes     & \yes & \yes       & \no        & \yes \\
+    \CODE{IFU_APP}         & \yes & \no  & \yes & Dither + ADI   & \yes     & \yes & \yes       & \yes       & \yes \\
+    \CODE{IFU_(RA/C)VC}    & \yes & \no  & \yes & ADI            & \yes     & \yes & \yes       & \yes       & \yes \\
+    \CODE{IFU_CLD}         & \yes & \no  & \yes & Dither + ADI   & \yes     & \yes & \yes       & \yes       & \yes \\
+    \hline
+    \CODE{IMG_N}           & \no  & \yes & \no  & chop/nod       & \no      & \yes & \yes       & \no        & \no  \\
+    \CODE{IMG_N_CVC}       & \no  & \yes & \no  & three-point chopping & \no & \yes & \no       & \yes       & \no  \\
+    \CODE{IMG_N_CLC}       & \no  & \yes & \no  & out-of-field chopping & \no & \yes & \no      & \yes       & \no  \\
+    \CODE{SPEC_N_LOW}      & \no  & \no  & \yes & chop/nod along slit & \yes & \yes & \yes      & \no        & \yes \\
+    \hline
+  \end{tabularx}
+\end{table}
