@@ -34,7 +34,7 @@ Input data:     & $N\times$ \hyperref[dataitem:n_lss_rsrf_raw]{\RAW{N_LSS_RSRF_R
                 & \hyperref[dataitem:gain_map_geo]{\PROD{GAIN_MAP_GEO}}  \\
                 & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}   \\
                 & \hyperref[dataitem:master_dark_geo]{\PROD{MASTER_DARK_GEO}}  \\
-Parameters: 	& TBD\\
+%Parameters: 	& TBD\\
 Algorithm:      & subtract master \ac{WCU} "OFF" frame from illumination frame (done on individual images)\\
                 & median/mean filtering of subtracted images\\
                 & division by blackbody spectrum\\
@@ -77,11 +77,12 @@ Input data:     & $N\times$ \hyperref[dataitem:n_lss_rsrf_pinh_raw]{\RAW{N_LSS_R
                 & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}   \\
                 & \hyperref[dataitem:master_dark_geo]{\PROD{MASTER_DARK_GEO}}  \\
                 &  \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}} \\
-Parameters: 	& polynomial degree\\
+%Parameters: 	& polynomial degree\\
 Algorithm:      & Detection of the order edges\\
                 & Polynomial fitting\\
 Output data:	& \hyperref[dataitem:n_lss_trace]{\PROD{N_LSS_TRACE}} (\FITS{PRO.CATG=N_LSS_TRACE}): Polynomial coefficients\\
-Expected accuracies: & wavelength calibration 1/10th of a pixel after post-processing (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+Expected accuracies: & 1/10th of a pixel after post-processing\\
+               & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
 QC1 parameters: & \hyperref[qc:qc_n_lss_trace_lpolydeg]{\QC{QC N LSS TRACE LPOLYDEG}}: Degree of the polynomial fit of the left order edge\\
                 & \hyperref[qc:qc_n_lss_trace_lcoeff<i>]{\QC{QC N LSS TRACE LCOEFF<i>}}: $i$-th coefficient of the polynomial of the left order edge\\
                 & \hyperref[qc:qc_n_lss_trace_rpolydeg]{\QC{QC N LSS TRACE RPOLYDEG}}: Degree of the polynomial fit of the right order edge\\
@@ -131,7 +132,7 @@ Input data: 	& \hyperref[dataitem:n_lss_std_raw]{\RAW{N_LSS_STD_RAW}}\\
                 & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} \\
                 & \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}\\
                 & \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}} \\                
-Parameters: 	& (TBD)\\
+%Parameters: 	& (TBD)\\
 Algorithm:      & Application of master calibration files\\
                 & Background removal\\
                 & Determination and application of the distortion correction\\
@@ -211,12 +212,7 @@ Input data: 	& \hyperref[dataitem:n_lss_sci_raw]{\RAW{N_LSS_SCI_RAW}}\\
                 %& \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} \\
                 & \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}\\
                 & \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}} \\
-Parameters: 	& for wavelength: 1/10th of a pixel after post-processing\\
-            & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
-            & for flux: 10\% over an atmospheric band \\
-            & $<30$\% absolute line flux accuracy\\
-            & $<5$\% absolute flux calibration \\
-            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
+%Parameters: 	TBD\\
 Algorithm:      & Application of the detector master calib files\\
                 & wavelength calibration \\
                 & Identifying/separatiing sky/object pixels\\

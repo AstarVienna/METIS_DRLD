@@ -38,7 +38,7 @@ Input data:     & $N\times$ \hyperref[dataitem:lm_lss_rsrf_raw]{\RAW{LM_LSS_RSRF
                 & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}  \\
                 & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
                 & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
-Parameters: 	& TBD\\
+%Parameters: 	& TBD\\
 Algorithm:      & subtract master \ac{WCU} "OFF" frame from illumination frame (done on individual images)\\
                 & median/mean filtering of subtracted images\\
                 & division by blackbody spectrum\\
@@ -81,11 +81,12 @@ Input data:     & $N\times$ \hyperref[dataitem:lm_lss_rsrf_pinh_raw]{\RAW{LM_LSS
                 & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
                 & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
                 & \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} \\
-Parameters: 	& polynomial degree\\
+%Parameters: 	& polynomial degree\\
 Algorithm:      & Detection of the order edges\\
                 & Polynomial fitting\\
 Output data:	& \hyperref[dataitem:lm_lss_trace]{\PROD{LM_LSS_TRACE}} (\FITS{PRO.CATG=LM_LSS_TRACE}): Polynomial coefficients\\
-Expected accuracies: & 1/10th of a pixel after post-processing (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+Expected accuracies: & 1/10th of a pixel after post-processing\\
+               & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
 QC1 parameters: & \hyperref[qc:qc_lm_lss_trace_lpolydeg]{\QC{QC LM LSS TRACE LPOLYDEG}}: Degree of the polynomial fit of the left order edge\\
                 & \hyperref[qc:qc_lm_lss_trace_lcoeff<i>]{\QC{QC LM LSS TRACE LCOEFF<i>}}: $i$-th coefficient of the polynomial of the left order edge\\
                 & \hyperref[qc:qc_lm_lss_trace_rpolydeg]{\QC{QC LM LSS TRACE RPOLYDEG}}: Degree of the polynomial fit of the right order edge\\
@@ -126,14 +127,15 @@ Input data: 	& \hyperref[dataitem:lm_lss_wave_raw]{\RAW{LM_LSS_WAVE_RAW}}\\
                 & \hyperref[dataitem:lm_lss_trace]{\PROD{LM_LSS_TRACE}} \\
                 & \hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}} \\
                 % & \hyperref[dataitem:ref_airg_cat]{\STATCALIB{REF_AIRG_CAT}} \\
-Parameters: 	& (TBD)\\
+%Parameters: 	& (TBD)\\
 Algorithm:      & Application of detector master calibration files\\
                 & Determination and application of the distortion correction\\
                 & Determination of the first guess of the wavelength solution by polynomial fit of the detected laser source lines\\
 Output data:	& \hyperref[dataitem:lm_lss_curve]{\PROD{LM_LSS_CURVE}} (\FITS{PRO.CATG=LM_LSS_CURVE}): Curvature properties (\ac{QC}) \\
                 & \hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}} (\FITS{PRO.CATG=LM_LSS_DIST_SOL}): Distortion solution\\
                 & \hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}} (\FITS{PRO.CATG=LM_LSS_WAVE_GUESS}): Wavelength first guess\\
-Expected accuracies: & 1/10th of a pixel after post-processing (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+Expected accuracies: & 1/10th of a pixel after post-processing\\
+               & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
 QC1 parameters: & \hyperref[qc:qc_lm_lss_wave_polydeg]{\QC{QC LM LSS WAVE POLYDEG}}: Degree of the first guess polynomial\\
                 & \hyperref[qc:qc_lm_lss_wave_coeff<i>]{\QC{QC LM LSS WAVE COEFF<i>}}: $i$-th coefficient of the polynomial\\
                 & \hyperref[qc:qc_lm_lss_wave_nlines]{\QC{QC LM LSS WAVE NLINES}}: Number of detected (laser) lines; should be constant\\
@@ -192,7 +194,7 @@ Input data: 	& \hyperref[dataitem:lm_lss_std_raw]{\RAW{LM_LSS_STD_RAW}}\\
                 & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}}\\
                 & \hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}\\
                 & \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}} \\
-Parameters: 	& (TBD)\\
+%Parameters: 	& (TBD)\\
 Algorithm:      & Application of master calibration files\\
                 & Background removal\\
                 & Determination and application of the distortion correction\\
@@ -273,7 +275,7 @@ Input data: 	& \hyperref[dataitem:lm_lss_sci_raw]{\RAW{LM_LSS_SCI_RAW}}\\
                 %& \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} \\
                 %& \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}}\\
                 & \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}} \\
-Parameters: 	& (TBD)\\
+%Parameters: 	& (TBD)\\
 Algorithm:      & Application of the detector master calib files\\
                 & wavelength calibration \\
                 & Identifying/separating sky/object pixels\\
