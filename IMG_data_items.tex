@@ -3,7 +3,6 @@
 
 
 \paragraph{\hyperref[dataitem:lm_image_raw]{\RAW{LM_IMAGE_RAW}}}\label{dataitem:lm_image_raw}
-
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:lm_image_raw]{\RAW{LM_IMAGE_RAW}}\\[0.3cm]
@@ -20,6 +19,15 @@ Template: & \TPL{METIS_img_lm_cal_standard}\\
           & \TPL{METIS_img_lm_obs_FixedSkyOffset} \\
           & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
           & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
+                    & \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
+                    & \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
+                    & \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
+                    & \TPL{METIS_ifu_ext_obs_GenericOffset}                                                    \\
+                    & \TPL{METIS_ifu_vc_obs_FixedSkyOffset}                                                    \\
+                    & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset}                                                \\
+                    & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
+                    & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
+                    & \TPL{METIS_ifu_cal_psf}                                                                  \\
 Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
