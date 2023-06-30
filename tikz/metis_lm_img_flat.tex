@@ -1,8 +1,14 @@
-\documentclass[tikz, margin=5mm]{standalone}
+% Document preamble. Comment out for final figure! Footer too!
+\documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+\usepackage{listings}
+\input{black_style}
+\input{styles_data}
+\begin{document}
 
+
+\input{black_style}
 \input{recipe_config}
 
-\begin{document}
 
 \begin{tikzpicture}
   [x=1cm,
@@ -81,5 +87,8 @@
     \textsl{metis\_lm\_img\_flat}};
 
 \end{tikzpicture}
+\input{normal_style}
 
+
+% Document footer. Comment out for final figure! Header too!
 \end{document}
