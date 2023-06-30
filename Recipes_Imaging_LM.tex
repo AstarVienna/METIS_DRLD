@@ -99,10 +99,9 @@ This recipe performs the basic reduction of raw exposures from the
 LM-band imager, i.e.\ dark subtraction, flat fielding and other removing
 instrumental signals. It is used for both standard and science exposures.
 
-Basic statistics of the images can be used to screen for saturation.
+This recipe analyses the masked detector regions for channel offset correction, crosstalk (see \cite{matisse_minutes}) and removal of detector artefacts (electronic ghosts).
 
-\TODO{This recipe should analyse the masked detector regions for
-  channel offset correction and crosstalk (see \cite{matisse_minutes}).}
+Basic statistics of the images can be used to screen for saturation.
 
 \begin{recipedef}
   Name:             & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}   \\
@@ -181,8 +180,6 @@ robust estimator of the mean (e.g.\ median).
 For extended objects, all out-of-field exposures will be averaged
 (with object rejection) and subtracted off the in-field exposures.
 
-This fulfills \REQ{METIS-6085} and \REQ{METIS-6086}.
-
 \TODO{Object catalogues of the target exposures could be created within this
 recipe or in a separate recipe. The catalogue should contain for each
 object: pixel coordinates ($x$, $y$), world coordinates ($\alpha$,
@@ -194,6 +191,7 @@ counts within an aperture.}
 \begin{recipedef}
   Name:             & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}                             \\
   Purpose:          & estimate and subtract background                          \\
+  Requirements:     & \REQ{METIS-6085} and \REQ{METIS-6086} \\
   Type:             & Calibration                                               \\
   Templates:        & \TPL{METIS_img_lm_cal_standard}                           \\
 %                     & \TPL{METIS_img_lm_*_obs_*}                                \\
