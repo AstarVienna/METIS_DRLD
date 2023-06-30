@@ -26,9 +26,9 @@ The \mir~range is dominated by thermal and line emission in the Earth's atmosphe
 Placing the above files in their respective \pyred~folders enables \pyred~to run \met~\scope~simulated files as any other instrument. \pyred~ performs many functions when reducing spectroscopic data  including basic data reduction like bias determination, flatfielding, continuum fitting. Here we investigate mainly the steps relevant to the mentioned critical algorithms: \texttt{"curvature", and "wavecal"}.
 %-----------
 \paragraph{Simulated input `raw' data}
-To demonstrate the feasibility of adopting \pyred~algorithms to \metis~purposes we use data simulated with \scope~for all three \lss~modes ($L$, $M$, or $N$-band) for the $8000~\textrm{mas} \times 19~\textrm{mas}$ slit (see Fig.~\ref{fig:lmn_layout}). 
+To demonstrate the feasibility of adopting \pyred~algorithms to \met~purposes we use data simulated with \scope~for all three \lss~modes ($L$, $M$, or $N$-band) for the $8000~\mathrm{mas} \times 19~\mathrm{mas}$ slit (see Fig.~\ref{fig:lmn_layout}). 
 % \todo Details on the simulated data and the input files and settings used to generate them are listed in the DRLVT \cite{drlvt}. 
-Then header keywords of the simulated data were added/modified to enable \pyred~to sort the individual files according to \texttt{metis.json}. Here we list the files - listed here for the case of $L$-band but similaily to $M$ and $N$-bands - that are used to operate \pyred, which can be downloaded from\footnote{\url{https://www.dropbox.com/sh/h1dz80vsw4lwoel/AAAqJD_FGDGC-t12wgnPXVR8a?dl=0}}: 
+Then header keywords of the simulated data were added/modified to enable \pyred~to sort the individual files according to \texttt{metis.json}. Here we list the files - listed here for the case of $L$-band but similarly to $M$ and $N$-bands - that are used to operate \pyred, which can be downloaded from\footnote{\url{https://www.dropbox.com/sh/h1dz80vsw4lwoel/AAAqJD_FGDGC-t12wgnPXVR8a?dl=0}}: 
 \begin{itemize}
    \item \texttt{lss\_l\_thermal.fits}: spectroscopic flat field (Fig.~\ref{fig:ff})
    \item \texttt{lss\_l\_pinholes.fits}: pinhole frame with the flat field (Fig.~\ref{fig:pinh})
