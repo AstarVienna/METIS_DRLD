@@ -145,9 +145,12 @@ Output data:	& \hyperref[dataitem:n_lss_std_obj_map]{\PROD{N_LSS_STD_OBJ_MAP}}: 
               	& \hyperref[dataitem:n_lss_std_1d]{\PROD{N_LSS_STD_1D}}  : coadded, wavelength calibrated, collapsed 1D spectrum\\
                 & \hyperref[dataitem:std_transmission]{\PROD{STD_TRANSMISSION}}: Transmission curve derived by menas of the \ac{STD} star (\ac{QC})\\
                 & \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}}: response function (optionally including the transmission)\\
-Expected accuracies: & 10\% over an atmospheric band (ESO Req. R-MET-107)\\
-            & $<30$\% absolute line flux accuracy (R-MET-107)\\
-            & $<5$\% absolute flux calibration (R-MET-82)\\
+Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
+            & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+            & for flux: 10\% over an atmospheric band \\
+            & $<30$\% absolute line flux accuracy\\
+            & $<5$\% absolute flux calibration \\
+            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
 QC1 parameters: & \hyperref[qc:qc_n_lss_std_backgd_mean]{\QC{QC N LSS STD BACKGD MEAN}}: Mean value of background\\
                 & \hyperref[qc:qc_n_lss_std_backgd_median]{\QC{QC N LSS STD BACKGD MEDIAN}}: Median value of background\\
                 & \hyperref[qc:qc_n_lss_std_backgd_stdev]{\QC{QC N LSS STD BACKGD STDEV}}: Standard deviation value of background\\
@@ -208,7 +211,12 @@ Input data: 	& \hyperref[dataitem:n_lss_sci_raw]{\RAW{N_LSS_SCI_RAW}}\\
                 %& \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} \\
                 & \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}\\
                 & \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}} \\
-Parameters: 	& (TBD)\\
+Parameters: 	& & for wavelength: 1/10th of a pixel after post-processing\\
+            & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+            & for flux: 10\% over an atmospheric band \\
+            & $<30$\% absolute line flux accuracy\\
+            & $<5$\% absolute flux calibration \\
+            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
 Algorithm:      & Application of the detector master calib files\\
                 & wavelength calibration \\
                 & Identifying/separatiing sky/object pixels\\

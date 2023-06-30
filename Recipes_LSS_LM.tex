@@ -208,10 +208,11 @@ Output data:	& \hyperref[dataitem:lm_lss_std_obj_map]{\PROD{LM_LSS_STD_OBJ_MAP}}
             	& \hyperref[dataitem:std_transmission]{\PROD{STD_TRANSMISSION}}: Transmission function derived by means of the \ac{STD} (\ac{QC})\\        
                 & \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}}: response function (optionally including the transmission) \\
 Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
-            &(cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
-            & for flux: 10\% over an atmospheric band (cf. \cite{METIS-calibration_plan}, R-MET-107)\\
-            & $<30$\% absolute line flux accuracy (cf. \cite{METIS-calibration_plan}, R-MET-107)\\
-            & $<5$\% absolute flux calibration (cf. \cite{METIS-calibration_plan}, R-MET-82)\\
+            & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+            & for flux: 10\% over an atmospheric band \\
+            & $<30$\% absolute line flux accuracy\\
+            & $<5$\% absolute flux calibration \\
+            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
 QC1 parameters: & \hyperref[qc:qc_lm_lss_std_backgd_mean]{\QC{QC LM LSS STD BACKGD MEAN}}: Mean value of background\\
                 & \hyperref[qc:qc_lm_lss_std_backgd_median]{\QC{QC LM LSS STD BACKGD MEDIAN}}: Median value of background\\
                 & \hyperref[qc:qc_lm_lss_std_backgd_stdev]{\QC{QC LM LSS STD BACKGD STDEV}}: Standard deviation value of background\\
@@ -290,7 +291,13 @@ Output data:	& \hyperref[dataitem:lm_lss_sci_obj_map]{\PROD{LM_LSS_SCI_OBJ_MAP}}
                 & (\FITS{PRO_CATG}: \FITS{LM_LSS_2d_coadd_wavecal}) \\
               	& \hyperref[dataitem:lm_lss_sci_flux_1d]{\PROD{LM_LSS_SCI_FLUX_1D}}: coadded, wavelength + flux 1D spectrum\\
                 & (\FITS{PRO_CATG}: \FITS{LM_LSS_1d_coadd_wavecal}) \\
-Expected accuracies: & (TBD)\\
+Expected accuracies: & & for wavelength: 1/10th of a pixel after post-processing\\
+            & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+            & for flux: 10\% over an atmospheric band \\
+            & $<30$\% absolute line flux accuracy\\
+            & $<5$\% absolute flux calibration \\
+            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
+            &Telluric removal must be good enough to reach the required spectro-photometric accuracy (10\% within an atmospheric band). Desired: 2\% (\cite{METIS-calibration_plan})\\
 QC1 parameters: & \hyperref[qc:qc_lm_lss_sci_snr]{\QC{QC LM LSS SCI SNR}}: Signal-to-noise ration of science spectrum\\
                 & \hyperref[qc:qc_lm_lss_sci_noiselev]{\QC{QC LM LSS SCI NOISELEV}}: Noise level of science spectrum\\
                 & \hyperref[qc:qc_lm_lss_sci_flux_snr]{\QC{QC LM LSS SCI FLUX SNR}}: Signal-to-noise ration of flux calibrated  science spectrum\\
