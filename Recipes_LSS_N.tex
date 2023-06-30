@@ -26,7 +26,7 @@ The recipe \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} aims to creat
 Name:		& \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
 Purpose:	& Spectroscopic flatfielding with \ac{RSRF} \\
 Type:		& Calibration\\
-Requirements: & None \\
+Requirements: & METIS-6084, METIS-3291 \\
 Templates:           & \TPL{METIS_spec_n_cal_rsrf} \\
 Input data:     & $N\times$ \hyperref[dataitem:n_lss_rsrf_raw]{\RAW{N_LSS_RSRF_RAW}} \\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
@@ -112,7 +112,7 @@ Please note that the procedure of the \ac{STD} handling changes when the classic
 Name:		& \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
 Purpose:	& Flux calibration \\
 Type:		& Calibration\\
-Requirements: & METIS-6084, METIS-6074 \\
+Requirements: & METIS-6084, METIS-6074, METIS-2757 \\
 Templates:      & \TPL{METIS_spec_n_acq}, \\
                 & \TPL{METIS_spec_lmn_acq}, \\
                 & \TPL{METIS_spec_N_cal_standard}\\
