@@ -267,7 +267,6 @@ Additionally, the optimal extraction (PSF-weighting) will be used to subtract th
 %\end{figure}
 
 \subsubsection{IFU Wavelength calibration and distortion correction}\label{ssec:criticalwavelengthanddistortionifu}
-\TODO{Should this be moved to Appendix and replaced by short summary here?}
 \input{CritAlgo_IFUdist}
 
 \subsection{Telluric correction}\label{ssec:criticaltelluriccorrection}
@@ -555,29 +554,10 @@ As an approximation, the pixel noises could be treated as uncorrelated, in which
 If $\mat{C}$ were further approximated by the unit matrix (giving an unweighted least-squares reconstruction),
 $\mat{S}$ would be independent of the data and could be reused and even be provided as a static calibration in the METIS pipeline.
 
-\subsection{IFU data rate}\label{ssec:criticalifudatarate}
-
-\TODO{Text below is based on the PDR DRS and needs to be updated.
-In particular verify the table still makes sense. See data rate document. Add arguments to make this a non-issue.}
+\subsection{Data rates}
+\label{ssec:criticalifudatarate}
 \label{ssec:ifu_data_rate}
 
-For very bright sources, the LM band spectrograph will have to operate
-with very short exposures, resulting in a high data rate of up to
-$1000\,\mathrm{MiB\,s^{-1}}$ (cf.~Table~\ref{tab:data_rates}). This
-high data rate may present a problem for the observatory pipeline
-which has to deal with the data in real time.  The observatory
-pipeline does not have to perform a full data reduction as described
-in Sect.~\ref{sssec:ifu_sci_process}, but merely compute a number of
-quality control parameters to assess the quality of the data. In the
-course of the development of the observatory recipe dealing with IFU
-science data, the question of data rates will need to be
-considered. If necessary, the performance of the recipe may need to be
-reduced if a high data stream is to be expected. Another option might
-be to compute QC parameters only on a subset of incoming frames.
-
-% \begin{center}
-%   \renewcommand{\arraystretch}{1.3}
-%   \captionof{table}{Data rates}\label{tab:data_rates}
 \begin{table}[ht]
   \centering
   \caption{Data rates}\label{tab:data_rates}
@@ -587,21 +567,40 @@ be to compute QC parameters only on a subset of incoming frames.
     \multicolumn{1}{|c|}{ }                       & \multicolumn{1}{c|}{[MiB s$^{-1}$]}     & \multicolumn{1}{c|}{[TiB]}                & \multicolumn{1}{c|}{[per 10h night]}         & \multicolumn{1}{c|}{[TiB]}                \\
     \hline\hline
     \textbf{Imager}                               &                                         &                                           &                                              &                                           \\
-    IMG\_LM (burst mode)                          & 200                                     & 5.49                                      & 0.15                                         & 0.85                                      \\
-    IMG\_N (burst mode)                           & 250                                     & 6.87                                      & 0.15                                         & 1.06                                      \\
-    IMG\_N  (half-cycle average)                  & 80                                      & 2.20                                      & 0.00                                         & 0.00                                      \\
+    IMG\_LM (burst mode)            & 200         & 5.49        & 0.10       & 0.85                                      \\
+    IMG\_N (burst mode)             & 182         & 4.99        & 0.10       & 1.06                                      \\
+    IMG\_N  (half-cycle average)    & 32          & 0.88        & 0.00       & 0.00                                      \\
+    IMG\_LMN  (parallel mode)       & 382         & 10.49       & 0.10       & 0.00                                      \\
     \hline
-    \textbf{Spectroscopy}                         &                                         &                                           &                                              &                                           \\
-    SPEC\_LM                                      & 200                                     & 5.49                                      & 0.08                                         & 0.42                                      \\
-    SPEC\_N                                       & 250                                     & 6.87                                      & 0.08                                         & 0.53                                      \\
-    IFU + IMG\_LM parallel (1)                    & 1000                                    & 27.46                                     & 0.15                                         & 4.23                                      \\
-    IFU + IMG\_LM parallel (2)                    & 55                                      & 1.52                                      & 0.38                                         & 0.59                                      \\
+    \textbf{Spectroscopy}          &                            &                      &                  &                                           \\
+    SPEC\_LM                       & 200         & 5.49         & 0.05       & 0.42                       \\
+    SPEC\_N                        & 182         & 4.99         & 0.05       & 0.53                       \\
+    SPEC\_LMN  (parallel mode)     & 382         & 10.49        & 0.06       & 0.00                                      \\
+    IFU + IMG\_LM parallel (IFU)   & 64          & 1.76         & 0.54       & 0.63                       \\
+    IFU + IMG\_LM parallel (IMG)   & 200         & 5.49         & 0.54       & 3.92                                      \\
     \hline
-%    \textbf{LM-band HR spectrograph}             & 0.12                                    & 4                                         & 144 GByte                                                                                \\
-%    \hline
   \end{tabular}
 \end{table}
-% \end{center}
+
+
+For very bright sources, the LM band spectrographs will have to operate with very
+short exposures, resulting in a high data rate (cf.~Table~\ref{tab:data_rates},
+values taken from \cite{METIS-data_rates}).
+This is a potential problem for the observatory pipeline which has to deal with
+the data in semi-real time, meaning that no backlog of pending data
+reductions should accumulate.
+
+However, the observatory pipeline does not have to perform a full data reduction
+as described in Sect.~\ref{sssec:ifu_sci_process}, but foremost compute a number
+of quality control parameters to assess the quality of the data and a
+"quick-look" at the data for the observers. In the course of the development of
+the observatory recipes, the details on how individual parts of the pipeline
+perform will become clear and there will be enough freedom in the choice of
+parameters to, if necessary, reduce the performance of the recipe if a high data
+stream is to be expected. Another option might be to compute QC parameters only
+on a subset of incoming frames.
+
+This is in compliance with \REQ{METIS-6075}.
 
 
 % Additional critical algos
