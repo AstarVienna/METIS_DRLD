@@ -101,6 +101,47 @@ are required for each instrument mode.
 %%%
 \input{Overview_IFU}
 
+\subsection{Parallel Observing Modes}
+\label{ssec:combinedmodes}
+
+There are three parallel observing modes:
+
+\begin{itemize}
+\item Parallel observing mode IMG-LM and IMG-N (Section~\ref{sssec:parallellmnimg})
+\item Parallel observing mode LSS-LM and LSS-N (Section~\ref{sssec:parallellmnspec})
+\item Parallel observing mode IMG-LM and IFU (Section~\ref{sssec:parallellmnspec})
+\end{itemize}
+
+The respective templates corresponding to these modes will produce raw data files that can be processed independently by the relevant workflows.
+That is, the templates will trigger two different recipe cascades, and there are no specific recipes for any of the parallel observing modes.
+
+\subsubsection{Parallel observing mode IMG-LM and IMG-N}\label{sssec:parallellmnimg}
+There are two specific templates for parallel imaging observations in the LM-band and N-band:
+\begin{itemize}
+ \item \TPL{METIS_img_lmn_obs_AutoChopNod}
+ \item \TPL{METIS_img_lmn_obs_GenericChopNod}
+\end{itemize}
+These templates produce two kind of raw images that are processed independently in either the LM-band or N-band imaging workflow.
+This fulfills \REQ{METIS-7244}.
+
+
+\subsubsection{Parallel observing mode LSS-LM and LSS-N}\label{sssec:parallellmnspec}
+There is one specific template for parallel LSS observations in the LM-band and N-band:
+\begin{itemize}
+ \item \TPL{METIS_spec_lmn_obs_AutoChopNodOnSlit}
+\end{itemize}
+These templates produce two kind of raw images that are processed independently in either the LM-band or N-band LSS workflow.
+This fulfills \REQ{METIS-7245}.
+
+\subsubsection{Parallel observing mode IMG-LM and IFU}\label{sssec:parallellmifu}
+Parallel observing mode IMG-LM and IFU is also needed to perform non-common path pointing and aberration correction in \ac{HCI} modes:
+real-time monitoring of non-common path aberrations between the \ac{SCAO} \ac{WFS} and the \ac{HCI} elements cannot be performed with the \ac{IFU} due to slicing and sampling issues.
+
+The IFU pickoff optic is a beamsplitter with a transmission of ~10\% to the LM imager and a reflectivity of ~90\% to the IFU. % https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-3111
+LM-band images can therefore be taken in parallel with the IFU exposures, for any of the IFU templates.
+The LM-band images and IFU exposures are processed independently.
+This fulfills \REQ{METIS-6072}.
+
 %%% Local Variables:
 %%% TeX-master: "METIS_DRLD"
 %%% End:

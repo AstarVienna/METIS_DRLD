@@ -115,8 +115,19 @@ Basic statistics of the images can be used to screen for saturation.
                     & \TPL{METIS_img_lm_app_obs_FixedOffset} \\
                     & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
                     & \TPL{METIS_img_lm_cal_psf}             \\
+                    % LMN combined templates:
                     & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
                     & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
+                    % All IFU templates also create an LM image:
+                    & \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
+                    & \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
+                    & \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
+                    & \TPL{METIS_ifu_ext_obs_GenericOffset}                                                    \\
+                    & \TPL{METIS_ifu_vc_obs_FixedSkyOffset}                                                    \\
+                    & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset}                                                \\
+                    & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
+                    & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
+                    & \TPL{METIS_ifu_cal_psf}                                                                  \\
   Input data:       & \hyperref[dataitem:lm_image_raw]{\RAW{LM_IMAGE_RAW}} (Dithered images (standard, science) \\
                      & \hyperref[dataitem:ifu_sky_raw]{\RAW{IFU_SKY_RAW}} (Blank sky images, if available.) \\
                     & \hyperref[dataitem:lm_detector_mask]{\EXTCALIB{LM_DETECTOR_MASK}} (if available)  \\
