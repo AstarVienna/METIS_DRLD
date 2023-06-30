@@ -267,7 +267,7 @@ Parameters: 	& \texttt{molecfit} parameters (c.f. \cite{molecfit})\\
 Algorithm:      & Fit of telluric features visible in the science input spectrum\\
                 & Determination of best-fit parameter set\\
 Output data:	& \hyperref[dataitem:mf_best_fit_tab]{\PROD{MF_BEST_FIT_TAB}}\\
-Expected accuracies: & (TBD)\\
+Expected accuracies: & n/a\\
 QC1 parameters: & cf. \cite{molecfit}\\
 \end{recipedef}
 
@@ -295,7 +295,7 @@ Parameters: 	& \texttt{molecfit} parameters (c.f.  \cite{molecfit})\\
 Algorithm:      & Calculate the entire transmission curve by means of the best-fit parameters\\
 Output data:	& \hyperref[dataitem:n_lss_synth_trans]{\PROD{N_LSS_SYNTH_TRANS}}\\
 \\
-Expected accuracies: & (TBD)\\
+Expected accuracies: & n/a\\
 QC1 parameters: & cf. \cite{molecfit}\\
 \end{recipedef}
 
@@ -321,7 +321,7 @@ Parameters: 	& None\\
 Algorithm:      & Apply telluric correction, i.e. divide the input science spectrum\\
                 & by the synthetic transmission\\
 Output data:	& \hyperref[dataitem:n_lss_sci_flux_tellcorr_1d]{\PROD{N_LSS_SCI_FLUX_TELLCORR_1D}}\\
-Expected accuracies: & (TBD)\\
+Expected accuracies: & Telluric removal must be good enough to reach the required spectro-photometric accuracy (10\% within an atmospheric band). Desired: 2\% (\cite{METIS-calibration_plan})\\
 QC1 parameters: & cf. \cite{molecfit}\\
 \end{recipedef}
 
