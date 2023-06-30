@@ -13,7 +13,7 @@ from ..drld_parser.data_reduction_library_design import (
 )
 from ..drld_parser.hacks import (
     TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI,
-    HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT,
+    HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT, HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING,
 )
 from ..drld_parser.template_manual import METIS_TemplateManual
 
@@ -108,6 +108,7 @@ class TestDataReductionLibraryDesign:
             name
             for name in names_used
             if name not in names_existing and name.lower() not in names_existing_lower
+               and name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING
         ]
 
         assert (

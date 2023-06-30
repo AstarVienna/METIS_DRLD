@@ -205,6 +205,12 @@ HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT = {
     "metis_img_chophome",
 }
 
+HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING = {
+    # We commented out the persistence recipe for now, because it is
+    # not well-defined enough to include for the internal review.
+    "metis_det_persistence",
+}
+
 
 def hack_rename_template_header(name_template_file, name_template_header):
     """Some template files on the wiki have incorrect headers.
