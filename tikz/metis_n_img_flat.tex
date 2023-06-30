@@ -80,12 +80,12 @@
   \node (connectflat) [connection] at
   ($(step_fit)!0.3!(stop-t)$){};
   \node (flatout) [right=of connectflat,calproduct]{%
-    \hyperref[dataitem:master_img_flat_geo]{\STATCALIB{MASTER_IMG_FLAT_GEO}};
+    \hyperref[dataitem:master_img_flat_geo]{\STATCALIB{MASTER_IMG_FLAT_GEO}}};
   \draw (connectflat) -- (flatout);
 
   \node (connectbpm) [below=0.65cm of connectflat, connection]{};
   \node (bpmout) [right=of connectbpm, calproduct]{%
-    \hyperref[dataitem:badpix_map_geo]{\STATCALIB{BADPIX_MAP_GEO}};
+    \hyperref[dataitem:badpix_map_geo]{\STATCALIB{BADPIX_MAP_GEO}}};
   \draw (connectbpm) -- (bpmout);
 
   %% Frame around recipe
