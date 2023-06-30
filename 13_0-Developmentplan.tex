@@ -57,6 +57,15 @@ It is planned to monitor the status of pipeline software implementation in regul
     \end{itemize}
 \end{enumerate}
 
+The pipeline skeleton consists of the recipes \emph{shells}, i.e.~the executable
+code that takes the expected inputs and parameters and produces output files,
+albeit without actually performing any reductions; pixel values of input and
+outputs are just dummy values at this stage. The purpose of chain skeleton is to
+demonstrate the data flow but is otherwise empty from the algorithmic point of
+view. Depending on the release status of the \ac{EDPS}, the chain can be
+assembled with it. Otherwise a simple software integration environment of the
+METIS data flow team will be used for this purpose. 
+
 
 \subsection{METIS Preliminary Acceptance in Europe (PAE)}
 \label{ssec:pae_europe}
