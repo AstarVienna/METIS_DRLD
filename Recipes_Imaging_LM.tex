@@ -180,13 +180,13 @@ robust estimator of the mean (e.g.\ median).
 For extended objects, all out-of-field exposures will be averaged
 (with object rejection) and subtracted off the in-field exposures.
 
-\TODO{Object catalogues of the target exposures could be created within this
-recipe or in a separate recipe. The catalogue should contain for each
-object: pixel coordinates ($x$, $y$), world coordinates ($\alpha$,
-$\delta$) based on telescope pointing and derotator information, total
-counts within an aperture.}
-
-\TODO{Is this good enough for HCI images or do we need more?}
+% \TODO{Object catalogues of the target exposures could be created within this
+% recipe or in a separate recipe. The catalogue should contain for each
+% object: pixel coordinates ($x$, $y$), world coordinates ($\alpha$,
+% $\delta$) based on telescope pointing and derotator information, total
+% counts within an aperture.}
+%
+% \TODO{Is this good enough for HCI images or do we need more?}
 
 \begin{recipedef}
   Name:             & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}                             \\
@@ -382,12 +382,12 @@ values are in units of photons per second per centimetre squared. The
 header of each file receives keyword \FITS{BUNIT} with value %
 \CODE{'photon.s**(-1).cm**(-2)'}.
 
-\TODO{Other units may be possible, although additional information is
-  needed. For instance,\\ \CODE{photon.s**(-1).cm**(-2).arcsec**(-2)} makes
-  values independent of the pixel scale, but requires a distortion map
-  (variation of pixel scale across the detector). Energy units (erg
-  instead of photons) require knowledge of the spectral energy
-  distribution of the sources, in particular for broad-band filters.}
+% \TODO{Other units may be possible, although additional information is
+%   needed. For instance,\\ \CODE{photon.s**(-1).cm**(-2).arcsec**(-2)} makes
+%   values independent of the pixel scale, but requires a distortion map
+%   (variation of pixel scale across the detector). Energy units (erg
+%   instead of photons) require knowledge of the spectral energy
+%   distribution of the sources, in particular for broad-band filters.}
 
 LM-band imaging observations will be performed in pupil-tracking mode
 \cite{METIS-operational_concept}, which means that the field rotates
