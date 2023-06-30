@@ -1,9 +1,9 @@
-% Document preamble. Comment out for final figure! Footer too!
-\documentclass[tikz, margin=5mm, dvipsnames]{standalone}
-\usepackage{listings}
-\input{black_style}
-\input{styles_data}
-\begin{document}
+% % Document preamble. Comment out for final figure! Footer too!
+% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+% \usepackage{listings}
+% \input{black_style}
+% \input{styles_data}
+% \begin{document}
 
 \input{black_style}
 \input{recipe_config}
@@ -16,83 +16,85 @@
   node distance=2cm and 3.5cm]
   \sffamily
 
-  %% Grid for orientation. Comment out for final figure!
-  % \draw[help lines, green](-5, 0) grid (8, 11);
+%   % Grid for orientation. Comment out for final figure!
+%   \draw[help lines, green](-5, 0) grid (8, 11);
 
   %%% Put workflow commands here:
   %% Main reduction workflow
 
   \node (template) [template]{%
-    METIS\_img\_lm\_cal\_DetLin\\
-    METIS\_img\_n\_cal\_DetLin\\
-    METIS\_ifu\_cal\_DetLin};
+    \TPL{METIS\_img\_lm\_cal\_DetLin}\\
+    \TPL{METIS\_img\_n\_cal\_DetLin}\\
+    \TPL{METIS\_ifu\_cal\_DetLin}};
 
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input] {%
-    \textsl{N} FLAT,LAMP\\
-    DARK (FLAT,OFF)};
+    \textsl{N} \RAW{DETLIN_det_RAW}\\
+    \RAW{det_WCU_OFF_RAW}};
 
-  \node (step1) [below=1.5cm of input, redstep]{%
+  \node (step_persistence) [below=2.0cm of input, redstep] {%
+    apply persistence correction};
+
+  \node (step_dark) [below of=step_persistence, redstep]{%
     subtract dark};
 
-  \node (step2) [below of=step1, redstep]{%
+  \node (step_gain) [below of=step_dark, redstep]{%
     compute gain};
 
-  \node (step3) [below of=step2, redstep]{%
+  \node (step_linearity) [below of=step_gain, redstep]{%
     linearity check};
 
-  \node (step4) [below of=step3, redstep]{%
+  \node (step_thresholding) [below of=step_linearity, redstep]{%
     thresholding};
 
-  \pic (stop) [below=2.5cm of step4]{stop};
+  \pic (stop) [below=2.5cm of step_thresholding]{stop};
 
   %% Connections
   \draw (template) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (step2);
-  \draw (step2) -- (step3);
-  \draw (step3) -- (step4);
-  \draw (step4) -- (stop-t);
+  \draw (input) -- (step_persistence);
+  \draw (step_persistence) -- (step_dark);
+  \draw (step_dark) -- (step_gain);
+  \draw (step_gain) -- (step_linearity);
+  \draw (step_linearity) -- (step_thresholding);
+  \draw (step_thresholding) -- (stop-t);
 
   %% Other input
-  \node (connectpers) [connection] at
-  ($(input)!0.35!(step1)$){};
-  \node (persistence) [left=of connectpers, external]{%
-    PERSISTENCE\_MAP};
-  \draw (persistence) -- (connectpers);
+  \node (connect_persistence) [connection] at ($(input)!0.65!(step_persistence)$){};
+  \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
+  \draw (persistence) -- (connect_persistence);
 
-  \node (params) [left=of step4.center, params]{%
+  \node (params) [left=of step_thresholding.center, params]{%
     Recipe params:\\
     THRESH\_LOWLIM\\
     THRESH\_UPLIM};
-  \draw (params) -- (step4);
+  \draw (params) -- (step_thresholding);
 
   %% Output
   \node (connectgain) [connection] at
-  ($(step2)!0.5!(step3)$){};
+  ($(step_gain)!0.5!(step_linearity)$){};
   \node (gainmap) [right=of connectgain, calproduct]{%
-    GAIN\_MAP\_det};
+    \STATCALIB{GAIN\_MAP\_det}};
   \draw (connectgain) -- (gainmap);
 
   \node (connectlin) [connection] at
-  ($(step3)!0.5!(step4)$) {};
+  ($(step_linearity)!0.5!(step_thresholding)$) {};
   \node (linearity) [right=of connectlin, calproduct]{%
-    LINEARITY\_det};
+    \STATCALIB{LINEARITY\_det}};
   \draw (connectlin) -- (linearity);
 
   \node (connectbpm) [connection] at
-  ($(step4)!0.35!(stop-t)$) {};
+  ($(step_thresholding)!0.35!(stop-t)$) {};
   \node (bpm) [right=of connectbpm, calproduct]{%
-    BADPIX\_MAP\_det};
+    \STATCALIB{BADPIX\_MAP\_det}};
   \draw (connectbpm) -- (bpm);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.5!(step1) - (2.75cm,0)$) rectangle ($(step4)!0.5!(stop-t) + (2.75cm, 0)$);
+  \draw [frame] ($(input)!0.4!(step_persistence) - (2.75cm,0)$) rectangle ($(step_thresholding)!0.5!(stop-t) + (2.75cm, 0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.5!(step1) - (2.75cm,0)$){\textsl{metis\_det\_lingain}};
+  ($(input)!0.4!(step_persistence) - (2.75cm,0)$){\textsl{metis\_det\_lingain}};
 \end{tikzpicture}
 
 
-% Document footer. Comment out for final figure! Header too!
-\end{document}
+% % Document footer. Comment out for final figure! Header too!
+% \end{document}

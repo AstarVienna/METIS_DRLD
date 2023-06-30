@@ -29,7 +29,7 @@
     apply non-linearity correction};
 
   \node (connectlinearity) [connection] at ($(input)!0.65!(step_linearity)$){};
-  \node (linearity) [left=of connectlinearity, external]{\EXTCALIB{LINEARITY_det}};
+  \node (linearity) [left=of connectlinearity, external]{\STATCALIB{LINEARITY_det}};
   \draw (linearity) -- (connectlinearity);
 
   \node (step_persistence) [below of=step_linearity, redstep] {%
