@@ -29,9 +29,9 @@
 
   %% input box
   \node (input) [below=0.75cm of start-m, input] {%
-    \textsl{N} \RAW{LM\_SCI\_RAW} \\
-    \textsl{N} \RAW{LM\_STD\_RAW} \\
-    \textsl{M} \RAW{IFU_SKY_RAW}};
+    \textsl{N} \hyperref[dataitem:lm_sci_raw]{\RAW{LM_SCI_RAW}} \\
+    \textsl{N} \hyperref[dataitem:lm_std_raw]{\RAW{LM_STD_RAW}} \\
+    \textsl{M} \hyperref[dataitem:ifu_sky_raw]{\RAW{IFU_SKY_RAW}}};
 
 
   %% algorithm steps
@@ -69,13 +69,13 @@
   \node (connect_linearity) [connection] at
   ($(input)!0.65!(step_linearity)$){};
   \node (linearity) [left=of connect_linearity, external]{%
-    \EXTCALIB{LINEARITY_det}};
+    \hyperref[dataitem:linearity_det]{\EXTCALIB{LINEARITY_det}}};
   \draw (linearity) -- (connect_linearity);
 
   \node (connect_persistence) [connection] at
   ($(step_linearity)!0.5!(step_persistence)$){};
   \node (persistence) [left=of connect_persistence, external]{%
-    \EXTCALIB{PERSISTENCE\_MAP}};
+    \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}};
   \draw (persistence) -- (connect_persistence);
 
 %   \node (connectparams) [connection] at
@@ -88,19 +88,19 @@
   \node (connect_masterdark) [connection] at
   ($(step_persistence)!0.5!(step_dark)$){};
   \node (masterdark) [left=of connect_masterdark, calproduct]{%
-    \STATCALIB{MASTER\_DARK\_2RG}};
+    \hyperref[dataitem:master_dark_2rg]{\STATCALIB{MASTER_DARK_2RG}}};
   \draw (masterdark) -- (connect_masterdark);
 
   \node (connect_masterflat) [connection] at
   ($(step_dark)!0.5!(step_flat)$){};
   \node (flatin) [left=of connect_masterflat, calproduct]{%
-    \STATCALIB{MASTER\_FLAT\_2RG}};
+    \hyperref[dataitem:master_flat_2rg]{\STATCALIB{MASTER_FLAT_2RG}}};
   \draw (flatin) -- (connect_masterflat);
 
   \node (connect_bpm) [connection] at
   ($(step_flat)!0.5!(step_masks)$){};
   \node (bpmin) [left=of connect_bpm, calproduct]{%
-    \STATCALIB{BADPIX\_MAP\_2RG}};
+    \hyperref[dataitem:badpix_map_2rg]{\STATCALIB{BADPIX_MAP_2RG}}};
   \draw (bpmin) -- (connect_bpm);
 
 
@@ -108,13 +108,13 @@
   \node (connect_scired) [connection] at
     ($(step_masks)!0.3!(stop-t)$){};
   \node (scired) [right=of connect_scired, external]{%
-    \PROD{LM\_SCI\_BASIC\_REDUCED}};
+    \hyperref[dataitem:lm_sci_basic_reduced]{\PROD{LM_SCI_BASIC_REDUCED}}};
   \draw (connect_scired) -- (scired);
 
   \node (connect_stdred) [connection] at
     ($(connect_scired)!0.5!(stop-t)$){};
   \node (stdred) [right=of connect_stdred, external]{%
-    \PROD{LM\_STD\_BASIC\_REDUCED}};
+    \hyperref[dataitem:lm_std_basic_reduced]{\PROD{LM_STD_BASIC_REDUCED}}};
   \draw (connect_stdred) -- (stdred);
 
 

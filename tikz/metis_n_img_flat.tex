@@ -68,24 +68,24 @@
   \node (connectbpm) [connection] at
   ($(step_persistence)!0.3!(step_signature)$){};
   \node (bpmin) [left=of connectbpm, calproduct]{%
-    \hyperref[dataitem:badpix_map_2rg]{\STATCALIB{BADPIX_MAP_GEO}}};
+    \hyperref[dataitem:badpix_map_geo]{\STATCALIB{BADPIX_MAP_GEO}}};
   \draw (bpmin) -- (connectbpm);
 
   \node (connection_masterdark) [connection] at
   ($(step_persistence)!0.7!(step_signature)$){};
   \node (darkin) [left=of connection_masterdark, calproduct]{%
-    \hyperref[dataitem:master_dark_2rg]{\STATCALIB{MASTER_DARK_GEO}}};
+    \hyperref[dataitem:master_dark_geo]{\STATCALIB{MASTER_DARK_GEO}}};
   \draw (darkin) -- (connection_masterdark);
 
   \node (connectflat) [connection] at
   ($(step_fit)!0.3!(stop-t)$){};
   \node (flatout) [right=of connectflat,calproduct]{%
-    \STATCALIB{MASTER\_IMG\_FLAT\_GEO};
+    \hyperref[dataitem:master_img_flat_geo]{\STATCALIB{MASTER_IMG_FLAT_GEO}};
   \draw (connectflat) -- (flatout);
 
   \node (connectbpm) [below=0.65cm of connectflat, connection]{};
   \node (bpmout) [right=of connectbpm, calproduct]{%
-    \STATCALIB{BADPIX\_MAP\_GEO};
+    \hyperref[dataitem:badpix_map_geo]{\STATCALIB{BADPIX_MAP_GEO}};
   \draw (connectbpm) -- (bpmout);
 
   %% Frame around recipe
