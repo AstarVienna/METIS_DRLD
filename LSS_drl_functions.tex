@@ -297,6 +297,26 @@ Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
+%---------------------------------------------------------------------
+\subsubsection{Apply wavelength calibration}\label{drl:applywavecal}
+\begin{recipedef}
+Name: & \hyperref[drl:applywavecal]{\DRL{apply_wavecal}}\\
+Purpose: & applies \hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}}\\
+Used in recipes: & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \newline
+                 \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+%Input FITS files: & None \\
+Inputs: & \texttt{const hdrl\_spectrum1D * input}\\
+%QC outputs: & None \\
+%Output FITS files: & None \\
+Other outputs: & \texttt{cpl\_error\_code} \\
+General description: & Applies the first guess wavelength calibration to LM LSS data \\
+%Mathematical description: & Applies projection from detector space to $(y, \lambda)$-space\\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
 
 %---------------------------------------------------------------------
 \subsubsection{Apply flux calibration}\label{drl:applyfluxcal}
