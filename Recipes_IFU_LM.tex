@@ -213,6 +213,29 @@ the same echelle order. For the extended mode, slices belonging to the
 same echelle order are grouped and processing is iterated over the
 echelle orders.
 
+% from https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-9141
+For the LM band detectors in the IFU, the pixels on the edges of the detectors shall be masked with the following widths \cite{matisse_minutes} (\REQ{METIS-9141}) (Fig.~\ref{fig:ifu_detector_masking}):
+\begin{itemize}
+\item 64 columns on each ``outside'' of the 2x2 detector array in the dispersion direction
+\item 0 columns on each ``inside'' of the 2x2 detector array in the dispersion direction
+\item 32 rows at the top and bottom of each of the 4 detectors.
+\end{itemize}
+Note: We define rows and columns in the H2RG detector as follow:
+\begin{itemize}
+\item A row is readout by 32 outputs
+\item A column is readout by 1 output
+\end{itemize}
+
+\begin{figure}[hb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{LMS_detector_masking}
+  \caption[Recipe: \REC{metis_ifu_sci_process}]{%
+    The IFU masking scheme. Masked regions are in light blue.}
+  \label{fig:ifu_detector_masking}
+\end{figure}
+
+
+
 The level of stray light is estimated in the dark areas between the
 spectra and subtracted from the entire frame. The distribution of
 stray light across the field can only be characterised once the
@@ -276,7 +299,7 @@ that are taken in parallel with the IFU exposures, similar to
 \begin{recipedef}
 Name:                & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}                                                              \\
 Purpose:             & Reduction of individual science exposures.                                               \\
-Requirements:        & \REQ{METIS-6131}                                                                         \\
+Requirements:        & \REQ{METIS-6131}, \REQ{METIS-6309}                                                       \\
 Type:                & Science                                                                                  \\
 Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
                      & \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
@@ -304,6 +327,7 @@ Input data:          & \hyperref[dataitem:ifu_sci_raw]{\RAW{IFU_SCI_RAW}} (Dithe
 Parameters:          & telluric correction (yes/no)                                                             \\
                      & more TBD                                                                                 \\
 Algorithm:           & Subtract dark, divide by master flat                                                     \\
+                     & Analyse and optionally remove masked regions and correct crosstalk and ghosts \\
                      & Estimate stray light and subtract                                                        \\
                      & Estimate background from dithered science exposures or blank-sky exposures and subtract. \\
                      & Apply flux calibration.                                                                  \\

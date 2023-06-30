@@ -100,12 +100,17 @@ LM-band imager, i.e.\ dark subtraction, flat fielding and other removing
 instrumental signals. It is used for both standard and science exposures.
 
 This recipe analyses the masked detector regions for channel offset correction, crosstalk (see \cite{matisse_minutes}) and removal of detector artefacts (electronic ghosts).
+In the horizontal dimension, the masked pixels are used to correct for each channel offset.
+In the vertical dimension, the masked pixels are used to correct for cross-talk.
+% From Rof https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-6089
+% I am not sure whether the masked region should be removed from pipeline products (at least not as in this very general statement). For some products, it can be useful to inspect the masked regions and that would be much more cumbersome if they were removed from products that have undergone any form or processing. I would remove the last sentence from the requirement, or at least rephrase it. For some or even most of the high-level products, the masked region would be a nuisance if present so for most pipeline products one would indeed like to have it removed
 
 Basic statistics of the images can be used to screen for saturation.
 
 \begin{recipedef}
   Name:             & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}   \\
   Purpose:          & apply basic reduction of images   \\
+  Requirements:     & \REQ{METIS-6090} \\
   Type:             & Calibration, Science              \\
   Templates:        & \TPL{METIS_img_lm_cal_standard}  \\
 %                     & \TPL{METIS_img_lm_*_obs_*}       \\
@@ -136,7 +141,7 @@ Basic statistics of the images can be used to screen for saturation.
   Matched keywords: & DIT (for dark)                    \\
                     & Filter ID (for flat)              \\
   Algorithm:        & Remove crosstalk, correct non-linearity \\
-                    & Analyse and remove masked regions  \\
+                    & Analyse and optionally remove masked regions  \\
                     & Subtract dark, divide by flat       \\
                     & Remove blank sky pattern                \\
   Output data:      & \hyperref[dataitem:lm_sci_basic_reduced]{\PROD{LM_SCI_BASIC_REDUCED}}       \\
