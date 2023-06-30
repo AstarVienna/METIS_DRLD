@@ -118,7 +118,11 @@ final chop-nod difference image. Otherwise, the master flat will have
 to be divided into the chop half-cycle images before the jitter
 correction is applied.
 
+% https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-3091
 This recipe analyses the masked detector regions for channel offset correction, crosstalk (see \cite{matisse_minutes}) and removal of detector artefacts (electronic ghosts).
+The edges of the N-band detector shall be behind a cold mask on all four sides.
+%The width of the mask shall be at least 26 pixels and no larger than 32 pixels.
+
 
 \begin{recipedef}
   Name:              & \hyperref[rec:metis_n_img_chopnod]{\REC{metis_n_img_chopnod}}                                    \\
@@ -139,7 +143,7 @@ This recipe analyses the masked detector regions for channel offset correction, 
                      & Chop position                                                \\
                      & Nod position                                                 \\
   Parameters:        & TBD                                                          \\
-  Algorithm:         & Analyse and remove masked regions and ghosts \\
+  Algorithm:         & Analyse and optionally remove masked regions and correct crosstalk and ghosts \\
                      & Add/subtract images to subtract background                   \\
   Output data:       & \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}                                  \\
                      & \hyperref[dataitem:n_std_bkg_subtracted]{\PROD{N_STD_BKG_SUBTRACTED}}                                  \\
