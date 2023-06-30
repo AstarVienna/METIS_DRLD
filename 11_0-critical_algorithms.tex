@@ -598,14 +598,17 @@ $\mat{S}$ would be independent of the data and could be reused and even be provi
 \end{table}
 
 
-For very bright sources, the LM band spectrographs will have to operate with very
-short exposures, resulting in a high data rate (cf.~Table~\ref{tab:data_rates},
-values taken from \cite{METIS-data_rates}).
-This is a potential problem for the observatory pipeline which has to deal with
-the data in semi-real time, meaning that no backlog of pending data
-reductions should accumulate.
+Observing with the shortest possible exposure times, for bright targets,
+results in high data rates (cf.~Table~\ref{tab:data_rates}, values taken from
+\cite{METIS-data_rates}). This is a potential problem for the observatory
+pipeline which has to deal with the data in semi-real time, meaning that no
+backlog of pending data reductions should accumulate.
 
-However, the observatory pipeline does not have to perform a full data reduction
+However, the maximum estimated data rate for a single mode has decreased by a
+factor of four between PDR and FDR because the rate by which the IFU detectors
+can be read out has been decreased. This helps ameliorate the issue. 
+
+In addition, the observatory pipeline does not have to perform a full data reduction
 as described in Sect.~\ref{sssec:ifu_sci_process}, but foremost compute a number
 of quality control parameters to assess the quality of the data and a
 "quick-look" at the data for the observers. In the course of the development of
@@ -614,6 +617,7 @@ perform will become clear and there will be enough freedom in the choice of
 parameters to, if necessary, reduce the performance of the recipe if a high data
 stream is to be expected. Another option might be to compute QC parameters only
 on a subset of incoming frames.
+
 
 This is in compliance with \REQ{METIS-6075}.
 
