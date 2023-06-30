@@ -101,7 +101,7 @@ The recipes \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} (F
 Name:		& \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \\
 Purpose:	& Determination of the \ac{ADC} induced slit losses \\
 Type:		& Calibration\\
-%Requirements: & TBD \\
+Requirements: &  METIS-6074, METIS-2757, METIS-9099\\
 Templates:           & \TPL{METIS_spec_lm_cal_SlitAdc} \\
 Input data:     & \hyperref[dataitem:lm_slitlosses_raw]{\RAW{LM_SLITLOSSES_RAW}} \\
                 & \hyperref[dataitem:lm_wcu_off_raw]{\RAW{LM_WCU_OFF_RAW}} \\
@@ -111,7 +111,7 @@ Input data:     & \hyperref[dataitem:lm_slitlosses_raw]{\RAW{LM_SLITLOSSES_RAW}}
                 & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
                 & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
                 & \hyperref[dataitem:master_img_flat_lm]{\PROD{MASTER_IMG_FLAT_LM}}  \\
-Parameters: 	& TBD\\
+%Parameters: 	& TBD\\
 Algorithm:      & remove detector signature\\
                 & remove dark\\
                 & apply flatfield\\
@@ -119,7 +119,10 @@ Algorithm:      & remove detector signature\\
                 & apply aperture photometry\\
                 & calculate (simple) slitloss model (details to be defined)\\
 Output data:	& \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}} (Slit loss model as function of the wavelength and object position across the slit \\
-Expected accuracies: & 3\% (cf. \cite{METIS_calerrbudget})\\
+Expected accuracies: & Requirements: & for flux calibration: 10\% over an atmospheric band \\
+            & $<30$\% absolute line flux accuracy\\
+            & $<5$\% absolute flux calibration \\
+            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
 QC1 parameters: & \QC{TBD}: TBD\\
 \end{recipedef}
 
@@ -136,8 +139,7 @@ QC1 parameters: & \QC{TBD}: TBD\\
 Name:		& \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} \\
 Purpose:	& Determination of the \ac{ADC} induced slit losses \\
 Type:		& Calibration\\
-Requirements: & TBD \\
-Templates:           & \TPL{METIS_spec_n_cal_slit} \\
+Requirements: & METIS-6074, METIS-2757, METIS-9099 \\
 Input data:     & \hyperref[dataitem:n_slitlosses_raw]{\RAW{N_SLITLOSSES_RAW}} \\
                 & \hyperref[dataitem:n_wcu_off_raw]{\RAW{N_WCU_OFF_RAW}} \\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
@@ -146,7 +148,7 @@ Input data:     & \hyperref[dataitem:n_slitlosses_raw]{\RAW{N_SLITLOSSES_RAW}} \
                 & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}  \\
                 & \hyperref[dataitem:master_dark_geo]{\PROD{MASTER_DARK_GEO}}  \\
                 & \hyperref[dataitem:master_img_flat_n]{\PROD{MASTER_IMG_FLAT_N}}  \\
-Parameters: 	& TBD\\
+%Parameters: 	& TBD\\
 Algorithm:      & remove detector signature\\
                 & remove dark\\
                 & apply flatfield\\
@@ -154,7 +156,10 @@ Algorithm:      & remove detector signature\\
                 & apply aperture photometry\\
                 & calculate (simple) slitloss model (details to be defined)\\
 Output data:	& \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}} (Slit loss model as function of the wavelength and object position across the slit) \\
-Expected accuracies: & 3\% (cf. \cite{METIS_calerrbudget})\\
+Expected accuracies: & Requirements: & for flux calibration: 10\% over an atmospheric band \\
+            & $<30$\% absolute line flux accuracy\\
+            & $<5$\% absolute flux calibration \\
+            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
 QC1 parameters: & \QC{TBD}: TBD\\
 \end{recipedef}
 
