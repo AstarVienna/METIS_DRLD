@@ -1,8 +1,15 @@
-\documentclass[tikz, margin=5mm]{standalone}
+% % Document preamble. Comment out for final figure! Footer too!
+% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+% \usepackage{hyperref}
+% \usepackage{listings}
+% \input{black_style}
+% \input{styles_data}
+% \begin{document}
 
+
+\input{black_style}
 \input{recipe_config}
 
-\begin{document}
 
 \begin{tikzpicture}
   [x=1cm,
@@ -11,59 +18,67 @@
   node distance=2cm and 3.5cm]
   \sffamily
 
-  %% Grid for orientation. Comment out for final figure!
-  % \draw[help lines, green](-5, 0) grid (8, 11);
+%   % Grid for orientation. Comment out for final figure!
+%   \draw[help lines, green](-5, 0) grid (8, 11);
 
   %%% Put workflow commands here:
   %% Main reduction workflow
 
   \node (template) [template] {%
-    METIS\_img\_n\_cal\_InternalFlat\\
-    METIS\_img\_n\_cal\_TwilightFlat};
+    \TPL{METIS_img_n_cal_InternalFlat}\\
+    \TPL{METIS_img_n_cal_TwilightFlat}};
 
   \pic (start)[below=0.75cm of template]{start};
 
   \node (input) [below=0.75cm of start-m, input] {%
-    \textsl{N} N\_FLAT\_RAW};
+    \textsl{N} \hyperref[dataitem:n_flat_raw]{\RAW{N_FLAT_RAW}}};
 
-  \node (step1) [below=2.5cm of input, redstep]{%
+  \node (step_persistence) [below=2.0cm of input, redstep] {%
+    apply persistence correction};
+
+  \node (step_signature) [below=2.0cm of step_persistence, redstep]{%
     detector signature\\ removal};
 
-  \node (step2) [below of=step1, redstep]{%
+  \node (step_fit) [below of=step_signature, redstep]{%
     linear fit (slope)};
 
-  \pic (stop) [below=2.5cm of step2] {stop};
+  \pic (stop) [below=2.5cm of step_fit] {stop};
 
   %% Connections
   \draw (template) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (step2);
-  \draw (step2) -- (stop-t);
+  \draw (input) -- (step_persistence);
+  \draw (step_persistence) -- (step_signature);
+  \draw (step_signature) -- (step_fit);
+  \draw (step_fit) -- (stop-t);
 
   %% Output
   \node (connectpers) [connection] at
-  ($(input)!0.25!(step1)$){};
+  ($(input)!0.65!(step_persistence)$){};
   \node (persistence) [left=of connectpers, external]{%
-    PERSISTENCE\_MAP};
+    \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}};
   \draw (persistence) -- (connectpers);
 
-  \node (connectparams) [connection] at
-  ($(input)!0.7!(step1.north)$){};
-  \node (params) [left=of connectparams, params]{%
-    Recipe params:\\
-    INS.IMG.SETUP};
-  \draw (params) -- (connectparams);
+%   \node (connectparams) [connection] at
+%   ($(input)!0.7!(step_signature.north)$){};
+%   \node (params) [left=of connectparams, params]{%
+%     Recipe params:\\
+%     INS.IMG.SETUP};
+%   \draw (params) -- (connectparams);
 
-  \node (bpmin) [left=of step1.center, yshift=0.2cm, calproduct]{%
-    BADPIX\_MAP\_GEO};
-  \draw (bpmin.east) -- ++(1.5,0);
+  \node (connectbpm) [connection] at
+  ($(step_persistence)!0.3!(step_signature)$){};
+  \node (bpmin) [left=of connectbpm, calproduct]{%
+    \hyperref[dataitem:badpix_map_2rg]{\STATCALIB{BADPIX_MAP_GEO}}};
+  \draw (bpmin) -- (connectbpm);
 
-  \node (darkin) [below=0.1cm of bpmin, calproduct]{%
-    MASTER\_DARK\_GEO};
-  \draw (darkin.east) -- ++(1.0,0) -- ++(0,-0.6) -- ++(0.5,0);
+  \node (connection_masterdark) [connection] at
+  ($(step_persistence)!0.7!(step_signature)$){};
+  \node (darkin) [left=of connection_masterdark, calproduct]{%
+    \hyperref[dataitem:master_dark_2rg]{\STATCALIB{MASTER_DARK_GEO}}};
+  \draw (darkin) -- (connection_masterdark);
 
   \node (connectflat) [connection] at
-  ($(step2)!0.3!(stop-t)$){};
+  ($(step_fit)!0.3!(stop-t)$){};
   \node (flatout) [right=of connectflat,calproduct]{%
     MASTER\_FLAT\_GEO};
   \draw (connectflat) -- (flatout);
@@ -74,12 +89,15 @@
   \draw (connectbpm) -- (bpmout);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.35!(step1) -(2.85,0)$) rectangle
-  ($(step2)!0.75!(stop-t) + (2.85,0)$);
+  \draw [frame] ($(input)!0.35!(step_persistence) -(2.85,0)$) rectangle
+  ($(step_fit)!0.75!(stop-t) + (2.85,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.35!(step1) - (2.85,0)$){%
+  ($(input)!0.35!(step_persistence) - (2.85,0)$){%
     \textsl{metis\_n\_img\_flat}};
 
 \end{tikzpicture}
+\input{normal_style}
 
-\end{document}
+
+% % Document footer. Comment out for final figure! Header too!
+% \end{document}
