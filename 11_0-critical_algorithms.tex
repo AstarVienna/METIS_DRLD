@@ -367,11 +367,10 @@ quantifies the response of pixels to a constant background flux.
 \label{ssec:criticalnbandimagerestoration}
 \label{ssec:image_restoration}
 
-\TODO{The text below is copied verbatim from the PDR DRS and needs to be updated.}
-
-Chop-nod inversion and stacking. Look at how VISIR does this.
-Need to look at sub-pixel chop shifts, and whether the images need to be resampled.
-Plate scale distortions are not really a issue, because we only care about compact objects.
+% \TODO{
+% Chop-nod inversion and stacking. Look at how VISIR does this.
+% Need to look at sub-pixel chop shifts, and whether the images need to be resampled.
+% Plate scale distortions are not really a issue, because we only care about compact objects.}
 
 Images in the N band are taken in a sequence of chopped and nodded
 exposures. The combination of these exposures results in an image with
@@ -382,11 +381,17 @@ an image where the various beams are combined into a single beam,
 providing an increased signal-to-noise ratio.
 
 The VISIR pipeline employs a shift-and-add algorithm with proper
-inversion of the negative beams. More elaborate algorithms have been
-described that are also claimed to work for extended sources. We will
-investigate these algorithms until FDR, taking into account the
-results of the investigations into background strategies that are
-on-going within the METIS consortium.
+inversion of the negative beams that works well for compact sources.
+More elaborate algorithms have been
+described that are also claimed to work for extended sources.
+
+However, extended sources have been excluded from the scope of the pipeline.
+No prototype is therefore provided.
+
+% We will
+% investigate these algorithms until FDR, taking into account the
+% results of the investigations into background strategies that are
+% on-going within the METIS consortium.
 
 \subsection{IFU image and cube reconstruction}
 \label{ssec:criticalifuimageandcubereconstruction}
