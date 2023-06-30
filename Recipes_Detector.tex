@@ -89,7 +89,9 @@ This satisfies \REQ{METIS-5997}.
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.65\textwidth]{metis_det_lingain}
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_det_lingain}
   \caption[Recipe: \REC{metis_det_lingain}]{\REC{metis_det_lingain} --
     determination of linearity and gain of the detectors.}
   \label{Fig:rec_det_lingain}
@@ -160,12 +162,13 @@ This fulfills \REQ{METIS-6063}.
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.5\textwidth]{figures/metis_det_dark_v0.83.pdf}  % RemarK. The original file: figures/metis_det_dark.pdf is still available
+        \def \globalscale {0.700000}
+        \fontsize{10}{12}\selectfont
+        \input{tikz/metis_det_dark}
   \caption[Recipe: \REC{metis_det_dark}]{\REC{metis_det_dark} -- creation of master
     dark and bad pixel maps}
   \label{Fig:rec_det_dark}
 \end{figure}
-
 \clearpage
 
 \subsubsection{Persistence map creation recipe \REC{metis_det_persistence}}

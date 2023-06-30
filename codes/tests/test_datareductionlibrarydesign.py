@@ -142,7 +142,7 @@ class TestDataReductionLibraryDesign:
         ), f"Recipe names with incorrect capitalization: {names_bad_capitalization}"
 
     @pytest.mark.xfail(
-        reason="There are many references to templates that do not exits."
+        reason="There are a few references to templates that do not exist in the normal DRLD.."
     )
     def test_all_templates_used_also_exist_hard(self):
         self.all_templates_used_also_exist(hard=True)
@@ -407,3 +407,9 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}"""
     dataitem = DataItem.from_paragraph(stable)
+
+
+def test_tikz():
+    """Test whether the names used in the tikz figures exist."""
+
+

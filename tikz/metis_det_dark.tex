@@ -1,8 +1,13 @@
-\documentclass[tikz, margin=5mm]{standalone}
+% % Document preamble. Comment out for final figure! Footer too!
+% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+% \usepackage{listings}
+% \input{black_style}
+% \input{styles_data}
+% \begin{document}
 
+\input{black_style}
 \input{recipe_config}
 
-\begin{document}
 
 \begin{tikzpicture}
   [x=1cm,
@@ -12,48 +17,58 @@
   \sffamily
 
   %% Grid for orientation. Comment out for final figure!
-  %\draw[help lines, green](-5, 0) grid (8, 11);
+%   \draw[help lines, green](-5, 0) grid (8, 11);
 
   %% Main reduction flow
-  \node (template) [template] {METIS\_all\_cal\_dark};
+  \node (template) [template] {%
+    \TPL{METIS_gen_cal_dark}\\
+    \TPL{METIS_gen_cal_InsDark}};
   \pic (start) [below=0.75cm of template] {start};
-  \node (input) [below=0.75cm of start-m, input] {\textsl{N} DARK\_RAW};
-  \node (step1) [below of=input, redstep] {%
-    group by detector and DIT};
-  \node (step2) [below of=step1, redstep] {%
+  \node (input) [below=0.75cm of start-m, input] {\textsl{N} \hyperref[dataitem:dark_det_raw]{\RAW{DARK_det_RAW}}};
+  \node (step_linearity) [below=2.0cm of input, redstep] {%
+    apply non-linearity correction};
+
+  \node (connectlinearity) [connection] at ($(input)!0.65!(step_linearity)$){};
+  \node (linearity) [left=of connectlinearity, external]{\STATCALIB{LINEARITY_det}};
+  \draw (linearity) -- (connectlinearity);
+
+  \node (step_persistence) [below of=step_linearity, redstep] {%
+    apply persistence correction};
+
+  \node (connectpersistence) [connection] at ($(step_linearity)!0.5!(step_persistence)$){};
+  \node (persistence) [left=of connectpersistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
+  \draw (persistence) -- (connectpersistence);
+
+  \node (step_filtering) [below of=step_persistence, redstep] {%
     per pixel median/ mean filtering};
-  \node (step3) [below of=step2, redstep] {thresholding};
-  \pic (stop) [below=3.5cm of step3] {stop};
+  \node (step_thresholding) [below of=step_filtering, redstep] {thresholding};
+  \pic (stop) [below=2.0cm of step_thresholding] {stop};
 
   %% Connections
   \draw (template) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (step2);
-  \draw (step2) -- (step3);
-  \draw (step3) -- (stop-t);
+  \draw (input) -- (step_linearity);
+  \draw (step_linearity) -- (step_persistence);
+  \draw (step_persistence) -- (step_filtering);
+  \draw (step_filtering) -- (step_thresholding);
+  \draw (step_thresholding) -- (stop-t);
 
   %% Output
-  \node (connectdark) [connection] at ($(step2)!0.5!(step3)$){};
-  \node (masterdark) [right=of connectdark, calproduct] {MASTER\_DARK\_det\_dit};
+  \node (connectdark) [connection] at ($(step_filtering)!0.5!(step_thresholding)$){};
+  \node (masterdark) [right=of connectdark, calproduct] {\hyperref[dataitem:master_dark_det]{\STATCALIB{MASTER_DARK_det}}};
   \draw (connectdark) -- (masterdark);
 
-  \node (connecthot) [connection] at ($(step3)!0.5!(stop-t)$){};
-  \node (hot) [right=of connecthot, calproduct] {BPM\_HOT\_det};
+  \node (connecthot) [connection] at ($(step_thresholding)!0.5!(stop-t)$){};
+  \node (hot) [right=of connecthot, calproduct] {\hyperref[dataitem:badpix_map_det]{\STATCALIB{BADPIX_MAP_det}}};
   \draw (connecthot) -- (hot);
 
-  \node (connectcold) [connection, above=0.06cm of connecthot] {};
-  \node (cold) [above=0.1cm of hot, calproduct] {BPM\_COLD\_det};
-  \draw (connectcold) -- ++(2cm,0) |- (cold);
-
-  \node (connectbpm) [connection, below=0.06cm of connecthot] {};
-  \node (bpm) [below=0.1cm of hot, calproduct] {BADPIX\_MAP\_det};
-  \draw (connectbpm) -- ++(2cm,0) |- (bpm);
-
   %% frame around recipe
-  \draw [frame] ($(input)!0.4!(step1) - (2.5cm,0)$)
-  rectangle ($(step3)!0.8!(stop-t) + (2.5cm, 0)$);
+  \draw [frame] ($(input)!0.4!(step_linearity) - (2.5cm,0)$)
+  rectangle ($(step_thresholding)!0.7!(stop-t) + (2.5cm, 0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.4!(step1) - (2.5cm,0)$) {\textsl{metis\_det\_dark}};
+  ($(input)!0.4!(step_linearity) - (2.5cm,0)$) {\textsl{metis\_det\_dark}};
 
 \end{tikzpicture}
-\end{document}
+\input{normal_style}
+
+% % Document footer. Comment out for final figure! Header too!
+% \end{document}

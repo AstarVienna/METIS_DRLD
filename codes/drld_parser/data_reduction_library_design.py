@@ -829,12 +829,29 @@ class DataReductionLibraryDesign:
                 # template name that has a : or { before it, because it is probably
                 # e.g. drl:metis_derive_gain, or \DRL{metis_derive_gain}.
                 # Any \TPL{metis_derive_gain} is caught in tpls_macro above
-                re.findall("(<?![:{])metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
+                re.findall("(?<![:{])metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
+            ]
+            template_names += [
+                tsi
+                for tsi in tpls_macro + tpls_latex
+                if tsi.lower() not in not_templates
+            ]
+        for filename in self.filenames_tikz:
+            # Only tikzs
+            datat1 = open(filename, encoding="utf8").readlines()
+            datat = "\n".join(
+                line for line in datat1 if not line.strip().startswith("%")
+            )
+            tpls_latex = [
+                tsii.replace("\\", "").replace("$ast$", "*")
+                for tsii in
+                # No negative lookbehind for tikz
+                re.findall("metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
             ]
             # TODO: does not work for tikz
             template_names += [
                 tsi
-                for tsi in tpls_macro + tpls_latex
+                for tsi in tpls_latex
                 if tsi.lower() not in not_templates
             ]
 
