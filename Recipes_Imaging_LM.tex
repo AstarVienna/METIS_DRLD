@@ -64,7 +64,7 @@ otherwise a new one is created.
                        & Call \DRL{metis_update_lm_flat_mask} to flag deviant pixels. \\
   Output data:         & \hyperref[dataitem:master_img_flat_lm]{\PROD{MASTER_IMG_FLAT_LM}}                                      \\
                        & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}                                           \\
-  Expected accuracies: & \TBD                                                           \\
+  Expected accuracies: & 0.5\% (cf. \cite{METIS_calerrbudget})                                                           \\
   QC1 parameters:      & \QC{QC LM MASTERFLAT RMS}                                      \\
                        & \QC{QC LM MASTERFLAT NBADPIX}                                        \\
                        & \QC{QC LM FLAT MEAN ##}                                        \\
@@ -341,7 +341,7 @@ following \cite{visir_manual}.
                        & call \DRL{calculate_detection_limits} to compute measure background noise (std,rms) and compute detection limits \\
   Output data:         & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}}                                                       \\
                        & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                           \\
-  Expected accuracies: & \TBD                                                                         \\
+  Expected accuracies: & 3\% (cf. \cite{METIS_calerrbudget})                                          \\
   QC1 parameters:      & \QC{QC LM IMG STD BACKGD RMS}                                                \\
                        & \QC{QC LM STD PEAK CNTS}                                                     \\
                        & \QC{QC LM STD APERTURE CNTS}                                                 \\
@@ -512,7 +512,7 @@ pixel scale across the detector will be created.
   Output data:         & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}} \\
                        & \hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}        \\
                        & \hyperref[dataitem:lm_dist_reduced]{\PROD{LM_DIST_REDUCED}}               \\
-  Expected accuracies: & TBD                                                             \\
+  Expected accuracies: & $10^{-3}$ (cf. \cite{METIS_calerrbudget})                                                    \\
   QC1 parameters:      & \hyperref[qc:qc_lm_distort_rms]{\QC{QC LM DISTORT RMS}}                                          \\
                        & \hyperref[qc:qc_lm_distort_nsource]{\QC{QC LM DISTORT NSOURCE}}  \\
   hdrl functions:      & \CODE{hdrl_catalogue_create}                                    \\
