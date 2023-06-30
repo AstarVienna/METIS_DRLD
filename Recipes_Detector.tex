@@ -89,7 +89,12 @@ This satisfies \REQ{METIS-5997}.
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.65\textwidth]{metis_det_lingain}
+    \begingroup
+        \def \globalscale {0.700000}
+        \fontsize{10}{12}\selectfont
+        \input{tikz/metis_det_lingain}
+    \endgroup
+%   \includegraphics[width=0.65\textwidth]{metis_det_lingain}
   \caption[Recipe: \REC{metis_det_lingain}]{\REC{metis_det_lingain} --
     determination of linearity and gain of the detectors.}
   \label{Fig:rec_det_lingain}
