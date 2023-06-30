@@ -1,4 +1,7 @@
-\section{Data Processing Overview}
+\section{Functional and Workflows Description}
+% ESO-037611 expects a section called "Functional and Workflows Description" in the DRLD
+% "Data Processing Overview" is the term used for the DRLS.
+%\section{Data Processing Overview}
 \label{sec:data_processing_overview}
 
 The METIS data reduction system runs in different environments and
@@ -141,6 +144,12 @@ The IFU pickoff optic is a beamsplitter with a transmission of ~10\% to the LM i
 LM-band images can therefore be taken in parallel with the IFU exposures, for any of the IFU templates.
 The LM-band images and IFU exposures are processed independently.
 This fulfills \REQ{METIS-6072}.
+
+
+\subsection{Workflows}
+The association matrices described in the previous sections will be converted one-to-one into Reflex or \ac{EDPS} workflows.
+
+Any interactivity in the workflows is described with the individual recipes.
 
 %%% Local Variables:
 %%% TeX-master: "METIS_DRLD"
