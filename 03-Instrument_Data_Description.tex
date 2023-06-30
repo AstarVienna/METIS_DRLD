@@ -13,11 +13,12 @@ All data files can be classified on the basis of sets of keywords
 stored in the FITS headers. Association of raw frames to calibration
 files is achieved by comparing keyword values.
 
-\TODO{The following is taken verbatim from the PDR document,
-  \cite{DRLS}. Updates are currently being discussed in the interface
-  control document between ICS and PIP and will be ported here once
-  finished. In particular the format for the N-band data from the new
-  GeoSnap detector needs to be updated.}
+% TODO commented out and moved to github for discussion: https://github.com/AstarVienna/METIS_DRLD/issues/104
+% \TODO{The following is taken verbatim from the PDR document,
+%   \cite{DRLS}. Updates are currently being discussed in the interface
+%   control document between ICS and PIP and will be ported here once
+%   finished. In particular the format for the N-band data from the new
+%   GeoSnap detector needs to be updated.}
 
 \subsection{Raw data format}
 \label{ssec:instrument_data_format}
@@ -26,18 +27,21 @@ All raw data files produced by METIS will be in FITS format and follow
 ESO standards (\REQ{METIS-6081}, \REQ{METIS-6093}), in particular as
 laid out in \cite{ESO-DICD}.
 
-Data from the different subsystems (LM imager/spectrograph, NQ
+Data from the different subsystems (LM imager/spectrograph, N
 imager/spectrograph, LM IFU) are always stored in separate files.
 When more than one subsystem is recording data simultaneously, then
 more than one FITS file is created by one observing template.
 
-The LM and NQ imagers are single-chip sub-instruments, hence the
-imaging data will appear in the primary HDU of the FITS file. The IFU
+ The IFU
 integral-field spectrograph consists of four chips, hence the FITS
 file will consist of an empty primary data unit, whose header holds
 information pertaining to the exposure as a whole, and four extension
 units that hold the data from the four chips along with information
 pertaining to each chip (such as world-coordinate system).
+Even though the LM and N imagers are single-chip sub-instruments, the
+imaging data will still appear in an extension HDU, because this ensures
+the data format is equivalent to the IFU mode.
+The primary HDU will therefore only contain headers for all raw data.
 
 A template may produce several exposures, each of which consists of
 NDIT subexposures (DITs). The exact definition of what constitutes an
@@ -47,6 +51,7 @@ are still under discussion. The goal will be for a file to contain the
 the chopping patters, or data taken in one nod position. Keeping files
 small in this way allows the pipeline to process data even for cases
 where observing blocks are only partially executed.
+% How many DITs discussion moved to https://github.com/AstarVienna/METIS_DRLD/issues/103
 
 Where applicable, all the DITs belonging to an exposure may be saved
 in a 3D-cube format. This is described in more detail for the various
@@ -169,8 +174,8 @@ determination of the chop/nod positions.
 
 %%\begin{center}
 %%\begin{table}
-%%\caption[NQ\_IMG data keywords]{Columns foreseen for the NQ imager/spectrograph FITS files.}
-%%\label{tab:nq_img_colums}
+%%\caption[N\_IMG data keywords]{Columns foreseen for the N imager/spectrograph FITS files.}
+%%\label{tab:n_img_colums}
 %%\begin{tabular}{|l|l|p{10cm}|}
 %%  \hline
 %%  \textbf{Column} & \textbf{Format}      & \textbf{Description}                                       \\
