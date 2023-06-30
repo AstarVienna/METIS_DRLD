@@ -80,12 +80,12 @@
   \node (connectflat) [connection] at
   ($(step_fit)!0.3!(stop-t)$){};
   \node (flatout) [right=of connectflat,calproduct]{%
-    MASTER\_FLAT\_2RG};
+    \STATCALIB{MASTER_IMG_FLAT_2RG}};
   \draw (connectflat) -- (flatout);
 
   \node (connectbpm) [below=0.65cm of connectflat, connection]{};
   \node (bpmout) [right=of connectbpm, calproduct]{%
-    BADPIX\_MAP\_2RG};
+    \STATCALIB{BADPIX\_MAP\_2RG};
   \draw (connectbpm) -- (bpmout);
 
   %% Frame around recipe

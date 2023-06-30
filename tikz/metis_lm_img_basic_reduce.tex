@@ -1,8 +1,15 @@
-\documentclass[tikz, margin=5mm]{standalone}
+% Document preamble. Comment out for final figure! Footer too!
+\documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+\usepackage{hyperref}
+\usepackage{listings}
+\input{black_style}
+\input{styles_data}
+\begin{document}
 
+
+\input{black_style}
 \input{recipe_config}
 
-\begin{document}
 
 \begin{tikzpicture}
   [x=1cm,
@@ -22,82 +29,106 @@
 
   %% input box
   \node (input) [below=0.75cm of start-m, input] {%
-    \textsl{N} N\_SCI\_RAW \\
-    \textsl{N} N\_STD\_RAW};
+    \textsl{N} \RAW{LM\_SCI\_RAW} \\
+    \textsl{N} \RAW{LM\_STD\_RAW} \\
+    \textsl{M} \RAW{IFU_SKY_RAW}};
 
 
   %% algorithm steps
-  \node (step1) [below=2.5cm of input, redstep]{%
-    Subtract dark};
+  \node (step_linearity) [below=2.0cm of input, redstep]{%
+    Correct non-linearity};
 
-  \node (step2) [below of=step1, redstep]{%
-    Divide by flat};
+  \node (step_persistence) [below of=step_linearity, redstep]{%
+    Correct persistence};
 
-  \node (step3) [below of=step2, redstep]{%
-    Analyse and remove masked regions};
+  \node (step_dark) [below of=step_persistence, redstep]{%
+    subtract dark};
 
-  \pic (stop) [below=2.5cm of step3] {stop};
+  \node (step_flat) [below of=step_dark, redstep]{%
+    divide by flat};
+
+  \node (step_masks) [below of=step_flat, redstep]{%
+    analyse and remove masked regions};
+
+  \pic (stop) [below=2.5cm of step_masks] {stop};
 
 
   %% Connections
   \draw (template) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (step2);
-  \draw (step2) -- (step3);
-  \draw (step3) -- (stop-t);
+  \draw (input) -- (step_linearity);
+  \draw (step_linearity) -- (step_persistence);
+  \draw (step_persistence) -- (step_dark);
+  \draw (step_dark) -- (step_flat);
+  \draw (step_flat) -- (step_masks);
+  \draw (step_masks) -- (stop-t);
 
 
   %% External data
 
   % External input
-  \node (connectpers) [connection] at
-  ($(input)!0.25!(step1)$){};
-  \node (persistence) [left=of connectpers, external]{%
-    PERSISTENCE\_MAP};
-  \draw (persistence) -- (connectpers);
+  \node (connect_linearity) [connection] at
+  ($(input)!0.65!(step_linearity)$){};
+  \node (linearity) [left=of connect_linearity, external]{%
+    \EXTCALIB{LINEARITY_det}};
+  \draw (linearity) -- (connect_linearity);
 
-  \node (connectparams) [connection] at
-  ($(input)!0.7!(step1.north)$){};
-  \node (params) [left=of connectparams, params]{%
-    Recipe params:\\
-    INS.IMG.SETUP};
-  \draw (params) -- (connectparams);
+  \node (connect_persistence) [connection] at
+  ($(step_linearity)!0.5!(step_persistence)$){};
+  \node (persistence) [left=of connect_persistence, external]{%
+    \EXTCALIB{PERSISTENCE\_MAP}};
+  \draw (persistence) -- (connect_persistence);
 
-  \node (darkin) [left=of step1.center, calproduct]{%
-    MASTER\_DARK\_2RG};
-  \draw (darkin.east) -- (step1.west);
+%   \node (connectparams) [connection] at
+%   ($(input)!0.7!(step_dark.north)$){};
+%   \node (params) [left=of connectparams, params]{%
+%     Recipe params:\\
+%     INS.IMG.SETUP};
+%   \draw (params) -- (connectparams);
 
-  \node (flatin) [left=of step2.center, calproduct]{%
-    MASTER\_FLAT\_2RG};
-  \draw (flatin.east) -- (step2.west);
+  \node (connect_masterdark) [connection] at
+  ($(step_persistence)!0.5!(step_dark)$){};
+  \node (masterdark) [left=of connect_masterdark, calproduct]{%
+    \STATCALIB{MASTER\_DARK\_2RG}};
+  \draw (masterdark) -- (connect_masterdark);
 
-  \node (bpmin) [left=of step3.center, calproduct]{%
-    BADPIX\_MAP\_2RG};
-  \draw (bpmin.east) -- (step3.west);
+  \node (connect_masterflat) [connection] at
+  ($(step_dark)!0.5!(step_flat)$){};
+  \node (flatin) [left=of connect_masterflat, calproduct]{%
+    \STATCALIB{MASTER\_FLAT\_2RG}};
+  \draw (flatin) -- (connect_masterflat);
+
+  \node (connect_bpm) [connection] at
+  ($(step_flat)!0.5!(step_masks)$){};
+  \node (bpmin) [left=of connect_bpm, calproduct]{%
+    \STATCALIB{BADPIX\_MAP\_2RG}};
+  \draw (bpmin) -- (connect_bpm);
 
 
   % External output
-  \node (connectscired) [connection] at
-    ($(step3)!0.3!(stop-t)$){};
-  \node (scired) [right=of connectscired, external]{%
-    LM\_SCI\_BASIC\_REDUCED};
-  \draw (connectscired) -- (scired);
+  \node (connect_scired) [connection] at
+    ($(step_masks)!0.3!(stop-t)$){};
+  \node (scired) [right=of connect_scired, external]{%
+    \PROD{LM\_SCI\_BASIC\_REDUCED}};
+  \draw (connect_scired) -- (scired);
 
-  \node (connectstdred) [connection] at
-    ($(connectscired)!0.5!(stop-t)$){};
-  \node (stdred) [right=of connectstdred, external]{%
-    LM\_STD\_BASIC\_REDUCED};
-  \draw (connectstdred) -- (stdred);
+  \node (connect_stdred) [connection] at
+    ($(connect_scired)!0.5!(stop-t)$){};
+  \node (stdred) [right=of connect_stdred, external]{%
+    \PROD{LM\_STD\_BASIC\_REDUCED}};
+  \draw (connect_stdred) -- (stdred);
 
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.35!(step1) -(2.85,0)$) rectangle
-  ($(step3)!0.75!(stop-t) + (2.85,0)$);
+  \draw [frame] ($(input)!0.35!(step_linearity) -(2.85,0)$) rectangle
+  ($(step_masks)!0.75!(stop-t) + (2.85,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.35!(step1) - (2.85,0)$){%
+  ($(input)!0.35!(step_linearity) - (2.85,0)$){%
     \textsl{metis\_lm\_img\_basic\_reduce}};
 
-
+    
 \end{tikzpicture}
+\input{normal_style}
 
+
+% Document footer. Comment out for final figure! Header too!
 \end{document}
