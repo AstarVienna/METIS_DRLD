@@ -107,10 +107,16 @@ class DataItem:
     @classmethod
     def from_paragraph(cls, sparagraph):
         """Parse a dataitem from a paragraph with a recipedef table."""
-        lines1 = [line.strip() for line in sparagraph.splitlines() if not line.strip().startswith("%")]
+        lines1 = [
+            line.strip()
+            for line in sparagraph.splitlines()
+            if not line.strip().startswith("%")
+        ]
         line_header = lines1[0]
         # E.g. \paragraph{\hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}}\label{dataitem:master_n_lss_rsrf}
-        regex_header = re.compile(r"\\paragraph{\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}}\\label{(?P<label>.*?)}")
+        regex_header = re.compile(
+            r"\\paragraph{\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}}\\label{(?P<label>.*?)}"
+        )
         match = regex_header.match(line_header)
         group = match.groupdict()
         hyperref = group["hyperref"]
@@ -121,8 +127,6 @@ class DataItem:
         assert label.startswith("dataitem")
         assert hyperref == f"dataitem:{name.lower()}"
 
-
-
         lines2 = itertools.dropwhile(
             lambda line: not line.startswith(r"\begin{recipedef}"),
             lines1,
@@ -132,10 +136,8 @@ class DataItem:
             lines2,
         )
         from pprint import pprint
-        rows1a = [
-            line.replace("[0.3cm]", "")
-            for line in list(lines3)[1:]
-        ]
+
+        rows1a = [line.replace("[0.3cm]", "") for line in list(lines3)[1:]]
 
         # The rest is based on Recipe.parse_recipe_from_table and therefore
         # just as horific
@@ -146,19 +148,12 @@ class DataItem:
         # \label{rec:metisimgchophome}\label{rec:metis_img_chophome}
         # Remove that line
         # TODO: perhaps do something useful with the labels
-        rows1b = [
-            row for row in rows1a if not row.startswith(r"\label")
-        ]
+        rows1b = [row for row in rows1a if not row.startswith(r"\label")]
         # Some recipes have the label in the name
         #   Name:                & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}\label{rec:metis_ifu_adi_cgrph}                                        \\
         # So remove those as well.
-        rows1c = [
-            row.split(r"\label") for row in rows1b
-        ]
-        rows1 = [
-            row[0] if len(row) == 1 else row[0] + r"\\"
-            for row in rows1c
-        ]
+        rows1c = [row.split(r"\label") for row in rows1b]
+        rows1 = [row[0] if len(row) == 1 else row[0] + r"\\" for row in rows1c]
 
         # Concatenate lines.. Aargh
         rows2 = []
@@ -256,7 +251,11 @@ class DataItem:
                         if val.name and "det" in val.name:
                             #  det_APP_SCI_CALIBRATED or DETLIN_det_RAW
                             msg = f"There are too many or wrong 'det's in f{val.name}."
-                            assert val.name.endswith("_det") or val.name.startswith("det_") or "_det_" in val.name, msg
+                            assert (
+                                val.name.endswith("_det")
+                                or val.name.startswith("det_")
+                                or "_det_" in val.name
+                            ), msg
                             assert val.name.count("det") == 1, msg
                             for postfix in ["LM", "N", "IFU", "GEO", "2RG"]:
                                 value.append(
@@ -312,9 +311,10 @@ class DataItem:
                 field = field.replace("fits{", "").strip("}")
                 field = field.replace(".", "_")
 
-
             # noinspection PyUnresolvedReferences
-            assert field in cls.__dataclass_fields__ or field in to_skip, f"Field {field} cannot be found {row[0]}"
+            assert (
+                field in cls.__dataclass_fields__ or field in to_skip
+            ), f"Field {field} cannot be found {row[0]}"
 
             # Cannot yet add the value to thedata dictionary because the value
             # might continue on other rows.
@@ -330,7 +330,6 @@ class DataItem:
             thedata["dtype"] = thedata["dtype_header"]
 
         return cls(**thedata)
-
 
 
 @dataclasses.dataclass
@@ -429,19 +428,12 @@ class Recipe:
         # \label{rec:metisimgchophome}\label{rec:metis_img_chophome}
         # Remove that line
         # TODO: perhaps do something useful with the labels
-        rows1b = [
-            row for row in rows1a if not row.startswith(r"\label")
-        ]
+        rows1b = [row for row in rows1a if not row.startswith(r"\label")]
         # Some recipes have the label in the name
         #   Name:                & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}\label{rec:metis_ifu_adi_cgrph}                                        \\
         # So remove those as well.
-        rows1c = [
-            row.split(r"\label") for row in rows1b
-        ]
-        rows1 = [
-            row[0] if len(row) == 1 else row[0] + r"\\"
-            for row in rows1c
-        ]
+        rows1c = [row.split(r"\label") for row in rows1b]
+        rows1 = [row[0] if len(row) == 1 else row[0] + r"\\" for row in rows1c]
 
         # Concatenate lines.. Aargh
         rows2 = []
@@ -524,7 +516,11 @@ class Recipe:
                         if val.name and "det" in val.name:
                             #  det_APP_SCI_CALIBRATED or DETLIN_det_RAW
                             msg = f"There are too many or wrong 'det's in f{val.name}."
-                            assert val.name.endswith("_det") or val.name.startswith("det_") or "_det_" in val.name, msg
+                            assert (
+                                val.name.endswith("_det")
+                                or val.name.startswith("det_")
+                                or "_det_" in val.name
+                            ), msg
                             assert val.name.count("det") == 1, msg
                             for postfix in ["LM", "N", "IFU", "GEO", "2RG"]:
                                 value.append(
@@ -566,7 +562,9 @@ class Recipe:
                 # print(field, ":::", value)
 
             # noinspection PyUnresolvedReferences
-            assert field in Recipe.__dataclass_fields__, f"Field {field} cannot be found {row[0]}"
+            assert (
+                field in Recipe.__dataclass_fields__
+            ), f"Field {field} cannot be found {row[0]}"
 
             # Cannot yet add the value to thedata dictionary because the value
             # might continue on other rows.
@@ -651,11 +649,14 @@ class DataReductionLibraryDesign:
 
         data_all = (
             "\n"
-            + "\n".join("\n".join([
-                ll
-                for ll in open(pp).readlines()
-                if not ll.strip().startswith("%")
-            ])
+            + "\n".join(
+                "\n".join(
+                    [
+                        ll
+                        for ll in open(pp).readlines()
+                        if not ll.strip().startswith("%")
+                    ]
+                )
                 for pp in [path_dataitems] + paths_with_dataitems
             )
             + "\n"
@@ -695,7 +696,9 @@ class DataReductionLibraryDesign:
                     [name2, hyperref2, labels],
                 ]
             else:
-                assert hyperref == label, f"Hyperref '{hyperref}' is not equal to label '{label}' for line '{line}'"
+                assert (
+                    hyperref == label
+                ), f"Hyperref '{hyperref}' is not equal to label '{label}' for line '{line}'"
                 # namel = name.lower().replace("_", "")
                 # print(f"dataitem:{namel}" == hyperref, name, hyperref)
                 dataitems2 += [[name, hyperref, [label]]]
@@ -706,11 +709,13 @@ class DataReductionLibraryDesign:
                 # TODO: Harmonize with the other one
                 assert name.count("det") == 1, f"Too many 'det's in f{name}"
                 for name_det in ["LM", "N", "IFU", "2RG", "GEO", "det"]:
-                    dataitems4.append([
-                        name.replace("det", name_det),
-                        hyperref,
-                        labels,
-                    ])
+                    dataitems4.append(
+                        [
+                            name.replace("det", name_det),
+                            hyperref,
+                            labels,
+                        ]
+                    )
                 # Also add the one with placeholders.
                 # TODO: Either only add the ones with placeholders, or the
                 # ones with the placeholders filled in.
@@ -753,11 +758,14 @@ class DataReductionLibraryDesign:
 
         data_all = (
             "\n"
-            + "\n".join("".join([
-                ll
-                for ll in open(pp).readlines()
-                if not ll.strip().startswith("%")
-            ])
+            + "\n".join(
+                "".join(
+                    [
+                        ll
+                        for ll in open(pp).readlines()
+                        if not ll.strip().startswith("%")
+                    ]
+                )
                 for pp in [path_dataitems] + paths_with_dataitems
             )
             + "\n"
@@ -778,7 +786,7 @@ class DataReductionLibraryDesign:
             name = dataitem.name
             dataitem_existing = dataitems3.get(name, None)
             # E.g. MASTER_DARK_2RG can be added while MASTER_DARK_det is there
-            assert dataitem_existing is None or 'det' in dataitem_existing.name
+            assert dataitem_existing is None or "det" in dataitem_existing.name
             dataitems3[dataitem.name] = dataitem
 
             if "det" in name:

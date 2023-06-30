@@ -1,4 +1,5 @@
 import glob
+
 # noinspection PyUnresolvedReferences
 from pprint import pprint
 
@@ -9,11 +10,13 @@ from ..drld_parser.data_reduction_library_design import (
     METIS_DataReductionLibraryDesign,
     find_latex_inputs,
     DataItemReference,
-    guess_dataitem_type, DataItem,
+    guess_dataitem_type,
+    DataItem,
 )
 from ..drld_parser.hacks import (
     TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI,
-    HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT, HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING,
+    HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT,
+    HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING,
 )
 from ..drld_parser.template_manual import METIS_TemplateManual
 
@@ -53,7 +56,6 @@ class TestDataReductionLibraryDesign:
                     lmulti.append(line.replace("_det_", f"_{lmn}_"))
             lines_full.append(lmulti)
 
-
         lines_with_and = [line for line in lines_full if " and " in line]
 
         is_used = numpy.zeros(len(lines_full), dtype=bool)
@@ -62,15 +64,17 @@ class TestDataReductionLibraryDesign:
 
         # Are all dataitems in the DRLD also in the lines above?
         for di in METIS_DataReductionLibraryDesign.dataitems:
-            found = numpy.array([
-                any(di in line for line in lmulti) for lmulti in lines_full
-            ])
-            foundsingle = numpy.array([
-                # IFU_SCI_COMBINED is there, but also IFU_SCI_COMBINED_TAC,
-                # and they should all have a drsstructure line as well
-                di in line and f"{di}_" not in line and "drsstructure" not in line
-                for line in lines_single
-            ])
+            found = numpy.array(
+                [any(di in line for line in lmulti) for lmulti in lines_full]
+            )
+            foundsingle = numpy.array(
+                [
+                    # IFU_SCI_COMBINED is there, but also IFU_SCI_COMBINED_TAC,
+                    # and they should all have a drsstructure line as well
+                    di in line and f"{di}_" not in line and "drsstructure" not in line
+                    for line in lines_single
+                ]
+            )
             if not found.any():
                 not_found.append(di)
             if foundsingle.sum() > 1:
@@ -78,7 +82,11 @@ class TestDataReductionLibraryDesign:
             is_used |= found | foundsingle
 
         # Are all lines used for some dataitem?
-        not_used_anywhere = [(linesingle, linefull) for linesingle, linefull, used in zip(lines_single, lines_full, is_used) if not used]
+        not_used_anywhere = [
+            (linesingle, linefull)
+            for linesingle, linefull, used in zip(lines_single, lines_full, is_used)
+            if not used
+        ]
 
         assert not not_found
         assert not found_more_than_once
@@ -107,8 +115,9 @@ class TestDataReductionLibraryDesign:
         names_not_existing = [
             name
             for name in names_used
-            if name not in names_existing and name.lower() not in names_existing_lower
-               and name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING
+            if name not in names_existing
+            and name.lower() not in names_existing_lower
+            and name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING
         ]
 
         assert (
@@ -142,13 +151,14 @@ class TestDataReductionLibraryDesign:
         self.all_templates_used_also_exist(hard=False)
 
     def all_templates_used_also_exist(self, hard=True):
-
         # TODO: hack_rename_template_names_drld and
         #  TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI are currently not
         #  used anymore.
         names_existing = set(METIS_TemplateManual.templates.keys())
         if not hard:
-            names_existing = names_existing.union(set(TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI))
+            names_existing = names_existing.union(
+                set(TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI)
+            )
         names_used = METIS_DataReductionLibraryDesign.template_names_used
         names_existing_lower = [name.lower() for name in names_existing]
         names_not_existing = [
@@ -230,7 +240,9 @@ class TestDataReductionLibraryDesign:
         datatypes_acceptable = {"PROD", "RAW", "EXTCALIB", "STATCALIB"}
         for recipe in METIS_DataReductionLibraryDesign.recipes.values():
             for diref in recipe.input_data + recipe.output_data:
-                assert diref.dtype in datatypes_acceptable, f"Dataitem {diref.name} has type {diref.dtype} which is not allowed."
+                assert (
+                    diref.dtype in datatypes_acceptable
+                ), f"Dataitem {diref.name} has type {diref.dtype} which is not allowed."
 
     def test_datatypes_are_known_strict(self):
         dtypes = [
@@ -268,7 +280,9 @@ class TestDataReductionLibraryDesign:
                     problems.append((recipe.name, template))
         assert not problems
 
-    @pytest.mark.xfail(rason="['METIS_spec_lmn_obs_AutoChopNodOnSlit', 'METIS_img_lm_cal_platescale', 'METIS_img_n_cal_platescale', 'METIS_ifu_cal_platescale']")
+    @pytest.mark.xfail(
+        rason="['METIS_spec_lmn_obs_AutoChopNodOnSlit', 'METIS_img_lm_cal_platescale', 'METIS_img_n_cal_platescale', 'METIS_ifu_cal_platescale']"
+    )
     def test_template_manual_templates_are_used(self):
         """Go through the template manual and check whether we use those templates."""
         templates_expected = [
@@ -288,6 +302,7 @@ class TestDataReductionLibraryDesign:
         ]
         assert not templates_missing
 
+
 class TestFindLatexInputs:
     def test_find_latex_inputs(self):
         fns_expected = {
@@ -302,7 +317,9 @@ class TestFindLatexInputs:
         )
         paths_input = find_latex_inputs(path)
         filenames_input = {pp.name for pp in paths_input}
-        assert filenames_input == fns_expected, f"Found more dataitems: {filenames_input - fns_expected}, or less: {fns_expected - filenames_input}"
+        assert (
+            filenames_input == fns_expected
+        ), f"Found more dataitems: {filenames_input - fns_expected}, or less: {fns_expected - filenames_input}"
 
 
 class TestParseDataItemReference:

@@ -66,7 +66,6 @@ HACK_TEMPLATE_NAMES_IN_DRLD = {
     # ): "METIS_img_lm_cal_TwilightFlat",
     # ("Recipes_Imaging_N", "METIS_all_cal_TwilightFlat"): "METIS_img_n_cal_TwilightFlat",
     # ("metis_n_img_flat", "METIS_all_cal_TwilightFlat"): "METIS_img_n_cal_TwilightFlat",
-
     # Seems wrong in DRLD:
     # (
     #     "Recipes_LSS_N",
@@ -93,7 +92,6 @@ HACK_TEMPLATE_NAMES_IN_DRLD = {
     # ("LSS_data_items", "METIS_spec_n_cal_rsrfpinh"): "metis_spec_n_cal_internalwave",
     # ("Recipes_LSS_LM", "METIS_spec_lm_cal_rsrfpinh"): "metis_spec_lm_cal_internalwave",
     # ("Recipes_LSS_N", "METIS_spec_n_cal_rsrfpinh"): "metis_spec_n_cal_internalwave",
-
     # and these as well?
     # ("Recipes_IFU_LM", "METIS_ifu_cal_LampWave"): "metis_ifu_cal_internalwave",
     # ("metis_ifu_wavecal", "METIS_ifu_cal_LampWave"): "metis_ifu_cal_internalwave",
@@ -120,10 +118,8 @@ HACK_RECIPE_TEMPLATES = {
     #     "metis_spec_lm_cal_rsrfpinh",
     # ): "METIS_spec_lm_cal_InternalWave",
     # ("metis_N_lss_trace", "metis_spec_n_cal_rsrfpinh"): "METIS_spec_n_cal_InternalWave",
-
     # and these as well?
     # ("metis_ifu_wavecal", "metis_ifu_cal_lampwave"): "METIS_ifu_cal_InternalWave",
-
     # app stuff, is that still relevant?
     # (
     #     "metis_ifu_sci_process",
@@ -133,25 +129,21 @@ HACK_RECIPE_TEMPLATES = {
     #     "metis_ifu_sci_process",
     #     "metis_ifu_ext_app_obs_genericoffset",
     # ): "METIS_ifu_ext_obs_GenericOffset",
-
     # Why are these different? Renamed, TODO: discuss names
     # ("metis_LM_lss_sci", "metis_spec_lm_cal_slit_adc"): "METIS_spec_lm_cal_SlitAdc",
     # ("metis_N_lss_sci", "metis_spec_n_cal_slit_adc"): "METIS_spec_n_cal_slit",
     # ("metis_n_adc_slitloss", "metis_spec_n_cal_slitadc"): "METIS_spec_n_cal_slit",
-
     # Apparently not "all"
     # (
     #     "metis_lm_img_flat",
     #     "metis_all_cal_twilightflat",
     # ): "METIS_img_lm_cal_TwilightFlat",
     # ("metis_n_img_flat", "metis_all_cal_twilightflat"): "METIS_img_n_cal_TwilightFlat",
-
     # Typo?
     # (
     #     "metis_N_lss_sci",
     #     "metis_spec_n_obs_autonodonslit",
     # ): "METIS_spec_n_obs_AutoChopNodOnSlit",
-
     # No clue
     # ("metis_pupil_imaging", "TBD"): "",
     # To handle in some other way
@@ -181,7 +173,6 @@ HACK_BAD_NAMES = {
     # "hdrl_function": "hdrl_functions",
     # "requirement": "requirements",
     # "template": "templates",
-
     "source": "created_by",
     "input_for_recipes": "input_for",
     "input_for_recipe": "input_for",
