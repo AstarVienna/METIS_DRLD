@@ -2,7 +2,7 @@
 \newcommand{\met}{\ac{METIS}}
 \newcommand{\mir}{\ac{MIR}}
 \newcommand{\lss}{\ac{LSS}}
-\newcommand{\met}{\ac{ELT}}
+\newcommand{\elt}{\ac{ELT}}
 \newcommand{\scope}{\textsc{ScopeSim}}
 
 % The goal of this calibration step is to create rectified 2D orders with the spatial coordinate along the slit and the calibrated wavelength coordinate along the dispersion direction. This can be achieved in three steps:
@@ -12,7 +12,7 @@ The \mir~range is dominated by thermal and line emission in the Earth's atmosphe
 
 \subsubsection{Implementing METIS in \pyred}\label{sec:pyred_mic}
 % \todo[inline]{TODO-NS: to be edited}
-\pyred \cite{pis21} is an  open source Python implementation\footnote{\url{https://github.com/AWehrhahn/PyReduce}} (with some C components)  of the IDL-based REDUCE pipeline \cite{pis02}.  The package supports data reduction of several echelle spectrographs, e.g. CRIRES+,  HARPS, and can be optimized to work on any instrument, also on a  long slit spectrograph as in the case of \met. In order to adapt \pyred~to work on simulated \met~\lss~data, we created a custom instrument class  and defined all the needed parameters to run \pyred~within a single script (Method~1\footnote{\url{https://pyreduce-astro.readthedocs.io/en/latest/instruments.html}}). This provided a quick way to finding the needed settings to  run the package successfully on \met~data before a complete implementation is done following Method~2. The full implementation requires several configuration files: 
+\pyred~\cite{pis21} is an  open source Python implementation\footnote{\url{https://github.com/AWehrhahn/PyReduce}} (with some C components)  of the IDL-based REDUCE pipeline \cite{pis02}.  The package supports data reduction of several echelle spectrographs, e.g. CRIRES+,  HARPS, and can be optimized to work on any instrument, also on a  long slit spectrograph as in the case of \met. In order to adapt \pyred~to work on simulated \met~\lss~data, we created a custom instrument class  and defined all the needed parameters to run \pyred~within a single script (Method~1\footnote{\url{https://pyreduce-astro.readthedocs.io/en/latest/instruments.html}}). This provided a quick way to finding the needed settings to  run the package successfully on \met~data before a complete implementation is done following Method~2. The full implementation requires several configuration files: 
 \begin{itemize}
 \item Custom instrument class (\texttt{metis.py}) serving several functions such as loading a json file (\texttt{load\_info}) with FITS header information, finding  and sorting files (\texttt{sort\_files}) for the different reduction steps, modifying fits header information (\texttt{add\_header\_info}), finding the wavelength calibration guess file (\texttt{get\_wavecal\_filename}) etc.
 \item Header keyword map (\texttt{metis.json})
@@ -20,13 +20,13 @@ The \mir~range is dominated by thermal and line emission in the Earth's atmosphe
 \item Wavelength calibration initial guess  file (e.g. \texttt{metis\_lss\_m\_2D.npz}) containing a numpy recarray called \texttt{cs\_lines} which includes information on the detector positions of the wavelength calibration lines.
  % and their respective echelle orders. 
  More details in Sect.~\ref{sec:critalg_wavecal}
-\item \pyred~runtime script (\texttt{metis\_example.py}), in which the user defines where the data are located, which \met \lss~mode to use ($L$, $M$, or $N$-band), \pyred~steps to run, and where they could change any parameter pertaining to \pyred~steps before inserting them into the file \texttt{settings\_metis.json}.
+\item \pyred~runtime script (\texttt{metis\_example.py}), in which the user defines where the data are located, which \met~\lss~mode to use ($L$, $M$, or $N$-band), \pyred~steps to run, and where they could change any parameter pertaining to \pyred~steps before inserting them into the file \texttt{settings\_metis.json}.
 \end{itemize}
 
 Placing the above files in their respective \pyred~folders enables \pyred~to run \met~\scope~simulated files as any other instrument. \pyred~ performs many functions when reducing spectroscopic data  including basic data reduction like bias determination, flatfielding, continuum fitting. Here we investigate mainly the steps relevant to the mentioned critical algorithms: \texttt{"curvature", and "wavecal"}.
 %-----------
 \paragraph{Simulated input `raw' data}
-To demonstrate the feasibility of adopting \pyred~algorithms to \metis purposes we use data simulated with \scope~for all three \lss~modes ($L$, $M$, or $N$-band) for the $8000~\textrm{mas} \times 19~\textrm{mas}$ slit (see Fig.~\ref{fig:lmn_layout}). 
+To demonstrate the feasibility of adopting \pyred~algorithms to \metis~purposes we use data simulated with \scope~for all three \lss~modes ($L$, $M$, or $N$-band) for the $8000~\textrm{mas} \times 19~\textrm{mas}$ slit (see Fig.~\ref{fig:lmn_layout}). 
 % \todo Details on the simulated data and the input files and settings used to generate them are listed in the DRLVT \cite{drlvt}. 
 Then header keywords of the simulated data were added/modified to enable \pyred~to sort the individual files according to \texttt{metis.json}. Here we list the files - listed here for the case of $L$-band but similaily to $M$ and $N$-bands - that are used to operate \pyred, which can be downloaded from\footnote{\url{https://www.dropbox.com/sh/h1dz80vsw4lwoel/AAAqJD_FGDGC-t12wgnPXVR8a?dl=0}}: 
 \begin{itemize}
@@ -171,13 +171,13 @@ To assess the accuracy of the wavelength solution, the extracted wavelength cali
   \label{fig:sky_spec}
 \end{figure}
 
-\subparagraph{Wavelength calibration accuracy}\label{sec:critalg_wavecal_acc}
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figures/LSS_CrtAlg_files/Residuals_72.png}
-  \caption{Residuals of the wavelength calibration for \lss~$M$-band. The top panel displays the extracted wavelength calibration spectrum. The bottom panel shows the residuals of the wavelength calibration divided by the $FWHM$ of each respective line. The vertical dotted lines are the reference wavelengths of the input sky emission lines. }
-  \label{fig:r_m}
-\end{figure}
+% \subparagraph{Wavelength calibration accuracy}\label{sec:critalg_wavecal_acc}
+% \begin{figure}[!ht]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{figures/LSS_CrtAlg_files/Residuals_72.png}
+%   \caption{Residuals of the wavelength calibration for \lss~$M$-band. The top panel displays the extracted wavelength calibration spectrum. The bottom panel shows the residuals of the wavelength calibration divided by the $FWHM$ of each respective line. The vertical dotted lines are the reference wavelengths of the input sky emission lines. }
+%   \label{fig:r_m}
+% \end{figure}
 
 % \begin{figure}[!ht]
 %   \centering
