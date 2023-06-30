@@ -35,7 +35,7 @@ sed -E 's!\\REC\{([0-9a-zA-Z_]*)([}: ]+)\\label\{rec:[0-9a-zA-Z_:]*}!\\REC\{\1\2
 sed -E 's!\\QC\{([0-9a-zA-Z<>#_ ]*)([}: ]+)\\label\{qc:[0-9a-zA-Z_:<>#]*}!\\QC\{\1\2\\label\{qc:\1}!g' -i -- *.tex tikz/*.tex
 
 # Convert all PRODs that are not yet a link. That is, " \PROD{SOMETHING}"
-sed -E 's!([ ])\\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[dataitem:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
+sed -E 's!([ }\(])\\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[dataitem:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
 
 # Convert all QC that do not yet have a hyperref.
 # TODO: enable
@@ -51,7 +51,7 @@ sed -E 's!(subsection.*\\)REC!\1QQQQQQ!g' -i -- *.tex tikz/*.tex
 #   \caption[Recipe: \REC{metis_lm_img_flat}]{\REC{metis_lm_img_flat} ... }
 # This can be determined by checking for the closing ].
 # Then add a hyperref to all \REC.
-sed -E 's!([ ])\\REC\{([0-9a-zA-Z_]+)}([^]])!\1\\hyperref\[rec:\2]\{\\REC\{\2}}\3!g' -i -- *.tex tikz/*.tex
+sed -E 's!([ }\(])\\REC\{([0-9a-zA-Z_]+)}([^]])!\1\\hyperref\[rec:\2]\{\\REC\{\2}}\3!g' -i -- *.tex tikz/*.tex
 # Finally replace the placeholder again.
 sed -E 's!(subsection.*\\)QQQQQQ!\1REC!g' -i -- *.tex tikz/*.tex
 sed -E 's!(subsection.*\\)QQQQQQ!\1REC!g' -i -- *.tex tikz/*.tex
