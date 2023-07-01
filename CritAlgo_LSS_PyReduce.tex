@@ -126,7 +126,7 @@ Figure~\ref{fig:fig10, fig:fig10_z} shows the spectral lines used for the curvat
   \caption{\textbf{\pyred~output}: Slit curvature determination. The spectral lines used for the curvature determination are overlaid by the extracted tilt and shear fits marked in red lines. Shown here for the case of \lss~$M$-band.}
   \label{fig:fig10}
 \end{figure}
-\begin{figure}[!ht]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/Figure_10_z.png}
   \caption{\textbf{\pyred~output}: Zoomed in version of Fig.~\ref{fig:fig10}.}
@@ -141,7 +141,7 @@ The algorithm for the wavelength calibration strategy is described in Sect.~\ref
 
 
 
-\begin{figure}[!ht]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/Figure_12.png}
   \caption{\textbf{\pyred~output}: Wavelength calibration extracted spectrum. Shown here for the case of \lss~$M$-band.}
@@ -149,7 +149,7 @@ The algorithm for the wavelength calibration strategy is described in Sect.~\ref
 \end{figure}
 
 After the order tracing, extraction and curvature (tilt and shear) determination, \pyred~extracts can proceed with extracting a wavelength calibration spectrum for each order (here only one since we have an \lss~mode) from the wavelength calibration frame (\texttt{lss\_m\_sky.fits}, Fig.~\ref{fig:fig9}). The order spectrum is then compared to the wavelength calibration guess file \texttt{metis\_lss\_m\_2D.npz} of the \lss~$M$-band.  The \texttt{npz} file includes a numpy recarray called \texttt{cs\_lines} which lists mainly the wavelengths of the calibration reference lines, the x-pixel positions for start, center, and the end of each of the line traces on the detector, and the corresponding order as per \pyred~detection convention (here is zero in the case of \met~\lss). The list of reference lines and their positions on the detector was obtained by cross-matching their wavelengths  with the spectral layout of \met~\lss~for each band as obtained from the \met~IRDB\footnote{Instrument Reference Database, \url{https://github.com/AstarVienna/irdb/tree/dev_master/METIS}} and implemented in \scope~(e.g. \texttt{TRACE\_LSS\_M.fits}, see also Figure~\ref{fig:lmn_layout}). \pyred~then performs a cross-correlation to determine any offset between the reference (green lines) and the observation (red lines) as shown in \pyred~intermediate output file in Fig.~\ref{fig:fig10}.
-\begin{figure}[!ht]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/Figure_13.png}
   \caption{\textbf{\pyred~output}: Lines used for the wavelength calibration. The reference lines (green) and the observed lines (red) are aligned to each other for each order, where the green reference lines are shown to the top of the red observed line.  Shown here for the case of \lss~$M$-band.}
@@ -158,7 +158,7 @@ After the order tracing, extraction and curvature (tilt and shear) determination
 
 Wavelength calibration residuals are then calculated for matching lines and a wavelength solution  is found. The wavelength solution for \met~\lss~is found by fitting a 2D polynomial, with degrees of 4 and 4 in the dispersion and the spatial direction, respectively. Figure~\ref{fig:fig12} bottom panel shows the 2D wavelength solution of the extracted slit trace where it can be seen that the wavelength range and increment of the trace match the spectral layout on detector one as seen in Fig.~\ref{fig:lmn_layout}.  The wavelength calibration spectrum is shown in the top panel of Fig.~\ref{fig:fig12}. The wavelength calibration spectrum is stored in the \pyred~output file \texttt{metis\_lss\_m.thar\_master.fits} and the corresponding wavelength solution in \texttt{metis\_lss\_m.thar.npz} recarrays \texttt{wave} and \texttt{coef}, while a modified list of the wavelength calibration lines is returned  in \texttt{linelist} indicating which line was used in the fitting procedure. 
 
-\begin{figure}[!ht]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/Figure_15.png}
   \caption{\textbf{\pyred~output}: Top: Wavelength calibration spectrum for  \lss~$M$-band. Bottom: 2D wavelength solution of \pyred~order~0 (\lss~slit trace). The x-axis (Column) refers to the y pixel of the detector image in Fig.~\ref{fig:lmn_layout}. }
@@ -170,7 +170,7 @@ Wavelength calibration residuals are then calculated for matching lines and a wa
 % HB 20230630: I commented this out because fig:r_m is also commented out.
 % To assess the accuracy of the wavelength solution, the extracted wavelength calibration spectrum is compared to the input sky spectrum \texttt{SKYCALC\_LSS\_override.fits} from \met~IRDB (see Figure~\ref{fig:sky_spec}). The sky spectrum is based on \textsc{Skycalc}, which is in turn based on \textsc{HITRAN}\footnote{\url{www.hitran.org}}. Figure~\ref{fig:r_m} top panel show the spectrum extracted by \pyred. The vertical dashed lines indicate the reference wavelength of each detected calibration sky line. The bottom panel shows the residuals between the reference wavelength and fitted wavelength (line center) of each detected calibration line divided by its $FWHM$. As can be seen, the calculated residuals are within $\pm 0.1 \times~FWHM$ for most lines.
 
-\begin{figure}[!ht]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/SKYCALC_LSS_override.fits.png}
   \caption{\textbf{Input sky spectrum over the wavelength range covered by \met~\lss~modes}: The sky spectrum is taken from \met~IRDB file \texttt{SKYCALC\_LSS\_override.fits}. }
