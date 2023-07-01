@@ -168,7 +168,7 @@ Wavelength calibration residuals are then calculated for matching lines and a wa
 
 
 % HB 20230630: I commented this out because fig:r_m is also commented out.
-To assess the accuracy of the wavelength solution, the extracted wavelength calibration spectrum is compared to the input sky spectrum \texttt{SKYCALC\_LSS\_override.fits} from \met~IRDB (see Figure~\ref{fig:sky_spec}). The sky spectrum is based on \textsc{Skycalc}, which is in turn based on \textsc{HITRAN}\footnote{\url{www.hitran.org}}. Figures~\ref{fig:r_m, fig:r_m_z} top panel show the spectrum extracted by \pyred. The vertical dashed lines indicate the reference wavelength of each detected calibration sky line. The bottom panel shows the residuals between the reference wavelength and fitted wavelength (line center) of each detected calibration line divided by its $FWHM$. As can be seen, the calculated residuals are within $\pm 0.1 \times~FWHM$ for most lines.
+To assess the accuracy of the wavelength solution, the extracted wavelength calibration spectrum is compared to the input sky spectrum \texttt{SKYCALC\_LSS\_override.fits} from \met~IRDB (see Figure~\ref{fig:sky_spec}). The sky spectrum is based on \textsc{Skycalc}, which is in turn based on \textsc{HITRAN}\footnote{\url{www.hitran.org}}. Figures~\ref{fig:r_m},\ref{fig:r_m_z} middle panel show the spectrum extracted by \pyred. The vertical dashed lines indicate the reference wavelength of each detected calibration sky line. The bottom panel shows the residuals between the reference wavelength and fitted wavelength (line center) of each detected calibration line divided by its $FWHM$. As can be seen, the calculated residuals are within $\pm 0.1 \times~FWHM$ for most lines.
 
 \begin{figure}[!h]
   \centering
@@ -178,14 +178,14 @@ To assess the accuracy of the wavelength solution, the extracted wavelength cali
 \end{figure}
 
 \subparagraph{Wavelength calibration accuracy}\label{sec:critalg_wavecal_acc}
-\begin{figure}[!ht]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/LSS_CrtAlg_files/Residuals_m.png}
   \caption{Residuals of the wavelength calibration for \lss~$M$-band. The top panel displays the input sky spectrum. The extracted wavelength calibration spectrum is shown in the middle panel. The bottom panel shows the residuals of the wavelength calibration divided by the $FWHM$ of each respective line. The vertical dotted lines are the reference wavelengths of the input sky emission lines. }
   \label{fig:r_m}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/LSS_CrtAlg_files/Residuals_m_z.png}
   \caption{Zoomed in version of Fig.~\ref{fig:r_m}.
