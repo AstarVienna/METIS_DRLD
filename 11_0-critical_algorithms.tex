@@ -1,7 +1,7 @@
 \clearpage
 \section{Critical algorithms}\label{sec:critical_algorithms}
 
-This section discusses the progress made on the critical algorithms identified in the Data Reduction Library Specifications document \cite{DRLS}.
+This section summarizes the status of the critical algorithms that were identified in the Data Reduction Library Specifications document \cite{DRLS} at PDR. Note that `critical' in this context stands for `needs prototyping', and `non-critical' below does not mean `unimportant', just that there is a reason for not needing a prototype.
 
 \begin{enumerate}
     \item[1.] Persistence correction (\ref{ssec:criticalpersistencecorrection})
@@ -25,26 +25,25 @@ This section discusses the progress made on the critical algorithms identified i
     \item[4.] Background subtraction (\ref{ssec:criticalbackgroundsubtraction})
     \begin{itemize}
         \item \textit{Reason at PDR}: A proper background correction is essential to ensure accurate photometric and spectroscopic analysis of the observed sources because observations in the mid-infrared are affected by the high sky and telescope background.
-        \item \textit{Status at FDR}: Standard subtraction techniques (dithering, chopping and nodding) will be used, which not require prototying. More complex algorithms that would have required prototyping, e.g.
-involving principal component analysis, have been ruled out since PDR.
+        \item \textit{Status at FDR}: Standard subtraction techniques (dithering, chopping and nodding) will be used, which do not require prototyping. More complex algorithms that would have required prototypes, e.g.~involving principal component analysis, have been ruled out since PDR.
         \item \textit{Prototype delivery}: None
     \end{itemize}
     \item[5a.] LSS Wavelength calibration and distortion correction (\ref{ssec:criticalwavelengthanddistortionlss})
     \begin{itemize}
         \item \textit{Reason at PDR}: A new algorithm is necessary for wavelength calibration and distortion correction for LSS.
-        \item \textit{Status at FDR}: We will use the algorithm from PyReduce.
+        \item \textit{Status at FDR}: We will use the algorithms from PyReduce.
         \item \textit{Prototype delivery}: An adaptation of the PyReduce package.
     \end{itemize}
     \item[5b.] \ac{IFU} Wavelength calibration and distortion correction (\ref{ssec:criticalwavelengthanddistortionifu})
     \begin{itemize}
         \item \textit{Reason at PDR}: A new algorithm is necessary for wavelength calibration and distortion correction for IFU.
-        \item \textit{Status at FDR}: We will use the same algorithm as CRIRES.
-        \item \textit{Prototype delivery}: A script to call the CRIRES pipeline and example input/output files.
+        \item \textit{Status at FDR}: Use the same algorithms as for LSS (PyReduce), but via their incarnation in the CRIRES pipeline.
+        \item \textit{Prototype delivery}: A JuPyter-notebook with instructions to call the CRIRES pipeline and example input/output files.
     \end{itemize}
     \item[6.] Telluric correction (\ref{ssec:criticaltelluriccorrection})
     \begin{itemize}
         \item \textit{Reason at PDR}: Telluric correction, i.e. the removal of absorption features arising in the Earth’s atmosphere, is a critical issue as the imprint of molecular species present in our air may vary on different timescales down to minutes due to changes in their composition and their amount.
-        \item \textit{Status at FDR}: We either use molecfit or a telluric standard star. Both ways are well proven, and therefore we will not deliver a prototype
+        \item \textit{Status at FDR}: We either use molecfit or a telluric standard star. Both ways are well proven, and therefore we will not deliver a prototype.
         \item \textit{Prototype delivery}: None.
     \end{itemize}
     \item[7.] Error propagation (\ref{ssec:criticalerrorpropagation})
@@ -68,8 +67,7 @@ involving principal component analysis, have been ruled out since PDR.
     \end{itemize}
     \item[10.] IFU data rate (\ref{ssec:criticalifudatarate})
     \begin{itemize}
-        \item \textit{Reason at PDR}: For very bright sources, the LM band spectrograph will have to operate with very short exposures,
-            resulting in a high data rate of up to $1000 \mathrm{MiB}s^{-1}$ which may present a problem for
+        \item \textit{Reason at PDR}: For very bright sources, short exposures result in high data rates which may present a problem for
             the observatory pipeline which has to deal with the data in real time.
         \item \textit{Status at FDR}: The data rate is under control and does not require prototyping.
         \item \textit{Prototype delivery}: None.
@@ -277,7 +275,7 @@ The wavelength calibration and distortion correction critical algorithm is split
 %  \label{fig:lm_lss_dist_wave}
 %\end{figure}
 
-\subsubsection{IFU Wavelength calibration and distortion correction}\label{ssec:criticalwavelengthanddistortionifu}
+\subsubsection{IFU distortion correction}\label{ssec:criticalwavelengthanddistortionifu}
 \input{CritAlgo_IFUdist}
 
 \subsection{Telluric correction}\label{ssec:criticaltelluriccorrection}
