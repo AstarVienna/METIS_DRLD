@@ -165,11 +165,6 @@ Wavelength calibration residuals are then calculated for matching lines and a wa
   \label{fig:fig12}
 \end{figure}
 
-
-
-% HB 20230630: I commented this out because fig:r_m is also commented out.
-To assess the accuracy of the wavelength solution, the extracted wavelength calibration spectrum is compared to the input sky spectrum \texttt{SKYCALC\_LSS\_override.fits} from \met~IRDB (see Figure~\ref{fig:sky_spec}). The sky spectrum is based on \textsc{Skycalc}, which is in turn based on \textsc{HITRAN}\footnote{\url{www.hitran.org}}. Figures~\ref{fig:r_m} \& \ref{fig:r_m_z} middle panel show the spectrum extracted by \pyred. The vertical dashed lines indicate the reference wavelength of each detected calibration sky line. The bottom panel shows the residuals between the reference wavelength and fitted wavelength (line center) of each detected calibration line divided by its $FWHM$. As can be seen, the calculated residuals are within $\pm 0.1 \times~FWHM$ for most lines.
-
 \begin{figure}[!h]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/SKYCALC_LSS_override.fits.png}
@@ -177,7 +172,6 @@ To assess the accuracy of the wavelength solution, the extracted wavelength cali
   \label{fig:sky_spec}
 \end{figure}
 
-\subparagraph{Wavelength calibration accuracy}\label{sec:critalg_wavecal_acc}
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/LSS_CrtAlg_files/Residuals_m.png}
@@ -192,6 +186,13 @@ To assess the accuracy of the wavelength solution, the extracted wavelength cali
   }
   \label{fig:r_m_z}
 \end{figure}
+
+% HB 20230630: I commented this out because fig:r_m is also commented out.
+\subparagraph{Wavelength calibration accuracy}\label{sec:critalg_wavecal_acc}
+
+To assess the accuracy of the wavelength solution, the extracted wavelength calibration spectrum is compared to the input sky spectrum \texttt{SKYCALC\_LSS\_override.fits} from \met~IRDB (see Figure~\ref{fig:sky_spec}). The sky spectrum is based on \textsc{Skycalc}, which is in turn based on \textsc{HITRAN}\footnote{\url{www.hitran.org}}. Figures~\ref{fig:r_m} \& \ref{fig:r_m_z} middle panel show the spectrum extracted by \pyred. The vertical dashed lines indicate the reference wavelength of each detected calibration sky line. The bottom panel shows the residuals between the reference wavelength and fitted wavelength (line center) of each detected calibration line divided by its $FWHM$. As can be seen, the calculated residuals are within $\pm 0.1 \times~FWHM$ for most lines.
+
+
 
 
 % \begin{figure}[!h]
