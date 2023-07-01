@@ -19,6 +19,16 @@ The association map is shown in Fig.~\ref{Fig:IfuAssomap}.
 % post-processing recipe (\CODE{metis_ifu_combine}).
 % }
 
+Two more changes are foreseen in the IFU recipe cascade:
+\begin{itemize}
+    % https://github.com/AstarVienna/METIS_DRLD/issues/110
+    \item Allow telluric standard stars to be used, similarly to the LSS workflow, and
+
+    % https://github.com/AstarVienna/METIS_DRLD/issues/100
+    \item Refactor the recipes such that the common processing steps are in a shared recipe, similarly to the imaging workflows.
+\end{itemize}
+
+
 \begin{landscape}
 \begin{figure}[ht]
   \centering
