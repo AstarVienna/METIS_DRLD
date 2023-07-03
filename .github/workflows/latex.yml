@@ -1,10 +1,12 @@
 name: Build LaTeX document
 on:
   schedule:
-    - # Run every day at 5:00 UTC
+    # Run every day at 5:00 UTC
     - cron: "0 5 * * *"
 
-  pull_request:
+  # Not triggered automatically on PR anymore, because we ran out of CI minutes
+  # in May and June 2023. So instead just trigger it manually.
+  #pull_request:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,3 +31,4 @@ jobs:
         with:
           name: METIS DRLD
           path: ./*.pdf
+          retention-days: 5
