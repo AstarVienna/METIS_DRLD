@@ -24,9 +24,26 @@ def guess_postfixes(name):
     """Try to guess what _det_ means in name."""
     postfixes_hardware = ["2RG", "GEO", "IFU"]
     postfixes_mode = ["LM", "N", "IFU"]
+    postfixes_adiimg = ["LM", "N"]
     nameparts_hardware = ["master", "linearity", "persistence", "gain"]
+    nameparts_adiimg = [a.lower() for a in [
+        # These have their IFU counterpart explicitly written down
+        "_cgrph_SCI_CALIBRATED",
+        "_cgrph_SCI_CENTRED",
+        "_cgrph_CENTROID_TAB",
+        "_cgrph_SCI_SPECKLE",
+        "_cgrph_SCI_DEROTATED_PSFSUB",
+        "_cgrph_SCI_DEROTATED",
+        "_cgrph_SCI_CONTRAST_RAW",
+        "_cgrph_SCI_CONTRAST_ADI",
+        "_cgrph_SCI_THROUGHPUT",
+        "_cgrph_SCI_SNR",
+        "_cgrph_SCI_COVERAGE",
+    ]]
     if any(namepart in name.lower() for namepart in nameparts_hardware):
         return postfixes_hardware
+    if any(namepart in name.lower() for namepart in nameparts_adiimg):
+        return postfixes_adiimg
     return postfixes_mode
 
 
@@ -942,6 +959,10 @@ class DataReductionLibraryDesign:
             recipe
             for recipe in self.recipes.values()
             if name_dataitem in [diref.name for diref in recipe.output_data]
+            or any(
+                name_dataitem.replace("det", postfix) in [diref.name for diref in recipe.output_data]
+                for postfix in guess_postfixes(name_dataitem)
+            )
         ]
 
 

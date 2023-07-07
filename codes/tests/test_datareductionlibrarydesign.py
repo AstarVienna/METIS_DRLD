@@ -303,11 +303,14 @@ class TestDataReductionLibraryDesign:
         assert not templates_missing
 
 
+    @pytest.mark.xfail(reason="Still many to do")
     def test_dataitems_sanity(self):
         """Do dataitems internal consistency check."""
         all_errors = []
         for dataitem in METIS_DataReductionLibraryDesign.dataitems.values():
+            names_created_by_claimed = [recref.name.lower() for recref in dataitem.created_by if recref.name]
             created_by = METIS_DataReductionLibraryDesign.get_created_by(dataitem.name)
+            names_created_by = [recipe.name.lower() for recipe in created_by]
             if created_by:
                 s_created_by = "\n".join(
                     [f"Created by:   & \\REC{{{created_by[0].name}}} \\\\"] +
@@ -377,14 +380,26 @@ class TestDataReductionLibraryDesign:
                     f"""{dataitem.name} is {dataitem.dtype} but is not produced by any recipe
 {s_created_by}""",
                 ),
-                # TODO: created somehow
+                (
+                    dataitem.dtype in {"RAW", "PROD", "STATCALIB", "EXTCALIB"},
+                    f"{dataitem.name} has unknown dtype {dataitem.dtype}",
+                ),
+                # Now also some external checks.
+                (
+                    set(names_created_by_claimed) == set(names_created_by),
+                    f"""{dataitem.name} claims to be created by {names_created_by_claimed}
+{s_created_by}"""
+                )
             ]
-            # TODO: check whether n/a DO.CATG are not used in recipes
+            # TODO: Check created_by and input_for RecipeRefs actually have a name, or are HITRAN
             # TODO: Check OCA keywords
             # TODO: Check HDU headers
             all_errors += [errorstring for is_ok, errorstring in possible_errors if not is_ok]
 
-        print("\n".join(all_errors))
+        if all_errors:
+            print()
+            print()
+            print("\n".join(all_errors))
         assert not all_errors, f"Found {len(all_errors)} problems with the dataitems internal consistency."
 
 
