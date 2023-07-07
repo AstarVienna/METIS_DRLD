@@ -356,6 +356,10 @@ class TestDataReductionLibraryDesign:
                     dataitem.dtype == "RAW" or dataitem.dpr_catg is None,
                     f"{dataitem.name} is {dataitem.dtype} but has DPR.CATG defined as {dataitem.dpr_catg}",
                 ),
+                (
+                    dataitem.dtype == "RAW" or not dataitem.templates,
+                    f"{dataitem.name} is not RAW but has templats {dataitem.templates}",
+                ),
             ]
             # TODO: check whether n/a DO.CATG are not used in recipes
             all_errors += [errorstring for is_ok, errorstring in possible_errors if not is_ok]
