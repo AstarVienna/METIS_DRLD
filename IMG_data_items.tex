@@ -85,7 +85,7 @@ Description: & Raw data for non-linearity determination.\\[0.3cm]
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,det}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DETLIN}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{DETLIN_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{DETLIN_det_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
                        & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
@@ -115,7 +115,7 @@ Description: & Raw data for creating a master dark.\\[0.3cm]
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,det}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK,det}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}, \hyperref[fits:det.id]{\FITS{DET.ID}}, \hyperref[fits:det.dit]{\FITS{DET.DIT}}  \\
-\FITS{DO.CATG}: & \FITS{DARK}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{DARK_det_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_gen_cal_dark}                                                       \\
 Input for recipe: & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -376,7 +376,7 @@ Description: & Master flat frame for N image data \\[0.3cm]
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{N} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,??} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{MASTER_FLAT_IMG_N}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{MASTER_IMG_FLAT_N}\\[0.3cm]
 Template: & \TPL{METIS_n_img_flat}\\
 Created by:  \hyperref[drl:n_img_flat]{\REC{metis_n_img_flat}} \\
 Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
@@ -556,7 +556,7 @@ Description: & Catalog of masked objects in standard LM exposures.\\[0.3cm]
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_STD_OBJECT_CAT}\\[0.3cm]
 % Template: & \TPL{METIS_img_lm_cal_standard}\\_*_
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
 Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
@@ -637,7 +637,7 @@ Description: & Catalog of masked objects in science LM exposures.\\[0.3cm]
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_SCI_OBJECT_CAT}\\[0.3cm]
 % Template: & \TPL{METIS_img_lm_cal_standard}\\
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
 Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
@@ -664,7 +664,7 @@ Description: & LM band image with flux calibration, WC coordinate system and dis
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM_LSS_RSRF_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_SCI_CALIBRATED}\\[0.3cm]
 % Template: & \TPL{METIS_img_lm_cal_standard}\\
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
 Input for recipe: & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
@@ -692,7 +692,7 @@ Description: & N band image with flux calibration and distorion information\\[0.
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_SCI_CALIBRATED}\\[0.3cm]
 % Template: & \TPL{METIS_img_n_cal_standard}\\
 %             & \TPL{METIS_img_n_*_obs_*}       \\
 Input for recipe: & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
@@ -740,7 +740,7 @@ Description: & N band image with a single positive beam restored from chop-nod i
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_SCI_RESTORED}\\[0.3cm]
 % Template: & \TPL{METIS_img_n_cal_standard}\\
 %             & \TPL{METIS_img_n_*_obs_*}       \\
 Input for recipe: & \hyperref[rec:metis_n_img_restore]{\REC{metis_n_img_restore}}\\
@@ -778,7 +778,7 @@ Description: & Table of polynomial coefficients for distortion correction\\[0.3c
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_DIST_REDUCED}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_distortion}\\
 Input for recipe: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -807,7 +807,7 @@ Description: & Table of polynomial coefficients for distortion correction\\[0.3c
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N_LSS_RSRF_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_DIST_REDUCED}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_distortion}\\
 Input for recipe: & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
