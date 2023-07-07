@@ -543,19 +543,17 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
     
 
 
-\paragraph{\hyperref[dataitem:lm_std_object_cat]{\RAW{LM_STD_OBJECT_CAT}}}\label{dataitem:lm_std_object_cat}
+\paragraph{\hyperref[dataitem:lm_std_object_cat]{\PROD{LM_STD_OBJECT_CAT}}}\label{dataitem:lm_std_object_cat}
 \begin{recipedef}
 \textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \hyperref[dataitem:lm_std_object_cat]{\RAW{LM_STD_OBJECT_CAT}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_std_object_cat]{\PROD{LM_STD_OBJECT_CAT}}\\[0.3cm]
 Description: & Catalog of masked objects in standard LM exposures.\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_STD_OBJECT_CAT} \\[0.3cm]
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_STD_OBJECT_CAT}\\[0.3cm]
 % Template: & \TPL{METIS_img_lm_cal_standard}\\_*_
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
+Created by: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -624,19 +622,17 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:lm_sci_object_cat]{\RAW{LM_SCI_OBJECT_CAT}}}\label{dataitem:lm_sci_object_cat}
+\paragraph{\hyperref[dataitem:lm_sci_object_cat]{\PROD{LM_SCI_OBJECT_CAT}}}\label{dataitem:lm_sci_object_cat}
 \begin{recipedef}
 \textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \hyperref[dataitem:lm_sci_object_cat]{\RAW{LM_SCI_OBJECT_CAT}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_sci_object_cat]{\PROD{LM_SCI_OBJECT_CAT}}\\[0.3cm]
 Description: & Catalog of masked objects in science LM exposures.\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_SCI_OBJECT_CAT} \\[0.3cm]
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_SCI_OBJECT_CAT}\\[0.3cm]
 % Template: & \TPL{METIS_img_lm_cal_standard}\\
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
-Input for recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
+Created by: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -651,15 +647,13 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}    
     
 
-\paragraph{\hyperref[dataitem:lm_sci_calibrated]{\RAW{LM_SCI_CALIBRATED}}}\label{dataitem:lm_sci_calibrated}
+\paragraph{\hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}}}\label{dataitem:lm_sci_calibrated}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lm_sci_calibrated]{\RAW{LM_SCI_CALIBRATED}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}}\\[0.3cm]
 Description: & LM band image with flux calibration, WC coordinate system and distorion information\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\FITS{PRO.CATG}: & \FITS{LM_SCI_CALIBRATED}\\[0.3cm]
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_SCI_CALIBRATED}\\[0.3cm]
 % Template: & \TPL{METIS_img_lm_cal_standard}\\
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
