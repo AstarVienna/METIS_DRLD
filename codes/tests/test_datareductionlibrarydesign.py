@@ -348,6 +348,14 @@ class TestDataReductionLibraryDesign:
                     sum([dataitem.dpr_catg is not None, dataitem.dpr_tech  is not None, dataitem.dpr_type is not None]) in (0, 3),
                     f"{dataitem.name} has only some of the DPR keywords defined",
                 ),
+                (
+                    dataitem.dtype != "RAW" or dataitem.pro_catg is None,
+                    f"{dataitem.name} is {dataitem.dtype} but has PRO.CATG defined as {dataitem.pro_catg}",
+                ),
+                (
+                    dataitem.dtype == "RAW" or dataitem.dpr_catg is None,
+                    f"{dataitem.name} is {dataitem.dtype} but has DPR.CATG defined as {dataitem.dpr_catg}",
+                ),
             ]
             # TODO: check whether n/a DO.CATG are not used in recipes
             all_errors += [errorstring for is_ok, errorstring in possible_errors if not is_ok]
