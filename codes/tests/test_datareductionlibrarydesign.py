@@ -303,6 +303,45 @@ class TestDataReductionLibraryDesign:
         assert not templates_missing
 
 
+    def test_dataitems_sanity(self):
+        """Do dataitems internal consistency check."""
+        for dataitem in METIS_DataReductionLibraryDesign.dataitems.values():
+            assert dataitem.name == dataitem.name_header
+            assert dataitem.hyperref == f"dataitem:{dataitem.name.lower()}"
+            assert dataitem.hyperref in dataitem.labels
+            # TODO: PRO CATG
+            # TODO: DO CATG
+            # assert dataitem.dtype == dataitem.dtype_header
+
+
+
+    @pytest.mark.xfail(reason="We're not there yet.")
+    def test_dataitems_refer_to_correct_recipes(self):
+        """Check whether dataitems have the correct recipes."""
+        allerrors = {
+            dataitem.name: {
+                "bad_created_by": [
+                    reciperef.name
+                    for reciperef in dataitem.created_by
+                    if reciperef.name not in METIS_DataReductionLibraryDesign.recipes
+                ],
+                "bad_input_for": [
+                    reciperef.name
+                    for reciperef in dataitem.input_for
+                    if reciperef.name not in METIS_DataReductionLibraryDesign.recipes
+                ],
+            } for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
+        }
+        errors = False
+        for (name, theerrors) in allerrors.items():
+            if theerrors["bad_created_by"]:
+                errors = True
+                print(f"{name} claims to be created by recipes that do not produce it: {theerrors['bad_created_by']}")
+            if theerrors["bad_input_for"]:
+                errors = True
+                print(f"{name} claims to be input for recipes that do not use it: {theerrors['bad_input_for']}")
+        assert not errors
+
 class TestFindLatexInputs:
     def test_find_latex_inputs(self):
         fns_expected = {
@@ -389,6 +428,10 @@ Name: & \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}\\[0.3cm]
 Description: & LM-band \ac{LSS} Master \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_N_LSS_RSRF}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
+\FITS{DPR.CATG}: & \FITS{HELLO}\\[0.3cm]
+\FITS{DPR.TYPE}: & \FITS{WORLD}\\[0.3cm]
+\FITS{DPR.TECH}: & \FITS{HOWRU}\\[0.3cm]
+\FITS{PRO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
 \FITS{DO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
 Created by: & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_n_lss_rsrf}}\\
 Input for recipes: & \hyperref[rec:metis_n_lss_trace]{\REC{metis_n_lss_trace}}\\
@@ -407,7 +450,21 @@ Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}"""
-    _ = DataItem.from_paragraph(stable)
+    dataitem = DataItem.from_paragraph(stable)
+    assert dataitem.templates == ["METIS_ifu_vc_obs_FixedSkyOffset".lower(), "METIS_ifu_ext_vc_obs_FixedSkyOffset".lower()]
+    assert [recref.name for recref in dataitem.input_for] == ["metis_n_lss_trace", "metis_n_lss_std", "metis_n_lss_sci"]
+    assert [recref.name for recref in dataitem.created_by] == ["metis_n_lss_rsrf"]
+    assert dataitem.name == "MASTER_N_LSS_RSRF"
+    assert dataitem.hyperref == "dataitem:master_n_lss_rsrf"
+    assert dataitem.labels == ["dataitem:master_n_lss_rsrf"]
+    assert dataitem.dtype == "PROD"
+    assert dataitem.name_header =="MASTER_N_LSS_RSRF"
+    assert dataitem.dtype_header == "PROD"
+    assert dataitem.pro_catg == "MASTER_N_LSS_RSRF"
+    assert dataitem.do_catg == "MASTER_N_LSS_RSRF"
+    assert dataitem.dpr_catg == "HELLO"
+    assert dataitem.dpr_tech == "HOWRU"
+    assert dataitem.dpr_type == "WORLD"
 
 
 def test_tikz():

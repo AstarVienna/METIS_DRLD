@@ -88,7 +88,7 @@ class DataItem:
 
     name: str = None
     hyperref: str = None
-    labels: List[str] = None
+    labels: List[str] = dataclasses.field(default_factory=list)
     description: str = None
     pro_catg: str = None
     dpr_catg: str = None
@@ -96,9 +96,9 @@ class DataItem:
     dpr_tech: str = None
     do_catg: str = None
     oca_keywords: str = None
-    created_by: str = None
-    input_for: str = None
-    templates: str = None
+    created_by: List["RecipeReference"] = dataclasses.field(default_factory=list)
+    input_for: List["RecipeReference"] = dataclasses.field(default_factory=list)
+    templates: List[str] = dataclasses.field(default_factory=list)
     dtype: str = None
     name_header: str = None
     dtype_header: str = None
@@ -227,6 +227,9 @@ class DataItem:
                     # "metis_img_lm_*_obs_*". However, it is not possible
                     # to expand those here, because there is no knowledge
                     # about which templates exist at this stage.
+                elif field_old in ["pro_catg", "do_catg", "dpr_catg", "dpr_tech", "dpr_type"]:
+                    value = re.sub("\\\\FITS{(.*?)}", " \\1 ", value)
+                    value = value.strip()
                 elif field_old in ["created_by", "input_for"]:
                     # These should all be \REC{something}
                     value1 = [
