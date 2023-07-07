@@ -303,6 +303,136 @@ class TestDataReductionLibraryDesign:
         assert not templates_missing
 
 
+    # @pytest.mark.xfail(reason="Still many to do")
+    def test_dataitems_sanity(self):
+        """Do dataitems internal consistency check."""
+        all_errors = []
+        for dataitem in METIS_DataReductionLibraryDesign.dataitems.values():
+            names_created_by_claimed = [recref.name.lower() for recref in dataitem.created_by if recref.name is not None and recref.name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING]
+            created_by = METIS_DataReductionLibraryDesign.get_created_by(dataitem.name)
+            names_created_by = [recipe.name.lower() for recipe in created_by]
+            if created_by:
+                s_created_by = "\n".join(
+                    [f"Created by:   & \\REC{{{created_by[0].name}}} \\\\"] +
+                    [f"              & \\REC{{{rec.name}}} \\\\" for rec in created_by[1:]]
+                )
+            else:
+                s_created_by = ""
+            possible_errors = [
+                # Test the four times the name is repeated
+                (
+                    dataitem.name == dataitem.name_header,
+                    f"{dataitem.name} uses {dataitem.name_header} as header",
+                ),
+                (
+                    dataitem.do_catg == dataitem.name or dataitem.do_catg in ["n/a"],
+                    f"{dataitem.name} uses {dataitem.do_catg} as DO.CATG",
+                ),
+                (
+                    dataitem.pro_catg is None or dataitem.pro_catg == dataitem.name,
+                    f"{dataitem.name} uses {dataitem.pro_catg} as PRO.CATG instead of {dataitem.name},"
+                ),
+                # And two more times in the label/hyperref
+                (
+                    dataitem.hyperref == f"dataitem:{dataitem.name.lower()}",
+                    f"{dataitem.name} uses {dataitem.hyperref} as hyperref",
+                ),
+                (
+                    dataitem.hyperref in dataitem.labels,
+                    f"{dataitem.name} uses labels {dataitem.labels}",
+                ),
+                # More checks
+                (
+                    dataitem.dtype == dataitem.dtype_header,
+                    f"{dataitem.name} has {dataitem.dtype} in the name and {dataitem.dtype_header} in the header",
+                ),
+                (
+                    # If the dataitem is used as input for a recipe, it must have a DO.CATG set.
+                    dataitem.do_catg not in ["n/a"] or not dataitem.input_for,
+                    f"{dataitem.name} is used as input for {dataitem.input_for} but has {dataitem.do_catg} as DO.CATG",
+                ),
+                (
+                    not (dataitem.pro_catg and (dataitem.dpr_catg or dataitem.dpr_type or dataitem.dpr_tech)),
+                    f"{dataitem.name} has PRO.CATG {dataitem.pro_catg} and also some of the DPR keywords",
+                ),
+                (
+                    sum([dataitem.dpr_catg is not None, dataitem.dpr_tech  is not None, dataitem.dpr_type is not None]) in (0, 3),
+                    f"{dataitem.name} has only some of the DPR keywords defined",
+                ),
+                (
+                    dataitem.dtype != "RAW" or dataitem.pro_catg is None,
+                    f"{dataitem.name} is {dataitem.dtype} but has PRO.CATG defined as {dataitem.pro_catg}",
+                ),
+                (
+                    dataitem.dtype == "RAW" or dataitem.dpr_catg is None,
+                    f"{dataitem.name} is {dataitem.dtype} but has DPR.CATG defined as {dataitem.dpr_catg}",
+                ),
+                (
+                    dataitem.dtype == "RAW" or not dataitem.templates,
+                    f"{dataitem.name} is not RAW but has templats {dataitem.templates}",
+                ),
+                (
+                    dataitem.dtype != "RAW" or dataitem.templates,
+                    f"{dataitem.name} is RAW but is not produced by any template",
+                ),
+                (
+                    dataitem.dtype not in {"PROD", "STATCALIB"} or dataitem.created_by,
+                    f"""{dataitem.name} is {dataitem.dtype} but is not produced by any recipe
+{s_created_by}""",
+                ),
+                (
+                    dataitem.dtype in {"RAW", "PROD", "STATCALIB", "EXTCALIB"},
+                    f"{dataitem.name} has unknown dtype {dataitem.dtype}",
+                ),
+                # Now also some external checks.
+                (
+                    set(names_created_by_claimed) == set(names_created_by),
+                    f"""{dataitem.name} claims to be created by {names_created_by_claimed}
+{s_created_by}"""
+                ),
+            ]
+            # TODO: Check created_by and input_for RecipeRefs actually have a name, or are HITRAN
+            # TODO: Check OCA keywords
+            # TODO: Check HDU headers
+            all_errors += [errorstring for is_ok, errorstring in possible_errors if not is_ok]
+
+        if all_errors:
+            print()
+            print()
+            print("\n".join(all_errors))
+        assert not all_errors, f"Found {len(all_errors)} problems with the dataitems internal consistency."
+
+
+    def test_dataitems_refer_to_correct_recipes(self):
+        """Check whether dataitems have the correct recipes."""
+        allerrors = {
+            dataitem.name: {
+                "bad_created_by": [
+                    reciperef.name
+                    for reciperef in dataitem.created_by
+                    if reciperef.name is not None and reciperef.name.lower() not in [
+                        name.lower() for name in METIS_DataReductionLibraryDesign.recipes if name is not None
+                    ] and reciperef.name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING
+                ],
+                "bad_input_for": [
+                    reciperef.name
+                    for reciperef in dataitem.input_for
+                    if reciperef.name is not None and  reciperef.name.lower() not in [
+                        name.lower() for name in METIS_DataReductionLibraryDesign.recipes if name is not None
+                    ] and reciperef.name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING
+                ],
+            } for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
+        }
+        errors = False
+        for (name, theerrors) in allerrors.items():
+            if theerrors["bad_created_by"]:
+                errors = True
+                print(f"{name} claims to be created by recipes that do not exist: {theerrors['bad_created_by']}")
+            if theerrors["bad_input_for"]:
+                errors = True
+                print(f"{name} claims to be input for recipes that do not exist: {theerrors['bad_input_for']}")
+        assert not errors
+
 class TestFindLatexInputs:
     def test_find_latex_inputs(self):
         fns_expected = {
@@ -389,13 +519,18 @@ Name: & \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}\\[0.3cm]
 Description: & LM-band \ac{LSS} Master \ac{RSRF}.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_N_LSS_RSRF}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
+\FITS{DPR.CATG}: & \FITS{HELLO}\\[0.3cm]
+\FITS{DPR.TYPE}: & \FITS{WORLD}\\[0.3cm]
+\FITS{DPR.TECH}: & \FITS{HOWRU}\\[0.3cm]
+\FITS{PRO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
 \FITS{DO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
 Created by: & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_n_lss_rsrf}}\\
 Input for recipes: & \hyperref[rec:metis_n_lss_trace]{\REC{metis_n_lss_trace}}\\
                    & \hyperref[rec:metis_n_lss_std]{\REC{metis_n_lss_std}}\\
                    & \hyperref[rec:metis_n_lss_sci]{\REC{metis_n_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
+                       & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset} \\
 \end{recipedef}
 %\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
@@ -407,6 +542,27 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}"""
     dataitem = DataItem.from_paragraph(stable)
+    assert dataitem.templates == ["METIS_ifu_vc_obs_FixedSkyOffset".lower(), "METIS_ifu_ext_vc_obs_FixedSkyOffset".lower()]
+    assert [recref.name for recref in dataitem.input_for] == ["metis_n_lss_trace", "metis_n_lss_std", "metis_n_lss_sci"]
+    assert [recref.name for recref in dataitem.created_by] == ["metis_n_lss_rsrf"]
+    assert dataitem.name == "MASTER_N_LSS_RSRF"
+    assert dataitem.hyperref == "dataitem:master_n_lss_rsrf"
+    assert dataitem.labels == ["dataitem:master_n_lss_rsrf"]
+    assert dataitem.dtype == "PROD"
+    assert dataitem.name_header =="MASTER_N_LSS_RSRF"
+    assert dataitem.dtype_header == "PROD"
+    assert dataitem.pro_catg == "MASTER_N_LSS_RSRF"
+    assert dataitem.do_catg == "MASTER_N_LSS_RSRF"
+    assert dataitem.dpr_catg == "HELLO"
+    assert dataitem.dpr_tech == "HOWRU"
+    assert dataitem.dpr_type == "WORLD"
+
+    stable = r"""\paragraph{\hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}}\label{dataitem:badpix_map_2rg}
+See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
+"""
+    dataitem = DataItem.from_paragraph(stable)
+    assert dataitem.name_header == "BADPIX_MAP_2RG"
+    assert dataitem.name is None
 
 
 def test_tikz():

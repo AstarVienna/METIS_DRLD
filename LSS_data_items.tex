@@ -13,7 +13,7 @@ Description: & Raw exposure for determining the \ac{ADC} slitlosses.\\[0.3cm]
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{SLITLOSS,LM} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  more TBD\\
-\FITS{DO.CATG}: & \FITS{LM_SLITLOSS_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_SLITLOSSES_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_lm_cal_SlitAdc}\\
 Input for recipes: & \hyperref[rec:metis_lm_lss_std]{\REC{metis_lm_lss_std}}\\
 & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_lm_lss_sci}}\\
@@ -41,7 +41,7 @@ Description: & Raw exposure for determining the \ac{ADC} slitlosses.\\[0.3cm]
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{SLITLOSS,N} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  more TBD\\
-\FITS{DO.CATG}: & \FITS{N_SLITLOSS_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_SLITLOSSES_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_n_cal_slit}\\
 Input for recipes: & \hyperref[rec:metis_n_lss_std]{\REC{metis_n_lss_std}}\\
 & \hyperref[rec:metis_n_lss_sci]{\REC{metis_n_lss_sci}}\\
@@ -150,7 +150,7 @@ Description: & LM-band long-slit spectroscopy raw exposure of a flux standard st
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{STD} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM_LSS_FLUX_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_LSS_STD_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_lm_cal_Standard}\\
           & \TPL{METIS_spec_lmn_obs_AutoChopNodOnSlit}\\
 Input for recipe: & \hyperref[rec:metis_lm_lss_std]{\REC{metis_lm_lss_std}}\\
@@ -286,7 +286,7 @@ Description: & N-band long-slit spectroscopy raw exposure of a flux standard sta
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LSS} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{STD} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N_LSS_FLUX_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_LSS_STD_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_lm_cal_Standard}\\
              & \TPL{METIS_spec_lmn_obs_AutoChopNodOnSlit}\\
 Input for recipe: & \hyperref[rec:metis_n_lss_std]{\REC{metis_n_lss_std}}\\
@@ -367,7 +367,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:median_lm_lss_rsrf_img]{\PROD{MEDIAN_LM_LSS_RSRF_IMG}}\\[0.3cm]
 Description: & LM-band \ac{LSS} Median \ac{RSRF}.\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_LM_LSS_RSRF}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MEDIAN_LM_LSS_RSRF_IMG}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_lm_lss_rsrf}}\\
@@ -910,7 +910,7 @@ Description: & Extracted 1d science spectrum.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_SCI_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}} \\
 \FITS{DO.CATG}: & \FITS{N_LSS_SCI_1D}\\[0.3cm]
-Created by: & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_lm_lss_sci}}\\
+Created by: & \hyperref[rec:metis_n_lss_sci]{\REC{metis_n_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -930,9 +930,11 @@ Comment: & intermediate data product used for \ac{QC}\\
 \begin{recipedef}
 Name: & \hyperref[dataitem:std_transmission]{\PROD{STD_TRANSMISSION}}\\[0.3cm]
 Description: & Transmission curve derived by means of the \ac{STD} star \\[0.3cm]
+\FITS{PRO.CATG}: & \FITS{STD_TRANSMISSION} \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS{INS.SPEC.SETUP}\\
-\FITS{PRO.CATG}: & \FITS{TBD} \\[0.3cm]
+\FITS{DO.CATG}: & \FITS{STD_TRANSMISSION} \\[0.3cm]
 Produced by recipe: & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
+                    & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
 Input for recipe(s): & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_LSS_sci}}\\
 QC Parameters: &  TBD\\
 Processing FITS Keywords: & provided at \ac{PAE}\\
@@ -953,8 +955,9 @@ Data structure:
 \begin{recipedef}
 Name: & \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}}\\[0.3cm]
 Description: & Master LM-band response function for absolute flux calibration \\[0.3cm]
+\FITS{PRO.CATG}: & \FITS{MASTER_LM_RESPONSE} \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS{INS.SPEC.SETUP}\\
-\FITS{PRO.CATG}: & \FITS{TBD} \\[0.3cm]
+\FITS{DO.CATG}: & \FITS{MASTER_LM_RESPONSE} \\[0.3cm]
 Produced by recipe: & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
 Input for recipe(s): & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_LSS_sci}}\\
 QC Parameters: &  TBD\\
@@ -975,8 +978,9 @@ Data structure:
 \begin{recipedef}
 Name: & \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}}\\[0.3cm]
 Description: & Master N-band response function for absolute flux calibration \\[0.3cm]
+\FITS{PRO.CATG}: & \FITS{MASTER_N_RESPONSE} \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS{INS.SPEC.SETUP}\\
-\FITS{PRO.CATG}: & \FITS{TBD} \\[0.3cm]
+\FITS{DO.CATG}: & \FITS{MASTER_N_RESPONSE} \\[0.3cm]
 Produced by recipe: & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
 Input for recipe(s): & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_LSS_sci}}\\
 QC Parameters: &  TBD\\
@@ -1001,6 +1005,7 @@ Description: & Table of best-fit \texttt{molecfit} values\\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{MF_BEST_FIT_TAB}\\[0.3cm]
 Created by: & \hyperref[rec:metis_lm_lss_mf_model]{\REC{metis_LM_lss_mf_model}}\\
+            & \hyperref[rec:metis_n_lss_mf_model]{\REC{metis_N_lss_mf_model}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & wavelength calibration / rectification\\
 \end{recipedef}
@@ -1147,7 +1152,7 @@ Description: & Extracted, flux-calibrated 1d science spectrum.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_SCI_FLUX_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}} \\
 \FITS{DO.CATG}: & \FITS{N_LSS_SCI_FLUX_1D}\\[0.3cm]
-Created by: & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_lm_lss_sci}}\\
+Created by: & \hyperref[rec:metis_n_lss_sci]{\REC{metis_n_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\

@@ -192,13 +192,11 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}\\[0.3cm]
 Description: & Master dark frame for IFU detector data \\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IFU} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK,??} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_DARK_IFU} \\[0.3cm]
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{MASTER_DARK_IFU}\\[0.3cm]
-Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
-Created by:  \hyperref[drl:det_dark]{\REC{metis_det_dark}} \\
+%Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
+Created by: & \hyperref[drl:det_dark]{\REC{metis_det_dark}} \\
 Input for recipes: & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}}\\
 & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}\\
 & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
@@ -224,7 +222,7 @@ Description: & Master flat frame for IFU image data \\[0.3cm]
 \FITS{DO.CATG}: & \FITS{MASTER_FLAT_IFU}\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_FLAT_IFU}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-Created by:  \hyperref[drl:n_img_flat]{\REC{metis_ifu_rsrf}} \\
+Created by: & \hyperref[drl:n_img_flat]{\REC{metis_ifu_rsrf}} \\
 Input for recipes: & None\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
@@ -269,7 +267,7 @@ Description: &  A rectified spectral cube of the background with a linear wavele
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_STD_BACKGROUND_CUBE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{IFU_STD_BACKGROUND_CUBE}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+Created by: & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -318,7 +316,7 @@ Description: & Spectrum of telluric standard star. \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_STD_TELLURIC_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{IFU_STD_TELLURIC_1D}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+Created by: & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -422,7 +420,10 @@ Description: & Reduced and telluric absorption corrected 2D detector image of sc
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_REDUCED_TAC}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{IFU_SCI_REDUCED_TAC}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
+%Created by: & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
+% TODO: is metis_ifu_tellcorr correct?
+Created by:   & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} \\
+              & \hyperref[rec:metis_ifu_tellcorr]{\REC{metis_ifu_tellcorr}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -599,7 +600,7 @@ Description: &  Spectral cube of science object, a coadd of a number of reduced 
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_COADD}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{IFU_SCI_COADD}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+Created by:   & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -620,7 +621,7 @@ Name: & \hyperref[dataitem:ifu_sci_coadd_error]{\PROD{IFU_SCI_COADD_ERROR}}\\[0.
 Description: &  The standard error of an \hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}. \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_COADD_ERROR}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_COADD}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{IFU_SCI_COADD_ERROR}\\[0.3cm]
 Created by: & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
