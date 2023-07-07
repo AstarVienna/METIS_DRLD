@@ -305,15 +305,37 @@ class TestDataReductionLibraryDesign:
 
     def test_dataitems_sanity(self):
         """Do dataitems internal consistency check."""
+        all_errors = []
         for dataitem in METIS_DataReductionLibraryDesign.dataitems.values():
-            assert dataitem.name == dataitem.name_header
-            assert dataitem.do_catg == dataitem.name or dataitem.do_catg in ["n/a"]
-            assert dataitem.hyperref == f"dataitem:{dataitem.name.lower()}"
-            assert dataitem.hyperref in dataitem.labels
-            # TODO: PRO CATG
-            # TODO: DO CATG
-            # assert dataitem.dtype == dataitem.dtype_header
+            possible_errors = [
+                # Test the four times the name is repeated
+                (
+                    dataitem.name == dataitem.name_header,
+                    f"{dataitem.name} uses {dataitem.name_header} as header",
+                ),
+                (
+                    dataitem.do_catg == dataitem.name or dataitem.do_catg in ["n/a"],
+                    f"{dataitem.name} uses {dataitem.do_catg} as DO.CATG",
+                ),
+                # TODO: PRO CATG
+                # And two more times in the label/hyperref
+                (
+                    dataitem.hyperref == f"dataitem:{dataitem.name.lower()}",
+                    f"{dataitem.name} uses {dataitem.hyperref} as hyperref",
+                ),
+                (
+                    dataitem.hyperref in dataitem.labels,
+                    f"{dataitem.name} uses labels {dataitem.labels}",
+                ),
+                (
+                    dataitem.dtype == dataitem.dtype_header,
+                    f"{dataitem.name} has {dataitem.dtype} in the name and {dataitem.dtype_header} in the header",
+                )
+            ]
+            all_errors += [errorstring for is_ok, errorstring in possible_errors if not is_ok]
 
+        print("\n".join(all_errors))
+        assert not all_errors, f"Found {len(all_errors)} problems with the dataitems internal consistency."
 
 
     @pytest.mark.xfail(reason="We're not there yet.")
