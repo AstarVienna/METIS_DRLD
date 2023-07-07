@@ -20,6 +20,16 @@ PATTERN_TEX_COMMENT = re.compile(r"(?<!\\)%[^\n]*")
 # Anything that is: not a backslash, then a percent, then anything not a newline
 
 
+def guess_postfixes(name):
+    """Try to guess what _det_ means in name."""
+    postfixes_hardware = ["2RG", "GEO", "IFU"]
+    postfixes_mode = ["LM", "N", "IFU"]
+    nameparts_hardware = ["master", "linearity", "persistence", "gain"]
+    if any(namepart in name.lower() for namepart in nameparts_hardware):
+        return postfixes_hardware
+    return postfixes_mode
+
+
 def guess_dataitem_type(name, raise_exception=False):
     """Guess the dataitem type from DataItemReferences.
 
@@ -120,12 +130,12 @@ class DataItem:
         match = regex_header.match(line_header)
         group = match.groupdict()
         hyperref = group["hyperref"]
-        dtype = group["dtype"]
-        name = group["name"]
+        dtype_header = group["dtype"]
+        name_header = group["name"]
         label = group["label"]
         assert hyperref == label
         assert label.startswith("dataitem")
-        assert hyperref == f"dataitem:{name.lower()}"
+        assert hyperref == f"dataitem:{name_header.lower()}"
 
         lines2 = itertools.dropwhile(
             lambda line: not line.startswith(r"\begin{recipedef}"),
@@ -193,8 +203,8 @@ class DataItem:
         value = ""
         field_old = ""
         thedata = {
-            "name_header": name,
-            "dtype_header": dtype,
+            "name_header": name_header,
+            "dtype_header": dtype_header,
             "labels": [label],
             "hyperref": hyperref,
             "sparagraph": sparagraph,
@@ -256,7 +266,8 @@ class DataItem:
                                 or "_det_" in val.name
                             ), msg
                             assert val.name.count("det") == 1, msg
-                            for postfix in ["LM", "N", "IFU", "GEO", "2RG"]:
+                            # for postfix in ["LM", "N", "IFU", "GEO", "2RG"]:
+                            for postfix in guess_postfixes(val.name):
                                 value.append(
                                     RecipeReference(
                                         name=val.name.replace("det", postfix),
@@ -307,11 +318,6 @@ class DataItem:
         for field in to_skip:
             if field in thedata:
                 thedata.pop(field)
-
-        if "name" not in thedata:
-            thedata["name"] = thedata["name_header"]
-        if "dtype" not in thedata:
-            thedata["dtype"] = thedata["dtype_header"]
 
         toreturn = cls(**thedata)
         toreturn.thedata = thedata
@@ -569,7 +575,8 @@ class Recipe:
                                 or "_det_" in val.name
                             ), msg
                             assert val.name.count("det") == 1, msg
-                            for postfix in ["LM", "N", "IFU", "GEO", "2RG"]:
+                            # for postfix in ["LM", "N", "IFU", "GEO", "2RG"]:
+                            for postfix in guess_postfixes(val.name):
                                 value.append(
                                     DataItemReference(
                                         name=val.name.replace("det", postfix),
@@ -758,10 +765,11 @@ class DataReductionLibraryDesign:
             if "det" in name:
                 # TODO: Harmonize with the other one
                 assert name.count("det") == 1, f"Too many 'det's in f{name}"
-                for name_det in ["LM", "N", "IFU", "2RG", "GEO", "det"]:
+                # for name_det in ["LM", "N", "IFU", "2RG", "GEO", "det"]:
+                for postfix in guess_postfixes(name):
                     dataitems4.append(
                         [
-                            name.replace("det", name_det),
+                            name.replace("det", postfix),
                             hyperref,
                             labels,
                         ]

@@ -307,6 +307,7 @@ class TestDataReductionLibraryDesign:
         """Do dataitems internal consistency check."""
         for dataitem in METIS_DataReductionLibraryDesign.dataitems.values():
             assert dataitem.name == dataitem.name_header
+            assert dataitem.do_catg == dataitem.name or dataitem.do_catg in ["n/a"]
             assert dataitem.hyperref == f"dataitem:{dataitem.name.lower()}"
             assert dataitem.hyperref in dataitem.labels
             # TODO: PRO CATG
@@ -465,6 +466,13 @@ Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
     assert dataitem.dpr_catg == "HELLO"
     assert dataitem.dpr_tech == "HOWRU"
     assert dataitem.dpr_type == "WORLD"
+
+    stable = r"""\paragraph{\hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}}\label{dataitem:badpix_map_2rg}
+See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
+"""
+    dataitem = DataItem.from_paragraph(stable)
+    assert dataitem.name_header == "BADPIX_MAP_2RG"
+    assert dataitem.name is None
 
 
 def test_tikz():
