@@ -96,6 +96,8 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 %lm_adi_cgrph_psf
 
 \subsubsection{Calculate Median PSF for APP}\label{drl:lm_adi_cgrph_psf}
+
+% HB 20230707: I (temporarily?) commented out the _PSF_MEDIAN data items because they are not output of the recipe, see comment in ADI_data_items.tex
 \begin{recipedef}
 Name: & \hyperref[drl:lm_adi_cgrph_psf]{\DRL{lm_adi_cgrph_psf}} \\
 Purpose: & Calculate median PSF for sequence of ADI images\\
@@ -108,7 +110,8 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
 QC outputs: & QC DET CGRPH SCI FWHM ??\\
 %Output FITS files: & None \\
-Outputs: & \hyperref[dataitem:lm_cgrph_psf_median]{\PROD{lm_cgrph_PSF_MEDIAN}}\\
+%Outputs: & \hyperref[dataitem:lm_cgrph_psf_median]{\PROD{lm_cgrph_PSF_MEDIAN}}\\
+Outputs: & \texttt{hdrl\_image * psf\_median}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images\ \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
@@ -120,6 +123,7 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 
 %n_adi_cgrph_psf
 
+% HB 20230707: I (temporarily?) commented out the _PSF_MEDIAN data items because they are not output of the recipe, see comment in ADI_data_items.tex
 \subsubsection{Calculate median PSF for ADI N band}\label{drl:n_adi_cgrph_psf}
 \begin{recipedef}
 Name: & \hyperref[drl:n_adi_cgrph_psf]{\DRL{n_adi_cgrph_psf}} \\
@@ -133,7 +137,8 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
 QC outputs: & QC DET CGRPH SCI FWHM ??\\
 %Output FITS files: & None \\
-Outputs: & \hyperref[dataitem:n_cgrph_psf_median]{\PROD{n_cgrph_PSF_MEDIAN}}\\
+%Outputs: & \hyperref[dataitem:n_cgrph_psf_median]{\PROD{n_cgrph_PSF_MEDIAN}}\\
+Outputs: & \texttt{hdrl\_image * psf\_median}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images\ \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
@@ -145,6 +150,7 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 
 %lm_adi_cgrph_psf
 
+% HB 20230707: I (temporarily?) commented out the _PSF_MEDIAN data items because they are not output of the recipe, see comment in ADI_data_items.tex
 \subsubsection{Calculate median PSF for APP LM band}\label{drl:lm_adi_app_psf}
 \begin{recipedef}
 Name: & \hyperref[drl:lm_adi_app_psf]{\DRL{lm_adi_app_psf}} \\
@@ -158,7 +164,8 @@ Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
 QC outputs: & QC DET APP SCI FWHM ??\\
 %Output FITS files: & None \\
-Outputs: & \hyperref[dataitem:lm_app_psf_median]{\PROD{lm_app_PSF_MEDIAN}}\\
+%Outputs: & \hyperref[dataitem:lm_app_psf_median]{\PROD{lm_app_PSF_MEDIAN}}\\
+Outputs: & \texttt{hdrl\_image * psf\_median}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images\ \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
