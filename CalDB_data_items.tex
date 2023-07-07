@@ -5,7 +5,7 @@ Static calibrations are data which are updated very rarely only and stay static 
 \subsubsection{General calibration database item structures}\label{sssec:generalcaldbdatastructs}
 This section describes items of the static calibration database, which are used in all/more than one, the \ac{IMG} and the \ac{LSS} pipelines. This concerns mainly the detector calibration files.
 
-\paragraph{\hyperref[dataitem:gain_map_det]{\PROD{GAIN_MAP_det}}}\label{dataitem:gain_map_det}\label{dataitem:gainmap}
+\paragraph{\hyperref[dataitem:gain_map_det]{\STATCALIB{GAIN_MAP_det}}}\label{dataitem:gain_map_det}\label{dataitem:gainmap}
 \label{dataitem:gain_map_2rg}\label{dataitem:gain_map_geo}\label{dataitem:gain_map_ifu}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -221,7 +221,7 @@ Depending on context, a \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTO
 
 \begin{recipedef}
 \textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \hyperref[dataitem:lm_distortion_table]{\RAW{LM_DISTORTION_TABLE}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}\\[0.3cm]
 Description: & Table of distortion information\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
@@ -527,7 +527,7 @@ Purpose: & telluric correction\\
 
 % ##################################################################################### 
 \textbf{Static calibration data}
-\paragraph{\hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}}}\label{dataitem:laser_tab}
+\paragraph{\hyperref[dataitem:laser_tab]{\EXTCALIB{LASER_TAB}}}\label{dataitem:laser_tab}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \hyperref[dataitem:laser_tab]{\EXTCALIB{LASER_TAB}}\\[0.3cm]
