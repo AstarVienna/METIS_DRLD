@@ -360,8 +360,15 @@ class TestDataReductionLibraryDesign:
                     dataitem.dtype == "RAW" or not dataitem.templates,
                     f"{dataitem.name} is not RAW but has templats {dataitem.templates}",
                 ),
+                (
+                    dataitem.dtype != "RAW" or dataitem.templates,
+                    f"{dataitem.name} is RAW but is not produced by any template",
+                ),
+                # TODO: created somehow
             ]
             # TODO: check whether n/a DO.CATG are not used in recipes
+            # TODO: Check OCA keywords
+            # TODO: Check HDU headers
             all_errors += [errorstring for is_ok, errorstring in possible_errors if not is_ok]
 
         print("\n".join(all_errors))
