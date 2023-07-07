@@ -317,7 +317,10 @@ class TestDataReductionLibraryDesign:
                     dataitem.do_catg == dataitem.name or dataitem.do_catg in ["n/a"],
                     f"{dataitem.name} uses {dataitem.do_catg} as DO.CATG",
                 ),
-                # TODO: PRO CATG
+                (
+                    dataitem.pro_catg is None or dataitem.pro_catg == dataitem.name,
+                    f"{dataitem.name} uses {dataitem.pro_catg} as PRO.CATG instead of {dataitem.name},"
+                ),
                 # And two more times in the label/hyperref
                 (
                     dataitem.hyperref == f"dataitem:{dataitem.name.lower()}",
@@ -327,11 +330,26 @@ class TestDataReductionLibraryDesign:
                     dataitem.hyperref in dataitem.labels,
                     f"{dataitem.name} uses labels {dataitem.labels}",
                 ),
+                # More checks
                 (
                     dataitem.dtype == dataitem.dtype_header,
                     f"{dataitem.name} has {dataitem.dtype} in the name and {dataitem.dtype_header} in the header",
-                )
+                ),
+                (
+                    # If the dataitem is used as input for a recipe, it must have a DO.CATG set.
+                    dataitem.do_catg not in ["n/a"] or not dataitem.input_for,
+                    f"{dataitem.name} is used as input for {dataitem.input_for} but has {dataitem.do_catg} as DO.CATG",
+                ),
+                (
+                    not (dataitem.pro_catg and (dataitem.dpr_catg or dataitem.dpr_type or dataitem.dpr_tech)),
+                    f"{dataitem.name} has PRO.CATG {dataitem.pro_catg} and also some of the DPR keywords",
+                ),
+                (
+                    sum([dataitem.dpr_catg is not None, dataitem.dpr_tech  is not None, dataitem.dpr_type is not None]) in (0, 3),
+                    f"{dataitem.name} has only some of the DPR keywords defined",
+                ),
             ]
+            # TODO: check whether n/a DO.CATG are not used in recipes
             all_errors += [errorstring for is_ok, errorstring in possible_errors if not is_ok]
 
         print("\n".join(all_errors))
