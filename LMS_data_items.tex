@@ -267,7 +267,7 @@ Description: &  A rectified spectral cube of the background with a linear wavele
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_STD_BACKGROUND_CUBE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{IFU_STD_BACKGROUND_CUBE}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_std_process}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -316,7 +316,7 @@ Description: & Spectrum of telluric standard star. \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_STD_TELLURIC_1D}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{IFU_STD_TELLURIC_1D}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_std_process}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -420,7 +420,10 @@ Description: & Reduced and telluric absorption corrected 2D detector image of sc
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_REDUCED_TAC}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{IFU_SCI_REDUCED_TAC}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
+%Created by: & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
+% TODO: is metis_ifu_tellcorr correct?
+Created by:   & \REC{metis_ifu_sci_process} \\
+              & \REC{metis_ifu_tellcorr} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -597,7 +600,7 @@ Description: &  Spectral cube of science object, a coadd of a number of reduced 
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_COADD}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{IFU_SCI_COADD}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+Created by:   & \REC{metis_ifu_sci_postprocess} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}

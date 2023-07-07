@@ -283,7 +283,7 @@ Description: & Map of pixel scale across the detector\\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_DISTORTION_MAP}\\[0.3cm]
 %Template: & \TPL{METIS_img_lm_cal_distortion}\\
-Created by: & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}} \\
+Created by: & \hyperref[rec:metis_n_img_distortion]{\REC{metis_lm_img_distortion}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
@@ -402,6 +402,8 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{FLUXCAL_TAB}\\[0.3cm]
 Input for recipe: & None \\
 Produced by recipe: & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+              & \REC{metis_n_img_std_process} \\
+              & \REC{metis_ifu_std_process} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
