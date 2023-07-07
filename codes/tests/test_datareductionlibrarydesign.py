@@ -395,7 +395,8 @@ Input for recipes: & \hyperref[rec:metis_n_lss_trace]{\REC{metis_n_lss_trace}}\\
                    & \hyperref[rec:metis_n_lss_std]{\REC{metis_n_lss_std}}\\
                    & \hyperref[rec:metis_n_lss_sci]{\REC{metis_n_lss_sci}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
+                       & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset} \\
 \end{recipedef}
 %\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
@@ -406,7 +407,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}"""
-    dataitem = DataItem.from_paragraph(stable)
+    _ = DataItem.from_paragraph(stable)
 
 
 def test_tikz():

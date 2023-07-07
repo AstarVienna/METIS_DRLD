@@ -177,7 +177,8 @@ class DataItem:
             msg = f"Wrong number of columns: {row}"
             assert len(row) == 2, msg
 
-        rows4 = [(aa.strip().strip(":").strip(), bb.strip()) for aa, bb in rows3]
+        # Placeholder is necessary for last item
+        rows4 = [(aa.strip().strip(":").strip(), bb.strip()) for aa, bb in rows3] + [("placeholder", "")]
 
         to_skip = {
             r"processing_\ac{fits}_keywords",
@@ -186,6 +187,7 @@ class DataItem:
             "pro_tech",
             "qc_parameters",
             "processing_fits_keywords",
+            "placeholder",
         }
 
         value = ""
@@ -225,19 +227,13 @@ class DataItem:
                     # "metis_img_lm_*_obs_*". However, it is not possible
                     # to expand those here, because there is no knowledge
                     # about which templates exist at this stage.
-                elif field_old in ["output_data", "input_data"]:
-                    # TODO: These should all be \PROD{something} but are not
-                    # TODO: Some of these are multiline, do not ignore those! e.g.:
-                    #   \hyperref[dataitem:nlsssci1d]{\PROD{N_LSS_SCI_1D}}: coadded, wavelength calibrated 1D spectrum\\
-                    #   & (\FITS{PRO_CATG}: \FITS{N_LSS_1d_coadd_wavecal}) \\
+                elif field_old in ["created_by", "input_for"]:
+                    # These should all be \REC{something}
                     value1 = [
-                        DataItemReference.from_recipe_line(val)
+                        RecipeReference.from_line(val)
                         for val in value.split("\n")
                         if not val.startswith("(")
                     ]
-                    # Some fields need to be split.
-                    # TODO: These are 'or' clauses probably, need to verify that and add support for those.
-
                     # First, from the DRLD:
                     #   Where _det appears in FITS keywords of input or product files,
                     #   it is taken to mean _LM, N or _IFU
@@ -249,7 +245,7 @@ class DataItem:
                     value = []
                     for val in value1:
                         if val.name and "det" in val.name:
-                            #  det_APP_SCI_CALIBRATED or DETLIN_det_RAW
+                            # Do these even exist?
                             msg = f"There are too many or wrong 'det's in f{val.name}."
                             assert (
                                 val.name.endswith("_det")
@@ -259,23 +255,8 @@ class DataItem:
                             assert val.name.count("det") == 1, msg
                             for postfix in ["LM", "N", "IFU", "GEO", "2RG"]:
                                 value.append(
-                                    DataItemReference(
+                                    RecipeReference(
                                         name=val.name.replace("det", postfix),
-                                        dtype=val.dtype,
-                                        hyperref=val.hyperref,
-                                        description=val.description,
-                                    )
-                                )
-                        elif val.name and "PROD" in val.name:
-                            # There is only one case of this it seems.
-                            # Then the name becomes
-                            #  'IFU_SCI_REDUCED}, PROD{IFU_SCI_REDUCED_TAC'
-                            names_new = val.name.split("}, PROD{")
-                            assert len(names_new) == 2
-                            for name_new in names_new:
-                                value.append(
-                                    DataItemReference(
-                                        name=name_new,
                                         dtype=val.dtype,
                                         hyperref=val.hyperref,
                                         description=val.description,
@@ -329,7 +310,9 @@ class DataItem:
         if "dtype" not in thedata:
             thedata["dtype"] = thedata["dtype_header"]
 
-        return cls(**thedata)
+        toreturn = cls(**thedata)
+        toreturn.thedata = thedata
+        return toreturn
 
 
 @dataclasses.dataclass
@@ -399,6 +382,66 @@ class DataItemReference:
 
 
 @dataclasses.dataclass
+class RecipeReference:
+    """A Recipe as referenced in a DataItem.
+
+    Has to be a separate class as Recipe, because the point is to check
+    whether the DataItems properly refer to existing Recipes."""
+
+    name: str = None
+    dtype: str = "REC"
+    hyperref: str = None
+    description: str = None
+
+    def fake_hash(self):
+        """Create a reproducible hash.
+
+        Python __hash__ cannot be used because it is not reproducible
+        by design.
+        """
+        s_all = f"{self.name} {self.dtype} {self.hyperref} {self.description}"
+        h_all = hashlib.sha256(s_all.encode("utf-8"))
+        return h_all.hexdigest()
+
+    def get_name(self):
+        return self.name if self.name else f"UNKNOWN_{str(self.fake_hash())[-8:]}"
+
+    def __post_init__(self):
+        # TODO: perhaps use pydantic?
+        if self.name is not None:
+            self.name = self.name.replace("\\", "")
+            self.name = HACK_INCORRECT_INPUT_DATA.get(self.name, self.name)
+
+    @staticmethod
+    def from_line(line):
+        r"""Parse a line from a DataItem definition.
+
+        Example lines:
+
+        \\hyperref[rec:metis_n_lss_trace]{\\REC{metis_n_lss_trace}}
+        """
+        patterns_to_test = [
+            re.compile(pp)
+            # Patterns are ordered from most specific to least specific.
+            for pp in [
+                r"\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}: (?P<description>.*)",
+                r"(?P<description>.*?) \\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}",
+                r"\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}",
+                r"(?P<description>.*?) \(\\(?P<dtype>[A-Z]+){(?P<name>.*?)}\)",
+                r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)} \((?P<description>.*?)\)",
+                r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)}",
+                r"(?P<description>.*)",
+            ]
+        ]
+        for pattern in patterns_to_test:
+            match = re.match(pattern, line)
+            if match:
+                return RecipeReference(**match.groupdict())
+
+        return RecipeReference
+
+
+@dataclasses.dataclass
 class Recipe:
     name: str = None
     purpose: str = None
@@ -457,7 +500,8 @@ class Recipe:
             msg = f"Wrong number of columns: {row}"
             assert len(row) == 2, msg
 
-        rows4 = [(aa.strip().strip(":").strip(), bb.strip()) for aa, bb in rows3]
+        # Placeholder is necessary for last item
+        rows4 = [(aa.strip().strip(":").strip(), bb.strip()) for aa, bb in rows3] + [("placeholder", "")]
 
         value = ""
         field_old = ""
@@ -560,6 +604,9 @@ class Recipe:
                 value = re.sub(r"\\REC{(.*?)}", "\\1", value)
                 value = re.sub(r"\\hyperref\[.*?]{(.*?)}", "\\1", value)
                 # print(field, ":::", value)
+
+            if field == "placeholder":
+                continue
 
             # noinspection PyUnresolvedReferences
             assert (
