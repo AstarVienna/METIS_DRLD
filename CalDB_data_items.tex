@@ -130,7 +130,7 @@ Description: & Master dark frame for LM detector data \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_DARK_2RG} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{MASTER_DARK_2RG}\\[0.3cm]
-Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
+%Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by:  \hyperref[drl:det_dark]{\REC{metis_det_dark}} \\
 Input for recipes: & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}}\\
 & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
@@ -157,7 +157,7 @@ Description: & Master dark frame for N detector data \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_DARK_GEO} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{MASTER_DARK_GEO}\\[0.3cm]
-Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
+%Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by:  \hyperref[drl:det_dark]{\REC{metis_det_dark}} \\
 Input for recipes: & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}}\\
 % The n-band does not have a basic_reduce recipe (according to the association map)
@@ -222,7 +222,6 @@ Description: & Table of distortion information\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_DISTORTION_TABLE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_DISTORTION_TABLE}\\[0.3cm]
-Template: & \TPL{??}\\
 Input for recipe: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -246,7 +245,6 @@ Description: & Table of distortion information\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_DISTORTION_TABLE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_DISTORTION_TABLE}\\[0.3cm]
-Template: & \TPL{??}\\
 Input for recipe: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
@@ -279,7 +277,7 @@ Description: & Map of pixel scale across the detector\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_DISTORTION_MAP} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_DISTORTION_MAP}\\[0.3cm]
-Template: & \TPL{METIS_img_lm_cal_distortion}\\
+%Template: & \TPL{METIS_img_lm_cal_distortion}\\
 Input for recipe: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
@@ -304,7 +302,7 @@ Description: & Map of pixel scale across the detector\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_DISTORTION_MAP} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_DISTORTION_MAP}\\[0.3cm]
-Template: & \TPL{METIS_img_n_cal_distortion}\\
+%Template: & \TPL{METIS_img_n_cal_distortion}\\
 Input for recipe: & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\

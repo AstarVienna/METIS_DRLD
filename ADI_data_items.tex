@@ -1,10 +1,12 @@
-\paragraph{\hyperref[dataitem:lm_off_axis_psf_raw]{\PROD{LM_OFF_AXIS_PSF_RAW}}}\label{dataitem:lm_off_axis_psf_raw}
+\paragraph{\hyperref[dataitem:lm_off_axis_psf_raw]{\RAW{LM_OFF_AXIS_PSF_RAW}}}\label{dataitem:lm_off_axis_psf_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \hyperref[dataitem:lm_off_axis_psf_raw]{\PROD{LM_OFF_AXIS_PSF_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_off_axis_psf_raw]{\RAW{LM_OFF_AXIS_PSF_RAW}}\\[0.3cm]
 Description: & Coronagraphic image after distortion correction \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_OFF_AXIS_PSF_RAW}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{PSF,OFFAXIS}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
 \FITS{DO.CATG}: & \FITS{LM_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Templates:             & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
 Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{}}\\
