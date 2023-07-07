@@ -222,7 +222,11 @@ Description: & Table of distortion information\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_DISTORTION_TABLE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_DISTORTION_TABLE}\\[0.3cm]
+Created by: & \hyperref[rec:metis_lm_distortion]{\REC{metis_lm_img_distortion}} \\
 Input for recipe: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
+                & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}              \\
+                & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}                                            \\
+                & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}                                                              \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -245,6 +249,7 @@ Description: & Table of distortion information\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_DISTORTION_TABLE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_DISTORTION_TABLE}\\[0.3cm]
+Created by: & \hyperref[rec:metis_n_distortion]{\REC{metis_n_img_distortion}} \\
 Input for recipe: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
@@ -278,7 +283,7 @@ Description: & Map of pixel scale across the detector\\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_DISTORTION_MAP}\\[0.3cm]
 %Template: & \TPL{METIS_img_lm_cal_distortion}\\
-Input for recipe: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
+Created by: & \hyperref[rec:metis_lm_distortion]{\REC{metis_n_img_distortion}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
@@ -303,7 +308,7 @@ Description: & Map of pixel scale across the detector\\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_DISTORTION_MAP}\\[0.3cm]
 %Template: & \TPL{METIS_img_n_cal_distortion}\\
-Input for recipe: & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Created by: & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
