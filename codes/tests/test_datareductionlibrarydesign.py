@@ -307,6 +307,14 @@ class TestDataReductionLibraryDesign:
         """Do dataitems internal consistency check."""
         all_errors = []
         for dataitem in METIS_DataReductionLibraryDesign.dataitems.values():
+            created_by = METIS_DataReductionLibraryDesign.get_created_by(dataitem.name)
+            if created_by:
+                s_created_by = "\n".join(
+                    [f"Created by:   & \\REC{{{created_by[0].name}}} \\\\"] +
+                    [f"              & \\REC{{{rec.name}}} \\\\" for rec in created_by[1:]]
+                )
+            else:
+                s_created_by = ""
             possible_errors = [
                 # Test the four times the name is repeated
                 (
@@ -363,6 +371,11 @@ class TestDataReductionLibraryDesign:
                 (
                     dataitem.dtype != "RAW" or dataitem.templates,
                     f"{dataitem.name} is RAW but is not produced by any template",
+                ),
+                (
+                    dataitem.dtype not in {"PROD", "STATCALIB"} or dataitem.created_by,
+                    f"""{dataitem.name} is {dataitem.dtype} but is not produced by any recipe
+{s_created_by}""",
                 ),
                 # TODO: created somehow
             ]

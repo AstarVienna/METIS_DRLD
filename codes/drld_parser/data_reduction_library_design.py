@@ -936,5 +936,13 @@ class DataReductionLibraryDesign:
         ]
         return sorted(set(recipe_names_u))
 
+    def get_created_by(self, name_dataitem):
+        """Get recipes that create dataitems with this name."""
+        return [
+            recipe
+            for recipe in self.recipes.values()
+            if name_dataitem in [diref.name for diref in recipe.output_data]
+        ]
+
 
 METIS_DataReductionLibraryDesign = DataReductionLibraryDesign()
