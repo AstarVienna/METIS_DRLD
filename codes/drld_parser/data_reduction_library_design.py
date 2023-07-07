@@ -25,7 +25,7 @@ def guess_postfixes(name):
     postfixes_hardware = ["2RG", "GEO", "IFU"]
     postfixes_mode = ["LM", "N", "IFU"]
     postfixes_adiimg = ["LM", "N"]
-    nameparts_hardware = ["master", "linearity", "persistence", "gain"]
+    nameparts_hardware = ["master", "linearity", "persistence", "gain", "badpix"]
     nameparts_adiimg = [a.lower() for a in [
         # These have their IFU counterpart explicitly written down
         "_cgrph_SCI_CALIBRATED",
@@ -270,31 +270,7 @@ class DataItem:
                     #   according to the detector array for which data are being processed.
                     # TODO: Perhaps we should go back to _2RG and _GEO for _LM and _N
 
-                    # Second, split these:
-                    #         Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \PROD{IFU_SCI_REDUCED_TAC})
-                    value = []
-                    for val in value1:
-                        if val.name and "det" in val.name:
-                            # Do these even exist?
-                            msg = f"There are too many or wrong 'det's in f{val.name}."
-                            assert (
-                                val.name.endswith("_det")
-                                or val.name.startswith("det_")
-                                or "_det_" in val.name
-                            ), msg
-                            assert val.name.count("det") == 1, msg
-                            # for postfix in ["LM", "N", "IFU", "GEO", "2RG"]:
-                            for postfix in guess_postfixes(val.name):
-                                value.append(
-                                    RecipeReference(
-                                        name=val.name.replace("det", postfix),
-                                        dtype=val.dtype,
-                                        hyperref=val.hyperref,
-                                        description=val.description,
-                                    )
-                                )
-                        else:
-                            value.append(val)
+                    value = value1
 
                 thedata[field_old] = value
 
@@ -561,17 +537,24 @@ class Recipe:
                     # to expand those here, because there is no knowledge
                     # about which templates exist at this stage.
                 elif field_old in ["output_data", "input_data"]:
-                    # TODO: These should all be \PROD{something} but are not
-                    # TODO: Some of these are multiline, do not ignore those! e.g.:
-                    #   \hyperref[dataitem:nlsssci1d]{\PROD{N_LSS_SCI_1D}}: coadded, wavelength calibrated 1D spectrum\\
-                    #   & (\FITS{PRO_CATG}: \FITS{N_LSS_1d_coadd_wavecal}) \\
-                    value1 = [
-                        DataItemReference.from_recipe_line(val)
-                        for val in value.split("\n")
-                        if not val.startswith("(")
-                    ]
-                    # Some fields need to be split.
-                    # TODO: These are 'or' clauses probably, need to verify that and add support for those.
+                    value1 = []
+                    for val in value.split("\n"):
+                        # Some are weird like
+                        # (\FITS{PRO_CATG}: \FITS{LM_LSS_2d_coadd_wavecal})
+                        if val.startswith("(") and "PRO_CATG" in val:
+                            continue
+
+
+                        # Some of these have " or " in them and need to be split
+                        # \hyperref[dataitem:lm_cgrph_sci_speckle]{\PROD{LM_cgrph_SCI_SPECKLE}} or \hyperref[dataitem:n_cgrph_sci_speckle]{\PROD{N_cgrph_SCI_SPECKLE}}\\
+                        if " or " in val and val.count("hyperref") == 2:
+                            val_left, val_right = val.split(" or ")
+                            assert "hyperref" in val_left, f"Can't understand {val}"
+                            assert "hyperref" in val_right, f"Can't understand {val}"
+                            value1.append(DataItemReference.from_recipe_line(val_left.strip()))
+                            value1.append(DataItemReference.from_recipe_line(val_right.strip()))
+                        else:
+                            value1.append(DataItemReference.from_recipe_line(val))
 
                     # First, from the DRLD:
                     #   Where _det appears in FITS keywords of input or product files,
