@@ -17,6 +17,7 @@ from ..drld_parser.hacks import (
     TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI,
     HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT,
     HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING,
+    HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS,
 )
 from ..drld_parser.template_manual import METIS_TemplateManual
 
@@ -318,6 +319,27 @@ class TestDataReductionLibraryDesign:
                 )
             else:
                 s_created_by = ""
+
+            names_input_for_claimed = [
+                recref.name.lower()
+                for recref in dataitem.input_for
+                if recref.name is not None
+                and recref.name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING
+                and recref.name.lower() not in HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS.get(dataitem.name, {})
+            ]
+            input_for = METIS_DataReductionLibraryDesign.get_input_for(dataitem.name)
+            names_input_for = [
+                recipe.name.lower()
+                for recipe in input_for
+            ]
+            if input_for:
+                s_input_for = "\n".join(
+                    [f"Input for:    & \\REC{{{input_for[0].name}}} \\\\"] +
+                    [f"              & \\REC{{{rec.name}}} \\\\" for rec in input_for[1:]]
+                )
+            else:
+                s_input_for = ""
+
             possible_errors = [
                 # Test the four times the name is repeated
                 (
@@ -389,6 +411,11 @@ class TestDataReductionLibraryDesign:
                     set(names_created_by_claimed) == set(names_created_by),
                     f"""{dataitem.name} claims to be created by {names_created_by_claimed}
 {s_created_by}"""
+                ),
+                (
+                    set(names_input_for_claimed) == set(names_input_for),
+                    f"""{dataitem.name} claims to be input for {names_input_for_claimed}
+{s_input_for}"""
                 ),
             ]
             # TODO: Check created_by and input_for RecipeRefs actually have a name, or are HITRAN

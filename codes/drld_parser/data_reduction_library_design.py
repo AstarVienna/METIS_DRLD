@@ -948,5 +948,17 @@ class DataReductionLibraryDesign:
             )
         ]
 
+    def get_input_for(self, name_dataitem):
+        """Get recipes that create dataitems with this name."""
+        return [
+            recipe
+            for recipe in self.recipes.values()
+            if name_dataitem in [diref.name for diref in recipe.input_data]
+            or any(
+                name_dataitem.replace("det", postfix) in [diref.name for diref in recipe.input_data]
+                for postfix in guess_postfixes(name_dataitem)
+            )
+        ]
+
 
 METIS_DataReductionLibraryDesign = DataReductionLibraryDesign()
