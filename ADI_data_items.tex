@@ -9,7 +9,8 @@ Description: & Coronagraphic image after distortion correction \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
 \FITS{DO.CATG}: & \FITS{LM_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Templates:             & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
-Input for recipe: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
+Input for:    & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}} \\
+              & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -298,9 +299,7 @@ Description: & ADI throughput curve \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_SCI_THROUGHPUT}\\[0.3cm]
 Created by: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
-Input for recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
-                  & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}\\
-                  & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
+Input for:    & None \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -611,7 +610,7 @@ Description: & ADI throughput curve \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_cgrph_SCI_THROUGHPUT}\\[0.3cm]
 Created by recipe: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
-Input for recipe: & None\\
+Input for:    & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -633,7 +632,7 @@ Description: & ADI throughput curve \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{N_cgrph_SCI_THROUGHPUT}\\[0.3cm]
 Created by recipe: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
-Input for recipe: & None\\
+Input for:    & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -901,7 +900,9 @@ Description: & ADI throughput curve \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_SCI_THROUGHPUT}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_THROUGHPUT}\\[0.3cm]
+% TODO: this is created by and input to the same recipe
 Created by: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}\\
+Input for:    & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -954,7 +955,10 @@ Description: & Table of distortion coefficients for an IFU data set \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_DISTORTION_TABLE}\\[0.3cm]
 Created by:   & \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}} \\
-Input for: & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}\\
+Input for:    & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}} \\
+              & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}} \\
+              & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} \\
+              & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}

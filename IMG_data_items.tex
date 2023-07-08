@@ -28,7 +28,8 @@ Template: & \TPL{METIS_img_lm_cal_standard}\\
                     & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
                     & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
                     & \TPL{METIS_ifu_cal_psf}                                                                  \\
-Input for recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+Input for:    & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}} \\
+              & \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -148,10 +149,11 @@ Templates:           & \TPL{METIS_img_lm_cal_DetLin}                            
                        & \TPL{METIS_img_n_cal_distortion} \\
                        & \TPL{METIS_spec_lm_cal_SlitAdc} \\
                        & \TPL{METIS_spec_n_cal_slit} \\
-Input for recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
-                   & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}} \\
-                   & \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \\
-                   & \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} \\
+Input for:    & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}} \\
+              & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}} \\
+              & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}} \\
+              & \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \\
+              & \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -351,8 +353,9 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{MASTER_IMG_FLAT_LM}\\[0.3cm]
 %Template: & \TPL{METIS_lm_img_flat}\\
 Created by: & \hyperref[drl:lm_img_flat]{\REC{metis_lm_img_flat}} \\
-Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
- & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+Input for:    & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}} \\
+              & \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}} \\
+              & \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -375,7 +378,7 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{MASTER_IMG_FLAT_N}\\[0.3cm]
 %Template: & \TPL{METIS_n_img_flat}\\
 Created by: & \hyperref[drl:n_img_flat]{\REC{metis_n_img_flat}} \\
-Input for recipes: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+Input for:    & \REC{metis_n_adc_slitloss} \\
 % The n-band does not have a basic_reduce recipe (according to the association map)
 % & \hyperref[rec:metis_n_basic_image_reduce]{\CODE{metis_n_basic_image_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -425,7 +428,8 @@ Description: & Thermal background of science LM exposures.\\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_SCI_BKG}\\[0.3cm]
 Produced by recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
-Input for recipe: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}} \\
+%Input for recipe: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}} \\
+Input for recipe: & None \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -472,6 +476,7 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.o
 % Template: & \TPL{METIS_img_lm_cal_standard}\\
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
 Created by: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
+Input for:    & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -498,7 +503,7 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.o
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
 Produced by recipe: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
 % Input for recipe: & \hyperref[rec:rec]{\CODE{rec:lm_img_astrometry_calib}}\\
-Input for recipe: & None\\
+Input for:    & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -582,7 +587,9 @@ Description: & Science grade detrended exposure of the LM image mode.\\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_SCI_BASIC_REDUCED} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_SCI_BASIC_REDUCED}\\[0.3cm]
-Input for recipe: & \\
+Input for:    & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}} \\
+              & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}} \\
+              & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}} \\
 Produced by recipe: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
@@ -607,7 +614,8 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.o
 % Template: & \TPL{METIS_img_n_cal_standard}\\
 %             & \TPL{METIS_img_n_*_obs_*}       \\
 Produced by recipe: & \hyperref[rec:metis_n_img_chopnod]{\REC{metis_n_img_chopnod}} \\
-Input for recipe: & \hyperref[rec:metis_n_img_calibrate]{\REC{metis_n_img_calibrate}} \\
+Input for:    & \hyperref[rec:metis_n_img_calibrate]{\REC{metis_n_img_calibrate}} \\
+              & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -658,6 +666,7 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 % Template: & \TPL{METIS_img_lm_cal_standard}\\
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
 Created by:   & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}} \\
+Input for:    & \REC{metis_lm_img_sci_postprocess} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -683,6 +692,7 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 % Template: & \TPL{METIS_img_n_cal_standard}\\
 %             & \TPL{METIS_img_n_*_obs_*}       \\
 Created by:   & \hyperref[rec:metis_n_img_calibrate]{\REC{metis_n_img_calibrate}} \\
+Input for:    & \REC{metis_n_img_restore} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}

@@ -13,8 +13,8 @@ Description: & Raw exposure of the \ac{WCU} laser sources through the \ac{IFU} t
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{WAVE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{IFU_WAVE_RAW}\\[0.3cm]
-Template: & \TPL{METIS_spec_lm_cal_InternalWave}\\
-Input for recipe: & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_lm_lss_wave}}\\
+Template: & \TPL{METIS_ifu_cal_InternalWave}\\
+Input for:    & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -245,6 +245,9 @@ Description: & Image with wavelength at each pixel. \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{IFU_WAVECAL}\\[0.3cm]
 Created by: & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}\\
+Input for:    & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}} \\
+              & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}} \\
+              & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & wavelength calibration\\
 \end{recipedef}
@@ -375,6 +378,7 @@ Description: & Reduced 2D detector image of science object. \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{IFU_SCI_REDUCED}\\[0.3cm]
 Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+Input for:    & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -424,6 +428,7 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 % TODO: is metis_ifu_tellcorr correct?
 Created by:   & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} \\
               & \hyperref[rec:metis_ifu_tellcorr]{\REC{metis_ifu_tellcorr}} \\
+Input for:    & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -496,6 +501,7 @@ Description: &  Spectral cube of science object. \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{IFU_SCI_COMBINED}\\[0.3cm]
 Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+Input for:    & \hyperref[rec:metis_ifu_tellcorr]{\REC{metis_ifu_tellcorr}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
