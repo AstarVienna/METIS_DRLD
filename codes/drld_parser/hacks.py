@@ -202,6 +202,10 @@ HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING = {
     "metis_det_persistence",
 }
 
+HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS = {
+    # N_LSS_WAVE_RAW is only created during AIT and does not have its own recipe
+    "N_LSS_WAVE_RAW": {"metis_lm_lss_wave"},
+}
 
 def hack_rename_template_header(name_template_file, name_template_header):
     """Some template files on the wiki have incorrect headers.
