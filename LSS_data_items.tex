@@ -560,6 +560,8 @@ Description: & LM-band geometrical distortion solution\\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_LSS_DIST_SOL}\\[0.3cm]
 Created by: & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_lm_lss_wave}}\\
+Input for:    & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
+              & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -581,6 +583,8 @@ Description: & First guess of the N-band wavelength solution\\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_LSS_WAVE_GUESS}\\[0.3cm]
 Created by: & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_lm_lss_wave}}\\
+Input for:    & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
+              & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -1006,6 +1010,8 @@ OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{MF_BEST_FIT_TAB}\\[0.3cm]
 Created by: & \hyperref[rec:metis_lm_lss_mf_model]{\REC{metis_LM_lss_mf_model}}\\
             & \hyperref[rec:metis_n_lss_mf_model]{\REC{metis_N_lss_mf_model}}\\
+Input for:    & \hyperref[rec:metis_lm_lss_mf_calctrans]{\REC{metis_LM_lss_mf_calctrans}} \\
+              & \hyperref[rec:metis_n_lss_mf_calctrans]{\REC{metis_N_lss_mf_calctrans}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & wavelength calibration / rectification\\
 \end{recipedef}
@@ -1028,6 +1034,7 @@ Description: & Synthetic transmission curve to be used for telluric correction o
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_LSS_SYNTH_TRANS}\\[0.3cm]
 Created by: & \hyperref[rec:metis_lm_lss_mf_calctrans]{\REC{metis_LM_lss_mf_calctrans}}\\
+Input for:    & \hyperref[rec:metis_lm_lss_mf_correct]{\REC{metis_LM_lss_mf_correct}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -1048,6 +1055,7 @@ Description: & Synthetic transmission curve to be used for telluric correction o
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_SYNTH_TRANS}\\[0.3cm]
 Created by: & \hyperref[rec:metis_n_lss_mf_calctrans]{\REC{metis_N_lss_mf_calctrans}}\\
+Input for:    & \hyperref[rec:metis_n_lss_mf_correct]{\REC{metis_N_lss_mf_correct}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -1129,6 +1137,8 @@ Description: & Extracted, flux-calibrated 1d science spectrum.\\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}} \\
 \FITS{DO.CATG}: & \FITS{LM_LSS_SCI_FLUX_1D}\\[0.3cm]
 Created by: & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_lm_lss_sci}}\\
+Input for:    & \hyperref[rec:metis_lm_lss_mf_model]{\REC{metis_LM_lss_mf_model}} \\
+              & \hyperref[rec:metis_lm_lss_mf_correct]{\REC{metis_LM_lss_mf_correct}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -1153,6 +1163,8 @@ Description: & Extracted, flux-calibrated 1d science spectrum.\\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}} \\
 \FITS{DO.CATG}: & \FITS{N_LSS_SCI_FLUX_1D}\\[0.3cm]
 Created by: & \hyperref[rec:metis_n_lss_sci]{\REC{metis_n_lss_sci}}\\
+Input for:    & \hyperref[rec:metis_n_lss_mf_model]{\REC{metis_N_lss_mf_model}} \\
+              & \hyperref[rec:metis_n_lss_mf_correct]{\REC{metis_N_lss_mf_correct}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
