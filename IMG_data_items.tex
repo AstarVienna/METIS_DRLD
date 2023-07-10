@@ -2,16 +2,16 @@
 \subsubsection{Raw data item structures}\label{sssec:imgrawdatastructs}
 
 
-\paragraph{\hyperref[dataitem:lm_image_raw]{\RAW{LM_IMAGE_RAW}}}\label{dataitem:lm_image_raw}
+\paragraph{\hyperref[dataitem:lm_image_sci_raw]{\RAW{LM_IMAGE_SCI_RAW}}}\label{dataitem:lm_image_sci_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lm_image_raw]{\RAW{LM_IMAGE_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:lm_image_sci_raw]{\RAW{LM_IMAGE_SCI_RAW}}\\[0.3cm]
 Description: & Raw exposure of the LM image mode.\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG,LM} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCIENCE}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{OBJECT} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{LM_IMAGE_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_IMAGE_SCI_RAW}\\[0.3cm]
 % TODO: Some of the offset templates also produce a SKY or PSF observation that should also be processed
 Template: & \TPL{METIS_img_lm_cal_standard}\\
 %           & \TPL{METIS_img_lm_*_obs_*}       \\
@@ -47,17 +47,17 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:n_image_raw]{\RAW{N_IMAGE_RAW}}}\label{dataitem:n_image_raw}
+\paragraph{\hyperref[dataitem:n_image_sci_raw]{\RAW{N_IMAGE_SCI_RAW}}}\label{dataitem:n_image_sci_raw}
 
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:n_image_raw]{\RAW{N_IMAGE_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:n_image_sci_raw]{\RAW{N_IMAGE_SCI_RAW}}\\[0.3cm]
 Description: & Raw exposure of the N image mode.\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG,N} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCIENCE}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,N} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{OBJECT} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{N_IMAGE_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{N_IMAGE_SCI_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_standard}\\
                      & \TPL{METIS_img_n_obs_AutoChopNod}                            \\
                      & \TPL{METIS_img_n_obs_GenericChopNod}                         \\
@@ -85,7 +85,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:lm_chopperhome_raw]{\RAW{LM_CHOPPERHOME_RAW}}\\[0.3cm]
 Description: & Raw exposure of the LM image mode.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG,LM} \\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{CHOPHOME} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_CHOPPERHOME_RAW}\\[0.3cm]
@@ -165,7 +165,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:detlin_ifu_raw]{\RAW{DETLIN_IFU_RAW}}\\[0.3cm]
 Description: & Raw data for non-linearity determination.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,IFU}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IFU}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DETLIN}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
 \FITS{DO.CATG}: & \FITS{DETLIN_IFU_RAW}\\[0.3cm]
@@ -222,7 +222,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:dark_geo_raw]{\RAW{DARK_GEO_RAW}}\\[0.3cm]
 Description: & Raw data for creating a master dark.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,GEO}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,N}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}, \hyperref[fits:det.id]{\FITS{DET.ID}}, \hyperref[fits:det.dit]{\FITS{DET.DIT}}  \\
 \FITS{DO.CATG}: & \FITS{DARK_GEO_RAW}\\[0.3cm]
@@ -246,7 +246,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:dark_ifu_raw]{\RAW{DARK_IFU_RAW}}\\[0.3cm]
 Description: & Raw data for creating a master dark.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,IFU}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IFU}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}, \hyperref[fits:det.id]{\FITS{DET.ID}}, \hyperref[fits:det.dit]{\FITS{DET.DIT}}  \\
 \FITS{DO.CATG}: & \FITS{DARK_IFU_RAW}\\[0.3cm]
@@ -334,7 +334,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:ifu_wcu_off_raw]{\RAW{IFU_WCU_OFF_RAW}}\\[0.3cm]
 Description: & Raw data for dark subtraction in other recipes.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,IFU}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IFU}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK,WCUOFF}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
 \FITS{DO.CATG}: & \FITS{IFU_WCU_OFF_RAW}\\[0.3cm]
@@ -360,7 +360,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:lm_flat_raw]{\RAW{LM_FLAT_RAW}}\\[0.3cm]
 Description: & Flat field image taken with lamp or sky. \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LM} \\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,LAMP} or \FITS{FLAT,TWILIGHT} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_FLAT_RAW}\\[0.3cm]
@@ -388,7 +388,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:n_flat_raw]{\RAW{N_FLAT_RAW}}\\[0.3cm]
 Description: & Flat field image taken with lamp or sky. \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{N} \\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,N} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{FLAT,LAMP} or \FITS{FLAT,TWILIGHT} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_FLAT_RAW}\\[0.3cm]
@@ -415,7 +415,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:lm_distortion_raw]{\RAW{LM_DISTORTION_RAW}}\\[0.3cm]
 Description: & Images of grid mask in WCU-FP2 or CFO-FP2.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{LM} \\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DISTORTION} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_DISTORTION_RAW}\\[0.3cm]
@@ -441,7 +441,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:n_distortion_raw]{\RAW{N_DISTORTION_RAW}}\\[0.3cm]
 Description: & Images of grid mask in WCU-FP2 or CFO-FP2.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{N} \\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,N} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DISTORTION} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_DISTORTION_RAW}\\[0.3cm]
@@ -468,7 +468,7 @@ Name: & \hyperref[dataitem:lm_pupil_raw]{\RAW{LM_PUPIL_RAW}}\\[0.3cm]
 Description: & Raw exposure of the pupil in LM image mode.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{TECHNICAL}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{PUP,M} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{PUPIL} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_PUPIL_RAW}\\[0.3cm]
 Template: & \TPL{METIS_pup_lm}\\
@@ -495,7 +495,7 @@ Name: & \hyperref[dataitem:n_pupil_raw]{\RAW{N_PUPIL_RAW}}\\[0.3cm]
 Description: & Raw exposure of the the pupil in N image mode.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{TECHNICAL}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{PUP,N} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{PUPIL} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_PUPIL_RAW}\\[0.3cm]
 Template: & \TPL{METIS_pup_n}\\
