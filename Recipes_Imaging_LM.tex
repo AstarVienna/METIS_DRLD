@@ -213,15 +213,16 @@ For extended objects, all out-of-field exposures will be averaged
   Purpose:          & estimate and subtract background                          \\
   Requirements:     & \REQ{METIS-6085} and \REQ{METIS-6086} \\
   Type:             & Calibration                                               \\
-  Templates:        & \TPL{METIS_img_lm_cal_standard}                           \\
-%                     & \TPL{METIS_img_lm_*_obs_*}                                \\
-                    & \TPL{METIS_img_lm_obs_AutoJitter} \\
-                    & \TPL{METIS_img_lm_obs_GenericOffset} \\
-                    & \TPL{METIS_img_lm_obs_FixedSkyOffset} \\
-                    & \TPL{METIS_img_lm_app_obs_FixedOffset} \\
-                    & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
-                    & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
-                    & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
+% HB 20230710: I've commented these all out because this recipe is not triggered directly by a template.
+%  Templates:        & \TPL{METIS_img_lm_cal_standard}                           \\
+%%                     & \TPL{METIS_img_lm_*_obs_*}                                \\
+%                    & \TPL{METIS_img_lm_obs_AutoJitter} \\
+%                    & \TPL{METIS_img_lm_obs_GenericOffset} \\
+%                    & \TPL{METIS_img_lm_obs_FixedSkyOffset} \\
+%                    & \TPL{METIS_img_lm_app_obs_FixedOffset} \\
+%                    & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
+%                    & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
+%                    & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
   Input data:       & \hyperref[dataitem:lm_sci_basic_reduced]{\PROD{LM_SCI_BASIC_REDUCED}}                               \\
                     & \hyperref[dataitem:lm_std_basic_reduced]{\PROD{LM_STD_BASIC_REDUCED}}                               \\
   Matched keywords: & dither position (\CODE{SKY}? \TBD)                        \\
@@ -347,7 +348,8 @@ following \cite{visir_manual}.
   Name:                & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}                                               \\
   Purpose:             & Determine conversion factor between detector counts and physical source flux \\
   Type:                & Calibration                                                                  \\
-  Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
+% HB 20230710: I've commented the template out because this recipe is not triggered directly by a template.
+%  Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
   Input data:          & \hyperref[dataitem:lm_std_bkg_subtracted]{\PROD{LM_STD_BKG_SUBTRACTED}}                                                 \\
                        & \hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}} (photometric standard catalogue) \\
   Matched keywords:    & OBJECT ID                                                                    \\
