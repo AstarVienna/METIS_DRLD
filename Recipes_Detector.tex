@@ -130,9 +130,10 @@ This fulfills \REQ{METIS-6063}.
   Type:                & Calibration                                                                 \\
   Templates:           & \TPL{METIS_gen_cal_dark}                                                    \\
                        & \TPL{METIS_gen_cal_InsDark}                                                 \\
-  Input data:          & \hyperref[dataitem:linearity_det]{\STATCALIB{LINEARITY_det}}  \\
+  Input data:          & \hyperref[dataitem:dark_det_raw]{\RAW{DARK_det_RAW}}  \\
+                       & \hyperref[dataitem:linearity_det]{\STATCALIB{LINEARITY_det}}  \\
+% TODO: Remove persistence, because if the raw darks have persistence, we are doing something wrong
                        & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                       & \hyperref[dataitem:dark_det_raw]{\RAW{DARK_det_RAW}}  \\
   Parameters:          & Combination method (\texttt{median}, \texttt{mean},
                          \texttt{sigclip},\dots)                                                  \\
                        & Parameters for combination methods                                          \\
