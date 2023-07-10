@@ -217,6 +217,7 @@ HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA = {
     "metis_spec_n_acq",
 }
 
+
 def hack_rename_template_header(name_template_file, name_template_header):
     """Some template files on the wiki have incorrect headers.
 
@@ -254,9 +255,7 @@ def hack_rename_template_header(name_template_file, name_template_header):
             "METIS_gen_cal_InsDark".lower(),
         ): "METIS_gen_cal_InsDark",
     }
-    return hack_dict.get(
-        (name_template_file.lower(), name_template_header.lower()), name_template_header
-    )
+    return hack_dict.get((name_template_file.lower(), name_template_header.lower()), name_template_header)
 
 
 def hack_rename_template_names_drld(filename, name_template):

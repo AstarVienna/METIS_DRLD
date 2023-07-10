@@ -31,18 +31,14 @@ class Template:
 
         datatt = open(path_template, encoding="utf8").read()
         used_template_names = set(
-            hack_rename_template_header(name, ttt)
-            for ttt in re.findall("METIS_[a-zA-Z_]*", datatt)
+            hack_rename_template_header(name, ttt) for ttt in re.findall("METIS_[a-zA-Z_]*", datatt)
         )
         used_template_names_headers = set(
-            hack_rename_template_header(name, ttt)
-            for ttt in re.findall("=.*(METIS_[a-zA-Z_]*)", datatt)
+            hack_rename_template_header(name, ttt) for ttt in re.findall("=.*(METIS_[a-zA-Z_]*)", datatt)
         )
         # print(name_template, used_template_names_headers)
         # TODO: Remove these .lower()s.
-        assert set(name.lower() for name in used_template_names_headers) == {
-            name.lower()
-        }
+        assert set(name.lower() for name in used_template_names_headers) == {name.lower()}
         templates_referenced = used_template_names - used_template_names_headers
 
         lines_param = [
@@ -98,12 +94,8 @@ class TemplateManual:
             },
         }
         """
-        data = open(
-            os.path.join(self.path_operations, "metis_templates.txt"), encoding="utf8"
-        ).read()
-        sections = [
-            section.strip() for section in data.split("++++")[1:] if section.strip()
-        ]
+        data = open(os.path.join(self.path_operations, "metis_templates.txt"), encoding="utf8").read()
+        sections = [section.strip() for section in data.split("++++")[1:] if section.strip()]
         assert len(sections) == 4
 
         template_summaries = {}
@@ -115,9 +107,7 @@ class TemplateManual:
             template_list = {}
             for line_with_template in lines_with_template:
                 # print(line_with_template)
-                _, name_a, name_b, description, _ = line_with_template.strip().split(
-                    "|"
-                )
+                _, name_a, name_b, description, _ = line_with_template.strip().split("|")
                 name_a = name_a.strip().strip("[").strip("]").strip()
                 name_b = name_b.strip().strip("[").strip("]").strip()
                 assert name_a == name_b, f"{name_a} {name_b}"
@@ -125,14 +115,10 @@ class TemplateManual:
             template_summaries[type_template] = template_list
 
         type_from_template_name = {
-            tt.lower(): type_tt
-            for type_tt, tps in template_summaries.items()
-            for tt in tps
+            tt.lower(): type_tt for type_tt, tps in template_summaries.items() for tt in tps
         }
 
-        templates_all_true = [
-            tt for tpslist in template_summaries.values() for tt in tpslist
-        ]
+        templates_all_true = [tt for tpslist in template_summaries.values() for tt in tpslist]
         assert len(templates_all_true) == len(set(templates_all_true))
         assert len(type_from_template_name) == len(templates_all_true)
         return template_summaries
@@ -186,9 +172,7 @@ class TemplateManual:
         name2 = name.replace("*_", "*").replace("*", ".*").lower()
         pattern = re.compile(name2)
 
-        return [
-            tn for tn in METIS_TemplateManual.templates if re.match(pattern, tn.lower())
-        ]
+        return [tn for tn in METIS_TemplateManual.templates if re.match(pattern, tn.lower())]
 
 
 METIS_TemplateManual = TemplateManual()
