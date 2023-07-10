@@ -24,7 +24,7 @@ def guess_postfixes(name):
     postfixes_hardware = ["2RG", "GEO", "IFU"]
     postfixes_mode = ["LM", "N", "IFU"]
     postfixes_adiimg = ["LM", "N"]
-    nameparts_hardware = ["master", "linearity", "persistence", "gain", "badpix"]
+    nameparts_hardware = ["master", "linearity", "persistence", "gain", "badpix", "detlin", "dark"]
     nameparts_adiimg = [
         a.lower()
         for a in [

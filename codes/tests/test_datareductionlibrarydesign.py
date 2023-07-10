@@ -535,7 +535,6 @@ class TestDataReductionLibraryDesign:
 
         assert not problems, f"There are {len(problems)} recipe where the the first input is not RAW"
 
-
     def test_recipes_input_different_templates(self):
         """Check whether we can make DPR keywords easily.
 
@@ -569,6 +568,44 @@ class TestDataReductionLibraryDesign:
                 print(f"{in2notin1=}")
 
         assert not problem, f"{problem} recipes have partially overlapping templates"
+
+
+    @pytest.mark.xfail(reason="LSS")
+    def test_dpr_keywords(self):
+        """Check whether DPR keywords are uniq."""
+        dataitems_with_dpr = [
+            dataitem for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
+            if dataitem.templates
+        ]
+        problems = []
+        dprs = {}
+        for dataitem in dataitems_with_dpr:
+            if "IFU" in dataitem.name and "IFU" not in dataitem.dpr_tech:
+                problems.append(f"{dataitem.name} has {dataitem.dpr_tech} as DPR.TECH instead of IFU")
+            if "IFU" in dataitem.dpr_tech and "IFU" not in dataitem.name:
+                problems.append(f"{dataitem.name} has {dataitem.dpr_tech} as DPR.TECH but is not IFU")
+            if "SCI" in dataitem.name and "SCIENCE" not in dataitem.dpr_catg:
+                problems.append(f"{dataitem.name} has {dataitem.dpr_catg} as DPR.CATG instead of SCIENCE")
+            if "SCI" not in dataitem.name and "SCIENCE" in dataitem.dpr_catg:
+                problems.append(f"{dataitem.name} has {dataitem.dpr_catg} as DPR.CATG but is not SCIENCE")
+
+            dpr_key = (dataitem.dpr_catg, dataitem.dpr_tech, dataitem.dpr_type)
+            if dpr_key not in dprs:
+                dprs[dpr_key] = set()
+            dprs[dpr_key].add(dataitem.name)
+
+        for dpr_key, dataitems in dprs.items():
+            if len(dataitems) > 1:
+                problems.append(f"{len(dataitems)} have DPR keys {dpr_key}: {dataitems}")
+
+        pprint(sorted(dprs.items()))
+
+        if problems:
+            print()
+            for problem in problems:
+                print(problem)
+
+        assert not problems, f"There are {len(problems)} with the DPR keywords."
 
 
 class TestFindLatexInputs:

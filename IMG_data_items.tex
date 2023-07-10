@@ -8,7 +8,7 @@
 Name: & \hyperref[dataitem:lm_image_raw]{\RAW{LM_IMAGE_RAW}}\\[0.3cm]
 Description: & Raw exposure of the LM image mode.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG,LM} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_IMAGE_RAW}\\[0.3cm]
@@ -54,7 +54,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:n_image_raw]{\RAW{N_IMAGE_RAW}}\\[0.3cm]
 Description: & Raw exposure of the N image mode.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG,N} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_IMAGE_RAW}\\[0.3cm]
@@ -85,8 +85,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:lm_chopperhome_raw]{\RAW{LM_CHOPPERHOME_RAW}}\\[0.3cm]
 Description: & Raw exposure of the LM image mode.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMG,LM} \\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{CHOPHOME} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_CHOPPERHOME_RAW}\\[0.3cm]
 % TODO: Some of the offset templates also produce a SKY or PSF observation that should also be processed
@@ -106,84 +106,240 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 \paragraph{\hyperref[dataitem:detlin_det_raw]{\RAW{DETLIN_det_RAW}}}\label{dataitem:detlin_det_raw}
-\label{dataitem:detlin_lm_raw}\label{dataitem:detlin_n_raw}\label{dataitem:detlin_ifu_raw}
+An \hyperref[dataitem:detlin_det_raw]{\RAW{DETLIN_det_RAW}} can be one of
+\begin{itemize}
+    \item \hyperref[dataitem:detlin_2rg_raw]{\RAW{DETLIN_2RG_RAW}}
+    \item \hyperref[dataitem:detlin_geo_raw]{\RAW{DETLIN_GEO_RAW}}
+    \item \hyperref[dataitem:detlin_ifu_raw]{\RAW{DETLIN_IFU_RAW}}
+\end{itemize}
+
+\paragraph{\hyperref[dataitem:detlin_2rg_raw]{\RAW{DETLIN_2RG_RAW}}}\label{dataitem:detlin_2rg_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:detlin_det_raw]{\RAW{DETLIN_det_RAW}}\\[0.3cm]
-Description: & Raw data for non-linearity determination.\\[0.3cm]
+Name: & \hyperref[dataitem:detlin_2rg_raw]{\RAW{DETLIN_2RG_RAW}}\\[0.3cm]
+Description: & Raw data for non-linearity determination for LM observations.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,det}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DETLIN}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{DETLIN_det_RAW}\\[0.3cm]
-Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
-                       & \TPL{METIS_img_n_cal_DetLin}                                                        \\
-                       & \TPL{METIS_ifu_cal_DetLin}                                                          \\
+\FITS{DO.CATG}: & \FITS{DETLIN_2RG_RAW}\\[0.3cm]
+Templates:           & \TPL{METIS_img_lm_cal_DetLin} \\
 Input for recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
-
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\hyperref[dataitem:dark_det_raw]{\RAW{DARK_det_RAW}}}\label{dataitem:dark_det_raw}
+\paragraph{\hyperref[dataitem:detlin_geo_raw]{\RAW{DETLIN_GEO_RAW}}}\label{dataitem:detlin_geo_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:dark_det_raw]{\RAW{DARK_det_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:detlin_geo_raw]{\RAW{DETLIN_GEO_RAW}}\\[0.3cm]
+Description: & Raw data for non-linearity determination.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,N}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DETLIN}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DETLIN_GEO_RAW}\\[0.3cm]
+Templates:           & \TPL{METIS_img_n_cal_DetLin} \\
+Input for recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+\paragraph{\hyperref[dataitem:detlin_ifu_raw]{\RAW{DETLIN_IFU_RAW}}}\label{dataitem:detlin_ifu_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:detlin_ifu_raw]{\RAW{DETLIN_IFU_RAW}}\\[0.3cm]
+Description: & Raw data for non-linearity determination.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,IFU}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DETLIN}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{DETLIN_IFU_RAW}\\[0.3cm]
+Templates: & \TPL{METIS_ifu_cal_DetLin} \\
+Input for recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+\paragraph{\hyperref[dataitem:dark_det_raw]{\RAW{DARK_det_RAW}}}\label{dataitem:dark_det_raw}
+An \hyperref[dataitem:dark_det_raw]{\RAW{DARK_det_RAW}} can be one of
+\begin{itemize}
+    \item \hyperref[dataitem:dark_2rg_raw]{\RAW{DARK_2RG_RAW}}
+    \item \hyperref[dataitem:dark_geo_raw]{\RAW{DARK_GEO_RAW}}
+    \item \hyperref[dataitem:dark_ifu_raw]{\RAW{DARK_IFU_RAW}}
+\end{itemize}
+
+
+\paragraph{\hyperref[dataitem:dark_2rg_raw]{\RAW{DARK_2RG_RAW}}}\label{dataitem:dark_2rg_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:dark_2rg_raw]{\RAW{DARK_2RG_RAW}}\\[0.3cm]
 Description: & Raw data for creating a master dark.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,det}\\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK,det}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}, \hyperref[fits:det.id]{\FITS{DET.ID}}, \hyperref[fits:det.dit]{\FITS{DET.DIT}}  \\
-\FITS{DO.CATG}: & \FITS{DARK_det_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{DARK_2RG_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_gen_cal_dark}                                                       \\
                      & \TPL{METIS_gen_cal_InsDark} \\
 Input for recipe: & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\hyperref[dataitem:det_wcu_off_raw]{\RAW{det_WCU_OFF_RAW}}}\label{dataitem:det_wcu_off_raw}\label{dataitem:n_wcu_off_raw}\label{dataitem:lm_wcu_off_raw}\label{dataitem:2rg_wcu_off_raw}\label{dataitem:geo_wcu_off_raw}\label{dataitem:ifu_wcu_off_raw}
+\paragraph{\hyperref[dataitem:dark_geo_raw]{\RAW{DARK_GEO_RAW}}}\label{dataitem:dark_geo_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:det_wcu_off_raw]{\RAW{det_WCU_OFF_RAW}}\\[0.3cm]
+Name: & \hyperref[dataitem:dark_geo_raw]{\RAW{DARK_GEO_RAW}}\\[0.3cm]
+Description: & Raw data for creating a master dark.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,GEO}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}, \hyperref[fits:det.id]{\FITS{DET.ID}}, \hyperref[fits:det.dit]{\FITS{DET.DIT}}  \\
+\FITS{DO.CATG}: & \FITS{DARK_GEO_RAW}\\[0.3cm]
+Templates:           & \TPL{METIS_gen_cal_dark}                                                       \\
+                     & \TPL{METIS_gen_cal_InsDark} \\
+Input for recipe: & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+\paragraph{\hyperref[dataitem:dark_ifu_raw]{\RAW{DARK_IFU_RAW}}}\label{dataitem:dark_ifu_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:dark_ifu_raw]{\RAW{DARK_IFU_RAW}}\\[0.3cm]
+Description: & Raw data for creating a master dark.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,IFU}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}, \hyperref[fits:det.id]{\FITS{DET.ID}}, \hyperref[fits:det.dit]{\FITS{DET.DIT}}  \\
+\FITS{DO.CATG}: & \FITS{DARK_IFU_RAW}\\[0.3cm]
+Templates:           & \TPL{METIS_gen_cal_dark}                                                       \\
+                     & \TPL{METIS_gen_cal_InsDark} \\
+Input for recipe: & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+\paragraph{\hyperref[dataitem:det_wcu_off_raw]{\RAW{det_WCU_OFF_RAW}}}\label{dataitem:det_wcu_off_raw}
+An \hyperref[dataitem:det_wcu_off_raw]{\RAW{det_WCU_OFF_RAW}} can be one of
+\begin{itemize}
+    \item \hyperref[dataitem:lm_wcu_off_raw]{\RAW{LM_WCU_OFF_RAW}}
+    \item \hyperref[dataitem:n_wcu_off_raw]{\RAW{N_WCU_OFF_RAW}}
+    \item \hyperref[dataitem:ifu_wcu_off_raw]{\RAW{IFU_WCU_OFF_RAW}}
+\end{itemize}
+
+\paragraph{\hyperref[dataitem:lm_wcu_off_raw]{\RAW{LM_WCU_OFF_RAW}}}\label{dataitem:lm_wcu_off_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:lm_wcu_off_raw]{\RAW{LM_WCU_OFF_RAW}}\\[0.3cm]
 Description: & Raw data for dark subtraction in other recipes.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,det}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK,WCUOFF}\\
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
-\FITS{DO.CATG}: & \FITS{det_WCU_OFF_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \FITS{LM_WCU_OFF_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
-                       & \TPL{METIS_img_n_cal_DetLin}                                                        \\
-                       & \TPL{METIS_ifu_cal_DetLin}                                                          \\
-                       & \TPL{METIS_img_n_cal_distortion} \\
                        & \TPL{METIS_spec_lm_cal_SlitAdc} \\
-                       & \TPL{METIS_spec_n_cal_slit} \\
 Input for:    & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}} \\
               & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}} \\
-              & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}} \\
               & \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}})}
+    \item \texttt{hdrl\_image * image: image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+\paragraph{\hyperref[dataitem:n_wcu_off_raw]{\RAW{N_WCU_OFF_RAW}}}\label{dataitem:n_wcu_off_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:n_wcu_off_raw]{\RAW{N_WCU_OFF_RAW}}\\[0.3cm]
+Description: & Raw data for dark subtraction in other recipes.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,N}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK,WCUOFF}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{N_WCU_OFF_RAW}\\[0.3cm]
+Templates:             & \TPL{METIS_img_n_cal_DetLin}                                                        \\
+                       & \TPL{METIS_img_n_cal_distortion} \\
+                       & \TPL{METIS_spec_n_cal_slit} \\
+Input for:    & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}} \\
+              & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}} \\
               & \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}})}
+    \item \texttt{hdrl\_image * image: image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+\paragraph{\hyperref[dataitem:ifu_wcu_off_raw]{\RAW{IFU_WCU_OFF_RAW}}}\label{dataitem:ifu_wcu_off_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \hyperref[dataitem:ifu_wcu_off_raw]{\RAW{IFU_WCU_OFF_RAW}}\\[0.3cm]
+Description: & Raw data for dark subtraction in other recipes.\\[0.3cm]
+\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,IFU}\\
+\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DARK,WCUOFF}\\
+OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
+\FITS{DO.CATG}: & \FITS{IFU_WCU_OFF_RAW}\\[0.3cm]
+Templates:             & \TPL{METIS_ifu_cal_DetLin}                                                          \\
+Input for:    & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -311,7 +467,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:lm_pupil_raw]{\RAW{LM_PUPIL_RAW}}\\[0.3cm]
 Description: & Raw exposure of the pupil in LM image mode.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{TECHNICAL}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{PUP} \\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{PUP,M} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_PUPIL_RAW}\\[0.3cm]
@@ -338,7 +494,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \hyperref[dataitem:n_pupil_raw]{\RAW{N_PUPIL_RAW}}\\[0.3cm]
 Description: & Raw exposure of the the pupil in N image mode.\\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{TECHNICAL}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{PUP} \\
+\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{PUP,N} \\
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{N_PUPIL_RAW}\\[0.3cm]
