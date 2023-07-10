@@ -515,6 +515,61 @@ class TestDataReductionLibraryDesign:
                 print(error)
         assert not errors, f"The input_data and templates of {len(errors)} recipes is inconsistent."
 
+    def test_recipes_first_input_is_from_template(self):
+        """The first input of the recipes should be from the templates."""
+        recipes_with_raw_data = [
+            recipe for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            if recipe.templates
+        ]
+        problems = []
+        for recipe in recipes_with_raw_data:
+            dataitemref = recipe.input_data[0]
+            input_first = METIS_DataReductionLibraryDesign.dataitems[dataitemref.name]
+            if input_first.dtype != "RAW":
+                problems.append(f"{recipe} has {input_first.name} as input, but this is {input_first.dtype} instead of RAW")
+
+        if problems:
+            print()
+            for problem in problems:
+                print(problem)
+
+        assert not problems, f"There are {len(problems)} recipe where the the first input is not RAW"
+
+
+    def test_recipes_input_different_templates(self):
+        """Check whether we can make DPR keywords easily.
+
+        It would be the easiest if each recipe has input from one specific
+        set of raw data. That is, that if other recipes have the same input,
+        then it should be exactly the same.
+        """
+        recipes_with_raw_data = [
+            recipe for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            if recipe.templates
+        ]
+        problem = 0
+        for recipe1 in recipes_with_raw_data:
+            templates1 = set(recipe1.templates)
+            for recipe2 in recipes_with_raw_data:
+                if recipe1.input_data[0].name != recipe2.input_data[0].name:
+                    # Different input data, so it is fine
+                    continue
+                templates2 = set(recipe2.templates)
+                union = templates1.union(templates2)
+                in1notin2 = templates1.difference(templates2)
+                in2notin1 = templates1.difference(templates2)
+                if templates1 == templates2 or union == {}:
+                    continue
+                problem += 1
+                print(f"{recipe1.name} and {recipe2.name} share templates, but not exactly")
+                print(f"{templates1=}")
+                print(f"{templates2=}")
+                print(f"{union=}")
+                print(f"{in1notin2=}")
+                print(f"{in2notin1=}")
+
+        assert not problem, f"{problem} recipes have partially overlapping templates"
+
 
 class TestFindLatexInputs:
     def test_find_latex_inputs(self):
