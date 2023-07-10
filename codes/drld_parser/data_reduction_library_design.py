@@ -11,7 +11,6 @@ from typing import List
 
 from codes.drld_parser.hacks import (
     HACK_BAD_NAMES,
-    HACK_TEMPLATE_NAMES_IN_DRLD,
     HACK_INCORRECT_INPUT_DATA,
     HACK_RECIPE_TEMPLATES,
 )
@@ -159,7 +158,6 @@ class DataItem:
             lambda line: not line.startswith(r"\end{recipedef}"),
             lines2,
         )
-        from pprint import pprint
 
         rows1a = [line.replace("[0.3cm]", "") for line in list(lines3)[1:]]
 
