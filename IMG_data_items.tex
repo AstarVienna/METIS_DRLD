@@ -12,26 +12,28 @@ Description: & Raw exposure of the LM image mode.\\[0.3cm]
 \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RAW} \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 \FITS{DO.CATG}: & \FITS{LM_IMAGE_RAW}\\[0.3cm]
+% TODO: Some of the offset templates also produce a SKY or PSF observation that should also be processed
 Template: & \TPL{METIS_img_lm_cal_standard}\\
 %           & \TPL{METIS_img_lm_*_obs_*}       \\
           & \TPL{METIS_img_lm_obs_AutoJitter} \\
           & \TPL{METIS_img_lm_obs_GenericOffset} \\
-          & \TPL{METIS_img_lm_obs_FixedSkyOffset} \\
-          & \TPL{METIS_img_lm_app_obs_FixedOffset} \\
           & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
           & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
-          & \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
           & \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
-          & \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
           & \TPL{METIS_ifu_ext_obs_GenericOffset}                                                    \\
-          & \TPL{METIS_ifu_vc_obs_FixedSkyOffset}                                                    \\
-          & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset}                                                \\
           & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
           & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
           & \TPL{METIS_img_lm_cal_psf} \\
           & \TPL{METIS_ifu_cal_psf} \\
           % TODO: These do not all trigger the exact same recipes, so should have different RAW data
           & \TPL{METIS_img_lm_cal_ChopperHome} \\
+          & \TPL{METIS_ifu_vc_obs_FixedSkyOffset}                                                    \\
+          & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset}                                                \\
+          & \TPL{METIS_img_lm_obs_FixedSkyOffset} \\
+          & \TPL{METIS_img_lm_app_obs_FixedOffset} \\
+          & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
+          & \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
+          & \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
 Input for:    & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}} \\
               & \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\

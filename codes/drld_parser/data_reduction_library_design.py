@@ -11,7 +11,6 @@ from typing import List
 
 from codes.drld_parser.hacks import (
     HACK_BAD_NAMES,
-    HACK_TEMPLATE_NAMES_IN_DRLD,
     HACK_INCORRECT_INPUT_DATA,
     HACK_RECIPE_TEMPLATES,
 )
@@ -26,20 +25,23 @@ def guess_postfixes(name):
     postfixes_mode = ["LM", "N", "IFU"]
     postfixes_adiimg = ["LM", "N"]
     nameparts_hardware = ["master", "linearity", "persistence", "gain", "badpix"]
-    nameparts_adiimg = [a.lower() for a in [
-        # These have their IFU counterpart explicitly written down
-        "_cgrph_SCI_CALIBRATED",
-        "_cgrph_SCI_CENTRED",
-        "_cgrph_CENTROID_TAB",
-        "_cgrph_SCI_SPECKLE",
-        "_cgrph_SCI_DEROTATED_PSFSUB",
-        "_cgrph_SCI_DEROTATED",
-        "_cgrph_SCI_CONTRAST_RAW",
-        "_cgrph_SCI_CONTRAST_ADI",
-        "_cgrph_SCI_THROUGHPUT",
-        "_cgrph_SCI_SNR",
-        "_cgrph_SCI_COVERAGE",
-    ]]
+    nameparts_adiimg = [
+        a.lower()
+        for a in [
+            # These have their IFU counterpart explicitly written down
+            "_cgrph_SCI_CALIBRATED",
+            "_cgrph_SCI_CENTRED",
+            "_cgrph_CENTROID_TAB",
+            "_cgrph_SCI_SPECKLE",
+            "_cgrph_SCI_DEROTATED_PSFSUB",
+            "_cgrph_SCI_DEROTATED",
+            "_cgrph_SCI_CONTRAST_RAW",
+            "_cgrph_SCI_CONTRAST_ADI",
+            "_cgrph_SCI_THROUGHPUT",
+            "_cgrph_SCI_SNR",
+            "_cgrph_SCI_COVERAGE",
+        ]
+    ]
     if any(namepart in name.lower() for namepart in nameparts_hardware):
         return postfixes_hardware
     if any(namepart in name.lower() for namepart in nameparts_adiimg):
@@ -92,9 +94,7 @@ def guess_dataitem_type(name, raise_exception=False):
 def find_latex_inputs(path):
     """Flatten a tex file."""
     lines = open(path).readlines()
-    lines_with_input = [
-        line for line in lines if line.strip() and line.strip().startswith(r"\input{")
-    ]
+    lines_with_input = [line for line in lines if line.strip() and line.strip().startswith(r"\input{")]
     paths_inputted = [
         path.parent / (ll + ".tex")
         for line in lines_with_input
@@ -134,11 +134,7 @@ class DataItem:
     @classmethod
     def from_paragraph(cls, sparagraph):
         """Parse a dataitem from a paragraph with a recipedef table."""
-        lines1 = [
-            line.strip()
-            for line in sparagraph.splitlines()
-            if not line.strip().startswith("%")
-        ]
+        lines1 = [line.strip() for line in sparagraph.splitlines() if not line.strip().startswith("%")]
         line_header = lines1[0]
         # E.g. \paragraph{\hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}}\label{dataitem:master_n_lss_rsrf}
         regex_header = re.compile(
@@ -162,7 +158,6 @@ class DataItem:
             lambda line: not line.startswith(r"\end{recipedef}"),
             lines2,
         )
-        from pprint import pprint
 
         rows1a = [line.replace("[0.3cm]", "") for line in list(lines3)[1:]]
 
@@ -245,9 +240,7 @@ class DataItem:
                     else:
                         value = value.split()
                         value = [
-                            HACK_RECIPE_TEMPLATES.get(
-                                (thedata["name"], vi.lower()), vi.lower()
-                            )
+                            HACK_RECIPE_TEMPLATES.get((thedata["name"], vi.lower()), vi.lower())
                             for vi in value
                         ]
                     # There could be a * in one of the templates, e.g.
@@ -527,9 +520,7 @@ class Recipe:
                     else:
                         value = value.split()
                         value = [
-                            HACK_RECIPE_TEMPLATES.get(
-                                (thedata["name"], vi.lower()), vi.lower()
-                            )
+                            HACK_RECIPE_TEMPLATES.get((thedata["name"], vi.lower()), vi.lower())
                             for vi in value
                         ]
                     # There could be a * in one of the templates, e.g.
@@ -543,7 +534,6 @@ class Recipe:
                         # (\FITS{PRO_CATG}: \FITS{LM_LSS_2d_coadd_wavecal})
                         if val.startswith("(") and "PRO_CATG" in val:
                             continue
-
 
                         # Some of these have " or " in them and need to be split
                         # \hyperref[dataitem:lm_cgrph_sci_speckle]{\PROD{LM_cgrph_SCI_SPECKLE}} or \hyperref[dataitem:n_cgrph_sci_speckle]{\PROD{N_cgrph_SCI_SPECKLE}}\\
@@ -619,9 +609,7 @@ class Recipe:
                 continue
 
             # noinspection PyUnresolvedReferences
-            assert (
-                field in Recipe.__dataclass_fields__
-            ), f"Field {field} cannot be found {row[0]}"
+            assert field in Recipe.__dataclass_fields__, f"Field {field} cannot be found {row[0]}"
 
             # Cannot yet add the value to thedata dictionary because the value
             # might continue on other rows.
@@ -661,7 +649,11 @@ class DataReductionLibraryDesign:
         # The DataItems defined in the DRLD.
 
         self.recipe_names_used = self.get_recipe_names_used()
-        self.template_names_used, self.template_names_used_normal, self.template_names_used_tikz = self.get_template_names_used()
+        (
+            self.template_names_used,
+            self.template_names_used_normal,
+            self.template_names_used_tikz,
+        ) = self.get_template_names_used()
 
     def get_recipes(self):
         """"""
@@ -707,13 +699,7 @@ class DataReductionLibraryDesign:
         data_all = (
             "\n"
             + "\n".join(
-                "\n".join(
-                    [
-                        ll
-                        for ll in open(pp).readlines()
-                        if not ll.strip().startswith("%")
-                    ]
-                )
+                "\n".join([ll for ll in open(pp).readlines() if not ll.strip().startswith("%")])
                 for pp in [path_dataitems] + paths_with_dataitems
             )
             + "\n"
@@ -739,10 +725,7 @@ class DataReductionLibraryDesign:
                 )
                 hyperref1, name1, hyperref2, name2, labelsg = mm.groups()
                 hyperref_common = "".join(
-                    a[0]
-                    for a in itertools.takewhile(
-                        lambda a: a[0] == a[1], zip(hyperref1, hyperref2)
-                    )
+                    a[0] for a in itertools.takewhile(lambda a: a[0] == a[1], zip(hyperref1, hyperref2))
                 )
                 labels = re.findall(r"\\label{(.*?)}", labelsg)
                 assert hyperref_common in labels
@@ -817,13 +800,7 @@ class DataReductionLibraryDesign:
         data_all = (
             "\n"
             + "\n".join(
-                "".join(
-                    [
-                        ll
-                        for ll in open(pp).readlines()
-                        if not ll.strip().startswith("%")
-                    ]
-                )
+                "".join([ll for ll in open(pp).readlines() if not ll.strip().startswith("%")])
                 for pp in [path_dataitems] + paths_with_dataitems
             )
             + "\n"
@@ -871,12 +848,9 @@ class DataReductionLibraryDesign:
         template_names_normal = []
         for filename in self.filenames_tex:
             datat1 = open(filename, encoding="utf8").readlines()
-            datat = "\n".join(
-                line for line in datat1 if not line.strip().startswith("%")
-            )
+            datat = "\n".join(line for line in datat1 if not line.strip().startswith("%"))
             tpls_macro = [
-                tsii.replace("\\", "")
-                for tsii in re.findall("\\\\TPL{(M.*?)}", datat, re.IGNORECASE)
+                tsii.replace("\\", "") for tsii in re.findall("\\\\TPL{(M.*?)}", datat, re.IGNORECASE)
             ]
             # Normal LaTeX, does not work for tikz?
             tpls_latex = [
@@ -890,35 +864,26 @@ class DataReductionLibraryDesign:
                 re.findall("(?<![:{])metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
             ]
             template_names_normal += [
-                tsi
-                for tsi in tpls_macro + tpls_latex
-                if tsi.lower() not in not_templates
+                tsi for tsi in tpls_macro + tpls_latex if tsi.lower() not in not_templates
             ]
         template_names_tikz = []
         for filename in self.filenames_tikz:
             # Only tikzs
             datat1 = open(filename, encoding="utf8").readlines()
-            datat = "\n".join(
-                line for line in datat1 if not line.strip().startswith("%")
-            )
+            datat = "\n".join(line for line in datat1 if not line.strip().startswith("%"))
             tpls_latex = [
                 tsii.replace("\\", "").replace("$ast$", "*")
                 for tsii in
                 # No negative lookbehind for tikz
                 re.findall("metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
             ]
-            template_names_tikz += [
-                tsi
-                for tsi in tpls_latex
-                if tsi.lower() not in not_templates
-            ]
+            template_names_tikz += [tsi for tsi in tpls_latex if tsi.lower() not in not_templates]
 
         return (
             template_names_normal + template_names_tikz,
             template_names_normal,
             template_names_tikz,
         )
-
 
     def get_recipe_names_used(self):
         """All recipes names used in the DRLD."""
@@ -934,9 +899,7 @@ class DataReductionLibraryDesign:
         recipe_names_u = [
             recname.replace("\\", "")
             for fn in self.filenames_tex
-            for recname in re.findall(
-                "\\\\REC{(.*?)}", open(fn, encoding="utf8").read()
-            )
+            for recname in re.findall("\\\\REC{(.*?)}", open(fn, encoding="utf8").read())
             if recname not in not_recipes
         ]
         return sorted(set(recipe_names_u))
@@ -958,9 +921,7 @@ class DataReductionLibraryDesign:
         data = [
             di.name
             for di in self.dataitems.values()
-            if template in di.templates or template.lower() in [
-                tem.lower() for tem in di.templates
-            ]
+            if template in di.templates or template.lower() in [tem.lower() for tem in di.templates]
         ]
         return data
 
@@ -969,9 +930,8 @@ class DataReductionLibraryDesign:
         data = [
             recipe.name
             for recipe in self.recipes.values()
-            if template in recipe.templates or template.lower() in [
-                tem.lower() for tem in recipe.templates
-            ]
+            if template in recipe.templates
+            or template.lower() in [tem.lower() for tem in recipe.templates]
         ]
         return data
 

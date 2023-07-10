@@ -12,9 +12,7 @@ class FitsHeader:
 
     @staticmethod
     def from_wiki_line(line):
-        _, parameter, hidden, therange, label, _ = [
-            cell.strip() for cell in line.split("|")
-        ]
+        _, parameter, hidden, therange, label, _ = [cell.strip() for cell in line.split("|")]
         return FitsHeader(
             parameter=parameter,
             hidden=hidden,

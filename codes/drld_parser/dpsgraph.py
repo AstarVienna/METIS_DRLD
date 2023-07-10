@@ -30,8 +30,7 @@ colors = {
 }
 
 dataitem_names_lower = [
-    dataitem.name.lower()
-    for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
+    dataitem.name.lower() for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
 ]
 
 template_names_lower = [tn.lower() for tn in METIS_TemplateManual.templates]
