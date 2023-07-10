@@ -305,7 +305,6 @@ class TestDataReductionLibraryDesign:
         assert not templates_missing
 
 
-    # @pytest.mark.xfail(reason="Still many to do")
     def test_dataitems_sanity(self):
         """Do dataitems internal consistency check."""
         all_errors = []
@@ -478,7 +477,6 @@ class TestDataReductionLibraryDesign:
                 print(error)
         assert not errors, f"There are {len(errors)} templates that produce no data."
 
-    @pytest.mark.xfail(reason="todo")
     def test_recipe_input(self):
         """Check whether input to recipes matches templates."""
         errors = []

@@ -211,6 +211,10 @@ HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA = {
     "METIS_spec_lmn_acq",
     "METIS_spec_lm_acq",
     "METIS_spec_n_acq",
+    # and lower
+    "metis_spec_lmn_acq",
+    "metis_spec_lm_acq",
+    "metis_spec_n_acq",
 }
 
 def hack_rename_template_header(name_template_file, name_template_header):
