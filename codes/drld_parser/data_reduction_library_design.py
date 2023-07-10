@@ -661,7 +661,7 @@ class DataReductionLibraryDesign:
         # The DataItems defined in the DRLD.
 
         self.recipe_names_used = self.get_recipe_names_used()
-        self.template_names_used = self.get_template_names_used()
+        self.template_names_used, self.template_names_used_normal, self.template_names_used_tikz = self.get_template_names_used()
 
     def get_recipes(self):
         """"""
@@ -868,8 +868,8 @@ class DataReductionLibraryDesign:
             "METIS_CUBE",
         ] + list(self.recipes.keys())
         not_templates += [rec.lower() for rec in not_templates]
-        template_names = []
-        for filename in self.filenames_tex + self.filenames_tikz:
+        template_names_normal = []
+        for filename in self.filenames_tex:
             datat1 = open(filename, encoding="utf8").readlines()
             datat = "\n".join(
                 line for line in datat1 if not line.strip().startswith("%")
@@ -878,7 +878,7 @@ class DataReductionLibraryDesign:
                 tsii.replace("\\", "")
                 for tsii in re.findall("\\\\TPL{(M.*?)}", datat, re.IGNORECASE)
             ]
-            # Normal LaTeX, includes tikzs
+            # Normal LaTeX, does not work for tikz?
             tpls_latex = [
                 tsii.replace("\\", "").replace("$ast$", "*")
                 for tsii in
@@ -889,11 +889,12 @@ class DataReductionLibraryDesign:
                 # Any \TPL{metis_derive_gain} is caught in tpls_macro above
                 re.findall("(?<![:{])metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
             ]
-            template_names += [
+            template_names_normal += [
                 tsi
                 for tsi in tpls_macro + tpls_latex
                 if tsi.lower() not in not_templates
             ]
+        template_names_tikz = []
         for filename in self.filenames_tikz:
             # Only tikzs
             datat1 = open(filename, encoding="utf8").readlines()
@@ -906,14 +907,18 @@ class DataReductionLibraryDesign:
                 # No negative lookbehind for tikz
                 re.findall("metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
             ]
-            # TODO: does not work for tikz
-            template_names += [
+            template_names_tikz += [
                 tsi
                 for tsi in tpls_latex
                 if tsi.lower() not in not_templates
             ]
 
-        return template_names
+        return (
+            template_names_normal + template_names_tikz,
+            template_names_normal,
+            template_names_tikz,
+        )
+
 
     def get_recipe_names_used(self):
         """All recipes names used in the DRLD."""
@@ -947,6 +952,28 @@ class DataReductionLibraryDesign:
                 for postfix in guess_postfixes(name_dataitem)
             )
         ]
+
+    def get_raws_for_template(self, template: str):
+        """Get raw data produced by template."""
+        data = [
+            di.name
+            for di in self.dataitems.values()
+            if template in di.templates or template.lower() in [
+                tem.lower() for tem in di.templates
+            ]
+        ]
+        return data
+
+    def get_recipes_for_template(self, template: str):
+        """Get raw data produced by template."""
+        data = [
+            recipe.name
+            for recipe in self.recipes.values()
+            if template in recipe.templates or template.lower() in [
+                tem.lower() for tem in recipe.templates
+            ]
+        ]
+        return data
 
     def get_input_for(self, name_dataitem):
         """Get recipes that create dataitems with this name."""

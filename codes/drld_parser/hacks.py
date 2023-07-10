@@ -207,6 +207,12 @@ HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS = {
     "N_LSS_WAVE_RAW": {"metis_lm_lss_wave"},
 }
 
+HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA = {
+    "METIS_spec_lmn_acq",
+    "METIS_spec_lm_acq",
+    "METIS_spec_n_acq",
+}
+
 def hack_rename_template_header(name_template_file, name_template_header):
     """Some template files on the wiki have incorrect headers.
 

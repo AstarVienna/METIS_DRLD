@@ -18,6 +18,7 @@ from ..drld_parser.hacks import (
     HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT,
     HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING,
     HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS,
+    HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA,
 )
 from ..drld_parser.template_manual import METIS_TemplateManual
 
@@ -460,6 +461,53 @@ class TestDataReductionLibraryDesign:
                 print(f"{name} claims to be input for recipes that do not exist: {theerrors['bad_input_for']}")
         assert not errors
 
+    def test_templates(self):
+        """Test whether all templates produce data."""
+        errors = []
+        for template in METIS_DataReductionLibraryDesign.template_names_used_normal:
+            if template in HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA:
+                continue
+            dataitems = METIS_DataReductionLibraryDesign.get_raws_for_template(template)
+            recipes = METIS_DataReductionLibraryDesign.get_recipes_for_template(template)
+            if not dataitems:
+                errors.append(f"{template} produces no raw data but triggers {recipes}")
+        if errors:
+            errors = set(errors)
+            print()
+            for error in errors:
+                print(error)
+        assert not errors, f"There are {len(errors)} templates that produce no data."
+
+    @pytest.mark.xfail(reason="todo")
+    def test_recipe_input(self):
+        """Check whether input to recipes matches templates."""
+        errors = []
+        for recipe in METIS_DataReductionLibraryDesign.recipes.values():
+            raws_unaccounted_for = []
+            templates_unaccounted_for = set(recipe.templates)
+            for dataitemref in recipe.input_data:
+                dataitem = METIS_DataReductionLibraryDesign.dataitems[dataitemref.name]
+                if dataitem.templates is None:
+                    continue
+                if not set(dataitem.templates).union(set(recipe.templates)):
+                    # There is no overlap between templates, so this dataitem cannot be used as input
+                    raws_unaccounted_for.append(dataitem)
+                templates_unaccounted_for -= set(dataitem.templates)
+            # if raws_unaccounted_for:
+            #     errors.append(f"{recipe.name} has {dataitem.name} as input, but none of its templates {dataitem.templates}")
+            if templates_unaccounted_for:
+                for template in templates_unaccounted_for:
+                    if template in HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA:
+                        continue
+                    data = METIS_DataReductionLibraryDesign.get_raws_for_template(template)
+                    errors.append(f"{recipe.name} is triggered by {template}, but none of its data {data} is used as input")
+        if errors:
+            print()
+            for error in errors:
+                print(error)
+        assert not errors, f"The input_data and templates of {len(errors)} recipes is inconsistent."
+
+
 class TestFindLatexInputs:
     def test_find_latex_inputs(self):
         fns_expected = {
@@ -596,3 +644,6 @@ def test_tikz():
     """Test whether the names used in the tikz figures exist."""
 
 
+# TODO: Order of input in recipes, primary input should go first!
+# TODO: the raw dark was an EXTCALIB, should not happen!
+# TODO: Check whether LM data is created with LM templates and processed with LM recipes, similar for N

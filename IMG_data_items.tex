@@ -17,17 +17,21 @@ Template: & \TPL{METIS_img_lm_cal_standard}\\
           & \TPL{METIS_img_lm_obs_AutoJitter} \\
           & \TPL{METIS_img_lm_obs_GenericOffset} \\
           & \TPL{METIS_img_lm_obs_FixedSkyOffset} \\
+          & \TPL{METIS_img_lm_app_obs_FixedOffset} \\
           & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
           & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
-                    & \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
-                    & \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
-                    & \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
-                    & \TPL{METIS_ifu_ext_obs_GenericOffset}                                                    \\
-                    & \TPL{METIS_ifu_vc_obs_FixedSkyOffset}                                                    \\
-                    & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset}                                                \\
-                    & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
-                    & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
-                    & \TPL{METIS_ifu_cal_psf}                                                                  \\
+          & \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
+          & \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
+          & \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
+          & \TPL{METIS_ifu_ext_obs_GenericOffset}                                                    \\
+          & \TPL{METIS_ifu_vc_obs_FixedSkyOffset}                                                    \\
+          & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset}                                                \\
+          & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
+          & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
+          & \TPL{METIS_img_lm_cal_psf} \\
+          & \TPL{METIS_ifu_cal_psf} \\
+          % TODO: These do not all trigger the exact same recipes, so should have different RAW data
+          & \TPL{METIS_img_lm_cal_ChopperHome} \\
 Input for:    & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}} \\
               & \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -118,6 +122,7 @@ Description: & Raw data for creating a master dark.\\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}, \hyperref[fits:det.id]{\FITS{DET.ID}}, \hyperref[fits:det.dit]{\FITS{DET.DIT}}  \\
 \FITS{DO.CATG}: & \FITS{DARK_det_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_gen_cal_dark}                                                       \\
+                     & \TPL{METIS_gen_cal_InsDark} \\
 Input for recipe: & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
