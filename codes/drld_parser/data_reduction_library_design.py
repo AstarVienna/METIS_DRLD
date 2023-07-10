@@ -926,12 +926,21 @@ class DataReductionLibraryDesign:
         return data
 
     def get_recipes_for_template(self, template: str):
-        """Get raw data produced by template."""
+        """Get recipes triggered by template."""
         data = [
             recipe.name
             for recipe in self.recipes.values()
             if template in recipe.templates
             or template.lower() in [tem.lower() for tem in recipe.templates]
+        ]
+        return data
+
+    def get_recipes_for_dataitem(self, dataitem: str):
+        """Get recipes with dataitem as input."""
+        data = [
+            recipe.name
+            for recipe in self.recipes.values()
+            if dataitem.lower() in [dataitemref.name.lower() for dataitemref in recipe.input_data]
         ]
         return data
 

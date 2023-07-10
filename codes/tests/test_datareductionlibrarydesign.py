@@ -607,16 +607,31 @@ class TestDataReductionLibraryDesign:
 
         assert not problems, f"There are {len(problems)} with the DPR keywords."
 
+        recipes_from_docatg = {
+            docatg: METIS_DataReductionLibraryDesign.get_recipes_for_dataitem(docatg)
+            for (docatg, ) in dprs.values()
+        }
+        lenrecipes = max(
+            len(recipe)
+            for recipes in recipes_from_docatg.values()
+            for recipe in recipes
+        )
+
         lencatg = max(len(catg) for catg, _, _ in dprs)
         lentech = max(len(tech) for _, tech, _ in dprs)
         lentype = max(len(typp) for _, _, typp in dprs)
         lendocatg = max(len(docatg) for (docatg, ) in dprs.values())
-        print("┏━" + "━" * lencatg + "━┯━" + "━" * lentech + "━┯━" + "━" * lentype + "━┯━" + "━" * lendocatg + "━┓")
-        print(f"┃ {'DPR.CATG':<{lencatg}} │ {'DPR.TECH':<{lentech}} │ {'DPR.TYPE':<{lentype}} │ {'DO.CATG':<{lendocatg}} ┃")
-        print("┣━" + "━" * lencatg + "━┿━" + "━" * lentech + "━┿━" + "━" * lentype + "━┿━" + "━" * lendocatg + "━┫")
+        idem = '"'
+        print("┏━" + "━" * lencatg + "━┯━" + "━" * lentech + "━┯━" + "━" * lentype + "━┯━" + "━" * lendocatg + "━┯━" + "━" * lenrecipes + "━┓")
+        print(f"┃ {'DPR.CATG':<{lencatg}} │ {'DPR.TECH':<{lentech}} │ {'DPR.TYPE':<{lentype}} │ {'DO.CATG':<{lendocatg}} │ {'recipes':<{lenrecipes}} ┃")
+        print("┣━" + "━" * lencatg + "━┿━" + "━" * lentech + "━┿━" + "━" * lentype + "━┿━" + "━" * lendocatg + "━┿━" + "━" * lenrecipes + "━┫")
         for (catg, tech, typp), (docatg,) in sorted(dprs.items()):
-            print(f"┃ {catg:<{lencatg}} │ {tech:<{lentech}} │ {typp:<{lentype}} │ {docatg:<{lendocatg}} ┃")
-        print("┗━" + "━" * lencatg + "━┷━" + "━" * lentech + "━┷━" + "━" * lentype + "━┷━" + "━" * lendocatg + "━┛")
+            for ri, recipe in enumerate(recipes_from_docatg[docatg]):
+                if ri == 0:
+                    print(f"┃ {catg:<{lencatg}} │ {tech:<{lentech}} │ {typp:<{lentype}} │ {docatg:<{lendocatg}} │ {recipe:<{lenrecipes}} ┃")
+                else:
+                    print(f"┃ {idem:<{lencatg}} │ {idem:<{lentech}} │ {idem:<{lentype}} │ {idem:<{lendocatg}} │ {recipe:<{lenrecipes}} ┃")
+        print("┗━" + "━" * lencatg + "━┷━" + "━" * lentech + "━┷━" + "━" * lentype + "━┷━" + "━" * lendocatg + "━┷━" + "━" * lenrecipes + "━┛")
 
 
 class TestFindLatexInputs:
