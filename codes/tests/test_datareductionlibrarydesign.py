@@ -570,7 +570,7 @@ class TestDataReductionLibraryDesign:
         assert not problem, f"{problem} recipes have partially overlapping templates"
 
 
-    @pytest.mark.xfail(reason="LSS")
+    @pytest.mark.xfail(reason="LSS not yet unique")
     def test_dpr_keywords(self):
         """Check whether DPR keywords are uniq."""
         dataitems_with_dpr = [
@@ -606,6 +606,17 @@ class TestDataReductionLibraryDesign:
                 print(problem)
 
         assert not problems, f"There are {len(problems)} with the DPR keywords."
+
+        lencatg = max(len(catg) for catg, _, _ in dprs)
+        lentech = max(len(tech) for _, tech, _ in dprs)
+        lentype = max(len(typp) for _, _, typp in dprs)
+        lendocatg = max(len(docatg) for (docatg, ) in dprs.values())
+        print("┏━" + "━" * lencatg + "━┯━" + "━" * lentech + "━┯━" + "━" * lentype + "━┯━" + "━" * lendocatg + "━┓")
+        print(f"┃ {'DPR.CATG':<{lencatg}} │ {'DPR.TECH':<{lentech}} │ {'DPR.TYPE':<{lentype}} │ {'DO.CATG':<{lendocatg}} ┃")
+        print("┣━" + "━" * lencatg + "━┿━" + "━" * lentech + "━┿━" + "━" * lentype + "━┿━" + "━" * lendocatg + "━┫")
+        for (catg, tech, typp), (docatg,) in sorted(dprs.items()):
+            print(f"┃ {catg:<{lencatg}} │ {tech:<{lentech}} │ {typp:<{lentype}} │ {docatg:<{lendocatg}} ┃")
+        print("┗━" + "━" * lencatg + "━┷━" + "━" * lentech + "━┷━" + "━" * lentype + "━┷━" + "━" * lendocatg + "━┛")
 
 
 class TestFindLatexInputs:
