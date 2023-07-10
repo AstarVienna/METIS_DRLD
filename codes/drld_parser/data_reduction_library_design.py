@@ -827,7 +827,8 @@ class DataReductionLibraryDesign:
             if "det" in name:
                 # TODO: Harmonize with the other one
                 assert name.count("det") == 1, f"Too many 'det's in f{name}"
-                for name_det in ["LM", "N", "IFU", "2RG", "GEO", "det"]:
+                # for name_det in ["LM", "N", "IFU", "2RG", "GEO", "det"]:
+                for name_det in guess_postfixes(name) + ["det"]:
                     dataitems3[name.replace("det", name_det)] = dataitem
 
         return dataitems3

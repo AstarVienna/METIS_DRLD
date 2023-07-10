@@ -30,7 +30,7 @@ colors = {
 }
 
 dataitem_names_lower = [
-    dataitem.name.lower() for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
+    dataitem.lower() for dataitem in METIS_DataReductionLibraryDesign.dataitems
 ]
 
 template_names_lower = [tn.lower() for tn in METIS_TemplateManual.templates]
@@ -41,8 +41,9 @@ boxes_recipes_existing = [
 ]
 
 boxes_dataitem_existing = [
-    f'   "{dataitem.name.lower()}" [shape=box, fillcolor="{colors[guess_dataitem_type(dataitem.name)]}", style=filled, label="{dataitem.name}"];'
-    for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
+    f'   "{dataitem.lower()}" [shape=box, fillcolor="{colors[guess_dataitem_type(dataitem)]}", style=filled, label="{dataitem}"];'
+    for dataitem in METIS_DataReductionLibraryDesign.dataitems
+    if "det" not in dataitem
 ]
 
 boxes_template_existing = [
@@ -86,6 +87,13 @@ edges_recipe_template = [
     for tni in METIS_TemplateManual.expand_wildcards(template)
 ]
 
+edges_dataitem_template = [
+    f'    "{dataitem.name.lower()}" -- "{tni.lower()}"'
+    for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
+    for template in dataitem.templates
+    for tni in METIS_TemplateManual.expand_wildcards(template)
+]
+
 s_boxes_edges = "\n".join(
     boxes_recipes_existing
     + boxes_dataitem_existing
@@ -94,7 +102,8 @@ s_boxes_edges = "\n".join(
     + boxes_templates_missing
     + edges_recipe_output
     + edges_recipe_input
-    + edges_recipe_template
+    # + edges_recipe_template
+    + edges_dataitem_template
 )
 
 s_dot = f"""graph METISDPS {{
