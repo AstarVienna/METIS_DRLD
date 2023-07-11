@@ -570,7 +570,6 @@ class TestDataReductionLibraryDesign:
         assert not problem, f"{problem} recipes have partially overlapping templates"
 
 
-    @pytest.mark.xfail(reason="LSS not yet unique")
     def test_dpr_keywords(self):
         """Check whether DPR keywords are uniq."""
         dataitems_with_dpr = [
