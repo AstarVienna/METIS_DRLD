@@ -17,23 +17,18 @@ TEXFOT_ARGS_FIRST=${TEXFOT_ARGS} \
 	--ignore 'LaTeX Warning: Citation.*' \
 	--ignore 'Package acronym Warning: Acronym.*'
 
+# TODO: Perhaps set SOURCE_DATE_EPOCH to the date of the last commit for reproducibility?
 define pdflatex
 	@echo -e '$(c_action)[pdflatex] Compiling PDF file $(c_filename)$@$(c_action): $(1) run$(c_default)'
 	@texfot $(2) pdflatex $< -file-line-error -shell-escape -jobname=$(subst .pdf,,$@) -halt-on-error -synctex=1 -interaction=nonstopmode $@
 endef
-
-
-figures/%.pdf: tikz/%.tex
-	# SOURCE_DATE_EPOCH to make sure the files are reproducible
-	SOURCE_DATE_EPOCH=1830294000 TEXINPUTS=tikz: pdflatex -output-directory=figures $<
-
 
 # The main document file
 METIS_DRLD.pdf: \
 	METIS_DRLD.tex \
 	$$(wildcard *.tex) \
 	$$(wildcard *.png) \
-	$$(subst figures/,tikz/,$$(wildcard tikz/*.tex)) \
+	$$(wildcard tikz/*.tex) \
 	$$(wildcard figures/*.*)
 	$(call pdflatex,primary,${TEXFOT_ARGS_FIRST})
 	@echo -r '$(c_action)[biber] Processing bibliography files$(c_default)'
@@ -42,13 +37,6 @@ METIS_DRLD.pdf: \
 	$(call pdflatex,tertiary,${TEXFOT_ARGS})
 
 all: METIS_DRLD.pdf
-
-clean_tikz: clean
-	# Ensure the tikz files are newer than the pdfs in the figures directory.
-	# Not part of clean itself, because different texlive versions might
-	# generate different figures, and we don't want people to have to deal
-	# with that.
-	touch tikz/*
 
 clean:
 	rm -f *.out *.aux *.log *.lof *.bbl *.bcf *.run.xml *.toc *.blg *.lot METIS_DRLD.pdf
