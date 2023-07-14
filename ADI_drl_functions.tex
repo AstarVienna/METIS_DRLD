@@ -8,7 +8,7 @@
 \subsubsection{Detect centroid in LM images}\label{drl:lm_adi_cgrph_centroid}
 \begin{recipedef}
 Name: & \hyperref[drl:lm_adi_cgrph_centroid]{\DRL{lm_adi_cgrph_centroid}} \\
-Purpose: & Detect the centroid in a sequence of LM band CVC/RAVC/CLC coronographic images\\
+Purpose: & Detect the centroid in a sequence of LM band CVC/RAVC coronographic images\\
 Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
@@ -30,7 +30,7 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \subsubsection{Detect centroid in N images}\label{drl:n_adi_cgrph_centroid}
 \begin{recipedef}
 Name: & \hyperref[drl:n_adi_cgrph_centroid]{\DRL{n_adi_cgrph_centroid}} \\
-Purpose: & Detect the centroids in a sequence of N band CVC/RAVC/CLC coronographic images\\
+Purpose: & Detect the centroids in a sequence of N band CVC/RAVC coronographic images\\
 Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
@@ -321,7 +321,7 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \subsubsection{Calculate contrast curve for LM band}\label{drl:lm_adi_cgrph_contrast}
 \begin{recipedef}
 Name: & \hyperref[drl:lm_adi_cgrph_contrast]{\DRL{lm_adi_cgrph_contrast}} \\
-Purpose: & Calculate contrast curves for a sequence of LM band coronagraphic images, for the RAVC/CDC/CLC coronagraph\\
+Purpose: & Calculate contrast curves for a sequence of LM band coronagraphic images, for the RAVC/CVC coronagraph\\
 Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
 %Working remarks: & None \\
 Function Parameters: \TBD \\
@@ -333,7 +333,7 @@ QC outputs: & QC LM CGRPH SCI CONTRAST RAW LAMD\\
                      & \hyperref[dataitem:lm_cgrph_sci_contrast_adi]{\PROD{LM_cgrph_SCI_CONTRAST_ADI}} \\
                      & \hyperref[dataitem:lm_cgrph_sci_throughput]{\PROD{LM_cgrph_SCI_THROUGHPUT}} \\
 Outputs: & \texttt{cpl\_error\_code} \\
-General description: &  Calculate contrast curves for a sequence of LM band coronagraphic images, for the  RAVC/CDC/CLC coronagraph\\
+General description: &  Calculate contrast curves for a sequence of LM band coronagraphic images, for the  RAVC/CVC coronagraph\\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
@@ -346,7 +346,7 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \subsubsection{Calculate contrast curve for N band}\label{drl:n_adi_cgrph_contrast}
 \begin{recipedef}
 Name: & \hyperref[drl:n_adi_cgrph_contrast]{\DRL{n_adi_cgrph_contrast}} \\
-Purpose: & Calculate contrast curves for a sequence of N band coronagraphic images, for the RAVC/CDC/CLC coronagraph\\
+Purpose: & Calculate contrast curves for a sequence of N band coronagraphic images, for the RAVC/CVC coronagraph\\
 Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
 %Working remarks: & None \\
 Function Parameters: \TBD \\
@@ -358,7 +358,7 @@ QC outputs: & QC N CGRPH SCI CONTRAST RAW LAMD\\
                      & \hyperref[dataitem:n_cgrph_sci_contrast_adi]{\PROD{N_cgrph_SCI_CONTRAST_ADI}} \\
                      & \hyperref[dataitem:n_cgrph_sci_throughput]{\PROD{N_cgrph_SCI_THROUGHPUT}} \\
 Outputs: & \texttt{cpl\_error\_code} \\
-General description: &  Calculate contrast curves for a sequence of N band coronagraphic images, for the  RAVC/CDC/CLC coronagraph\\
+General description: &  Calculate contrast curves for a sequence of N band coronagraphic images, for the  RAVC/CVC coronagraph\\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT} (TBD). \\
@@ -391,27 +391,27 @@ Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
 
 
-%calculate n contrast curve 
+%calculate n contrast curve NO N-band APP
 
-\subsubsection{Calculate contrast curve for N APP images}\label{drl:n_adi_app_contrast}
-\begin{recipedef}
-Name: & \hyperref[drl:n_adi_app_contrast]{\DRL{n_adi_app_contrast}} \\
-Purpose: & Calculate contrast curves for a sequence of N band coronagraphic images, for the APP coronagraph\\
-Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
+%\subsubsection{Calculate contrast curve for N APP images}\label{drl:n_adi_app_contrast}
+%\begin{recipedef}
+%Name: & \hyperref[drl:n_adi_app_contrast]{\DRL{n_adi_app_contrast}} \\
+%Purpose: & Calculate contrast curves for a sequence of N band coronagraphic images, for the APP coronagraph\\
+%Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 %Working remarks: & None \\
-Function Parameters: \TBD \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-Other inputs: & Off-axis PSF reference \\
-QC outputs: & QC DET APP SCI CONTRAST RAW LAMD\\
-            & QC DET APP SCI CONTRAST ADI LAMD\\
-  Output FITS files: & \hyperref[dataitem:lm_app_sci_contrast_raw]{\PROD{LM_APP_SCI_CONTRAST_RAW}} \\
-                     & \hyperref[dataitem:lm_app_sci_contrast_adi]{\PROD{LM_APP_SCI_CONTRAST_ADI}} \\
-                     & \hyperref[dataitem:lm_app_sci_throughput]{\PROD{LM_APP_SCI_THROUGHPUT}} \\
-Outputs: & \texttt{cpl\_error\_code} \\
-General description: &  Calculate contrast curves for a sequence of N band coronagraphic images, for the  APP coronagraph\\
-Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT} (TBD). \\
-Unit tests: & See \cite{DRLVT} (TBD). \\
-\end{recipedef}
+%Function Parameters: \TBD \\
+%Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+%Other inputs: & Off-axis PSF reference \\
+%QC outputs: & QC DET APP SCI CONTRAST RAW LAMD\\
+            %& QC DET APP SCI CONTRAST ADI LAMD\\
+  %Output FITS files: & \hyperref[dataitem:lm_app_sci_contrast_raw]{\PROD{LM_APP_SCI_CONTRAST_RAW}} \\
+                     %& \hyperref[dataitem:lm_app_sci_contrast_adi]{\PROD{LM_APP_SCI_CONTRAST_ADI}} \\
+                     %& \hyperref[dataitem:lm_app_sci_throughput]{\PROD{LM_APP_SCI_THROUGHPUT}} \\
+%Outputs: & \texttt{cpl\_error\_code} \\
+%General description: &  Calculate contrast curves for a sequence of N band coronagraphic images, for the  APP coronagraph\\
+%Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
+%Quality assessment: & Through QC parameters \\
+%Error conditions: & See \cite{DRLVT} (TBD). \\
+%Unit tests: & See \cite{DRLVT} (TBD). \\
+%\end{recipedef}
 
