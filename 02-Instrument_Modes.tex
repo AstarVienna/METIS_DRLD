@@ -22,7 +22,7 @@ improve signal to noise in scientific data products.
   \caption[METIS instrument modes]{The five main observing modes of METIS. The acronyms stand for: \textbf{CVC} -- Classical Vortex Coronagraph; \textbf{RAVC} -- Ring-apodized Vortex Coronagraph; \textbf{APP} -- Apodized Phase Plate; N/A -- not applicable.; \textbf{P/T} -- pupil tracking; \textbf{F/T} -- field tracking.}\label{tab:instrument_mode}
 %  \renewcommand{\arraystretch}{1.15}
   %\begin{tabular}{\textwidth}{|P{0.12\textwidth}|c|c|P{0.12\textwidth}|c|c|c|}
-  \begin{tabular}{|P{0.12\textwidth}|c|c|P{0.12\textwidth}|c|c|c|l|}
+  \begin{tabular}{|P{0.15\textwidth}|c|c|P{0.12\textwidth}|c|c|c|l|}
     \hline
     \multirow{2}{\linewidth}{\centering\textbf{Observing Mode}}                          & \multicolumn{6}{c|}{\textbf{Instrument Configuration}}                                                                                                                                                                    & \\
                                                                                          & \textbf{Subsystem}                                     & \textbf{Band}         & \parbox[c][4ex]{\hsize}{\centering\textbf{IFS Setting}}                         & \textbf{HCI Mask}         & \textbf{P/T} & \textbf{F/T} & \textbf{Code} \\
@@ -32,8 +32,8 @@ improve signal to noise in scientific data products.
     \cline{2-8} & IMG & N & \textcolor{black!35}{N/A}                                                       & \textcolor{black!35}{N/A} & $\bullet$ & $\bullet$  & IMG\_N \\
     \hline\hline
     %%%%%%%% High-contrast imaging
-    \multirow{3}{\hsize}{\centering\textbf{High Contrast Imaging}}                       &                                                        &                       & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & RAVC/CVC                  & $\bullet$ &            & IMG\_LM\_(RA/C)VC \\
-    \cline{4-8}    & IMG                                                    & \multirow{1}{*}{L, M} & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & APP                       & $\bullet$ &            & IMG\_LM\_APP \\
+    \multirow{3}{\hsize}{\centering\textbf{High Contrast Imaging}}                       &   \multirow{2}{*}{IMG}                                                     &    \multirow{2}{*}{L, M}                   & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & RAVC/CVC                  & $\bullet$ &            & IMG\_LM\_(RA/C)VC \\
+    \cline{4-8}    &                                                    &  & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & APP                       & $\bullet$ &            & IMG\_LM\_APP \\
     \cline{2-8}  & \multirow{1}{*}{IMG}                                   & N                & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & CVC                       & $\bullet$ &            & IMG\_N\_CVC \\
     \hline\hline
     %%%%%%%% Longslit spectroscopy
