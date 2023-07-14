@@ -221,26 +221,26 @@ Error conditions: & See \cite{DRLVT} (TBD). \\
 Unit tests: & See \cite{DRLVT} (TBD). \\
 \end{recipedef}
 
-
-\subsubsection{Merge PSFs for N band APP image}\label{drl:n_merge_app_adi_psf}
-\begin{recipedef}
-Name: & \hyperref[drl:n_merge_app_adi_psf]{\DRL{n_merge_app_psf}} \\
-Purpose: & Merge the components of the PSF for an N band APP coronagraph image\\
-Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
+% NO N-band APP
+%\subsubsection{Merge PSFs for N band APP image}\label{drl:n_merge_app_adi_psf}
+%\begin{recipedef}
+%Name: & \hyperref[drl:n_merge_app_adi_psf]{\DRL{n_merge_app_psf}} \\
+%Purpose: & Merge the components of the PSF for an N band APP coronagraph image\\
+%Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 %Working remarks: & None \\
-Function Parameters: & combination method (median, mean, sigma clipped...)\\
-                     & parameters for combination method\\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+%Function Parameters: & combination method (median, mean, sigma clipped...)\\
+                     %& parameters for combination method\\
+%Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: & \TBD\\
+%QC outputs: & \TBD\\
 %Output FITS files: & None \\
-Outputs: & \texttt{cpl\_error\_code} \\
-General description: & Merge the components of the PSF for an N band APP coronagraph image \\
-Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT} (TBD). \\
-Unit tests: & See \cite{DRLVT} (TBD). \\
-\end{recipedef}
+%Outputs: & \texttt{cpl\_error\_code} \\
+%General description: & Merge the components of the PSF for an N band APP coronagraph image \\
+%Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \TBD \\
+%Quality assessment: & Through QC parameters \\
+%Error conditions: & See \cite{DRLVT} (TBD). \\
+%Unit tests: & See \cite{DRLVT} (TBD). \\
+%\end{recipedef}
 
 %apply distortion correcton and regrid
 
