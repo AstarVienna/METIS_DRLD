@@ -19,7 +19,7 @@ improve signal to noise in scientific data products.
 
 \begin{table}[ht!]
 \small
-  \caption[METIS instrument modes]{The five main observing modes of METIS. The acronyms stand for: \textbf{CLC} -- Classical Lyot Coronagraph; \textbf{CVC} -- Classical Vortex Coronagraph; \textbf{RAVC} -- Ring-apodized Vortex Coronagraph; \textbf{APP} -- Apodized Phase Plate; N/A -- not applicable.; \textbf{P/T} -- pupil tracking; \textbf{F/T} -- field tracking.}\label{tab:instrument_mode}
+  \caption[METIS instrument modes]{The five main observing modes of METIS. The acronyms stand for: \textbf{CVC} -- Classical Vortex Coronagraph; \textbf{RAVC} -- Ring-apodized Vortex Coronagraph; \textbf{APP} -- Apodized Phase Plate; N/A -- not applicable.; \textbf{P/T} -- pupil tracking; \textbf{F/T} -- field tracking.}\label{tab:instrument_mode}
 %  \renewcommand{\arraystretch}{1.15}
   %\begin{tabular}{\textwidth}{|P{0.12\textwidth}|c|c|P{0.12\textwidth}|c|c|c|}
   \begin{tabular}{|P{0.12\textwidth}|c|c|P{0.12\textwidth}|c|c|c|l|}
@@ -29,42 +29,30 @@ improve signal to noise in scientific data products.
     \hline\hline
     %%%%%%% Direct Imaging
     \multirow{2}{\hsize}{\centering\textbf{Direct Imaging}}                             & IMG                                                    & L, M                  & \textcolor{black!35}{N/A}                                                       & \textcolor{black!35}{N/A} & $\bullet$ & $\bullet$  & IMG\_LM \\
-    \cline{2-8}
-                                                                                         & IMG                                                    & N                     & \textcolor{black!35}{N/A}                                                       & \textcolor{black!35}{N/A} & $\bullet$ & $\bullet$  & IMG\_N \\
+    \cline{2-8} & IMG & N & \textcolor{black!35}{N/A}                                                       & \textcolor{black!35}{N/A} & $\bullet$ & $\bullet$  & IMG\_N \\
     \hline\hline
     %%%%%%%% High-contrast imaging
     \multirow{6}{\hsize}{\centering\textbf{High Contrast Imaging}}                       &                                                        &                       & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & RAVC/CVC                  & $\bullet$ &            & IMG\_LM\_(RA/C)VC \\
-    \cline{4-8}
-                                                                                         & IMG                                                    & \multirow{1}{*}{L, M} & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & APP                       & $\bullet$ &            & IMG\_LM\_APP \\
-    \cline{4-8}
-                                                                                         &                                                        &                       & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & CLC                       & $\bullet$ &            & IMG\_LM\_CLC \\
-    \cline{2-8}
-                                                                                         & \multirow{2}{*}{IMG}                                   & N1, N2                & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & CVC                       & $\bullet$ &            & IMG\_N\_CVC \\
-    \cline{3-8}
-                                                                                         &                                                        & N                     & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & CLC                       & $\bullet$ &            & IMG\_N\_CLC \\
+    \cline{4-8}    & IMG                                                    & \multirow{1}{*}{L, M} & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & APP                       & $\bullet$ &            & IMG\_LM\_APP \\
+    \cline{4-8}  &                                                        &                       & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & CLC                       & $\bullet$ &            & IMG\_LM\_CLC \\
+    \cline{2-8}  & \multirow{2}{*}{IMG}                                   & N                & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & CVC                       & $\bullet$ &            & IMG\_N\_CVC \\
+    \cline{3-8} &                                                        & N                     & \parbox[c][4ex]{\hsize}{\centering \textcolor{black!35}{N/A}}                   & CLC                       & $\bullet$ &            & IMG\_N\_CLC \\
     \hline\hline
     %%%%%%%% Longslit spectroscopy
     \multirow{2}{\hsize}{\centering\textbf{Longslit spectroscopy}}                       & IMG                                                    & L, M                  & \textcolor{black!35}{N/A}                                                       & \textcolor{black!35}{N/A} &           & $\bullet$  & SPEC\_LM\\
-    \cline{2-8}
-                                                                                         & IMG                                                    & N                     & \textcolor{black!35}{N/A}                                                       & \textcolor{black!35}{N/A} &           & $\bullet$  & SPEC\_N\_LOW \\
+    \cline{2-8}   & IMG                                                    & N                     & \textcolor{black!35}{N/A}                                                       & \textcolor{black!35}{N/A} &           & $\bullet$  & SPEC\_N\_LOW \\
     \hline\hline
     %%%%%%%% IFU
     \multirow{3}{\hsize}{\parbox[c]{\hsize}{\centering\textbf{IFU spectroscopy}}}        & IFU                                                    & L, M                  & full IFU field                                                                  & \textcolor{black!35}{N/A} & $\bullet$ & $\bullet$  & IFU\_nominal \\
-    \cline{2-8}
-                                                                                         & IFU                                                    & L, M                  & \parbox[c][7ex]{\hsize}{\centering extended $\Delta\lambda = 300\,\mathrm{nm}$} & \textcolor{black!35}{N/A} & $\bullet$ & $\bullet$  & IFU\_extended \\
+    \cline{2-8}     & IFU                                                    & L, M                  & \parbox[c][7ex]{\hsize}{\centering extended $\Delta\lambda = 300\,\mathrm{nm}$} & \textcolor{black!35}{N/A} & $\bullet$ & $\bullet$  & IFU\_extended \\
     \hline\hline
     %%%%%% IFU + HCI
     \multirow{6}{\hsize}{\parbox[c]{\hsize}{\centering\textbf{IFU + HCI spectroscopy}}}  & \multirow{3}{*}{IFU}                                   & \multirow{3}{*}{L, M} & \multirow{3}{\hsize}{full IFU field}                                            & APP                       & $\bullet$ &            & IFU\_nominal\_APP \\
-    \cline{5-8}
-                                                                                         &                                                        &                       &                                                                                 & RAVC/CVC                  & $\bullet$ &            & IFU\_nominal\_(RA/C)VC \\
-    \cline{5-8}
-                                                                                         &                                                        &                       &                                                                                 & CLC                       & $\bullet$ &            & IFU\_nominal\_CLC\\
-    \cline{2-8}
-                                                                                         & \multirow{3}{*}{IFU}                                   & \multirow{3}{*}{L, M} & \multirow{3}{\hsize}{\centering extended $\Delta\lambda = 300\,\mathrm{nm}$}    & APP                       & $\bullet$ &            & IFU\_extended\_APP \\
-    \cline{5-8}
-                                                                                         &                                                        &                       &                                                                                 & RAVC/CVC                  & $\bullet$ &            & IFU\_extended\_(RA/C)VC \\
-    \cline{5-8}
-                                                                                         &                                                        &                       &                                                                                 & CLC                       & $\bullet$ &            & IFU\_extended\_CLC\\
+    \cline{5-8} &                                                        &                       &                                                                                 & RAVC/CVC                  & $\bullet$ &            & IFU\_nominal\_(RA/C)VC \\
+    \cline{5-8}  &                                                        &                       &                                                                                 & CLC                       & $\bullet$ &            & IFU\_nominal\_CLC\\
+    \cline{2-8}  & \multirow{3}{*}{IFU}                                   & \multirow{3}{*}{L, M} & \multirow{3}{\hsize}{\centering extended $\Delta\lambda = 300\,\mathrm{nm}$}    & APP                       & $\bullet$ &            & IFU\_extended\_APP \\
+    \cline{5-8}   &                                                        &                       &                                                                                 & RAVC/CVC                  & $\bullet$ &            & IFU\_extended\_(RA/C)VC \\
+    
     \hline
 
   \end{tabular}
