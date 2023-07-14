@@ -667,7 +667,8 @@ class DataReductionLibraryDesign:
             srecipes = [
                 dd.split("\\end{recipedef}")[0]
                 for dd in data2.split("\\begin{recipedef}")
-                if "recipe parameters" in dd.lower() or "qc1" in dd.lower()
+                # Ways to distinguish different recipedef tables.
+                if "recipe parameters" in dd.lower() or "qc1" in dd.lower() or "Algorithm" in dd
             ]
             for stable in srecipes:
                 recipe = Recipe.parse_recipe_from_table(stable)
