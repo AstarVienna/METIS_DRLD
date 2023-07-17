@@ -68,7 +68,7 @@ Then header keywords of the simulated data were added/modified to enable \pyred~
   \includegraphics[height=4cm,keepaspectratio]{figures/LSS_CrtAlg_files/lss_l_sky.fits.png}
   \includegraphics[height=4cm,keepaspectratio]{figures/LSS_CrtAlg_files/lss_m_sky.fits.png}
   \includegraphics[height=4cm,keepaspectratio]{figures/LSS_CrtAlg_files/lss_n_sky.fits.png}
-  \caption[LSS Sky Emission frames]{Sky emission line spectrum frames for \lss~$L$-, $M$-, and $N$-bands.} 
+  \caption[LSS plain sky observations]{Sky emission line spectrum frames for \lss~$L$-, $M$-, and $N$-bands.} 
   \label{fig:sky}
 \end{figure}
 
@@ -98,7 +98,7 @@ The package includes a README file with instructions pertaining to running \pyre
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/Figure_4.png}
-  \caption{\textbf{\pyred~output}: Slit traces. Left panel: The fitted order polynomials overlaid on the image of the spectroscopic flat field with the pinholes. Right: The fitted order polynomials overlaid on the detected clusters for the order traces. For \met~data, only the central polynomial fit, corresponding to the center or mid-line of the trace, is returned and used in the subsequent steps. Shown here for the case of \lss~$M$-band. }
+  \caption[PyReduce slit traces]{\textbf{\pyred~output}: Slit traces. Left panel: The fitted order polynomials overlaid on the image of the spectroscopic flat field with the pinholes. Right: The fitted order polynomials overlaid on the detected clusters for the order traces. For \met~data, only the central polynomial fit, corresponding to the center or mid-line of the trace, is returned and used in the subsequent steps. Shown here for the case of \lss~$M$-band. }
   \label{fig:fig3}
 \end{figure}
 
@@ -123,13 +123,13 @@ Figures~\ref{fig:fig10} \& \ref{fig:fig10_z} shows the spectral lines used for t
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/Figure_10.png}
-  \caption{\textbf{\pyred~output}: Slit curvature determination. The spectral lines used for the curvature determination are overlaid by the extracted tilt and shear fits marked in red lines. Shown here for the case of \lss~$M$-band.}
+  \caption[PyReduce slit curvature determination]{\textbf{\pyred~output}: Slit curvature determination. The spectral lines used for the curvature determination are overlaid by the extracted tilt and shear fits marked in red lines. Shown here for the case of \lss~$M$-band.}
   \label{fig:fig10}
 \end{figure}
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/Figure_10_z.png}
-  \caption{\textbf{\pyred~output}: Zoomed in version of Fig.~\ref{fig:fig10}.}
+  \caption[PyReduce slit curvature determination - zoom in]{\textbf{\pyred~output}: Zoomed in version of Fig.~\ref{fig:fig10}.}
   \label{fig:fig10_z}
 \end{figure}
 %-----------
@@ -144,7 +144,7 @@ The algorithm for the wavelength calibration strategy is described in Sect.~\ref
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/Figure_12.png}
-  \caption{\textbf{\pyred~output}: Wavelength calibration extracted spectrum. Shown here for the case of \lss~$M$-band.}
+  \caption[Pyreduce wavelength calibration]{\textbf{\pyred~output}: Wavelength calibration extracted spectrum. Shown here for the case of \lss~$M$-band.}
   \label{fig:fig9}
 \end{figure}
 
@@ -152,7 +152,7 @@ After the order tracing, extraction and curvature (tilt and shear) determination
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/Figure_13.png}
-  \caption{\textbf{\pyred~output}: Lines used for the wavelength calibration. The reference lines (green) and the observed lines (red) are aligned to each other for each order, where the green reference lines are shown to the top of the red observed line.  Shown here for the case of \lss~$M$-band.}
+  \caption[Pyreduce  wavelength reference lines]{\textbf{\pyred~output}: Lines used for the wavelength calibration. The reference lines (green) and the observed lines (red) are aligned to each other for each order, where the green reference lines are shown to the top of the red observed line.  Shown here for the case of \lss~$M$-band.}
   \label{fig:fig13_lines}
 \end{figure}
 
@@ -161,28 +161,28 @@ Wavelength calibration residuals are then calculated for matching lines and a wa
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/Figure_15.png}
-  \caption{\textbf{\pyred~output}: Top: Wavelength calibration spectrum for  \lss~$M$-band. Bottom: 2D wavelength solution of \pyred~order~0 (\lss~slit trace). The x-axis (Column) refers to the y pixel of the detector image in Fig.~\ref{fig:lmn_layout}. }
+  \caption[PyReduce wavelength solution]{\textbf{\pyred~output}: Top: Wavelength calibration spectrum for  \lss~$M$-band. Bottom: 2D wavelength solution of \pyred~order~0 (\lss~slit trace). The x-axis (Column) refers to the y pixel of the detector image in Fig.~\ref{fig:lmn_layout}. }
   \label{fig:fig12}
 \end{figure}
 
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=\textwidth]{figures/LSS_CrtAlg_files/SKYCALC_LSS_override.fits.png}
-  \caption{\textbf{Input sky spectrum over the wavelength range covered by \met~\lss~modes}: The sky spectrum is taken from \met~IRDB file \texttt{SKYCALC\_LSS\_override.fits}. }
+  \caption[LSS input sky spectrum]{\textbf{Input sky spectrum over the wavelength range covered by \met~\lss~modes}: The sky spectrum is taken from \met~IRDB file \texttt{SKYCALC\_LSS\_override.fits}. }
   \label{fig:sky_spec}
 \end{figure}
 
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/LSS_CrtAlg_files/Residuals_m.png}
-  \caption{Residuals of the wavelength calibration for \lss~$M$-band. The top panel displays the input sky spectrum. The extracted wavelength calibration spectrum is shown in the middle panel. The bottom panel shows the residuals of the wavelength calibration divided by the $FWHM$ of each respective line. The vertical dotted lines are the reference wavelengths of the input sky emission lines. }
+  \caption[LSS wavelength residuals]{Residuals of the wavelength calibration for \lss~$M$-band. The top panel displays the input sky spectrum. The extracted wavelength calibration spectrum is shown in the middle panel. The bottom panel shows the residuals of the wavelength calibration divided by the $FWHM$ of each respective line. The vertical dotted lines are the reference wavelengths of the input sky emission lines. }
   \label{fig:r_m}
 \end{figure}
 
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/LSS_CrtAlg_files/Residuals_m_z.png}
-  \caption{Zoomed in version of Fig.~\ref{fig:r_m}.
+  \caption[LSS wavelength residuals] - zoom in{Zoomed in version of Fig.~\ref{fig:r_m}.
   }
   \label{fig:r_m_z}
 \end{figure}
