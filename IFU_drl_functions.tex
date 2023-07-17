@@ -1,0 +1,21 @@
+\subsection{IFU observing mode}\label{sec:drl_functions_ifu}
+
+\subsubsection{IFU image dithering}\label{drl:ifu_dithering}
+\begin{recipedef}
+    Name: & \hyperref[drl:ifu_dither]{\DRL{img_dither}} \\
+Purpose: &  \\
+Used in recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+%Working remarks: & None \\
+%Function Parameters: & None \\
+Input: & $6\times$ \texttt{const hdrl\_image * input} \\
+%Other inputs: & None \\
+%QC outputs: & None\\
+%Output FITS files: & None \\
+Outputs: & Detrended images [px]\\
+                & \texttt{cpl\_error\_code} \\
+General description: & Dither and co-add the individual exposures \\
+Mathematical description: & TBD \\
+Quality assessment: & Through QC parameters \\
+Error conditions: & See \cite{DRLVT}. \\
+Unit tests: & See \cite{DRLVT}. \\
+\end{recipedef}
