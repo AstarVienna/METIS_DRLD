@@ -31,7 +31,7 @@ position angle and coadded to produce the final science image. In
 addition, the images prior to PSF subtraction are derotated and
 combined to produce a second final image.
 
-In addition to the final images, the calibrated cubes are used to calculate the raw and post-ADI contrast curves as
+In addition to the final images, the calibrated cube is used to calculate the raw and post-ADI contrast curves as
 well as the ADI throughput curve. The intrinsic radial throughput of
 the coronagraph is taken from static calibrations while the
 post-processing losses are estimated from injection and retrieval of
@@ -79,7 +79,7 @@ compensation of any neutral density transmission).
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
                        & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
-                       & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
+                       & call \CODE{det_adi_cgrph_contrast} for raw and post processed contrast curves \\
   Output data:       & \hyperref[dataitem:lm_cgrph_sci_calibrated]{\PROD{LM_cgrph_SCI_CALIBRATED}} or \hyperref[dataitem:n_cgrph_sci_calibrated]{\PROD{N_cgrph_SCI_CALIBRATED}}\\
                      & \hyperref[dataitem:lm_cgrph_sci_centred]{\PROD{LM_cgrph_SCI_CENTRED}} or \hyperref[dataitem:n_cgrph_sci_centred]{\PROD{N_cgrph_SCI_CENTRED}}\\
                      & \hyperref[dataitem:lm_cgrph_centroid_tab]{\PROD{LM_cgrph_CENTROID_TAB}} or \hyperref[dataitem:n_cgrph_centroid_tab]{\PROD{N_cgrph_CENTROID_TAB}}\\
@@ -245,7 +245,7 @@ mean/median/sigmaclipped PSF (in time) is estimated for each
 wavelength and subtracted from each image in the cube.  After
 derotation the cubes are combined in time to give a coadded cube. For
 the APP a wedge shape is used. The limited field of view of the IFU
-means that only PSF can be centered on the IFU. The derotated cubes
+means that only one APP dark hole can be centered on the IFU. The derotated cubes
 are also used to generate post ADI contrast curves and contrast curves
 with input from the radial coronagraph throughput profile and off-axis
 PSFs. In addition coverage maps are produced.
