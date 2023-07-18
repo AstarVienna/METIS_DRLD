@@ -144,8 +144,7 @@ This recipe reduces and analyses a series of IFU observations of a
 spectroscopic flux standard star. The comparison of the measured
 detector counts (ADU) with the tabulated spectrum of the star gives
 the wavelength-dependent conversion from ADU to physical units
-(photons per second per per centimetre square per wavelength bin per
-spatial bin).
+(photons per second per centimetre square per micron per arcsec square).
 
 The level of stray light is estimated in the dark areas between the
 spectra and subtracted from the entire frame. The distribution of
@@ -259,9 +258,8 @@ spectrum and the correction is mapped back to the reduced 2D images or
 the user to define an extraction aperture adapted to the target
 structure.
 
-Various levels of output data can be envisaged:
-\begin{itemize}
-\item Reduced 2D detector images. These are accompanied by additional
+The recipe produces the following (intermediate) data products:
+\begin{itemize}\item Reduced 2D detector images. These are accompanied by additional
   information describing the geometry of the slice layout, target
   position and wavelength calibration to the extent that the exposure can be
   combined with other exposures into a single rectified spectral cube.
