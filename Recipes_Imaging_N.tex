@@ -110,13 +110,9 @@ defined chop-nod pattern and adds/subtracts them into a single
 chop/nod difference image. Depending on the actual chop-nod pattern,
 this image will contain one or more positive and negative beams.
 
-If flat fielding proves feasible and useful for the GeoSnap detector
-the master flat can be applied. If no jitter is applied, i.e.\ if the
-beam is at the same detector position for all exposures taken at a
-given chop position, then the master flat can be divided into the
-final chop-nod difference image. Otherwise, the master flat will have
-to be divided into the chop half-cycle images before the jitter
-correction is applied.
+The GeoSnap detectors will have a substantial number of bad pixels.
+The N-band observations therefore require extensive dithering to mitigated bad pixels.
+The master flat will have to be divided into the chop half-cycle images before the dither correction is applied.
 
 % https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-3091
 This recipe analyses the masked detector regions for channel offset correction, crosstalk (see \cite{matisse_minutes}) and removal of detector artefacts (electronic ghosts).
