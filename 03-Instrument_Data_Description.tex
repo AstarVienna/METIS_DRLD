@@ -100,7 +100,6 @@ The 3D cube or 2D image are written out in the first extension HDU of the FITS f
 
 When offsetting, the accurate (<1 mas) relative field positioning information will come from the chopper metrology (laser interferometer) and/or the field selector (in the case of nodding offsets).
 
-
 The header of the FITS file will contain all information that pertains
 to the exposure. This should include information about the position of
 the internal chopper (\FITS{SEQ.CFO.CHOP.POSANG},
@@ -152,8 +151,12 @@ A grism in the imager pupil wheel in conjunction with a number of slit
 masks in the CFO focal plane provide low-resolution spectroscopy in
 the N~band with $R\ga 400$.
 
+% HB 20230718: About the chop frequency, comment from Roy:
+% section 3.3: chopping at *up to* a few Hz (we recently learned, new and great paper our US colleagues, https://ui.adsabs.harvard.edu/abs/2023arXiv230605470L/abstract) that the 1/f noise scales with frame rate, i.e. we can go to lower frame rates for lower flux applications without paying a noise penalty from the red noise. So while for the broadband imaging we still plan to go at 1 Hz or even a bit faster, for narrow-band imaging and spectroscopy we may chop substantially sub-Hz. This has to be worked out in more detail in the next phase.
+% HB: Doesn't really matter for the pipeline itself, so explanation not included in the DRLD itself.
+
 Subtraction of the thermal background in the N~band will be done using
-chopping at a few Hertz using the internal chopper and regular nodding
+chopping up to a few Hertz using the internal chopper and regular nodding
 using telescope offsets. The basic templates for N~imaging are
 \begin{itemize}
 \item \lstinline{METIS_img_n_obs_AutoChopNod}
