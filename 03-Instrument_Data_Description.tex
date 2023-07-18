@@ -95,8 +95,11 @@ either using the internal (CFO-PP2) chopper or telescope offsets, and
 takes an exposure at each position, consisting of subintegrations
 defined by DIT and NDIT. Depending on the setting of a Boolean
 template parameter (\FITS{DET CUBE MODE}), all DITs are stored as
-layers of 3D cube, or a co-added frame is stored as a 2D image. The 3D
-cube or 2D image are written out in the primary HDU of the FITS file.
+layers of 3D cube, or a co-added frame is stored as a 2D image.
+The 3D cube or 2D image are written out in the first extension HDU of the FITS file for consistency.
+
+When offsetting, the accurate (<1 mas) relative field positioning information will come from the chopper metrology (laser interferometer) and/or the field selector (in the case of nodding offsets).
+
 
 The header of the FITS file will contain all information that pertains
 to the exposure. This should include information about the position of
