@@ -335,7 +335,7 @@ If there are additional meta-data necessary for archiving, processing, analysis,
 
 By default, recipes try to preserve the information of the FITS headers of the input \ac{SOF} in the output products:
 \begin{itemize}
-\item When the number of (primary) output FITS files is the same as the number of (primary) input FITS files, then relevant FITS header keywords are copied per FITS files. When there is only one output FITS file for a set of input FITS files (e.g. when stacking frames like \PROD{MASTER_DARK_2RG}), then only FITS headers from the first input file are propagated.
+\item When the number of (primary) output FITS files is the same as the number of (primary) input FITS files, then relevant FITS header keywords are copied per FITS files. When there is only one output FITS file for a set of input FITS files (e.g. when stacking frames for a \PROD{MASTER_DARK_2RG}), then only FITS headers from the first input file are propagated.
 \item When the output FITS files have the same number of extensions as  the input, then the FITS header keywords from each extension are propagated into the output. When there are less extensions in the output (e.g. when reconstructing a cube), then only the headers from the first extension are propagated.
 \item FITS headers from calibration data is only copied into the data products when appropriate.
 \end{itemize}
