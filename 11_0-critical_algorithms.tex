@@ -101,6 +101,12 @@ Fortunately, this pattern can be corrected via simple subtraction as a very firs
   \label{fig:h2rg_persistence}
 \end{figure}
 
+The GeoSnap detector is expected to not suffer from persistence.
+%due to the CTIA circuitry.
+This is confirmed by 
+Leisenring+2023 and I 
+% [Roy] recalls also Derek mentioning that he could not see any signs of persistence in the date he investigated. "
+
 However, since the determination of this pattern relies on observations previously done, this approach requires access to these data, which might arise from completely other observing runs and are therefore proprietary.
 Therefore, the avoidance of persistence, i.e. a sophisticated planning / persistence management should be one of the major goals for the planning of the observations and the operational concept.
 In case a persistence correction is required, a subtraction of a persistence map (\hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}) is foreseen in any individual recipe. This map is created by the recipe \hyperref[rec:metis_det_persistence]{\REC{metis_det_persistence}} (cf. Section~\ref{rec:metis_det_persistence}) , which is carried out by \ac{ESO} and relies on the algorithm provided by \ac{ESO}.
