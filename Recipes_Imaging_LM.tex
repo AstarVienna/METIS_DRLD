@@ -463,7 +463,7 @@ standard sky projection. The alignment of the images (\FITS{CRVAL}
 keywords, rotation) may have to be checked and refined through
 cross-correlation of the overlapping images (TBC). The number of input
 images contributing to any pixel in the output image (variable due to
-dither offsets and bad pixels) will be documented in a contribution
+offsets and bad pixels) will be documented in a contribution
 map.
 
 This recipe will only be used in the science-grade pipelines, not at
@@ -509,7 +509,7 @@ the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant
 \label{sssec:lm_img_distortion}
 
 Calibration of the imaging distortion is done on an image of a
-pin-hole grid mask located in a focal plane within the instrument. The
+pin-hole grid mask located in the \ac{WCU}. The
 distortion is described in terms of a polynomial model whose
 coefficients can be transformed to WCS keywords and applied to any
 other pipeline product. In addition to the distortion table, a map of
