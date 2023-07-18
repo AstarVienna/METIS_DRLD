@@ -26,7 +26,8 @@ For each image, the centroid of the central source is determined,
 distortion corrections are performed, and the images are aligned on a
 subpixel scale. The median PSF is then estimated and subtracted from
 all images following the first step of the standard ADI technique of
-Marois et al (2006).  Each image is then derotated using the known
+Marois et al (2006), which implicitly also subtracts the thermal background.
+Each image is then derotated using the known
 position angle and coadded to produce the final science image. In
 addition, the images prior to PSF subtraction are derotated and
 combined to produce a second final image.
