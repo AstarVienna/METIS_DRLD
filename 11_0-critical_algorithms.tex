@@ -211,7 +211,7 @@ ruled out since \ac{PDR}.
 
 \subsubsection{LM bands}
 Small ($< 1000 \arcsec$) and slow (1 min timescale) dithered offsets of the field with respect to the LM IMG or \ac{IFU} detector are expected to be performed by the METIS-internal chopper mirror.
-The pipeline shall determine the sky background from the dithered images and produce background maps without the sources and background-subtracted versions of the maps with the sources.
+The pipeline will determine the sky background from the dithered images and produce background maps without the sources and background-subtracted versions of the maps with the sources.
 For In-field-dithering, this is done by determining a flux scaling factor for each ``dither'' position, aligning the exposures (by either using a 2d cross-correlation routine on bright sources or by using the offset values applied to the chopper), scaling the frames to a common median and removing objects by rejecting the highest and lowest pixels.
 The remaining pixels are then averaged, or medianed, to produce the sky frame which is then scaled to match the median of the object frame before being subtracted.
 The sky subtraction is further improved by following the previous steps to produce the combined image to locate all the sources.
@@ -221,9 +221,9 @@ The pipeline would also support sky subtraction using separate sky images for ou
 
 \subsubsection{N bands}
 To ensure proper background sampling at the longer wavelengths, small ($< 1000 \arcsec$) and fast ($\approx 10 \mathrm{Hz}$) chopping offsets of the field with respect to the N IMG detector are expected to be performed by the METIS- internal chopper mirror.
-The chopping residuals from the previous step shall be corrected by nodding the telescope to a different position and repeating the same chopping procedure.
+The chopping residuals from the previous step will be corrected by nodding the telescope to a different position and repeating the same chopping procedure.
 The chopping and nodding sequence is expected to follow what is currently being done with VISIR.
-The pipeline shall determine the sky background from the chopped and nodded images and produce background maps without the sources and background-subtracted versions of the maps with the sources.
+The pipeline will determine the sky background from the chopped and nodded images and produce background maps without the sources and background-subtracted versions of the maps with the sources.
 For each nodding cycle the subsequent chop-cycle frames are subtracted from each other (mean of on-source frames minus mean of off-source frames) resulting in a single chop-difference frame, i.e. nod half-cycle frame.
 Then for subsequent nodding cycles the nod half-cycle frames are subtracted from each other resulting in a nod-difference frame.
 The mean of all nod-difference frames is the final background-subtracted image.

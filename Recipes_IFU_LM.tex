@@ -206,14 +206,14 @@ may be refined by measuring telluric emission and/or absorption lines
 This recipe performs basic reduction of raw science exposures applying
 dark and RSRF correction and flux calibration (i.e.~conversion of
 pixel values to physical units) on each exposure individually. The
-recipe shall be able to process data from either the nominal or the
+recipe will be able to process data from either the nominal or the
 extended wavelength mode. For the nominal mode, all slices belong to
 the same echelle order. For the extended mode, slices belonging to the
 same echelle order are grouped and processing is iterated over the
 echelle orders.
 
 % from https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-9141
-For the LM band detectors in the IFU, the pixels on the edges of the detectors shall be masked with the following widths \cite{matisse_minutes} (\REQ{METIS-9141}) (Fig.~\ref{fig:ifu_detector_masking}):
+For the LM band detectors in the IFU, the pixels on the edges of the detectors will be masked with the following widths \cite{matisse_minutes} (\REQ{METIS-9141}) (Fig.~\ref{fig:ifu_detector_masking}):
 \begin{itemize}
 \item 64 columns on each ``outside'' of the 2x2 detector array in the dispersion direction
 \item 0 columns on each ``inside'' of the 2x2 detector array in the dispersion direction
