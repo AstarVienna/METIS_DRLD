@@ -333,7 +333,12 @@ All data products, both intermediary and final ones, will be provided in FITS fo
 
 If there are additional meta-data necessary for archiving, processing, analysis, and distribution, they will be added. \REQ{METIS-6082}.
 
-By default, recipes propagate the FITS headers of the \emph{first raw frame} in
+By default, recipes preserve the information in the FITS headers of the input data to the output products whenever possible:
+\begin{itemize}
+\item When the number of (primary) output FITS files is the same as the number of (primary) input FITS files, then relevant FITS header keywords are copied per FITS files. When there is only one output FITS file for a 
+\item FITS headers from calibration data is only copied into the data products when appropi
+\end{itemize}
+of the each  \emph{first raw frame} in
 the input \ac{SOF} to the data products. This includes the meteorological,
 astronomical and atmospheric site parameters, fulfilling \REQ{METIS-6733}. The same is true for \ac{AO} Telemetry, satisfying \REQ{METIS-9626}.
 
