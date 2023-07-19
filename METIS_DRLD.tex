@@ -185,6 +185,20 @@
 \definecolor{fits}{rgb}{0.4, 0.1, 1}
 
 
+\makeatletter
+\newcommand{\replaceunderscores}[1]{\expandafter\replace@underscores#1_\relax}
+
+\def\replace@underscores#1_#2\relax{%
+    \ifx \relax #2\relax
+        #1%
+    \else
+        #1%
+        \textunderscore
+        \replace@underscores#2\relax
+    \fi
+}
+\makeatother
+
 %\setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 %% Write a raw FITS file like this: \hyperref[dataitem:lm_sci_raw]{\RAW{LM_SCI_RAW}}
@@ -217,8 +231,7 @@
   basicstyle=\ttfamily\color{darkgreen}%
   \lst@ifdisplaystyle\scriptsize\fi}
 \makeatother
-\newcommand{\REC}[1]{ \texorpdfstring{\lstinline[style=RECstyle]!#1!}%
-                   {-{}-enable-so-version}}
+\newcommand{\REC}[1]{ \texorpdfstring{\lstinline[style=RECstyle]!#1!}{\replaceunderscores{#1}}}
 
 %% Write QC parameters like this: \QC{QC_SOMETHING_OR_OTHER}
 \makeatletter
@@ -304,6 +317,8 @@
 %%     \includegraphics[width=0.6\textwidth]{\theimage}%
 %%   \end{center}%
 %% \end{tcolorbox}}
+
+
 
 
 %% Proper typography for micrometer
