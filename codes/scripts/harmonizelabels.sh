@@ -81,6 +81,17 @@ sed -E 's|(rec:[0-9a-zA-Z_]*)|\L\1|g' -i -- *.tex tikz/*.tex
 sed -E 's|(qc:[0-9a-zA-Z_<>#]*)|\L\1|g' -i -- *.tex tikz/*.tex
 
 
+# The (sub)section headers should have backslashes.
+# Forward / needed because
+# 6.8.4 Slit loss determination recipes metis_lm/n_adc_slitloss
+sed -E 's!(subsection.*\\REC\{[A-Za-z\\_/]*?[A-Za-z])_!\1\\_!g' -i -- *.tex tikz/*.tex
+sed -E 's!(subsection.*\\REC\{[A-Za-z\\_/]*?[A-Za-z])_!\1\\_!g' -i -- *.tex tikz/*.tex
+sed -E 's!(subsection.*\\REC\{[A-Za-z\\_/]*?[A-Za-z])_!\1\\_!g' -i -- *.tex tikz/*.tex
+sed -E 's!(subsection.*\\REC\{[A-Za-z\\_/]*?[A-Za-z])_!\1\\_!g' -i -- *.tex tikz/*.tex
+sed -E 's!(subsection.*\\REC\{[A-Za-z\\_/]*?[A-Za-z])_!\1\\_!g' -i -- *.tex tikz/*.tex
+
+
+
 # After compiling the document twice, count broken dataitem links with
 # grep Hyper METIS_DRLD.log | grep dataitem | awk '{print $5}' | sort | uniq -c | sort -nr
 

@@ -7,16 +7,16 @@ Figs.~\ref{Fig:LMLssAssomap1} and \ref{Fig:LMLssAssomap2}% together with the dat
 The first part aims to update the static calibration database, in particular the creation of the gain map (\hyperref[Sec:detector_calibration]{\REC{metis_det_lingain}}) and the determination of the \ac{ADC} slitlosses (\hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}}). They are executed only when an update is required, e.g. after a major instrument intervention or on yearly basis. The second part comprises the basic calibrations, e.g. the dark correction and the spectroscopic flatfielding via \ac{RSRF}, followed by the third part, the main calibration steps, incorporating the determination of the first guess wavelength solution by means of the laser sources in the \ac{WCU} and the determination of the response curve for the flux calibration. Subsequently, the main reduction is conducted, which applies the previously created master calibration files to the science frames. Both, the standard star and the science observations are wavelength calibrated with the help of the atmospheric lines visible in the respective spectra. Therefore the main step of the wavelength calibration is carried out in the recipes \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} and \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}. Optionally, the telluric correction can be done with a telluric standard star.\\
 Note that the list of \ac{QC} parameters in the recipe descriptions will be extended whenever necessary.\\
 
-\subsubsection{Recipes \REC{metis_det_lingain} and \REC{metis_det_dark}}
+\subsubsection{Recipes \REC{metis\_det\_lingain} and \REC{metis\_det\_dark}}
 These recipes aim for detector-specific calibrations and are therefore the same as in the imaging pipeline. Common detector calibrations are described in Section~\ref{Sec:detector_calibration}.
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{Recipe \REC{metis_LM_adc_slitloss}}
+\subsubsection{Recipe \REC{metis\_LM\_adc\_slitloss}}
 The recipe \hyperref[sssec:adc_slitlosses]{\REC{metis_LM_adc_slitloss}} aims to determine the slit losses induced by the fixed \ac{ADC} positions as function of the object position across the slit. The recipe aims to create a table with slitlosses (\hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}}), which is added to the static database and used in the recipes \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slitlosses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit losses" in the Calibration Plan \cite{METIS-calibration_plan}. 
 
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{LM-LSS Flatfielding recipe \REC{metis_LM_lss_rsrf}}\label{rec:metis_lm_lss_rsrf}
+\subsubsection{LM-LSS Flatfielding recipe \REC{metis\_LM\_lss\_rsrf}}\label{rec:metis_lm_lss_rsrf}
 The recipe \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} aims to create a spectroscopic master flatfield for determining the pixel-to-pixel sensitivity and to enable the order location algorithm (\hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}}).
 \begin{figure}[ht]
   \centering
@@ -57,7 +57,7 @@ QC1 parameters: & \hyperref[qc:qc_lm_lss_rsrf_mean_level]{\QC{QC LM LSS RSRF MEA
 \clearpage
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{LM-LSS Order detection recipe \REC{metis_LM_lss_trace}}\label{rec:metis_lm_lss_trace}
+\subsubsection{LM-LSS Order detection recipe \REC{metis\_LM\_lss\_trace}}\label{rec:metis_lm_lss_trace}
 The recipe \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} aims at detecting the order and a polynomial fitting of the order location (see \cite{pis02} and \cite{pis21} for details on the algorithms). The detection and polynomial fitting is based on flatfield frames taken through a pinhole mask, which leads to individual pinhole traces along the entire dispersion direction.
 
 \begin{figure}[ht]
@@ -97,7 +97,7 @@ QC1 parameters: & \hyperref[qc:qc_lm_lss_trace_lpolydeg]{\QC{QC LM LSS TRACE LPO
 
 \clearpage
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{LM-LSS wavelength calibration recipe \REC{metis_LM_lss_wave}}\label{rec:metis_lm_lss_wave}
+\subsubsection{LM-LSS wavelength calibration recipe \REC{metis\_LM\_lss\_wave}}\label{rec:metis_lm_lss_wave}
 This recipe aims at determining the first guess of the wavelength calibration on basis of the \ac{WCU} laser sources (c.f. \cite{METIS-calibration_plan}). Therefore the first steps are the removal of the detector signature of the \FITS{LM_WAVE_RAW} frames by applying the master calibration files derived in the previous steps, following by the background subtraction (if needed) and the application of the RSRF. The distortion of the lines (i.e. possible tilt, curvature,...) and the wavelength solution is determined by the algorithm developed by Piskunov et al. (\cite{pis02}, \cite{pis21}). The reference frame is defined by the laser line catalogue (\hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}}).\\
 This is in compliance with \REQ{METIS-6074}.\\
 \textit{Remark:}  For the N-band there will be laser sources only at \ac{AIT} available, from which we derive the first guess solution in the same way. Although this solution will eventually be put into the static calibration database, we need a recipe to process the N-band data. This will be done with this recipe.
@@ -146,7 +146,7 @@ QC1 parameters: & \hyperref[qc:qc_lm_lss_wave_polydeg]{\QC{QC LM LSS WAVE POLYDE
 
 \clearpage
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{LM-LSS standard star calibration recipe \REC{metis_LM_lss_std}}\label{rec:metis_lm_lss_std}
+\subsubsection{LM-LSS standard star calibration recipe \REC{metis\_LM\_lss\_std}}\label{rec:metis_lm_lss_std}
 This recipe aims at processing standard stars used for the absolute flux calibration and (optionally) for the telluric feature removal: As first step the detector master calibration files derived previously are applied followed by the background subtraction, if needed the distortion correction (\hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}}), and
 the wavelength calibration by means of the first guess solution (\hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}}) and the telluric sky lines (c.f. Sect.\,8.5 in \cite{DRLS}). Then the recipe removes sky background, extracts the standard star spectrum object and collapses the 2D to 1D spectra. In case the \ac{STD} is used only for the flux calibration, a telluric correction is required to better compare the corresponding model spectrum. This is done by means of the standard star observations itself or (optionally) with a synthetic transmission curve (either a standard curve derived by the ESO Skycalc Tool\footnote{\url{https://www.eso.org/observing/etc/bin/gen/form?INS.MODE=swspectr+INS.NAME=SKYCALC}}, a standard curve (\hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}) or \texttt{molecfit}. It is on the user's decision whether the standard star is used for the absolute flux calibration only, or also used for the telluric correction of the science target. The response function is then calculated as ratio of the measured 1d-\ac{STD} spectrum and a detailed model containing absolute flux information.
 
@@ -238,7 +238,7 @@ QC1 parameters: & \hyperref[qc:qc_lm_lss_std_backgd_mean]{\QC{QC LM LSS STD BACK
                 %& more TBD
 \end{recipedef}
 
-\subsubsection{LM-LSS science reduction recipe \REC{metis_LM_lss_sci}}\label{rec:metis_lm_lss_sci}
+\subsubsection{LM-LSS science reduction recipe \REC{metis\_LM\_lss\_sci}}\label{rec:metis_lm_lss_sci}
 The science calibration recipe comprises the extraction of the object (i.e. separation of object/sky pixels), removing the sky lines, the application of the response curve previously defined, the 2D to 1D collapse and the co-addition. It also applies an absolute flux calibration (optionally with the telluric correction in one step, cf. Section~\ref{ssec:tellcorr}).
 \begin{figure}[ht]
   \centering
@@ -315,7 +315,7 @@ QC1 parameters: & \hyperref[qc:qc_lm_lss_sci_snr]{\QC{QC LM LSS SCI SNR}}: Signa
  %               & more TBD\\
 \end{recipedef}
 
-\subsubsection{LM-LSS telluric correction recipe \REC{metis_LM_lss_mf_model}}\label{rec:metis_lm_lss_mf_model}
+\subsubsection{LM-LSS telluric correction recipe \REC{metis\_LM\_lss\_mf\_model}}\label{rec:metis_lm_lss_mf_model}
 The telluric correction will be done with the package \texttt{molecfit}\footnote{\url{https://www.eso.org/sci/software/pipelines/molecfit/molecfit-pipe-recipes.html}}. It is realised in three individual recipes, \hyperref[rec:metis_lm_lss_mf_model]{\REC{metis_LM_lss_mf_model}}, which calculates the best-fit model, \hyperref[rec:metis_lm_lss_mf_calctrans]{\REC{metis_LM_lss_mf_calctrans}}, which creates a synthetic transmission curve, and \hyperref[rec:metis_lm_lss_mf_correct]{\REC{metis_LM_lss_mf_correct}}, which performs the actual telluric correction by means of the synthetic transmission.
 
 \begin{figure}[ht]
@@ -345,7 +345,7 @@ Expected accuracies: & n/a\\
 QC1 parameters: & cf. \cite{molecfit}\\
 \end{recipedef}
 
-\subsubsection{LM-LSS telluric correction recipe \REC{metis_LM_lss_mf_calctrans}}\label{rec:metis_lm_lss_mf_calctrans}
+\subsubsection{LM-LSS telluric correction recipe \REC{metis\_LM\_lss\_mf\_calctrans}}\label{rec:metis_lm_lss_mf_calctrans}
 
 \begin{figure}[ht]
   \centering
@@ -373,7 +373,7 @@ Expected accuracies: & n/a\\
 QC1 parameters: & cf. \cite{molecfit}\\
 \end{recipedef}
 
-\subsubsection{LM-LSS telluric correction recipe \REC{metis_LM_lss_mf_correct}}\label{rec:metis_lm_lss_mf_correct}
+\subsubsection{LM-LSS telluric correction recipe \REC{metis\_LM\_lss\_mf\_correct}}\label{rec:metis_lm_lss_mf_correct}
 
 \begin{figure}[ht]
   \centering
