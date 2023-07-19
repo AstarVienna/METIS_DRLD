@@ -54,7 +54,7 @@ otherwise a new one is created.
   Type:                & Calibration                                                    \\
   Templates:           & \TPL{METIS_img_n_cal_InternalFlat}                             \\
                        & \TPL{METIS_img_n_cal_TwilightFlat}                               \\
-  Input data:          & \hyperref[dataitem:n_flat_raw]{\RAW{N_FLAT_RAW}} \\
+  Input data:          & \hyperref[dataitem:n_flat_lamp_raw]{\RAW{N_FLAT_LAMP_RAW}} or \hyperref[dataitem:n_flat_twilight_raw]{\RAW{N_FLAT_TWILIGHT_RAW}} \\
                        & \hyperref[dataitem:master_dark_geo]{\PROD{MASTER_DARK_GEO}} (for twilight flats)                               \\
                        & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}                                                  \\
   Matched keywords:    & Detector ID                                                    \\
@@ -75,7 +75,7 @@ otherwise a new one is created.
                        illumination level. Frames with the same exposure time will be averaged.\\
                        & Compute median or average of input frames to improve statistics.\\
                        & Call \DRL{metis_update_lm_flat_mask} to flag deviant pixels. \\
-  Output data:         & \hyperref[dataitem:master_img_flat_n]{\PROD{MASTER_IMG_FLAT_N}}                                       \\
+  Output data:         & \hyperref[dataitem:master_img_flat_lamp_n]{\PROD{MASTER_IMG_FLAT_LAMP_N}} or \hyperref[dataitem:master_img_flat_twilight_n]{\PROD{MASTER_IMG_FLAT_TWILIGHT_N}} \\
                        & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}                                            \\
   Expected accuracies: & 0.5\% (cf. \cite{METIS_calerrbudget})                                                           \\
   QC1 parameters:      & \QC{QC N MASTERFLAT RMS}                                       \\
@@ -133,8 +133,10 @@ The edges of the N-band detector will be behind a cold mask on all four sides.
                      & \TPL{METIS_img_n_cal_psf}                                    \\
                      & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
                      & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
-  Input data:        & \hyperref[dataitem:n_image_sci_raw]{\RAW{N_IMAGE_SCI_RAW}} (Chopped/nodded science or standard images) \\
-                     & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}} Bad-pixel map                          \\
+  Input data:        & \hyperref[dataitem:n_image_sci_raw]{\RAW{N_IMAGE_SCI_RAW}} (Chopped/nodded science or standard images)\\
+                     & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}} Bad-pixel map \\
+                     & \hyperref[dataitem:master_img_flat_lamp_n]{\PROD{MASTER_IMG_FLAT_LAMP_N}} \\
+                     & or \hyperref[dataitem:master_img_flat_twilight_n]{\PROD{MASTER_IMG_FLAT_TWILIGHT_N}} \\
   Matched keywords:  & Filter ID                                                    \\
                      & Chop position                                                \\
                      & Nod position                                                 \\

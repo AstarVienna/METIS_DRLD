@@ -31,7 +31,8 @@
   \pic (start)[below=0.75cm of template]{start};
 
   \node (input) [below=0.75cm of start-m, input] {%
-    \textsl{N} \hyperref[dataitem:n_flat_raw]{\RAW{N_FLAT_RAW}}};
+    \textsl{N} \hyperref[dataitem:n_flat_lamp_raw]{\RAW{N_FLAT_LAMP_RAW}}\\
+    or \textsl{N} \hyperref[dataitem:n_flat_twilight_raw]{\RAW{N_FLAT_TWILIGHT_RAW}}};
 
   \node (step_persistence) [below=2.0cm of input, redstep] {%
     apply persistence correction};
@@ -80,7 +81,8 @@
   \node (connectflat) [connection] at
   ($(step_fit)!0.3!(stop-t)$){};
   \node (flatout) [right=of connectflat,calproduct]{%
-    \hyperref[dataitem:master_img_flat_n]{\STATCALIB{MASTER_IMG_FLAT_N}}};
+    \hyperref[dataitem:master_img_flat_lamp_n]{\STATCALIB{MASTER_IMG_FLAT_LAMP_N}}\\
+    or \hyperref[dataitem:master_img_flat_twilight_n]{\STATCALIB{MASTER_IMG_FLAT_TWILIGHT_N}}};
   \draw (connectflat) -- (flatout);
 
   \node (connectbpm) [below=0.65cm of connectflat, connection]{};

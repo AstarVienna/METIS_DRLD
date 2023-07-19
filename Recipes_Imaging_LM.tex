@@ -43,7 +43,8 @@ otherwise a new one is created.
   Type:                & Calibration                                                    \\
   Templates:           & \TPL{METIS_img_lm_cal_InternalFlat}                            \\
                        & \TPL{METIS_img_lm_cal_TwilightFlat}                               \\
-  Input data:          & \hyperref[dataitem:lm_flat_raw]{\RAW{LM_FLAT_RAW}} (Flat field images taken with lamp or sky.) \\
+  Input data:          & \hyperref[dataitem:lm_flat_lamp_raw]{\RAW{LM_FLAT_LAMP_RAW}} \\
+                       & or \hyperref[dataitem:lm_flat_twilight_raw]{\RAW{LM_FLAT_TWILIGHT_RAW}} \\
                        & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}} (for twilight flats) \\
                        & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}} \\
   Matched keywords:    & Detector ID                                                    \\
@@ -62,7 +63,8 @@ otherwise a new one is created.
   with the same exposure time will be averaged.\\
                        & Compute median or average of input frames to improve statistics.\\
                        & Call \DRL{metis_update_lm_flat_mask} to flag deviant pixels. \\
-  Output data:         & \hyperref[dataitem:master_img_flat_lm]{\PROD{MASTER_IMG_FLAT_LM}}                                      \\
+  Output data:         & \hyperref[dataitem:master_img_flat_lamp_lm]{\PROD{MASTER_IMG_FLAT_LAMP_LM}} \\
+                       & or \hyperref[dataitem:master_img_flat_twilight_lm]{\PROD{MASTER_IMG_FLAT_TWILIGHT_LM}} \\
                        & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}                                           \\
   Expected accuracies: & 0.5\% (cf. \cite{METIS_calerrbudget})                                                           \\
   QC1 parameters:      & \QC{QC LM MASTERFLAT RMS}                                      \\
@@ -139,7 +141,8 @@ Basic statistics of the images can be used to screen for saturation.
 %                     & \hyperref[dataitem:ifu_sky_raw]{\RAW{IFU_SKY_RAW}} (Blank sky images, if available.) \\
 %                     & \hyperref[dataitem:lm_detector_mask]{\EXTCALIB{LM_DETECTOR_MASK}} (if available)  \\
                     & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}} \\
-                    & \hyperref[dataitem:master_img_flat_lm]{\PROD{MASTER_IMG_FLAT_LM}} \\
+                    & \hyperref[dataitem:master_img_flat_lamp_lm]{\PROD{MASTER_IMG_FLAT_LAMP_LM}} \\
+                    & or \hyperref[dataitem:master_img_flat_twilight_lm]{\PROD{MASTER_IMG_FLAT_TWILIGHT_LM}} \\
   Matched keywords: & DIT (for dark)                    \\
                     & Filter ID (for flat)              \\
   Algorithm:        & Remove crosstalk, correct non-linearity \\

@@ -937,10 +937,10 @@ class DataReductionLibraryDesign:
         ]
         return data
 
-    def get_recipes_for_dataitem(self, dataitem: str):
+    def get_recipes_for_dataitem(self, dataitem: str, name_only=True):
         """Get recipes with dataitem as input."""
         data = [
-            recipe.name
+            recipe.name if name_only else recipe
             for recipe in self.recipes.values()
             if dataitem.lower() in [dataitemref.name.lower() for dataitemref in recipe.input_data]
         ]

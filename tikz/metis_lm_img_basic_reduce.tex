@@ -95,7 +95,8 @@
   \node (connect_masterflat) [connection] at
   ($(step_dark)!0.5!(step_flat)$){};
   \node (flatin) [left=of connect_masterflat, calproduct]{%
-    \hyperref[dataitem:master_img_flat_n]{\STATCALIB{MASTER_IMG_FLAT_N}}};
+    \hyperref[dataitem:master_img_flat_lamp_lm]{\STATCALIB{MASTER_IMG_FLAT_LAMP_LM}}\\
+    or \hyperref[dataitem:master_img_flat_twilight_lm]{\STATCALIB{MASTER_IMG_FLAT_TWILIGHT_LM}}};
   \draw (flatin) -- (connect_masterflat);
 
   \node (connect_bpm) [connection] at
