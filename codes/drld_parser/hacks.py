@@ -200,6 +200,8 @@ HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING = {
     # We commented out the persistence recipe for now, because it is
     # not well-defined enough to include for the internal review.
     "metis_det_persistence",
+    # Some of the section headers refer to two recipes
+    "metis_lm/n_adc_slitloss",
 }
 
 HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS = {
