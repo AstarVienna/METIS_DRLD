@@ -1,5 +1,5 @@
 \clearpage
-\subsection{Long-slit spectroscopy, N band}
+\subsection{N-band long-slit spectroscopy recipes}
 \label{ssec:recipes_lss_n}
 A draft of the reduction cascade is shown in Figs.~\ref{Fig:NLssAssomap1} and \ref{Fig:NLssAssomap2}.% together with the data processing table (Tables~\ref{Tab:NLssDatProc1} and ~\ref{Tab:NLssDatProc2}). 
 The first part aims to update the static calibration database, in particular the creation of the gain map (\hyperref[Sec:detector_calibration]{\REC{metis_det_lingain}}) and the determination of the \ac{ADC} slitlosses (\hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}}). Both are executed only when an update is required, e.g. after a major instrument interention or on yearly basis. The second part comprises the basic calibrations, e.g. the dark correction and the spectroscopic flatfielding via \ac{RSRF}, followed by the third part, the main calibration steps, incorporating the wavelength calibration (by means of atmospheric lines visible in the respective spectra and the first guess wavelength solution created during \ac{AIT}) and the determination of the response curve for the flux calibration. Therefore the main step of the wavelength calibration is carried out in the recipes \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} and \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}.
@@ -9,11 +9,11 @@ These recipes aim for detector-specific calibrations and are therefore the same 
 Note that the list of \ac{QC} parameters in the recipe descriptions will be extended whenever necessary.\\
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{Recipe \REC{metis_N_adc_slitloss}}
+\subsubsection{\REC{metis_N_adc_slitloss}: SLit loss determination}
 The recipe \hyperref[sssec:adc_slitlosses]{\REC{metis_n_adc_slitloss}} aims to determine the slit losses induced by the fixed \ac{ADC} positions as function of the object position across the slit. The recipe aims to create a table with slitlosses (\hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}), which is added to the static database and used in the recipes \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slitlosses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit losses" in the Calibration Plan \cite{METIS-calibration_plan}. 
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{N-LSS Flatfielding recipe \REC{metis_N_lss_rsrf}}\label{rec:metis_n_lss_rsrf}
+\subsubsection{\REC{metis_N_lss_rsrf}: N-LSS Flatfielding}\label{rec:metis_n_lss_rsrf}
 The recipe \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} aims to create a spectroscopic master flatfield for determining the pixel-to-pixel sensitivity and to enable the order location algorithm (\hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}}).
 \begin{figure}[ht]
   \centering
@@ -52,9 +52,9 @@ QC1 parameters: & \hyperref[qc:qc_n_lss_rsrf_mean_level]{\QC{QC N LSS RSRF MEAN 
                 & \hyperref[qc:qc_n_lss_rsrf_norm_snr]{\QC{QC N LSS RSRF NORM SNR}}: \ac{SNR} of the normalised \ac{RSRF}\\
 %                & more TBD\\
 \end{recipedef}
-
+%------------------------------------------------------------------------------------------------------------------
 \clearpage
-\subsubsection{N-LSS Order detection \REC{metis_N_lss_trace}}\label{rec:metis_n_lss_trace}
+\subsubsection{\REC{metis_N_lss_trace}: N-LSS Order detection}\label{rec:metis_n_lss_trace}
 The recipe \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}} aims at detecting the order and a polynomial fitting of the order location (see \cite{pis02} and \cite{pis21} for details on the algorithms). The detection and polynomial fitting is based on flatfield frames taken through a pinhole mask, which leads to individual pinhole traces along the entire dispersion direction.
 
 \begin{figure}[ht]
@@ -95,7 +95,7 @@ QC1 parameters: & \hyperref[qc:qc_n_lss_trace_lpolydeg]{\QC{QC N LSS TRACE LPOLY
 \clearpage
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{N-LSS standard star recipe \REC{metis_N_lss_std}}\label{rec:metis_n_lss_std}
+\subsubsection{\REC{metis_N_lss_std}: N-LSS standard star}\label{rec:metis_n_lss_std}
 This recipe aims at processing standard stars used for the absolute flux calibration and (optionally) for the telluric feature removal: As first step the detector master calibration files derived previously are applied followed by the background subtraction, if needed the distortion correction (\hyperref[dataitem:n_lss_dist_sol]{\PROD{N_LSS_DIST_SOL}}), and
 the wavelength calibration by means of the first guess solution (\hyperref[dataitem:n_lss_wave_guess]{\PROD{N_LSS_WAVE_GUESS}}) and the telluric sky lines (c.f. Sect.\,8.5 in \cite{DRLS}). Then the recipe removes sky background, extracts the standard star spectrum object and collapses the 2D to 1D spectra. In case the \ac{STD} is used only for the flux calibration, a telluric correction is required to better compare the corresponding model spectrum. This is done by means of the standard star observations itself or (optionally) with a synthetic transmission curve (either a standard curve derived by the ESO Skycalc Tool\footnote{\url{https://www.eso.org/observing/etc/bin/gen/form?INS.MODE=swspectr+INS.NAME=SKYCALC}}, a standard curve (\hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}}) or \texttt{molecfit}. It is on the user's decision whether the standard star is used for the absolute flux calibration only, or also used for the telluric correction of the science target. The response function is then calculated as ratio of the measured 1d-\ac{STD} spectrum and a detailed model containing absolute flux information.
 
@@ -176,7 +176,7 @@ QC1 parameters: & \hyperref[qc:qc_n_lss_std_backgd_mean]{\QC{QC N LSS STD BACKGD
 %                & more TBD\\
 \end{recipedef}
 
-\subsubsection{N-LSS science reduction recipe \REC{metis_N_lss_sci}}\label{rec:metis_n_lss_sci}
+\subsubsection{\REC{metis_N_lss_sci}: N-LSS science reduction}\label{rec:metis_n_lss_sci}
 The science calibration recipe comprises the extraction of the object (i.e. separation of object/sky pixels), removing the sky lines, the application of the response curve previously defined, the 2D to 1D collapse and the co-addition. It also applies an absolute flux calibration (optionally with the telluric correction in one step, cf. Section~\ref{ssec:tellcorr}).
 \begin{figure}[ht]
   \centering
@@ -253,7 +253,7 @@ QC1 parameters: & \hyperref[qc:qc_n_lss_sci_snr]{\QC{QC N LSS SCI SNR}}: Signal-
 %                & more TBD\\
 \end{recipedef}
 
-\subsubsection{N-LSS telluric correction recipe \REC{metis_N_lss_mf_model}}\label{rec:metis_n_lss_mf_model}
+\subsubsection{\REC{metis_N_lss_mf_model}: N-LSS telluric correction}\label{rec:metis_n_lss_mf_model}
 The telluric correction will be done with the package \texttt{molecfit}\footnote{\url{https://www.eso.org/sci/software/pipelines/molecfit/molecfit-pipe-recipes.html}}. It is realised in three individual recipes, \hyperref[rec:metis_n_lss_mf_model]{\REC{metis_N_lss_mf_model}}, which calculates the best-fit model, \hyperref[rec:metis_n_lss_mf_calctrans]{\REC{metis_N_lss_mf_calctrans}}, which creates a synthetic transmission curve, and \hyperref[rec:metis_n_lss_mf_correct]{\REC{metis_N_lss_mf_correct}}, which performs the actual telluric correction by means of the synthetic transmission.
 
 \begin{figure}[ht]
@@ -283,7 +283,7 @@ Expected accuracies: & n/a\\
 QC1 parameters: & cf. \cite{molecfit}\\
 \end{recipedef}
 
-\subsubsection{N-LSS telluric correction recipe \REC{metis_N_lss_mf_calctrans}}\label{rec:metis_n_lss_mf_calctrans}
+\subsubsection{\REC{metis_N_lss_mf_calctrans}: N-LSS telluric correction}\label{rec:metis_n_lss_mf_calctrans}
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.5\textheight]{figures/metis_N_lss_mf_calctrans_v0.83.pdf}
@@ -311,7 +311,7 @@ Expected accuracies: & n/a\\
 QC1 parameters: & cf. \cite{molecfit}\\
 \end{recipedef}
 
-\subsubsection{N-LSS telluric correction recipe \REC{metis_N_lss_mf_correct}}\label{rec:metis_n_lss_mf_correct}
+\subsubsection{\REC{metis_N_lss_mf_correct}: N-LSS telluric correction}\label{rec:metis_n_lss_mf_correct}
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.5\textheight]{figures/metis_N_lss_mf_correct_v0.83.pdf}
