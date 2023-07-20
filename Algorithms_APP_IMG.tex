@@ -14,7 +14,7 @@ same basic reduction as standard imaging data. %\TODO{Does this include
 \item Center the leakage PSF in the frames.
 \item Extract the coronagraphic PSFs and combine them into a single
   cube (see Fig.~\ref{fig:app_psf_combine}). This combined cube has an almost continuous 
-  360\degr\ dark zones with a narrow brighter strip in between the dark zones, which is masked.
+  360\degr\ dark zone with a narrow brighter strip in between the original 180\degr\ dark zones, which is masked.
 \item Median combine the cube to obtain the reference PSF image.
 \item Subtract PSF image from all layers of the cube.
 \item Derotate all layers to correct for field rotation, taking into
@@ -23,7 +23,7 @@ same basic reduction as standard imaging data. %\TODO{Does this include
 \item Sum the layers to obtain final image.
 \end{enumerate}
 
-Additionally a reduction process where the two PSFs are handled separately also works. This will use the same approach however the mask will be larger.
+Additionally a reduction process where the two PSFs are handled separately also works. This will use the same approach however the mask will cover a larger angular extent.
 
 \begin{figure}
   \centering
