@@ -462,9 +462,12 @@ header. The images are not resampled by this recipe, this is left to
 This recipe coadds a sequence of flux-calibrated,
 background-subtracted images (possibly from several observing blocks)
 after resampling the images on a common pixel grid defined by a
-standard sky projection. The alignment of the images (\FITS{CRVAL}
-keywords, rotation) may have to be checked and refined through
-cross-correlation of the overlapping images (TBC). The number of input
+standard sky projection.
+% The alignment of the images (\FITS{CRVAL} keywords, rotation) may have to be checked and refined through cross-correlation of the overlapping images (TBC).
+The alignment of the images can be done through by using the position of the \ac{WFS-FS} mirror.
+% TODO: Decide how the WFS-FS data is stored in the raw data.
+% See https://github.com/AstarVienna/METIS_DRLD/issues/162
+The number of input
 images contributing to any pixel in the output image (variable due to
 offsets and bad pixels) will be documented in a contribution
 map.
