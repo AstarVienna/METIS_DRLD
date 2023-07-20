@@ -1,5 +1,5 @@
 \clearpage
-\subsection{Long-slit spectroscopy, LM band}
+\subsection{Long-slit spectroscopy recipes, LM band}
 \label{ssec:recipes_lss_lm}
 
 A draft of the reduction cascade is shown in
@@ -7,16 +7,16 @@ Figs.~\ref{Fig:LMLssAssomap1} and \ref{Fig:LMLssAssomap2}% together with the dat
 The first part aims to update the static calibration database, in particular the creation of the gain map (\hyperref[Sec:detector_calibration]{\REC{metis_det_lingain}}) and the determination of the \ac{ADC} slitlosses (\hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}}). They are executed only when an update is required, e.g. after a major instrument intervention or on yearly basis. The second part comprises the basic calibrations, e.g. the dark correction and the spectroscopic flatfielding via \ac{RSRF}, followed by the third part, the main calibration steps, incorporating the determination of the first guess wavelength solution by means of the laser sources in the \ac{WCU} and the determination of the response curve for the flux calibration. Subsequently, the main reduction is conducted, which applies the previously created master calibration files to the science frames. Both, the standard star and the science observations are wavelength calibrated with the help of the atmospheric lines visible in the respective spectra. Therefore the main step of the wavelength calibration is carried out in the recipes \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} and \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}. Optionally, the telluric correction can be done with a telluric standard star.\\
 Note that the list of \ac{QC} parameters in the recipe descriptions will be extended whenever necessary.\\
 
-\subsubsection{Recipes \REC{metis_det_lingain} and \REC{metis_det_dark}}
+\subsubsection{\REC{metis_det_lingain} and \REC{metis_det_dark}: Linearity and Gain determination}
 These recipes aim for detector-specific calibrations and are therefore the same as in the imaging pipeline. Common detector calibrations are described in Section~\ref{Sec:detector_calibration}.
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{Recipe \REC{metis_LM_adc_slitloss}}
+\subsubsection{\REC{metis_LM_adc_slitloss}: Slit loss determination}
 The recipe \hyperref[sssec:adc_slitlosses]{\REC{metis_LM_adc_slitloss}} aims to determine the slit losses induced by the fixed \ac{ADC} positions as function of the object position across the slit. The recipe aims to create a table with slitlosses (\hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}}), which is added to the static database and used in the recipes \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slitlosses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit losses" in the Calibration Plan \cite{METIS-calibration_plan}. 
 
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{LM-LSS Flatfielding recipe \REC{metis_LM_lss_rsrf}}\label{rec:metis_lm_lss_rsrf}
+\subsubsection{\REC{metis_LM_lss_rsrf}: LM-LSS Flatfielding}\label{rec:metis_lm_lss_rsrf}
 The recipe \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} aims to create a spectroscopic master flatfield for determining the pixel-to-pixel sensitivity and to enable the order location algorithm (\hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}}).
 \begin{figure}[ht]
   \centering
