@@ -146,7 +146,7 @@ QC1 parameters: & \hyperref[qc:qc_lm_lss_wave_polydeg]{\QC{QC LM LSS WAVE POLYDE
 
 \clearpage
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{\REC{metis_LM_lss_std}:  Standard star calibration}\label{rec:metis_lm_lss_std}
+\subsubsection{\REC{metis_LM_lss_std}:  Standard star processing}\label{rec:metis_lm_lss_std}
 This recipe aims at processing standard stars used for the absolute flux calibration and (optionally) for the telluric feature removal: As first step the detector master calibration files derived previously are applied followed by the background subtraction, if needed the distortion correction (\hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}}), and
 the wavelength calibration by means of the first guess solution (\hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}}) and the telluric sky lines (c.f. Sect.\,8.5 in \cite{DRLS}). Then the recipe removes sky background, extracts the standard star spectrum object and collapses the 2D to 1D spectra. In case the \ac{STD} is used only for the flux calibration, a telluric correction is required to better compare the corresponding model spectrum. This is done by means of the standard star observations itself or (optionally) with a synthetic transmission curve (either a standard curve derived by the ESO Skycalc Tool\footnote{\url{https://www.eso.org/observing/etc/bin/gen/form?INS.MODE=swspectr+INS.NAME=SKYCALC}}, a standard curve (\hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}) or \texttt{molecfit}. It is on the user's decision whether the standard star is used for the absolute flux calibration only, or also used for the telluric correction of the science target. The response function is then calculated as ratio of the measured 1d-\ac{STD} spectrum and a detailed model containing absolute flux information.
 
@@ -237,7 +237,8 @@ QC1 parameters: & \hyperref[qc:qc_lm_lss_std_backgd_mean]{\QC{QC LM LSS STD BACK
 %                & \hyperref[qc:qc_lm_lss_std_psfloss]{\QC{QC LM LSS STD PSFLOSS}}: Fraction of AO induced slit losses (TBdef)\\
                 %& more TBD
 \end{recipedef}
-
+%------------------------------------------------------------------------------------------------------------------
+\clearpage
 \subsubsection{\REC{metis_LM_lss_sci}:  Science reduction}\label{rec:metis_lm_lss_sci}
 The science calibration recipe comprises the extraction of the object (i.e. separation of object/sky pixels), removing the sky lines, the application of the response curve previously defined, the 2D to 1D collapse and the co-addition. It also applies an absolute flux calibration (optionally with the telluric correction in one step, cf. Section~\ref{ssec:tellcorr}).
 \begin{figure}[ht]
@@ -314,6 +315,8 @@ QC1 parameters: & \hyperref[qc:qc_lm_lss_sci_snr]{\QC{QC LM LSS SCI SNR}}: Signa
                 & \hyperref[qc:qc_lm_lss_sci_wavecal_polycoeff<n>]{\QC{QC LM LSS SCI WAVECAL POLYCOEFF<n>}}: $n$-th coefficient of the polynomial\\
  %               & more TBD\\
 \end{recipedef}
+%------------------------------------------------------------------------------------------------------------------
+\clearpage
 
 \subsubsection{\REC{metis_LM_lss_mf_model}:  Telluric correction}\label{rec:metis_lm_lss_mf_model}
 The telluric correction will be done with the package \texttt{molecfit}\footnote{\url{https://www.eso.org/sci/software/pipelines/molecfit/molecfit-pipe-recipes.html}}. It is realised in three individual recipes, \hyperref[rec:metis_lm_lss_mf_model]{\REC{metis_LM_lss_mf_model}}, which calculates the best-fit model, \hyperref[rec:metis_lm_lss_mf_calctrans]{\REC{metis_LM_lss_mf_calctrans}}, which creates a synthetic transmission curve, and \hyperref[rec:metis_lm_lss_mf_correct]{\REC{metis_LM_lss_mf_correct}}, which performs the actual telluric correction by means of the synthetic transmission.
@@ -345,7 +348,9 @@ Expected accuracies: & n/a\\
 QC1 parameters: & cf. \cite{molecfit}\\
 \end{recipedef}
 
-\subsubsection{\REC{metis_LM_lss_mf_calctrans}:  telluric correction}\label{rec:metis_lm_lss_mf_calctrans}
+%------------------------------------------------------------------------------------------------------------------
+\clearpage
+\subsubsection{\REC{metis_LM_lss_mf_calctrans}:  Telluric correction}\label{rec:metis_lm_lss_mf_calctrans}
 
 \begin{figure}[ht]
   \centering

@@ -35,7 +35,8 @@ subsystems.
 
 \clearpage
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{Chopper Home Position recipe \REC{metis_img_chophome}}\label{ssec:metisimgchophome}
+\clearpage
+\subsubsection{\REC{metis_img_chophome}: Chopper Home Position recipe }\label{ssec:metisimgchophome}
 The recipe \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}} aims to detect chopper mirror zero positions. Currently it is foreseen on daily basis to be carried out, but is for sure necessary after switching on the chopper (e.g. after instrument interventions) or induced by unforeseen events like earthquakes (cf. Section "Chopper Home Position" in  \cite{METIS-calibration_plan}).
 
 The procedure consists of measuring the position of a point source from the \ac{WCU}, that has been centred on the \ac{WFS} pyramid (in the K-band), in the \CODE{IMG_LM} mode.
@@ -84,7 +85,8 @@ QC1 parameters: & \QC{TBD}: TBD\\
 % \TODO{Plate-scale calibration}
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{Slit loss determination recipes \REC{metis_lm/n\_adc\_slitloss}}\label{sssec:adc_slitlosses}
+\clearpage
+\subsubsection{\REC{metis_lm/n\_adc\_slitloss}: Slit loss determination }\label{sssec:adc_slitlosses}
 The recipes \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} (Fig.~\ref{Fig:rec_lm_adc_slitloss}) and \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} (Fig.~\ref{Fig:rec_n_adc_slitloss}) aims to determine the throughput as function of the object position along the across-slit direction. It is expected that the usage of the fixed positioned \ac{ADC} will introduce flux losses (cf. Section "Calibration of slit losses" in  \cite{METIS-calibration_plan}). For the determination, the point sources (i.e. mask of the \ac{WCU}) is placed on several positions (distance $\sim\frac{1}{10}\lambda/D$) across the slit (cf. Fig.~\ref{Fig:slitloss}), and measure the wavelength dependent flux changes with respect to the respective positions (see Section "Calibration of slit losses" in the Calibration Plan \cite{METIS-calibration_plan} for more details). Finally, parameters of a simple model (which is TBD) are determined to be able to correct for the flux losses. This recipe is to be carried out once in a while to update the static calibration database.
 \begin{figure}[ht]
   \centering
