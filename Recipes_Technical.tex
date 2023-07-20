@@ -10,7 +10,7 @@ later.
 The CLC coronagraph was removed from the baseline coronagraphic modes before FDR however the coronagraph would be technically available during engineering. At this stage the DRL will not have the corresponding recipes to use the CLC. However, if the need arises during commissioning or after to make the CLC mode available, its DRL recipe can be easily adapted from the baseline RAVC/CVC coronagraph recipes as it is related in design and usage.
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{Pupil imaging}\label{rec:metis_pupil_imaging}
+\subsubsection{\REC{metis_pupil_imaging}: Pupil imaging}\label{rec:metis_pupil_imaging}
 \label{sssec:pupil_imaging}
 
 \TBD This recipe refers to pupil imaging using the science
@@ -82,18 +82,6 @@ QC1 parameters: & \QC{TBD}: TBD\\
 % Moved to https://github.com/AstarVienna/METIS_DRLD/issues/101
 % \subsubsection{Plate-scale calibration}
 % \TODO{Plate-scale calibration}
-
-%------------------------------------------------------------------------------------------------------------------
-\subsubsection{Fringing correction}
-\label{rec:metis_fringing_correction}
-
-It is unclear for the time being how much of a problem will be with the METIS
-detectors, and what the best strategy will be to tackle it. Therefore, the
-method to use will be chosen based on AIT results (\REQ{METIS-9151}, for rationale and basic method description see Ch.~3.12 in the Calibration Plan \cite{METIS-calibration_plan}).
-
-Whether a stand-alone recipe will be required, or if the fringe-map will become
-part of another recipe, is part of that uncertainty. If needed, the design of
-said recipe will be minimal work and is thus omitted in this document.
 
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{Slit loss determination recipes \REC{metis_lm/n\_adc\_slitloss}}\label{sssec:adc_slitlosses}
@@ -173,6 +161,17 @@ Expected accuracies: & 3\% (cf. \cite{METIS_calerrbudget})\\\\
 %QC1 parameters: & \QC{TBD}: TBD\\
 \end{recipedef}
 
+%------------------------------------------------------------------------------------------------------------------
+\subsubsection{Fringing correction}
+\label{rec:metis_fringing_correction}
+
+It is unclear for the time being how much of a problem will be with the METIS
+detectors, and what the best strategy will be to tackle it. Therefore, the
+method to use will be chosen based on AIT results (\REQ{METIS-9151}, for rationale and basic method description see Ch.~3.12 in the Calibration Plan \cite{METIS-calibration_plan}).
+
+Whether a stand-alone recipe will be required, or if the fringe-map will become
+part of another recipe, is part of that uncertainty. If needed, the design of
+said recipe will be minimal work and is thus omitted in this document.
 
 %%% Local Variables:
 %%% mode: latex
