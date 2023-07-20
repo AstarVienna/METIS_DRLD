@@ -1,34 +1,57 @@
+\makeatletter
+\newcommand{\replaceunderscores}[1]{\expandafter\replace@underscores#1_\relax}
+
+\def\replace@underscores#1_#2\relax{%
+    \ifx \relax #2\relax
+        #1%
+    \else
+            #1%
+        \textunderscore
+        \replace@underscores#2\relax
+    \fi
+}
+\makeatother
+
 %% Write a raw FITS file like this: \hyperref[dataitem:lm_sci_raw]{\RAW{LM_SCI_RAW}}
-\newcommand{\RAW}[1]{\lstinline[style=RAWstyle]!#1!}
+\newcommand{\RAW}[1]{ \texorpdfstring{\lstinline[style=RAWstyle]!#1!}%
+                                     {\replaceunderscores{#1}}}
 
 %% Write parameters like this: \PAR{DARK_LM}
-\newcommand{\PAR}[1]{\lstinline[style=PARstyle]!#1!}
+\newcommand{\PAR}[1]{ \texorpdfstring{\lstinline[style=PARstyle]!#1!}%
+                                     {\replaceunderscores{#1}}}
 
 %% Write DRL functions names like this: \DRL{function}
-\newcommand{\DRL}[1]{\lstinline[style=DRLstyle]!#1!}
+\newcommand{\DRL}[1]{ \texorpdfstring{\lstinline[style=DRLstyle]!#1!}%
+                                     {\replaceunderscores{#1}}}
 
 %% Write recipe names like this: \REC{metis_do_stuff}
 \newcommand{\REC}[1]{ \texorpdfstring{\lstinline[style=RECstyle]!#1!}%
-                   {#1}}
+                                     {\replaceunderscores{#1}}}
 
 %% Write QC parameters like this: \QC{QC_SOMETHING_OR_OTHER}
-\newcommand{\QC}[1]{\lstinline[style=QCstyle]!#1!}
+\newcommand{\QC}[1]{ \texorpdfstring{\lstinline[style=QCstyle]!#1!}%
+                                    {\replaceunderscores{#1}}}
 
 %% Write templates like this: \TPL{DARK_LM}
-\newcommand{\TPL}[1]{\lstinline[style=TPLstyle]!#1!}
+\newcommand{\TPL}[1]{ \texorpdfstring{\lstinline[style=TPLstyle]!#1!}%
+                                     {\replaceunderscores{#1}}}
 
 %% Write products like this: \hyperref[dataitem:some_thing]{\PROD{SOME_THING}}
-\newcommand{\PROD}[1]{\lstinline[style=PRODstyle]!#1!}
+\newcommand{\PROD}[1]{ \texorpdfstring{\lstinline[style=PRODstyle]!#1!}%
+                                      {\replaceunderscores{#1}}}
 
 %% Write requirements like this: \REQ{METIS-xxxx}
 \newcommand{\REQ}[1]{\href{https://polarion.astron.nl/polarion/\#/project/METIS/workitem?id=#1}{\textcolor{brown}{#1}}}
 
 %% external calib files
-\newcommand{\EXTCALIB}[1]{\lstinline[style=EXTCALIBstyle]!#1!}
+\newcommand{\EXTCALIB}[1]{ \texorpdfstring{\lstinline[style=EXTCALIBstyle]!#1!}%
+                                          {\replaceunderscores{#1}}}
 
 % static calib files
-\newcommand{\STATCALIB}[1]{\lstinline[style=STATCALIBstyle]!#1!}
+\newcommand{\STATCALIB}[1]{ \texorpdfstring{\lstinline[style=STATCALIBstyle]!#1!}%
+                                           {\replaceunderscores{#1}}}
 
 %% Write FITS keywords (and values) like this: \FITS{EXPTIME}
-\newcommand{\FITS}[1]{\lstinline[]!#1!}
+\newcommand{\FITS}[1]{ \texorpdfstring{\lstinline[]!#1!}%
+                                      {\replaceunderscores{#1}}}
 
