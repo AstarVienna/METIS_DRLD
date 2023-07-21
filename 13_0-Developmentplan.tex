@@ -8,8 +8,8 @@ This section describes the development plan for the METIS data reduction softwar
     \item ICS team: coordination with ICS implementation schedule to test the data flow between ICS and pipeline and check consistency of FITS keywords
     \item Detector group: coordination when detector characteristics become available
     \item Calibration Scientist: check consistency of pipeline calibration data products, coordinate the population of the calibration database
-    \item Instrument Scientist: check consistency of FITS keywords, QC parameters and pipeline data products
-    \item ESO: check consistency of FITS keywords, QC parameters and coordinate required input to software recipe development (detector persistence, ...)
+    \item Instrument Scientist: check consistency of FITS keywords, QC parameters, pipeline data products and coordination of the end-to-end tests of the pipeline
+    \item ESO: check consistency of FITS keywords, QC parameters, coordinate required input to software recipe development (detector persistence, ...) and coordinate the pipeline implementation schedule
 \end{itemize}
 
 Table \ref{tab:development_schedule} provides an overview of the milestone schedule for the METIS pipeline development.
@@ -115,7 +115,7 @@ The pipeline package will be carefully reviewed to check its compliance to \cite
     \item A science use case has been assigned to each observing mode
 \end{itemize}
 
-\subsubsection{End-to-End simulation of the data flow}
+\subsubsection{End-to-End tests of the data flow}
 \label{sssec:e2e}
 
 The scope of the data flow end-to-end simulation is to validate the full process of pipeline data processing. The process will consist of
