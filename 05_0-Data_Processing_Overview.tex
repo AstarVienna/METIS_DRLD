@@ -63,7 +63,7 @@ Table~\ref{tab:calibrations_per_mode} (taken from
 are required for each instrument mode.
 
 %\TODO{Do we apply NCPA + PSF to HCI data? For ADI a simple recipe is foreseen.} The NCPA estimating algorithms are still under study by the HCI team.
-
+%\begin{landscape}
 \begin{table}
   \newcommand{\yes}{\tikz\fill[scale=0.35,color=green!50!black](0,.35) -- (.25,0) -- (0.9,.7) -- (.25,.15) -- cycle;}
   \newcommand{\no}{\textcolor{red!50!black}{---}}
@@ -71,28 +71,28 @@ are required for each instrument mode.
     The IFU modes refer to both the nominal configuration and to the extended wavelength configuration. From \cite{METIS-calibration_plan}.}
   \label{tab:calibrations_per_mode}
   \centering\scriptsize
-  \begin{tabularx}{\textwidth}{lccccXccccc}
+  \begin{tabularx}{\textwidth}{lXccXccccc}
     \hline
-                           & Dark & Linearity& Flat & Wave & Background subtraction & Telluric & Flux & Distortion & NCPA + PSF & RSRF \\
+                           & Dark / Linearity & Flat  & RSRF & Wave & Background subtraction & Telluric & Flux & Distortion & NCPA + PSF \\
     \hline\hline
-    \CODE{IMG_LM}          & \yes & \yes & \yes & \no  & Dither         & \no      & \yes & \yes       & \no        & \no  \\
-    \CODE{IMG_LM_(RA/C)VC} & \yes & \yes & \yes & \no  & ADI            & \no      & \yes & \yes       & \yes       & \no  \\
- %   \CODE{IMG_LM_CLC}      & \yes & \yes & \no  & ADI            & \no      & \yes & \yes       & \yes       & \no  \\
-    \CODE{IMG_LM_APP}      & \yes & \yes & \yes & \no  & Dither + ADI   & \no      & \yes & \yes       & \yes       & \no  \\
-    \CODE{SPEC_LM}         & \yes & \yes & \no  & \yes & Dither along slit & \yes  & \yes & \yes       & \no        & \yes \\
-    \CODE{IFU}             & \yes & \yes & \no  & \yes & Dither         & \yes     & \yes & \yes       & \no        & \yes \\
-    \CODE{IFU_APP}         & \yes & \yes & \no  & \yes & Dither\footnote{Dithering for background subtraction + IFU\_APP will not be practical due to AO halo.}  + ADI  & \yes     & \yes & \yes       & \yes       & \yes \\
-    \CODE{IFU_(RA/C)VC}    & \yes & \yes & \no  & \yes & ADI            & \yes     & \yes & \yes       & \yes       & \yes \\
+    \CODE{IMG_LM}          & \yes & \yes & \no  & \no  & Dither         & \no      & \yes & \yes       & \no        \\
+    \CODE{IMG_LM_(RA/C)VC} & \yes & \yes & \no  & \no  & ADI            & \no      & \yes & \yes       & \yes       & \no  \\
+ %   \CODE{IMG_LM_CLC}      & \yes & \yes & \no  & \no  & ADI            & \no      & \yes & \yes       & \yes       & \no  \\
+    \CODE{IMG_LM_APP}      & \yes & \yes & \no  & \no  & Dither + ADI   & \no      & \yes & \yes       & \yes       & \no  \\
+    \CODE{SPEC_LM}         & \yes & \no  & \yes  & \yes & Dither along slit & \yes  & \yes & \yes       & \no       \\
+    \CODE{IFU}             & \yes & \no  & \yes & Dither         & \yes     & \yes & \yes       & \no        & \yes \\
+    \CODE{IFU_APP}         & \yes & \no  & \yes & Dither\footnote{Dithering for background subtraction + IFU\_APP will not be practical due to AO halo.}  + ADI  & \yes     & \yes & \yes       & \yes       & \yes \\
+    \CODE{IFU_(RA/C)VC}    & \yes  & \no  & \yes & ADI            & \yes     & \yes & \yes       & \yes       & \yes \\
    % \CODE{IFU_CLC}         & \yes & \no  & \yes & Dither + ADI   & \yes     & \yes & \yes       & \yes       & \yes \\
     \hline
-    \CODE{IMG_N}           & \yes & \yes  & \yes & \no  & chop/nod       & \no      & \yes & \yes       & \no        & \no  \\
-    \CODE{IMG_N_CVC}       & \yes & \yes  & \yes & \no  & three-point chopping & \no & \yes & \no       & \yes       & \no  \\
+    \CODE{IMG_N}           & \yes  & \yes & \no  & chop/nod       & \no      & \yes & \yes       & \no        & \no  \\
+    \CODE{IMG_N_CVC}       & \yes  & \yes & \no  & three-point chopping & \no & \yes & \no       & \yes       & \no  \\
  %   \CODE{IMG_N_CLC}       & \no  & \yes & \no  & out-of-field chopping & \no & \yes & \no      & \yes       & \no  \\
-    \CODE{SPEC_N_LOW}      & \yes & \yes  & \no  & \yes & chop/nod along slit & \yes & \yes & \yes      & \no        & \yes \\
+    \CODE{SPEC_N_LOW}      & \yes  & \no  & \yes & chop/nod along slit & \yes & \yes & \yes      & \no        & \yes \\
     \hline
   \end{tabularx}
 \end{table}
-
+%\end{landscape}
 \FloatBarrier
 
 %%%
