@@ -115,13 +115,19 @@ The pipeline package will be carefully reviewed to check its compliance to \cite
     \item A science use case has been assigned to each observing mode
 \end{itemize}
 
-\subsubsection{End-to-End tests of the data flow}
+\subsubsection{End-to-End tests of the data flow system}
 \label{sssec:e2e}
 
-The scope of the data flow end-to-end simulation is to validate the full process of pipeline data processing. The process will consist of
+The scope of the data flow end-to-end simulation is to validate the full process of pipeline data processing. The end-to-end tests then consist of starting the workflows, let them sort the data, execute the recipes in
+the right order, and correctly passing intermediate data products from one to the other, until the final data
+products are created
+The process will consist of
 \begin{itemize}
     \item One science case per observing mode will be used as demonstrator
     \item Raw data will be processed in final data products
+    \item Check that that the input raw data are correctly organized
+    \item Check that recipes are executed in the correct order in the data flow
+    \item Check that intermediate data products are passed correctly in the data flow
     \item Final consistency checks on the data flow system (FITS keywords, QC parameters, ...)
     \item Final check on relevant documents (user manuals)
 \end{itemize}
