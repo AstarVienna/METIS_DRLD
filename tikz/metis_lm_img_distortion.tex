@@ -1,8 +1,14 @@
-\documentclass[tikz, margin=5mm]{standalone}
+% % Document preamble. Comment out for final figure! Footer too!
+% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+% \usepackage{hyperref}
+% \usepackage{listings}
+% \input{black_style}
+% \input{styles_data}
+% \begin{document}
 
+
+\input{black_style}
 \input{recipe_config}
-
-\begin{document}
 
 \begin{tikzpicture}
   [x=1cm,
@@ -17,66 +23,80 @@
   %%% Put workflow commands here:
   %% Main reduction workflow
 
-  \node (template) [template]{%
-    METIS\_img\_lm\_cal\_distortion};
+%  \node (template) [template]{%
+%    METIS\_img\_lm\_cal\_distortion};
 
-  \pic (start) [below=0.75cm of template] {start};
+  \pic (start) {start};
 
   \node (input) [below=0.75cm of start-m, input] {%
-    LM\_DIST\_ON\\
-    LM\_DIST\_OFF
+    \hyperref[dataitem:lm_distortion_raw]{\RAW{LM_DISTORTION_RAW}}
   };
 
-  \node (step1) [below=1.5cm of input, redstep]{%
-    subtract DIST\_OFF
+  \node (step_subtract) [below=2.5cm of input, redstep]{%
+    subtract WCU OFF dark
   };
 
-  \node (step2) [below=1.5cm of step1, redstep]{%
+  \node (step_locate) [below=2.5cm of step_subtract, redstep]{%
     locate images};
 
-  \node (step3) [below=1.5cm of step2, redstep]{%
+  \node (step_fit) [below=1.5cm of step_locate, redstep]{%
     fit polynomial};
 
-  \pic (stop) [below=3cm of step3]{stop};
+  \pic (stop) [below=3cm of step_fit]{stop};
 
   %% Input
-  \node (bpmin) [left=of step2, calproduct] {BADPIX\_MAP\_2RG};
-  \draw (bpmin) -- (step2);
+  \node (connect_wcuoff) [connection] at
+  ($(input)!0.65!(step_subtract)$) {};
+  \node (wcuoff) [left=of connect_wcuoff, input] {\hyperref[dataitem:lm_wcu_off_raw]{\RAW{LM_WCU_OFF_RAW}}};
+  \draw (wcuoff) -- (connect_wcuoff);
+
+  \node (connect_bpmin) [connection] at
+  ($(step_subtract)!0.3!(step_locate)$) {};
+  \node (bpmin) [left=of connect_bpmin, calproduct] {\hyperref[dataitem:badpix_map_2rg]{\STATCALIB{BADPIX_MAP_2RG}}};
+  \draw (bpmin) -- (connect_bpmin);
+
+  \node (connect_pinhole) [connection] at
+  ($(step_subtract)!0.7!(step_locate)$) {};
+  \node (pinhole) [left=of connect_pinhole, external] {\hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}}};
+  \draw (pinhole) -- (connect_pinhole);
 
   %% Connections
-  \draw (template) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (step2);
-  \draw (step2) -- (step3);
-  \draw (step3) -- (stop-t);
+  \draw (start-m) -- (input);
+  \draw (input) -- (step_subtract);
+  \draw (step_subtract) -- (step_locate);
+  \draw (step_locate) -- (step_fit);
+  \draw (step_fit) -- (stop-t);
 
   %% Output
   \node (connectdisttable) [connection] at
-  ($(step3)!0.25!(stop-t)$) {};
+  ($(step_fit)!0.25!(stop-t)$) {};
   \node (disttable) [right=of connectdisttable, calproduct, minimum width=4cm]{%
-    LM\_DISTORT\_TABLE};
+    \hyperref[dataitem:lm_distortion_table]{\STATCALIB{LM_DISTORTION_TABLE}}};
   \draw (connectdisttable) -- (disttable);
 
   \node (connectdistmap) [connection] at
-  ($(step3)!0.5!(stop-t)$) {};
+  ($(step_fit)!0.5!(stop-t)$) {};
   \node (distmap) [right=of connectdistmap, calproduct, minimum width=4cm]{%
-    LM\_DISTORT\_MAP};
+    \hyperref[dataitem:lm_distortion_map]{\STATCALIB{LM_DISTORTION_MAP}}};
   \draw (connectdistmap) -- (distmap);
 
   \node (connectdistreduced) [connection] at
-  ($(step3)!0.75!(stop-t)$) {};
+  ($(step_fit)!0.75!(stop-t)$) {};
   \node (distreduced) [right=of connectdistreduced, calproduct, minimum width=4cm]{%
-    LM\_DIST\_REDUCED};
+    \hyperref[dataitem:lm_dist_reduced]{\PROD{LM_DIST_REDUCED}}};
   \draw (connectdistreduced) -- (distreduced);
 
   %% Frame around recipe
   \draw [frame]
-  ($(input)!0.5!(step1) - (3.75,0)$) rectangle
-  ($(step3)!0.85!(stop-t) + (2.5,0)$);
+  ($(input)!0.25!(step_subtract) - (2.75,0)$) rectangle
+  ($(step_fit)!0.85!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.5!(step1) - (3.75, 0)$){%
+  ($(input)!0.25!(step_subtract) - (2.75, 0)$){%
     \textsl{metis\_lm\_img\_distortion}};
 
 \end{tikzpicture}
+\input{normal_style}
 
-\end{document}
+
+% % Document footer. Comment out for final figure! Header too!
+% \end{document}
