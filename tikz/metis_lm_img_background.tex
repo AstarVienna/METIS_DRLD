@@ -1,8 +1,15 @@
-\documentclass[tikz, margin=5mm]{standalone}
+% % Document preamble. Comment out for final figure! Footer too!
+% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+% \usepackage{hyperref}
+% \usepackage{listings}
+% \input{black_style}
+% \input{styles_data}
+% \begin{document}
 
+
+\input{black_style}
 \input{recipe_config}
 
-\begin{document}
 
 \begin{tikzpicture}
   [x=1cm,
@@ -12,34 +19,36 @@
   \sffamily
 
   %% template names
-  \node (template) [template] {%
-    METIS\_img\_lm\_cal\_standard\\
-    METIS\_img\_lm\_*\_obs\_*};
+%  \node (template) [template] {%
+%    METIS\_img\_lm\_cal\_standard\\
+%    METIS\_img\_lm\_*\_obs\_*};
 
-  \pic (start)[below=0.75cm of template]{start};
+  \pic (start){start};
 
 
   %% input box
   \node (input) [below=0.75cm of start-m, input, text width=6cm] {%
-    \textsl{N} N\_SCI\_BASIC\_REDUCED\\
-    \textsl{N} N\_STD\_BASIC\_REDUCED};
+    \textsl{N} \hyperref[dataitem:lm_sci_basic_reduced]{\PROD{LM_SCI_BASIC_REDUCED}}\\
+    or \textsl{N} \hyperref[dataitem:lm_std_basic_reduced]{\PROD{LM_STD_BASIC_REDUCED}}};
 
 
   %% algorithm steps
-  \node (step1) [below=2.5cm of input, redstep]{%
-    Average all or SKY exposures with object rejection};
+  \node (step_average) [below=2.5cm of input, redstep]{%
+    Average all or SKY\\
+    exposures with\\
+    object rejection};
 
-  \node (step2) [below=2.5cm of step1, redstep]{%
+  \node (step_subtract) [below=2.5cm of step_average, redstep]{%
     Subtract background};
 
-  \pic (stop) [below=4.5cm of step2] {stop};
+  \pic (stop) [below=4.5cm of step_subtract] {stop};
 
 
   %% Connections
-  \draw (template) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (step2);
-  \draw (step2) -- (stop-t);
+  \draw (start-m) -- (input);
+  \draw (input) -- (step_average);
+  \draw (step_average) -- (step_subtract);
+  \draw (step_subtract) -- (stop-t);
 
 
   %% External data
@@ -48,52 +57,45 @@
 
   % External output
   \node (dot_sci_bg) [connection] at
-    ($(step1)!0.4!(step2)$){};
+    ($(step_average)!0.4!(step_subtract)$){};
   \node (sci_bg) [right=of dot_sci_bg, sciproduct, text width=5cm]{%
-    LM\_SCI\_BKG};
+    \hyperref[dataitem:lm_sci_bkg]{\PROD{LM_SCI_BKG}}\\
+    or \hyperref[dataitem:lm_std_bkg]{\PROD{LM_STD_BKG}}};
   \draw (dot_sci_bg) -- (sci_bg);
 
-  \node (dot_std_bg) [connection] at
-    ($(step1)!0.6!(step2)$){};
-  \node (std_bg) [right=of dot_std_bg, sciproduct, text width=5cm]{%
-    LM\_STD\_BKG};
-  \draw (dot_std_bg) -- (std_bg);
+%  \node (dot_std_bg) [connection] at
+%    ($(step_average)!0.6!(step_subtract)$){};
+%  \node (std_bg) [right=of dot_std_bg, sciproduct, text width=5cm]{%
+%    LM\_STD\_BKG};
+%  \draw (dot_std_bg) -- (std_bg);
 
 
   \node (dot_sci_bg_sub) [connection] at
-    ($(step2)!0.25!(stop-t)$){};
+    ($(step_subtract)!0.25!(stop-t)$){};
   \node (sci_bg_sub) [right=of dot_sci_bg_sub, sciproduct, text width=5cm]{%
-    LM\_SCI\_BKG\_SUBTRACTED};
+    \hyperref[dataitem:lm_sci_bkg_subtracted]{\PROD{LM_SCI_BKG_SUBTRACTED}}
+    or \hyperref[dataitem:lm_sci_std_subtracted]{\PROD{LM_SCI_STD_SUBTRACTED}}};
   \draw (dot_sci_bg_sub) -- (sci_bg_sub);
 
-  \node (dot_std_bg_sub) [connection] at
-    ($(step2)!0.4!(stop-t)$){};
-  \node (std_bg_sub) [right=of dot_std_bg_sub, sciproduct, text width=5cm]{%
-    LM\_STD\_BKG\_SUBTRACTED};
-  \draw (dot_std_bg_sub) -- (std_bg_sub);
-
-
   \node (dot_sci_obj_cat) [connection] at
-    ($(step2)!0.6!(stop-t)$){};
+    ($(step_subtract)!0.6!(stop-t)$){};
   \node (sci_obj_cat) [right=of dot_sci_obj_cat, sciproduct, text width=5cm]{%
-    LM\_SCI\_OBJECT\_CAT};
+    \hyperref[dataitem:lm_sci_object_cat]{\PROD{LM_SCI_OBJECT_CAT}}\\
+    or \hyperref[dataitem:lm_std_object_cat]{\PROD{LM_STD_OBJECT_CAT}}};
   \draw (dot_sci_obj_cat) -- (sci_obj_cat);
 
-  \node (dot_std_obj_cat) [connection] at
-    ($(step2)!0.75!(stop-t)$){};
-  \node (std_obj_cat) [right=of dot_std_obj_cat, sciproduct, text width=5cm]{%
-    LM\_STD\_OBJECT\_CAT};
-  \draw (dot_std_obj_cat) -- (std_obj_cat);
-
-
   %% Frame around recipe
-  \draw [frame] ($(input)!0.35!(step1) -(2.85,0)$) rectangle
-  ($(step2)!0.85!(stop-t) + (2.85,0)$);
+  \draw [frame] ($(input)!0.35!(step_average) -(2.85,0)$) rectangle
+  ($(step_subtract)!0.85!(stop-t) + (2.85,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.35!(step1) - (2.85,0)$){%
+  ($(input)!0.35!(step_average) - (2.85,0)$){%
     \textsl{metis\_lm\_img\_background}};
 
 
-\end{tikzpicture}
 
-\end{document}
+\end{tikzpicture}
+\input{normal_style}
+
+
+% % Document footer. Comment out for final figure! Header too!
+% \end{document}
