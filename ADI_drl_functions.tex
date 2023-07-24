@@ -14,7 +14,7 @@ Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: & QC LM CGRPH FWHM NN TBD\\
+QC outputs: & QC LM cgrph FWHM nn TBD\\
 %Output FITS files: & None \\
 Outputs: & \hyperref[dataitem:lm_cgrph_centroid_tab]{\PROD{lm_cgrph_CENTROID_TAB}}\\
                 & \texttt{cpl\_error\_code} \\
@@ -36,7 +36,7 @@ Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: & QC N CGRPH FWHM NN TBD\\
+QC outputs: & QC N cgrph FWHM nn TBD\\
 %Output FITS files: & None \\
 Outputs: & \hyperref[dataitem:n_cgrph_centroid_tab]{\PROD{n_cgrph_CENTROID_TAB}}\\
                 & \texttt{cpl\_error\_code} \\
@@ -59,7 +59,7 @@ Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: & QC LM APP FWHM NN TBD\\
+QC outputs: & QC LM APP FWHM nn TBD\\
 %Output FITS files: & None \\
 Outputs: & \hyperref[dataitem:lm_app_centroid_tab]{\PROD{lm_app_CENTROID_TAB}}\\
                 & \texttt{cpl\_error\_code} \\
@@ -81,7 +81,7 @@ Unit tests: & See \cite{DRLVT}. \\
 % %Function Parameters: & None \\
 % Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 % %Other inputs: & None \\
-% QC outputs: & QC N APP FWHM NN TBD\\
+% QC outputs: & QC N APP FWHM nn TBD\\
 % %Output FITS files: & None \\
 % Outputs: & \hyperref[dataitem:n_app_centroid_tab]{\PROD{n_app_CENTROID_TAB}}\\
 %                 & \texttt{cpl\_error\_code} \\
@@ -108,7 +108,7 @@ Function Parameters: & combination method (median, mean, sigma clipped...)\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
        &  \hyperref[dataitem:lm_cgrph_centroid_tab]{\PROD{lm_cgrph_CENTROID_TAB}}\\
 %Other inputs: & None \\
-QC outputs: & QC DET CGRPH SCI FWHM NN\\
+QC outputs: & QC det cgrph SCI FWHM nn\\
 %Output FITS files: & None \\
 %Outputs: & \hyperref[dataitem:lm_cgrph_psf_median]{\PROD{lm_cgrph_PSF_MEDIAN}}\\
 Outputs: & \texttt{hdrl\_image * psf\_median}\\
@@ -135,7 +135,7 @@ Function Parameters: & combination method (median, mean, sigma clipped...)\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
        &  \hyperref[dataitem:n_cgrph_centroid_tab]{\PROD{n_cgrph_CENTROID_TAB}}\\
 %Other inputs: & None \\
-QC outputs: & QC DET CGRPH SCI FWHM NN\\
+QC outputs: & QC det cgrph SCI FWHM nn\\
 %Output FITS files: & None \\
 %Outputs: & \hyperref[dataitem:n_cgrph_psf_median]{\PROD{n_cgrph_PSF_MEDIAN}}\\
 Outputs: & \texttt{hdrl\_image * psf\_median}\\
@@ -162,7 +162,7 @@ Function Parameters: & combination method (median, mean, sigma clipped...)\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
        &  \hyperref[dataitem:lm_app_centroid_tab]{\PROD{lm_app_CENTROID_TAB}}\\
 %Other inputs: & None \\
-QC outputs: & QC DET APP SCI FWHM NN\\
+QC outputs: & QC det APP SCI FWHM nn\\
 %Output FITS files: & None \\
 %Outputs: & \hyperref[dataitem:lm_app_psf_median]{\PROD{lm_app_PSF_MEDIAN}}\\
 Outputs: & \texttt{hdrl\_image * psf\_median}\\
@@ -188,7 +188,7 @@ Unit tests: & See \cite{DRLVT}. \\
 % Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %        &  \hyperref[dataitem:n_app_centroid_tab]{\PROD{n_app_CENTROID_TAB}}\\
 % %Other inputs: & None \\
-% QC outputs: & QC DET APP SCI FWHM NN\\
+% QC outputs: & QC det APP SCI FWHM nn\\
 % %Output FITS files: & None \\
 % Outputs: & \hyperref[dataitem:n_app_psf_median]{\PROD{n_app_PSF_MEDIAN}}\\
 %                 & \texttt{cpl\_error\_code} \\
@@ -303,8 +303,8 @@ Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}
 Function Parameters: method for resampling\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: &  QC DET CGRPH SCI SNR MEAN \\
-            &  QC DET CGRPH SCI SNR PEAK \\
+QC outputs: &  QC det cgrph SCI SNR MEAN \\
+            &  QC det cgrph SCI SNR PEAK \\
 Output FITS files: & \hyperref[dataitem:det_cgrph_sci_derotated_psfsub]{\PROD{det_cgrph_SCI_DEROTATED_PSFSUB}} \\
                    & \hyperref[dataitem:det_cgrph_sci_derotated]{\PROD{det_cgrph_SCI_DEROTATED}} \\
 %Outputs: & \hyperref[dataitem:det_cgrph_psf_median]{\PROD{det_cgrph_PSF_MEDIAN}}\\
@@ -327,8 +327,8 @@ Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}
 Function Parameters: \TBD \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
-QC outputs: & QC LM CGRPH SCI CONTRAST RAW LAMD\\
-            & QC LM CGRPH SCI CONTRAST ADI LAMD\\
+QC outputs: & QC LM cgrph SCI CONTRAST RAW LAMD\\
+            & QC LM cgrph SCI CONTRAST ADI LAMD\\
   Output FITS files: & \hyperref[dataitem:lm_cgrph_sci_contrast_raw]{\PROD{LM_cgrph_SCI_CONTRAST_RAW}} \\
                      & \hyperref[dataitem:lm_cgrph_sci_contrast_adi]{\PROD{LM_cgrph_SCI_CONTRAST_ADI}} \\
                      & \hyperref[dataitem:lm_cgrph_sci_throughput]{\PROD{LM_cgrph_SCI_THROUGHPUT}} \\
@@ -352,8 +352,8 @@ Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}
 Function Parameters: \TBD \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
-QC outputs: & QC N CGRPH SCI CONTRAST RAW LAMD\\
-            & QC N CGRPH SCI CONTRAST ADI LAMD\\
+QC outputs: & QC N cgrph SCI CONTRAST RAW LAMD\\
+            & QC N cgrph SCI CONTRAST ADI LAMD\\
   Output FITS files: & \hyperref[dataitem:n_cgrph_sci_contrast_raw]{\PROD{N_cgrph_SCI_CONTRAST_RAW}} \\
                      & \hyperref[dataitem:n_cgrph_sci_contrast_adi]{\PROD{N_cgrph_SCI_CONTRAST_ADI}} \\
                      & \hyperref[dataitem:n_cgrph_sci_throughput]{\PROD{N_cgrph_SCI_THROUGHPUT}} \\
@@ -377,8 +377,8 @@ Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 Function Parameters: \TBD \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
-QC outputs: & QC DET APP SCI CONTRAST RAW LAMD\\
-            & QC DET APP SCI CONTRAST ADI LAMD\\
+QC outputs: & QC det APP SCI CONTRAST RAW LAMD\\
+            & QC det APP SCI CONTRAST ADI LAMD\\
   Output FITS files: & \hyperref[dataitem:lm_app_sci_contrast_raw]{\PROD{LM_APP_SCI_CONTRAST_RAW}} \\
                      & \hyperref[dataitem:lm_app_sci_contrast_adi]{\PROD{LM_APP_SCI_CONTRAST_ADI}} \\
                      & \hyperref[dataitem:lm_app_sci_throughput]{\PROD{LM_APP_SCI_THROUGHPUT}} \\
@@ -402,8 +402,8 @@ Unit tests: & See \cite{DRLVT}. \\
 %Function Parameters: \TBD \\
 %Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & Off-axis PSF reference \\
-%QC outputs: & QC DET APP SCI CONTRAST RAW LAMD\\
-            %& QC DET APP SCI CONTRAST ADI LAMD\\
+%QC outputs: & QC det APP SCI CONTRAST RAW LAMD\\
+            %& QC det APP SCI CONTRAST ADI LAMD\\
   %Output FITS files: & \hyperref[dataitem:lm_app_sci_contrast_raw]{\PROD{LM_APP_SCI_CONTRAST_RAW}} \\
                      %& \hyperref[dataitem:lm_app_sci_contrast_adi]{\PROD{LM_APP_SCI_CONTRAST_ADI}} \\
                      %& \hyperref[dataitem:lm_app_sci_throughput]{\PROD{LM_APP_SCI_THROUGHPUT}} \\
