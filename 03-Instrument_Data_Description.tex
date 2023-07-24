@@ -67,6 +67,15 @@ The list of these FITS header keywords used by METIS is kept in
 \cite{METIS-DID} and the list of keys used by the \acs{DRS} is kept in App.~\ref{app:fits_keywords}. This fulfills \REQ{METIS-6081} and \REQ{METIS-6093}.
 
 
+\subsubsection{Adaptive Optics Telemetry}
+% We (PIP) agreed with ICS that the full AO-telemetry will only be available
+% as a separate data product.
+A subset of the adaptive optics telemetry will be available in the headers of each raw data product.
+In particular, the position information of the \ac{WFS-FS} mirror will be available, as this is used in various recipes to determine the offset between dither steps.
+
+The full adaptive optics telemetry will be available as a separate raw data product because of its size and complexity.
+The raw exposure data will contain the \FITS{AOFILE} header keyword that contains the value of the \FITS{ARCFILE} of the corresponding adaptive optics data product.
+The full adaptive optics telemetry data will not be processed by the pipeline and the exact file format is therefore beyond the scope of this document.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -339,8 +348,8 @@ By default, recipes try to preserve the information of the FITS headers of the i
 \item When the output FITS files have the same number of extensions as  the input, then the FITS header keywords from each extension are propagated into the output. When there are less extensions in the output (e.g. when reconstructing a cube), then only the headers from the first extension are propagated.
 \item FITS headers from calibration data is only copied into the data products when appropriate.
 \end{itemize}
-This includes the meteorological,
-astronomical and atmospheric site parameters, fulfilling \REQ{METIS-6733}. The same is true for \ac{AO} Telemetry, satisfying \REQ{METIS-9626}.
+This includes the meteorological, astronomical and atmospheric site parameters, fulfilling \REQ{METIS-6733}.
+The same is true for \ac{AO} Telemetry, in particular the reference to the raw data product with the full \ac{AO} telemetry data, satisfying \REQ{METIS-9626}.
 
 The saving-functions provided by ESO \ac{CPL}, given the list of input frames, add this list to the headers of data products, thus providing provenance information in compliance with \REQ{METIS-9627}.
 
