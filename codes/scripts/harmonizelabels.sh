@@ -38,6 +38,10 @@ sed -E 's!\\QC\{([0-9a-zA-Z<>#_ ]*)([}: ]+)\\label\{qc:[0-9a-zA-Z_:<>#]*}!\\QC\{
 sed -E 's!([ \(])\\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[dataitem:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
 sed -E 's!( \{)\\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[dataitem:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
 
+# Convert all DRL that do not yet have a hyperref.
+sed -E 's!([ \(])\\(DRL)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[dataitem:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
+sed -E 's!( \{)\\(DRL)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[drl:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
+
 # Convert all QC that do not yet have a hyperref.
 # TODO: enable
 #sed -E 's! \\(QC)\{([0-9a-zA-Z_ ]+)}! \\hyperref\[qc:\2]\{\\\1\{\2}}!g' -i -- *.tex tikz/*.tex
