@@ -66,15 +66,15 @@ otherwise a new one is created.
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
                        & Threshold(s) for deviant-pixel identification                  \\
-  Algorithm:           & Call \DRL{metis_apply_persistance_correction} to apply the
-                         persistance correction \\
+  Algorithm:           & Call \hyperref[drl:metis_apply_persistence_correction]{\DRL{metis_apply_persistence_correction}} to apply the
+                         persistence correction \\
                        & For internal flats: call \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}} with \CODE{LAMP OFF}
                        images to create dark frame. \\
                        & Subtract internal dark or master dark from flat exposures.     \\
                        & call \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}} to fit slope of pixel values against
                        illumination level. Frames with the same exposure time will be averaged.\\
                        & Compute median or average of input frames to improve statistics.\\
-                       & Call \DRL{metis_update_lm_flat_mask} to flag deviant pixels. \\
+                       & Call \hyperref[drl:metis_update_n_flat_mask]{\DRL{metis_update_n_flat_mask}} to flag deviant pixels. \\
   Output data:         & \hyperref[dataitem:master_img_flat_lamp_n]{\PROD{MASTER_IMG_FLAT_LAMP_N}} or \hyperref[dataitem:master_img_flat_twilight_n]{\PROD{MASTER_IMG_FLAT_TWILIGHT_N}} \\
                        & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}                                            \\
   Expected accuracies: & 0.5\% (cf. \cite{METIS_calerrbudget})                                                           \\
@@ -152,7 +152,7 @@ The edges of the N-band detector will be behind a cold mask on all four sides.
 % TODO: Better no figure than the wrong figure.
 % \begin{figure}[hb]
 %   \centering
-%    \includegraphics[width=0.6\textwidth]{metis_lm_img_std_process}
+%    \includegraphics[width=0.6\textwidth]{metis_n_img_std_process}
 %   \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
 %   \caption[Recipe: \REC{metis_n_img_chopnod}]{\REC{metis_n_img_chopnod} --
 %     Combination of chop/nodded images.}
@@ -194,10 +194,10 @@ following \cite{visir_manual}.
   Matched keywords:    & Object ID                                                                     \\
                        & Filter ID                                                                     \\
   Parameters:          & None (TBD)                                                                    \\
-  Algorithm:           & call \DRL{n_calculate_std_flux} to measure the flux in all beams\\
+  Algorithm:           & call \hyperref[drl:n_calculate_std_flux]{\DRL{n_calculate_std_flux}} to measure the flux in all beams\\
                        & average and normalize flux values \\
-                       & call \DRL{calculate_std_fluxcal} to calculate conversion factor to physical units   \\
-                       & call \DRL{calculate_detection_limits} to compute measured background noise (std, rms) and compute detection limits \\
+                       & call \hyperref[drl:calculate_std_fluxcal]{\DRL{calculate_std_fluxcal}} to calculate conversion factor to physical units   \\
+                       & call \hyperref[drl:calculate_detection_limits]{\DRL{calculate_detection_limits}} to compute measured background noise (std, rms) and compute detection limits \\
   Output data:         & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                            \\
   Expected accuracies: & 3\% (cf. \cite{METIS_calerrbudget})                                           \\
   QC1 parameters:      & \QC{QC N STD PEAK CNTS}                                                       \\
@@ -256,8 +256,8 @@ header receives the keyword \FITS{BUNIT} with value %
                      & \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}                        \\
   Matched keywords:  & Filter ID                                        \\
   Parameters:        & TBD                                              \\
-  Algorithm:         & call \DRL{n_scale_image_flux} to Scale image data to ph/s \\
-                     & call \DRL{n_add_header_distortion} to add header information (\FITS{BUNIT}, etc.)\\
+  Algorithm:         & call \hyperref[drl:n_scale_image_flux]{\DRL{n_scale_image_flux}} to Scale image data to ph/s \\
+                     & add header information (\FITS{BUNIT}, etc.)\\
   Output data:       & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}                          \\
   QC1 parameters:    & None                                             \\
 \end{recipedef}
@@ -291,7 +291,7 @@ single image. Extended sources are beyond the scope of the pipeline.
   Type:              & Science                                                       \\
   Input data:        & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}                                       \\
   Parameters:        & size of cutout region                                         \\
-  Algorithm:         & Call \DRL{cutout_region} to cut regions around beams                \\
+  Algorithm:         & Call \hyperref[drl:cutout_region]{\DRL{cutout_region}} to cut regions around beams                \\
                      & Add regions with appropriate signs (\CODE{hdrl_imagelist_collapse})   \\
   Output data:       & \hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}}                                         \\
   QC1 parameters:    & None                                                          \\
@@ -340,7 +340,7 @@ pixel scale across the detector will be created.
                        & \hyperref[dataitem:n_dist_reduced]{\PROD{N_DIST_REDUCED}}             \\
   Expected accuracies: & $2\times 10^{-3}$ (cf. \cite{METIS_calerrbudget})                                                            \\
   QC1 parameters:      & \hyperref[qc:qc_n_distort_rms]{\QC{QC N DISTORT RMS} }                                         \\
-                       & \hyperref[qc:qc_lm_distort_nsource]{\QC{QC LM DISTORT NSOURCE}}  \\
+                       & \hyperref[qc:qc_n_distort_nsource]{\QC{QC N DISTORT NSOURCE}}  \\
   hdrl functions:      & \CODE{hdrl_catalogue_create}                                   \\
                        & \CODE{hdrl_imagelist_sub_image}                                \\
 \end{recipedef}

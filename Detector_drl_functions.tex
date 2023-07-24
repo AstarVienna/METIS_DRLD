@@ -1,9 +1,9 @@
 \subsection{Detector Functions}\label{sec:drl_functions_det}
 
 %---------------------------------------------------------------------
-\subsubsection{Determine Dark Frames}\label{drl:det_dark}
+\subsubsection{Determine Dark Frames}\label{drl:det_dark}\label{drl:metis_determine_dark}
 \begin{recipedef}
-Name: & \hyperref[drl:det_dark]{\DRL{metis_determine_dark}} \\
+Name: & \hyperref[drl:metis_determine_dark]{\DRL{metis_determine_dark}} \\
 Purpose: & Determine the dark current of the detectors and create dark images\\
 Used in recipes: & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}, \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
 %Working remarks: & None \\
@@ -24,11 +24,11 @@ Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
-\subsubsection{Flag Deviant Pixels in Dark Frame}\label{drl:update_dark_mask}
+\subsubsection{Flag Deviant Pixels in Dark Frame}\label{drl:update_dark_mask}\label{drl:metis_update_dark_mask}
 \begin{recipedef}
-Name: & \hyperref[drl:update_dark_mask]{\DRL{metis_update_dark_mask}} \\
+Name: & \hyperref[drl:metis_update_dark_mask]{\DRL{metis_update_dark_mask}} \\
 Purpose: & Flag deviant (hot, cold, bad) pixels in the master dark and update the image mask\\
-Used in recipes: & \hyperref[drl:det_dark]{\REC{metis_det_dark}}\\
+Used in recipes: & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\ 
@@ -87,9 +87,9 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 
-\subsubsection{Apply Persistance Correction}\label{drl:img_apply_persistence_correction}
+\subsubsection{Apply Persistence Correction}\label{drl:metis_apply_persistence_correction}
 \begin{recipedef}
-Name: & \hyperref[drl:img_apply_persistence_correction]{\DRL{metis_img_apply_persistence_correction}} \\
+Name: & \hyperref[drl:metis_apply_persistence_correction]{\DRL{metis_apply_persistence_correction}} \\
 Purpose: & Apply the persistence correction to raw images\\
 Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
 %Working remarks: & None \\

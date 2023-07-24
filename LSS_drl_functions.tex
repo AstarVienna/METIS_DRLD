@@ -1,9 +1,9 @@
 \subsection{LSS observing mode}\label{sec:drl_functions_lss}
 
 %---------------------------------------------------------------------
-\subsubsection{Order background correction}\label{drl:correctorder}
+\subsubsection{Order background correction}\label{drl:correctorder}\label{drl:correct_order_bg}
 \begin{recipedef}
-Name: & \hyperref[drl:correctorder]{\DRL{correct_order_bg}} \\
+Name: & \hyperref[drl:correct_order_bg]{\DRL{correct_order_bg}} \\
 Purpose: & Removal of order background contamination (e.g. stray light)\\
 Used in recipes: & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \newline
                   \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \newline
@@ -28,9 +28,9 @@ Unit tests: & See \cite{DRLVT}. \\
 
 
 %---------------------------------------------------------------------
-\subsubsection{Subtract WCU OFF frame from frame}\label{drl:subtractwcuoffillum}
+\subsubsection{Subtract WCU OFF frame from frame}\label{drl:subtractwcuoffillum}\label{drl:subtract_wcu_off_illum}
 \begin{recipedef}\label{rec:subtrwcuoffillum}
-Name: & \hyperref[drl:subtractwcuoffillum]{\DRL{subtract_wcu_off_illum}} \\
+Name: & \hyperref[drl:subtract_wcu_off_illum]{\DRL{subtract_wcu_off_illum}} \\
 Purpose: & Subtract a WCU-OFF frame \\
 Used in recipes: & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
 & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
@@ -50,9 +50,9 @@ Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 %---------------------------------------------------------------------
-\subsubsection{Calculate blackbody spectrum}\label{drl:calcbb}
+\subsubsection{Calculate blackbody spectrum}\label{drl:calcbb}\label{drl:calc_bb}
 \begin{recipedef}\label{rec:calcbb}
-Name: & \hyperref[drl:calcbb]{\DRL{calc_bb}} \\
+Name: & \hyperref[drl:calc_bb]{\DRL{calc_bb}} \\
 Purpose: & Calculate blackbody spectrum \\
 Used in recipes: & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
 & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
@@ -72,9 +72,9 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Normalise RSRF}\label{drl:normrsrf}
+\subsubsection{Normalise RSRF}\label{drl:normrsrf}\label{drl:norm_flat}
 \begin{recipedef}\label{drl:normflat}
-Name: & \hyperref[drl:normflat]{\DRL{norm_flat}} \\
+Name: & \hyperref[drl:norm_flat]{\DRL{norm_flat}} \\
 Purpose: & Creates normalised flats from \hyperref[dataitem:lm_lss_rsrf_raw]{\PROD{LM_LSS_RSRF_RAW}} / \hyperref[dataitem:n_lss_rsrf_raw]{\PROD{N_LSS_RSRF_RAW}}\\
 Used in recipes: & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
 & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
@@ -93,9 +93,9 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Normalise spectrum}\label{drl:normspec}
+\subsubsection{Normalise spectrum}\label{drl:normspec}\label{drl:norm_spec}
 \begin{recipedef}\label{drl:norm_tss}
-Name: & \hyperref[drl:normspec]{\DRL{norm_spec}} \\
+Name: & \hyperref[drl:norm_spec]{\DRL{norm_spec}} \\
 Purpose: & Creates unity-normalised version from an input \ac{STD} spectra \\
 Used in recipes: & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
 & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
@@ -123,9 +123,9 @@ Unit tests: & See \cite{DRLVT}. \\
 
 
 %---------------------------------------------------------------------
-\subsubsection{Apply RSRF}\label{drl:applyrsrf}
+\subsubsection{Apply RSRF}\label{drl:applyrsrf}\label{drl:apply_rsrf}
 \begin{recipedef}
-Name: & \hyperref[drl:applyrsrf]{\DRL{apply_rsrf}}\\
+Name: & \hyperref[drl:apply_rsrf]{\DRL{apply_rsrf}}\\
 Purpose: & applies \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} to LM-frames\newline
            applies \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}} to N-frames\\
 Used in recipes: & \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} \newline
@@ -154,7 +154,7 @@ Unit tests: & See \cite{DRLVT}. \\
 %%---------------------------------------------------------------------
 %\subsubsection{Wavelength calibration}\label{drl:wavecal}
 %\begin{recipedef}\label{drl:wavecal}
-%Name: & \hyperref[drl:wavecal]{\DRL{wave_cal}} \\
+%Name: & \hyperref[drl:wave_cal]{\DRL{wave_cal}} \\
 %Purpose: & Computes wavelength calibration \\
 %Used in recipes: & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \\
 %%Working remarks: & None \\
@@ -184,9 +184,9 @@ Unit tests: & See \cite{DRLVT}. \\
 
 
 %---------------------------------------------------------------------
-\subsubsection{Determine response}\label{drl:determineresponse}
+\subsubsection{Determine response}\label{drl:determine_response}
 \begin{recipedef}
-Name: & \hyperref[drl:determineresponse]{\DRL{determine_response}}\\
+Name: & \hyperref[drl:determine_response]{\DRL{determine_response}}\\
 Purpose: & Determination of the spectral response function\\
 Used in recipes: &  \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \newline
                  \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
@@ -204,9 +204,9 @@ Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 %---------------------------------------------------------------------
-\subsubsection{Remove sky background}\label{drl:removeskybackground}
+\subsubsection{Remove sky background}\label{drl:remove_sky_background}
 \begin{recipedef}\label{rec:removeskybackground}
-Name: & \hyperref[drl:removeskybackground]{\DRL{remove_sky_background}} \\
+Name: & \hyperref[drl:remove_sky_background]{\DRL{remove_sky_background}} \\
 Purpose: & Remove sky background from spectra \\
 Used in recipes: & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
 & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
@@ -227,9 +227,9 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Slit curvature detection}\label{drl:slitcurvature}
+\subsubsection{Slit curvature detection}\label{drl:slit_curvature}
 \begin{recipedef}\label{rec:slitcurvature}
-Name: & \hyperref[drl:slitcurvature]{\DRL{slit_curvature}} \\
+Name: & \hyperref[drl:slit_curvature]{\DRL{slit_curvature}} \\
 Purpose: & Determines the slit curvature along the orders \\
 Used in recipes: & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \\
 & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
@@ -251,9 +251,9 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Order trace detection}\label{drl:detectordertrace}
+\subsubsection{Order trace detection}\label{drl:detect_order_trace}
 \begin{recipedef}\label{rec:detectordertrace}
-Name: & \hyperref[drl:detectordertrace]{\DRL{detect_order_trace}} \\
+Name: & \hyperref[drl:detect_order_trace]{\DRL{detect_order_trace}} \\
 Purpose: & Determines the order traces on the detectors\\
 Used in recipes: & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \\
 & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
@@ -275,9 +275,9 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Object extraction}\label{drl:extractobject}
+\subsubsection{Object extraction}\label{drl:extract_object}
 \begin{recipedef}
-Name: & \hyperref[drl:extractobject]{\DRL{extract_object}}\\
+Name: & \hyperref[drl:extract_object]{\DRL{extract_object}}\\
 Purpose: & Extract object spectrum from 2D-spectrum\\
 Used in recipes: & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \newline
                  \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \newline
@@ -298,9 +298,9 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Apply wavelength calibration}\label{drl:applywavecal}
+\subsubsection{Apply wavelength calibration}\label{drl:apply_wavecal}
 \begin{recipedef}
-Name: & \hyperref[drl:applywavecal]{\DRL{apply_wavecal}}\\
+Name: & \hyperref[drl:apply_wavecal]{\DRL{apply_wavecal}}\\
 Purpose: & applies \hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}}\\
 Used in recipes: & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \newline
                  \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
@@ -319,9 +319,9 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Apply flux calibration}\label{drl:applyfluxcal}
+\subsubsection{Apply flux calibration}\label{drl:apply_fluxcal}
 \begin{recipedef}
-Name: & \hyperref[drl:applyfluxcal]{\DRL{apply_fluxcal}}\\
+Name: & \hyperref[drl:apply_fluxcal]{\DRL{apply_fluxcal}}\\
 Purpose: & applies \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}} or \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}} to science frames\\
 Used in recipes: & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \newline
                  \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
@@ -340,9 +340,9 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
-\subsubsection{Apply telluric correction}\label{drl:applytellcorr}
+\subsubsection{Apply telluric correction}\label{drl:apply_tellcorr}
 \begin{recipedef}
-Name: & \hyperref[drl:applytellcorr]{\DRL{apply_tellcorr}}\\
+Name: & \hyperref[drl:apply_tellcorr]{\DRL{apply_tellcorr}}\\
 Purpose: & applies \hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}} and \hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}} to corresponding standard star spectrum (\hyperref[dataitem:lm_lss_std_1d]{\PROD{LM_LSS_STD_1D}} and \hyperref[dataitem:n_lss_std_1d]{\PROD{N_LSS_STD_1D}})\\
 Used in recipes: & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
                  & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
