@@ -62,16 +62,16 @@ sed -E 's!(subsection.*\\)QQQQQQ!\1REC!g' -i -- *.tex tikz/*.tex
 # The QC ones can have spaces, we need to removed those
 # \hyperref[qc:QC LIN GAIN MEAN]{\QC{QC LIN GAIN MEAN}}
 # \paragraph{\QC{QC DARK MEAN}}\label{qc:QC DARK MEAN}
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
-sed -E 's!qc:([A-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
+sed -E 's!qc:([a-zA-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
+sed -E 's!qc:([a-zA-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
+sed -E 's!qc:([a-zA-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
+sed -E 's!qc:([a-zA-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
+sed -E 's!qc:([a-zA-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
+sed -E 's!qc:([a-zA-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
+sed -E 's!qc:([a-zA-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
+sed -E 's!qc:([a-zA-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
+sed -E 's!qc:([a-zA-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
+sed -E 's!qc:([a-zA-Z_]+) !qc:\1_!g' -i -- *.tex tikz/*.tex
 
 
 
