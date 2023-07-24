@@ -321,7 +321,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \paragraph{\hyperref[dataitem:lm_app_centroid_tab]{\PROD{LM_APP_CENTROID_TAB}}}\label{dataitem:lm_app_centroid_tab}
 \begin{recipedef}
-\textbf{\ac{FITS} image structure:}\\
+\textbf{\ac{FITS} structure:}\\
 Name: & \hyperref[dataitem:lm_app_centroid_tab]{\PROD{LM_APP_CENTROID_TAB}}\\[0.3cm]
 Description: & Table of source centroid positions for a sequence of ADI images \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_CENTROID_TAB}\\
@@ -335,7 +335,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
-    \item \texttt{hdrl\_image * image: ??}
+    \item \texttt{cpl\_table * table: table of centroid positions}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
@@ -655,7 +655,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \paragraph{\hyperref[dataitem:det_cgrph_centroid_tab]{\PROD{det_cgrph_CENTROID_TAB}}}\label{dataitem:det_cgrph_centroid_tab}
 \label{dataitem:n_cgrph_centroid_tab}\label{dataitem:lm_cgrph_centroid_tab}
 \begin{recipedef}
-\textbf{\ac{FITS} image structure:}\\
+\textbf{\ac{FITS} structure:}\\
 Name: & \hyperref[dataitem:det_cgrph_centroid_tab]{\PROD{det_cgrph_CENTROID_TAB}}\\[0.3cm]
 Description: & Table of source centroid positions for a sequence of ADI images \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_CENTROID_TAB}\\
@@ -669,7 +669,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
-    \item \texttt{hdrl\_image * image: ??}
+    \item \texttt{cpl\_table * table: table of centroid positions}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
@@ -952,7 +952,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \paragraph{\hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}}\label{dataitem:ifu_distortion_table}
 \begin{recipedef}
-\textbf{\ac{FITS} image structure:}\\
+\textbf{\ac{FITS} structure:}\\
 Name: & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}\\[0.3cm]
 Description: & Table of distortion coefficients for an IFU data set \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_DISTORTION_TABLE}\\
@@ -970,7 +970,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
-    \item \texttt{hdrl\_image * image: ??}
+    \item \texttt{cpl\_table * table: table of distortion coefficients}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
@@ -980,7 +980,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 \paragraph{\hyperref[dataitem:ifu_cgrph_centroid_tab]{\PROD{IFU_cgrph_CENTROID_TAB}}}\label{dataitem:ifu_cgrph_centroid_tab}
 \begin{recipedef}
-\textbf{\ac{FITS} image structure:}\\
+\textbf{\ac{FITS} structure:}\\
 Name: & \hyperref[dataitem:ifu_cgrph_centroid_tab]{\PROD{IFU_cgrph_CENTROID_TAB}}\\[0.3cm]
 Description: & Table of central source centroids for an IFU cube  \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_CENTROID_TAB}\\
@@ -994,7 +994,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
-    \item \texttt{hdrl\_image * image: ??}
+    \item \texttt{cpl\_table * table: table of centroid positions}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
