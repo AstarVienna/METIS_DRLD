@@ -1,8 +1,15 @@
-\documentclass[tikz, margin=5mm]{standalone}
+% % Document preamble. Comment out for final figure! Footer too!
+% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+% \usepackage{hyperref}
+% \usepackage{listings}
+% \input{black_style}
+% \input{styles_data}
+% \begin{document}
 
+
+\input{black_style}
 \input{recipe_config}
 
-\begin{document}
 
 \begin{tikzpicture}
   [x=1cm,
@@ -19,51 +26,59 @@
   \pic (start) {start};
 
   \node (input) [below=0.75cm of start-m, input, text width=4cm, fill=sciproductcolor]{%
-    \textsl{N}~LM\_SCI\_REDUCED\\
-    \textsl{N}~LM\_SCI\_BADPIX};
+    \textsl{N} \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}}};
 
-  \node (step1) [below=1.5cm of input, redstep]{%
+  \node (step_determinegrid) [below=2.5cm of input, redstep]{%
     determine output grid};
 
-  \node (step2) [below=1.5cm of step1, redstep]{%
+  \node (step_resample) [below=1.5cm of step_determinegrid, redstep]{%
     resample images};
 
-  \node (step3) [below=1.5cm of step2, redstep]{%
+  \node (step_coadd) [below=1.5cm of step_resample, redstep]{%
     coadd images};
 
-  \pic (stop) [below=3cm of step3] {stop};
+  \pic (stop) [below=3cm of step_coadd] {stop};
 
   %% Connections
   \draw (start-m) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (step2);
-  \draw (step2) -- (step3);
-  \draw (step3) -- (stop-t);
+  \draw (input) -- (step_determinegrid);
+  \draw (step_determinegrid) -- (step_resample);
+  \draw (step_resample) -- (step_coadd);
+  \draw (step_coadd) -- (stop-t);
+
+  %% Input
+  \node (connect_badpix) [connection] at
+  ($(input)!0.75!(step_determinegrid)$) {};
+  \node (badpix) [left=of connect_badpix, calproduct]{%
+    \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}};
+  \draw (badpix) -- (connect_badpix);
 
   %% Output
   \node (connectcoadd) [connection] at
-  ($(step3)!0.33!(stop-t)$) {};
-  \node (coadd) [right=of connectcoadd, sciproduct,
-  text width=4.5cm]{%
-    LM\_SCI\_COADD};
+  ($(step_coadd)!0.33!(stop-t)$) {};
+  \node (coadd) [right=of connectcoadd, sciproduct]{%
+    \hyperref[dataitem:lm_sci_coadd]{\PROD{LM_SCI_COADD}}};
   \draw (connectcoadd) -- (coadd);
 
-  \node (connectcontrib) [connection] at
-  ($(step3)!0.6!(stop-t)$) {};
-  \node (contrib) [right=of connectcontrib, sciproduct,
-  text width=4.5cm]{%
-    LM\_SCI\_COADD\_CONTRIB};
-  \draw (connectcontrib) -- (contrib);
+% HB: Contribution map is in an extension
+%  \node (connectcontrib) [connection] at
+%  ($(step_coadd)!0.6!(stop-t)$) {};
+%  \node (contrib) [right=of connectcontrib, sciproduct]{%
+%    \hyperref[dataitem:lm_sci_coadd_contrib]{\PROD{LM_SCI_COADD_CONTRIB}}};
+%  \draw (connectcontrib) -- (contrib);
 
 
   %% Frame around recipe
   \draw [frame]
-  ($(input)!0.5!(step1) - (4.5, 0)$) rectangle
-  ($(step3)!0.85!(stop-t) + (2.5, 0)$);
+  ($(input)!0.5!(step_determinegrid) - (2.5, 0)$) rectangle
+  ($(step_coadd)!0.85!(stop-t) + (2.5, 0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.5!(step1) - (4.5, 0)$){%
+  ($(input)!0.5!(step_determinegrid) - (2.5, 0)$){%
     \textsl{metis\_lm\_img\_sci\_postprocess}};
 
 \end{tikzpicture}
+\input{normal_style}
 
-\end{document}
+
+% % Document footer. Comment out for final figure! Header too!
+% \end{document}
