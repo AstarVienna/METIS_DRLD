@@ -19,11 +19,13 @@ sed -E 's|(dataitem:[0-9a-zA-Z_]*]\{\\)FITS|\1PROD|g' -i -- *.tex tikz/*.tex
 # Ensure all dataitem links are like dataitem:badpix_map_2rg.
 # First copy the name into the hyperref, matches \hyperref[dataitem:n_lss_trace]{\PROD{N_LSS_TRACE}}
 #sed -E 's|dataitem:[0-9a-zA-Z_]*]\{\\PROD\{([0-9a-zA-Z_]+)|dataitem:\1]\{\\PROD\{\1|g' -i -- *.tex tikz/*.tex
-sed -E 's!(dataitem|rec):[0-9a-zA-Z_]*]\{\\([A-Z]+)\{([0-9a-zA-Z_ ]+)!\1:\3]\{\\\2\{\3!g' -i -- *.tex tikz/*.tex
+sed -E 's!(dataitem):[0-9a-zA-Z_]*]\{\\([A-Z]+)\{([0-9a-zA-Z_ ]+)!\1:\3]\{\\\2\{\3!g' -i -- *.tex tikz/*.tex
+sed -E 's!(dataitem|rec|drl):[0-9a-zA-Z_]*]\{\\(REC)\{([0-9a-zA-Z_ ]+)!rec:\3]\{\\\2\{\3!g' -i -- *.tex tikz/*.tex
+sed -E 's!(dataitem|rec|drl):[0-9a-zA-Z_]*]\{\\(DRL)\{([0-9a-zA-Z_ ]+)!drl:\3]\{\\\2\{\3!g' -i -- *.tex tikz/*.tex
 sed -E 's!(qc):[0-9a-zA-Z_<>#]*]\{\\([A-Z]+)\{([0-9a-zA-Z_<># ]+)!\1:\3]\{\\\2\{\3!g' -i -- *.tex tikz/*.tex
 
 # Then copy the name into the label
-sed -E 's!([A-Z]+)\{([0-9a-zA-Z_]*)}}}\\label\{(dataitem|rec):[0-9a-zA-Z_:]*}!\1\{\2}}}\\label\{\3:\2}!g' -i -- *.tex tikz/*.tex
+sed -E 's!([A-Z]+)\{([0-9a-zA-Z_]*)}}}\\label\{(dataitem|rec|drl):[0-9a-zA-Z_:]*}!\1\{\2}}}\\label\{\3:\2}!g' -i -- *.tex tikz/*.tex
 sed -E 's|([A-Z]+)\{([0-9a-zA-Z_]*)}}}\\label\{drsstructure:[0-9a-zA-Z_:]*}|\1\{\2}}}\\label\{drsstructure:\2}|g' -i -- *.tex tikz/*.tex
 
 # Also copy name into the label for recipes.
@@ -39,7 +41,7 @@ sed -E 's!([ \(])\\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}!\1\\hyperref\
 sed -E 's!( \{)\\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[dataitem:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
 
 # Convert all DRL that do not yet have a hyperref.
-sed -E 's!([ \(])\\(DRL)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[dataitem:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
+sed -E 's!([ \(])\\(DRL)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[drl:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
 sed -E 's!( \{)\\(DRL)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[drl:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
 
 # Convert all QC that do not yet have a hyperref.
