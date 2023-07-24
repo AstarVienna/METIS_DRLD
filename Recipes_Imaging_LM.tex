@@ -245,12 +245,13 @@ For extended objects, all out-of-field exposures will be averaged
 \end{recipedef}
 
 \begin{figure}[hb]
-  \centering
-  \includegraphics[width=0.6\textwidth]{metis_lm_img_background}
-  % \resizebox{0.6\textwidth}{0.1\textwidth}{\TODO{\fbox{Figure to be done}}}
-  \caption[Recipe: \REC{metis_lm_img_background}]{\REC{metis_lm_img_background} --
+    \centering
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_lm_img_background}
+    \caption[Recipe: \REC{metis_lm_img_background}]{\REC{metis_lm_img_background} --
     background estimation and subtraction of dithered \CODE{IMG_LM} data.}
-  \label{fig:metis_lm_img_background}
+    \label{fig:metis_lm_img_background}
 \end{figure}
 
 %------------------------------------------------------------------------------------------------------------------
@@ -421,7 +422,7 @@ from exposure to exposure.  The information about the field
 orientation along with target coordinates, pixel scale and
 higher-order polynomial distortion coefficients is written to the FITS
 header. The images are not resampled by this recipe, this is left to
-\REC{metis_lm_img_sci_postprocess}.
+ \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}}.
 
 
 
@@ -499,8 +500,10 @@ the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant
 \end{recipedef}
 
 \begin{figure}[hb]
-  \centering
-  \includegraphics[width=0.7\textwidth]{metis_lm_img_sci_postprocess}
+    \centering
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_lm_img_sci_postprocess}
   \caption[Recipe: \REC{metis_lm_img_sci_postprocess}]{%
     \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}} -- post-processing (coaddition)
     of reduced \CODE{IMG_LM} science frames.}
@@ -548,10 +551,13 @@ pixel scale across the detector will be created.
                        & \CODE{hdrl_imagelist_sub_image}                                \\
 \end{recipedef}
 
+
 \begin{figure}[hb]
-  \centering
-  \includegraphics[width=0.6\textwidth]{metis_lm_img_distortion}
-  \caption[Recipe: \REC{metis_lm_img_distortion}]{%
+    \centering
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_lm_img_distortion}
+    \caption[Recipe: \REC{metis_lm_img_distortion}]{%
     \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}} -- LM IMG distortion calibration}
   \label{fig:metis_lm_img_distortion}
 \end{figure}
