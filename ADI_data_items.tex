@@ -1014,46 +1014,47 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % HB 20230707: I commented out the _PSF_MEDIAN data items, because they are not output from the recipes.
 %              They are still useful, but we don't want to wake sleeping dogs and get questions about why
 %              we only include (only) these intermediate data products.
-%\paragraph{\hyperref[dataitem:det_cgrph_psf_median]{\PROD{det_cgrph_PSF_MEDIAN}}}\label{dataitem:det_cgrph_psf_median}
-%\label{dataitem:lm_cgrph_psf_median}\label{dataitem:n_cgrph_psf_median}
-%\begin{recipedef}
-%\textbf{\ac{FITS} image structure:}\\
-%Name: & \hyperref[dataitem:det_cgrph_psf_median]{\PROD{det_cgrph_PSF_MEDIAN}}\\[0.3cm]
-%Description: & Median PSF \\[0.3cm]
-%\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_PSF_MEDIAN}\\
-%OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
-%\FITS{DO.CATG}: & \FITS{det_cgrph_PSF_MEDIAN}\\[0.3cm]
-%Created by recipe: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
-%Input for recipe: & None\\
-%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%\end{recipedef}
-%\begin{datastructdef}
-%\textbf{Corresponding \ac{CPL} structure:}
-%\begin{enumerate}
-% \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}}
-%    \item \texttt{hdrl\_image * image: Single Image}
-%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-%\end{enumerate}
-%\end{datastructdef}
-%
-%\paragraph{\hyperref[dataitem:det_app_psf_median]{\PROD{det_app_PSF_MEDIAN}}}\label{dataitem:det_app_psf_median}
-%\label{dataitem:lm_app_psf_median}\label{dataitem:n_app_psf_median}
-%\begin{recipedef}
-%\textbf{\ac{FITS} image structure:}\\
-%Name: & \hyperref[dataitem:det_app_psf_median]{\PROD{det_app_PSF_MEDIAN}}\\[0.3cm]
-%Description: & Median PSF \\[0.3cm]
-%\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_app_PSF_MEDIAN}\\
-%OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
-%\FITS{DO.CATG}: & \FITS{det_app_PSF_MEDIAN}\\[0.3cm]
-%Created by recipe: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
-%Input for recipe: & None\\
-%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%\end{recipedef}
-%\begin{datastructdef}
-%\textbf{Corresponding \ac{CPL} structure:}
-%\begin{enumerate}
-% \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}}
-%    \item \texttt{hdrl\_image * image: Single Image}
-%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-%\end{enumerate}
-%\end{datastructdef}
+% HB 20230724: Added them back and made them output of the respective recipes
+%              after discussion with GO.
+\paragraph{\hyperref[dataitem:det_cgrph_psf_median]{\PROD{det_cgrph_PSF_MEDIAN}}}\label{dataitem:det_cgrph_psf_median}
+\label{dataitem:lm_cgrph_psf_median}\label{dataitem:n_cgrph_psf_median}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:det_cgrph_psf_median]{\PROD{det_cgrph_PSF_MEDIAN}}\\[0.3cm]
+Description: & Median PSF \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_PSF_MEDIAN}\\
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
+\FITS{DO.CATG}: & \FITS{det_cgrph_PSF_MEDIAN}\\[0.3cm]
+Created by recipe: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
+Input for recipe: & None\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+\paragraph{\hyperref[dataitem:lm_app_psf_median]{\PROD{LM_APP_PSF_MEDIAN}}}\label{dataitem:lm_app_psf_median}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \hyperref[dataitem:lm_app_psf_median]{\PROD{LM_APP_PSF_MEDIAN}}\\[0.3cm]
+Description: & Median PSF \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_PSF_MEDIAN}\\
+OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
+\FITS{DO.CATG}: & \FITS{LM_APP_PSF_MEDIAN}\\[0.3cm]
+Created by recipe: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
+Input for recipe: & None\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}}
+    \item \texttt{hdrl\_image * image: Single Image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
