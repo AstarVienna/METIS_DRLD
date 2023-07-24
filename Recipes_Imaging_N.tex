@@ -346,8 +346,10 @@ pixel scale across the detector will be created.
 \end{recipedef}
 
 \begin{figure}[hb]
-  \centering
-  \includegraphics[width=0.6\textwidth]{metis_n_img_distortion}
+    \centering
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_n_img_distortion}
   \caption[Recipe: \REC{metis_n_img_distortion}]{%
     \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}} -- \CODE{IMG_N} distortion calibration}
   \label{fig:metis_n_img_distortion}
