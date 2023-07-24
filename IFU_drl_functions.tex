@@ -1,21 +1,42 @@
 \subsection{IFU observing mode}\label{sec:drl_functions_ifu}
 
-\subsubsection{IFU image dithering}\label{drl:ifu_dithering}
-\begin{recipedef}
-    Name: & \hyperref[drl:ifu_dither]{\DRL{img_dither}} \\
-Purpose: &  \\
-Used in recipes: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-Input: & $6\times$ \texttt{const hdrl\_image * input} \\
-Other inputs: & precise position and orientation of individual exposures \\
-%QC outputs: & None\\
-%Output FITS files: & None \\
-    Outputs: & \PROD{ifu_sci_combined} [px]\\
-                & \texttt{cpl\_error\_code} \\
-General description: & Dither and co-add the individual exposures \\
-Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
-\end{recipedef}
+\subsubsection{IFU multi-exposure dithering}\label{drl:ifu_dithering}
+    \begin{recipedef}
+        Name: & \hyperref[drl:ifu_dithering]{\DRL{ifu_dithering}} \\
+        Purpose: & Obtain maximal useful resolution from a set of six exposures \\
+        Used in recipes: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+        %Working remarks: & None \\
+        %Function Parameters: & None \\
+        Input: & $6\times$ \texttt{const hdrl\_image * input} \\
+        Other inputs: & precise position and orientation of individual exposures \\
+        %QC outputs: & None\\
+        %Output FITS files: & None \\
+        Outputs:    & \PROD{ifu_sci_combined} [px] \\
+                    & \texttt{cpl\_error\_code} \\
+        General description: & Dither and co-add the individual exposures \\
+        Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
+        Quality assessment: & Through QC parameters \\
+        Error conditions: & See \cite{DRLVT}. \\
+        Unit tests: & See \cite{DRLVT}. \\
+    \end{recipedef}
+
+\subsubsection{IFU wavelength calibration} \label{drl:ifu_wavecal}
+    \begin{recipedef}
+        Name: & \hyperref[drl:ifu_wavecal]{\DRL{ifu_wavecal}} \\
+        Purpose: & Find the pixel-to-wavelength conversion for IFU exposures \\
+        Used in recipes: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+        %Working remarks: & None \\
+        %Function Parameters: & None \\
+        Input: \texttt{const hdrl\_image * input} \\
+        %Other inputs: &  \\
+        %QC outputs: & None\\
+        %Output FITS files: & None \\
+        Outputs: & \PROD{ifu_wavecal} [px]\\
+                 & \texttt{cpl\_error\_code} \\
+        General description: &  \\
+        Mathematical description: & See section \ref{sssec:ifu_wavecal} \\
+        Quality assessment: & Through QC parameters \\
+        Error conditions: & See \cite{DRLVT}. \\
+        Unit tests: & See \cite{DRLVT}. \\
+    \end{recipedef}
+
