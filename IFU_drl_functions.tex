@@ -1,25 +1,5 @@
 \subsection{IFU observing mode}\label{sec:drl_functions_ifu}
 
-\subsubsection{IFU multi-exposure dithering}\label{drl:ifu_dithering}
-    \begin{recipedef}
-        Name: & \hyperref[drl:ifu_dithering]{\DRL{ifu_dithering}} \\
-        Purpose: & Obtain maximal useful resolution from a set of six exposures \\
-        Used in recipes: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
-        %Working remarks: & None \\
-        %Function Parameters: & None \\
-        Input: & $6\times$ \texttt{const hdrl\_image * input} \\
-        Other inputs: & precise position and orientation of individual exposures \\
-        %QC outputs: & None\\
-        %Output FITS files: & None \\
-        Outputs:    & \PROD{ifu_sci_combined} [px] \\
-                    & \texttt{cpl\_error\_code} \\
-        General description: & Dither and co-add the individual exposures \\
-        Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
-        Quality assessment: & Through QC parameters \\
-        Error conditions: & See \cite{DRLVT}. \\
-        Unit tests: & See \cite{DRLVT}. \\
-    \end{recipedef}
-
 \subsubsection{IFU wavelength calibration} \label{drl:ifu_wavecal}
     \begin{recipedef}
         Name: & \hyperref[drl:ifu_wavecal]{\DRL{ifu_wavecal}} \\
@@ -27,11 +7,11 @@
         Used in recipes: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
-        Input: \texttt{const hdrl\_image * input} \\
+        Input: & \texttt{const hdrl\_image * input} \\
         %Other inputs: &  \\
         %QC outputs: & None\\
         %Output FITS files: & None \\
-        Outputs: & \PROD{ifu_wavecal} [px]\\
+        Outputs: & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}} [px]\\
                  & \texttt{cpl\_error\_code} \\
         General description: &  \\
         Mathematical description: & See section \ref{sssec:ifu_wavecal} \\
@@ -40,3 +20,63 @@
         Unit tests: & See \cite{DRLVT}. \\
     \end{recipedef}
 
+\subsubsection{IFU output grid determination}\label{drl:ifu_determine_output}
+    \begin{recipedef}
+        Name: & \hyperref[drl:ifu_dithering]{\DRL{ifu_dithering}} \\
+        Purpose: & Obtain maximal useful resolution from a set of dithered exposures \\
+        Used in recipes: & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}}\\
+        %Working remarks: & None \\
+        %Function Parameters: & None \\
+        Input: & $6\times$ \texttt{const hdrl\_image * input} \\
+        Other inputs: & precise position and orientation of individual exposures \\
+        %QC outputs: & None\\
+        %Output FITS files: & None \\
+        Outputs:    & \hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}} [px] \\
+                    & \texttt{cpl\_error\_code} \\
+        General description: & Dither and co-add the individual exposures \\
+        Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
+        Quality assessment: & Through QC parameters \\
+        Error conditions: & See \cite{DRLVT}. \\
+        Unit tests: & See \cite{DRLVT}. \\
+    \end{recipedef}
+
+\subsubsection{IFU multi-exposure resampling}\label{drl:ifu_dithering}
+    \begin{recipedef}
+        Name: & \hyperref[drl:ifu_dithering]{\DRL{ifu_dithering}} \\
+        Purpose: & Obtain maximal useful resolution from a set of dithered exposures \\
+        Used in recipes: & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}}\\
+        %Working remarks: & None \\
+        %Function Parameters: & None \\
+        Input: & $6\times$ \texttt{const hdrl\_image * input} \\
+        Other inputs: & precise position and orientation of individual exposures \\
+        %QC outputs: & None\\
+        %Output FITS files: & None \\
+        Outputs:    & \hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}} [px] \\
+                    & \texttt{cpl\_error\_code} \\
+        General description: & Resample the IFU exposures with rectangular pixels onto a square grid \\
+        Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
+        Quality assessment: & Through QC parameters \\
+        Error conditions: & See \cite{DRLVT}. \\
+        Unit tests: & See \cite{DRLVT}. \\
+    \end{recipedef}
+
+\subsubsection{IFU multi-exposure co-add}\label{drl:ifu_coadd}
+    \begin{recipedef}
+        Name: & \hyperref[drl:ifu_dithering]{\DRL{ifu_dithering}} \\
+        Purpose: & Obtain maximal useful resolution from a set of dithered exposures \\
+        Used in recipes: & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}}\\
+        %Working remarks: & None \\
+        %Function Parameters: & None \\
+        Input: & $6\times$ \texttt{const hdrl\_image * input} \\
+        %Other inputs: & precise position and orientation of individual exposures \\
+        %QC outputs: & None\\
+        %Output FITS files: & None \\
+        Outputs:    & \hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}} [px] \\
+                    & \hyperref[dataitem:ifu_sci_coadd_error]{\PROD{IFU_SCI_COADD_ERROR}} [px] \\
+                    & \texttt{cpl\_error\_code} \\
+        General description: & Co-add the properly aligned exposures \\
+        Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
+        Quality assessment: & Through QC parameters \\
+        Error conditions: & See \cite{DRLVT}. \\
+        Unit tests: & See \cite{DRLVT}. \\
+    \end{recipedef}
