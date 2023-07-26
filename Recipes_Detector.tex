@@ -69,9 +69,9 @@ This satisfies \REQ{METIS-5997}.
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
   Input data:          & \hyperref[dataitem:detlin_det_raw]{\RAW{DETLIN_det_RAW}}: (set of \FITS{FLAT,LAMP} frames taken with increasing DIT) \\
                        & \hyperref[dataitem:det_wcu_off_raw]{\RAW{det_WCU_OFF_RAW}}: (set of internal darks taken at the start of the template) \\
- % Matched keywords:    & Subsystem ID \TODO{TBD}                                                             \\
+%  Matched keywords:    & Subsystem ID \TODO{TBD}                                                             \\
   Algorithm:           & Subtract instrument dark (\CODE{hdrl_imagelist_sub_image}).                         \\
-                       & Compute mean and variance for each frame (\CODE{TBD}).                              \\
+                       & Compute mean and variance for each frame.                              \\
                        & Gain is determined as the slope of variance against mean (\hyperref[drl:metis_derive_gain]{\DRL{metis_derive_gain}}) \\
                        & Fit polynomial of value as a function of DIT and illumination level for each pixel (\hyperref[drl:metis_derive_nonlinearity]{\CODE{metis_derive_nonlinearity}}). \\
                        & Flag pixels with coefficients significantly different from the mean of all pixels. (\CODE{hdrl_bpm_fit_compute}) \\
@@ -111,8 +111,9 @@ Darks are taken in daytime for all science detectors
 (\FITS{DET.DIT}).\footnote{The dark current is not expected to depend on the readout mode of the detectors. Should hardware tests reveal such a dependence, the recipe will be amended to classify on readout mode as well.} There will be ``METIS-dark''
 (with the CLOSED position of the CFO-PP1 wheel) and ``Imager-dark''
 (with the CLOSED position in the subsystem PP1), to be distinguished
-by keyword \TBD. The former will be used for pipeline processing, the
-latter for monitoring purposes.
+by header keywords.
+% TODO: Use a different DO.CATG for these darks. See https://github.com/AstarVienna/METIS_DRLD/issues/170
+The former will be used for pipeline processing, the  latter for monitoring purposes.
 
 Each set of raw dark frames is processed into a master dark. For the
 IFU, both raw frames and master dark have four extensions
@@ -156,7 +157,7 @@ This fulfills \REQ{METIS-6063}.
                        & \QC{QC DARK NBADPIX}                                                             \\
                        & \QC{QC DARK NCOLDPIX}                                                               \\
                        & \QC{QC DARK NHOTPIX}                                                                \\
-                       & (more \TBD)                                                                  \\
+%                       & (more \TBD)                                                                  \\
   hdrl functions:      & \CODE{hdrl_bpm_3d_compute}                                 \\
                        & \CODE{hdrl_imagelist_collapse}                             \\
 \end{recipedef}
