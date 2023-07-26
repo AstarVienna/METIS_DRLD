@@ -61,7 +61,7 @@ otherwise a new one is created.
                        & Filter ID                                                      \\
                        & ADC ID                                                         \\
                        & Flat type (internal or twilight)                               \\
-                       & possibly others (e.g.\ coronagraphic mask, \TBD)               \\
+%                       & possibly others (e.g.\ coronagraphic mask, \TBD)               \\
   Parameters:          & Combination method (\texttt{mean}, \texttt{median},
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
@@ -140,7 +140,7 @@ The edges of the N-band detector will be behind a cold mask on all four sides.
   Matched keywords:  & Filter ID                                                    \\
                      & Chop position                                                \\
                      & Nod position                                                 \\
-  Parameters:        & TBD                                                          \\
+  Parameters:        & None                                                         \\
   Algorithm:         & Analyse and optionally remove masked regions and correct crosstalk and ghosts \\
                      & Add/subtract images to subtract background                   \\
   Output data:       & \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}                                  \\
@@ -193,7 +193,7 @@ following \cite{visir_manual}.
                        & \hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}} \\
   Matched keywords:    & Object ID                                                                     \\
                        & Filter ID                                                                     \\
-  Parameters:          & None (TBD)                                                                    \\
+  Parameters:          & None                                                                          \\
   Algorithm:           & call \hyperref[drl:n_calculate_std_flux]{\DRL{n_calculate_std_flux}} to measure the flux in all beams\\
                        & average and normalize flux values \\
                        & call \hyperref[drl:calculate_std_fluxcal]{\DRL{calculate_std_fluxcal}} to calculate conversion factor to physical units   \\
@@ -255,7 +255,7 @@ header receives the keyword \FITS{BUNIT} with value %
                      & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                               \\
                      & \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}                        \\
   Matched keywords:  & Filter ID                                        \\
-  Parameters:        & TBD                                              \\
+  Parameters:        & None                                             \\
   Algorithm:         & call \hyperref[drl:n_scale_image_flux]{\DRL{n_scale_image_flux}} to Scale image data to ph/s \\
                      & add header information (\FITS{BUNIT}, etc.)\\
   Output data:       & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}                          \\
@@ -331,7 +331,6 @@ pixel scale across the detector will be created.
                        & \hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}} (Grid of pinhole mask positions) \\
                        & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}} \\
   Parameters:          & Parameters for fitting routine \\
-                       & \TBD \\
   Algorithm:           & Subtract background image.  (\CODE{hdrl_imagelist_sub_image})                                       \\
                        & Measure location of point source images in frames.   (\CODE{hdrl_catalogue_create})            \\
                        & call \hyperref[drl:fit_distortion]{\DRL{fit_distortion}} to fit polynomial coefficients to deviations from grid positions. \\

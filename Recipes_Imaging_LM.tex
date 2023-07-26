@@ -51,7 +51,7 @@ otherwise a new one is created.
                        & Filter ID                                                      \\
                        & ADC ID                                                         \\
                        & Flat type (internal or twilight)                               \\
-                       & possibly others (e.g.\ coronagraphic mask, \TBD)               \\
+%                       & possibly others (e.g.\ coronagraphic mask, \TBD)               \\
   Parameters:          & Combination method (\texttt{mean}, \texttt{median},
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
@@ -228,7 +228,7 @@ For extended objects, all out-of-field exposures will be averaged
 %                    & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
   Input data:       & \hyperref[dataitem:lm_sci_basic_reduced]{\PROD{LM_SCI_BASIC_REDUCED}}                               \\
                     & \hyperref[dataitem:lm_std_basic_reduced]{\PROD{LM_STD_BASIC_REDUCED}}                               \\
-  Matched keywords: & dither position (\CODE{SKY}? \TBD)                        \\
+  Matched keywords: & dither position (\CODE{SKY}?                         \\
   Algorithm:        & Average all or \CODE{SKY} exposures with object rejection \\
                     & Subtract background                                       \\
   Output data:      & \hyperref[dataitem:lm_sci_bkg]{\PROD{LM_SCI_BKG}}                                         \\
@@ -358,7 +358,7 @@ following \cite{visir_manual}.
                        & \hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}} (photometric standard catalogue) \\
   Matched keywords:    & OBJECT ID                                                                    \\
                        & FILTER ID                                                                    \\
-  Parameters:          & None (TBD)                                                                   \\
+  Parameters:          & None                                                                         \\
   Algorithm:           & Call \hyperref[drl:lm_calculate_std_flux]{\DRL{lm_calculate_std_flux}} to measure flux in input images                      \\
                        & call \hyperref[drl:recentre_img]{\DRL{recentre_img}} to recentre and stack images                         \\
                        & call \hyperref[drl:lm_calculate_std_flux]{\DRL{lm_calculate_std_flux}} on the stacked image to get flux of the star in detector units\\
@@ -436,7 +436,7 @@ header. The images are not resampled by this recipe, this is left to
                      & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                               \\
                      & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}                       \\
   Matched keywords:  & Filter ID                                        \\
-  Parameters:        & None (TBD)                                       \\
+  Parameters:        & None                                             \\
   Algorithm:         & call \hyperref[drl:lm_scale_image_flux]{\DRL{lm_scale_image_flux}} to Scale image data to ph/s \\
                      & add header information (\FITS{BUNIT}, WCS, etc.) \\
   Output data:       & \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}}                         \\
@@ -485,7 +485,7 @@ the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant
   Type:                & Science                                                    \\
   Input data:          & \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}} (Calibrated science images)       \\
                        & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}} (Associated bad-pixel maps)           \\
-  Parameters:          & None (TBD).                                                \\
+  Parameters:          & None                                                       \\
   Algorithm:           & Check and refine WCS of input images by cross-correlation  \\
                        & \hspace{1em} (on object catalogue or on image).            \\
                        & Determine output pixel grid encompassing all input images. \\
@@ -537,7 +537,7 @@ pixel scale across the detector will be created.
                        & \hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}} (Grid of pinhole mask positions) \\
                        & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}} \\
   Parameters:          & Parameters for fitting routine      \\
-                       & \TBD \\
+%                       & \TBD \\
   Algorithm:           & Subtract background image.    (\CODE{hdrl_imagelist_sub_image})                                  \\
                        & Measure location of point source images in frames (\CODE{hdrl_catalogue_create})             \\
                        & call \hyperref[drl:fit_distortion]{\CODE{fit_distortion}} to fit polynomial coefficients to deviations from grid positions.  \\
