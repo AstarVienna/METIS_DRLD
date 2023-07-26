@@ -105,6 +105,7 @@ Unit tests: & See \cite{DRLVT}. \\
 %Unit tests: & See \cite{DRLVT}. \\
 %\end{recipedef}
 
+% HB 20230726: Apparently we should do all this without cross-correlation but instead use the WFS-FS mirror information. Nevertheless maybe having this function is useful.
 \subsubsection{Astrometry calibration}\label{drl:img_astrometry_calib}
 \begin{recipedef}
 Name: & \hyperref[drl:img_astrometry_calib]{\DRL{img_astrometry_calib}} \\
@@ -127,27 +128,30 @@ Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
-\subsubsection{Image Resample and Coadding}\label{drl:img_resample_coadding}
-\begin{recipedef}
-Name: & \hyperref[drl:img_resample_coadding]{\DRL{img_resample_coadding}} \\
-Purpose: &Calculate the conversion bewtween pixels and sky coordinates\\
-Used in recipes: & \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}}\\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input} \\
-     %\texttt{const ls\_master_dark_image * input} \\
-    %\texttt{const ls\_master_flat_image * input} \\
-%Other inputs: & None \\
-%QC outputs: & None\\
-%Output FITS files: & None \\
-Outputs: & \texttt{cpl\_error\_code} \\
-General description: & Image resample and coadding \\
-%Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
-Mathematical description: & TBD \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
-\end{recipedef}
+% HB 20230726: We can use hdrl functionality for this.
+%   For stacking we can use hdrl_imagelist_combine.
+%   For resampling we can use hdrl_resample_imagelist_to_table.
+%\subsubsection{Image Resample and Coadding}\label{drl:img_resample_coadding}
+%\begin{recipedef}
+%Name: & \hyperref[drl:img_resample_coadding]{\DRL{img_resample_coadding}} \\
+%Purpose: &Calculate the conversion bewtween pixels and sky coordinates\\
+%Used in recipes: & \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}}\\
+%%Working remarks: & None \\
+%%Function Parameters: & None \\
+%Input: & \texttt{const hdrl\_image * input} \\
+%     %\texttt{const ls\_master_dark_image * input} \\
+%    %\texttt{const ls\_master_flat_image * input} \\
+%%Other inputs: & None \\
+%%QC outputs: & None\\
+%%Output FITS files: & None \\
+%Outputs: & \texttt{cpl\_error\_code} \\
+%General description: & Image resample and coadding \\
+%%Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+%Mathematical description: & TBD \\
+%Quality assessment: & Through QC parameters \\
+%Error conditions: & See \cite{DRLVT}. \\
+%Unit tests: & See \cite{DRLVT}. \\
+%\end{recipedef}
 
 
 \subsubsection{Create Master LM Flat}\label{drl:lm_img_flat}\label{drl:metis_lm_img_flat}
@@ -528,7 +532,7 @@ Outputs:  &  \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE
           & \texttt{cpl\_error\_code} \\
 General description: &  Fit optical distortion coefficients based on pinhole mask image \\
 Mathematical description: & See Section~\ref{sssec:lm_img_distortion} \\
-Quality assessment: & \TBD \\
+Quality assessment: & None \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
@@ -548,7 +552,7 @@ QC outputs: None \\
 %          & \texttt{cpl\_error\_code} \\
 General description: & Cutout a region around the positive and negative beams in an N-band image \\
 Mathematical description: & See Section~\ref{sssec:n_img_restoration} \\
-Quality assessment: & \TBD \\
+Quality assessment: & None \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
