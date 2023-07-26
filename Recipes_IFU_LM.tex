@@ -70,7 +70,7 @@ table extension holds the polynomial coefficients.
   Algorithm:           & Measure line locations (left and right edges, centroid by Gaussian fit)\\
                        & Compute wavelength solution $\xi(x, y, i)$, $\lambda(x, y, i)$         \\
   Output data:         & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}                    \\
-  Expected accuracies: & TBD                                                                    \\
+  Expected accuracies: & None                                                                   \\
   QC1 parameters:      & \QC{QC IFU WAVECAL RMS}                                                \\
                        & \QC{QC IFU WAVECAL NLINES}                                             \\
                        & \QC{QC IFU WAVECAL PEAK CNTS}                                          \\
@@ -123,9 +123,9 @@ Algorithm:           & Create continuum image by mapping Planck spectrum at $T_{
 Output data:         & \hyperref[dataitem:master_flat_ifu]{\PROD{MASTER_FLAT_IFU}}                                                   \\
                      & \hyperref[dataitem:rsrf_ifu]{\PROD{RSRF_IFU}}                                                          \\
                      & \hyperref[dataitem:badpix_map_ifu]{\PROD{BADPIX_MAP_IFU}}                                                    \\
-Expected accuracies: & TBD                                                                      \\
+Expected accuracies: & None                                                                     \\
 QC1 parameters:      & \QC{QC IFU RSRF NBADPIX}                                                    \\
-                     & (more TBD)                                                               \\
+%                     & (more TBD)                                                               \\
 \end{recipedef}
 
 \begin{figure}[hb]
@@ -188,7 +188,7 @@ may be refined by measuring telluric emission and/or absorption lines
                        & \hyperref[dataitem:ifu_std_reduced_1d]{\PROD{IFU_STD_REDUCED_1D}}                                              \\
                        & \hyperref[dataitem:ifu_std_telluric_1d]{\PROD{IFU_STD_TELLURIC_1D}}                                             \\
                        & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                     \\
-  Expected accuracies: & TBD                                                                    \\
+  Expected accuracies: & None                                                                   \\
   QC1 parameters:      & \QC{QC IFU STD STRAYLIGHT MEAN}                                        \\
 \end{recipedef}
 
@@ -276,13 +276,15 @@ The recipe produces the following (intermediate) data products:
   width.
 \item A spectral cube obtained by combining all exposures taken within
   a template. This step involves the image reconstruction discussed in
-  Sect.~8.9 of \cite{DRLS}. Whether this step is included
-  in the present recipe \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} or is postponed to
-  the more general recipe \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}} is TBD. It
-  may be formally required to do the image reconstruction here if
-  templates are set up to obtain a fixed set of spatially dithered and
-  rotated exposures aimed at reconstructing a fully sampled PSF in
-  both spatial dimensions.
+  Sect.~8.9 of \cite{DRLS}.
+% TODO: Decide on the below.
+%  Whether this step is included
+%  in the present recipe \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} or is postponed to
+%  the more general recipe \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}} is TBD. It
+%  may be formally required to do the image reconstruction here if
+%  templates are set up to obtain a fixed set of spatially dithered and
+%  rotated exposures aimed at reconstructing a fully sampled PSF in
+%  both spatial dimensions.
 \end{itemize}
 
 For the nominal mode, each output is a single-extension FITS file
@@ -326,7 +328,7 @@ Input data:          & \hyperref[dataitem:ifu_sci_raw]{\RAW{IFU_SCI_RAW}} (Dithe
                        & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}} \\
                      & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}} (Line spread kernel to be used with \CODE{molecfit}) \\
 Parameters:          & telluric correction (yes/no)                                                             \\
-                     & more TBD                                                                                 \\
+%                     & more TBD                                                                                 \\
 Algorithm:           & Subtract dark, divide by master flat                                                     \\
                      & Analyse and optionally remove masked regions and correct crosstalk and ghosts \\
                      & Estimate stray light and subtract                                                        \\
@@ -344,8 +346,8 @@ Output data:         & \hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED
                      & \hyperref[dataitem:ifu_sci_combined_tac]{\PROD{IFU_SCI_COMBINED_TAC}} (3D)               \\
                      & \hyperref[dataitem:ifu_sci_object_1d]{\PROD{IFU_SCI_OBJECT_1D}}  (1D)                    \\
                      & \hyperref[dataitem:ifu_sci_telluric_1d]{\PROD{IFU_SCI_TELLURIC_1D}}                      \\
-Expected accuracies: & TBD                                                                                      \\
-QC1 parameters:      & TBD                                                                                      \\
+Expected accuracies: & None                                                                                     \\
+QC1 parameters:      & None                                                                                     \\
 \end{recipedef}
 
 \begin{figure}[hb]
@@ -391,8 +393,8 @@ spectrum. The spectrum is extracted from a combined cube
   Algorithm:           & extract 1D spectrum                                                             \\
                        & Application of molecfit                                                         \\
   Output data:         & \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}                                                      \\
-  Expected accuracies: & TBD                                                                             \\
-  QC1 parameters:      & TBD                                                                             \\
+  Expected accuracies: & None                                                                            \\
+  QC1 parameters:      & None                                                                            \\
 \end{recipedef}
 
 \begin{figure}[hb]
@@ -446,7 +448,7 @@ observatory.
   Type:           & Science                                                                    \\
   Templates:      & None                                                                       \\
   Input data:     & Reduced science cubes (\hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}}, \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}) \\
-  Parameters:     & TBD                                                                        \\
+  Parameters:     & None                                                                       \\
   Algorithm:      & Determine cubic output grid encompassing all input cubes                   \\
                   & Resample input cubes to output grid                                        \\
                   & Coadd                                                                      \\
@@ -485,11 +487,11 @@ indication of the variation of spectral resolution across the field of view.
   Type:                & Calibration                                                                 \\
   Templates:           & \TPL{METIS_ifu_cal_distortion}                                              \\
   Input data:          & \hyperref[dataitem:ifu_distortion_raw]{\RAW{IFU_DISTORTION_RAW}} (Images of multi-pinhole mask.) \\
-  Parameters:          & TBD                                                                         \\
+  Parameters:          & None                                                                        \\
   Algorithm:           & Calculate table mapping pixel position to position on sky.                  \\
   Output data:         & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}                                                 \\
                        & \hyperref[dataitem:ifu_dist_reduced]{\PROD{IFU_DIST_REDUCED}}                                                     \\
-  Expected accuracies: & TBD                                                                         \\
+  Expected accuracies: & None                                                                        \\
   QC1 parameters:      & \QC{QC IFU DISTORT RMS}: RMS deviation between measured position and model \\
                        & \QC{QC IFU DISTORT FWHM}:   Measured FWHM of spots                            \\
                        & \QC{QC IFU DISTORT NSPOTS}: Number of identified spots                        \\
