@@ -24,7 +24,7 @@ Input: & \texttt{const hdrl\_image * input} \\
 Outputs: & Detrended images [px]\\
                 & \texttt{cpl\_error\_code} \\
 General description: & De-trending the raw image \\
-Mathematical description: & TBD \\
+Mathematical description: & See Section~\ref{rec:metis_lm_img_basic_reduce} \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
@@ -48,7 +48,7 @@ Input: & \texttt{const hdrl\_image * input} \\
 Outputs: & Building sky background from images [px]\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Removing sky backround from images \\
-Mathematical description: & TBD \\
+Mathematical description: & See Section~\ref{rec:metis_lm_img_background} \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
@@ -72,38 +72,38 @@ Input: & \texttt{const hdrl\_image * input} \\
 Outputs: & Removing sky background from images [px]\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Removing sky backround from images \\
-Mathematical description: & TBD \\
+Mathematical description: & See Section~\ref{rec:metis_lm_img_background} \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
 Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
     
-\subsubsection{Source extraction}\label{drl:img_source_extraction}
-\begin{recipedef}
-Name: & \hyperref[drl:img_source_extraction]{\DRL{img_source_extraction}} \\
-Purpose: &Measure and extract source information for position calibration\\
-% HB 20230628: The metis_lm_img_astrometry_process seems unnecessary, so it
-%    is commented out. See https://github.com/AstarVienna/METIS_DRLD/pull/65
-%    where we can discuss this further.
-%Used in recipes: & \hyperref[rec:metis_lm_img_astrometry_process]{\CODE{metis_lm_img_astrometry_process}}\\
-Used in recipes: & None\\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input} \\
-     %\texttt{const ls\_master_dark_image * input} \\
-    %\texttt{const ls\_master_flat_image * input} \\
-%Other inputs: & None \\
-%QC outputs: & None\\
-%Output FITS files: & None \\
-Outputs: & star flux [counts] and location [px]\\
-                & \texttt{cpl\_error\_code} \\
-General description: & Measure and extract sources on a image \\
-%Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
-Mathematical description: & TBD \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
-\end{recipedef}
+%\subsubsection{Source extraction}\label{drl:img_source_extraction}
+%\begin{recipedef}
+%Name: & \hyperref[drl:img_source_extraction]{\DRL{img_source_extraction}} \\
+%Purpose: &Measure and extract source information for position calibration\\
+%% HB 20230628: The metis_lm_img_astrometry_process seems unnecessary, so it
+%%    is commented out. See https://github.com/AstarVienna/METIS_DRLD/pull/65
+%%    where we can discuss this further.
+%%Used in recipes: & \hyperref[rec:metis_lm_img_astrometry_process]{\CODE{metis_lm_img_astrometry_process}}\\
+%Used in recipes: & None\\
+%%Working remarks: & None \\
+%%Function Parameters: & None \\
+%Input: & \texttt{const hdrl\_image * input} \\
+%     %\texttt{const ls\_master_dark_image * input} \\
+%    %\texttt{const ls\_master_flat_image * input} \\
+%%Other inputs: & None \\
+%%QC outputs: & None\\
+%%Output FITS files: & None \\
+%Outputs: & star flux [counts] and location [px]\\
+%                & \texttt{cpl\_error\_code} \\
+%General description: & Measure and extract sources on a image \\
+%%Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
+%Mathematical description: & TBD \\
+%Quality assessment: & Through QC parameters \\
+%Error conditions: & See \cite{DRLVT}. \\
+%Unit tests: & See \cite{DRLVT}. \\
+%\end{recipedef}
 
 \subsubsection{Astrometry calibration}\label{drl:img_astrometry_calib}
 \begin{recipedef}
@@ -258,7 +258,7 @@ Input: & $n\times$ \texttt{const double * means} \\
 Outputs: & gain [e/adu] \\
                & \texttt{cpl\_error\_code} \\
 General description: & Determine the gain as the slope of variance against mean of detlin images. \\
-Mathematical description: & TBD \\
+Mathematical description: & See Section~\ref{sssec:gain} \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & None. \\
 %Unit tests: & See \cite{DRLVT}. \\
