@@ -2,10 +2,11 @@
 \subsection{Recipes for engineering templates}
 \label{ssec:recipes_technical}
 
-\TBD It is not clear (2020-11-19) whether data from maintenance
-templates need to be reduced by the pipeline. This section and the
-recipes described therein serves as a placeholder and may be removed
-later.
+% HB 20230726: We decided that the recipes listed here should be included.
+%\TBD It is not clear (2020-11-19) whether data from maintenance
+%templates need to be reduced by the pipeline. This section and the
+%recipes described therein serves as a placeholder and may be removed
+%later.
 
 The CLC coronagraph was removed from the baseline coronagraphic modes before FDR however the coronagraph would be technically available during engineering. At this stage the DRL will not have the corresponding recipes to use the CLC. However, if the need arises during commissioning or after to make the CLC mode available, its DRL recipe can be easily adapted from the baseline RAVC/CVC coronagraph recipes as it is related in design and usage.
 
@@ -57,7 +58,7 @@ the relative coordinates between the \ac{WFS} Pyramid focal plane, and the scien
 Name:		& \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}} \\
 Purpose:	& Detection of the chopper mirror home position \\
 Type:		& Calibration\\
-Requirements: & TBD \\
+Requirements: & None \\
 Templates:      & \TPL{METIS_img_lm_cal_ChopperHome} \\
 Input data:     & \hyperref[dataitem:lm_chopperhome_raw]{\RAW{LM_CHOPPERHOME_RAW}} \\
                 & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
@@ -66,7 +67,7 @@ Input data:     & \hyperref[dataitem:lm_chopperhome_raw]{\RAW{LM_CHOPPERHOME_RAW
                 & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
                 & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
                 & \hyperref[dataitem:master_img_flat_lamp_lm]{\PROD{MASTER_IMG_FLAT_LAMP_LM}}  \\
-Parameters: 	& TBD\\
+Parameters: 	& None\\
 Algorithm:      & remove detector signature\\
                 & remove median background\\
                 & apply flatfield\\
@@ -75,7 +76,7 @@ Algorithm:      & remove detector signature\\
 Output data:	& Offset of the chopper mirror to be piped either into the \ac{ICS} for correction \\
                 & or to be used in thee pipeline for astrometric correction\\
 Expected accuracies: & 0.1mas accuracy of the centroid position (cf. \cite{METIS-calibration_plan})\\
-QC1 parameters: & \QC{TBD}: TBD\\
+QC1 parameters: & None\\
 \end{recipedef}
 \clearpage
 
