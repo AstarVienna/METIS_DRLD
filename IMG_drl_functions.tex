@@ -129,8 +129,8 @@ Unit tests: & See \cite{DRLVT}. \\
 %\end{recipedef}
 
 % HB 20230726: We can use hdrl functionality for this.
-%   For stacking we can use hdrl_imagelist_combine.
-%   For resampling we can use hdrl_resample_imagelist_to_table.
+%   For stacking we can use hdrl_imagelist_combine or hdrl_imagelist_collapse.
+%   For resampling we can use hdrl_resample_imagelist_to_table or hdrl_resample_compute.
 %\subsubsection{Image Resample and Coadding}\label{drl:img_resample_coadding}
 %\begin{recipedef}
 %Name: & \hyperref[drl:img_resample_coadding]{\DRL{img_resample_coadding}} \\
@@ -338,27 +338,30 @@ Unit tests: & See \cite{DRLVT}. \\
 \end{recipedef}
 
 
-\subsubsection{Recentre and Stack Images}\label{drl:recentre_img}
-\begin{recipedef}
-Name: & \hyperref[drl:recentre_img]{\DRL{recentre_img}} \\
-Purpose: & Recentre images based on position of standard star, and stack \\
-Used in recipes: & \hyperref[sssec:lm_img_photstd]{\REC{metis_lm_img_std_process}}\\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-Other inputs: & position and flux of stars in detector units (hdrl\_catalogue\_result structure)\\
-%QC outputs: & QC det IMG STD BACKGD RMS\\
-%            & QC det STD PEAK CNTS\\
-%            & QC det STD APERTURE CNTS\\
-%            & QC det STD STREHL\\
-Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
-Outputs: & \texttt{cpl\_error\_code} \\
-General description: & shifting and stacking of a sequence of images \\
-Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
-\end{recipedef}
+% HB 20230723: We should use hdrl functinos for resampling / shifting / stacking of images
+%   For stacking we can use hdrl_imagelist_combine or hdrl_imagelist_collapse.
+%   For resampling we can use hdrl_resample_imagelist_to_table or hdrl_resample_compute.
+%\subsubsection{Recentre and Stack Images}\label{drl:recentre_img}
+%\begin{recipedef}
+%Name: & \hyperref[drl:recentre_img]{\DRL{recentre_img}} \\
+%Purpose: & Recentre images based on position of standard star, and stack \\
+%Used in recipes: & \hyperref[sssec:lm_img_photstd]{\REC{metis_lm_img_std_process}}\\
+%%Working remarks: & None \\
+%%Function Parameters: & None \\
+%Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+%Other inputs: & position and flux of stars in detector units (hdrl\_catalogue\_result structure)\\
+%%QC outputs: & QC det IMG STD BACKGD RMS\\
+%%            & QC det STD PEAK CNTS\\
+%%            & QC det STD APERTURE CNTS\\
+%%            & QC det STD STREHL\\
+%Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
+%Outputs: & \texttt{cpl\_error\_code} \\
+%General description: & shifting and stacking of a sequence of images \\
+%Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
+%Quality assessment: & Through QC parameters \\
+%Error conditions: & See \cite{DRLVT}. \\
+%Unit tests: & See \cite{DRLVT}. \\
+%\end{recipedef}
 
 \subsubsection{Calculate Flux Calibration}\label{drl:calculate_std_fluxcal}
 \begin{recipedef}

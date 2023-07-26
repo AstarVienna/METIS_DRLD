@@ -450,8 +450,8 @@ observatory.
   Input data:     & Reduced science cubes (\hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}}, \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}) \\
   Parameters:     & None                                                                       \\
   Algorithm:      & Determine cubic output grid encompassing all input cubes                   \\
-                  & Resample input cubes to output grid                                        \\
-                  & Coadd                                                                      \\
+                  & Call \CODE{hdrl_resample_compute} to resample input cubes to output grid   \\
+                  & Call \CODE{hdrl_imagelist_collapse} to stack the images                    \\
   Output data:    & \hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}                                                       \\
                   & \hyperref[dataitem:ifu_sci_coadd_error]{\PROD{IFU_SCI_COADD_ERROR}}                                                 \\
   QC1 parameters: & ---                                                                        \\

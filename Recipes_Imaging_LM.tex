@@ -360,7 +360,9 @@ following \cite{visir_manual}.
                        & FILTER ID                                                                    \\
   Parameters:          & None                                                                         \\
   Algorithm:           & Call \hyperref[drl:lm_calculate_std_flux]{\DRL{lm_calculate_std_flux}} to measure flux in input images                      \\
-                       & call \hyperref[drl:recentre_img]{\DRL{recentre_img}} to recentre and stack images                         \\
+%                       & call \hyperref[drl:recentre_img]{\DRL{recentre_img}} to recentre and stack images                         \\
+                       & call \CODE{hdrl_resample_compute} to recenter the images \\
+                       & call \CODE{hdrl_imagelist_collapse} to stack the images \\
                        & call \hyperref[drl:lm_calculate_std_flux]{\DRL{lm_calculate_std_flux}} on the stacked image to get flux of the star in detector units\\
                        & call \hyperref[drl:calculate_std_fluxcal]{\DRL{calculate_std_fluxcal}} to calculate the conversion factor to physical units    \\
                        & call \hyperref[drl:calculate_detection_limits]{\DRL{calculate_detection_limits}} to compute measure background noise (std,rms) and compute detection limits \\
@@ -489,8 +491,8 @@ the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant
   Algorithm:           & Check and refine WCS of input images by cross-correlation  \\
                        & \hspace{1em} (on object catalogue or on image).            \\
                        & Determine output pixel grid encompassing all input images. \\
-                       & Resample images to output pixel grid.                      \\
-                       & Coadd.                                                     \\
+                       & call \CODE{hdrl_resample_compute} to recenter the images \\
+                       & call \CODE{hdrl_imagelist_collapse} to stack the images \\
   Output data:         & \hyperref[dataitem:lm_sci_coadd]{\PROD{LM_SCI_COADD}} (coadded, mosaiced image)              \\
 % TheLM_SCI_COADD_ERROR and LM_SCI_COADD_CONTRIB can be layers in LM_SCI_COADD
 %                        & \hyperref[dataitem:lm_sci_coadd_error]{\PROD{LM_SCI_COADD_ERROR}} (coadded, mosaiced error image)  \\

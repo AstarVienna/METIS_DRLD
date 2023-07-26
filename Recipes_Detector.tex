@@ -141,7 +141,6 @@ This fulfills \REQ{METIS-6063}.
                        & Thresholds for deviant-pixel identification                                      \\
   Algorithm:           & Group files by detector and \texttt{DIT}, based on header keywords           \\
                        & Call function \hyperref[drl:metis_determine_dark]{\DRL{metis_determine_dark}} for each set of files\\
-                       & Compute median or average of input frames to improve statistics.            \\  % separate routine, or part of determine dark
                        & call \hyperref[drl:metis_update_dark_mask]{\DRL{metis_update_dark_mask}} to flag deviant pixels \\
   Output data:         & \hyperref[dataitem:master_dark_det]{\PROD{MASTER_DARK_det}}                                                      \\
 % The BPM_COLD_det and BPM_HOT_det do not seem to add value that BADPIX_MAP_det
