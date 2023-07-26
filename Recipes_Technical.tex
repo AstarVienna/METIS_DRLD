@@ -14,10 +14,19 @@ The CLC coronagraph was removed from the baseline coronagraphic modes before FDR
 \subsubsection{\REC{metis_pupil_imaging}: Pupil imaging}\label{rec:metis_pupil_imaging}
 \label{sssec:pupil_imaging}
 
-\TBD This recipe refers to pupil imaging using the science
-detectors. Presumably it only contains the most basic reduction
-steps. There may have to be separate recipes for the various
-subsystems.
+This recipe refers to pupil imaging using the science detectors.
+Pupil imaging is needed to verify the alignment and illumination of the pupil masks (part of the HCI coronagraphs) with the telescope beam.
+It is not foreseen to be used by scientists in regular operation.
+
+% From OC:
+%Presumably it only contains the most basic reduction  steps.
+%There may have to be separate recipes for the various
+%subsystems.
+
+% From GO:
+%Also it can be used to record the pupil transmission which can improve PSF modelling.
+%A simple reduction to get rid of bias effects might be enough to align the pupil, and it might already be possible on the raw data.
+%If they want pupil transmission they likely also expect some pixel response or flatfield correction.
 
 \begin{recipedef}
   Name                 & \hyperref[rec:metis_pupil_imaging]{\REC{metis_pupil_imaging}}                     \\
@@ -28,7 +37,7 @@ subsystems.
                        & \TPL{METIS_pup_n}                             \\
   Input data:          & \hyperref[dataitem:lm_pupil_raw]{\RAW{LM_PUPIL_RAW}} or \hyperref[dataitem:n_pupil_raw]{\RAW{N_PUPIL_RAW}} \\
   Matched keywords:    & Detector ID                                   \\
-  Algorithm            & \TBD                                          \\
+  Algorithm            & Apply dark current and flat field corrections.\\
   Output data:         & \hyperref[dataitem:lm_pupil_reduced]{\PROD{LM_PUPIL_REDUCED}} or \hyperref[dataitem:n_pupil_reduced]{\PROD{N_PUPIL_REDUCED}} \\
   Expected accuracies: & None                                          \\
   QC1 parameters:      & None                                          \\
