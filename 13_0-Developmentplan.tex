@@ -80,10 +80,13 @@ It is planned to monitor the status of pipeline software implementation in regul
         \item Characterisation of various background subtraction methods
         \item Quality control parameters
     \end{itemize}
-    
+    A the same time the time table for receiving the charac
     Furtheron, a detailed schedule will be set up with ESO regarding updated versions of pipeline package.
+    
     \item Simulated and processed data at T$_{FDR}$ + 6 months: the package includes raw data, intermediate data and science data products for each instrument mode. The simulated data will be used to test the data flow system.
-    \item Delivery of the DRS chain skeleton
+    
+    \item Delivery of the DRS chain skeleton: The pipeline skeleton consists of the recipes \emph{shells}, i.e.~the executable code that takes the expected inputs and parameters and produces output files, albeit without actually performing any reductions; pixel values of input and outputs are just dummy values at this stage. The purpose of chain skeleton is to demonstrate the data flow but is otherwise empty from the algorithmic point of view. Depending on the release status of the \ac{EDPS}, the chain can be assembled with it. Otherwise a simple software integration environment of the METIS data flow team will be used for this purpose. 
+
     \item Updated versions of the pipeline package in previously agreed intervals consisting of:
     \begin{itemize}
         \item Updated version of the DRL document
@@ -95,20 +98,12 @@ It is planned to monitor the status of pipeline software implementation in regul
     \end{itemize}
 \end{enumerate}
 
-The pipeline skeleton consists of the recipes \emph{shells}, i.e.~the executable
-code that takes the expected inputs and parameters and produces output files,
-albeit without actually performing any reductions; pixel values of input and
-outputs are just dummy values at this stage. The purpose of chain skeleton is to
-demonstrate the data flow but is otherwise empty from the algorithmic point of
-view. Depending on the release status of the \ac{EDPS}, the chain can be
-assembled with it. Otherwise a simple software integration environment of the
-METIS data flow team will be used for this purpose. 
 
 
 \subsection{METIS Preliminary Acceptance in Europe (PAE)}
 \label{ssec:pae_europe}
 
-PAE completes the METIS AIT phase. At this stage, the pipeline software has reached a maturity level where all components are fully developed and integrated. It is expected that at this point also lab data from the AIT phase will be available for test and validation purposes in addition to the simulated test data package. The pipeline PAE will consist of 3 phases: a test readiness review, an end-to-end simulation of the data flow and the PAE review phase.
+PAE completes the METIS AIT phase. At this stage, the pipeline software has reached a maturity level where all components are fully developed and integrated. It is expected that at this point also all necessary lab data from the AIT phase will be available for test and validation purposes in addition to the simulated test data package. The pipeline PAE will consist of 3 phases: a test readiness review, an end-to-end simulation of the data flow and the PAE review phase.
 
 \subsubsection{Test Readiness Review}
 \label{sssec:trr}
