@@ -21,11 +21,11 @@ The time schedule is subject to regular updates and review in close cooperation 
     \item ESO: check consistency of FITS keywords, QC parameters, coordinate required input to software recipe development (detector persistence, ...) and coordinate the pipeline implementation schedule
 \end{itemize}
 
-Table \ref{tab:development_schedule} provides an overview of the milestone schedule for the METIS pipeline development.
+Tables \ref{tab:development_schedule1} and \ref{tab:development_schedule2} provide an overview of the milestone schedule for the METIS pipeline development.
 
-\begin{table}
-    \caption[Development schedule]{Milestones of the METIS pipeline software development schedule starting at FDR}
-  \label{tab:development_schedule}
+\begin{table}[h!]
+    \caption[Development schedule]{Milestones of the METIS pipeline software development schedule from FDR to PAE}
+  \label{tab:development_schedule1}
 
 \centering
 \scriptsize
@@ -62,14 +62,14 @@ Date$\_$start &	Date$\_$end   &	Task                            &		Reference \\
 \hline
 01.12.2025 & 01.12.2025 &  Updated characteristic data of LMS received		  &   \\
 05.06.2026 & 09.07.2027 & SysAIV Phase D2 E - CRY/ICS/CFO/WCU/IMG/LMS/SCAO            &   3 \\
-26.06.2026 & 26.10.2026 & IMG testing (IMG \& LSS modes):                   &	3 \\
+26.06.2026 & 26.10.2026 & IMG testing (IMG \& LSS modes):                     &	3 \\
    &           & Wavelength calibration        	                           & \\   
    &           & Distortion correction                                        & \\
 \hline
 26.10.2026 & 26.10.2026 & Updated characteristic data LM \& N imaging, LMS, HCI, LSS      & 	\\
 \hline
 27.10.2026 & 15.09.2027 &	Further DFS products:		                      &	4 \\
-    &          &  Processing of LMS, LSS & IMG data                           &	\\
+    &          &  Processing of LMS, LSS \& IMG data                          &	\\
     &          &  Processing of HCI data                                      &	\\
     &          &  QC parameters					            &	\\
 \hline
@@ -77,7 +77,7 @@ Date$\_$start &	Date$\_$end   &	Task                            &		Reference \\
 \hline
 04.11.2027 & 04.11.2027 & Pipeline end-to-end simulation  =PAE-6w			  &	\\
 \hline
-18.11.2027 & 18.11.2027 & PAE deliverables =PAE-4w                          &	2 \\
+18.11.2027 & 18.11.2027 & PAE deliverables =PAE-4w                            &	2 \\
     &          &  DC3 PAE Test and Calibration Data                           &	\\
     &          &  DR3 Data Reduction Library v1.0 \& Test Report              &	\\
     &          &  DR3 Pipeline/QC User Manual v1                              &	\\
@@ -86,99 +86,19 @@ Date$\_$start &	Date$\_$end   &	Task                            &		Reference \\
     &   	   &  OP4 Observation Preparation Tool v1.0                       &	\\
     &	   	   &  IP3 Instrument Package v1.0	                			  &	\\
 \hline
-16.12.2027 & 16.12.2027 & PAE							    &	3 \\
-\hline
-01.11.2028 & 01.11.2028 & First Light 						    &	3 \\
-\hline
-17.04.2029 & 17.04.2029 & ET4 Instrument Description Data v1.1 =COM1-6w		  &	2 \\
-\hline
-01.05.2029 & 01.05.2029 & Deliverables COM1-4w                                &	2 \\
-    &          & DR4 Data Reduction Library v1.1 & Test Report               &	\\
-    &	  	   & DF4 Observation Preparation Tools v1.1                      &	\\
-    &		   & IP4 Instrument Package v1.1				    &	\\
-\hline
-22.05.2029 & 22.05.2029 & DR5 Pipeline v0.5 =COM1-1w				    &	2 \\
-\hline 
-29.05.2029 & 14.11.2029 & Commissioning TBC					    &	3 \\
-\hline
-29.05.2029 & 10.07.2029 & COM1 TBC						    &	5 
-\hline
-11.07.2029 & 10.10.2029 & Performance Assessment Period PAP TBC			    &	5 \\
-\hline
-07.08.2029 & 07.08.2029 & DC4 Instrument Commissioning Data = COM1+4w		&   2 \\
-\hline
-16.08.2029 & 16.08.2029 & Deliverables COM2-8w                              &	2 \\
-    &          & Microservice modules for Obs.Prepration                    &	\\
-    &		   & User Manual for Obs.Prepration				    &	\\
-\hline
-13.09.2029 & 13.09.2029 & Deliverables COM2-4w                              & 	2 \\
-    &          & IP4 Instrument Package v1.x                                &	\\
-    &	       & OP6 Observation Preparation Tools v1.x                     &	\\
-    &		   & ET6 Exposure Time Calculator v1.0                          &	\\
-\hline
-20.09.2029 & 20.09.2029 & DR6 Data Reduction Library v1.2 \& Test Report =COM2-3w	    &	2 \\
-\hline
-11.10.2029 & 22.11.2029 & COM2 TBC						    &	5 \\
-\hline
-25.10.2029 & 25.10.2029 & Deliverables COM2+2w                                       &	2 \\
-           &               &	DC5 Calibration Plan v1					    &	\\
-           &               &	DC6 Science Test Data                                       &	\\
- 	   &		   &	DR7 Pipeline v1.0					    &	\\
-\hline
-TBD        &	TBD	   &	Observation Preparation Tools v2.0  =CFP-6w     	    &	2 \\
-\hline
-TBD	   &	TBD	   &	Deliverables CFP-4w                                         &	2 \\
-           &               &    ET6 Exposure Time Calculator v1.1			    &	\\
-	   &		   &	IP5 Instrument Package v2				    &	\\
-\hline
-TBD	   &	TBD	   &	CFP Proposals (Phase 1) Preliminary  TBD		    &	2 \\
-\hline
-03.10.2029 &	03.10.2029 &	ET7 Instrument Description Data v1.x =PAC-6w		    &	2 \\
-\hline
-17.10.2029 &	17.10.2029 &	Deliverables PAC-4w                                         &	\\
-   	   &               &    DR8 Data Reduction Library v1.x & Test Report               &	\\
-           &               &    DR8 DRL Validation and Test Plan v3                         &	\\
-           &               &    DR8 Data Reduction Library Design v2			    &	2 \\
-\hline
-14.11.2029 &	14.11.2029 &	PAC							    &	3 \\
-\hline
-15.11.2029 &	14.11.2031 &	Guarantee period 					    &	2 \\
-\hline
-TBD        &	TBD        &	ET8 Exposure Time Calculator v1.x =PH2-4w		    &	2 \\
-\
-TBD        &	TBD        &	PH2 Observation Preparation Phase 2 TBD			    &	2 \\
-\hline
-TBD        &	TBD        &	IP6 Package v2.x =SO1-16w				    &	2 \\
-\hline
-TBD        &	TBD        &	Deliverables SO1-4w                                         &	2 \\
-           &               &    DR10 Pipeline v1.x					    &	\\
-           &		   &	DR10 Pipeline/QC User Manual v2				    &	\\
-\hline
-TBD        &	TBD        &	SO1 Science Operations (1st observation period) TBD	    &	2 \\
-\hline
-TBD        &	TBD        &	Deliverables SO1+8w                                         &	2 \\
-	   &		   &	DR11 DRL Validation and Test Plan v4			    &	\\
-line	   &		   &	DR11 Data Reduction Library Design v3			    &	\\
-	   &		   &	DC7 Calibration Plan v2					    &	\\
-\hline
-TBD        &	TBD        &	SO2 Science Operations (2nd observation period) TBD	    &	2 \\
-\hline
-TBD        &	TBD        &	Deliverables SO2+8w                                         &	2 \\
-	   &		   &	DR12 Pipeline/QC User Manual v3				    &	\\
-\hline
-14.11.2031 &	14.11.2031 &	Final Acceptance  = PAC+24m  TBD			    &	6 \\
+16.12.2027 & 16.12.2027 & PAE							                      &	3 \\
 \hline\hline
 \end{tabularx}			
 \tiny
 \begin{tabularx}{\textwidth}{ll}
 1 & ESO-456292 METIS FDR Plan  \\
 2 & ESO-037611 Dataflow for ESO Observatories Deliverables Standard \\
-3 & E-PLA-NOVA-MET-1225_4-0 METIS Project schedule \\
+3 & E-PLA-NOVA-MET-1225$\_$4-0 METIS Project schedule \\
 4 & E-TNT-NOVA-MET-1292 METIS PIP Capabilities needed for AIT \\ 
-5 & E-PLA-MPIA-MET-1046_2-0 Commissioning Plan \\
-6 & ESO-257874_2 Statement of Work for the Construction of METIS \\
+5 & E-PLA-MPIA-MET-1046$\_$2-0 Commissioning Plan \\
+6 & ESO-257874$\_$2 Statement of Work for the Construction of METIS \\
 \end{tabularx} 
-
+\end{table}
 
 
 %  \centering\scriptsize
@@ -201,12 +121,12 @@ TBD        &	TBD        &	Deliverables SO2+8w                                   
 %    FAO              & Final acceptance at the observatory & & \\
 %    \hline
 %  \end{tabularx}
-\end{table}
+
 
 \subsection{FDR to PAE development plan}
 \label{ssec:fdr2pae}
 
-It is planned to monitor the status of pipeline software implementation in regular progress meetings, where, if necessary, specific action items can be defined. Starting after FDR the implementation of the development schedule (table \ref{tab:development_schedule}) will be carried out in the subsequent steps:
+It is planned to monitor the status of pipeline software implementation in regular progress meetings, where, if necessary, specific action items can be defined. Starting after FDR the implementation of the development schedule (table \ref{tab:development_schedule1}) will be carried out in the subsequent steps:
 
 \begin{enumerate}
     \item The baseline for the pipeline development environment regarding the use of the \ac{EDPS} framework and of pyCPL needs to be established.
@@ -291,7 +211,138 @@ Further details are specified in \cite{DRLVT}.
 \subsubsection{PAE review phase}
 \label{sssec:paw_review}
 
-The PAE review phase will consist of the formal approval of the PAE deliverables described in \cite{1618} (see also table \ref{tab:development_schedule}). The reports of the Test Readiness Review and the data flow end-to-end simulation will be attached to them. 
+The PAE review phase will consist of the formal approval of the PAE deliverables described in \cite{1618} (see also table \ref{tab:development_schedule1}). The reports of the Test Readiness Review and the data flow end-to-end simulation will be attached to them. 
+
+\begin{table}[h!]
+    \caption[Development schedule]{Milestones of the METIS pipeline software development schedule from First Light to PAC}
+  \label{tab:development_schedule2}
+
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{llll}
+
+\hline
+Date$\_$start &	Date$\_$end   &	Task                            &		Reference \\
+\hline\hline
+
+
+01.11.2028 & 01.11.2028 & First Light 						                  &	3 \\
+\hline
+17.04.2029 & 17.04.2029 & ET4 Instrument Description Data v1.1 =COM1-6w		  &	2 \\
+\hline
+01.05.2029 & 01.05.2029 & Deliverables COM1-4w                                &	2 \\
+    &          & DR4 Data Reduction Library v1.1 \& Test Report               &	\\
+    &	  	   & DF4 Observation Preparation Tools v1.1                       &	\\
+    &		   & IP4 Instrument Package v1.1				                  &	\\
+\hline
+22.05.2029 & 22.05.2029 & DR5 Pipeline v0.5 =COM1-1w				        &	2 \\
+\hline 
+29.05.2029 & 14.11.2029 & Commissioning TBC					                &	3 \\
+\hline
+29.05.2029 & 10.07.2029 & COM1 TBC						                    &	5 \\
+\hline
+11.07.2029 & 10.10.2029 & Performance Assessment Period PAP TBC			    &	5 \\
+\hline
+07.08.2029 & 07.08.2029 & DC4 Instrument Commissioning Data = COM1+4w		&   2 \\
+\hline
+16.08.2029 & 16.08.2029 & Deliverables COM2-8w                              &	2 \\
+    &          & Microservice modules for Obs.Prepration                    &	\\
+    &		   & User Manual for Obs.Prepration				                &	\\
+\hline
+13.09.2029 & 13.09.2029 & Deliverables COM2-4w                              & 	2 \\
+    &          & IP4 Instrument Package v1.x                                &	\\
+    &	       & OP6 Observation Preparation Tools v1.x                     &	\\
+    &		   & ET6 Exposure Time Calculator v1.0                          &	\\
+\hline
+20.09.2029 & 20.09.2029 & DR6 Data Reduction Library v1.2 \& Test Report =COM2-3w	    &	2 \\
+\hline
+11.10.2029 & 22.11.2029 & COM2 TBC						                    & 5 \\
+\hline
+25.10.2029 & 25.10.2029 & Deliverables COM2+2w                              & 2 \\
+   &           & DC5 Calibration Plan v1					                 &	\\
+   &           & DC6 Science Test Data                                      &	\\
+   &		    & DR7 Pipeline v1.0					                         &	\\
+\hline
+TBD    & TBD   & Observation Preparation Tools v2.0  =CFP-6w     	        & 2 \\
+\hline
+TBD	   & TBD   & Deliverables CFP-4w                                        & 2 \\
+   &           & ET6 Exposure Time Calculator v1.1			                 &	\\
+   &		    & IP5 Instrument Package v2				                     &	\\
+\hline
+TBD	   & TBD   & CFP Proposals (Phase 1) Preliminary  TBD		           & 2 \\
+\hline
+03.10.2029 & 03.10.2029 & ET7 Instrument Description Data v1.x =PAC-6w	   & 2 \\
+\hline
+17.10.2029 & 17.10.2029 & Deliverables PAC-4w                              &	\\
+   &           & DR8 Data Reduction Library v1.x \& Test Report            &	\\
+   &           & DR8 DRL Validation and Test Plan v3                       &	\\
+   &           & DR8 Data Reduction Library Design v2			            & 2 \\
+\hline
+14.11.2029 & 14.11.2029 & PAC							                   & 3 \\
+\hline\hline
+\end{tabularx}			
+\tiny
+\begin{tabularx}{\textwidth}{ll}
+1 & ESO-456292 METIS FDR Plan  \\
+2 & ESO-037611 Dataflow for ESO Observatories Deliverables Standard \\
+3 & E-PLA-NOVA-MET-1225$\_$4-0 METIS Project schedule \\
+4 & E-TNT-NOVA-MET-1292 METIS PIP Capabilities needed for AIT \\ 
+5 & E-PLA-MPIA-MET-1046$\_$2-0 Commissioning Plan \\
+6 & ESO-257874$\_$2 Statement of Work for the Construction of METIS \\
+\end{tabularx} 
+\end{table}
+
+
+
+\begin{table}[h!]
+    \caption[Development schedule]{Milestones of the METIS pipeline software development schedule covering the Guarantee Period unti Final Acceptance}
+  \label{tab:development_schedule3}
+
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{llll}
+
+\hline
+Date$\_$start &	Date$\_$end   &	Task                            &		Reference \\
+\hline\hline
+15.11.2029 & 14.11.2031 & Guarantee period 					               & 2 \\
+\hline
+TBD    & TBD   & ET8 Exposure Time Calculator v1.x =PH2-4w		           & 2 \\
+\hline
+TBD    & TBD   & PH2 Observation Preparation Phase 2    		           & 2 \\
+\hline
+TBD    & TBD   & IP6 Package v2.x =SO1-16w				                   & 2 \\
+\hline
+TBD    & TBD   & Deliverables SO1-4w                                & 2 \\
+   &           & DR10 Pipeline v1.x					             &	\\
+   &		    & DR10 Pipeline/QC User Manual v2		    	     &	\\
+\hline
+TBD    & TBD   & SO1 Science Operations (1st observation period) 	& 2 \\
+\hline
+TBD    & TBD   & Deliverables SO1+8w                                & 2 \\
+   &	 	    & DR11 DRL Validation and Test Plan v4	  		     &	\\
+   &		    & DR11 Data Reduction Library Design v3	  		     &	\\
+   &		    & DC7 Calibration Plan v2					         &	\\
+\hline
+TBD    & TBD   & SO2 Science Operations (2nd observation period) 	& 2 \\
+\hline
+TBD    & TBD   & Deliverables SO2+8w                                & 2 \\
+   &		    & DR12 Pipeline/QC User Manual v3				     &	\\
+\hline
+14.11.2031 & 14.11.2031 & Final Acceptance  = PAC+24m  TBD			& 6 \\
+\hline\hline
+\end{tabularx}			
+\tiny
+\begin{tabularx}{\textwidth}{ll}
+1 & ESO-456292 METIS FDR Plan  \\
+2 & ESO-037611 Dataflow for ESO Observatories Deliverables Standard \\
+3 & E-PLA-NOVA-MET-1225$\_$4-0 METIS Project schedule \\
+4 & E-TNT-NOVA-MET-1292 METIS PIP Capabilities needed for AIT \\ 
+5 & E-PLA-MPIA-MET-1046$\_$2-0 Commissioning Plan \\
+6 & ESO-257874$\_$2 Statement of Work for the Construction of METIS \\
+\end{tabularx} 
+\end{table}
+
 
 \subsection{METIS instrument commissioning}
 \label{ssec:com}
