@@ -285,7 +285,7 @@ PSFs. In addition coverage maps are produced.
                        & parameters for resampling method \\
                        & start and end limit to contrast curve (in $\lambda/D$) \\
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
-  Algorithm:           & call \hyperref[drl:lm_adi_cgrph_centroid]{\CODE{det_adi_cgrph_centroid}} to determine the centroids of the central PSFs \\
+  Algorithm:           & call \hyperref[drl:lm_adi_cgrph_centroid]{\CODE{det_adi_cgrph_centroid}} to determine the location of the central PSFs \\
                        & call \hyperref[drl:adi_regrid]{\CODE{ifu_adi_regrid}} to perform distortion correction, square pixel reconstruction and sub-pixel alignment   \\
                        & call \hyperref[drl:lm_adi_cgrph_psf]{\CODE{det_adi_cgrph_psf}} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\

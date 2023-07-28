@@ -11,6 +11,8 @@ same basic reduction as standard imaging data. %\TODO{Does this include
 \begin{enumerate}
 \item Locate the positions of the PSFs with respect to each other
   (dither correction).
+  This is primarily done through the \ac{WFS-FS} position information.
+  The positions of the PSFs are also measured in the images themselves as a verification.
 \item Center the leakage PSF in the frames.
 \item Extract the coronagraphic PSFs and combine them into a single
   cube (see Fig.~\ref{fig:app_psf_combine}). This combined cube has an almost continuous 
@@ -21,6 +23,7 @@ same basic reduction as standard imaging data. %\TODO{Does this include
   account a static mask to reject noisy border regions of the dark
   zones.
 \item Sum the layers to obtain final image.
+  Intermediate data products are also provided.
 \end{enumerate}
 
 Additionally a reduction process where the two PSFs are handled separately also works. This will use the same approach however the mask will cover a larger angular extent.

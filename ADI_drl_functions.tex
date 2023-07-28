@@ -53,7 +53,7 @@ Unit tests: & See \cite{DRLVT}. \\
 \subsubsection{Detect centroid in APP LM images}\label{drl:lm_adi_app_centroid}
 \begin{recipedef}
 Name: & \hyperref[drl:lm_adi_app_centroid]{\DRL{lm_adi_app_centroid}} \\
-Purpose: & Detect the centroid in a sequence of LM band APP coronographic images\\
+Purpose: & Determine the centroid in a sequence of LM band APP coronographic images\\
 Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
@@ -63,7 +63,7 @@ QC outputs: & \QC{QC LM APP FWHM nn}\\
 %Output FITS files: & None \\
 Outputs: & \hyperref[dataitem:lm_app_centroid_tab]{\PROD{lm_app_CENTROID_TAB}}\\
                 & \texttt{cpl\_error\_code} \\
-General description: & Centroiding of source in LM band APP coronagraphic images \\
+General description: & Determine source location in LM band APP coronagraphic images, through the \ac{WFS-FS} position and by centroiding \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging}  \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See \cite{DRLVT}. \\
