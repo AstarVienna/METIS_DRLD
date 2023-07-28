@@ -21,7 +21,7 @@ The time schedule is subject to regular updates and review in close cooperation 
     \item ESO: check consistency of FITS keywords, QC parameters, coordinate required input to software recipe development (detector persistence, ...) and coordinate the pipeline implementation schedule
 \end{itemize}
 
-Tables \ref{tab:development_schedule1} and \ref{tab:development_schedule2} provide an overview of the milestone schedule for the METIS pipeline development.
+Tables \ref{tab:development_schedule1}, \ref{tab:development_schedule2} and \ref{tab:development_schedule3} provide an overview of the milestone schedule for the METIS pipeline development.
 
 \begin{table}[h!]
     \caption[Development schedule 1]{Milestones of the METIS pipeline software development schedule from FDR to PAE}
@@ -34,29 +34,29 @@ Tables \ref{tab:development_schedule1} and \ref{tab:development_schedule2} provi
 \hline
 Date$\_$start &	Date$\_$end   &	Task                            &		Reference \\
 \hline\hline
-25.11.2023 & 25.11.2023 & Release of FDR board report = FDR        &	1 \\
+25.11.2023 & 25.11.2023 & Release of FDR board report = FDR                &	1 \\
 	  &		   & Baseline for PIP software development defined (EDPS, pyCPL) &	\\
     &    	 & Updated detector characteristics LM \& N imager received    &	\\
 \hline
 25.05.2024 & 25.05.2025 & PR2 Simulated raw data, processed data = FDR+6m &	2 \\
 \hline
-25.11.2024 & 25.11.2024 & PR3 DRS Chain Skeleton = FDR+12m     &	2 \\
-	&		 &	OP3 Microservice modules and User Manual for                &	2 \\
+25.11.2024 & 25.11.2024 & PR3 DRS Chain Skeleton = FDR+12m                &	2 \\
+	&		 &	OP3 Microservice modules and User Manual for              &	2 \\
     &        &  Obs.Preparation = FDR+12m                                 &	\\
 \hline
 03.03.2025 & 03.03.2025 & Updated characteristic data of HCI sub-system received & \\
 \hline
-02.01.2025 & 23.09.2025 & SysAIV Phase D2 AB - CRY/ICS/CFO/WCU          &	3 \\
+02.01.2025 & 23.09.2025 & SysAIV Phase D2 AB - CRY/ICS/CFO/WCU            &	3 \\
 \hline
 02.05.2025 & 02.05.2025 & Updated characteristic data of IMG sub-system received & \\
 \hline
 24.10.2025 & 23.04.2026 & SysAIV Phase D2 CD - CRY/ICS/CFO/WCU/LMS/DET/PIP            &	3 \\
 \hline
-24.10.2025 & 24.10.2025 & First DFS products ready for Sys AIV:            &	4 \\
+24.10.2025 & 24.10.2025 & First DFS products ready for Sys AIV:               &	4 \\
     &          &  PIP interface to ICS                                        &	\\
     &          &  Detector characterisation                                   &	\\
 \hline
-14.11.2025 & 23.04.2026 & LMS testing:                                      &	3 \\ 
+14.11.2025 & 23.04.2026 & LMS testing:                                        &	3 \\ 
     &          & Basic background subtraction (LMS \& IMG/LSS modes)          &	\\
     &          & LMS cube reconstruction                                      &	\\
 \hline
@@ -323,7 +323,7 @@ TBD    & TBD   & Deliverables SO2+8w                                & 2 \\
 \subsection{METIS instrument commissioning}
 \label{ssec:com}
 
-It is planned that the commissioning period will be divided in three sections.
+It is planned that the commissioning period will be divided in three sections (see also table \ref{tab:development_schedule2}).
 
 \subsubsection{Commissioning period 1 (COM1)}
 \label{ssec:com1}
@@ -349,11 +349,11 @@ The scope of COM2 is to establish the science operation readiness of METIS integ
 \subsection{METIS Preliminary Acceptance in Chile}
 \label{ssec:pae_chile}
 
-At the time of PAC the final version of the Data Reduction Library package will be available. Data from the ESO Archive will be processed with the data reduction pipeline  which have to comply with ESO standards on data formats and data products. THe functionality of the pipeline wil be checked in the QC0/QC1/QC2 operational environments. The PAC deliverables are specified in \cite{1618}. Upon successful completion of PAC, the two-year guarantee period will start as defined in the Statement of Work.
+At the time of PAC the final version of the Data Reduction Library package will be available. Data from the ESO Archive will be processed with the data reduction pipeline  which have to comply with ESO standards on data formats and data products. THe functionality of the pipeline wil be checked in the QC0/QC1/QC2 operational environments. The PAC deliverables are specified in \cite{1618} . Upon successful completion of PAC, the two-year guarantee period will start as defined in the Statement of Work.
 
 \subsection{METIS science operations}
 \label{ssec:sciops}
 
-MEITS science operations will consist of two observation periods, SO1 and SO2 respectively. SO1 will start upon successful completion of PAC. The data reduction pipeline will support the scientific data analysis with the METIS pipeline software team providing support to ESO. The SO1 deliverables are specified in \cite{1618}.
+MEITS science operations will consist of two observation periods, SO1 and SO2 respectively. SO1 will start upon successful completion of PAC. The data reduction pipeline will support the scientific data analysis with the METIS pipeline software team providing support to ESO. The SO1 deliverables are specified in \cite{1618} (see also table \ref{tab:development_schedule3}).
 
-SO2 will be used to further refine the data reduction pipeline package based upon feedback from SO1. This should be the final consolidation of the pipelines software and all relevant documentation and user manuals. The SO2 deliverables are specified in \cite{1618}.
+SO2 will be used to further refine the data reduction pipeline package based upon feedback from SO1. This should be the final consolidation of the pipelines software and all relevant documentation and user manuals. The SO2 deliverables are specified in \cite{1618} (see also table \ref{tab:development_schedule3}).
