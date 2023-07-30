@@ -108,8 +108,10 @@ Expected accuracies:   & 1/5th of a pixel after post-processing (cf.~\cite{METIS
   \end{recipedef}
 
 \begin{figure}[hb]
-  \centering
-  \includegraphics[width=0.7\textwidth]{metis_ifu_wavecal}
+    \centering
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_ifu_wavecal}
   \caption[Recipe: \REC{metis_ifu_wavecal}]{\REC{metis_ifu_wavecal} --
     daytime wavelength calibration for the IFU.}
   \label{fig:metis_ifu_wavecal}
