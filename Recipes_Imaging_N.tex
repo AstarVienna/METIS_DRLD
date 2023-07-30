@@ -77,7 +77,7 @@ otherwise a new one is created.
                        & Call \hyperref[drl:metis_update_n_flat_mask]{\DRL{metis_update_n_flat_mask}} to flag deviant pixels. \\
   Output data:         & \hyperref[dataitem:master_img_flat_lamp_n]{\PROD{MASTER_IMG_FLAT_LAMP_N}} or \hyperref[dataitem:master_img_flat_twilight_n]{\PROD{MASTER_IMG_FLAT_TWILIGHT_N}} \\
                        & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}                                            \\
-  Expected accuracies: & 0.5\% (cf. \cite{METIS_calerrbudget})                                                           \\
+  Expected accuracies: & 0.5\% (cf.~\cite{METIS_calerrbudget})                                                           \\
   QC1 parameters:      & \QC{QC N MASTERFLAT RMS}                                       \\
                        & \QC{QC N MASTERFLAT NBADPIX}                                         \\
                        & \QC{QC N FLAT MEAN ##}                                         \\
@@ -199,7 +199,7 @@ following~\cite{visir_manual}.
                        & call \hyperref[drl:calculate_std_fluxcal]{\DRL{calculate_std_fluxcal}} to calculate conversion factor to physical units   \\
                        & call \hyperref[drl:calculate_detection_limits]{\DRL{calculate_detection_limits}} to compute measured background noise (std, rms) and compute detection limits \\
   Output data:         & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                            \\
-  Expected accuracies: & 3\% (cf. \cite{METIS_calerrbudget})                                           \\
+  Expected accuracies: & 3\% (cf.~\cite{METIS_calerrbudget})                                           \\
   QC1 parameters:      & \QC{QC N STD PEAK CNTS}                                                       \\
                        & \QC{QC N STD APERTURE CNTS}                                                   \\
                        & \QC{QC N STD STREHL}                                                          \\
@@ -337,7 +337,7 @@ pixel scale across the detector will be created.
   Output data:         & \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}} \\
                        & \hyperref[dataitem:n_distortion_map]{\PROD{N_DISTORTION_MAP}}        \\
                        & \hyperref[dataitem:n_dist_reduced]{\PROD{N_DIST_REDUCED}}             \\
-  Expected accuracies: & $2\times 10^{-3}$ (cf. \cite{METIS_calerrbudget})                                                            \\
+  Expected accuracies: & $2\times 10^{-3}$ (cf.~\cite{METIS_calerrbudget})                                                            \\
   QC1 parameters:      & \hyperref[qc:qc_n_distort_rms]{\QC{QC N DISTORT RMS} }                                         \\
                        & \hyperref[qc:qc_n_distort_nsource]{\QC{QC N DISTORT NSOURCE}}  \\
   hdrl functions:      & \CODE{hdrl_catalogue_create}                                   \\

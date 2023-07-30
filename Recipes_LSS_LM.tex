@@ -46,7 +46,7 @@ Algorithm:      & subtract master \ac{WCU} "OFF" frame from illumination frame (
 Output data:	& \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} (\FITS{PRO.CATG=MASTER_LM_LSS_RSRF}): master flatfield/\ac{RSRF} \\
                 & \hyperref[dataitem:median_lm_lss_rsrf_img]{\PROD{MEDIAN_LM_LSS_RSRF_IMG}}: median map (\ac{QC})\\
                 & \hyperref[dataitem:mean_lm_lss_rsrf_img]{\PROD{MEAN_LM_LSS_RSRF_IMG}}: mean map (\ac{QC})\\
-Expected accuracies: & 3\% (cf. \cite{METIS-calibration_plan} and~\cite{METIS_calerrbudget})\\
+Expected accuracies: & 3\% (cf.~\cite{METIS-calibration_plan} and~\cite{METIS_calerrbudget})\\
 QC1 parameters: & \hyperref[qc:qc_lm_lss_rsrf_mean_level]{\QC{QC LM LSS RSRF MEAN LEVEL}}: Mean level of the \ac{RSRF}\\
                 & \hyperref[qc:qc_lm_lss_rsrf_median_level]{\QC{QC LM LSS RSRF MEDIAN LEVEL}}: Median level of the \ac{RSRF}\\
                 & \hyperref[qc:qc_lm_lss_rsrf_intordr_level]{\QC{QC LM LSS RSRF INTORDR LEVEL}}: Flux level of the interorder background\\
@@ -86,7 +86,7 @@ Algorithm:      & Detection of the order edges\\
                 & Polynomial fitting\\
 Output data:	& \hyperref[dataitem:lm_lss_trace]{\PROD{LM_LSS_TRACE}} (\FITS{PRO.CATG=LM_LSS_TRACE}): order table\\
 Expected accuracies: & 1/10th of a pixel after post-processing\\
-               & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+               & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
 QC1 parameters: & \hyperref[qc:qc_lm_lss_trace_lpolydeg]{\QC{QC LM LSS TRACE LPOLYDEG}}: Degree of the polynomial fit of the left order edge\\
                 & \hyperref[qc:qc_lm_lss_trace_lcoeff<i>]{\QC{QC LM LSS TRACE LCOEFF<i>}}: $i$-th coefficient of the polynomial of the left order edge\\
                 & \hyperref[qc:qc_lm_lss_trace_rpolydeg]{\QC{QC LM LSS TRACE RPOLYDEG}}: Degree of the polynomial fit of the right order edge\\
@@ -135,7 +135,7 @@ Output data:	& \hyperref[dataitem:lm_lss_curve]{\PROD{LM_LSS_CURVE}} (\FITS{PRO.
                 & \hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}} (\FITS{PRO.CATG=LM_LSS_DIST_SOL}): Distortion solution\\
                 & \hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}} (\FITS{PRO.CATG=LM_LSS_WAVE_GUESS}): Wavelength first guess\\
 Expected accuracies: & 1/10th of a pixel after post-processing\\
-               & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+               & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
 QC1 parameters: & \hyperref[qc:qc_lm_lss_wave_polydeg]{\QC{QC LM LSS WAVE POLYDEG}}: Degree of the first guess polynomial\\
                 & \hyperref[qc:qc_lm_lss_wave_coeff<i>]{\QC{QC LM LSS WAVE COEFF<i>}}: $i$-th coefficient of the polynomial\\
                 & \hyperref[qc:qc_lm_lss_wave_nlines]{\QC{QC LM LSS WAVE NLINES}}: Number of detected (laser) lines; should be constant\\
@@ -210,11 +210,11 @@ Output data:	& \hyperref[dataitem:lm_lss_std_obj_map]{\PROD{LM_LSS_STD_OBJ_MAP}}
             	& \hyperref[dataitem:std_transmission]{\PROD{STD_TRANSMISSION}}: Transmission function derived by means of the \ac{STD} (\ac{QC})\\        
                 & \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}}: response function (optionally including the transmission) \\
 Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
-            & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+            & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
             & for flux: 10\% over an atmospheric band \\
             & $<30$\% absolute line flux accuracy\\
             & $<5$\% absolute flux calibration \\
-            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
+            & (cf.~\cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
 QC1 parameters: & \hyperref[qc:qc_lm_lss_std_backgd_mean]{\QC{QC LM LSS STD BACKGD MEAN}}: Mean value of background\\
                 & \hyperref[qc:qc_lm_lss_std_backgd_median]{\QC{QC LM LSS STD BACKGD MEDIAN}}: Median value of background\\
                 & \hyperref[qc:qc_lm_lss_std_backgd_stdev]{\QC{QC LM LSS STD BACKGD STDEV}}: Standard deviation value of background\\
@@ -295,11 +295,11 @@ Output data:	& \hyperref[dataitem:lm_lss_sci_obj_map]{\PROD{LM_LSS_SCI_OBJ_MAP}}
               	& \hyperref[dataitem:lm_lss_sci_flux_1d]{\PROD{LM_LSS_SCI_FLUX_1D}}: coadded, wavelength + flux 1D spectrum\\
                 & (\FITS{PRO_CATG}: \FITS{LM_LSS_1d_coadd_wavecal}) \\
 Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
-            & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+            & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
             & for flux: 10\% over an atmospheric band \\
             & $<30$\% absolute line flux accuracy\\
             & $<5$\% absolute flux calibration \\
-            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
+            & (cf.~\cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
             & for optional telluric correction: 10\% within an atmospheric band); desired: 2\% 
             (\cite{METIS-calibration_plan})\\
 QC1 parameters: & \hyperref[qc:qc_lm_lss_sci_snr]{\QC{QC LM LSS SCI SNR}}: Signal-to-noise ration of science spectrum\\
@@ -345,7 +345,7 @@ Algorithm:      & Fit of telluric features visible in the science input spectrum
                 & Determination of best-fit parameter set\\
 Output data:	& \hyperref[dataitem:mf_best_fit_tab]{\PROD{MF_BEST_FIT_TAB}}: Table with best-fit parameters\\
 Expected accuracies: & n/a\\
-QC1 parameters: & cf. \cite{molecfit}\\
+QC1 parameters: & cf.~\cite{molecfit}\\
 \end{recipedef}
 
 %------------------------------------------------------------------------------------------------------------------
@@ -375,7 +375,7 @@ Parameters: 	& \texttt{molecfit} parameters (c.f.  \cite{molecfit})\\
 Algorithm:      & Calculate the entire transmission curve by means of the best-fit parameters\\
 Output data:	& \hyperref[dataitem:lm_lss_synth_trans]{\PROD{LM_LSS_SYNTH_TRANS}}: synth. transmission\\
 Expected accuracies: & n/a\\
-QC1 parameters: & cf. \cite{molecfit}\\
+QC1 parameters: & cf.~\cite{molecfit}\\
 \end{recipedef}
 
 \subsubsection{\REC{metis_LM_lss_mf_correct}:  Telluric correction}\label{rec:metis_lm_lss_mf_correct}
@@ -402,7 +402,7 @@ Algorithm:      & Apply telluric correction, i.e. divide the input science spect
                 & by the synthetic transmission\\
 Output data:	& \hyperref[dataitem:lm_lss_sci_flux_tellcorr_1d]{\PROD{LM_LSS_SCI_FLUX_TELLCORR_1D}}\\
 Expected accuracies: & Telluric removal must be good enough to reach the required spectro-photometric accuracy (10\% within an atmospheric band). Desired: 2\% (\cite{METIS-calibration_plan})\\
-QC1 parameters: & cf. \cite{molecfit}\\
+QC1 parameters: & cf.~\cite{molecfit}\\
 \end{recipedef}
 
 

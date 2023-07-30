@@ -71,7 +71,7 @@ table extension holds the polynomial coefficients.
                        & Compute wavelength solution $\xi(x, y, i)$, $\lambda(x, y, i)$         \\
   Output data:         & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}                    \\
 Expected accuracies: & 1/5th of a pixel after post-processing\\
-               & (cf. \cite{METIS-calibration_plan}, \REQ{METIS-6074} \\
+               & (cf.~\cite{METIS-calibration_plan}, \REQ{METIS-6074} \\
   QC1 parameters:      & \QC{QC IFU WAVECAL RMS}                                                \\
                        & \QC{QC IFU WAVECAL NLINES}                                             \\
                        & \QC{QC IFU WAVECAL PEAK CNTS}                                          \\
@@ -348,11 +348,11 @@ Output data:         & \hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED
                      & \hyperref[dataitem:ifu_sci_object_1d]{\PROD{IFU_SCI_OBJECT_1D}}  (1D)                    \\
                      & \hyperref[dataitem:ifu_sci_telluric_1d]{\PROD{IFU_SCI_TELLURIC_1D}}                      \\
 Expected accuracies: & for wavelength: 1/5th of a pixel after post-processing\\
-            & (cf. \cite{METIS-calibration_plan}, \REQ{METIS-6074} \\
+            & (cf.~\cite{METIS-calibration_plan}, \REQ{METIS-6074} \\
             & for flux: 10\% over an atmospheric band \\
             & $<30$\% absolute line flux accuracy\\
             & $<5$\% absolute flux calibration \\
-            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
+            & (cf.~\cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
 QC1 parameters:      & None                                                                                     \\
 \end{recipedef}
 
@@ -420,7 +420,7 @@ spectrum. The spectrum is extracted from a combined cube
 
 This recipe combines a number of reduced IFU exposures covering a
 different spatial and wavelength ranges into a single data cube. The
-positions and orientations of the exposures may differ as follows (cf. \cite{METIS-operational_concept}): %\TODO{Reference to operational concept}
+positions and orientations of the exposures may differ as follows (cf.~\cite{METIS-operational_concept}): %\TODO{Reference to operational concept}
 \begin{description}
 \item[Spatial dithering:] The target is placed at different positions
   along and across the slice. Along-slice dithering aids in background
@@ -498,7 +498,7 @@ indication of the variation of spectral resolution across the field of view.
   Output data:         & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}                                                 \\
                        & \hyperref[dataitem:ifu_dist_reduced]{\PROD{IFU_DIST_REDUCED}}                                                     \\
 Expected accuracies: & 1/10th of a pixel after post-processing\\
-               & (cf. \cite{METIS-calibration_plan}, R-MET-106, \REQ{METIS-167}, \REQ{METIS-1371})\\
+               & (cf.~\cite{METIS-calibration_plan}, R-MET-106, \REQ{METIS-167}, \REQ{METIS-1371})\\
   QC1 parameters:      & \QC{QC IFU DISTORT RMS}: RMS deviation between measured position and model \\
                        & \QC{QC IFU DISTORT FWHM}:   Measured FWHM of spots                            \\
                        & \QC{QC IFU DISTORT NSPOTS}: Number of identified spots                        \\
