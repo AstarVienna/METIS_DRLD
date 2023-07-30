@@ -25,7 +25,7 @@ files is achieved by comparing keyword values.
 
 All raw data files produced by METIS will be in FITS format and follow
 ESO standards (\REQ{METIS-6081}, \REQ{METIS-6093}), in particular as
-laid out in \cite{ESO-DICD}.
+laid out in~\cite{ESO-DICD}.
 
 Data from the different subsystems (LM imager/spectrograph, N
 imager/spectrograph, LM IFU) are always stored in separate files.
@@ -61,7 +61,7 @@ The raw data should include World Coordinate Systems based on the
 telescope pointing, derotator angle and the design characteristics of
 the telescope and instrument. Instrument-internal coordinates
 (e.g.~angles of movable components inside METIS) will follow the
-definition in \cite{METIS-coordinates} (\REQ{METIS-6070}).
+definition in~\cite{METIS-coordinates} (\REQ{METIS-6070}).
 
 The list of these FITS header keywords used by METIS is kept in
 \cite{METIS-DID} and the list of keys used by the \acs{DRS} is kept in App.~\ref{app:fits_keywords}. This fulfills \REQ{METIS-6081} and \REQ{METIS-6093}.
@@ -85,7 +85,7 @@ The full adaptive optics telemetry data will not be processed by the pipeline an
 The LM-band imager is equipped with a $2\mathrm{k}\times2\mathrm{k}$
 HAWAII2RG detector with a pixel scale of $5.47\,\mathrm{mas}$. A
 number of rows and columns along the edges of the detector will be
-masked (see Sect.~8.2 of \cite{DRLS}).
+masked (see Sect.~8.2 of~\cite{DRLS}).
 
 Grisms in the imager pupil wheel in conjunction with a number of slit
 masks in the CFO focal plane provide low-resolution spectroscopy
@@ -229,7 +229,7 @@ to prevent confusion with the other LM modes, but occasionally \ac{LMS} is used 
 
 The IFU is equipped with a $2\times2$ mosaic of HAWAII2RG detectors
 separated by small gaps. A number of rows and columns along the edges
-of the detector will be masked (see Sect.~8.2 of \cite{DRLS}).
+of the detector will be masked (see Sect.~8.2 of~\cite{DRLS}).
 
 In the nominal mode, the field will be resolved into 28 spatial slices
 covering a field of view of $0.897\times0.577\,\mathrm{arcsec^{2}}$.
@@ -291,7 +291,7 @@ dispersion grating settings in order to fill gaps in the instantaneous
 wavelength coverage (``spectral dithering''). Finally, the field will be
 rotated by 90~degrees and the observing sequence repeated to permit
 full image reconstruction
-(cf.~Sect.~8.9 of \cite{DRLS}). The FITS header
+(cf.~Sect.~8.9 of~\cite{DRLS}). The FITS header
 information will ensure that the position of each exposure within this
 complex sequence can be uniquely identified.
 
@@ -334,7 +334,7 @@ complex sequence can be uniquely identified.
 %
 % \TODO{This section will contain the list of files with the values of
 %   kewords \FITS{DPR.CATG}, \FITS{DPR.TYPE}, \FITS{DPR.TECH}, \FITS{DO
-%     Category} in accordance with \cite{ESO-DICD}.}
+%     Category} in accordance with~\cite{ESO-DICD}.}
 
 
 
@@ -342,7 +342,7 @@ complex sequence can be uniquely identified.
 \subsection{Reduced data format}
 \label{ssec:reduced_data_format}
 
-All data products, both intermediary and final ones, will be provided in FITS format. Final data products will be saved according to \cite{ESO-products_standard}, fulfilling \REQ{METIS-6061} and \REQ{METIS-6080}.
+All data products, both intermediary and final ones, will be provided in FITS format. Final data products will be saved according to~\cite{ESO-products_standard}, fulfilling \REQ{METIS-6061} and \REQ{METIS-6080}.
 
 If there are additional meta-data necessary for archiving, processing, analysis, and distribution, they will be added. \REQ{METIS-6082}.
 

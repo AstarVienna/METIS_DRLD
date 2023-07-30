@@ -1,14 +1,14 @@
 \clearpage
 \section{Development plan}\label{sec:development_plan}
 
-This section describes the development plan for the METIS data reduction software to comply with the the specifications and standards of the ESO data reduction libraries given in the ESO data flow deliverables standards document (\cite{1618}). The test and validation procedures for the pipeline software are described in \cite{DRLVT}, fulfilling \REQ{METIS-6062}.
+This section describes the development plan for the METIS data reduction software to comply with the the specifications and standards of the ESO data reduction libraries given in the ESO data flow deliverables standards document (\cite{1618}). The test and validation procedures for the pipeline software are described in~\cite{DRLVT}, fulfilling \REQ{METIS-6062}.
 Test data are are required for the pipeline software development, including the development of pipeline recipes, workflows and for pipeline testing and validation. The sources of test data are:
 \begin{itemize}
     \item Simulated data using the ScopeSim software tool
     \item Archive data from similar instruments (e.g. \ac{VISIR}, SPHERE, ERIS)
     \item Laboratory data obtained during the \ac{AIT} phase
 \end{itemize}
-Further details are given in \cite{DRLVT}.
+Further details are given in~\cite{DRLVT}.
 
 The time schedule is subject to regular updates and review in close cooperation with
 
@@ -164,7 +164,7 @@ PAE completes the METIS AIT phase. At this stage, the pipeline software has reac
 \subsubsection{Test Readiness Review}
 \label{sssec:trr}
 
-The pipeline package will be carefully reviewed to check its compliance to \cite{1618} approximately 3 months before the PAE review. The review requires:
+The pipeline package will be carefully reviewed to check its compliance to~\cite{1618} approximately 3 months before the PAE review. The review requires:
 \begin{itemize}
     \item The METIS instrument has been fully assembled, aligned and all tests at subsystem level have been performed
     \item Both simulated data and lab data obtained during the AIT phase are available for verification purposes to cover all relevant instrument modes
@@ -187,12 +187,12 @@ The scope of the data flow end-to-end test is to validate the full process of pi
     \item Final consistency checks on the data flow system (FITS keywords, QC parameters, ...)
     \item Final check on relevant documents (user manuals)
 \end{itemize}
-Further details are specified in \cite{DRLVT}.
+Further details are specified in~\cite{DRLVT}.
 
 \subsubsection{PAE review phase}
 \label{sssec:paw_review}
 
-The PAE review phase will consist of the formal approval of the PAE deliverables described in \cite{1618} (see also table \ref{tab:development_schedule1}). The reports of the Test Readiness Review and the data flow end-to-end simulation will be attached to them. 
+The PAE review phase will consist of the formal approval of the PAE deliverables described in~\cite{1618} (see also table \ref{tab:development_schedule1}). The reports of the Test Readiness Review and the data flow end-to-end simulation will be attached to them. 
 
 % HB: I replaced h! with !ht, because latex will do that anyway if necessary; there is no functional difference between "h!" and "!ht": 'here' will be tried first, and if that fails 'top' is tried, but just "h!" will lead to a warning if "top" is chosen. The document looks the same.
 \begin{table}[!ht]
@@ -339,7 +339,7 @@ The aim of the COM1 period is to test the interface of METIS with the ELT and th
     \item METIS passed the instrument functional hardware and software tests
     \item The data reduction pipeline  has been fully integrated and validated
 \end{itemize}
-The COM1 deliverables are specified in \cite{1618}.
+The COM1 deliverables are specified in~\cite{1618}.
 
 \subsubsection{Performance Assessment Period (PAP)}
 \label{ssec:pap}
@@ -349,16 +349,16 @@ The test results of COM1 will be analyzed and the instrument commissioning data 
 \subsubsection{Commissioning period 2 (COM2)}
 \label{ssec:com2}
 
-The scope of COM2 is to establish the science operation readiness of METIS integrated at the ELT. This includes in particular the full data flow system and data reduction pipeline functionality with a first version of a completely populated calibration data base. The COM2 deliverables are specified in \cite{1618} (see also table \ref{tab:development_schedule2}).
+The scope of COM2 is to establish the science operation readiness of METIS integrated at the ELT. This includes in particular the full data flow system and data reduction pipeline functionality with a first version of a completely populated calibration data base. The COM2 deliverables are specified in~\cite{1618} (see also table \ref{tab:development_schedule2}).
 
 \subsection{METIS Preliminary Acceptance in Chile}
 \label{ssec:pae_chile}
 
-At the time of PAC the final version of the Data Reduction Library package will be available. Data from the ESO Archive will be processed with the data reduction pipeline  which have to comply with ESO standards on data formats and data products. THe functionality of the pipeline wil be checked in the QC0/QC1/QC2 operational environments. The PAC deliverables are specified in \cite{1618} (see also table \ref{tab:development_schedule2}). Upon successful completion of PAC, the two-year guarantee period will start as defined in the Statement of Work.
+At the time of PAC the final version of the Data Reduction Library package will be available. Data from the ESO Archive will be processed with the data reduction pipeline  which have to comply with ESO standards on data formats and data products. THe functionality of the pipeline wil be checked in the QC0/QC1/QC2 operational environments. The PAC deliverables are specified in~\cite{1618} (see also table \ref{tab:development_schedule2}). Upon successful completion of PAC, the two-year guarantee period will start as defined in the Statement of Work.
 
 \subsection{METIS science operations}
 \label{ssec:sciops}
 
-MEITS science operations will consist of two observation periods, SO1 and SO2 respectively. SO1 will start upon successful completion of PAC. The data reduction pipeline will support the scientific data analysis with the METIS pipeline software team providing support to ESO. The SO1 deliverables are specified in \cite{1618} (see also table \ref{tab:development_schedule3}).
+MEITS science operations will consist of two observation periods, SO1 and SO2 respectively. SO1 will start upon successful completion of PAC. The data reduction pipeline will support the scientific data analysis with the METIS pipeline software team providing support to ESO. The SO1 deliverables are specified in~\cite{1618} (see also table \ref{tab:development_schedule3}).
 
-SO2 will be used to further refine the data reduction pipeline package based upon feedback from SO1. This should be the final consolidation of the pipelines software and all relevant documentation and user manuals. The SO2 deliverables are specified in \cite{1618} (see also table \ref{tab:development_schedule3}).
+SO2 will be used to further refine the data reduction pipeline package based upon feedback from SO1. This should be the final consolidation of the pipelines software and all relevant documentation and user manuals. The SO2 deliverables are specified in~\cite{1618} (see also table \ref{tab:development_schedule3}).

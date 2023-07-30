@@ -10,7 +10,7 @@
 \label{ssec:IFU_recipes}
 
 % Moved to https://github.com/AstarVienna/METIS_DRLD/issues/100
-% \TODO{This section is identical to the PDR document \cite{DRLS}. We
+% \TODO{This section is identical to the PDR document~\cite{DRLS}. We
 % will consider rearranging the recipes to be in line with the imaging
 % pipelines. This would entail handling basic reduction and background
 % subtraction for both science and standard exposures in common
@@ -217,7 +217,7 @@ same echelle order are grouped and processing is iterated over the
 echelle orders.
 
 % from https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-9141
-For the LM band detectors in the IFU, the pixels on the edges of the detectors will be masked with the following widths \cite{matisse_minutes} (\REQ{METIS-9141}) (Fig.~\ref{fig:ifu_detector_masking}):
+For the LM band detectors in the IFU, the pixels on the edges of the detectors will be masked with the following widths~\cite{matisse_minutes} (\REQ{METIS-9141}) (Fig.~\ref{fig:ifu_detector_masking}):
 \begin{itemize}
 \item 64 columns on each ``outside'' of the 2x2 detector array in the dispersion direction
 \item 0 columns on each ``inside'' of the 2x2 detector array in the dispersion direction
@@ -277,7 +277,7 @@ The recipe produces the following (intermediate) data products:
   width.
 \item A spectral cube obtained by combining all exposures taken within
   a template. This step involves the image reconstruction discussed in
-  Sect.~8.9 of \cite{DRLS}.
+  Sect.~8.9 of~\cite{DRLS}.
 % TODO: Decide on the below.
 %  Whether this step is included
 %  in the present recipe \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} or is postponed to
@@ -433,7 +433,7 @@ positions and orientations of the exposures may differ as follows (cf. \cite{MET
   with pixel scale given by the detector scale (8.2\,mas). The exact
   procedure remains to be investigated; one of the major challenges is
   to find the exact centre of rotation
-  (Sect.~8.9 of \cite{DRLS}).
+  (Sect.~8.9 of~\cite{DRLS}).
 \item[Spectral dithering:] Sequences of exposures are taken at various
   echelle angles in order to cover an increased contiguous wavelength
   range. In the extended mode, such a sequence may cover the

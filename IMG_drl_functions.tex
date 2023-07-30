@@ -26,8 +26,8 @@ Outputs: & Detrended images [px]\\
 General description: & De-trending the raw image \\
 Mathematical description: & See Section~\ref{rec:metis_lm_img_basic_reduce} \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -50,8 +50,8 @@ Outputs: & Building sky background from images [px]\\
 General description: & Removing sky backround from images \\
 Mathematical description: & See Section~\ref{rec:metis_lm_img_background} \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
         
     
@@ -74,8 +74,8 @@ Outputs: & Removing sky background from images [px]\\
 General description: & Removing sky backround from images \\
 Mathematical description: & See Section~\ref{rec:metis_lm_img_background} \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
     
 %\subsubsection{Source extraction}\label{drl:img_source_extraction}
@@ -101,8 +101,8 @@ Unit tests: & See \cite{DRLVT}. \\
 %%Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
 %Mathematical description: & TBD \\
 %Quality assessment: & Through QC parameters \\
-%Error conditions: & See \cite{DRLVT}. \\
-%Unit tests: & See \cite{DRLVT}. \\
+%Error conditions: & See~\cite{DRLVT}. \\
+%Unit tests: & See~\cite{DRLVT}. \\
 %\end{recipedef}
 
 % HB 20230726: Apparently we should do all this without cross-correlation but instead use the WFS-FS mirror information. Nevertheless maybe having this function is useful.
@@ -124,8 +124,8 @@ Unit tests: & See \cite{DRLVT}. \\
 %%Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
 %Mathematical description: & TBD \\
 %Quality assessment: & Through QC parameters \\
-%Error conditions: & See \cite{DRLVT}. \\
-%Unit tests: & See \cite{DRLVT}. \\
+%Error conditions: & See~\cite{DRLVT}. \\
+%Unit tests: & See~\cite{DRLVT}. \\
 %\end{recipedef}
 
 % HB 20230726: We can use hdrl functionality for this.
@@ -149,8 +149,8 @@ Unit tests: & See \cite{DRLVT}. \\
 %%Mathematical description: & see Section~\ref{sssec:centroid} TBD \\
 %Mathematical description: & TBD \\
 %Quality assessment: & Through QC parameters \\
-%Error conditions: & See \cite{DRLVT}. \\
-%Unit tests: & See \cite{DRLVT}. \\
+%Error conditions: & See~\cite{DRLVT}. \\
+%Unit tests: & See~\cite{DRLVT}. \\
 %\end{recipedef}
 
 
@@ -172,8 +172,8 @@ Outputs: & Master Flat\\
 General description: & Determination of master flat for flat fielding \\
 Mathematical description: & Combine images with the same DIT, fit slope of pixels against illumination level \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 \subsubsection{Create N Master Flat}\label{drl:n_img_flat}\label{drl:metis_n_img_flat}
@@ -194,8 +194,8 @@ Outputs: & Master Flat\\
 General description: & Determination of master flat for flat fielding \\
 Mathematical description: & Combine images with the same DIT, fit slope of pixels against illumination level \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -218,8 +218,8 @@ Outputs:         & Updated flat field mask\\
 General description: &  Flag deviant pixels in master flat \\
 Mathematical description: & flag pixels outside the provided threshold(s) \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 \subsubsection{Flag Deviant Pixels in N Flat Field}\label{drl:update_n_flat_mask}\label{drl:metis_update_n_flat_mask}
@@ -241,8 +241,8 @@ Outputs:         & Updated flat field mask\\
 General description: &  Flag deviant pixels in master flat \\
 Mathematical description: & flag pixels outside the provided threshold(s) \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -265,7 +265,7 @@ General description: & Determine the gain as the slope of variance against mean 
 Mathematical description: & See Section~\ref{sssec:gain} \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & None. \\
-%Unit tests: & See \cite{DRLVT}. \\
+%Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 %---------------------------------------------------------------------
 \subsubsection{metis\_derive\_nonlinearity}\label{drl:metis_derive_nonlinearity}
@@ -285,7 +285,7 @@ General description: & Determine the non-linearity coefficients. \\
 Mathematical description: & low-order polynomial fit of the individual pixel values as function of the illumination intensity\\
 Quality assessment: & Through QC parameters \\
 Error conditions: & None. \\
-%Unit tests: & See \cite{DRLVT}. \\
+%Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 \subsubsection{Measure LM Band Flux of Standard Star}\label{drl:lm_calculate_std_flux}
@@ -308,8 +308,8 @@ Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result
 General description: & Photometry of standard star \\
 Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -333,8 +333,8 @@ Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result
 General description: & Photometry of standard star \\
 Mathematical description: & See Section~\ref{n_img_std_process} \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -359,8 +359,8 @@ Unit tests: & See \cite{DRLVT}. \\
 %General description: & shifting and stacking of a sequence of images \\
 %Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
 %Quality assessment: & Through QC parameters \\
-%Error conditions: & See \cite{DRLVT}. \\
-%Unit tests: & See \cite{DRLVT}. \\
+%Error conditions: & See~\cite{DRLVT}. \\
+%Unit tests: & See~\cite{DRLVT}. \\
 %\end{recipedef}
 
 \subsubsection{Calculate Flux Calibration}\label{drl:calculate_std_fluxcal}
@@ -382,8 +382,8 @@ Outputs: & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}} \\
 General description: & Calculate flux conversion to physical units \\
 Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 \subsubsection{Calculate Detection Limits}\label{drl:calculate_detection_limits}
@@ -403,8 +403,8 @@ Outputs: & detection limits for standard star  \\
 General description: & Calculate detection limits of standard star \\
 Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -427,8 +427,8 @@ Outputs: & Location of detected peak [px]\\
 General description: & Detection of a source by centroid fit \\
 Mathematical description: & standard method \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -448,8 +448,8 @@ Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Convert instrumental flux to ph/s \\
 Mathematical description: & See Section~\ref{sssec:lm_img_calibrate} \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -469,8 +469,8 @@ Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Add disortion, WCS and BUNIT information to FITS header \\
 Mathematical description: & See Section~\ref{sssec:lm_img_calibrate} \\
 Quality assessment: & None \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -490,8 +490,8 @@ Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Convert instrumental flux to ph/s \\
 Mathematical description: & See Section~\ref{sssec:n_img_calibrate} \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -511,8 +511,8 @@ Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Add disortion and BUNIT information to FITS header \\
 Mathematical description: & See Section~\ref{sssec:n_img_calibrate} \\
 Quality assessment: & None \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -536,8 +536,8 @@ Outputs:  &  \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE
 General description: &  Fit optical distortion coefficients based on pinhole mask image \\
 Mathematical description: & See Section~\ref{sssec:lm_img_distortion} \\
 Quality assessment: & None \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -556,6 +556,6 @@ QC outputs: None \\
 General description: & Cutout a region around the positive and negative beams in an N-band image \\
 Mathematical description: & See Section~\ref{sssec:n_img_restoration} \\
 Quality assessment: & None \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}

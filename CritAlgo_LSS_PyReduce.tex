@@ -7,12 +7,12 @@
 
 % The goal of this calibration step is to create rectified 2D orders with the spatial coordinate along the slit and the calibrated wavelength coordinate along the dispersion direction. This can be achieved in three steps:
 
-The \mir~range is dominated by thermal and line emission in the Earth's atmosphere. These emission lines can be used to determine both the curvature/tilt-distortion of the LSS spectrograph and subsequently the wavelength calibration. We adapt the \pyred~package \cite{pis21} employing state-of-the-art functions for optimal extraction of echelle spectra.  The package works successfully on several ESO instruments and has been adopted for the CRIRES+ pipeline. In the following sections we assess its functionality on simulated \met~ spectroscopic data.
+The \mir~range is dominated by thermal and line emission in the Earth's atmosphere. These emission lines can be used to determine both the curvature/tilt-distortion of the LSS spectrograph and subsequently the wavelength calibration. We adapt the \pyred~package~\cite{pis21} employing state-of-the-art functions for optimal extraction of echelle spectra.  The package works successfully on several ESO instruments and has been adopted for the CRIRES+ pipeline. In the following sections we assess its functionality on simulated \met~ spectroscopic data.
 
 
 \paragraph{Implementing METIS in \pyred}\label{sec:pyred_mic}
 % \todo[inline]{TODO-NS: to be edited}
-\pyred~\cite{pis21} is an  open source Python implementation\footnote{\url{https://github.com/AWehrhahn/PyReduce}} (with some C components)  of the IDL-based REDUCE pipeline \cite{pis02}.  The package supports data reduction of several echelle spectrographs, e.g. CRIRES+,  HARPS, and can be optimized to work on any instrument, also on a  long slit spectrograph as in the case of \met. In order to adapt \pyred~to work on simulated \met~\lss~data, we created a custom instrument class  and defined all the needed parameters to run \pyred~within a single script (Method~1\footnote{\url{https://pyreduce-astro.readthedocs.io/en/latest/instruments.html}}). This provided a quick way to finding the needed settings to  run the package successfully on \met~data before a complete implementation is done following Method~2. The full implementation requires several configuration files: 
+\pyred~\cite{pis21} is an  open source Python implementation\footnote{\url{https://github.com/AWehrhahn/PyReduce}} (with some C components)  of the IDL-based REDUCE pipeline~\cite{pis02}.  The package supports data reduction of several echelle spectrographs, e.g. CRIRES+,  HARPS, and can be optimized to work on any instrument, also on a  long slit spectrograph as in the case of \met. In order to adapt \pyred~to work on simulated \met~\lss~data, we created a custom instrument class  and defined all the needed parameters to run \pyred~within a single script (Method~1\footnote{\url{https://pyreduce-astro.readthedocs.io/en/latest/instruments.html}}). This provided a quick way to finding the needed settings to  run the package successfully on \met~data before a complete implementation is done following Method~2. The full implementation requires several configuration files: 
 \begin{itemize}
 \item Custom instrument class (\texttt{metis.py}) serving several functions such as loading a json file (\texttt{load\_info}) with FITS header information, finding  and sorting files (\texttt{sort\_files}) for the different reduction steps, modifying fits header information (\texttt{add\_header\_info}), finding the wavelength calibration guess file (\texttt{get\_wavecal\_filename}) etc.
 \item Header keyword map (\texttt{metis.json}).
@@ -27,7 +27,7 @@ Placing the above files in their respective \pyred~folders enables \pyred~to run
 %-----------
 \paragraph{Simulated input `raw' data}
 To demonstrate the feasibility of adopting \pyred~algorithms to \met~purposes we use data simulated with \scope~for all three \lss~modes ($L$, $M$, or $N$-band) for the $8000~\mathrm{mas} \times 19~\mathrm{mas}$ slit (see Fig.~\ref{fig:lmn_layout}). 
-% \todo Details on the simulated data and the input files and settings used to generate them are listed in the DRLVT \cite{drlvt}. 
+% \todo Details on the simulated data and the input files and settings used to generate them are listed in the DRLVT~\cite{drlvt}. 
 Then header keywords of the simulated data were added/modified to enable \pyred~to sort the individual files according to \texttt{metis.json}. Here we list the files - listed here for the case of $L$-band but similarly to $M$ and $N$-bands - that are used to operate \pyred, which can be downloaded from\footnote{\url{https://www.dropbox.com/sh/h1dz80vsw4lwoel/AAAqJD_FGDGC-t12wgnPXVR8a?dl=0}}: 
 \begin{itemize}
    \item \texttt{lss\_l\_thermal.fits}: spectroscopic flat field (Fig.~\ref{fig:ff})
@@ -102,7 +102,7 @@ The package includes a README file with instructions pertaining to running \pyre
   \label{fig:fig3}
 \end{figure}
 
-The details of how \pyred~handles the detection of the spectroscopic orders is described in Sect.~\ref{ssec:orderhandling} and \cite{pis02, pis21}. 
+The details of how \pyred~handles the detection of the spectroscopic orders is described in Sect.~\ref{ssec:orderhandling} and~\cite{pis02, pis21}. 
 \pyred~rotates the images by 90 degrees counter clockwise to align the wavelength dispersion direction along the x-axis and performs the order detection on the pinhole frame with the flat field lamp.  Clusters of neighboring pixels belonging to an order trace are identified  and merged together according to predefined criteria. In the case of \met, a total of thirty three polynomials are fitted as order traces for each slit trace on the detector. These correspond to the pinhole positions of the flat field frame, see Fig.~\ref{fig:fig3}. To correctly extract the trace, the main routine \texttt{reduce.py} is modified to return only the central polynomial fit of each trace on the detector, i.e. fit number 17 (or 16 as per Python convention counted from bottom to up). This allowed a correct extraction of the traces in preparation for the curvature determination step. The order trace fits are stored in the \pyred~output file \texttt{metis\_lss\_m.ord\_default.npz} under \texttt{orders} and \texttt{column\_range} recarrays.
 %-----------
 \paragraph{Slit curvature}\label{sec:critalg_orderrect}
@@ -116,7 +116,7 @@ The details of how \pyred~handles the detection of the spectroscopic orders is d
 %   \label{fig:fig6n7}
 % \end{figure}
 
-\pyred~determines the slit curvature by identifying wavelength calibration spectral lines in the extracted order trace and fits the tilt and shear of each order along the image (1st order curvature and 2nd order curvature, respectively). More details on how the package handles slit curvature is discussed in Sect.~\ref{ssec:orderhandling} and \cite{pis21}. 
+\pyred~determines the slit curvature by identifying wavelength calibration spectral lines in the extracted order trace and fits the tilt and shear of each order along the image (1st order curvature and 2nd order curvature, respectively). More details on how the package handles slit curvature is discussed in Sect.~\ref{ssec:orderhandling} and~\cite{pis21}. 
 
 % Figure~\ref{fig:fig6n7} shows the result of the polynomial fitting of the tilt and shear for the extracted slit trace of the \lss~$M$-band file \texttt{lss\_m\_sky.fits}. 
 Figures~\ref{fig:fig10} \& \ref{fig:fig10_z} shows the spectral lines used for the curvature determination  overlaid by the fitted tilt and shear marked in red lines. The x-axis corresponds to the y-axis on the original fits images (Fig~\ref{fig:sky}), while the y-axis of Fig.~\ref{fig:fig10} refers to the order trace number on the detector as \pyred~extracted it. Order~0 is the slit trace of the long slit. The order curvature polynomial fits are stored in the \pyred~output file \texttt{metis\_lss\_m.shear.npz} under \texttt{tilt} and \texttt{shear} recarrays.
@@ -136,7 +136,7 @@ Figures~\ref{fig:fig10} \& \ref{fig:fig10_z} shows the spectral lines used for t
 \paragraph{Wavelength calibration}\label{sec:critalg_wavecal}
 %\todo[inline]{DONE-NS-210730: include report}
 
-The algorithm for the wavelength calibration strategy is described in Sect.~\ref{ssec:wavecal} and in \cite{pis02, pis21}. Here we describe and assess the performance of \pyred. 
+The algorithm for the wavelength calibration strategy is described in Sect.~\ref{ssec:wavecal} and in~\cite{pis02, pis21}. Here we describe and assess the performance of \pyred. 
 
 
 
