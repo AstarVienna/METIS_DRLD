@@ -1,14 +1,15 @@
 \subsection{Imaging in LM and N}
 \label{ssec:overview_lm_imaging}
 
-\textbf{Note: The pipeline layout has been modified compared to the
-  PDR design in order to achieve better modularity. Basic reduction
-  and background subtraction have been split into two recipes that now
-  are applied to both standard calibration and science data. ADI recipes have been added since PDR however integration of \ac{HCI}
-  into this workflow requires more work: \ac{HCI} images will be treated
-  the same way at least through basic reduction, possibly through
-  background subtraction. \ac{ADI} combination may require a separate
-  recipe, at least for some \ac{HCI} configurations.}
+% HB 20230731: This note is not really necessary I think.
+%\textbf{Note: The pipeline layout has been modified compared to the
+%  PDR design in order to achieve better modularity. Basic reduction
+%  and background subtraction have been split into two recipes that now
+%  are applied to both standard calibration and science data. ADI recipes have been added since PDR however integration of \ac{HCI}
+%  into this workflow requires more work: \ac{HCI} images will be treated
+%  the same way at least through basic reduction, possibly through
+%  background subtraction. \ac{ADI} combination may require a separate
+%  recipe, at least for some \ac{HCI} configurations.}
 
 The purpose of the pipeline is to correct or remove contributions from
 the instrument, telescope, and atmosphere and produce science-grade
@@ -28,13 +29,13 @@ imager subsystems are quite different. This induces differences in the
 way the data have to be reduced.
 
 The GeoSnap detector has more stable gain than AQUARIUS detector,
-which was still in the baseline at PDR.  Chopping is still necessary,
-albeit at a lower frequency of a few Hz, and the standard chop/nod
-technique will be employed for background subtraction.  As the dark
+which was still in the baseline at PDR\@.  Chopping is still necessary, albeit
+at a lower frequency of a few Hz, and a chop/nod technique, which meets the
+specific ELT requirements (Section~\ref{sssec:nbandsbackgroundsubtracion}),
+will be employed  for background subtraction.  As the dark
 signal is automatically removed when the exposures from the different
 chop and nod positions are combined no master dark is required for the
-reduction of science data. Flat fielding may be possible, pending
-further investigation of the detector stability
+reduction of science data. The GeoSnap data is also flat fielded.
 
 Observations and reduction of LM band data with the HAWAII2RG detector
 can proceed as in the near infrared. After dark subtraction and
