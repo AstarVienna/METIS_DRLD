@@ -1,8 +1,13 @@
 
 The following table connects the requirements (Polarion-links) to the relevant
-place in this document. All pipeline subsystem requirements are listed; an entry
-stating \emph{N/A} in the last column indicates that this document does not
-provide evidence to verify the requirement in question. See~\cite{DRLVT} for information about their verification.
+place in this document.
+%All pipeline subsystem requirements are listed; an entry
+%stating \emph{N/A} in the last column indicates that this document does not
+%provide evidence to verify the requirement in question.
+Only those pipeline subsystem requirements are listed for which this document
+provides evidence to verify the requirement in question.
+See \cite{DRLVT} for information about their verification.
+The full set of evidence for all PIP requirements is traced in \cite{PIPVCD}
 
 Requirements marked with $\star$ are commented on individually below the table.
 
@@ -25,21 +30,21 @@ Requirements marked with $\star$ are commented on individually below the table.
 		\REQ{METIS-6061} & Reduced simulated data products & \ref{ssec:reduced_data_format} \\
 		\REQ{METIS-6062} & Software Assurance Requirements & \ref{sec:development_plan} \\
 		\REQ{METIS-6063} & Master dark frames & \ref{rec:metis_det_dark} \\
-		\REQ{METIS-6065} & System Engineering Management Plan & N/A \\
-		\REQ{METIS-6067} & PIP Requirement Precedence & N/A  \\
-		\REQ{METIS-6069} & METIS Standards & N/A \\
+% 		\REQ{METIS-6065} & System Engineering Management Plan & N/A \\
+% 		\REQ{METIS-6067} & PIP Requirement Precedence & N/A  \\
+% 		\REQ{METIS-6069} & METIS Standards & N/A \\
 		\REQ{METIS-6070} & METIS coordinate systems definition & \ref{ssec:instrument_data_format} \\
-		\REQ{METIS-6071} & External Interfaces to METIS &  N/A \\
+% 		\REQ{METIS-6071} & External Interfaces to METIS &  N/A \\
 		\REQ{METIS-6072} & Parallel observing mode IMG-LM and LMS & \ref{sssec:parallellmifu} \\
 		\REQ{METIS-6073} & LMS Spectral Resolution & \ref{qc:qc_ifu_wavecal_line_width} \\
 		\REQ{METIS-6074} & Wavelength calibration & \ref{rec:metis_lm_lss_wave}, \ref{rec:metis_n_lss_std} \ref{rec:metis_ifu_wavecal}\\
 		\REQ{METIS-6075} & Burst mode data rates & \ref{ssec:criticalifudatarate} \\
 		\REQ{METIS-6077} & Operational use cases &  $\star$ \\
-		\REQ{METIS-6078} & Electrical power consumption of DRS work station &  N/A \\
+% 		\REQ{METIS-6078} & Electrical power consumption of DRS work station &  N/A \\
 		\REQ{METIS-6080} & FITS format and meta-data of generated data & \ref{ssec:reduced_data_format} \\
 		\REQ{METIS-6081} & FITS keywords & \ref{ssec:instrument_data_format}  \\
 		\REQ{METIS-6082} & Data products conformity to ESO standards &  \ref{ssec:reduced_data_format}\\
-		\REQ{METIS-6083} & Material usage & N/A \\
+% 		\REQ{METIS-6083} & Material usage & N/A \\
 		\REQ{METIS-6084} & Low-resolution slit spectroscopy & \ref{ssec:recipes_lss_lm}, \ref{ssec:recipes_lss_n} \\
 		\REQ{METIS-6085} & Background subtraction in IMG-LM with dedicated sky observations & \ref{rec:metis_lm_img_background} \\
 		\REQ{METIS-6086} & Background subtraction in IMG-LM from dithered images & \ref{rec:metis_lm_img_background} \\
@@ -48,7 +53,7 @@ Requirements marked with $\star$ are commented on individually below the table.
 		\REQ{METIS-6089} & Masked region of the N-band detector & \ref{rec:metis_n_img_chopnod} \\
 		\REQ{METIS-6090} & Masked region of the IMG\_LM detector & \ref{rec:metis_lm_img_basic_reduce} \\
 		\REQ{METIS-6091} & Telluric calibration recipe & \ref{rec:metis_lm_lss_mf_model}, \ref{rec:metis_n_lss_mf_correct} \\
-		\REQ{METIS-6092} & METIS Internal Interfaces & N/A \\
+% 		\REQ{METIS-6092} & METIS Internal Interfaces & N/A \\
 		\REQ{METIS-6093} & Format and content of the raw data & \ref{ssec:instrument_data_format} \\
 		\REQ{METIS-6094} & Background subtraction in chopping-nodding mode & \ref{rec:metis_n_img_chopnod} \\
 		\REQ{METIS-6096} & LM-band imaging flatfield & \ref{rec:metis_lm_img_flat} \\
@@ -59,7 +64,7 @@ Requirements marked with $\star$ are commented on individually below the table.
 		\REQ{METIS-6113} & SPEC-N data products & \ref{ssec:recipes_lss_n} \\
 		\REQ{METIS-6131} & LMS data products & \ref{rec:metis_ifu_sci_process} \\
 		\REQ{METIS-6265} & LMS straylight & \ref{rec:metis_ifu_sci_process}  \\
-		\REQ{METIS-6267} & Design Life & N/A \\
+% 		\REQ{METIS-6267} & Design Life & N/A \\
 		\REQ{METIS-6309} & Masked regions of the LMS detectors & \ref{rec:metis_ifu_sci_process} \\
 		\REQ{METIS-6681} & Error propagation & \ref{Sec:critalg_errorprop} \\
 		\REQ{METIS-6698} & Characterisation and correction of relative spectral response function & \ref{rec:metis_lm_lss_rsrf}, \ref{rec:metis_n_lss_rsrf}, \ref{rec:metis_ifu_rsrf} \\
