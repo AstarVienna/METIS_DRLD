@@ -481,18 +481,19 @@ The recipe is only used in the science-grade pipelines, not at the
 observatory.
 
 \begin{recipedef}
-  Name:           & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}}                                            \\
+  Name:           & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}}  \\
   Purpose:        & Coaddition and mosaicing of reduced science cubes.                         \\
   Requirements:   & \REQ{METIS-6131}                                                           \\
   Type:           & Science                                                                    \\
   Templates:      & None                                                                       \\
-  Input data:     & Reduced science cubes (\hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}}, \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}) \\
+  Input data:     & Reduced science cubes (\hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}},
+                    \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}) \\
   Parameters:     & None                                                                       \\
-  Algorithm:      & Determine cubic output grid encompassing all input cubes                   \\
-                  & Call \CODE{hdrl_resample_compute} to resample input cubes to output grid   \\
-                  & Call \CODE{hdrl_imagelist_collapse} to stack the images                    \\
-  Output data:    & \hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}                                                       \\
-                  & \hyperref[dataitem:ifu_sci_coadd_error]{\PROD{IFU_SCI_COADD_ERROR}}                                                 \\
+  Algorithm:      & Call \hyperref[drl:ifu_grid_output]{\CODE{ifu_grid_output}} to find the output grid encompassing all input cubes \\
+                  & Call \hyperref[drl:ifu_resampling]{\CODE{ifu_resampling}} to resample input cubes to output grid   \\
+                  & Call \hyperref[drl:ifu_coadd]{\CODE{ifu_coadd}} to stack the images                    \\
+  Output data:    & \hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}                    \\
+                  & \hyperref[dataitem:ifu_sci_coadd_error]{\PROD{IFU_SCI_COADD_ERROR}}        \\
   QC1 parameters: & ---                                                                        \\
 \end{recipedef}
 
