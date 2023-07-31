@@ -66,7 +66,7 @@ otherwise a new one is created.
   Output data:         & \hyperref[dataitem:master_img_flat_lamp_lm]{\PROD{MASTER_IMG_FLAT_LAMP_LM}} \\
                        & or \hyperref[dataitem:master_img_flat_twilight_lm]{\PROD{MASTER_IMG_FLAT_TWILIGHT_LM}} \\
                        & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}                                           \\
-  Expected accuracies: & 0.5\% (cf. \cite{METIS_calerrbudget})                                                           \\
+  Expected accuracies: & 0.5\% (cf.~\cite{METIS_calerrbudget})                                                           \\
   QC1 parameters:      & \QC{QC LM MASTERFLAT RMS}                                      \\
                        & \QC{QC LM MASTERFLAT NBADPIX}                                        \\
                        & \QC{QC LM FLAT MEAN ##}                                        \\
@@ -103,7 +103,7 @@ This recipe performs the basic reduction of raw exposures from the
 LM-band imager, i.e.\ dark subtraction, flat fielding and other removing
 instrumental signals. It is used for both standard and science exposures.
 
-This recipe analyses the masked detector regions for channel offset correction, crosstalk (see \cite{matisse_minutes}) and removal of detector artefacts (electronic ghosts).
+This recipe analyses the masked detector regions for channel offset correction, crosstalk (see~\cite{matisse_minutes}) and removal of detector artefacts (electronic ghosts).
 In the horizontal dimension, the masked pixels are used to correct for each channel offset.
 In the vertical dimension, the masked pixels are used to correct for cross-talk.
 % From Rof https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-6089
@@ -346,7 +346,7 @@ $\mathrm{ADU\,s^{-1}}$ to $\mathrm{photons\,\,s^{-1}\,cm^{-2}}$.
 
 QC parameter will include estimates of the sensitivity for the
 detection of point sources and surface brightness sensitivity
-following \cite{visir_manual}.
+following~\cite{visir_manual}.
 
 \begin{recipedef}\label{rec:metis_lm_img_std_process}
   Name:                & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}                                               \\
@@ -368,7 +368,7 @@ following \cite{visir_manual}.
                        & call \hyperref[drl:calculate_detection_limits]{\DRL{calculate_detection_limits}} to compute measure background noise (std,rms) and compute detection limits \\
   Output data:         & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}}                                                       \\
                        & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                           \\
-  Expected accuracies: & 3\% (cf. \cite{METIS_calerrbudget})                                          \\
+  Expected accuracies: & 3\% (cf.~\cite{METIS_calerrbudget})                                          \\
   QC1 parameters:      & \QC{QC LM IMG STD BACKGD RMS}                                                \\
                        & \QC{QC LM STD PEAK CNTS}                                                     \\
                        & \QC{QC LM STD APERTURE CNTS}                                                 \\
@@ -468,7 +468,7 @@ background-subtracted images (possibly from several observing blocks)
 after resampling the images on a common pixel grid defined by a
 standard sky projection.
 % The alignment of the images (\FITS{CRVAL} keywords, rotation) may have to be checked and refined through cross-correlation of the overlapping images (TBC).
-The alignment of the images can be done through by using the position of the \ac{WFS-FS} mirror.
+The alignment of the images is done through by using the position of the \ac{WFS-FS} mirror.
 % TODO: Decide how the WFS-FS data is stored in the raw data.
 % See https://github.com/AstarVienna/METIS_DRLD/issues/162
 The number of input
@@ -488,11 +488,10 @@ the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant
   Input data:          & \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}} (Calibrated science images)       \\
                        & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}} (Associated bad-pixel maps)           \\
   Parameters:          & None                                                       \\
-  Algorithm:           & Check and refine WCS of input images by cross-correlation  \\
-                       & \hspace{1em} (on object catalogue or on image).            \\
+  Algorithm:           & Check and refine WCS of input images by using the \ac{WFS-FS} data. \\
                        & Determine output pixel grid encompassing all input images. \\
-                       & call \CODE{hdrl_resample_compute} to recenter the images \\
-                       & call \CODE{hdrl_imagelist_collapse} to stack the images \\
+                       & Call \CODE{hdrl_resample_compute} to recenter the images. \\
+                       & Call \CODE{hdrl_imagelist_collapse} to stack the images. \\
   Output data:         & \hyperref[dataitem:lm_sci_coadd]{\PROD{LM_SCI_COADD}} (coadded, mosaiced image)              \\
 % TheLM_SCI_COADD_ERROR and LM_SCI_COADD_CONTRIB can be layers in LM_SCI_COADD
 %                        & \hyperref[dataitem:lm_sci_coadd_error]{\PROD{LM_SCI_COADD_ERROR}} (coadded, mosaiced error image)  \\
@@ -546,7 +545,7 @@ pixel scale across the detector will be created.
   Output data:         & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}} \\
                        & \hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}        \\
                        & \hyperref[dataitem:lm_dist_reduced]{\PROD{LM_DIST_REDUCED}}               \\
-  Expected accuracies: & $10^{-3}$ (cf. \cite{METIS_calerrbudget})                                                    \\
+  Expected accuracies: & $10^{-3}$ (cf.~\cite{METIS_calerrbudget})                                                    \\
   QC1 parameters:      & \hyperref[qc:qc_lm_distort_rms]{\QC{QC LM DISTORT RMS}}                                          \\
                        & \hyperref[qc:qc_lm_distort_nsource]{\QC{QC LM DISTORT NSOURCE}}  \\
   hdrl functions:      & \CODE{hdrl_catalogue_create}                                    \\

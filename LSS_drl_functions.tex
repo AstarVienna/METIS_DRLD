@@ -22,8 +22,8 @@ Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Removal of stray light by a 2D-polynomial fits of the order background \\
 Mathematical description: & see Section~\ref{ssec:orderbg} \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -44,10 +44,10 @@ Other inputs: & None\\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Subtracts a WCU-OFF frame from an WCU image \\
-Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+Mathematical description: &  see~\cite{pis02} and~\cite{pis21}\\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 %---------------------------------------------------------------------
 \subsubsection{Calculate blackbody spectrum}\label{drl:calcbb}\label{drl:calc_bb}
@@ -67,8 +67,8 @@ Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Calculates a blackbody spectrum for the \ac{RSRF} normalisation\\
 Mathematical description: &  usual Planck formula\\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
@@ -86,10 +86,10 @@ Input: & \texttt{const hdrl\_image * input} \\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Creates normalised \ac{RSRF} \\
-Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+Mathematical description: &  see~\cite{pis02} and~\cite{pis21}\\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
@@ -109,8 +109,8 @@ Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Creates normalised version of a \ac{STD} input spectrum  by fitting the continuum and subsequent division of the fit\\
 Mathematical description: &  Polynomial fit on regions known to contain continuum only; these regions will be defined in Table \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}}\\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
@@ -147,8 +147,8 @@ Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Normal flatfield process for correcting pixel-to-pixel sensitivities \\
 Mathematical description: & Division by \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} or  \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}, respectively \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 %%---------------------------------------------------------------------
@@ -165,10 +165,10 @@ Unit tests: & See \cite{DRLVT}. \\
 %%Output FITS files: & None \\
 %Other outputs: & \texttt{cpl\_error\_code} \\
 %General description: & Determines wavelength calibration by means of line lamp spectra \\
-%Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+%Mathematical description: &  see~\cite{pis02} and~\cite{pis21}\\
 %Quality assessment: & Through QC parameters \\
-%Error conditions: & See \cite{DRLVT}. \\
-%Unit tests: & See \cite{DRLVT}. \\
+%Error conditions: & See~\cite{DRLVT}. \\
+%Unit tests: & See~\cite{DRLVT}. \\
 %\end{recipedef}
 
 %---------------------------------------------------------------------
@@ -200,8 +200,8 @@ Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Determination of the instrumental response function to be used for the absolute flux calibration \\
 Mathematical description: & see HDRL manual \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 %---------------------------------------------------------------------
 \subsubsection{Remove sky background}\label{drl:remove_sky_background}
@@ -220,10 +220,10 @@ Other inputs: & None\\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Removes the sky emission background (nodding/chop-nodding technique) \\
-Mathematical description: &  see \cite{METIS-operational_concept}, Section 1.4\\
+Mathematical description: &  see~\cite{METIS-operational_concept}, Section 1.4\\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
@@ -244,10 +244,10 @@ Other inputs: & None\\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Determines the tilt and shear of the orders using the sky emission lines \\
-Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+Mathematical description: &  see~\cite{pis02} and~\cite{pis21}\\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
@@ -268,10 +268,10 @@ Other inputs: & None\\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Determines the order locations on the detectors \\
-Mathematical description: &  see \cite{pis02} and \cite{pis21}\\
+Mathematical description: &  see~\cite{pis02} and~\cite{pis21}\\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
@@ -291,10 +291,10 @@ Input: & \texttt{const hdrl\_image * input\newline const hdrl\_image * backgroun
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Routine to extract a 1D spectrum of the target from the 2D spectrum\\
-Mathematical description: & See optimal extraction algorithm \cite{pis02} and \cite{pis21} \\
+Mathematical description: & See optimal extraction algorithm~\cite{pis02} and~\cite{pis21} \\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
@@ -314,8 +314,8 @@ Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Applies the first guess wavelength calibration to LM LSS data \\
 %Mathematical description: & Applies projection from detector space to $(y, \lambda)$-space\\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
@@ -335,8 +335,8 @@ Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Applies the absolute flux calibration to science frames \\
 %Mathematical description: & Applies projection from detector space to $(y, \lambda)$-space\\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 %---------------------------------------------------------------------
@@ -356,7 +356,7 @@ Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Applies a simple transmission to \ac{STD} spectra better determine the response curve \\
 %Mathematical description: & Applies projection from detector space to $(y, \lambda)$-space\\
 Quality assessment: & Through QC parameters \\
-Error conditions: & See \cite{DRLVT}. \\
-Unit tests: & See \cite{DRLVT}. \\
+Error conditions: & See~\cite{DRLVT}. \\
+Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 

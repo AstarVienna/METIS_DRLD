@@ -1,8 +1,14 @@
-\documentclass[tikz, margin=5mm]{standalone}
+%% Document preamble. Comment out for final figure! Footer too!
+%\documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+%\usepackage{listings}
+%\usepackage{hyperref}
+%\input{black_style}
+%\input{styles_data}
+%\begin{document}
 
+\input{black_style}
 \input{recipe_config}
 
-\begin{document}
 
 \begin{tikzpicture}
   [x=1cm,
@@ -17,64 +23,71 @@
   %%% Put workflow commands here:
   %% Main reduction workflow
 
-  \node (template) [template]{%
-    METIS\_ifu\_cal\_InternalWave
+  \node (template)  [template]{%
+    \TPL{METIS_ifu_cal_InternalWave}
   };
 
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input, text width=3.8cm]{%
-    IFU\_WAVECAL\_RAW
+    \hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_WAVE_RAW}}
   };
 
-  \node (step1) [below=1.5cm of input, redstep]{%
+  \node (step_detrend) [below=2.5cm of input, redstep]{%
     remove detector\\
     signature
   };
 
-  \node (step2) [below=1.cm of step1, redstep]{%
+  \node (step_locatelines) [below=1.cm of step_detrend, redstep]{%
     locate lines
   };
 
-  \node (step3) [below=1.cm of step2, redstep]{%
+  \node (step_fit) [below=1.cm of step_locatelines, redstep]{%
     fit polynomial
   };
 
-  \pic (stop) [below=2.0cm of step3]{stop};
+  \pic (stop) [below=2.0cm of step_fit]{stop};
 
   %% Connections
   \draw (template) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (step2);
-  \draw (step2) -- (step3);
-  \draw (step3) -- (stop-t);
+  \draw (input) -- (step_detrend);
+  \draw (step_detrend) -- (step_locatelines);
+  \draw (step_locatelines) -- (step_fit);
+  \draw (step_fit) -- (stop-t);
 
   %% Input
-  \node (darkin) [left=2.cm of step1, yshift=0.5cm, calproduct, text width=4cm]{%
-    MASTER\_DARK\_IFU
+  \node (connect_dark) [connection] at
+    ($(input)!0.35!(step_detrend)$) {};
+  \node (darkin) [left=of connect_dark, calproduct]{%
+    \hyperref[dataitem:master_dark_ifu]{\STATCALIB{MASTER_DARK_IFU}}
   };
-  \draw (darkin.east) -- ++(1.5, 0) -- ++(0, 0.3) -- ++(0.5, 0); % -- (step1);
+  \draw (darkin.east) -- (connect_dark);
 
-  \node (bpmin) [left=2.cm of step1, yshift=-0.5cm, calproduct, text width=4cm]{%
-    BADPIX\_MAP\_IFU
+  \node (connect_bp) [connection] at
+    ($(input)!0.65!(step_detrend)$) {};
+  \node (bpmin) [left=of connect_bp, calproduct]{%
+    \hyperref[dataitem:badpix_map_ifu]{\STATCALIB{BADPIX_MAP_IFU}}
   };
-  \draw (bpmin.east) -- ++(1.5, 0) -- ++(0, -0.3) -- ++(0.5, 0);% -- (step1);
+  \draw (bpmin.east) -- (connect_bp);
 
   %% Output
   \node (connectwavecal) [connection] at
-  ($(step3.south)!0.35!(stop-t)$) {};
+  ($(step_fit.south)!0.35!(stop-t)$) {};
   \node (wavecal) [right=of connectwavecal, calproduct]{%
-    IFU\_WAVECAL
+    \hyperref[dataitem:ifu_wavecal]{\STATCALIB{IFU_WAVECAL}}
   };
   \draw (connectwavecal) -- (wavecal);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.4!(step1) - (3,0)$)
-  rectangle ($(step3)!0.7!(stop-t) + (2.5,0)$);
+  \draw [frame] ($(input)!0.2!(step_detrend) - (3,0)$)
+  rectangle ($(step_fit)!0.7!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.4!(step1) - (3, 0)$) {%
+  ($(input)!0.2!(step_detrend) - (3, 0)$) {%
     \textsl{metis\_ifu\_wavecal}};
 
 \end{tikzpicture}
+\input{normal_style}
 
-\end{document}
+
+%% Document footer. Comment out for final figure! Header too!
+%\end{document}

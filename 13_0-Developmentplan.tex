@@ -1,14 +1,14 @@
 \clearpage
 \section{Development plan}\label{sec:development_plan}
 
-This section describes the development plan for the METIS data reduction software to comply with the the specifications and standards of the ESO data reduction libraries given in the ESO data flow deliverables standards document (\cite{1618}). The test and validation procedures for the pipeline software are described in \cite{DRLVT}. 
+This section describes the development plan for the METIS data reduction software to comply with the the specifications and standards of the ESO data reduction libraries given in the ESO data flow deliverables standards document (\cite{1618}). The test and validation procedures for the pipeline software are described in~\cite{DRLVT}, fulfilling \REQ{METIS-6062}.
 Test data are are required for the pipeline software development, including the development of pipeline recipes, workflows and for pipeline testing and validation. The sources of test data are:
 \begin{itemize}
     \item Simulated data using the ScopeSim software tool
     \item Archive data from similar instruments (e.g. \ac{VISIR}, SPHERE, ERIS)
     \item Laboratory data obtained during the \ac{AIT} phase
 \end{itemize}
-Further details are given in \cite{DRLVT}.
+Further details are given in~\cite{DRLVT}.
 
 The time schedule is subject to regular updates and review in close cooperation with
 
@@ -21,10 +21,11 @@ The time schedule is subject to regular updates and review in close cooperation 
     \item ESO: check consistency of FITS keywords, QC parameters, coordinate required input to software recipe development (detector persistence, ...) and coordinate the pipeline implementation schedule
 \end{itemize}
 
-Tables \ref{tab:development_schedule1} and \ref{tab:development_schedule2} provide an overview of the milestone schedule for the METIS pipeline development.
+Tables \ref{tab:development_schedule1}, \ref{tab:development_schedule2} and \ref{tab:development_schedule3} provide an overview of the milestone schedule for the METIS pipeline development.
 
-\begin{table}[h!]
-    \caption[Development schedule]{Milestones of the METIS pipeline software development schedule from FDR to PAE}
+% HB: I replaced h! with !ht, because latex will do that anyway if necessary; there is no functional difference between "h!" and "!ht": 'here' will be tried first, and if that fails 'top' is tried, but just "h!" will lead to a warning if "top" is chosen. The document looks the same.
+\begin{table}[!ht]
+    \caption[Development schedule 1]{Milestones of the METIS pipeline software development schedule from \ac{FDR} to \ac{PAE}}
   \label{tab:development_schedule1}
 
 \centering
@@ -34,33 +35,33 @@ Tables \ref{tab:development_schedule1} and \ref{tab:development_schedule2} provi
 \hline
 Date$\_$start &	Date$\_$end   &	Task                            &		Reference \\
 \hline\hline
-25.11.2023 & 25.11.2023 & Release of FDR board report = FDR        &	1 \\
+25.11.2023 & 25.11.2023 & Release of FDR board report = FDR                &	1 \\
 	  &		   & Baseline for PIP software development defined (EDPS, pyCPL) &	\\
     &    	 & Updated detector characteristics LM \& N imager received    &	\\
 \hline
 25.05.2024 & 25.05.2025 & PR2 Simulated raw data, processed data = FDR+6m &	2 \\
 \hline
-25.11.2024 & 25.11.2024 & PR3 DRS Chain Skeleton = FDR+12m     &	2 \\
-	&		 &	OP3 Microservice modules and User Manual for                &	2 \\
+25.11.2024 & 25.11.2024 & PR3 DRS Chain Skeleton = FDR+12m                &	2 \\
+	&		 &	OP3 Microservice modules and User Manual for              &	2 \\
     &        &  Obs.Preparation = FDR+12m                                 &	\\
 \hline
 03.03.2025 & 03.03.2025 & Updated characteristic data of HCI sub-system received & \\
 \hline
-02.01.2025 & 23.09.2025 & SysAIV Phase D2 AB - CRY/ICS/CFO/WCU          &	3 \\
+02.01.2025 & 23.09.2025 & SysAIV Phase D2 AB - CRY/ICS/CFO/WCU            &	3 \\
 \hline
 02.05.2025 & 02.05.2025 & Updated characteristic data of IMG sub-system received & \\
 \hline
 24.10.2025 & 23.04.2026 & SysAIV Phase D2 CD - CRY/ICS/CFO/WCU/LMS/DET/PIP            &	3 \\
 \hline
-24.10.2025 & 24.10.2025 & First DFS products ready for Sys AIV:            &	4 \\
-    &          &  PIP interface to ICS                                        &	\\
+24.10.2025 & 24.10.2025 & First dataflow system products ready for SysAIV:    &	4 \\
+    &          &  PIP interface to \ac{ICS}                                        &	\\
     &          &  Detector characterisation                                   &	\\
 \hline
-14.11.2025 & 23.04.2026 & LMS testing:                                      &	3 \\ 
+14.11.2025 & 23.04.2026 & LMS testing:                                        &	3 \\ 
     &          & Basic background subtraction (LMS \& IMG/LSS modes)          &	\\
     &          & LMS cube reconstruction                                      &	\\
 \hline
-01.12.2025 & 01.12.2025 &  Updated characteristic data of LMS received		  &   \\
+01.12.2025 & 01.12.2025 & Updated characteristic data of LMS received		  &   \\
 05.06.2026 & 09.07.2027 & SysAIV Phase D2 E - CRY/ICS/CFO/WCU/IMG/LMS/SCAO            &   3 \\
 26.06.2026 & 26.10.2026 & IMG testing (IMG \& LSS modes):                     &	3 \\
    &           & Wavelength calibration        	                           & \\   
@@ -68,7 +69,7 @@ Date$\_$start &	Date$\_$end   &	Task                            &		Reference \\
 \hline
 26.10.2026 & 26.10.2026 & Updated characteristic data LM \& N imaging, LMS, HCI, LSS      & 	\\
 \hline
-27.10.2026 & 15.09.2027 &	Further DFS products:		                      &	4 \\
+27.10.2026 & 15.09.2027 &	Further dataflow system products:		                      &	4 \\
     &          &  Processing of LMS, LSS \& IMG data                          &	\\
     &          &  Processing of HCI data                                      &	\\
     &          &  QC parameters					            &	\\
@@ -86,7 +87,7 @@ Date$\_$start &	Date$\_$end   &	Task                            &		Reference \\
     &   	   &  OP4 Observation Preparation Tool v1.0                       &	\\
     &	   	   &  IP3 Instrument Package v1.0	                			  &	\\
 \hline
-16.12.2027 & 16.12.2027 & PAE							                      &	3 \\
+16.12.2027 & 16.12.2027 & Preliminary Acceptance Europe PAE					  &	3 \\
 \hline\hline
 \end{tabularx}			
 \tiny
@@ -101,32 +102,10 @@ Date$\_$start &	Date$\_$end   &	Task                            &		Reference \\
 \end{table}
 
 
-%  \centering\scriptsize
-%  \begin{tabularx}{\textwidth}{llll}
-%    \hline
-%    Milestone & Name & Time from FDR & Start date \\
-%    \hline\hline
-%    PIP FDR          & Pipeline final design review & T$_ {FDR}$ + 0 months & Nov 2023 \\
-%    Post-FDR 1       & Simulated raw data, processed data &  T$_ {FDR}$ + 6 months & May 2024 \\
-%    Post-FDR 2       & DRS chain skeleton               &  T$_{FDR}$ + 12 months & Nov 2024 \\
-%    PAE              & Preliminary Acceptance in Europe &  T$_{FDR}$ + XX months &  \\
-%    COM1             & First instrument commissioning &  & \\
-%    COM2             & Second instrument commissioning &  & \\
-%    CFP              & Call for proposal (Phase I) &  & \\
-%    PAC              & Preliminary Acceptance in Chile &  & \\
-%    PH2              & Phase 2 observation preparation &  & \\
-%    SO1              & Science operations (1st observing period) &  & \\
-%    SO2              & Science operations (2nd observing period) &  & \\
-%    GTO              & Guaranteed time observations &  & \\
-%    FAO              & Final acceptance at the observatory & & \\
-%    \hline
-%  \end{tabularx}
-
-
 \subsection{FDR to PAE development plan}
 \label{ssec:fdr2pae}
 
-It is planned to monitor the status of pipeline software implementation in regular progress meetings, where, if necessary, specific action items can be defined. Starting after FDR the implementation of the development schedule (table \ref{tab:development_schedule1}) will be carried out in the subsequent steps:
+It is planned to monitor the status of pipeline software implementation in regular progress meetings, where, if necessary, specific action items can be defined. Starting after \ac{FDR} the implementation of the development schedule (table \ref{tab:development_schedule1}) will be carried out in the subsequent steps:
 
 \begin{enumerate}
     \item The baseline for the pipeline development environment regarding the use of the \ac{EDPS} framework and of pyCPL needs to be established.
@@ -156,7 +135,9 @@ It is planned to monitor the status of pipeline software implementation in regul
         \item Characterisation of various background subtraction methods
         \item Quality control parameters
     \end{itemize}
-    The time table for receiving the characteristic data of the instrument modes necessary for the pipeline software development will finalized at the same time. These data include in particular raw data from the detectors, calibration data from the \ac{WCU} and laboratory data for the instrument modes obtained during the AIT phase. Further on, a detailed schedule will be set up with ESO regarding updated versions of pipeline package.
+    The time table for receiving the characteristic data of the instrument modes necessary for the pipeline software development will finalized at the same time. These data include in particular raw data from the detectors, calibration data from the \ac{WCU} and laboratory data for the instrument modes obtained resulting from functional and verification tests at (sub-) system level during the AIT phase. 
+    
+    Further on, a detailed schedule will be set up with ESO regarding updated versions of pipeline package.
     
     \item Simulated and processed data at T$_{FDR}$ + 6 months: the package includes raw data, intermediate data and science data products for each instrument mode. The simulated data will be used to test the data flow system.
     
@@ -183,7 +164,7 @@ PAE completes the METIS AIT phase. At this stage, the pipeline software has reac
 \subsubsection{Test Readiness Review}
 \label{sssec:trr}
 
-The pipeline package will be carefully reviewed to check its compliance to \cite{1618} approximately 3 months before the PAE review. The review requires:
+The pipeline package will be carefully reviewed to check its compliance to~\cite{1618} approximately 3 months before the PAE review. The review requires:
 \begin{itemize}
     \item The METIS instrument has been fully assembled, aligned and all tests at subsystem level have been performed
     \item Both simulated data and lab data obtained during the AIT phase are available for verification purposes to cover all relevant instrument modes
@@ -206,15 +187,16 @@ The scope of the data flow end-to-end test is to validate the full process of pi
     \item Final consistency checks on the data flow system (FITS keywords, QC parameters, ...)
     \item Final check on relevant documents (user manuals)
 \end{itemize}
-Further details are specified in \cite{DRLVT}.
+Further details are specified in~\cite{DRLVT}.
 
 \subsubsection{PAE review phase}
 \label{sssec:paw_review}
 
-The PAE review phase will consist of the formal approval of the PAE deliverables described in \cite{1618} (see also table \ref{tab:development_schedule1}). The reports of the Test Readiness Review and the data flow end-to-end simulation will be attached to them. 
+The PAE review phase will consist of the formal approval of the PAE deliverables described in~\cite{1618} (see also table \ref{tab:development_schedule1}). The reports of the Test Readiness Review and the data flow end-to-end simulation will be attached to them. 
 
-\begin{table}[h!]
-    \caption[Development schedule]{Milestones of the METIS pipeline software development schedule from First Light to PAC}
+% HB: I replaced h! with !ht, because latex will do that anyway if necessary; there is no functional difference between "h!" and "!ht": 'here' will be tried first, and if that fails 'top' is tried, but just "h!" will lead to a warning if "top" is chosen. The document looks the same.
+\begin{table}[!ht]
+    \caption[Development schedule 2]{Milestones of the METIS pipeline software development schedule from First Light to PAC}
   \label{tab:development_schedule2}
 
 \centering
@@ -276,7 +258,7 @@ TBD	   & TBD   & CFP Proposals (Phase 1) Preliminary  TBD		           & 2 \\
    &           & DR8 DRL Validation and Test Plan v3                       &	\\
    &           & DR8 Data Reduction Library Design v2			            & 2 \\
 \hline
-14.11.2029 & 14.11.2029 & PAC							                   & 3 \\
+14.11.2029 & 14.11.2029 & Preliminary Acceptance Chile PAC	               & 3 \\
 \hline\hline
 \end{tabularx}			
 \tiny
@@ -292,8 +274,9 @@ TBD	   & TBD   & CFP Proposals (Phase 1) Preliminary  TBD		           & 2 \\
 
 
 
-\begin{table}[h!]
-    \caption[Development schedule]{Milestones of the METIS pipeline software development schedule covering the Guarantee Period until Final Acceptance}
+% HB: I replaced h! with !ht, because latex will do that anyway if necessary; there is no functional difference between "h!" and "!ht": 'here' will be tried first, and if that fails 'top' is tried, but just "h!" will lead to a warning if "top" is chosen. The document looks the same.
+\begin{table}[!ht]
+    \caption[Development schedule 3]{Milestones of the METIS pipeline software development schedule covering the Guarantee Period until Final Acceptance}
   \label{tab:development_schedule3}
 
 \centering
@@ -345,7 +328,7 @@ TBD    & TBD   & Deliverables SO2+8w                                & 2 \\
 \subsection{METIS instrument commissioning}
 \label{ssec:com}
 
-It is planned that the commissioning period will be divided in three sections.
+It is planned that the commissioning period will be divided in three sections (see also table \ref{tab:development_schedule2}).
 
 \subsubsection{Commissioning period 1 (COM1)}
 \label{ssec:com1}
@@ -356,7 +339,7 @@ The aim of the COM1 period is to test the interface of METIS with the ELT and th
     \item METIS passed the instrument functional hardware and software tests
     \item The data reduction pipeline  has been fully integrated and validated
 \end{itemize}
-The COM1 deliverables are specified in \cite{1618}.
+The COM1 deliverables are specified in~\cite{1618}.
 
 \subsubsection{Performance Assessment Period (PAP)}
 \label{ssec:pap}
@@ -366,16 +349,16 @@ The test results of COM1 will be analyzed and the instrument commissioning data 
 \subsubsection{Commissioning period 2 (COM2)}
 \label{ssec:com2}
 
-The scope of COM2 is to establish the science operation readiness of METIS integrated at the ELT. This includes in particular the full data flow system and data reduction pipeline functionality with a first version of a completely populated calibration data base. The COM2 deliverables are specified in \cite{1618}.
+The scope of COM2 is to establish the science operation readiness of METIS integrated at the ELT. This includes in particular the full data flow system and data reduction pipeline functionality with a first version of a completely populated calibration data base. The COM2 deliverables are specified in~\cite{1618} (see also table \ref{tab:development_schedule2}).
 
 \subsection{METIS Preliminary Acceptance in Chile}
 \label{ssec:pae_chile}
 
-At the time of PAC the final version of the Data Reduction Library package will be available. Data from the ESO Archive will be processed with the data reduction pipeline  which have to comply with ESO standards on data formats and data products. THe functionality of the pipeline wil be checked in the QC0/QC1/QC2 operational environments. The PAC deliverables are specified in \cite{1618}. Upon successful completion of PAC, the two-year guarantee period will start as defined in the Statement of Work.
+At the time of PAC the final version of the Data Reduction Library package will be available. Data from the ESO Archive will be processed with the data reduction pipeline  which have to comply with ESO standards on data formats and data products. THe functionality of the pipeline wil be checked in the QC0/QC1/QC2 operational environments. The PAC deliverables are specified in~\cite{1618} (see also table \ref{tab:development_schedule2}). Upon successful completion of PAC, the two-year guarantee period will start as defined in the Statement of Work.
 
 \subsection{METIS science operations}
 \label{ssec:sciops}
 
-MEITS science operations will consist of two observation periods, SO1 and SO2 respectively. SO1 will start upon successful completion of PAC. The data reduction pipeline will support the scientific data analysis with the METIS pipeline software team providing support to ESO. The SO1 deliverables are specified in \cite{1618}.
+MEITS science operations will consist of two observation periods, SO1 and SO2 respectively. SO1 will start upon successful completion of PAC. The data reduction pipeline will support the scientific data analysis with the METIS pipeline software team providing support to ESO. The SO1 deliverables are specified in~\cite{1618} (see also table \ref{tab:development_schedule3}).
 
-SO2 will be used to further refine the data reduction pipeline package based upon feedback from SO1. This should be the final consolidation of the pipelines software and all relevant documentation and user manuals. The SO2 deliverables are specified in \cite{1618}.
+SO2 will be used to further refine the data reduction pipeline package based upon feedback from SO1. This should be the final consolidation of the pipelines software and all relevant documentation and user manuals. The SO2 deliverables are specified in~\cite{1618} (see also table \ref{tab:development_schedule3}).

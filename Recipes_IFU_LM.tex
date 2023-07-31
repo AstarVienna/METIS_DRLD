@@ -10,7 +10,7 @@
 \label{ssec:IFU_recipes}
 
 % Moved to https://github.com/AstarVienna/METIS_DRLD/issues/100
-% \TODO{This section is identical to the PDR document \cite{DRLS}. We
+% \TODO{This section is identical to the PDR document~\cite{DRLS}. We
 % will consider rearranging the recipes to be in line with the imaging
 % pipelines. This would entail handling basic reduction and background
 % subtraction for both science and standard exposures in common
@@ -28,59 +28,90 @@
 
 This recipe processes daytime wavelength calibration images to derive
 the pixel-to-wavelength relation for the LM integral-field
-spectrograph. The calibration template will use the \ac{QCL} in the warm calibration unit to finely sample the desired
-wavelength range. The image will consist of lines for each wavelength
-and slice. The solution will have to provide for each detector pixel
+spectrograph.
+
+The calibration template will use the lasers in the warm calibration
+unit to finely sample the desired wavelength range.
+The \ac{WCU} has three lasers \cite{METIS-calibration_plan}:
+(1) a fixed laser at \SI{3.39}{\micro\metre},
+(2) the \ac{QCL}, a laser tuneable from at least \SI{4.68}{\micro\metre} to \SI{4.78}{\micro\metre}), and
+(3) a fixed laser at \SI{5.26}{\micro\metre}.
+The tuneable laser can be tuned so quickly during a long exposure with the
+long-slit spectrograph or the LMS such that a single exposure with multiple
+lines is created.
+
+
+The image will consist of lines for each wavelength and slice.
+The solution will have to provide for each detector pixel
 $(x,y)$ the slice number $i$, the spatial position $\xi$ along the
 slice and the wavelength in the dispersion correction. As the slices
 and wavelength lines may be tilted with respect to the detector
 columns and rows, a combined solution is required
-\begin{eqnarray}
+\begin{align}
   \label{eq:wavelength_solution}
   \xi &= f_{i}(x, y) \\
   \lambda &= g_{i}(x, y)
-\end{eqnarray}
-The boundaries of the slice image on the detector are obtained by
-measuring the left and right edges of the wavelength lines and
-interpolating. The slice number is then obtained by counting the
-slices according to the optical design of the spectrograph. The
-wavelength of each line is known from the settings of the \ac{QCL}, the $x$
-coordinate is obtained by linear interpolation along the line (or
-perhaps using the distortion table from \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}} if
-necessary). The functions $f_{i}$ and $g_{i}$ are expected to be
+\end{align}
+The functions $f_{i}$ and $g_{i}$ are expected to be
 sufficiently accurately described by low-order polynomials.
 
-The recipe produces a multi-extension FITS file with an image
-extension mapping wavelength across each detector in the array. A
-table extension holds the polynomial coefficients.
+In principle we know this relation from our optical models, but we expect small
+deviations ($\lesssim$ 1 px) because e.g.\ the main dispersion grating mechanism
+in the \ac{LMS} did not come back to exactly to the nominal position.
+We expect the offset from the optical model to be well represented either by a
+simple linear function or a low-order polynomial.
+The exact shape of the wavelength-to-pixel relation will be determined during
+\ac{AIT}.
 
- This is in compliance with \REQ{METIS-6074} and \REQ{METIS-10300}.
+The wavelength range of the LM band is only partially covered by the lasers.
+The model will therefore be calibrated only on the part of the range covered by
+the lasers and subsequently interpolated to the whole image.
+This calibrated optical model is then used by the other recipes as a first
+guess for the wavelength solution.
+%, even though it was directly verified only in a subset of the settings.
+
+The boundaries of the slice image on the detector are obtained by
+measuring the left and right edges of the wavelength lines.
+The slice number is then obtained by counting the
+slices according to the optical design of the spectrograph.
+The wavelength of each line is known from the settings of the \ac{QCL}, the $x$
+coordinate is obtained by
+%linear interpolation along the line (or perhaps
+using the distortion table from \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}}
+%if necessary).
+
+The recipe produces a multi-extension FITS file with an image
+extension mapping wavelength across each detector in the array.
+A table extension holds the polynomial coefficients.
 
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}              \\
-  Purpose:             & Determine pixel-to-wavelength transformation.                          \\
-  Requirements:        & \REQ{METIS-6074}                                                       \\
-  Type:                & Calibration                                                            \\
-  Templates:           & \TPL{METIS_ifu_cal_InternalWave}                                       \\
-  Input data:          & \hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_WAVE_RAW}}           \\
-                       & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}            \\
-                       & \hyperref[dataitem:badpix_map_ifu]{\PROD{BADPIX_MAP_IFU}}              \\
+  Name:                & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}               \\
+  Purpose:             & Determine pixel-to-wavelength transformation.                           \\
+  Requirements:        & \REQ{METIS-6074}, \REQ{METIS-10300}                                     \\
+  Type:                & Calibration                                                             \\
+  Templates:           & \TPL{METIS_ifu_cal_InternalWave}                                        \\
+  Input data:          & \hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_WAVE_RAW}}                    \\
+                       & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}             \\
+                       & \hyperref[dataitem:badpix_map_ifu]{\PROD{BADPIX_MAP_IFU}}               \\
                        & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}   \\
-  Parameters:          & None                                                                   \\
-  Algorithm:           & Measure line locations (left and right edges, centroid by Gaussian fit)\\
-                       & Compute wavelength solution $\xi(x, y, i)$, $\lambda(x, y, i)$         \\
-  Output data:         & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}                    \\
-Expected accuracies: & 1/5th of a pixel after post-processing\\
-               & (cf. \cite{METIS-calibration_plan}, \REQ{METIS-6074} \\
-  QC1 parameters:      & \QC{QC IFU WAVECAL RMS}                                                \\
-                       & \QC{QC IFU WAVECAL NLINES}                                             \\
-                       & \QC{QC IFU WAVECAL PEAK CNTS}                                          \\
-                       & \QC{QC IFU WAVECAL LINE WIDTH}                                         \\
+  Parameters:          & None                                                                    \\
+  Algorithm:           & Measure line locations (left and right edges, centroid by Gaussian fit).\\
+                       & Compute deviation from optical models.                                  \\
+                       & Compute wavelength solution $\xi(x, y, i)$, $\lambda(x, y, i)$.         \\
+                       & Compute wavelength map.                                                 \\
+  Output data:         & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}                     \\
+Expected accuracies:   & 1/5th of a pixel after post-processing (cf.~\cite{METIS-calibration_plan}, \REQ{METIS-6074}) \\
+  QC1 parameters:      & \QC{QC IFU WAVECAL RMS}                                                 \\
+                       & \QC{QC IFU WAVECAL NLINES}                                              \\
+                       & \QC{QC IFU WAVECAL PEAK CNTS}                                           \\
+                       & \QC{QC IFU WAVECAL LINE WIDTH}                                          \\
   \end{recipedef}
 
 \begin{figure}[hb]
-  \centering
-  \includegraphics[width=0.7\textwidth]{metis_ifu_wavecal}
+    \centering
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_ifu_wavecal}
   \caption[Recipe: \REC{metis_ifu_wavecal}]{\REC{metis_ifu_wavecal} --
     daytime wavelength calibration for the IFU.}
   \label{fig:metis_ifu_wavecal}
@@ -130,8 +161,10 @@ QC1 parameters:      & \QC{QC IFU RSRF NBADPIX}                                 
 \end{recipedef}
 
 \begin{figure}[hb]
-  \centering
-  \includegraphics[width=0.6\textwidth]{metis_ifu_rsrf}
+    \centering
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_ifu_rsrf}
   \caption[Recipe: \REC{metis_ifu_rsrf}]{\REC{metis_ifu_rsrf} --
     creation of IFU relative spectral response function.}
   \label{fig:metis_ifu_rsrf}
@@ -217,7 +250,7 @@ same echelle order are grouped and processing is iterated over the
 echelle orders.
 
 % from https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-9141
-For the LM band detectors in the IFU, the pixels on the edges of the detectors will be masked with the following widths \cite{matisse_minutes} (\REQ{METIS-9141}) (Fig.~\ref{fig:ifu_detector_masking}):
+For the LM band detectors in the IFU, the pixels on the edges of the detectors will be masked with the following widths~\cite{matisse_minutes} (\REQ{METIS-9141}) (Fig.~\ref{fig:ifu_detector_masking}):
 \begin{itemize}
 \item 64 columns on each ``outside'' of the 2x2 detector array in the dispersion direction
 \item 0 columns on each ``inside'' of the 2x2 detector array in the dispersion direction
@@ -277,7 +310,7 @@ The recipe produces the following (intermediate) data products:
   width.
 \item A spectral cube obtained by combining all exposures taken within
   a template. This step involves the image reconstruction discussed in
-  Sect.~8.9 of \cite{DRLS}.
+  Sect.~8.9 of~\cite{DRLS}.
 % TODO: Decide on the below.
 %  Whether this step is included
 %  in the present recipe \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} or is postponed to
@@ -348,11 +381,11 @@ Output data:         & \hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED
                      & \hyperref[dataitem:ifu_sci_object_1d]{\PROD{IFU_SCI_OBJECT_1D}}  (1D)                    \\
                      & \hyperref[dataitem:ifu_sci_telluric_1d]{\PROD{IFU_SCI_TELLURIC_1D}}                      \\
 Expected accuracies: & for wavelength: 1/5th of a pixel after post-processing\\
-            & (cf. \cite{METIS-calibration_plan}, \REQ{METIS-6074} \\
+            & (cf.~\cite{METIS-calibration_plan}, \REQ{METIS-6074} \\
             & for flux: 10\% over an atmospheric band \\
             & $<30$\% absolute line flux accuracy\\
             & $<5$\% absolute flux calibration \\
-            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
+            & (cf.~\cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
 QC1 parameters:      & None                                                                                     \\
 \end{recipedef}
 
@@ -399,7 +432,7 @@ spectrum. The spectrum is extracted from a combined cube
   Algorithm:           & extract 1D spectrum                                                             \\
                        & Application of molecfit                                                         \\
   Output data:         & \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}                                                      \\
-  Expected accuracies: & 2\% \cite{METIS_calerrbudget}                                                   \\
+  Expected accuracies: & 2\%~\cite{METIS_calerrbudget}                                                   \\
   QC1 parameters:      & None                                                                            \\
 \end{recipedef}
 
@@ -420,12 +453,12 @@ spectrum. The spectrum is extracted from a combined cube
 
 This recipe combines a number of reduced IFU exposures covering a
 different spatial and wavelength ranges into a single data cube. The
-positions and orientations of the exposures may differ as follows (cf. \cite{METIS-operational_concept}): %\TODO{Reference to operational concept}
+positions and orientations of the exposures may differ as follows (cf.~\cite{METIS-operational_concept}): %\TODO{Reference to operational concept}
 \begin{description}
 \item[Spatial dithering:] The target is placed at different positions
   along and across the slice. Along-slice dithering aids in background
   subtraction, across-slice dithering is necessary image
-  reconstruction given that the slice width undersamples the PSF.
+  reconstruction given that the slice width undersamples the PSF\@.
 \item[Field rotation:] The field is rotated by 90 degrees between
   exposures. The cube of a single exposure has different pixel scales
   along and across the slice. The goal of combining exposures at
@@ -433,7 +466,7 @@ positions and orientations of the exposures may differ as follows (cf. \cite{MET
   with pixel scale given by the detector scale (8.2\,mas). The exact
   procedure remains to be investigated; one of the major challenges is
   to find the exact centre of rotation
-  (Sect.~8.9 of \cite{DRLS}).
+  (Sect.~8.9 of~\cite{DRLS}).
 \item[Spectral dithering:] Sequences of exposures are taken at various
   echelle angles in order to cover an increased contiguous wavelength
   range. In the extended mode, such a sequence may cover the
@@ -498,7 +531,7 @@ indication of the variation of spectral resolution across the field of view.
   Output data:         & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}                                                 \\
                        & \hyperref[dataitem:ifu_dist_reduced]{\PROD{IFU_DIST_REDUCED}}                                                     \\
 Expected accuracies: & 1/10th of a pixel after post-processing\\
-               & (cf. \cite{METIS-calibration_plan}, R-MET-106, \REQ{METIS-167}, \REQ{METIS-1371})\\
+               & (cf.~\cite{METIS-calibration_plan}, R-MET-106, \REQ{METIS-167}, \REQ{METIS-1371})\\
   QC1 parameters:      & \QC{QC IFU DISTORT RMS}: RMS deviation between measured position and model \\
                        & \QC{QC IFU DISTORT FWHM}:   Measured FWHM of spots                            \\
                        & \QC{QC IFU DISTORT NSPOTS}: Number of identified spots                        \\

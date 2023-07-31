@@ -1,7 +1,7 @@
 \clearpage
 \section{Critical algorithms}\label{sec:critical_algorithms}
 
-This section summarizes the status of the critical algorithms that were identified in the Data Reduction Library Specifications document \cite{DRLS} at PDR. Note that `critical' in this context stands for `needs prototyping', and `non-critical' below does not mean `unimportant', just that there is a reason for not needing a prototype.
+This section summarizes the status of the critical algorithms that were identified in the Data Reduction Library Specifications document~\cite{DRLS} at PDR. Note that `critical' in this context stands for `needs prototyping', and `non-critical' below does not mean `unimportant', just that there is a reason for not needing a prototype.
 
 \begin{enumerate}
     \item[1.] Persistence correction (\ref{ssec:criticalpersistencecorrection})
@@ -92,7 +92,7 @@ The following additional critical algorithms were identified in the period betwe
 Persistence is a major issue in modern IR detectors, in particular in the Hawaii2RG devices (HgCdTe based, see Fig.~\ref{fig:h2rg_persistence} [taken from LBT website\footnote{\url{https://sites.google.com/a/lbto.org/luci/instrument-characteristics/detector\#TOC-Persistence}\label{fn:persistence}}]).
 This detector type also shows significant differences between the individual chips.
 Fortunately, this pattern can be corrected via simple subtraction as a very first step.
-The GeoSnap detector is expected to not suffer from persistence (see \cite{Leisenring_2023}).
+The GeoSnap detector is expected to not suffer from persistence (see~\cite{Leisenring_2023}).
 %due to the CTIA circuitry.
 % [Roy] recalls also Derek mentioning that he could not see any signs of persistence in the date he investigated. "
 
@@ -133,7 +133,7 @@ In~\cite{matisse_minutes}, the correction is described as follows:
     \end{itemize}
 \end{displayquote}
 
-Fig.~\ref{fig:detmasks} taken from \cite{matisse_minutes}, the minutes
+Fig.~\ref{fig:detmasks} taken from~\cite{matisse_minutes}, the minutes
 of a detector meeting between the METIS and MATISSE consortia held in May 2017 in Bonn.
 \begin{figure}[ht]
   \centering
@@ -198,7 +198,7 @@ a dedicated research project has been started to better understand the origin of
 
 % Hence, the dedicated pipeline algorithms will ultimately depend on the chosen strategy for each METIS detector, e.g.\ dithering, classical chop-nod, chop-counter-chop (in 1D or 2D), drift scanning.
 %This is particularly relevant for the N bands where, for instance, the instability of the AQUARIUS detector response demands chopping at much higher frequencies.
-% More details on dedicated research project and the proposed strategies are given in the Calibration Plan \cite{METIS-calibration_plan} which serves as the base for the following.
+% More details on dedicated research project and the proposed strategies are given in the Calibration Plan~\cite{METIS-calibration_plan} which serves as the base for the following.
 
 Nevertheless, standard subtraction techniques (dithering, chopping and nodding)
 will be used, which not require prototying. More complex algorithms that would
@@ -216,7 +216,7 @@ For In-field-dithering, this is done by determining a flux scaling factor for ea
 The remaining pixels are then averaged, or medianed, to produce the sky frame which is then scaled to match the median of the object frame before being subtracted.
 The sky subtraction is further improved by following the previous steps to produce the combined image to locate all the sources.
 Then the background frames are combined again while excluding the sources positions.
-The best approach to determine the flux scaling factor of each dither exposure is yet to be determined (e.g.\ by median scaling or by a 2D/PCA approach based on \cite{Hunziker2018}).
+The best approach to determine the flux scaling factor of each dither exposure is yet to be determined (e.g.\ by median scaling or by a 2D/PCA approach based on~\cite{Hunziker2018}).
 The pipeline would also support sky subtraction using separate sky images for out-of-field dithering modes, i.e.\ when the observed field is crowded or full of extended emission.
 
 \subsubsection{N bands}

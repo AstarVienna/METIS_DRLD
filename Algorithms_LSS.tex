@@ -11,7 +11,7 @@ and a subsequent subtraction. The fitting points/regions must be chosen to be ou
 
 %-----------------------------------------------------------------------------------------
 \subsubsection{Order detection and rectification}\label{ssec:orderhandling}
-The algorithms for order detection and rectification are adopted from \cite{pis02,pis21}.
+The algorithms for order detection and rectification are adopted from~\cite{pis02,pis21}.
 In brief, the selection of pixels that may belong to spectral \ac{LSS} order is done by first smoothing each column and then selecting pixels above the median of the difference between the original
 and the smoothed column, i.e. pixel $(x,y)$ is selected if
 \begin{equation}
@@ -20,13 +20,13 @@ and the smoothed column, i.e. pixel $(x,y)$ is selected if
 In the following a clustering analysis is performed, which associates connected groups of pixels. This is done scanning rows and columns and identifying neighbouring pixels selected in the previous step as belonging to the same cluster if $\delta x$ and $\delta y$ differ by at most 1. As spectral orders may be partitioned into different clusters because of e.g. detector defects, polynomial fits to the clusters are performed and the pairwise extensions of the fits to consecutive clusters are compared to identify which clusters are to be merged according to predefined criteria for the goodness of match. For each order, the detection algorithm yields a polynomial description of order location on the detector (the order center and its edges), an uncertainty estimate
 for the fitted polynomial, and the first and last columns to be used during spectrum extraction. 
 %The upper and lower edges of the orders are also traced and fitted by the order tracing algorithm using the pinhole frames with the flatfield lamp. 
-Order rectification is achieved using the PyReduce algorithm described by \cite{pis21} that can account for both tilt and curvature of the slit image.   
+Order rectification is achieved using the PyReduce algorithm described by~\cite{pis21} that can account for both tilt and curvature of the slit image.   
 
 %-----------------------------------------------------------------------------------------
 \subsubsection{Wavelength calibration strategy}\label{ssec:wavecal}
 The wavelength calibration (i.e. the pixel-to-wavelength relation) of the \ac{LSS} modes is done in a two-step approach:
 \begin{itemize}
-    \item First guess: The first guess is based on laser sources in the \ac{WCU} and during commissioning.  In the LM range, two fixed-frequency lasers ($@3.39$µm and $@5.26$µm) and one tuneable ($4.68....4.78$µm) is foreseen in the \ac{WCU} to be taken on daily basis (cf. \cite{METIS-calibration_plan}). In the N-band, a laser source will only be available during \ac{AIT}. As we assume the instrument to be very stable, that approach should be sufficient to achieve a first guess solution for the low-resolution N-band spectroscopy.
+    \item First guess: The first guess is based on laser sources in the \ac{WCU} and during commissioning.  In the LM range, two fixed-frequency lasers ($@3.39$µm and $@5.26$µm) and one tuneable ($4.68....4.78$µm) is foreseen in the \ac{WCU} to be taken on daily basis (cf.~\cite{METIS-calibration_plan}). In the N-band, a laser source will only be available during \ac{AIT}. As we assume the instrument to be very stable, that approach should be sufficient to achieve a first guess solution for the low-resolution N-band spectroscopy.
     \item For the final calibration atmospheric lines are used in the recipes \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} and \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}, which are used in the \texttt{pyreduce} package as reference frame.
     \item Optionally: the package \texttt{molecfit} in its newest version has a new function implemented, which allows a fine-tuning of the wavelength calibration by means of fitting atmospheric features. It is to be tested during commissioning, whether this step is required.
 \end{itemize}
@@ -61,7 +61,7 @@ The wavelength calibration (i.e. the pixel-to-wavelength relation) of the \ac{LS
 %Slit D & 57.1 & 8000.0 & 7.068e-03 & 3.806e-03 & 2.591e-02 & 502 & 1274 & 405 \\
 %Slit E & 114.2 & 8000.0 & 1.414e-02 & 7.612e-03 & 5.182e-02 & 251 & 637 & 203 \\
 %\end{tabular}
-%\caption{Estimate of the LSS spectral resolving power in all three bands with respect to the different slits;\newline $^a$ from% Tab.~4-2 in \cite{METIS-system_analysis} \newline $^b$ at $\lambda_\textrm{cent}$ (see Tab.~\ref{tab:bands_specres1})%\label{tab:bands_specres2}}
+%\caption{Estimate of the LSS spectral resolving power in all three bands with respect to the different slits;\newline $^a$ from% Tab.~4-2 in~\cite{METIS-system_analysis} \newline $^b$ at $\lambda_\textrm{cent}$ (see Tab.~\ref{tab:bands_specres1})%\label{tab:bands_specres2}}
 %\end{center}
 %\end{table}
 
@@ -77,6 +77,6 @@ The wavelength calibration (i.e. the pixel-to-wavelength relation) of the \ac{LS
 
 %-----------------------------------------------------------------------------------------
 \subsubsection{Object extraction and faint object spectroscopy}\label{sec:fospectro}
-The object spectra will be extracted using the optimal extraction described by \cite{pis21} in order to maximized the \ac{SNR}. 
+The object spectra will be extracted using the optimal extraction described by~\cite{pis21} in order to maximized the \ac{SNR}. 
 Faint objects will lead to additional requirements for the observation and the data reduction. For the target acquisition a blind offset from a reference source might become necessary in case the actual object cannot be detected directly. For the data reduction, manual interaction with the user is expected to be necessary to define the target position along the slit since automatic object detection algorithms (e.g. optimal extraction %\cite{hor86}) 
 rely on a certain \ac{SNR}. This will be implemented as interactive actor in Reflex (or ESO-DPS).

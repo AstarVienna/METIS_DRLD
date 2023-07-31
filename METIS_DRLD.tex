@@ -86,6 +86,7 @@
 \def\input@path{{./}{./tikz/}}
 \makeatother
 
+\usepackage{siunitx}
 \usepackage{fancyhdr}
 \setlength{\headheight}{19pt} % ...at least 18.26802pt
 \setlength{\footskip}{31pt}   % ...at least 30.86163pt
@@ -428,7 +429,7 @@
 \subsection{Scope}
 
 This document describes the design of the data reduction software for the \ac{METIS}, one of the instruments for the \ac{ELT}. It builds upon
-the Data Reduction Library Specifications document \cite{DRLS}
+the Data Reduction Library Specifications document~\cite{DRLS}
 presented for \ac{PDR} and supersedes that document for \ac{FDR}.
 
 \subsection{Applicable documents}
@@ -499,7 +500,8 @@ presented for \ac{PDR} and supersedes that document for \ac{FDR}.
 \input{13_0-Developmentplan}
 
 \appendix
-\input{App01_Product_files}
+% HB 20230730: For now I've disabled the Product Files appendix, as it is empty
+%\input{App01_Product_files}
 \input{App02_FITS_keywords}
 \input{App03_AtmoTrans}
 

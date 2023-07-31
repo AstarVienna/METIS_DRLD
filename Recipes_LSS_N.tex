@@ -13,7 +13,7 @@ These recipes aim for detector-specific calibrations and are therefore the same 
 
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{\REC{metis_N_adc_slitloss}: Slit loss determination}
-The recipe \hyperref[sssec:adc_slitlosses]{\REC{metis_n_adc_slitloss}} aims to determine the slit losses induced by the fixed \ac{ADC} positions as function of the object position across the slit. The recipe aims to create a table with slitlosses (\hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}), which is added to the static database and used in the recipes \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slitlosses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit losses" in the Calibration Plan \cite{METIS-calibration_plan}. 
+The recipe \hyperref[sssec:adc_slitlosses]{\REC{metis_n_adc_slitloss}} aims to determine the slit losses induced by the fixed \ac{ADC} positions as function of the object position across the slit. The recipe aims to create a table with slitlosses (\hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}), which is added to the static database and used in the recipes \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slitlosses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit losses" in the Calibration Plan~\cite{METIS-calibration_plan}. 
 
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{\REC{metis_N_lss_rsrf}:  Flatfielding}\label{rec:metis_n_lss_rsrf}
@@ -47,7 +47,7 @@ Output data:	&  \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}} 
                 & \hyperref[dataitem:median_n_lss_rsrf_img]{\PROD{MEDIAN_N_LSS_RSRF_IMG}}: median map (\ac{QC})\\
                 & \hyperref[dataitem:mean_n_lss_rsrf_img]{\PROD{MEAN_N_LSS_RSRF_IMG}}: mean map (\ac{QC})\\
 
-Expected accuracies: & 3\% (cf. \cite{METIS-calibration_plan} and \cite{METIS_calerrbudget})\\
+Expected accuracies: & 3\% (cf.~\cite{METIS-calibration_plan} and~\cite{METIS_calerrbudget})\\
 QC1 parameters: & \hyperref[qc:qc_n_lss_rsrf_mean_level]{\QC{QC N LSS RSRF MEAN LEVEL}}: Mean level of the \ac{RSRF}\\
                 & \hyperref[qc:qc_n_lss_rsrf_median_level]{\QC{QC N LSS RSRF MEDIAN LEVEL}}: Median level of the \ac{RSRF}\\
                 & \hyperref[qc:qc_n_lss_rsrf_intordr_level]{\QC{QC N LSS RSRF INTORDR LEVEL}}: Flux level of the interorder background\\
@@ -58,7 +58,7 @@ QC1 parameters: & \hyperref[qc:qc_n_lss_rsrf_mean_level]{\QC{QC N LSS RSRF MEAN 
 %------------------------------------------------------------------------------------------------------------------
 \clearpage
 \subsubsection{\REC{metis_N_lss_trace}:  Order detection}\label{rec:metis_n_lss_trace}
-The recipe \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}} aims at detecting the order and a polynomial fitting of the order location (see \cite{pis02} and \cite{pis21} for details on the algorithms). The detection and polynomial fitting is based on flatfield frames taken through a pinhole mask, which leads to individual pinhole traces along the entire dispersion direction.
+The recipe \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}} aims at detecting the order and a polynomial fitting of the order location (see~\cite{pis02} and~\cite{pis21} for details on the algorithms). The detection and polynomial fitting is based on flatfield frames taken through a pinhole mask, which leads to individual pinhole traces along the entire dispersion direction.
 
 \begin{figure}[ht]
   \centering
@@ -86,7 +86,7 @@ Algorithm:      & Detection of the order edges\\
                 & Polynomial fitting\\
 Output data:	& \hyperref[dataitem:n_lss_trace]{\PROD{N_LSS_TRACE}} (\FITS{PRO.CATG=N_LSS_TRACE}): Polynomial coefficients\\
 Expected accuracies: & 1/10th of a pixel after post-processing\\
-               & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+               & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
 QC1 parameters: & \hyperref[qc:qc_n_lss_trace_lpolydeg]{\QC{QC N LSS TRACE LPOLYDEG}}: Degree of the polynomial fit of the left order edge\\
                 & \hyperref[qc:qc_n_lss_trace_lcoeff<i>]{\QC{QC N LSS TRACE LCOEFF<i>}}: $i$-th coefficient of the polynomial of the left order edge\\
                 & \hyperref[qc:qc_n_lss_trace_rpolydeg]{\QC{QC N LSS TRACE RPOLYDEG}}: Degree of the polynomial fit of the right order edge\\
@@ -100,7 +100,7 @@ QC1 parameters: & \hyperref[qc:qc_n_lss_trace_lpolydeg]{\QC{QC N LSS TRACE LPOLY
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{\REC{metis_N_lss_std}:  Standard star processing}\label{rec:metis_n_lss_std}
 This recipe aims at processing standard stars used for the absolute flux calibration and (optionally) for the telluric feature removal: As first step the detector master calibration files derived previously are applied followed by the background subtraction, if needed the distortion correction (\hyperref[dataitem:n_lss_dist_sol]{\PROD{N_LSS_DIST_SOL}}), and
-the wavelength calibration by means of the first guess solution (\hyperref[dataitem:n_lss_wave_guess]{\PROD{N_LSS_WAVE_GUESS}}) and the telluric sky lines (c.f. Sect.\,8.5 in \cite{DRLS}). Then the recipe removes sky background, extracts the standard star spectrum object and collapses the 2D to 1D spectra. In case the \ac{STD} is used only for the flux calibration, a telluric correction is required to better compare the corresponding model spectrum. This is done by means of the standard star observations itself or (optionally) with a synthetic transmission curve (either a standard curve derived by the ESO Skycalc Tool\footnote{\url{https://www.eso.org/observing/etc/bin/gen/form?INS.MODE=swspectr+INS.NAME=SKYCALC}}, a standard curve (\hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}}) or \texttt{molecfit}. It is on the user's decision whether the standard star is used for the absolute flux calibration only, or also used for the telluric correction of the science target. The response function is then calculated as ratio of the measured 1d-\ac{STD} spectrum and a detailed model containing absolute flux information.
+the wavelength calibration by means of the first guess solution (\hyperref[dataitem:n_lss_wave_guess]{\PROD{N_LSS_WAVE_GUESS}}) and the telluric sky lines (c.f. Sect.\,8.5 in~\cite{DRLS}). Then the recipe removes sky background, extracts the standard star spectrum object and collapses the 2D to 1D spectra. In case the \ac{STD} is used only for the flux calibration, a telluric correction is required to better compare the corresponding model spectrum. This is done by means of the standard star observations itself or (optionally) with a synthetic transmission curve (either a standard curve derived by the ESO Skycalc Tool\footnote{\url{https://www.eso.org/observing/etc/bin/gen/form?INS.MODE=swspectr+INS.NAME=SKYCALC}}, a standard curve (\hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}}) or \texttt{molecfit}. It is on the user's decision whether the standard star is used for the absolute flux calibration only, or also used for the telluric correction of the science target. The response function is then calculated as ratio of the measured 1d-\ac{STD} spectrum and a detailed model containing absolute flux information.
 
 Please note that the procedure of the \ac{STD} handling changes when the classical method for the telluric correction is chosen. The reason is that in the response function, also the telluric features of the \ac{STD} star have to be present to be able to apply a combination of the telluric absorption removal and the conversion towards physical flux units (cf. Section~\ref{ssec:tellcorr}). In the case of using \texttt{molecfit}, a telluric correction is applied to the \ac{STD} spectrum to better determine the response function and only the response is delivered to the science recipes. In case of the classical approach with a \ac{STD}, the response function will also contain the telluric features of the \ac{STD}, and therefore a telluric correction beforehand is counterproductive.\\
 
@@ -151,11 +151,11 @@ Output data:	& \hyperref[dataitem:n_lss_std_obj_map]{\PROD{N_LSS_STD_OBJ_MAP}}: 
                 & \hyperref[dataitem:std_transmission]{\PROD{STD_TRANSMISSION}}: Transmission curve derived by menas of the \ac{STD} star (\ac{QC})\\
                 & \hyperref[dataitem:master_n_response]{\PROD{MASTER_N_RESPONSE}}: response function (optionally including the transmission)\\
 Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
-            & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+            & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
             & for flux: 10\% over an atmospheric band \\
             & $<30$\% absolute line flux accuracy\\
             & $<5$\% absolute flux calibration \\
-            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
+            & (cf.~\cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
 QC1 parameters: & \hyperref[qc:qc_n_lss_std_backgd_mean]{\QC{QC N LSS STD BACKGD MEAN}}: Mean value of background\\
                 & \hyperref[qc:qc_n_lss_std_backgd_median]{\QC{QC N LSS STD BACKGD MEDIAN}}: Median value of background\\
                 & \hyperref[qc:qc_n_lss_std_backgd_stdev]{\QC{QC N LSS STD BACKGD STDEV}}: Standard deviation value of background\\
@@ -237,11 +237,11 @@ Output data:	& \hyperref[dataitem:n_lss_sci_obj_map]{\PROD{N_LSS_SCI_OBJ_MAP}}: 
               	& \hyperref[dataitem:n_lss_sci_flux_1d]{\PROD{N_LSS_SCI_FLUX_1D}}: coadded, wavelength 1D spectrum\\
                 & (\FITS{PRO_CATG}: \FITS{N_LSS_1d_coadd_wavecal}) \\
 Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
-            & (cf. \cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
+            & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
             & for flux: 10\% over an atmospheric band \\
             & $<30$\% absolute line flux accuracy\\
             & $<5$\% absolute flux calibration \\
-            & (cf. \cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
+            & (cf.~\cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
             & for optional telluric correction: 10\% within an atmospheric band); desired: 2\% 
             (\cite{METIS-calibration_plan})\\
 QC1 parameters: & \hyperref[qc:qc_n_lss_sci_snr]{\QC{QC N LSS SCI SNR}}: Signal-to-noise ration of science spectrum\\
@@ -287,7 +287,7 @@ Algorithm:      & Fit of telluric features visible in the science input spectrum
                 & Determination of best-fit parameter set\\
 Output data:	& \hyperref[dataitem:mf_best_fit_tab]{\PROD{MF_BEST_FIT_TAB}}\\
 Expected accuracies: & n/a\\
-QC1 parameters: & cf. \cite{molecfit}\\
+QC1 parameters: & cf.~\cite{molecfit}\\
 \end{recipedef}
 
 %------------------------------------------------------------------------------------------------------------------
@@ -317,7 +317,7 @@ Algorithm:      & Calculate the entire transmission curve by means of the best-f
 Output data:	& \hyperref[dataitem:n_lss_synth_trans]{\PROD{N_LSS_SYNTH_TRANS}}\\
 \\
 Expected accuracies: & n/a\\
-QC1 parameters: & cf. \cite{molecfit}\\
+QC1 parameters: & cf.~\cite{molecfit}\\
 \end{recipedef}
 
 %------------------------------------------------------------------------------------------------------------------
@@ -345,7 +345,7 @@ Algorithm:      & Apply telluric correction, i.e. divide the input science spect
                 & by the synthetic transmission\\
 Output data:	& \hyperref[dataitem:n_lss_sci_flux_tellcorr_1d]{\PROD{N_LSS_SCI_FLUX_TELLCORR_1D}}\\
 Expected accuracies: & Telluric removal must be good enough to reach the required spectro-photometric accuracy (10\% within an atmospheric band). Desired: 2\% (\cite{METIS-calibration_plan})\\
-QC1 parameters: & cf. \cite{molecfit}\\
+QC1 parameters: & cf.~\cite{molecfit}\\
 \end{recipedef}
 
 
