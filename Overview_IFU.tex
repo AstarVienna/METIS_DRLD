@@ -1,9 +1,14 @@
 \subsection{LM IFU: integral-field spectroscopy}
 \label{ssec:overview_ifu}
 
-% The \ac{IFU} pipeline has not yet been revised since PDR, hence the
-% description in~\cite{DRLS} applies.
-% For reference, t
+In general workflow is similar to the Long-Slit Spectroscopy mode.
+The most significant difference is in the post-processing step.
+
+The main difference arises from the need to co-add multiple shifted exposures
+to achieve the full resolution, as pixel scales are different
+in along-slice and across-slice directions.
+To allow for full image reconstruction, the exposures are taken in two different field rotations.
+
 The association map is shown in Fig.~\ref{Fig:IfuAssomap}.
 
 % Discussion moved to https://github.com/AstarVienna/METIS_DRLD/issues/100
