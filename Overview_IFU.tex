@@ -1,19 +1,25 @@
 \subsection{LM IFU: integral-field spectroscopy}
 \label{ssec:overview_ifu}
 
-In general workflow is similar to the Long-Slit Spectroscopy mode.
-The most significant difference is in the post-processing step.
-
+In general, the workflow is similar to the \ac{LSS} mode,
+except the extensive post-processing stage.
 The main difference arises from the need to co-add multiple exposures
 to achieve the full resolution, since pixel scales are different:
 \begin{itemize}
     \item in the along-slice direction, the sampling is sufficient, ie. above the Nyquist rate;
-    \item in the across-slice direction, the sampling is below the Nyquist rate
-        and dithering/co-adding of multiple exposures is needed.
+        at $8.2$ mas per pixel;
+    \item in the across-slice direction, the sampling is below the Nyquist rate at
+        $20.7$ mas per pixel, and dithering/co-adding of multiple exposures is needed.
 \end{itemize}
 
-To allow for full image reconstruction, the exposures are taken in two different
-perpendicular field rotations.
+The ratio of these resolutions shows that at least three exposures shifted by one third of the
+pixel size are required. The image is then reconstructed on a square pixel grid of
+$8.2 \times 8.2 \text{mas}^2$.
+
+The exposures are taken in two perpendicular field rotations,
+so that full resolution is obtained naturally in the along-slice direction
+and by dithering in the across-slice direction; in the other sequence of three exposures
+these directions are essentially swapped.
 
 The association map is shown in Fig.~\ref{Fig:IfuAssomap}.
 
