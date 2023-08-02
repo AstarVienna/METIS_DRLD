@@ -26,7 +26,7 @@
   CALIB     & IFU      & DARK           & DARK\_IFU\_RAW         & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}            \\
  CALIB     & IFU      & DARK,WCUOFF    & IFU\_WCU\_OFF\_RAW      & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}         \\
  CALIB     & IFU      & DETLIN         & DETLIN\_IFU\_RAW       & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}         \\
- CALIB     & IFU      & DISTORTION     & IFU\_DISTORTION\_RAW   & metis\_ifu\_distortion      \\
+ CALIB     & IFU      & DISTORTION     & IFU\_DISTORTION\_RAW   & \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}}      \\
  CALIB     & IFU      & PSF,OFFAXIS    & IFU\_OFF\_AXIS\_PSF\_RAW & metis\_ifu\_adi\_cgrph       \\
  CALIB     & IFU      & RSRF           & IFU\_RSRF\_RAW         & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}}            \\             
  CALIB     & IFU      & RSRF           & IFU\_RSRF\_RAW         & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}}            \\
@@ -36,20 +36,20 @@
  CALIB     & IMAGE,LM & CHOPHOME       & LM\_CHOPPERHOME\_RAW   & \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}}        \\
  CALIB     & IMAGE,LM & DARK           & DARK\_2RG\_RAW         & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}            \\
  CALIB     & IMAGE,LM & DARK,WCUOFF    & LM\_WCU\_OFF\_RAW       & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}         \\
- "         & "        & "              & "                    & metis\_lm\_img\_distortion   \\
- "         & "        & "              & "                    & metis\_lm\_adc\_slitloss     \\
+ "         & "        & "              & "                    & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}   \\
+ "         & "        & "              & "                    & \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}}     \\
  CALIB     & IMAGE,LM & DETLIN         & DETLIN\_2RG\_RAW       &\hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}         \\
- CALIB     & IMAGE,LM & DISTORTION     & LM\_DISTORTION\_RAW    & metis\_lm\_img\_distortion   \\
+ CALIB     & IMAGE,LM & DISTORTION     & LM\_DISTORTION\_RAW    & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}   \\
  CALIB     & IMAGE,LM & FLAT,LAMP      & LM\_FLAT\_LAMP\_RAW     & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}}         \\
  CALIB     & IMAGE,LM & FLAT,TWILIGHT  & LM\_FLAT\_TWILIGHT\_RAW & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}}         \\
  CALIB     & IMAGE,LM & PSF,OFFAXIS    & LM\_OFF\_AXIS\_PSF\_RAW  & metis\_img\_adi\_cgrph       \\
  "         & "        & "              & "                    & metis\_lm\_adi\_app          \\
  CALIB     & IMAGE,N  & DARK           & DARK\_GEO\_RAW         & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}            \\
  CALIB     & IMAGE,N  & DARK,WCUOFF    & N\_WCU\_OFF\_RAW        & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}         \\
- "         & "        & "              & "                    & metis\_n\_img\_distortion    \\
- "         & "        & "              & "                    & metis\_n\_adc\_slitloss      \\
+ "         & "        & "              & "                    & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}    \\
+ "         & "        & "              & "                    & \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}}      \\
  CALIB     & IMAGE,N  & DETLIN         & DETLIN\_GEO\_RAW       & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}         \\
- CALIB     & IMAGE,N  & DISTORTION     & N\_DISTORTION\_RAW     & metis\_n\_img\_distortion    \\
+ CALIB     & IMAGE,N  & DISTORTION     & N\_DISTORTION\_RAW     & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}     \\
  CALIB     & IMAGE,N  & FLAT,LAMP      & N\_FLAT\_LAMP\_RAW      & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}}          \\
  CALIB     & IMAGE,N  & FLAT,TWILIGHT  & N\_FLAT\_TWILIGHT\_RAW  & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}}          \\
  CALIB     & IMAGE,N  & PSF,OFFAXIS    & N\_OFF\_AXIS\_PSF\_RAW   & metis\_img\_adi\_cgrph       \\
@@ -61,9 +61,9 @@
  CALIB     & LSS,N    & FLAT,LAMP      & N\_LSS\_RSRF\_RAW       & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}}          \\
  CALIB     & LSS,N    & FLAT,LAMP,PINH & N\_LSS\_RSRF\_PINH\_RAW  & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}}         \\
  CALIB     & LSS,N    & SLITLOSS       & N\_SLITLOSSES\_RAW     & \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}}      \\
- CALIB     & LSS,N    & STD            & N\_LSS\_STD\_RAW        & metis\_N\_lss\_std           \\
+ CALIB     & LSS,N    & STD            & N\_LSS\_STD\_RAW        & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}           \\
  SCIENCE   & IFU      & OBJECT         & IFU\_SCI\_RAW          & metis\_ifu\_sci\_process     \\
- SCIENCE   & IMAGE,LM & OBJECT         & LM\_IMAGE\_SCI\_RAW     & metis\_lm\_img\_basic\_reduce \\
+ SCIENCE   & IMAGE,LM & OBJECT         & LM\_IMAGE\_SCI\_RAW     & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}} \\
  SCIENCE   & IMAGE,N  & OBJECT         & N\_IMAGE\_SCI\_RAW      & metis\_n\_img\_chopnod       \\
  SCIENCE   & LSS,LM   & OBJECT         & LM\_LSS\_SCI\_RAW       & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}          \\
  SCIENCE   & LSS,N    & OBJECT         & N\_LSS\_SCI\_RAW        & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}           \\
