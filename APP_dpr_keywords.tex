@@ -1,10 +1,19 @@
-\begin{table}
-  \footnotesize
-  \begin{center}
-    \caption[DPR keywords table]{DPR keywords table}
-    \label{tab:dpr_keywords}
-    \begin{tabular}{|l|l|l|l|l|}
- \hline
+\begin{center}
+\begin{longtable}{|l|l|l|l|l|} 
+\footnotesize
+\caption[DPR keywords table]{DPR keywords table}
+\label{tab:dpr_keywords}
+\hline \multicolumn{1}{|c|}{\textbf{First column}} & \multicolumn{1}{c|}{\textbf{Second column}} & \multicolumn{1}{c|}{\textbf{Third column}} & \multicolumn{1}{c|}{\textbf{forth column}} & \multicolumn{1}{c|}{\textbf{Fifth column}}\\ \hline 
+\endfirsthead \hline
+
+\multicolumn{5}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline \multicolumn{1}{|c|}{\textbf{First column}} & \multicolumn{1}{c|}{\textbf{Second column}} & \multicolumn{1}{c|}{\textbf{Third column}} \\ \hline 
+\endhead
+
+\hline \multicolumn{5}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+
  DPR.CATG  & DPR.TECH & DPR.TYPE       & DO.CATG              & recipes                   \\
  \hline
   CALIB     & IFU      & DARK           & DARK\_IFU\_RAW         & metis\_det\_dark            \\
@@ -54,6 +63,6 @@
  TECHNICAL & PUP,M    & PUPIL          & LM\_PUPIL\_RAW         & metis\_pupil\_imaging       \\
  TECHNICAL & PUP,N    & PUPIL          & N\_PUPIL\_RAW          & metis\_pupil\_imaging       \\
  \hline
-    \end{tabular}
-  \end{center}
-\end{table}
+  
+\end{longtable}
+\end{center}
