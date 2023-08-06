@@ -18,32 +18,32 @@ Example output images for ADI reduction for LM RAVC data.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.6\textwidth]{./figures/onaxis_psf.png}
+  \includegraphics[width=0.9\textwidth]{./figures/onaxis_psf.png}
   \caption[On-axis coronagraphic PSF with instrumental noise and corrected turbulence]{%
     On-axis coronagraphic PSF with instrumental noise injected and with corrected atmospheric turbulence.
     The circular control region from the AO system is clearly visible.
   }
-  %\label{fig:metis_l}
+  \label{fig:adi_1}
 \end{figure}
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.6\textwidth]{./figures/offaxis_psf.png}
+  \includegraphics[width=0.9\textwidth]{./figures/offaxis_psf.png}
   \caption{Off-axis PSF without instrumental noise.}
-  %\label{fig:metis_l}
+  \label{fig:adi_2}
 \end{figure}
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.6\textwidth]{./figures/adi_meansub.png}
+  \includegraphics[width=0.9\textwidth]{./figures/adi_meansub.png}
   \caption{Single frame of image stack with mean PSF subtracted.}
-  %\label{fig:metis_l}
+  \label{fig:adi_3}
 \end{figure}
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.6\textwidth]{./figures/adi_derotstack.png}
+  \includegraphics[width=0.9\textwidth]{./figures/adi_derotstack.png}
   \caption{Derotated stack of ADI reduced images.}
-  %\label{fig:metis_l}
+  \label{fig:adi_4}
 \end{figure}
 
 Additionally, the contrast curves can be extracted (raw contrast over time-averaged cube, 5 sigma contrast after ADI processing). Please note that the plotted contrast is dependent on the assumptions made for this demonstration (SCAO-only effects, no additional jitter / pupil drifts / no residual atmospheric dispersion, 120 binned frames with each 100 frames of 0.3s integration time, 30 degrees image rotation). 
@@ -55,23 +55,23 @@ Following the SNR definitions of Mawet et al 2014 the noise is calculated in ann
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.6\textwidth]{./figures/adi_throughput.png}
+  \includegraphics[width=0.9\textwidth]{./figures/adi_throughput.png}
   \caption[Efficiency ADI algorithm point sources]{Efficiency of ADI algorithm in retrieving inserted point sources as a function of angular separation.}
-  %\label{fig:metis_l}
+  \label{fig:adi_5}
 \end{figure}
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.6\textwidth]{./figures/adi_contrast.png}
+  \includegraphics[width=0.9\textwidth]{./figures/adi_contrast.png}
   \caption[Achievable contrast in 1 hour integration time]{Achievable contrast for the $L=3.5$ target in 1 hour integration time as a function of angular separation. Note, this contrast is dependent on the assumption made here in this simplified study and may not be representative of a more realistic scenario.}
-  %\label{fig:metis_l}
+  \label{fig:adi_6}
 \end{figure}
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.6\textwidth]{./figures/adi_snrmap.png}
+  \includegraphics[width=0.9\textwidth]{./figures/adi_snrmap.png}
   \caption[Two dimensional ADI map of post ADI signal to noise of point sources]{Two dimensional ADI map of post ADI signal to noise of point sources. Two point sources that were inserted at 100 mas are seen.}
-  %\label{fig:metis_l}
+  \label{fig:adi_7}
 \end{figure}
 
 %\subsubsection{Generation of representative set of IFU data}
