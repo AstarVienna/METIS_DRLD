@@ -28,7 +28,7 @@ Placing the above files in their respective \pyred~folders enables \pyred~to run
 \paragraph{Simulated input `raw' data}
 To demonstrate the feasibility of adopting \pyred~algorithms to \met~purposes we use data simulated with \scope~for all three \lss~modes ($L$, $M$, or $N$-band) for the $8000~\mathrm{mas} \times 19~\mathrm{mas}$ slit (see Fig.~\ref{fig:lmn_layout}). 
 % \todo Details on the simulated data and the input files and settings used to generate them are listed in the DRLVT~\cite{drlvt}. 
-Then header keywords of the simulated data were added/modified to enable \pyred~to sort the individual files according to \texttt{metis.json}. Here we list the files - listed here for the case of $L$-band but similarly to $M$ and $N$-bands - that are used to operate \pyred, which can be downloaded from\footnote{\url{https://www.dropbox.com/sh/h1dz80vsw4lwoel/AAAqJD_FGDGC-t12wgnPXVR8a?dl=0}}: 
+Then header keywords of the simulated data were added/modified to enable \pyred~to sort the individual files according to \texttt{metis.json}. Here we list the files - listed here for the case of $L$-band but similarly for the $M$ and $N$-bands - that are used to operate \pyred, which can be downloaded from\footnote{\url{https://www.dropbox.com/sh/h1dz80vsw4lwoel/AAAqJD_FGDGC-t12wgnPXVR8a?dl=0}}: 
 \begin{itemize}
    \item \texttt{lss\_l\_thermal.fits}: spectroscopic flat field (Fig.~\ref{fig:ff})
    \item \texttt{lss\_l\_pinholes.fits}: pinhole frame with the flat field (Fig.~\ref{fig:pinh})
@@ -87,7 +87,7 @@ Then header keywords of the simulated data were added/modified to enable \pyred~
 
 For the purpose of this report, we set up a git repository of a version of \pyred~adapted to work on simulated \met~data. This package can be downloaded from \url{https://github.com/nadsabha/PyReduce_ELT} or installed via Python~3 pip command: \\
 \texttt{pip install git+https://github.com/nadsabha/PyReduce\_ELT} \\
-The package includes a README file with instructions pertaining to running \pyred~on \elt~data and links to the needed input data (\texttt{README.md})).
+The package includes a README file with instructions pertaining to running \pyred~on \elt~data and links to the needed input data (\texttt{README.md}).
 % To display the feasibility of adopting \pyred~algorithms The package is so far adapted to work on one detector in the IJ-band short slit. Adaptations  which is 
 
 
