@@ -9,7 +9,7 @@
   \sffamily
 
   %% Grid for orientation. Comment out for final figure!
- %\draw[help lines, green](-8, 0) grid (8, 21);
+ \draw[help lines, green](-8, 0) grid (8, 21);
 
   %%% Put workflow commands here:
   %% Main reduction workflow
@@ -113,7 +113,7 @@
   %\node (connectreduced) [connection] at
  % ($(step5)!0.4!(stop-t)$) {};
   \node (reduced) [right=2cm of step2, calproduct]{%
-    LM\_STD\_REDUCED
+    LM\_STD\_COMBINED
   };
   \draw (step2) -- (reduced);
 
