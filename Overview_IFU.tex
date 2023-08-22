@@ -46,10 +46,12 @@ Two more changes are foreseen in the IFU recipe cascade:
 \end{itemize}
 
 
+\newgeometry{bottom=0.5cm, right=0.1cm, left=0.1cm}
+% This geometry makes the tables/figures fit, but messes up the header a bit.
 \begin{landscape}
 \begin{figure}[ht]
   \centering
-  \includegraphics{IFU_assomap_tikz}
+  \resizebox{\linewidth}{!}{\input{tikz/IFU_assomap_tikz.tex}}
   \caption[Reduction cascade and association map for IFU spectroscopy]{%
     Association map for \ac{IFU} spectroscopy in L- and M-band. The
     figure shows only the primary products created by each recipe; for
@@ -61,6 +63,7 @@ Two more changes are foreseen in the IFU recipe cascade:
   \label{Fig:IfuAssomap}
 \end{figure}
 \end{landscape}
+\restoregeometry
 
 
 
