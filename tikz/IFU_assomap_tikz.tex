@@ -1,18 +1,18 @@
-%% IFU_assomap_tikz.tex
-%% Created by Oliver Czoske
-%% Last Change: 2022-08-14
+% Document preamble. Comment out for final figure! Footer too!
+\documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+\usepackage{listings}
+\usepackage{hyperref}
+\input{assomap_common_imports}
+\input{black_style}
+\input{styles_data}
+\begin{document}
 
-%% 2019-02-26: Try to align it with the recipe flow
-%% 2022-08-14: Rename lms -> ifu
-%% 2022-09-06: Typo
-%%
-\documentclass{standalone}
-
-\input{assomap_common}
+\input{black_style}
+\input{recipe_config}
+\input{assomap_common_styles}
 
 
 %%%%%%%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
 \sffamily
 
 %%% Picture: flow chart
@@ -304,4 +304,5 @@
 
 \end{tikzpicture}
 
+%% Document footer. Comment out for final figure! Header too!
 \end{document}
