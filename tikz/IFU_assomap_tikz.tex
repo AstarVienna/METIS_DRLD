@@ -71,7 +71,7 @@
     &
     \node (rsrf_dark)[empty]{};
     &
-    \node (dark_dark) [calibproduct]{\PROD{MASTER_DARK_IFU}};
+    \node (dark_dark) [calibproduct] {\hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}};
     &
     \node (wcal_dark)[connection]{};
     &
@@ -87,7 +87,7 @@
     \\
 
     % Row *_geom
-    \node (geom_geom) [statcalfile]{\PROD{IFU_DISTORTION_TABLE}};
+    \node (geom_geom) [statcalfile] {\hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}};
     &
     \node (rsrf_geom)[connection]{};
     &
@@ -109,7 +109,7 @@
     % Row *_rsrf
     \node (geom_rsrf) [empty]{};
     &
-    \node (rsrf_rsrf) [statcalfile]{\PROD{RSRF_IFU}};
+    \node (rsrf_rsrf) [statcalfile] {\hyperref[dataitem:rsrf_ifu]{\PROD{RSRF_IFU}}};
     &
     \node (dark_rsrf)[empty]{};
     &
@@ -135,7 +135,7 @@
     &
     \node (dark_wcal)[empty]{};
     &
-    \node (wcal_wcal) [calibproduct]{\PROD{IFU_WAVECAL}};
+    \node (wcal_wcal) [calibproduct] {\hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}};
     &
     \node (std_wcal)[connection]{};
     &
@@ -153,7 +153,7 @@
     &
     \node (rsrf_std)[empty]{};
     &
-    \node (dark_std)[extcalfile]{\EXTCALIB{FLUXSTD_CATALOG}};
+    \node (dark_std)[extcalfile] {\hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}}};
     &
     \node (wcal_std)[empty]{};
     &
@@ -177,7 +177,7 @@
     &
     \node (wcal_fcal)[empty]{};
     &
-    \node (std_fcal)[calibproduct]{\PROD{FLUXCAL_TAB}};
+    \node (std_fcal)[calibproduct] {\hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}};
     &
     \node (sci1_fcal)[connection]{};
     & &
@@ -199,9 +199,9 @@
     &
     \node (std_sci1)[empty]{};
     &
-    \node (sci1_sci1) [scienceproduct]{\PROD{IFU_SCI_REDUCED}};
+    \node (sci1_sci1)[scienceproduct] {\hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}}};
     & &
-    \node (tac_sci1)[scienceproduct]{\PROD{IFU_SCI_REDUCED_TAC}};
+    \node (tac_sci1)[scienceproduct] {\hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}};
     &
     \node (sci2_sci1)[connection]{};
 %    &
@@ -219,9 +219,9 @@
     &
     \node (std_sci2)[empty]{};
     &
-    \node (sci1_sci2)[scienceproduct]{\PROD{IFU_SCI_COMBINED}};
+    \node (sci1_sci2)[scienceproduct] {\hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}}};
     & &
-    \node (tac_sci2)[scienceproduct]{\PROD{IFU_SCI_COMBINED_TAC}};
+    \node (tac_sci2)[scienceproduct] {\hyperref[dataitem:ifu_sci_combined_tac]{\PROD{IFU_SCI_COMBINED_TAC}}};
     &
     \node (sci2_sci2) [empty]{};
 %    &
@@ -243,7 +243,7 @@
     & &
     \node (tac_adi)[empty]{};
     &
-    \node (sci2_adi)[scienceproduct]{\PROD{IFU_SCI_COADD}};
+    \node (sci2_adi)[scienceproduct] {\hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}};
 %    &
 %    \node (adi_adi)[scienceproduct]{ADI\_SCI\_COADD};
     \\
@@ -292,7 +292,7 @@
     & \node {science product}; \\
     \node (leg_statcalfile)[statcalfile] {MASTER\_RSRF};
     & \node {static calib.\ file};\\
-    \node (leg_calfile)[extcalfile]{FLUXSTD\_CATALOG};
+    \node (leg_calfile)[extcalfile] {FLUXSTD\_CATALOG};
     & \node {external file}; \\
 
     \draw [arrow,fill=black] (0,0.4) -- (0,-0.3);  %% should be centred relative to column
