@@ -28,42 +28,42 @@
     % Row *_raw
 
     \node[above] (geom_raw){%
-      \recipebox{DISTORTION}{ifu\_distortion}
+      \recipebox{\hyperref[dataitem:ifu_distortion_raw]{\RAW{IFU_DISTORTION_RAW}}}{\hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}}}
     };
     &
     \node[above] (rsrf_raw){%
-      \recipebox{RSRF}{ifu\_rsrf}
+      \recipebox{\hyperref[dataitem:ifu_rsrf_raw]{\RAW{IFU_RSRF_RAW}}}{\hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}}}
     };
     &
     \node[above] (dark_raw) {%
-      \recipebox{DARK}{det\_dark}
+      \recipebox{\hyperref[dataitem:dark_ifu_raw]{\RAW{DARK_IFU_RAW}}}{\hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}}
     };
     &
     \node[above] (wcal_raw){%
-      \recipebox{WAVECAL}{ifu\_wavecal}
+      \recipebox{\hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_WAVE_RAW}}}{\hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}}
     };
     &
     \node[above] (std_raw){%
-      \recipebox{FLUX\_STD}{ifu\_std\_process}
+      \recipebox{\hyperref[dataitem:ifu_std_raw]{\RAW{IFU_STD_RAW}}}{\hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}}
     };
     &
     \node[above] (sci1_raw) {%
-      \recipebox{SCIENCE}{ifu\_sci\_process}
+      \recipebox{\hyperref[dataitem:ifu_sci_raw]{\RAW{IFU_SCI_RAW}}}{\hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}}
     };
     &
     \node (space) [empty]{}; % horizontal spacing
     &
     \node[above] (tac_raw){%
-      \recipenotitlebox{ifu\_tellcorr}
+      \recipenotitlebox{\hyperref[rec:metis_ifu_tellcorr]{\REC{metis_ifu_tellcorr}}}
     };
     &
     \node[above] (sci2_raw){%
-      \recipenotitlebox{ifu\_sci\_postprocess}
+      \recipenotitlebox{\hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}}}
     };
-    &
-    \node[above] (adi_raw){%
-      \recipenotitlebox{adi\_postprocess}
-    };
+%    &
+%    \node[above] (adi_raw){%
+%      \recipenotitlebox{\hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}}
+%    };
     \\
 
     % Row *_dark
@@ -71,7 +71,7 @@
     &
     \node (rsrf_dark)[empty]{};
     &
-    \node (dark_dark) [calibproduct]{MASTER\_DARK\_IFU};
+    \node (dark_dark) [calibproduct]{\PROD{MASTER_DARK_IFU}};
     &
     \node (wcal_dark)[connection]{};
     &
@@ -82,12 +82,12 @@
     \node (tac_dark) [empty]{};
     &
     \node (sci2_dark)[empty]{};
-    &
-    \node (adi_dark)[empty]{};
+%    &
+%    \node (adi_dark)[empty]{};
     \\
 
     % Row *_geom
-    \node (geom_geom) [statcalfile]{DISTORTION\_TABLE};
+    \node (geom_geom) [statcalfile]{\PROD{IFU_DISTORTION_TABLE}};
     &
     \node (rsrf_geom)[connection]{};
     &
@@ -109,7 +109,7 @@
     % Row *_rsrf
     \node (geom_rsrf) [empty]{};
     &
-    \node (rsrf_rsrf) [statcalfile]{MASTER\_RSRF};
+    \node (rsrf_rsrf) [statcalfile]{\PROD{RSRF_IFU}};
     &
     \node (dark_rsrf)[empty]{};
     &
@@ -122,8 +122,8 @@
     \node (tac_rsrf)[empty]{};
     &
     \node (sci2_rsrf)[empty]{};
-    &
-    \node (adi_rsrf)[empty]{};
+%    &
+%    \node (adi_rsrf)[empty]{};
     \\
 
 
@@ -135,7 +135,7 @@
     &
     \node (dark_wcal)[empty]{};
     &
-    \node (wcal_wcal) [calibproduct]{IFU\_WAVECAL};
+    \node (wcal_wcal) [calibproduct]{\PROD{IFU_WAVECAL}};
     &
     \node (std_wcal)[connection]{};
     &
@@ -144,8 +144,8 @@
     \node (tac_wcal)[empty]{};
     &
     \node (sci2_wcal)[empty]{};
-    &
-    \node (adi_wcal)[empty]{};
+%    &
+%    \node (adi_wcal)[empty]{};
     \\
 
     % Row *_std
@@ -153,7 +153,7 @@
     &
     \node (rsrf_std)[empty]{};
     &
-    \node (dark_std)[extcalfile]{FLUXSTD\_CATALOG};
+    \node (dark_std)[extcalfile]{\EXTCALIB{FLUXSTD_CATALOG}};
     &
     \node (wcal_std)[empty]{};
     &
@@ -164,8 +164,8 @@
     \node (tac_std)[empty]{};
     &
     \node (sci2_std)[empty]{};
-    &
-    \node (adi_std)[empty]{};
+%    &
+%    \node (adi_std)[empty]{};
     \\
 
     % Row *_fcal
@@ -177,15 +177,15 @@
     &
     \node (wcal_fcal)[empty]{};
     &
-    \node (std_fcal)[calibproduct]{FLUXCAL\_TAB};
+    \node (std_fcal)[calibproduct]{\PROD{FLUXCAL_TAB}};
     &
     \node (sci1_fcal)[connection]{};
     & &
     \node (tac_fcal)[empty]{};
     &
     \node (sci2_fcal)[empty]{};
-    &
-    \node (adi_fcal)[empty]{};
+%    &
+%    \node (adi_fcal)[empty]{};
     \\
 
     % Row *_sci1
@@ -199,13 +199,13 @@
     &
     \node (std_sci1)[empty]{};
     &
-    \node (sci1_sci1) [scienceproduct]{SCI\_REDUCED};
+    \node (sci1_sci1) [scienceproduct]{\PROD{IFU_SCI_REDUCED}};
     & &
-    \node (tac_sci1)[scienceproduct]{SCI\_REDUCED\_TAC};
+    \node (tac_sci1)[scienceproduct]{\PROD{IFU_SCI_REDUCED_TAC}};
     &
     \node (sci2_sci1)[connection]{};
-    &
-    \node (adi_sci1)[empty]{};
+%    &
+%    \node (adi_sci1)[empty]{};
     \\
 
     % Row *_sci2
@@ -219,13 +219,13 @@
     &
     \node (std_sci2)[empty]{};
     &
-    \node (sci1_sci2)[scienceproduct]{SCI\_COMBINED};
+    \node (sci1_sci2)[scienceproduct]{\PROD{IFU_SCI_COMBINED}};
     & &
-    \node (tac_sci2)[scienceproduct]{SCI\_COMBINED\_TAC};
+    \node (tac_sci2)[scienceproduct]{\PROD{IFU_SCI_COMBINED_TAC}};
     &
     \node (sci2_sci2) [empty]{};
-    &
-    \node (adi_sci2) [connection]{};
+%    &
+%    \node (adi_sci2) [connection]{};
     \\
 
     % Row *_adi
@@ -243,9 +243,9 @@
     & &
     \node (tac_adi)[empty]{};
     &
-    \node (sci2_adi)[scienceproduct]{SCI\_COADD};
-    &
-    \node (adi_adi)[scienceproduct]{ADI\_SCI\_COADD};
+    \node (sci2_adi)[scienceproduct]{\PROD{IFU_SCI_COADD}};
+%    &
+%    \node (adi_adi)[scienceproduct]{ADI\_SCI\_COADD};
     \\
   };    % end matrix
 
@@ -265,7 +265,7 @@
   \draw [arrow] (sci1_sci1) -- (tac_sci1);
   \draw [arrow] (sci1_sci2) -- (tac_sci2);
   \draw [arrow] (sci2_sci1) -- (sci2_adi);
-  \draw [arrow] (adi_sci2) -- (adi_adi);
+%  \draw [arrow] (adi_sci2) -- (adi_adi);
 
   \draw [match] (dark_dark) -- (sci1_dark);
   \draw [match] (rsrf_rsrf) -- (sci1_rsrf);
@@ -273,7 +273,7 @@
   \draw [match] (geom_geom)  -- (sci1_geom);
   \draw [match] (sci1_sci1) -- (tac_sci1);
   \draw [match] (tac_sci1) -- (sci2_sci1);
-  \draw [match] (tac_sci2) -- (adi_sci2);
+%  \draw [match] (tac_sci2) -- (adi_sci2);
   \draw [match] (dark_std)   -- (std_std);
   \draw [match] (std_fcal)  -- (sci1_fcal);
 
