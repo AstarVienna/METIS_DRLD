@@ -44,11 +44,11 @@
     };
     &
     \node[above] (RECstdreduce_raw){%
-      \recipebox{\hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_STD_RAW}}}{\hyperref[rec:metis_ifu_basic_reduce]{\REC{metis_ifu_basic_reduce}}}
+      \recipebox{\hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_STD_RAW}}}{\hyperref[rec:metis_ifu_basic_reduce]{\REC{metis_ifu_reduce}}}
     };
     &
     \node[above] (RECscireduce_raw){%
-      \recipebox{\hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_SCI_RAW}}}{\hyperref[rec:metis_ifu_basic_reduce]{\REC{metis_ifu_basic_reduce}}}
+      \recipebox{\hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_SCI_RAW}}}{\hyperref[rec:metis_ifu_basic_reduce]{\REC{metis_ifu_reduce}}}
     };
     &
     \node[above] (RECstd_raw){%
@@ -221,8 +221,9 @@
     &
     \node (RECscireduce_DIscireduced)[scienceproduct] {\hyperref[dataitem:ifu_sci_basic]{\EXTCALIB{IFU_SCI_REDUCED}}};
     \node (RECscireduce_DIscibackground)[scienceproduct,below=0.5cm] {\hyperref[dataitem:ifu_sci_background]{\EXTCALIB{IFU_SCI_BACKGROUND}}};
-    \node (RECscireduce_DIsciobject1d)[scienceproduct,below=1.25cm] {\hyperref[dataitem:ifu_sci_basic]{\EXTCALIB{IFU_SCI_OBJECT_1D}}};
-    \draw [-] (RECscireduce_DIscireduced) -- (RECscireduce_DIscibackground) -- (RECscireduce_DIsciobject1d);
+    \node (RECscireduce_DIscireducedcube)[scienceproduct,below=1.25cm] {\hyperref[dataitem:ifu_sci_basic]{\EXTCALIB{IFU_SCI_REDUCED_CUBE}}};
+    \node (RECscireduce_DIsciobject1d)[scienceproduct,below=2.0cm] {\hyperref[dataitem:ifu_sci_basic]{\EXTCALIB{IFU_SCI_OBJECT_1D}}};
+    \draw [-] (RECscireduce_DIscireduced) -- (RECscireduce_DIscibackground) -- (RECscireduce_DIscireducedcube) -- (RECscireduce_DIsciobject1d);
     &
     \node (RECstd_DIscireduced)[empty]{};
     &
@@ -355,7 +356,7 @@
 %    \node (RECtac_DIsci1)[scienceproduct] {\hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_CALIBRATED_TAC}}};
     \node (RECtac_DIsci1)[empty] {};
     &
-    \node (RECsci1_DIsci1)[scienceproduct] {\hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_CALIBRATED}}};
+    \node (RECsci1_DIsci1)[scienceproduct] {\hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_CUBE_CALIBRATED}}};
     &
     \node (RECsci2_DIsci1)[connection]{};
 %    &
@@ -447,12 +448,12 @@
 %  \draw [match] (RECtac_DIsci2) -- (adi_DIsci2);
   \draw [match] (RECdark_DIfluxstd)   -- (RECstd_DIfluxstd);   % Line from FLUXSTD_CATALOG to further
   \draw [match] (RECstd_DIfcal)  -- (RECsci1_DIfcal);
-  \draw [match] (RECstd_DItelluricstd)  -- (RECsci1_DItelluricstd);
-  \draw [match,dashed] (RECtac_DItac)  -- (RECsci1_DItac);
+  \draw [match,dashed] (RECstd_DItelluricstd)  -- (RECsci1_DItelluricstd);
+  \draw [match] (RECtac_DItac)  -- (RECsci1_DItac);
 
 % -| means first horizontal, then vertical
   \draw [arrow] (RECstdreduce_DIstdobject1d) -| (RECstd_DIfcal);
-  \draw [arrow] (RECscireduce_DIsciobject1d) -| (RECtac_DItac);
+  \draw [arrow] (RECscireduce_DIscireducedcube) -| (RECtac_DItac);
   \draw [arrow] (RECscireduce_DIscireduced) -| (RECsci1_DIsci1);
   \draw [arrow] (RECsci1_DIsci1) -| (RECsci2_adi);
 
