@@ -440,7 +440,10 @@
 %  \draw [arrow] (adi_DIsci2) -- (adi_adi);
 
   \draw [match] (RECdark_DIdark) -- (RECscireduce_DIdark);
-  \draw [match] (RECrsrf_DIrsrf) -- (RECscireduce_DIrsrf);
+
+%  \draw [match] (RECrsrf_DIrsrf) -- (RECscireduce_DIrsrf);
+  \draw [match] (RECrsrf_DIrsrf) -- (RECwcal_DIrsrf) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] -- (RECscireduce_DIrsrf);
+
   \draw [match] (RECwcal_DIwcal)  -- (RECscireduce_DIwcal);
   \draw [match] (RECgeom_DIgeom)  -- (RECscireduce_DIgeom);
 %  \draw [match] (RECsci1_DIsci1) -- (RECtac_DIsci1);
