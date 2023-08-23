@@ -20,44 +20,57 @@
 
   \matrix (recipes) [column sep=1mm, row sep=1cm]{
     % The matrix has columns
-    % cal_*, dark_*, flat_*, std_*, sci1_*, sci2_*
+    % cal_*, RECdark_*, flat_*, RECstd_*, RECsci1_*, RECsci2_*
     %
     % The matrix has rows
     % \  TBD
 
     % Row *_raw
 
-    \node[above] (geom_raw){%
+    \node[above] (RECgeom_raw){%
       \recipebox{\hyperref[dataitem:ifu_distortion_raw]{\RAW{IFU_DISTORTION_RAW}}}{\hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}}}
     };
     &
-    \node[above] (rsrf_raw){%
+    \node[above] (RECrsrf_raw){%
       \recipebox{\hyperref[dataitem:ifu_rsrf_raw]{\RAW{IFU_RSRF_RAW}}}{\hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}}}
     };
     &
-    \node[above] (dark_raw) {%
-      \recipebox{\hyperref[dataitem:dark_ifu_raw]{\RAW{DARK_IFU_RAW}}}{\hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}}
+    \node[above] (RECdark_raw) {%
+      \recipebox{\hyperref[dataitem:ark_ifu_raw]{\RAW{DARK_IFU_RAW}}}{\hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}}
     };
     &
-    \node[above] (wcal_raw){%
+    \node[above] (RECwcal_raw){%
       \recipebox{\hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_WAVE_RAW}}}{\hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}}
     };
     &
-    \node[above] (std_raw){%
-      \recipebox{\hyperref[dataitem:ifu_std_raw]{\RAW{IFU_STD_RAW}}}{\hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}}
+    \node[above] (RECstdreduce_raw){%
+      \recipebox{\hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_STD_RAW}}}{\hyperref[rec:metis_ifu_basic_reduce]{\REC{metis_ifu_basic_reduce}}}
     };
     &
-    \node[above] (sci1_raw) {%
-      \recipebox{\hyperref[dataitem:ifu_sci_raw]{\RAW{IFU_SCI_RAW}}}{\hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}}
+    \node[above] (RECscireduce_raw){%
+      \recipebox{\hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_SCI_RAW}}}{\hyperref[rec:metis_ifu_basic_reduce]{\REC{metis_ifu_basic_reduce}}}
     };
     &
-    \node (space) [empty]{}; % horizontal spacing
+    \node[above] (RECstd_raw){%
+%      \recipebox{\hyperref[dataitem:ifu_std_raw]{\RAW{IFU_STD_RAW}}}{\hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}}
+%      \recipenotitlebox{\hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}}
+    % so actually this is now just the same as tellcorr
+      \recipenotitlebox{\hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_tellcorr}}}
+    };
     &
-    \node[above] (tac_raw){%
+    \node[above] (RECtac_raw){%
       \recipenotitlebox{\hyperref[rec:metis_ifu_tellcorr]{\REC{metis_ifu_tellcorr}}}
     };
     &
-    \node[above] (sci2_raw){%
+    \node[above] (RECsci1_raw) {%
+%      \recipebox{\hyperref[dataitem:ifu_sci_raw]{\RAW{IFU_SCI_RAW}}}{\hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}}
+%      \recipenotitlebox{\hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}}
+      \recipenotitlebox{\hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_calibrate}}}
+    };
+%    &
+%    \node (space) [empty]{}; % horizontal spacing
+    &
+    \node[above] (RECsci2_raw){%
       \recipenotitlebox{\hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}}}
     };
 %    &
@@ -66,216 +79,384 @@
 %    };
     \\
 
-    % Row *_dark
-    \node (geom_dark)[empty]{};
-    &
-    \node (rsrf_dark)[empty]{};
-    &
-    \node (dark_dark) [calibproduct] {\hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}};
-    &
-    \node (wcal_dark)[connection]{};
-    &
-    \node (std_dark)[connection]{};
-    &
-    \node (sci1_dark)[connection]{};
-    & &
-    \node (tac_dark) [empty]{};
-    &
-    \node (sci2_dark)[empty]{};
+%    % Row *_DIprimaryinput
+%    \node (RECgeom_DIprimaryinput)[empty]{};
 %    &
-%    \node (adi_dark)[empty]{};
+%    \node (RECrsrf_DIprimaryinput)[empty]{};
+%    &
+%    \node (RECdark_DIprimaryinput) [empty]{};
+%    &
+%    \node (RECwcal_DIprimaryinput)[connection]{};
+%    &
+%    \node (RECstdreduce_DIprimaryinput)[scienceproduct]{ \RAW{IFU_STD_RAW}};
+%    &
+%    \node (RECscireduce_DIprimaryinput)[scienceproduct]{ \RAW{IFU_SCI_RAW}};
+%    &
+%    \node (RECtac_DIprimaryinput) [empty]{};
+%    &
+%    \node (RECstd_DIprimaryinput)[connection]{};
+%    &
+%    \node (RECsci1_DIprimaryinput)[connection]{};
+%    &
+%    \node (RECsci2_DIprimaryinput)[empty]{};
+%%    &
+%%    \node (adi_DIprimaryinput)[empty]{};
+%    \\
+
+    % Row *_dark
+    \node (RECgeom_DIdark)[empty]{};
+    &
+    \node (RECrsrf_DIdark)[empty]{};
+    &
+    \node (RECdark_DIdark) [calibproduct] {\hyperref[dataitem:master_RECdark_ifu]{\PROD{MASTER_DARK_IFU}}};
+    &
+    \node (RECwcal_DIdark)[connection]{};
+    &
+    \node (RECstdreduce_DIdark)[connection]{};
+    &
+    \node (RECscireduce_DIdark)[connection]{};
+    &
+    \node (RECtac_DIdark) [empty]{};
+    &
+    \node (RECstd_DIdark)[empty]{};
+    &
+    \node (RECsci1_DIdark)[empty]{};
+    &
+    \node (RECsci2_DIdark)[empty]{};
+%    &
+%    \node (adi_DIdark)[empty]{};
     \\
 
     % Row *_geom
-    \node (geom_geom) [statcalfile] {\hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}};
+    \node (RECgeom_DIgeom) [statcalfile] {\hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}};
     &
-    \node (rsrf_geom)[connection]{};
+    \node (RECrsrf_DIgeom)[connection]{};
     &
-    \node (dark_geom)[empty]{};
+    \node (RECdark_DIgeom)[empty]{};
     &
-    \node (wcal_geom)[connection]{};
+    \node (RECwcal_DIgeom)[connection]{};
     &
-    \node (std_geom)[connection]{};
+    \node (RECstdreduce_DIgeom)[connection]{};
     &
-    \node (sci1_geom)[connection]{};
-    & &
-    \node (tac_geom)[empty]{};
+    \node (RECscireduce_DIgeom)[connection]{};
     &
-    \node (sci2_geom)[empty]{};
+    \node (RECstd_DIgeom)[empty]{};
     &
-    \node (adi_geom)[empty]{};
+    \node (RECtac_DIgeom)[empty]{};
+    &
+    \node (RECsci1_DIgeom)[empty]{};
+    &
+    \node (RECsci2_DIgeom)[empty]{};
+%    &
+%    \node (adi_DIgeom)[empty]{};
     \\
 
     % Row *_rsrf
-    \node (geom_rsrf) [empty]{};
+    \node (RECgeom_DIrsrf) [empty]{};
     &
-    \node (rsrf_rsrf) [statcalfile] {\hyperref[dataitem:rsrf_ifu]{\PROD{RSRF_IFU}}};
+    \node (RECrsrf_DIrsrf) [statcalfile] {\hyperref[dataitem:RECrsrf_ifu]{\PROD{RSRF_IFU}}};
     &
-    \node (dark_rsrf)[empty]{};
+    \node (RECdark_DIrsrf)[empty]{};
     &
-    \node (wcal_rsrf)[empty]{};
+% Half-hearted attempt to indicate that the line is being passed over.
+%    \node (RECwcal_DIrsrf) {
+%        \fill[green!20!white] (0,0) -- (3mm,0mm) arc [start angle=0, end angle=180, radius=3mm] -- (0,0);
+%        };
+%    \node (RECwcal_DIrsrf)[circle,draw,fill=red!20,start angle=0, end angle=180]{
+%      \draw (8,0) arc [start angle=0,   end angle=270,
+%                   x radius=1cm, y radius=5mm] -- cycle;};
+    \node (RECwcal_DIrsrf)[empty]{};
     &
-    \node (std_rsrf)[connection]{};
+    \node (RECstdreduce_DIrsrf)[connection]{};
     &
-    \node (sci1_rsrf)[connection]{};
-    & &
-    \node (tac_rsrf)[empty]{};
+    \node (RECscireduce_DIrsrf)[connection]{};
     &
-    \node (sci2_rsrf)[empty]{};
+    \node (RECstd_DIrsrf)[empty]{};
+    &
+    \node (RECtac_DIrsrf)[empty]{};
+    &
+    \node (RECsci1_DIrsrf)[empty]{};
+    &
+    \node (RECsci2_DIrsrf)[empty]{};
 %    &
-%    \node (adi_rsrf)[empty]{};
+%    \node (adi_DIrsrf)[empty]{};
     \\
 
 
 
     % Row *_wcal
-    \node (geom_wcal)[empty]{};
+    \node (RECgeom_DIwcal)[empty]{};
     &
-    \node (rsrf_wcal)[empty]{};
+    \node (RECrsrf_DIwcal)[empty]{};
     &
-    \node (dark_wcal)[empty]{};
+    \node (RECdark_DIwcal)[empty]{};
     &
-    \node (wcal_wcal) [calibproduct] {\hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}};
+    \node (RECwcal_DIwcal) [calibproduct] {\hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}};
     &
-    \node (std_wcal)[connection]{};
+    \node (RECstdreduce_DIwcal)[connection]{};
     &
-    \node (sci1_wcal)[connection]{};
-    & &
-    \node (tac_wcal)[empty]{};
+    \node (RECscireduce_DIwcal)[connection]{};
     &
-    \node (sci2_wcal)[empty]{};
+    \node (RECstd_DIwcal)[empty]{};
+    &
+    \node (RECsci1_DIwcal)[empty]{};
+    &
+    \node (RECtac_DIwcal)[empty]{};
+    &
+    \node (RECsci2_DIwcal)[empty]{};
 %    &
-%    \node (adi_wcal)[empty]{};
+%    \node (adi_DIwcal)[empty]{};
     \\
 
-    % Row *_std
-    \node (geom_std)[empty]{};
+    % Row *_scireduced
+    \node (RECgeom_DIscireduced)[empty]{};
     &
-    \node (rsrf_std)[empty]{};
+    \node (RECrsrf_DIscireduced)[empty]{};
     &
-    \node (dark_std)[extcalfile] {\hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}}};
+    \node (RECdark_DIstdreduced)[empty]{};
     &
-    \node (wcal_std)[empty]{};
+    \node (RECwcal_DIscireduced)[empty]{};
     &
-    \node (std_std)[connection]{};
+    \node (RECstdreduce_DIscireduced)[empty]{};
     &
-    \node (sci1_std)[empty]{};
-    & &
-    \node (tac_std)[empty]{};
+    \node (RECscireduce_DIscireduced)[scienceproduct] {\hyperref[dataitem:ifu_sci_basic]{\EXTCALIB{IFU_SCI_REDUCED}}};
+    \node (RECscireduce_DIscibackground)[scienceproduct,below=0.5cm] {\hyperref[dataitem:ifu_sci_background]{\EXTCALIB{IFU_SCI_BACKGROUND}}};
+    \node (RECscireduce_DIsciobject1d)[scienceproduct,below=1.25cm] {\hyperref[dataitem:ifu_sci_basic]{\EXTCALIB{IFU_SCI_OBJECT_1D}}};
+    \draw [-] (RECscireduce_DIscireduced) -- (RECscireduce_DIscibackground) -- (RECscireduce_DIsciobject1d);
     &
-    \node (sci2_std)[empty]{};
+    \node (RECstd_DIscireduced)[empty]{};
+    &
+    \node (RECtac_DIscireduced)[empty]{};
+    &
+    \node (RECsci1_DIscireduced)[empty]{};
+    &
+    \node (RECsci2_DIscireduced)[empty]{};
 %    &
-%    \node (adi_std)[empty]{};
+%    \node (adi_DIscireduced)[empty]{};
+    \\
+
+    % Row *_stdreduced
+    \node (RECgeom_DIstdreduced)[empty]{};
+    &
+    \node (RECrsrf_DIstdreduced)[empty]{};
+    &
+    \node (RECdark_DIstdreduced)[empty]{};
+    &
+    \node (RECwcal_DIstdreduced)[empty]{};
+    &
+    \node (RECstdreduce_DIstdreduced)[scienceproduct] {\hyperref[dataitem:ifu_sci_basic]{\EXTCALIB{IFU_STD_REDUCED}}};
+    \node (RECstdreduce_DIstdbackground)[scienceproduct,below=0.5cm] {\hyperref[dataitem:ifu_sci_background]{\EXTCALIB{IFU_STD_BACKGROUND}}};
+    \node (RECstdreduce_DIstdobject1d)[scienceproduct,below=1.25cm] {\hyperref[dataitem:ifu_sci_basic]{\EXTCALIB{IFU_STD_OBJECT_1D}}};
+    \draw [-] (RECstdreduce_DIstdreduced) -- (RECstdreduce_DIstdbackground) -- (RECstdreduce_DIstdobject1d);
+    &
+    \node (RECscireduce_DIstdreduced)[empty]{};
+    &
+    \node (RECstd_DIstdreduced)[empty]{};
+    &
+    \node (RECtac_DIstdreduced)[empty]{};
+    &
+    \node (RECsci1_DIstdreduced)[empty]{};
+    &
+    \node (RECsci2_DIstdreduced)[empty]{};
+%    &
+%    \node (adi_DIstdreduced)[empty]{};
+    \\
+
+    % Row *_basicstd
+    \node (RECgeom_DIfluxstd)[empty]{};
+    &
+    \node (RECrsrf_DIfluxstd)[empty]{};
+    &
+    \node (RECdark_DIfluxstd)[extcalfile] {\hyperref[dataitem:fluxRECstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}}};
+    &
+    \node (RECwcal_DIfluxstd)[empty]{};
+    &
+    \node (RECstdreduce_DIfluxstd)[empty]{};
+    &
+    \node (RECscireduce_DIfluxstd)[empty]{};
+    &
+    \node (RECstd_DIfluxstd)[connection]{};
+    &
+    \node (RECtac_DIfluxstd)[empty]{};
+    &
+    \node (RECsci1_DIfluxstd)[empty]{};
+    &
+    \node (RECsci2_DIfluxstd)[empty]{};
+%    &
+%    \node (adi_DIfluxstd)[empty]{};
+    \\
+
+    % Row *_tac
+    &
+    \node (RECrsrf_DItac)[empty]{};
+    &
+    \node (RECdark_DItac)[empty]{};
+    &
+    \node (RECwcal_DItac)[empty]{};
+    &
+    \node (RECstdreduce_DItac)[empty]{};
+    &
+    \node (RECscireduce_DItac)[empty]{};
+    &
+    \node (RECstd_DItac)[empty]{};
+    &
+    \node (RECtac_DItac)[calibproduct] {\hyperref[dataitem:ifu_telluric]{\PROD{IFU_TELLURIC}}};
+    &
+    \node (RECsci1_DItac)[connection]{};
+    &
+    \node (RECsci2_DItac)[empty]{};
+%    &
+%    \node (adi_DItac)[empty]{};
     \\
 
     % Row *_fcal
-    \node (geom_fcal)[empty]{};
+    \node (RECgeom_DIfcal)[empty]{};
     &
-    \node (rsrf_fcal)[empty]{};
+    \node (RECrsrf_DIfcal)[empty]{};
     &
-    \node (dark_fcal)[empty]{};
+    \node (RECdark_DIfcal)[empty]{};
     &
-    \node (wcal_fcal)[empty]{};
+    \node (RECwcal_DIfcal)[empty]{};
     &
-    \node (std_fcal)[calibproduct] {\hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}};
+    \node (RECstdreduce_DIfcal)[empty]{};
     &
-    \node (sci1_fcal)[connection]{};
-    & &
-    \node (tac_fcal)[empty]{};
+    \node (RECscireduce_DIfcal)[empty]{};
     &
-    \node (sci2_fcal)[empty]{};
+    \node (RECstd_DIfcal)[calibproduct] {\hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}};
+    \node (RECstd_DItelluricstd)[calibproduct,below=.5cm] {\hyperref[dataitem:fluxcal_tab]{\PROD{IFU_TELLURIC}}};
+    \draw [-] (RECstd_DIfcal) -- (RECstd_DItelluricstd);
+    &
+    \node (RECtac_DIfcal)[empty]{};
+    &
+    \node (RECsci1_DIfcal)[connection]{};
+    % No clue how to get this .70 nicely done
+    \node (RECsci1_DItelluricstd)[connection,below=.70cm]{};
+    &
+    \node (RECsci2_DIfcal)[empty]{};
 %    &
-%    \node (adi_fcal)[empty]{};
+%    \node (adi_DIfcal)[empty]{};
     \\
 
     % Row *_sci1
-    \node (geom_sci1)[empty]{};
+    \node (RECgeom_DIsci1)[empty]{};
     &
-    \node (rsrf_sci1)[empty]{};
+    \node (RECrsrf_DIsci1)[empty]{};
     &
-    \node (dark_sci1)[empty]{};
+    \node (RECdark_DIsci1)[empty]{};
     &
-    \node (wcal_sci1)[empty]{};
+    \node (RECwcal_DIsci1)[empty]{};
     &
-    \node (std_sci1)[empty]{};
+    \node (RECstdreduce_DIsci1)[empty]{};
     &
-    \node (sci1_sci1)[scienceproduct] {\hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}}};
-    & &
-    \node (tac_sci1)[scienceproduct] {\hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}};
+    \node (RECscireduce_DIsci1)[empty]{};
     &
-    \node (sci2_sci1)[connection]{};
+    \node (RECstd_DIsci1)[empty]{};
+    &
+%    \node (RECtac_DIsci1)[scienceproduct] {\hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_CALIBRATED_TAC}}};
+    \node (RECtac_DIsci1)[empty] {};
+    &
+    \node (RECsci1_DIsci1)[scienceproduct] {\hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_CALIBRATED}}};
+    &
+    \node (RECsci2_DIsci1)[connection]{};
 %    &
-%    \node (adi_sci1)[empty]{};
+%    \node (adi_DIsci1)[empty]{};
     \\
 
     % Row *_sci2
-    \node (geom_sci2)[empty]{};
+    \node (RECgeom_DIsci2)[empty]{};
     &
-    \node (rsrf_sci2)[empty]{};
+    \node (RECrsrf_DIsci2)[empty]{};
     &
-    \node (dark_sci2)[empty]{};
+    \node (RECdark_DIsci2)[empty]{};
     &
-    \node (wcal_sci2)[empty]{};
+    \node (RECwcal_DIsci2)[empty]{};
     &
-    \node (std_sci2)[empty]{};
+    \node (RECstdreduce_DIsci2)[empty]{};
     &
-    \node (sci1_sci2)[scienceproduct] {\hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}}};
-    & &
-    \node (tac_sci2)[scienceproduct] {\hyperref[dataitem:ifu_sci_combined_tac]{\PROD{IFU_SCI_COMBINED_TAC}}};
+    \node (RECscireduce_DIsci2)[empty]{};
     &
-    \node (sci2_sci2) [empty]{};
+    \node (RECstd_DIsci2)[empty]{};
+    &
+%    \node (RECtac_DIsci2)[scienceproduct] {\hyperref[dataitem:ifu_sci_combined_tac]{\PROD{IFU_SCI_COMBINED_TAC}}};
+    \node (RECtac_DIsci2)[empty] {};
+    &
+%    \node (RECsci1_DIsci2)[scienceproduct] {\hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}}};
+    \node (RECsci1_DIsci2)[empty] {};
+    &
+    \node (RECsci2_DIsci2) [empty]{};
 %    &
-%    \node (adi_sci2) [connection]{};
+%    \node (adi_DIsci2) [connection]{};
     \\
 
     % Row *_adi
-    \node (geom_adi)[empty]{};
+    \node (RECgeom_adi)[empty]{};
     &
-    \node (rsrf_adi)[empty]{};
+    \node (RECrsrf_adi)[empty]{};
     &
-    \node (dark_adi)[empty]{};
+    \node (RECdark_adi)[empty]{};
     &
-    \node (wcal_adi)[empty]{};
+    \node (RECwcal_adi)[empty]{};
     &
-    \node (std_adi)[empty]{};
+    \node (RECstdreduce_adi)[empty]{};
     &
-    \node (sci1_adi)[empty]{};
-    & &
-    \node (tac_adi)[empty]{};
+    \node (RECscireduce_adi)[empty]{};
     &
-    \node (sci2_adi)[scienceproduct] {\hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}};
+    \node (RECstd_adi)[empty]{};
+    &
+    \node (RECtac_adi)[empty]{};
+    &
+    \node (RECsci1_adi)[empty]{};
+    &
+    \node (RECsci2_adi)[scienceproduct] {\hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}};
 %    &
 %    \node (adi_adi)[scienceproduct]{ADI\_SCI\_COADD};
     \\
   };    % end matrix
 
+
   % dashed line separating daily procedure
-  \node (t1) at ($(rsrf_raw)!0.5!(dark_raw)$){};
-  \node (t2) at ($(rsrf_adi)!0.5!(dark_adi)$){} ;
+  \node (t1) at ($(RECrsrf_raw)!0.5!(RECdark_raw)$){};
+  \node (t2) at ($(RECrsrf_adi)!0.5!(RECdark_adi)$){} ;
   \draw [thick,dashed] ([yshift=4ex]t1.north) -- ([yshift=-0ex]t2.south);
 
-  %% Connections
-  \draw [arrow] (geom_raw) -- (geom_geom);
-  \draw [arrow] (rsrf_raw) -- (rsrf_rsrf);
-  \draw [arrow] (wcal_raw) -- (wcal_wcal);
-  \draw [arrow] (dark_raw) -- (dark_dark);
-  \draw [arrow] (std_raw)  -- (std_fcal);
-  \draw [arrow] (sci1_raw) -- (sci1_sci1);
-  \draw [arrow] (sci1_sci1) -- (sci1_sci2);
-  \draw [arrow] (sci1_sci1) -- (tac_sci1);
-  \draw [arrow] (sci1_sci2) -- (tac_sci2);
-  \draw [arrow] (sci2_sci1) -- (sci2_adi);
-%  \draw [arrow] (adi_sci2) -- (adi_adi);
+%  \fill[green!20!white,below=of RECrsrf_DIwcal] (0,0) -- (3mm,0mm) arc [start angle=0, end angle=180, radius=3mm] -- (0,0);
+%  \fill[green!20!white] (RECrsrf_DIwcal) -- (3mm,0mm) arc [start angle=0, end angle=180, radius=3mm] -- (0,0);
 
-  \draw [match] (dark_dark) -- (sci1_dark);
-  \draw [match] (rsrf_rsrf) -- (sci1_rsrf);
-  \draw [match] (wcal_wcal)  -- (sci1_wcal);
-  \draw [match] (geom_geom)  -- (sci1_geom);
-  \draw [match] (sci1_sci1) -- (tac_sci1);
-  \draw [match] (tac_sci1) -- (sci2_sci1);
-%  \draw [match] (tac_sci2) -- (adi_sci2);
-  \draw [match] (dark_std)   -- (std_std);
-  \draw [match] (std_fcal)  -- (sci1_fcal);
+  %% Connections
+  \draw [arrow] (RECgeom_raw) -- (RECgeom_DIgeom);
+  \draw [arrow] (RECrsrf_raw) -- (RECrsrf_DIrsrf);
+  \draw [arrow] (RECwcal_raw) -- (RECwcal_DIwcal);
+  \draw [arrow] (RECdark_raw) -- (RECdark_DIdark);
+  \draw [arrow] (RECscireduce_raw)  -- (RECscireduce_DIscireduced);
+%  \draw [arrow] (RECscireduce_DIscireduced)  -- (RECscireduce_DIstdreduced);
+  \draw [arrow] (RECstdreduce_raw)  -- (RECstdreduce_DIstdreduced);
+%  \draw [arrow] (RECstd_raw)  -- (RECstd_DIfcal);
+%  \draw [arrow] (RECsci1_raw) -- (RECsci1_DIsci1);
+%  \draw [arrow] (RECsci1_DIsci1) -- (RECsci1_DIsci2);
+%  \draw [arrow] (RECsci1_DIsci1) -- (RECtac_DIsci1);
+%  \draw [arrow] (RECsci1_DIsci2) -- (RECtac_DIsci2);
+%  \draw [arrow] (RECsci2_DIsci1) -- (RECsci2_adi);
+%  \draw [arrow] (adi_DIsci2) -- (adi_adi);
+
+  \draw [match] (RECdark_DIdark) -- (RECscireduce_DIdark);
+  \draw [match] (RECrsrf_DIrsrf) -- (RECscireduce_DIrsrf);
+  \draw [match] (RECwcal_DIwcal)  -- (RECscireduce_DIwcal);
+  \draw [match] (RECgeom_DIgeom)  -- (RECscireduce_DIgeom);
+%  \draw [match] (RECsci1_DIsci1) -- (RECtac_DIsci1);
+%  \draw [match] (RECtac_DIsci1) -- (RECsci2_DIsci1);
+%  \draw [match] (RECtac_DIsci2) -- (adi_DIsci2);
+  \draw [match] (RECdark_DIfluxstd)   -- (RECstd_DIfluxstd);   % Line from FLUXSTD_CATALOG to further
+  \draw [match] (RECstd_DIfcal)  -- (RECsci1_DIfcal);
+  \draw [match] (RECstd_DItelluricstd)  -- (RECsci1_DItelluricstd);
+  \draw [match,dashed] (RECtac_DItac)  -- (RECsci1_DItac);
+
+% -| means first horizontal, then vertical
+  \draw [arrow] (RECstdreduce_DIstdobject1d) -| (RECstd_DIfcal);
+  \draw [arrow] (RECscireduce_DIsciobject1d) -| (RECtac_DItac);
+  \draw [arrow] (RECscireduce_DIscireduced) -| (RECsci1_DIsci1);
+  \draw [arrow] (RECsci1_DIsci1) -| (RECsci2_adi);
+
+
 
   %\draw [very thick,dashed] ($(raw_geometry.north)!0.5!(raw_dark.north)$) -- ++(270:15cm);
 
