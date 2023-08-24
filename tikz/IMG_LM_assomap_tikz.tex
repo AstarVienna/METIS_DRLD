@@ -7,6 +7,9 @@
 
 \sffamily
 
+\input{black_style}
+\input{recipe_config}
+
 %%% Picture: flow chart
 \begin{tikzpicture}[on grid=false,node distance=0.8cm]
 
@@ -66,13 +69,32 @@
    %};
    \\
 
+    \node (lin_pers)[extcalfile]{\EXTCALIB{PERSISTENCE_MAP}};
+    &
+    \node (dist_pers)[extcalfile]{\EXTCALIB{PERSISTENCE_MAP}};
+    &
+    \node (dark_pers)[extcalfile]{\EXTCALIB{PERSISTENCE_MAP}};
+    &
+    \node (flat_pers)[extcalfile]{\EXTCALIB{PERSISTENCE_MAP}};
+    &
+    \node (all1_pers)[extcalfile]{\EXTCALIB{PERSISTENCE_MAP}};
+    &
+    \node (all2_pers)[empty]{};
+    &
+    \node (std_pers)[empty]{};
+    &
+    \node (sci1_pers)[empty]{};
+    &
+    \node (sci2_pers) [empty]{};
+    \\
+
     %%% Calibration products
     % Row *_dark
     \node (lin_dark) [empty]{};
     &
     \node (dist_dark) [empty]{};
     &
-    \node (dark_dark) [calibproduct]{MASTER\_DARK\_2RG};
+    \node (dark_dark) [calibproduct]{\hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}};
     &
     \node (flat_dark)[connection]{};
     &
@@ -88,7 +110,7 @@
     \\
 
     % Row *_lin
-    \node (lin_lin) [statcalfile]{LINEARITY\_2RG};
+    \node (lin_lin) [statcalfile]{\hyperref[dataitem:linearity_2rg]{\STATCALIB{LINEARITY_2RG}}};
     &
     \node (dist_lin) [empty]{};
     &
@@ -113,7 +135,7 @@
     &
     \node (dark_flat)[empty]{};
     &
-    \node (flat_flat) [calibproduct]{MASTER\_FLAT\_2RG};
+    \node (flat_flat) [calibproduct]{\hyperref[dataitem:master_flat_2rg]{\PROD{MASTER_FLAT_2RG}}};
     &
     \node (all1_flat)[connection]{};
     &
@@ -134,9 +156,9 @@
     &
     \node (flat_all1)[empty]{};
     &
-    \node (all1_all1)[calibproduct]{STD\_REDUCED};
+    \node (all1_all1)[calibproduct]{\hyperref[dataitem:std_reduced]{\PROD{STD_REDUCED}}};
     &
-    \node (all2_all1)[calibproduct]{STD\_BKG\_SUB};
+    \node (all2_all1)[calibproduct]{\hyperref[dataitem:std_bkg_sub]{\PROD{STD_BKG_SUB}}};
     &
     \node (std_all1)[connection]{};
     &
@@ -153,9 +175,9 @@
     &
     \node (flat_all2)[empty]{};
     &
-    \node (all1_all2)[scienceproduct]{SCI\_REDUCED};
+    \node (all1_all2)[scienceproduct]{\hyperref[dataitem:sci_reduced]{\PROD{SCI_REDUCED}}};
     &
-    \node (all2_all2)[scienceproduct]{SCI\_BKG\_SUB};
+    \node (all2_all2)[scienceproduct]{\hyperref[dataitem:sci_bkg_sub]{\PROD{SCI_BKG_SUB}}};
     &
     \node (std_all2)[empty]{};
     &
@@ -166,7 +188,7 @@
     % Row *_dist
     \node (lin_dist) [empty]{};
     &
-    \node (dist_dist)[statcalfile]{DISTORTION\_TAB};
+    \node (dist_dist)[statcalfile]{\hyperref[dataitem:distortion_tab]{\STATCALIB{DISTORTION_TAB}}};
     &
     \node (dark_dist)[empty]{};
     &
@@ -187,7 +209,7 @@
     &
     \node (dist_std)[empty]{};
     &
-    \node (dark_std)[extcalfile]{FLUXSTD\_CATALOG};
+    \node (dark_std)[extcalfile]{\hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}}};
     &
     \node (flat_std)[empty]{};
     &
@@ -214,7 +236,7 @@
     &
     \node (all2_sci1)[empty]{};
     &
-    \node (std_sci1)[calibproduct]{FLUXCAL\_TAB};
+    \node (std_sci1)[calibproduct]{\hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}};
     &
     \node (sci1_sci1)[connection]{};
     &
@@ -236,7 +258,7 @@
     &
     \node (std_sci2)[empty]{};
     &
-    \node (sci1_sci2)  [scienceproduct]{LM\_SCI\_CALIBRATED};
+    \node (sci1_sci2) [scienceproduct]{\hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}}};
     &
     \node (sci2_sci2) [connection]{};
     \\
@@ -258,7 +280,7 @@
     &
     \node(sci1_prod) [empty]{};
     &
-    \node (sci2_prod)[scienceproduct]{LM\_SCI\_COADD};
+    \node (sci2_prod)[scienceproduct]{\hyperref[dataitem:lm_sci_coadd]{\PROD{LM_SCI_COADD}}};
     \\
   };    % end matrix
 
@@ -269,11 +291,16 @@
 
 
   %% Vertical connections
-  \draw [arrow] (lin_raw)  -- (lin_lin);
-  \draw [arrow] (dist_raw) -- (dist_dist);
-  \draw [arrow] (dark_raw) -- (dark_dark);
-  \draw [arrow] (flat_raw) -- (flat_flat);
-  \draw [arrow] (all1_raw) -- (all1_all1);
+  \draw [arrow] (lin_raw)  -- (lin_pers);
+  \draw [arrow] (lin_pers)  -- (lin_lin);
+  \draw [arrow] (dist_raw) -- (dist_pers);
+  \draw [arrow] (dist_pers) -- (dist_dist);
+  \draw [arrow] (dark_raw) -- (dark_pers);
+  \draw [arrow] (dark_pers) -- (dark_dark);
+  \draw [arrow] (flat_raw) -- (flat_pers);
+  \draw [arrow] (flat_pers) -- (flat_flat);
+  \draw [arrow] (all1_raw) -- (all1_pers);
+  \draw [arrow] (all1_pers) -- (all1_all1);
   \draw [arrow] (all1_all1) -- (all1_all2);
   \draw [arrow] (std_all1) -- (std_sci1);
   \draw [arrow] (sci1_all2) -- (sci1_sci2);

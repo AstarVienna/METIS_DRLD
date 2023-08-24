@@ -1,4 +1,3 @@
-
 \input{black_style}
 \input{recipe_config}
 
@@ -56,55 +55,29 @@
 %    };
     \\
 
-    \node (geom_persistence)[empty]{}; &
-    \node (rsrf_persistence)[empty]{}; &
-    \node (dark_persistence)[calibproduct]{\hyperref[dataitem:ifu_std_bkg]{\PROD{LM_STD_BKG}}}; &
-    \node (wcal_persistence)[empty]{}; &
-    \node (std_persistence)[empty]{}; &
-    \node (sci1_persistence)[empty]{}; &
-    \node (tac_persistence)[empty]{}; &
-    \node (sci2_persistence)[empty]{}; &
-    \node (adi_persistence)[empty]{}; \\
-
     % Row *_dark
-    \node (geom_dark)[empty]{};
-    &
-    \node (rsrf_dark)[empty]{};
-    &
-    \node (dark_dark) [calibproduct] {\hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}};
-    &
-    \node (wcal_dark)[connection]{};
-    &
-    \node (std_dark)[connection]{};
-    &
-    \node (sci1_dark)[connection]{};
-    & &
-    \node (tac_dark) [empty]{};
-    &
+    \node (geom_dark)[empty]{}; &
+    \node (rsrf_dark)[empty]{}; &
+    \node (dark_dark) [calibproduct] {\hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}}; &
+    \node (wcal_dark)[connection]{}; &
+    \node (std_dark)[connection]{}; &
+    \node (sci1_dark)[connection]{}; & &
+    \node (tac_dark) [empty]{}; &
     \node (sci2_dark)[empty]{};
 %    &
 %    \node (adi_dark)[empty]{};
     \\
 
     % Row *_geom
-    \node (geom_geom) [statcalfile] {\hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}};
-    &
-    \node (rsrf_geom)[connection]{};
-    &
-    \node (dark_geom)[empty]{};
-    &
-    \node (wcal_geom)[connection]{};
-    &
-    \node (std_geom)[connection]{};
-    &
-    \node (sci1_geom)[connection]{};
-    & &
-    \node (tac_geom)[empty]{};
-    &
-    \node (sci2_geom)[empty]{};
-    &
-    \node (adi_geom)[empty]{};
-    \\
+    \node (geom_geom) [statcalfile] {\hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}}; &
+    \node (rsrf_geom)[connection]{}; &
+    \node (dark_geom)[empty]{}; &
+    \node (wcal_geom)[connection]{}; &
+    \node (std_geom)[connection]{}; &
+    \node (sci1_geom)[connection]{}; & &
+    \node (tac_geom)[empty]{}; &
+    \node (sci2_geom)[empty]{}; &
+    \node (adi_geom)[empty]{}; \\
 
     % Row *_rsrf
     \node (geom_rsrf) [empty]{};
