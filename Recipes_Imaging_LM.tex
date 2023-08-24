@@ -185,15 +185,15 @@ in mid-infrared observations. Accurate determination and removal of
 background counts is therefore crucial to make MIR data scientifically
 usable.
 
-A set of observations will consist of a number of dithered exposures
-of the field, where the offsets are achieved using the internal
-chopper of METIS or the with the telescope. For extended objects, the
-telescope will be used to perform ``out-of-field dithering'', i.e.\
+A set of observations will consist of a number of exposures
+of the field, where the offsets are achieved by either using the internal
+chopper of METIS or by nodding the with the telescope. For extended objects, the
+telescope will be used to perform ``out-of-field nodding'', i.e.\
 observe nearby blank patches of sky interlaced with the target
 observations. Imaging observations are performed in pupil-tracking
-mode, hence angular dithering of the field is automatic.
+mode, hence angular offsetting of the field is automatic.
 
-For in-field-dithered exposures, all dithered exposures will be
+For in-field-offset exposures, all offset exposures will be
 averaged to obtain the background estimate. In order to only average
 the background contribution, an iterative procedure of object
 detection and masking will be employed. Averaging will be done using a
@@ -228,7 +228,7 @@ For extended objects, all out-of-field exposures will be averaged
 %                    & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
   Input data:       & \PROD{LM_SCI_BASIC_REDUCED}                               \\
                     & \PROD{LM_STD_BASIC_REDUCED}                               \\
-  Matched keywords: & dither position (\CODE{SKY}?                         \\
+  Matched keywords: & offset position (\CODE{SKY}?                         \\
   Algorithm:        & Average all or \CODE{SKY} exposures with object rejection \\
                     & Subtract background                                       \\
   Output data:      & \PROD{LM_SCI_BKG}                                         \\
@@ -250,7 +250,7 @@ For extended objects, all out-of-field exposures will be averaged
     \fontsize{10}{12}\selectfont
     \input{tikz/metis_lm_img_background}
     \caption[Recipe: \REC*{metis_lm_img_background}]{\REC*{metis_lm_img_background} --
-    background estimation and subtraction of dithered \CODE{IMG_LM} data.}
+    background estimation and subtraction of offset \CODE{IMG_LM} exposures.}
     \label{fig:metis_lm_img_background}
 \end{figure}
 
