@@ -1,16 +1,6 @@
-%% Document preamble. Comment out for final figure! Footer too!
-%\documentclass[tikz, margin=5mm, dvipsnames]{standalone}
-%\usepackage{listings}
-%\usepackage{hyperref}
-%\input{assomap_common_imports}
-%\input{black_style}
-%\input{styles_data}
-%\begin{document}
 
 \input{black_style}
 \input{recipe_config}
-\input{assomap_common_styles}
-
 
 %%%%%%%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \sffamily
@@ -65,6 +55,16 @@
 %      \recipenotitlebox{\hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}}
 %    };
     \\
+
+    \node (geom_persistence)[empty]{}; &
+    \node (rsrf_persistence)[empty]{}; &
+    \node (dark_persistence)[calibproduct]{\hyperref[dataitem:ifu_std_bkg]{\PROD{LM_STD_BKG}}}; &
+    \node (wcal_persistence)[empty]{}; &
+    \node (std_persistence)[empty]{}; &
+    \node (sci1_persistence)[empty]{}; &
+    \node (tac_persistence)[empty]{}; &
+    \node (sci2_persistence)[empty]{}; &
+    \node (adi_persistence)[empty]{}; \\
 
     % Row *_dark
     \node (geom_dark)[empty]{};
