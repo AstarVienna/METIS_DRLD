@@ -5,7 +5,7 @@
     \ifx \relax #2\relax
         #1%
     \else
-            #1%
+        #1%
         \textunderscore
         \replace@underscores#2\relax
     \fi
@@ -26,10 +26,25 @@
 \ExplSyntaxOff
 
 % Raw FITS file: \RAW{LM_SCI_RAW}
-\NewDocumentCommand{\RAW}{s m}{\IfBooleanTF#1{\ITEM*{RAW}{#2}}{\ITEM{RAW}{#2}}}
+\NewDocumentCommand{\NEWRAW}{s m}{\IfBooleanTF#1{\ITEM*{RAW}{#2}}{\ITEM{RAW}{#2}}}
+\NewDocumentCommand{\NEWPAR}{s m}{\IfBooleanTF#1{\ITEM*{PAR}{#2}}{\ITEM{RAW}{#2}}}
+\NewDocumentCommand{\NEWDRL}{s m}{\IfBooleanTF#1{\ITEM*{DRL}{#2}}{\ITEM{DRL}{#2}}}
+\NewDocumentCommand{\NEWREC}{s m}{\IfBooleanTF#1{\ITEM*{REC}{#2}}{\ITEM{REC}{#2}}}
+\NewDocumentCommand{\NEWQC}{s m}{\IfBooleanTF#1{\ITEM*{REC}{#2}}{\ITEM{REC}{#2}}}
+\NewDocumentCommand{\NEWTPL}{s m}{\IfBooleanTF#1{\ITEM*{TPL}{#2}}{\ITEM{TPL}{#2}}}
+\NewDocumentCommand{\NEWPROD}{s m}{\IfBooleanTF#1{\ITEM*{PROD}{#2}}{\ITEM{PROD}{#2}}}
+\NewDocumentCommand{\NEWREQ}{s m}{\IfBooleanTF#1{\ITEM*{REQ}{#2}}{\ITEM{REQ}{#2}}}
+\NewDocumentCommand{\NEWEXTCALIB}{s m}{\IfBooleanTF#1{\ITEM*{EXTCALIB}{#2}}{\ITEM{EXTCALIB}{#2}}}
+\NewDocumentCommand{\NEWSTATCALIB}{s m}{\IfBooleanTF#1{\ITEM*{STATCALIB}{#2}}{\ITEM{STATCALIB}{#2}}}
+\NewDocumentCommand{\NEWFITS}{s m}{\IfBooleanTF#1{\ITEM*{FITS}{#2}}{\ITEM{FITS}{#2}}}
 
-%% Write parameters like this: \PAR{DARK_LM}
-\NewDocumentCommand{\PAR}{s m}{\IfBooleanTF#1{\ITEM*{PAR}{#2}}{\ITEM{RAW}{#2}}}
+%% Write DRL functions names like this: \hyperref[drl:function]{\DRL{function}}
+\newcommand{\RAW}[1]{ \texorpdfstring{\lstinline[style=RAWstyle]!#1!}%
+                                     {\replaceunderscores{#1}}}
+
+%% Write DRL functions names like this: \hyperref[drl:function]{\DRL{function}}
+\newcommand{\PAR}[1]{ \texorpdfstring{\lstinline[style=PARstyle]!#1!}%
+                                     {\replaceunderscores{#1}}}
 
 %% Write DRL functions names like this: \hyperref[drl:function]{\DRL{function}}
 \newcommand{\DRL}[1]{ \texorpdfstring{\lstinline[style=DRLstyle]!#1!}%
