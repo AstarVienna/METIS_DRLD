@@ -12,11 +12,10 @@
 }
 \makeatother
 
-%% Write a raw FITS file like this: \hyperref[dataitem:lm_sci_raw]{\RAW{LM_SCI_RAW}}
-%\newcommand{\RAW}[1]{ \texorpdfstring{\lstinline[style=RAWstyle]!#1!}%
-%                                     {\replaceunderscores{#1}}}
-
 \ExplSyntaxOn
+% Generic \ITEM macro:
+%   use \RAW*{WHATEVER_THIS_IS} where hyperlinks are not needed (TOC, sections...)
+%   and \RAW{WHATEVER_THIS_IS} for a full hyperlink-enabled version in regular text and tikz figures
 \NewDocumentCommand{\ITEM}{smm}{%
     \IfBooleanTF{#1}{%
         \texorpdfstring{\lstinline[style=#2style]!#3!}{\replaceunderscores{#3}}%
