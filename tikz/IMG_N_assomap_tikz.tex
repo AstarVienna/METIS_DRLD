@@ -22,6 +22,10 @@
       \recipebox{DETLIN}{det\_detlin}
     };
     &
+    \node [above] (pers_raw){%
+        \recipebox{PERSISTENCE}{persistence\_map}
+    };
+    &
     \node[above] (dist_raw){%
       \recipebox{DISTORTION}{n\_img\_distortion}
     };
@@ -53,181 +57,126 @@
 
     %%% Calibration products
     % Row *_lin
-    \node (lin_lin) [statcalfile]{LINEARITY\_GEO};
-    &
-    \node (dist_lin)[empty]{};
-    &
-    \node (dark_lin) [empty]{};
-    &
-    \node (flat_lin)[connection]{};
-    &
-    \node (chop_lin)[connection]{};
-    &
-    \node (std_lin)[empty]{};
-    &
-    \node (cal_lin)[empty]{};
-    &
-    \node (rest_lin) [empty]{};
-    \\
+    \node (lin_lin)[statcalfile]{LINEARITY\_GEO}; &
+    \node (pers_lin)[empty]{}; &
+    \node (dist_lin)[empty]{}; &
+    \node (dark_lin)[empty]{}; &
+    \node (flat_lin)[connection]{}; &
+    \node (chop_lin)[connection]{}; &
+    \node (std_lin)[empty]{}; &
+    \node (cal_lin)[empty]{}; &
+    \node (rest_lin)[empty]{}; \\
+
+    % Row persistence
+    \node (lin_pers)[empty]{}; &
+    \node (pers_pers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}}; &
+    \node (dist_pers)[empty]{}; &
+    \node (dark_pers)[empty]{}; &
+    \node (flat_pers)[connection]{}; &
+    \node (chop_pers)[connection]{}; &
+    \node (std_pers)[empty]{}; &
+    \node (cal_pers)[empty]{}; &
+    \node (rest_pers)[empty]{}; \\
 
     %%% Calibration products
     % Row *_dark
-    \node (lin_dark) [empty]{};
-    &
-    \node (dist_dark)[empty]{};
-    &
-    \node (dark_dark) [qcproduct]{MASTER\_DARK\_GEO};
-    &
-    \node (flat_dark)[connection]{};
-    &
-    \node (chop_dark)[empty]{};
-    &
-    \node (std_dark)[empty]{};
-    &
-    \node (cal_dark)[empty]{};
-    &
-    \node (rest_dark) [empty]{};
-    \\
+    \node (lin_dark)[empty]{}; &
+    \node (pers_dark)[empty]{}; &
+    \node (dist_dark)[empty]{}; &
+    \node (dark_dark)[qcproduct]{MASTER\_DARK\_GEO}; &
+    \node (flat_dark)[connection]{}; &
+    \node (chop_dark)[empty]{}; &
+    \node (std_dark)[empty]{}; &
+    \node (cal_dark)[empty]{}; &
+    \node (rest_dark)[empty]{}; \\
 
     % Row *_flat
-    \node (lin_flat)[empty]{};
-    &
-    \node (dist_flat) [empty]{};
-    &
-    \node (dark_flat)[empty]{};
-    &
-    \node (flat_flat) [qcproduct]{MASTER\_FLAT\_GEO};
-    &
-    \node (chop_flat)[connection]{};
-    &
-    \node (std_flat)[empty]{};
-    &
-    \node (cal_flat)[empty]{};
-    &
-    \node (rest_flat) [empty]{};
-    \\
+    \node (lin_flat)[empty]{}; &
+    \node (pers_flat)[empty]{}; &
+    \node (dist_flat) [empty]{}; &
+    \node (dark_flat)[empty]{}; &
+    \node (flat_flat) [qcproduct]{MASTER\_FLAT\_GEO}; &
+    \node (chop_flat)[connection]{}; &
+    \node (std_flat)[empty]{}; &
+    \node (cal_flat)[empty]{}; &
+    \node (rest_flat) [empty]{}; \\
 
     % Row *_chopstd
-    \node (lin_chopstd)[empty]{};
-    &
-    \node (dist_chopstd) [empty]{};
-    &
-    \node (dark_chopstd)[empty]{};
-    &
-    \node (flat_chopstd) [empty]{};
-    &
-    \node (chop_chopstd)[calibproduct]{STD\_BKG\_SUB};
-    &
-    \node (std_chopstd)[connection]{};
-    &
-    \node (cal_chopstd)[empty]{};
-    &
-    \node (rest_chopstd) [empty]{};
-    \\
+    \node (lin_chopstd)[empty]{}; &
+    \node (pers_chopstd)[empty]{}; &
+    \node (dist_chopstd) [empty]{}; &
+    \node (dark_chopstd)[empty]{}; &
+    \node (flat_chopstd) [empty]{}; &
+    \node (chop_chopstd)[calibproduct]{STD\_BKG\_SUB}; &
+    \node (std_chopstd)[connection]{}; &
+    \node (cal_chopstd)[empty]{}; &
+    \node (rest_chopstd) [empty]{}; \\
 
     % Row *_chopsci
-    \node (lin_chopsci)[empty]{};
-    &
-    \node (dist_chopsci) [empty]{};
-    &
-    \node (dark_chopsci)[empty]{};
-    &
-    \node (flat_chopsci) [empty]{};
-    &
-    \node (chop_chopsci)[scienceproduct]{SCI\_BKG\_SUB};
-    &
-    \node (std_chopsci)[empty]{};
-    &
-    \node (cal_chopsci)[connection]{};
-    &
-    \node (rest_chopsci) [empty]{};
-    \\
+    \node (lin_chopsci)[empty]{}; &
+    \node (pers_chopsci)[empty]{}; &
+    \node (dist_chopsci) [empty]{}; &
+    \node (dark_chopsci)[empty]{}; &
+    \node (flat_chopsci) [empty]{}; &
+    \node (chop_chopsci)[scienceproduct]{SCI\_BKG\_SUB}; &
+    \node (std_chopsci)[empty]{}; &
+    \node (cal_chopsci)[connection]{}; &
+    \node (rest_chopsci) [empty]{}; \\
 
     % Row *_std
-    \node (lin_std) [empty]{};
-    &
-    \node (dist_std)[empty]{};
-    &
-    \node (dark_std)[extcalfile]{FLUXSTD\_CATALOG};
-    &
-    \node (flat_std)[empty]{};
-    &
-    \node (chop_std)[empty]{};
-    &
-    \node (std_std)[connection]{};
-    &
-    \node (cal_std)[empty]{};
-    &
+    \node (lin_std) [empty]{}; &
+    \node (pers_std) [empty]{}; &
+    \node (dist_std)[empty]{}; &
+    \node (dark_std)[extcalfile]{FLUXSTD\_CATALOG}; &
+    \node (flat_std)[empty]{}; &
+    \node (chop_std)[empty]{}; &
+    \node (std_std)[connection]{}; &
+    \node (cal_std)[empty]{}; &
     \node (rest_std) [empty]{}; \\
 
     % Row *_cal
-    \node (lin_cal)[empty]{};
-    &
-    \node (dist_cal) [empty]{};
-    &
-    \node (dark_cal)[empty]{};
-    &
-    \node (flat_cal)[empty]{};
-    &
-    \node (chop_cal)[empty]{};
-    &
-    \node (std_cal)[calibproduct]{FLUXCAL\_TAB};
-    &
-    \node (cal_cal)[connection]{};
-    &
+    \node (lin_cal)[empty]{}; &
+    \node (pers_cal)[empty]{}; &
+    \node (dist_cal) [empty]{}; &
+    \node (dark_cal)[empty]{}; &
+    \node (flat_cal)[empty]{}; &
+    \node (chop_cal)[empty]{}; &
+    \node (std_cal)[calibproduct]{FLUXCAL\_TAB}; &
+    \node (cal_cal)[connection]{}; &
     \node (rest_cal) [empty]{}; \\
 
     % Row *_dist
-    \node (lin_dist)[empty]{};
-    &
-    \node (dist_dist) [statcalfile]{DISTORTION\_TAB};
-    &
-    \node (dark_dist)[empty]{};
-    &
-    \node (flat_dist)[empty]{};
-    &
-    \node (chop_dist)[empty]{};
-    &
-    \node (std_dist)[empty]{};
-    &
-    \node (cal_dist)[connection]{};
-    &
-    \node (rest_dist) [empty]{}; \\
+    \node (lin_dist)[empty]{}; &
+    \node (pers_dist)[empty]{}; &
+    \node (dist_dist)[statcalfile]{DISTORTION\_TAB}; &
+    \node (dark_dist)[empty]{}; &
+    \node (flat_dist)[empty]{}; &
+    \node (chop_dist)[empty]{}; &
+    \node (std_dist)[empty]{}; &
+    \node (cal_dist)[connection]{}; &
+    \node (rest_dist)[empty]{}; \\
 
 
     % Row *_rest
-    \node (lin_rest)[empty]{};
-    &
-    \node (dist_rest)[empty]{};
-    &
-    \node (dark_rest)[empty]{};
-    &
-    \node (flat_rest)[empty]{};
-    &
-    \node (chop_rest)[empty] {};
-    &
-    \node (std_rest)[empty]{};
-    &
-    \node (cal_rest) [scienceproduct]{N\_SCI\_CALIBRATED};
-    &
-    \node (rest_rest) [connection]{};
-    \\
+    \node (lin_rest)[empty]{}; &
+    \node (pers_rest)[empty]{}; &
+    \node (dist_rest)[empty]{}; &
+    \node (dark_rest)[empty]{}; &
+    \node (flat_rest)[empty]{}; &
+    \node (chop_rest)[empty] {}; &
+    \node (std_rest)[empty]{}; &
+    \node (cal_rest) [scienceproduct]{N\_SCI\_CALIBRATED}; &
+    \node (rest_rest) [connection]{}; \\
 
     % Row *_prod
-    \node (lin_prod)[empty]{};
-    &
-    \node (dist_prod)[empty]{};
-    &
-    \node (dark_prod)[empty]{};
-    &
-    \node (flat_prod)[empty]{};
-    &
-    \node (chop_prod)[empty]{};
-    &
-    \node (std_prod)[empty]{};
-    &
-    \node (cal_prod) [empty]{};
-    &
+    \node (lin_prod)[empty]{}; &
+    \node (pers_prod)[empty]{}; &
+    \node (dist_prod)[empty]{}; &
+    \node (dark_prod)[empty]{}; &
+    \node (flat_prod)[empty]{}; &
+    \node (chop_prod)[empty]{}; &
+    \node (std_prod)[empty]{}; &
+    \node (cal_prod) [empty]{}; &
     \node (rest_prod) [scienceproduct]{N\_SCI\_RESTORED};
     \\
     & & & & & \\
@@ -239,6 +188,7 @@
 
   %% Vertical connections
   \draw [arrow] (lin_raw) -- (lin_lin);
+  \draw [arrow] (pers_raw) -- (pers_pers);
   \draw [arrow] (dark_raw) -- (dark_dark);
   \draw [arrow] (flat_raw) -- (flat_flat);
   \draw [arrow] (dist_raw) -- (dist_dist);
@@ -250,6 +200,7 @@
 
   %% Horizontal connections
   \draw [match] (lin_lin) -- (chop_lin);
+  \draw [match] (pers_pers) -- (chop_pers);
   \draw [match] (dark_dark) -- (flat_dark);
   \draw [match, dashed] (flat_flat) -- (chop_flat);
   \draw [match] (dist_dist) -- (cal_dist);
