@@ -13,12 +13,24 @@
 \makeatother
 
 %% Write a raw FITS file like this: \hyperref[dataitem:lm_sci_raw]{\RAW{LM_SCI_RAW}}
-\newcommand{\RAW}[1]{ \texorpdfstring{\lstinline[style=RAWstyle]!#1!}%
-                                     {\replaceunderscores{#1}}}
+%\newcommand{\RAW}[1]{ \texorpdfstring{\lstinline[style=RAWstyle]!#1!}%
+%                                     {\replaceunderscores{#1}}}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\ITEM}{smm}{%
+    \IfBooleanTF{#1}{%
+        \texorpdfstring{\lstinline[style=#2style]!#3!}{\replaceunderscores{#3}}%
+    }{%
+        \hyperref[dataitem:\text_lowercase:n{#3}]{\lstinline[style=#2style]!#3!}%
+    }%
+}
+\ExplSyntaxOff
+
+% Raw FITS file: \RAW{LM_SCI_RAW}
+\NewDocumentCommand{\RAW}{s m}{\IfBooleanTF#1{\ITEM*{RAW}{#2}}{\ITEM{RAW}{#2}}}
 
 %% Write parameters like this: \PAR{DARK_LM}
-\newcommand{\PAR}[1]{ \texorpdfstring{\lstinline[style=PARstyle]!#1!}%
-                                     {\replaceunderscores{#1}}}
+\NewDocumentCommand{\PAR}{s m}{\IfBooleanTF#1{\ITEM*{PAR}{#2}}{\ITEM{RAW}{#2}}}
 
 %% Write DRL functions names like this: \hyperref[drl:function]{\DRL{function}}
 \newcommand{\DRL}[1]{ \texorpdfstring{\lstinline[style=DRLstyle]!#1!}%
