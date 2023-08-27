@@ -57,7 +57,7 @@
 
     %%% Calibration products
     % Row *_lin
-    \node (lin_lin)[statcalfile]{\hyperref[dataitem:linearity_geo]{\STATCALIB{LINEARITY\_GEO}}}; &
+    \node (lin_lin)[statcalfile]{\NEWSTATCALIB{LINEARITY\_GEO}}; &
     \node (pers_lin)[empty]{}; &
     \node (dist_lin)[empty]{}; &
     \node (dark_lin)[empty]{}; &
@@ -69,7 +69,7 @@
 
     % Row persistence
     \node (lin_pers)[empty]{}; &
-    \node (pers_pers)[extcalfile]{\hyperref[dataitem:persistence_map]{\STATCALIB{PERSISTENCE_MAP}}}; &
+    \node (pers_pers)[extcalfile]{\NEWSTATCALIB{PERSISTENCE_MAP}}; &
     \node (dist_pers)[empty]{}; &
     \node (dark_pers)[empty]{}; &
     \node (flat_pers)[connection]{}; &
@@ -83,7 +83,7 @@
     \node (lin_dark)[empty]{}; &
     \node (pers_dark)[empty]{}; &
     \node (dist_dark)[empty]{}; &
-    \node (dark_dark)[qcproduct]{\hyperref[dataitem:master_dark_geo]{\QC{MASTER_DARK_GEO}}}; &
+    \node (dark_dark)[qcproduct]{\NEWQC{MASTER_DARK_GEO}}; &
     \node (flat_dark)[connection]{}; &
     \node (chop_dark)[empty]{}; &
     \node (std_dark)[empty]{}; &
@@ -95,7 +95,7 @@
     \node (pers_flat)[empty]{}; &
     \node (dist_flat) [empty]{}; &
     \node (dark_flat)[empty]{}; &
-    \node (flat_flat) [qcproduct]{\hyperref[dataitem:master_flat_geo]{\QC{MASTER_FLAT_GEO}}}; &
+    \node (flat_flat) [qcproduct]{\NEWQC{MASTER_FLAT_GEO}}; &
     \node (chop_flat)[connection]{}; &
     \node (std_flat)[empty]{}; &
     \node (cal_flat)[empty]{}; &
@@ -107,7 +107,7 @@
     \node (dist_chopstd) [empty]{}; &
     \node (dark_chopstd)[empty]{}; &
     \node (flat_chopstd) [empty]{}; &
-    \node (chop_chopstd)[calibproduct]{\hyperref[dataitem:std_bkg_sub]{\PROD{STD_BKG_SUB}}}; &
+    \node (chop_chopstd)[calibproduct]{\NEWPROD{STD_BKG_SUB}}; &
     \node (std_chopstd)[connection]{}; &
     \node (cal_chopstd)[empty]{}; &
     \node (rest_chopstd) [empty]{}; \\
@@ -118,7 +118,7 @@
     \node (dist_chopsci) [empty]{}; &
     \node (dark_chopsci)[empty]{}; &
     \node (flat_chopsci) [empty]{}; &
-    \node (chop_chopsci)[scienceproduct]{\hyperref[dataitem:sci_bkg_sub]{\PROD{SCI_BKG_SUB}}}; &
+    \node (chop_chopsci)[scienceproduct]{\NEWPROD{SCI_BKG_SUB}}; &
     \node (std_chopsci)[empty]{}; &
     \node (cal_chopsci)[connection]{}; &
     \node (rest_chopsci) [empty]{}; \\
@@ -127,7 +127,7 @@
     \node (lin_std) [empty]{}; &
     \node (pers_std) [empty]{}; &
     \node (dist_std)[empty]{}; &
-    \node (dark_std)[extcalfile]{\hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}}}; &
+    \node (dark_std)[extcalfile]{\NEWEXTCALIB{FLUXSTD_CATALOG}}; &
     \node (flat_std)[empty]{}; &
     \node (chop_std)[empty]{}; &
     \node (std_std)[connection]{}; &
@@ -141,14 +141,14 @@
     \node (dark_cal)[empty]{}; &
     \node (flat_cal)[empty]{}; &
     \node (chop_cal)[empty]{}; &
-    \node (std_cal)[calibproduct]{\hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}}; &
+    \node (std_cal)[calibproduct]{\NEWPROD{FLUXCAL_TAB}}; &
     \node (cal_cal)[connection]{}; &
     \node (rest_cal) [empty]{}; \\
 
     % Row *_dist
     \node (lin_dist)[empty]{}; &
     \node (pers_dist)[empty]{}; &
-    \node (dist_dist)[statcalfile]{\hyperref[dataitem:distortion_tab]{\STATCALIB{DISTORTION_TAB}}}; &
+    \node (dist_dist)[statcalfile]{\NEWSTATCALIB{DISTORTION_TAB}}; &
     \node (dark_dist)[empty]{}; &
     \node (flat_dist)[empty]{}; &
     \node (chop_dist)[empty]{}; &
@@ -165,7 +165,7 @@
     \node (flat_rest)[empty]{}; &
     \node (chop_rest)[empty] {}; &
     \node (std_rest)[empty]{}; &
-    \node (cal_rest)[scienceproduct]{\hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}}; &
+    \node (cal_rest)[scienceproduct]{\NEWPROD{N_SCI_CALIBRATED}}; &
     \node (rest_rest) [connection]{}; \\
 
     % Row *_prod
@@ -177,7 +177,7 @@
     \node (chop_prod)[empty]{}; &
     \node (std_prod)[empty]{}; &
     \node (cal_prod) [empty]{}; &
-    \node (rest_prod)[scienceproduct]{\hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}}};
+    \node (rest_prod)[scienceproduct]{\NEWPROD{N_SCI_RESTORED}};
     \\
     & & & & & \\
   };    % end matrix
