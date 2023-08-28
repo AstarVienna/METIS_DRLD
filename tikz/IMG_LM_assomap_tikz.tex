@@ -113,7 +113,7 @@
     \node (pers_flat) [empty]{}; &
     \node (dist_flat)[empty]{}; &
     \node (dark_flat)[empty]{}; &
-    \node (flat_flat) [calibproduct]{\NEWPROD{MASTER_FLAT_2RG}}; &
+    \node (flat_flat) [calibproduct]{\NEWPROD{MASTER_IMG_FLAT_LAMP_LM}}; &
     \node (all1_flat)[connection]{}; &
     \node (all2_flat)[empty]{}; &
     \node (std_flat)[empty]{}; &
@@ -126,8 +126,8 @@
     \node (dist_all1)[empty]{}; &
     \node (dark_all1)[empty]{}; &
     \node (flat_all1)[empty]{}; &
-    \node (all1_all1)[calibproduct]{\NEWPROD{STD_REDUCED}}; &
-    \node (all2_all1)[calibproduct]{\NEWPROD{STD_BKG_SUB}}; &
+    \node (all1_all1)[calibproduct]{\NEWPROD{LM_STD_BASIC_REDUCED}}; &
+    \node (all2_all1)[calibproduct]{\NEWPROD{LM_STD_BKG_SUBTRACTED}}; &
     \node (std_all1)[connection]{}; &
     \node (sci1_all1)[empty]{}; &
     \node (sci2_all1) [empty]{}; \\
@@ -138,8 +138,8 @@
     \node (dist_all2)[empty]{}; &
     \node (dark_all2)[empty]{}; &
     \node (flat_all2)[empty]{}; &
-    \node (all1_all2)[scienceproduct]{\NEWPROD{SCI_REDUCED}}; &
-    \node (all2_all2)[scienceproduct]{\NEWPROD{SCI_BKG_SUB}}; &
+    \node (all1_all2)[scienceproduct]{\NEWPROD{LM_SCI_BASIC_REDUCED}}; &
+    \node (all2_all2)[scienceproduct]{\NEWPROD{LM_SCI_BKG_SUBTRACTED}}; &
     \node (std_all2)[empty]{}; &
     \node (sci1_all2)[connection]{}; &
     \node (sci2_all2) [empty]{}; \\
@@ -147,7 +147,7 @@
     % Row *_dist
     \node (lin_dist) [empty]{}; &
     \node (pers_dist) [empty]{}; &
-    \node (dist_dist)[statcalfile]{\NEWSTATCALIB{DISTORTION_TAB}}; &
+    \node (dist_dist)[statcalfile]{\NEWSTATCALIB{LM_DISTORTION_TABLE}}; &
     \node (dark_dist)[empty]{}; &
     \node (flat_dist) [empty]{}; &
     \node (all1_dist)[empty]{}; &
