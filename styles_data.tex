@@ -14,8 +14,8 @@
 
 \ExplSyntaxOn
 % Generic \ITEM macro:
-%   use \RAW*{WHATEVER_THIS_IS} where hyperlinks are not needed (TOC, sections...)
-%   and \RAW{WHATEVER_THIS_IS} for a full hyperlink-enabled version in regular text and tikz figures
+%   use \NEWRAW*{WHATEVER_THIS_IS} where hyperlinks are not needed (TOC, sections...)
+%   and \NEWRAW{WHATEVER_THIS_IS} for a full hyperlink-enabled version in regular text and tikz figures
 \NewDocumentCommand{\ITEM}{smm O{dataitem}}{%
     \IfBooleanTF{#1}{%
         \texorpdfstring{\lstinline[style=#2style]!#3!}{\replaceunderscores{#3}}%
@@ -25,7 +25,7 @@
 }
 \ExplSyntaxOff
 
-% Raw FITS file: \RAW{LM_SCI_RAW}
+% Raw FITS file: \NEWRAW{LM_SCI_RAW}
 \NewDocumentCommand{\NEWRAW}{s m}{\IfBooleanTF#1{\ITEM*{RAW}{#2}}{#1\ITEM{RAW}{#2}}}
 \NewDocumentCommand{\NEWPAR}{s m}{\IfBooleanTF#1{\ITEM*{PAR}{#2}}{\ITEM{RAW}{#2}}}
 \NewDocumentCommand{\NEWDRL}{s m}{\IfBooleanTF#1{\ITEM*{DRL}{#2}}{\ITEM{DRL}{#2}}}
