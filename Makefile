@@ -36,6 +36,11 @@ METIS_DRLD.pdf: \
 	$(call pdflatex,secondary,${TEXFOT_ARGS})
 	$(call pdflatex,tertiary,${TEXFOT_ARGS})
 
+tikz/tikz.pdf: \
+	tikz/all.tex \
+	$$(wildcard tikz/*.tex)
+	@texfot pdflatex -file-line-error -shell-escape -jobname=$(subst .pdf,,$@) -halt-on-error -synctex=1 -interaction=nonstopmode $< $@
+
 all: METIS_DRLD.pdf
 
 clean:

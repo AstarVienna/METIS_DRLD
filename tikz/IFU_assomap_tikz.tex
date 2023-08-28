@@ -1,16 +1,5 @@
-%% Document preamble. Comment out for final figure! Footer too!
-%\documentclass[tikz, margin=5mm, dvipsnames]{standalone}
-%\usepackage{listings}
-%\usepackage{hyperref}
-%\input{assomap_common_imports}
-%\input{black_style}
-%\input{styles_data}
-%\begin{document}
-
 \input{black_style}
 \input{recipe_config}
-\input{assomap_common_styles}
-
 
 %%%%%%%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \sffamily
@@ -28,103 +17,79 @@
     % Row *_raw
 
     \node[above] (geom_raw){%
-      \recipebox{\hyperref[dataitem:ifu_distortion_raw]{\RAW{IFU_DISTORTION_RAW}}}{\hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}}}
+      \recipebox{\NEWRAW{IFU_DISTORTION_RAW}}{\NEWREC{metis_ifu_distortion}}
     };
     &
     \node[above] (rsrf_raw){%
-      \recipebox{\hyperref[dataitem:ifu_rsrf_raw]{\RAW{IFU_RSRF_RAW}}}{\hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}}}
+      \recipebox{\NEWRAW{IFU_RSRF_RAW}}{\NEWREC{metis_ifu_rsrf}}
     };
     &
     \node[above] (dark_raw) {%
-      \recipebox{\hyperref[dataitem:dark_ifu_raw]{\RAW{DARK_IFU_RAW}}}{\hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}}
+      \recipebox{\NEWRAW{DARK_IFU_RAW}}{\NEWREC{metis_det_dark}}
     };
     &
     \node[above] (wcal_raw){%
-      \recipebox{\hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_WAVE_RAW}}}{\hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}}
+      \recipebox{\NEWRAW{IFU_WAVE_RAW}}{\NEWREC{metis_ifu_wavecal}}
     };
     &
     \node[above] (std_raw){%
-      \recipebox{\hyperref[dataitem:ifu_std_raw]{\RAW{IFU_STD_RAW}}}{\hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}}
+      \recipebox{\NEWRAW{IFU_STD_RAW}}{\NEWREC{metis_ifu_std_process}}
     };
     &
     \node[above] (sci1_raw) {%
-      \recipebox{\hyperref[dataitem:ifu_sci_raw]{\RAW{IFU_SCI_RAW}}}{\hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}}
+      \recipebox{\NEWRAW{IFU_SCI_RAW}}{\NEWREC{metis_ifu_sci_process}}
     };
     &
     \node (space) [empty]{}; % horizontal spacing
     &
     \node[above] (tac_raw){%
-      \recipenotitlebox{\hyperref[rec:metis_ifu_tellcorr]{\REC{metis_ifu_tellcorr}}}
+      \recipenotitlebox{\NEWREC{metis_ifu_tellcorr}}
     };
     &
     \node[above] (sci2_raw){%
-      \recipenotitlebox{\hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}}}
+      \recipenotitlebox{\NEWREC{metis_ifu_sci_postprocess}}
     };
 %    &
 %    \node[above] (adi_raw){%
-%      \recipenotitlebox{\hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}}}
+%      \recipenotitlebox{\NEWREC{metis_ifu_adi_cgrph}}
 %    };
     \\
 
     % Row *_dark
-    \node (geom_dark)[empty]{};
-    &
-    \node (rsrf_dark)[empty]{};
-    &
-    \node (dark_dark) [calibproduct] {\hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}};
-    &
-    \node (wcal_dark)[connection]{};
-    &
-    \node (std_dark)[connection]{};
-    &
-    \node (sci1_dark)[connection]{};
-    & &
-    \node (tac_dark) [empty]{};
-    &
+    \node (geom_dark)[empty]{}; &
+    \node (rsrf_dark)[empty]{}; &
+    \node (dark_dark) [calibproduct] {\NEWPROD{MASTER_DARK_IFU}}; &
+    \node (wcal_dark)[connection]{}; &
+    \node (std_dark)[connection]{}; &
+    \node (sci1_dark)[connection]{}; & &
+    \node (tac_dark) [empty]{}; &
     \node (sci2_dark)[empty]{};
 %    &
 %    \node (adi_dark)[empty]{};
     \\
 
     % Row *_geom
-    \node (geom_geom) [statcalfile] {\hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}};
-    &
-    \node (rsrf_geom)[connection]{};
-    &
-    \node (dark_geom)[empty]{};
-    &
-    \node (wcal_geom)[connection]{};
-    &
-    \node (std_geom)[connection]{};
-    &
-    \node (sci1_geom)[connection]{};
-    & &
-    \node (tac_geom)[empty]{};
-    &
-    \node (sci2_geom)[empty]{};
-    &
-    \node (adi_geom)[empty]{};
-    \\
+    \node (geom_geom) [statcalfile] {\NEWPROD{IFU_DISTORTION_TABLE}}; &
+    \node (rsrf_geom)[connection]{}; &
+    \node (dark_geom)[empty]{}; &
+    \node (wcal_geom)[connection]{}; &
+    \node (std_geom)[connection]{}; &
+    \node (sci1_geom)[connection]{}; & &
+    \node (tac_geom)[empty]{}; &
+    \node (sci2_geom)[empty]{}; &
+    \node (adi_geom)[empty]{}; \\
 
     % Row *_rsrf
-    \node (geom_rsrf) [empty]{};
-    &
-    \node (rsrf_rsrf) [statcalfile] {\hyperref[dataitem:rsrf_ifu]{\PROD{RSRF_IFU}}};
-    &
-    \node (dark_rsrf)[empty]{};
-    &
-    \node (wcal_rsrf)[empty]{};
-    &
-    \node (std_rsrf)[connection]{};
-    &
-    \node (sci1_rsrf)[connection]{};
-    & &
-    \node (tac_rsrf)[empty]{};
-    &
-    \node (sci2_rsrf)[empty]{};
+    \node (geom_rsrf) [empty]{}; &
+    \node (rsrf_rsrf) [statcalfile] {\NEWPROD{RSRF_IFU}}; &
+    \node (dark_rsrf)[empty]{}; &
+    \node (wcal_rsrf)[empty]{}; &
+    \node (std_rsrf)[connection]{}; &
+    \node (sci1_rsrf)[connection]{}; & &
+    \node (tac_rsrf)[empty]{}; &
+    \node (sci2_rsrf)[empty]{}; \\
 %    &
 %    \node (adi_rsrf)[empty]{};
-    \\
 
 
 
@@ -135,7 +100,7 @@
     &
     \node (dark_wcal)[empty]{};
     &
-    \node (wcal_wcal) [calibproduct] {\hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}};
+    \node (wcal_wcal) [calibproduct] {\NEWPROD{IFU_WAVECAL}};
     &
     \node (std_wcal)[connection]{};
     &
@@ -153,7 +118,7 @@
     &
     \node (rsrf_std)[empty]{};
     &
-    \node (dark_std)[extcalfile] {\hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}}};
+    \node (dark_std)[extcalfile] {\NEWEXTCALIB{FLUXSTD_CATALOG}};
     &
     \node (wcal_std)[empty]{};
     &
@@ -177,7 +142,7 @@
     &
     \node (wcal_fcal)[empty]{};
     &
-    \node (std_fcal)[calibproduct] {\hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}};
+    \node (std_fcal)[calibproduct] {\NEWPROD{FLUXCAL_TAB}};
     &
     \node (sci1_fcal)[connection]{};
     & &
@@ -199,9 +164,9 @@
     &
     \node (std_sci1)[empty]{};
     &
-    \node (sci1_sci1)[scienceproduct] {\hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}}};
+    \node (sci1_sci1)[scienceproduct] {\NEWPROD{IFU_SCI_REDUCED}};
     & &
-    \node (tac_sci1)[scienceproduct] {\hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}};
+    \node (tac_sci1)[scienceproduct] {\NEWPROD{IFU_SCI_REDUCED_TAC}};
     &
     \node (sci2_sci1)[connection]{};
 %    &
@@ -219,9 +184,9 @@
     &
     \node (std_sci2)[empty]{};
     &
-    \node (sci1_sci2)[scienceproduct] {\hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}}};
+    \node (sci1_sci2)[scienceproduct] {\NEWPROD{IFU_SCI_COMBINED}};
     & &
-    \node (tac_sci2)[scienceproduct] {\hyperref[dataitem:ifu_sci_combined_tac]{\PROD{IFU_SCI_COMBINED_TAC}}};
+    \node (tac_sci2)[scienceproduct] {\NEWPROD{IFU_SCI_COMBINED_TAC}};
     &
     \node (sci2_sci2) [empty]{};
 %    &
@@ -243,7 +208,7 @@
     & &
     \node (tac_adi)[empty]{};
     &
-    \node (sci2_adi)[scienceproduct] {\hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}};
+    \node (sci2_adi)[scienceproduct] {\NEWPROD{IFU_SCI_COADD}};
 %    &
 %    \node (adi_adi)[scienceproduct]{ADI\_SCI\_COADD};
     \\
