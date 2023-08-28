@@ -36,10 +36,15 @@ METIS_DRLD.pdf: \
 	$(call pdflatex,secondary,${TEXFOT_ARGS})
 	$(call pdflatex,tertiary,${TEXFOT_ARGS})
 
-tikz/tikz.pdf: \
+tikz/generated_sections.tex: *.tex
+	latexpand METIS_DRLD.tex | grep -E '^\\[a-z]*(section|paragraph|label)' > tikz/generated_sections.tex
+
+tikz/all.pdf: \
 	tikz/all.tex \
+	tikz/generated_sections.tex \
 	$$(wildcard tikz/*.tex)
-	@texfot pdflatex -file-line-error -shell-escape -jobname=$(subst .pdf,,$@) -halt-on-error -synctex=1 -interaction=nonstopmode $< $@
+	@TEXINPUTS="tikz/:" texfot pdflatex -file-line-error -shell-escape -jobname=$(subst .pdf,,$@) -halt-on-error -synctex=1 -interaction=nonstopmode $< $@
+	@TEXINPUTS="tikz/:" texfot pdflatex -file-line-error -shell-escape -jobname=$(subst .pdf,,$@) -halt-on-error -synctex=1 -interaction=nonstopmode $< $@
 
 all: METIS_DRLD.pdf
 
