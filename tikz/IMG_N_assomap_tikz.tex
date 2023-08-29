@@ -18,42 +18,15 @@
     % *_raw, *_lin, *_dark, *_flat, *_std, *_sci1, *_sci2, *_prod
 
     % Row *_raw
-    \node[above] (lin_raw) {%
-      \recipebox{DETLIN}{det\_detlin}
-    };
-    &
-    \node [above] (pers_raw){%
-        \recipebox{PERSISTENCE}{persistence\_map}
-    };
-    &
-    \node[above] (dist_raw){%
-      \recipebox{DISTORTION}{n\_img\_distortion}
-    };
-    &
-    \node[above] (dark_raw) {%
-      \recipebox{DARK}{det\_dark}
-    };
-    &
-    \node[above] (flat_raw){%
-      \recipebox{FLAT}{n\_img\_flat}
-    };
-    &
-    \node[above] (chop_raw){%
-      \recipebox{CHOPNOD}{n\_img\_chopnod}
-    };
-    &
-    \node[above] (std_raw){%
-      \recipebox{PHOT STD}{n\_img\_std\_process}
-    };
-    &
-    \node[above] (cal_raw){%
-      \recipebox{SCIENCE}{n\_img\_sci\_calibrate}
-    };
-    &
-    \node[above] (rest_raw){%
-      \recipebox{SCIENCE}{n\_img\_restore}
-    };
-    \\
+    \node[above] (lin_raw){\recipebox{DETLIN}{det\_detlin}}; &
+    \node[above] (pers_raw){\recipebox{PERSISTENCE}{persistence\_map}}; &
+    \node[above] (dist_raw){\recipebox{DISTORTION}{n\_img\_distortion}}; &
+    \node[above] (dark_raw){\recipebox{DARK}{det\_dark}}; &
+    \node[above] (flat_raw){\recipebox{FLAT}{n\_img\_flat}}; &
+    \node[above] (chop_raw){\recipebox{CHOPNOD}{n\_img\_chopnod}}; &
+    \node[above] (std_raw){\recipebox{PHOT STD}{n\_img\_std\_process}}; &
+    \node[above] (cal_raw){\recipebox{SCIENCE}{n\_img\_sci\_calibrate}}; &
+    \node[above] (rest_raw){\recipebox{SCIENCE}{n\_img\_restore}}; \\
 
     %%% Calibration products
     % Row *_lin
@@ -95,7 +68,7 @@
     \node (pers_flat)[empty]{}; &
     \node (dist_flat) [empty]{}; &
     \node (dark_flat)[empty]{}; &
-    \node (flat_flat) [qcproduct]{\NEWQC{MASTER_FLAT_GEO}}; &
+    \node (flat_flat) [qcproduct]{\NEWQC{MASTER_IMG_FLAT_LAMP_N}}; &
     \node (chop_flat)[connection]{}; &
     \node (std_flat)[empty]{}; &
     \node (cal_flat)[empty]{}; &
@@ -107,7 +80,7 @@
     \node (dist_chopstd) [empty]{}; &
     \node (dark_chopstd)[empty]{}; &
     \node (flat_chopstd) [empty]{}; &
-    \node (chop_chopstd)[calibproduct]{\NEWPROD{STD_BKG_SUB}}; &
+    \node (chop_chopstd)[calibproduct]{\NEWPROD{N_STD_BKG_SUBTRACTED}}; &
     \node (std_chopstd)[connection]{}; &
     \node (cal_chopstd)[empty]{}; &
     \node (rest_chopstd) [empty]{}; \\
@@ -118,7 +91,7 @@
     \node (dist_chopsci) [empty]{}; &
     \node (dark_chopsci)[empty]{}; &
     \node (flat_chopsci) [empty]{}; &
-    \node (chop_chopsci)[scienceproduct]{\NEWPROD{SCI_BKG_SUB}}; &
+    \node (chop_chopsci)[scienceproduct]{\NEWPROD{N_SCI_BKG_SUBTRACTED}}; &
     \node (std_chopsci)[empty]{}; &
     \node (cal_chopsci)[connection]{}; &
     \node (rest_chopsci) [empty]{}; \\
@@ -148,7 +121,7 @@
     % Row *_dist
     \node (lin_dist)[empty]{}; &
     \node (pers_dist)[empty]{}; &
-    \node (dist_dist)[statcalfile]{\NEWSTATCALIB{DISTORTION_TAB}}; &
+    \node (dist_dist)[statcalfile]{\NEWSTATCALIB{N_DISTORTION_TABLE}}; &
     \node (dark_dist)[empty]{}; &
     \node (flat_dist)[empty]{}; &
     \node (chop_dist)[empty]{}; &
