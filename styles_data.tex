@@ -15,6 +15,10 @@
 % Generic \Smart@Item macro:
 %   use \NEWRAW*{WHATEVER_THIS_IS} where hyperlinks are not needed (TOC, sections...)
 %   and \NEWRAW{WHATEVER_THIS_IS} for a full hyperlink-enabled version in regular text and tikz figures
+% #1 boolean: use hyperlink
+% #2 string: uppercase type of the item
+% #3 string: id of the item
+% #4 string, optional: hyperref prefix
 \NewDocumentCommand{\Smart@Item}{m m m O{dataitem}}{%
     \IfBooleanTF{#1}{%
         \texorpdfstring{\lstinline[style=#2style]!#3!}{\replaceunderscores{#3}}%
