@@ -228,7 +228,9 @@ may be refined by measuring telluric emission and/or absorption lines
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.7\textwidth]{metis_ifu_std_process}
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_ifu_std_process}
   \caption[Recipe: \REC{metis_ifu_std_process}]{%
     \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}} -- reduction of IFU flux standard
     frames and flux calibration (not all data products are shown).}
@@ -265,7 +267,7 @@ Note: We define rows and columns in the H2RG detector as follow:
 \begin{figure}[hb]
   \centering
   \includegraphics[width=0.7\textwidth]{LMS_detector_masking}
-  \caption[Recipe: \REC{metis_ifu_sci_process}]{%
+  \caption[The IFU masking scheme]{%
     The IFU masking scheme. Masked regions are in light blue.}
   \label{fig:ifu_detector_masking}
 \end{figure}
@@ -391,7 +393,9 @@ QC1 parameters:      & None                                                     
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.7\textwidth]{metis_ifu_sci_process}
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_ifu_sci_process}
   \caption[Recipe: \REC{metis_ifu_sci_process}]{%
     \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} -- reduction of IFU science frames.}
   \label{fig:metis_ifu_sci_process}
@@ -438,7 +442,9 @@ spectrum. The spectrum is extracted from a combined cube
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.7\textwidth]{metis_ifu_tellcorr}
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_ifu_tellcorr}
   \caption[Recipe: \REC{metis_ifu_tellcorr}]{\REC{metis_ifu_tellcorr}
     -- telluric correction of reduced IFU science cubes.}
   \label{fig:metis_ifu_tellcorr}
@@ -498,7 +504,9 @@ observatory.
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.7\textwidth]{metis_ifu_sci_postprocess}
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_ifu_sci_postprocess}
   \caption[Recipe: \REC{metis_ifu_sci_postprocess}]{%
     \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}} -- post-processing (coaddition) of
     reduced IFU science frames.}
@@ -539,7 +547,9 @@ Expected accuracies: & 1/10th of a pixel after post-processing\\
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.6\textwidth]{metis_ifu_distortion}
+    \def \globalscale {0.700000}
+    \fontsize{10}{12}\selectfont
+    \input{tikz/metis_ifu_distortion}
   \caption[Recipe: \REC{metis_ifu_distortion}]{%
     \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}} -- IFU distortion calibration}
   \label{fig:metis_ifu_distortion}
