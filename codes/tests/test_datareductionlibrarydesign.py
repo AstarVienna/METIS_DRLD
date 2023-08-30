@@ -769,6 +769,8 @@ See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
 
 def test_associationmatrices():
     asso_lm = AssociationMatrix(fn="tikz/IMG_LM_assomap_tikz.tex")
+    asso_n = AssociationMatrix(fn="tikz/IMG_N_assomap_tikz.tex")
+    asso_ifu = AssociationMatrix(fn="tikz/IFU_assomap_tikz.tex")
 
 
 def test_tikz():
