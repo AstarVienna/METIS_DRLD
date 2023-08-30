@@ -10,13 +10,16 @@
         \replace@underscores#2\relax
     \fi
 }
-\makeatother
 
 \ExplSyntaxOn
-% Generic \ITEM macro:
+% Generic \Smart@Item macro:
 %   use \NEWRAW*{WHATEVER_THIS_IS} where hyperlinks are not needed (TOC, sections...)
 %   and \NEWRAW{WHATEVER_THIS_IS} for a full hyperlink-enabled version in regular text and tikz figures
-\NewDocumentCommand{\ITEM}{smm O{dataitem}}{%
+% #1 boolean: use hyperlink
+% #2 string: uppercase type of the item
+% #3 string: id of the item
+% #4 string, optional: hyperref prefix
+\NewDocumentCommand{\Smart@Item}{m m m O{dataitem}}{%
     \IfBooleanTF{#1}{%
         \texorpdfstring{\lstinline[style=#2style]!#3!}{\replaceunderscores{#3}}%
     }{%
@@ -26,17 +29,22 @@
 \ExplSyntaxOff
 
 % Raw FITS file: \NEWRAW{LM_SCI_RAW}
-\NewDocumentCommand{\NEWRAW}{s m}{\IfBooleanTF#1{\ITEM*{RAW}{#2}}{#1\ITEM{RAW}{#2}}}
-\NewDocumentCommand{\NEWPAR}{s m}{\IfBooleanTF#1{\ITEM*{PAR}{#2}}{\ITEM{RAW}{#2}}}
-\NewDocumentCommand{\NEWDRL}{s m}{\IfBooleanTF#1{\ITEM*{DRL}{#2}}{\ITEM{DRL}{#2}}}
-\NewDocumentCommand{\NEWREC}{s m}{\IfBooleanTF#1{\ITEM*{REC}{#2}[rec]}{\ITEM{REC}{#2}[rec]}}
-\NewDocumentCommand{\NEWQC}{s m}{\IfBooleanTF#1{\ITEM*{QC}{#2}}{\ITEM{QC}{#2}}}
-\NewDocumentCommand{\NEWTPL}{s m}{\IfBooleanTF#1{\ITEM*{TPL}{#2}}{\ITEM{TPL}{#2}}}
-\NewDocumentCommand{\NEWPROD}{s m}{\IfBooleanTF#1{\ITEM*{PROD}{#2}}{\ITEM{PROD}{#2}}}
-\NewDocumentCommand{\NEWREQ}{s m}{\IfBooleanTF#1{\ITEM*{REQ}{#2}}{\ITEM{REQ}{#2}}}
-\NewDocumentCommand{\NEWEXTCALIB}{s m}{\IfBooleanTF#1{\ITEM*{EXTCALIB}{#2}}{\ITEM{EXTCALIB}{#2}}}
-\NewDocumentCommand{\NEWSTATCALIB}{s m}{\IfBooleanTF#1{\ITEM*{STATCALIB}{#2}}{\ITEM{STATCALIB}{#2}}}
-\NewDocumentCommand{\NEWFITS}{s m}{\IfBooleanTF#1{\ITEM*{FITS}{#2}}{\ITEM{FITS}{#2}}}
+\NewDocumentCommand{\NEWRAW}      {s m}{\Smart@Item{#1}{RAW}      {#2}}
+\NewDocumentCommand{\NEWPAR}      {s m}{\Smart@Item{#1}{PAR}      {#2}}
+\NewDocumentCommand{\NEWDRL}      {s m}{\Smart@Item{#1}{DRL}      {#2}[drl]}
+\NewDocumentCommand{\NEWREC}      {s m}{\Smart@Item{#1}{REC}      {#2}[rec]}
+\NewDocumentCommand{\NEWQC}       {s m}{\Smart@Item{#1}{QC}       {#2}[qc]}
+\NewDocumentCommand{\NEWPROD}     {s m}{\Smart@Item{#1}{PROD}     {#2}}
+\NewDocumentCommand{\NEWEXTCALIB} {s m}{\Smart@Item{#1}{EXTCALIB} {#2}}
+\NewDocumentCommand{\NEWSTATCALIB}{s m}{\Smart@Item{#1}{STATCALIB}{#2}}
+\NewDocumentCommand{\NEWFITS}     {s m}{\Smart@Item{#1}{FITS}     {#2}}
+
+% Templates: they do not have the starred version, no hyperrefs are created
+\NewDocumentCommand{\NEWTPL}      {m}{\Smart@Item{\BooleanTrue}{TPL}{#1}}
+% Requirements: this only points to Polarion, no internal hyperrefs are created
+\NewDocumentCommand{\NEWREQ}      {m}{\href{https://polarion.astron.nl/polarion/\#/project/METIS/workitem?id=#1}{\textcolor{brown}{#1}}}
+
+\makeatother
 
 %% Write DRL functions names like this: \hyperref[drl:function]{\DRL{function}}
 \newcommand{\RAW}[1]{ \texorpdfstring{\lstinline[style=RAWstyle]!#1!}%
