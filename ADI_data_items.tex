@@ -4,10 +4,10 @@
 \subsubsection{Raw data item structures}\label{sssec:adirawdatastructs}
 
 
-\paragraph{\NEWRAW{LM_OFF_AXIS_PSF_RAW}}\label{dataitem:lm_off_axis_psf_raw}
+\paragraph{\RAW{LM_OFF_AXIS_PSF_RAW}}\label{dataitem:lm_off_axis_psf_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWRAW{LM_OFF_AXIS_PSF_RAW}\\[0.3cm]
+Name: & \RAW{LM_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Description: & Raw off axis PSF image \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
@@ -15,8 +15,8 @@ Description: & Raw off axis PSF image \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
 \FITS{DO.CATG}: & \FITS{LM_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Templates:             & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
-Input for:    & \NEWREC{metis_img_adi_cgrph} \\
-              & \NEWREC{metis_lm_adi_app} \\
+Input for:    & \REC{metis_img_adi_cgrph} \\
+              & \REC{metis_lm_adi_app} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -29,10 +29,10 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\NEWRAW{N_OFF_AXIS_PSF_RAW}}\label{dataitem:n_off_axis_psf_raw}
+\paragraph{\RAW{N_OFF_AXIS_PSF_RAW}}\label{dataitem:n_off_axis_psf_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWRAW{N_OFF_AXIS_PSF_RAW}\\[0.3cm]
+Name: & \RAW{N_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Description: & Raw off axis PSF image \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,N}\\
@@ -40,7 +40,7 @@ Description: & Raw off axis PSF image \\[0.3cm]
 OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
 \FITS{DO.CATG}: & \FITS{N_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Templates:             & \TPL{METIS_img_n_cvc_obs_AutoChop} \\
-Input for recipe: & \NEWREC{metis_img_adi_cgrph}\\
+Input for recipe: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -53,10 +53,10 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\NEWRAW{IFU_OFF_AXIS_PSF_RAW}}\label{dataitem:ifu_off_axis_psf_raw}
+\paragraph{\RAW{IFU_OFF_AXIS_PSF_RAW}}\label{dataitem:ifu_off_axis_psf_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWRAW{IFU_OFF_AXIS_PSF_RAW}\\[0.3cm]
+Name: & \RAW{IFU_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Description: & Raw off axis PSF image \\[0.3cm]
 \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
 \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IFU}\\
@@ -65,7 +65,7 @@ OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.t
 \FITS{DO.CATG}: & \FITS{IFU_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
                        & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset} \\
-Input for recipe: & \NEWREC{metis_ifu_adi_cgrph}\\
+Input for recipe: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -83,16 +83,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:adiprocdatastructs}
-\paragraph{\NEWPROD{LM_cgrph_SCI_THROUGHPUT}}\label{dataitem:lm_cgrph_sci_throughput}
+\paragraph{\PROD{LM_cgrph_SCI_THROUGHPUT}}\label{dataitem:lm_cgrph_sci_throughput}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{LM_cgrph_SCI_THROUGHPUT}\\[0.3cm]
+Name: & \PROD{LM_cgrph_SCI_THROUGHPUT}\\[0.3cm]
 Description: & ADI throughput curve \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_cgrph_SCI_THROUGHPUT}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_cgrph_SCI_THROUGHPUT}\\[0.3cm]
-Created by recipe: & \NEWREC{metis_img_adi_cgrph}\\
-Input for:    & \NEWREC{metis_img_adi_cgrph} \\
+Created by recipe: & \REC{metis_img_adi_cgrph}\\
+Input for:    & \REC{metis_img_adi_cgrph} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -105,16 +105,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\NEWPROD{N_cgrph_SCI_THROUGHPUT}}\label{dataitem:n_cgrph_sci_throughput}
+\paragraph{\PROD{N_cgrph_SCI_THROUGHPUT}}\label{dataitem:n_cgrph_sci_throughput}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{N_cgrph_SCI_THROUGHPUT}\\[0.3cm]
+Name: & \PROD{N_cgrph_SCI_THROUGHPUT}\\[0.3cm]
 Description: & ADI throughput curve \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_cgrph_SCI_THROUGHPUT}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{N_cgrph_SCI_THROUGHPUT}\\[0.3cm]
-Created by recipe: & \NEWREC{metis_img_adi_cgrph}\\
-Input for:    & \NEWREC{metis_img_adi_cgrph} \\
+Created by recipe: & \REC{metis_img_adi_cgrph}\\
+Input for:    & \REC{metis_img_adi_cgrph} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -127,17 +127,17 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\NEWPROD{IFU_cgrph_SCI_THROUGHPUT}}\label{dataitem:ifu_cgrph_sci_throughput}
+\paragraph{\PROD{IFU_cgrph_SCI_THROUGHPUT}}\label{dataitem:ifu_cgrph_sci_throughput}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{IFU_cgrph_SCI_THROUGHPUT}\\[0.3cm]
+Name: & \PROD{IFU_cgrph_SCI_THROUGHPUT}\\[0.3cm]
 Description: & ADI throughput curve \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_SCI_THROUGHPUT}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_THROUGHPUT}\\[0.3cm]
 % TODO: this is created by and input to the same recipe
-Created by: & \NEWREC{metis_ifu_adi_cgrph}\\
-Input for:    & \NEWREC{metis_ifu_adi_cgrph} \\
+Created by: & \REC{metis_ifu_adi_cgrph}\\
+Input for:    & \REC{metis_ifu_adi_cgrph} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -151,19 +151,19 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\NEWPROD{IFU_DISTORTION_TABLE}}\label{dataitem:ifu_distortion_table}
+\paragraph{\PROD{IFU_DISTORTION_TABLE}}\label{dataitem:ifu_distortion_table}
 \begin{recipedef}
 \textbf{\ac{FITS} structure:}\\
-Name: & \NEWPROD{IFU_DISTORTION_TABLE}\\[0.3cm]
+Name: & \PROD{IFU_DISTORTION_TABLE}\\[0.3cm]
 Description: & Table of distortion coefficients for an IFU data set \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_DISTORTION_TABLE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_DISTORTION_TABLE}\\[0.3cm]
-Created by:   & \NEWREC{metis_ifu_distortion} \\
-Input for:    & \NEWREC{metis_ifu_wavecal} \\
-              & \NEWREC{metis_ifu_std_process} \\
-              & \NEWREC{metis_ifu_sci_process} \\
-              & \NEWREC{metis_ifu_adi_cgrph} \\
+Created by:   & \REC{metis_ifu_distortion} \\
+Input for:    & \REC{metis_ifu_wavecal} \\
+              & \REC{metis_ifu_std_process} \\
+              & \REC{metis_ifu_sci_process} \\
+              & \REC{metis_ifu_adi_cgrph} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -186,15 +186,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{LM_APP_SCI_CALIBRATED}}\label{dataitem:lm_app_sci_calibrated}
+\paragraph{\PROD{LM_APP_SCI_CALIBRATED}}\label{dataitem:lm_app_sci_calibrated}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{LM_APP_SCI_CALIBRATED}\\[0.3cm]
+Name: & \PROD{LM_APP_SCI_CALIBRATED}\\[0.3cm]
 Description: & Coronagraphic image after distortion correction \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_SCI_CALIBRATED}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_SCI_CALIBRATED}\\[0.3cm]
-Created by: & \NEWREC{metis_lm_adi_app}\\
+Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -210,15 +210,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{LM_APP_SCI_CENTRED}}\label{dataitem:lm_app_sci_centred}
+\paragraph{\PROD{LM_APP_SCI_CENTRED}}\label{dataitem:lm_app_sci_centred}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{LM_APP_SCI_CENTRED}\\[0.3cm]
+Name: & \PROD{LM_APP_SCI_CENTRED}\\[0.3cm]
 Description: & Coronagraphic image after centering on the PSF and subpixel realignment \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_SCI_CENTRED}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_SCI_CENTRED}\\[0.3cm]
-Created by: & \NEWREC{metis_lm_adi_app}\\
+Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -234,15 +234,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{LM_APP_SCI_SPECKLE}}\label{dataitem:lm_app_sci_speckle}
+\paragraph{\PROD{LM_APP_SCI_SPECKLE}}\label{dataitem:lm_app_sci_speckle}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{LM_APP_SCI_SPECKLE}\\[0.3cm]
+Name: & \PROD{LM_APP_SCI_SPECKLE}\\[0.3cm]
 Description: & PSFZZZSpeckle image from coronagraphic data \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_SCI_SPECKLE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_SCI_SPECKLE}\\[0.3cm]
-Created by: & \NEWREC{metis_lm_adi_app}\\
+Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -258,15 +258,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{LM_APP_SCI_DEROTATED_PSFSUB}}\label{dataitem:lm_app_sci_derotated_psfsub}
+\paragraph{\PROD{LM_APP_SCI_DEROTATED_PSFSUB}}\label{dataitem:lm_app_sci_derotated_psfsub}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{LM_APP_SCI_DEROTATED_PSFSUB}\\[0.3cm]
+Name: & \PROD{LM_APP_SCI_DEROTATED_PSFSUB}\\[0.3cm]
 Description: & Coronagraphic image after PSF subtraction, derotation and coaddition  \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_SCI_DEROTATED_PSFSUB}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_SCI_DEROTATED_PSFSUB}\\[0.3cm]
-Created by: & \NEWREC{metis_lm_adi_app}\\
+Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -282,15 +282,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{LM_APP_SCI_DEROTATED}}\label{dataitem:lm_app_sci_derotated}
+\paragraph{\PROD{LM_APP_SCI_DEROTATED}}\label{dataitem:lm_app_sci_derotated}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{LM_APP_SCI_DEROTATED}\\[0.3cm]
+Name: & \PROD{LM_APP_SCI_DEROTATED}\\[0.3cm]
 Description: & Coronagraphic image after derotation and coaddition \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_SCI_DEROTATED}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_SCI_DEROTATED}\\[0.3cm]
-Created by: & \NEWREC{metis_lm_adi_app}\\
+Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -306,15 +306,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{LM_APP_SCI_COVERAGE}}\label{dataitem:lm_app_sci_coverage}
+\paragraph{\PROD{LM_APP_SCI_COVERAGE}}\label{dataitem:lm_app_sci_coverage}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{LM_APP_SCI_COVERAGE}\\[0.3cm]
+Name: & \PROD{LM_APP_SCI_COVERAGE}\\[0.3cm]
 Description: & Map of effective number of frames contributing to the final coronographic image \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_SCI_COVERAGE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_SCI_COVERAGE}\\[0.3cm]
-Created by: & \NEWREC{metis_lm_adi_app}\\
+Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -330,15 +330,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{LM_APP_SCI_SNR}}\label{dataitem:lm_app_sci_snr}
+\paragraph{\PROD{LM_APP_SCI_SNR}}\label{dataitem:lm_app_sci_snr}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{LM_APP_SCI_SNR}\\[0.3cm]
+Name: & \PROD{LM_APP_SCI_SNR}\\[0.3cm]
 Description: & ADI SNR Map \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_SCI_SNR}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_SCI_SNR}\\[0.3cm]
-Created by: & \NEWREC{metis_lm_adi_app}\\
+Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -354,15 +354,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{LM_APP_SCI_CONTRAST_RADPROF}}\label{dataitem:lm_app_sci_contrast_radprof}
+\paragraph{\PROD{LM_APP_SCI_CONTRAST_RADPROF}}\label{dataitem:lm_app_sci_contrast_radprof}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{LM_APP_SCI_CONTRAST_RADPROF}\\[0.3cm]
+Name: & \PROD{LM_APP_SCI_CONTRAST_RADPROF}\\[0.3cm]
 Description: & Raw contrast curve for ADI observations; a radial light intensity profile normalized to the brightness of the star if it were not obscured by the coronagraph. \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_SCI_CONTRAST_RADPROF}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_SCI_CONTRAST_RADPROF}\\[0.3cm]
-Created by: & \NEWREC{metis_lm_adi_app}\\
+Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -378,15 +378,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{LM_APP_SCI_CONTRAST_ADI}}\label{dataitem:lm_app_sci_contrast_adi}
+\paragraph{\PROD{LM_APP_SCI_CONTRAST_ADI}}\label{dataitem:lm_app_sci_contrast_adi}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{LM_APP_SCI_CONTRAST_ADI}\\[0.3cm]
+Name: & \PROD{LM_APP_SCI_CONTRAST_ADI}\\[0.3cm]
 Description: & Post-ADI contrast curve for ADI observations  \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_SCI_CONTRAST_ADI}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_SCI_CONTRAST_ADI}\\[0.3cm]
-Created by: & \NEWREC{metis_lm_adi_app}\\
+Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -402,15 +402,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{LM_APP_SCI_THROUGHPUT}}\label{dataitem:lm_app_sci_throughput}
+\paragraph{\PROD{LM_APP_SCI_THROUGHPUT}}\label{dataitem:lm_app_sci_throughput}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{LM_APP_SCI_THROUGHPUT}\\[0.3cm]
+Name: & \PROD{LM_APP_SCI_THROUGHPUT}\\[0.3cm]
 Description: & ADI throughput curve \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_SCI_THROUGHPUT}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_SCI_THROUGHPUT}\\[0.3cm]
-Created by: & \NEWREC{metis_lm_adi_app}\\
+Created by: & \REC{metis_lm_adi_app}\\
 Input for:    & None \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -427,15 +427,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{LM_APP_CENTROID_TAB}}\label{dataitem:lm_app_centroid_tab}
+\paragraph{\PROD{LM_APP_CENTROID_TAB}}\label{dataitem:lm_app_centroid_tab}
 \begin{recipedef}
 \textbf{\ac{FITS} structure:}\\
-Name: & \NEWPROD{LM_APP_CENTROID_TAB}\\[0.3cm]
+Name: & \PROD{LM_APP_CENTROID_TAB}\\[0.3cm]
 Description: & Table of source centroid positions for a sequence of ADI images \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_CENTROID_TAB}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_CENTROID_TAB}\\[0.3cm]
-Created by: & \NEWREC{metis_lm_adi_app}\\
+Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -465,7 +465,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 %OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
 %\FITS{DO.CATG}: & \FITS{LM_APP_SCI_CALIBRATED}\\[0.3cm]
-%%Input for recipe: & \NEWREC{metis_lm_adi_app}\\
+%%Input for recipe: & \REC{metis_lm_adi_app}\\
 %Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 %\end{recipedef}
@@ -488,16 +488,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{det_cgrph_SCI_CALIBRATED}}\label{dataitem:det_cgrph_sci_calibrated}
+\paragraph{\PROD{det_cgrph_SCI_CALIBRATED}}\label{dataitem:det_cgrph_sci_calibrated}
 \label{dataitem:lm_cgrph_sci_calibrated}\label{dataitem:n_cgrph_sci_calibrated}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{det_cgrph_SCI_CALIBRATED}\\[0.3cm]
+Name: & \PROD{det_cgrph_SCI_CALIBRATED}\\[0.3cm]
 Description: & Coronagraphic image after distortion correction \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_SCI_CALIBRATED}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{det_cgrph_SCI_CALIBRATED}\\[0.3cm]
-Created by: & \NEWREC{metis_img_adi_cgrph}\\
+Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -513,16 +513,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{det_cgrph_SCI_CENTRED}}\label{dataitem:det_cgrph_sci_centred}
+\paragraph{\PROD{det_cgrph_SCI_CENTRED}}\label{dataitem:det_cgrph_sci_centred}
 \label{dataitem:lm_cgrph_sci_centred}\label{dataitem:n_cgrph_sci_centred}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{det_cgrph_SCI_CENTRED}\\[0.3cm]
+Name: & \PROD{det_cgrph_SCI_CENTRED}\\[0.3cm]
 Description: & Coronagraphic image after centering on the PSF and subpixel realignment \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_SCI_CENTRED}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{det_cgrph_SCI_CENTRED}\\[0.3cm]
-Created by: & \NEWREC{metis_img_adi_cgrph}\\
+Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -538,16 +538,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{det_cgrph_SCI_SPECKLE}}\label{dataitem:det_cgrph_sci_speckle}
+\paragraph{\PROD{det_cgrph_SCI_SPECKLE}}\label{dataitem:det_cgrph_sci_speckle}
 \label{dataitem:lm_cgrph_sci_speckle}\label{dataitem:n_cgrph_sci_speckle}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{det_cgrph_SCI_SPECKLE}\\[0.3cm]
+Name: & \PROD{det_cgrph_SCI_SPECKLE}\\[0.3cm]
 Description: & PSFZZZSpeckle image from coronagraphic data \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_SCI_SPECKLE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{det_cgrph_SCI_SPECKLE}\\[0.3cm]
-Created by: & \NEWREC{metis_img_adi_cgrph}\\
+Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -563,16 +563,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{det_cgrph_SCI_DEROTATED_PSFSUB}}\label{dataitem:det_cgrph_sci_derotated_psfsub}
+\paragraph{\PROD{det_cgrph_SCI_DEROTATED_PSFSUB}}\label{dataitem:det_cgrph_sci_derotated_psfsub}
 \label{dataitem:lm_cgrph_sci_derotated_psfsub}\label{dataitem:n_cgrph_sci_derotated_psfsub}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{det_cgrph_SCI_DEROTATED_PSFSUB}\\[0.3cm]
+Name: & \PROD{det_cgrph_SCI_DEROTATED_PSFSUB}\\[0.3cm]
 Description: & Coronagraphic image after PSF subtraction, derotation and coaddition  \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_SCI_DEROTATED_PSFSUB}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{det_cgrph_SCI_DEROTATED_PSFSUB}\\[0.3cm]
-Created by: & \NEWREC{metis_img_adi_cgrph}\\
+Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -588,16 +588,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{det_cgrph_SCI_DEROTATED}}\label{dataitem:det_cgrph_sci_derotated}
+\paragraph{\PROD{det_cgrph_SCI_DEROTATED}}\label{dataitem:det_cgrph_sci_derotated}
 \label{dataitem:lm_cgrph_sci_derotated}\label{dataitem:n_cgrph_sci_derotated}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{det_cgrph_SCI_DEROTATED}\\[0.3cm]
+Name: & \PROD{det_cgrph_SCI_DEROTATED}\\[0.3cm]
 Description: & Coronagraphic image after derotation and coaddition \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_SCI_DEROTATED}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{det_cgrph_SCI_DEROTATED}\\[0.3cm]
-Created by: & \NEWREC{metis_img_adi_cgrph}\\
+Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -613,16 +613,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{det_cgrph_SCI_COVERAGE}}\label{dataitem:det_cgrph_sci_coverage}
+\paragraph{\PROD{det_cgrph_SCI_COVERAGE}}\label{dataitem:det_cgrph_sci_coverage}
 \label{dataitem:lm_cgrph_sci_coverage}\label{dataitem:n_cgrph_sci_coverage}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{det_cgrph_SCI_COVERAGE}\\[0.3cm]
+Name: & \PROD{det_cgrph_SCI_COVERAGE}\\[0.3cm]
 Description: & Map of effective number of frames contributing to the final coronographic image \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_SCI_COVERAGE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{det_cgrph_SCI_COVERAGE}\\[0.3cm]
-Created by: & \NEWREC{metis_img_adi_cgrph}\\
+Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -638,16 +638,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{det_cgrph_SCI_SNR}}\label{dataitem:det_cgrph_sci_snr}
+\paragraph{\PROD{det_cgrph_SCI_SNR}}\label{dataitem:det_cgrph_sci_snr}
 \label{dataitem:lm_cgrph_sci_snr}\label{dataitem:n_cgrph_sci_snr}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{det_cgrph_SCI_SNR}\\[0.3cm]
+Name: & \PROD{det_cgrph_SCI_SNR}\\[0.3cm]
 Description: & ADI SNR Map \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_SCI_SNR}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{det_cgrph_SCI_SNR}\\[0.3cm]
-Created by: & \NEWREC{metis_img_adi_cgrph}\\
+Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -663,16 +663,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{det_cgrph_SCI_CONTRAST_RADPROF}}\label{dataitem:det_cgrph_sci_contrast_radprof}\label{dataitem:lm_cgrph_sci_contrast_radprof}\label{dataitem:n_cgrph_sci_contrast_radprof}
+\paragraph{\PROD{det_cgrph_SCI_CONTRAST_RADPROF}}\label{dataitem:det_cgrph_sci_contrast_radprof}\label{dataitem:lm_cgrph_sci_contrast_radprof}\label{dataitem:n_cgrph_sci_contrast_radprof}
 \label{dataitem:lm_cgrph_sci_contrast_raw}\label{dataitem:n_cgrph_sci_contrast_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{det_cgrph_SCI_CONTRAST_RADPROF}\\[0.3cm]
+Name: & \PROD{det_cgrph_SCI_CONTRAST_RADPROF}\\[0.3cm]
 Description: & Raw contrast curve for ADI observations; a radial light intensity profile normalized to the brightness of the star if it were not obscured by the coronagraph. \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_SCI_CONTRAST_RADPROF}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{det_cgrph_SCI_CONTRAST_RADPROF}\\[0.3cm]
-Created by: & \NEWREC{metis_img_adi_cgrph}\\
+Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -688,16 +688,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{det_cgrph_SCI_CONTRAST_ADI}}\label{dataitem:det_cgrph_sci_contrast_adi}
+\paragraph{\PROD{det_cgrph_SCI_CONTRAST_ADI}}\label{dataitem:det_cgrph_sci_contrast_adi}
 \label{dataitem:lm_cgrph_sci_contrast_adi}\label{dataitem:n_cgrph_sci_contrast_adi}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{det_cgrph_SCI_CONTRAST_ADI}\\[0.3cm]
+Name: & \PROD{det_cgrph_SCI_CONTRAST_ADI}\\[0.3cm]
 Description: & Post-ADI contrast curve for ADI observations  \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_SCI_CONTRAST_ADI}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{det_cgrph_SCI_CONTRAST_ADI}\\[0.3cm]
-Created by: & \NEWREC{metis_img_adi_cgrph}\\
+Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -714,16 +714,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{det_cgrph_CENTROID_TAB}}\label{dataitem:det_cgrph_centroid_tab}
+\paragraph{\PROD{det_cgrph_CENTROID_TAB}}\label{dataitem:det_cgrph_centroid_tab}
 \label{dataitem:n_cgrph_centroid_tab}\label{dataitem:lm_cgrph_centroid_tab}
 \begin{recipedef}
 \textbf{\ac{FITS} structure:}\\
-Name: & \NEWPROD{det_cgrph_CENTROID_TAB}\\[0.3cm]
+Name: & \PROD{det_cgrph_CENTROID_TAB}\\[0.3cm]
 Description: & Table of source centroid positions for a sequence of ADI images \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_CENTROID_TAB}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{det_cgrph_CENTROID_TAB}\\[0.3cm]
-Created by: & \NEWREC{metis_img_adi_cgrph}\\
+Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -742,15 +742,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{IFU_cgrph_SCI_CALIBRATED}}\label{dataitem:ifu_cgrph_sci_calibrated}
+\paragraph{\PROD{IFU_cgrph_SCI_CALIBRATED}}\label{dataitem:ifu_cgrph_sci_calibrated}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{IFU_cgrph_SCI_CALIBRATED}\\[0.3cm]
+Name: & \PROD{IFU_cgrph_SCI_CALIBRATED}\\[0.3cm]
 Description: & Coronagraphic image after distortion correction \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_SCI_CALIBRATED}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_CALIBRATED}\\[0.3cm]
-Created by: & \NEWREC{metis_ifu_adi_cgrph}\\
+Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -766,15 +766,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{IFU_cgrph_SCI_CENTRED}}\label{dataitem:ifu_cgrph_sci_centred}
+\paragraph{\PROD{IFU_cgrph_SCI_CENTRED}}\label{dataitem:ifu_cgrph_sci_centred}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{IFU_cgrph_SCI_CENTRED}\\[0.3cm]
+Name: & \PROD{IFU_cgrph_SCI_CENTRED}\\[0.3cm]
 Description: & Coronagraphic image after centering on the PSF and subpixel realignment \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_SCI_CENTRED}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_CENTRED}\\[0.3cm]
-Created by: & \NEWREC{metis_ifu_adi_cgrph}\\
+Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -790,15 +790,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{IFU_cgrph_SCI_SPECKLE}}\label{dataitem:ifu_cgrph_sci_speckle}
+\paragraph{\PROD{IFU_cgrph_SCI_SPECKLE}}\label{dataitem:ifu_cgrph_sci_speckle}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{IFU_cgrph_SCI_SPECKLE}\\[0.3cm]
+Name: & \PROD{IFU_cgrph_SCI_SPECKLE}\\[0.3cm]
 Description: & PSFZZZSpeckle image from coronagraphic data \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_SCI_SPECKLE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_SPECKLE}\\[0.3cm]
-Created by: & \NEWREC{metis_ifu_adi_cgrph}\\
+Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -814,15 +814,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{IFU_cgrph_SCI_DEROTATED_PSFSUB}}\label{dataitem:ifu_cgrph_sci_derotated_psfsub}
+\paragraph{\PROD{IFU_cgrph_SCI_DEROTATED_PSFSUB}}\label{dataitem:ifu_cgrph_sci_derotated_psfsub}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{IFU_cgrph_SCI_DEROTATED_PSFSUB}\\[0.3cm]
+Name: & \PROD{IFU_cgrph_SCI_DEROTATED_PSFSUB}\\[0.3cm]
 Description: & Coronagraphic image after PSF subtraction, derotation and coaddition  \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_SCI_DEROTATED_PSFSUB}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_DEROTATED_PSFSUB}\\[0.3cm]
-Created by: & \NEWREC{metis_ifu_adi_cgrph}\\
+Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -838,15 +838,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{IFU_cgrph_SCI_DEROTATED}}\label{dataitem:ifu_cgrph_sci_derotated}
+\paragraph{\PROD{IFU_cgrph_SCI_DEROTATED}}\label{dataitem:ifu_cgrph_sci_derotated}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{IFU_cgrph_SCI_DEROTATED}\\[0.3cm]
+Name: & \PROD{IFU_cgrph_SCI_DEROTATED}\\[0.3cm]
 Description: & Coronagraphic image after derotation and coaddition \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_SCI_DEROTATED}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_DEROTATED}\\[0.3cm]
-Created by: & \NEWREC{metis_ifu_adi_cgrph}\\
+Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -862,15 +862,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{IFU_cgrph_SCI_COVERAGE}}\label{dataitem:ifu_cgrph_sci_coverage}
+\paragraph{\PROD{IFU_cgrph_SCI_COVERAGE}}\label{dataitem:ifu_cgrph_sci_coverage}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{IFU_cgrph_SCI_COVERAGE}\\[0.3cm]
+Name: & \PROD{IFU_cgrph_SCI_COVERAGE}\\[0.3cm]
 Description: & Map of effective number of frames contributing to the final coronographic image \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_SCI_COVERAGE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_COVERAGE}\\[0.3cm]
-Created by: & \NEWREC{metis_ifu_adi_cgrph}\\
+Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -886,15 +886,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{IFU_cgrph_SCI_SNR}}\label{dataitem:ifu_cgrph_sci_snr}
+\paragraph{\PROD{IFU_cgrph_SCI_SNR}}\label{dataitem:ifu_cgrph_sci_snr}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{IFU_cgrph_SCI_SNR}\\[0.3cm]
+Name: & \PROD{IFU_cgrph_SCI_SNR}\\[0.3cm]
 Description: & ADI SNR Map \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_SCI_SNR}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_SNR}\\[0.3cm]
-Created by: & \NEWREC{metis_ifu_adi_cgrph}\\
+Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -910,15 +910,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{IFU_cgrph_SCI_CONTRAST_RADPROF}}\label{dataitem:ifu_cgrph_sci_contrast_radprof}
+\paragraph{\PROD{IFU_cgrph_SCI_CONTRAST_RADPROF}}\label{dataitem:ifu_cgrph_sci_contrast_radprof}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{IFU_cgrph_SCI_CONTRAST_RADPROF}\\[0.3cm]
+Name: & \PROD{IFU_cgrph_SCI_CONTRAST_RADPROF}\\[0.3cm]
 Description: & Raw contrast curve for ADI observations; a radial light intensity profile normalized to the brightness of the star if it were not obscured by the coronagraph. \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_SCI_CONTRAST_RADPROF}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_CONTRAST_RADPROF}\\[0.3cm]
-Created by: & \NEWREC{metis_ifu_adi_cgrph}\\
+Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -934,15 +934,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{IFU_cgrph_SCI_CONTRAST_ADI}}\label{dataitem:ifu_cgrph_sci_contrast_adi}
+\paragraph{\PROD{IFU_cgrph_SCI_CONTRAST_ADI}}\label{dataitem:ifu_cgrph_sci_contrast_adi}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{IFU_cgrph_SCI_CONTRAST_ADI}\\[0.3cm]
+Name: & \PROD{IFU_cgrph_SCI_CONTRAST_ADI}\\[0.3cm]
 Description: & Post-ADI contrast curve for ADI observations  \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_SCI_CONTRAST_ADI}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_CONTRAST_ADI}\\[0.3cm]
-Created by: & \NEWREC{metis_ifu_adi_cgrph}\\
+Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -962,17 +962,17 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % HB 20230626: The IFU_cgrph_SCI_REDUCED is currently not produced by any
 %    recipe. It is probably a subclass of IFU_SCI_REDUCED.
 %    For now I've just used IFU_SCI_REDUCED in metis_ifu_adi_cgrph
-% \paragraph{\NEWPROD{IFU_cgrph_SCI_REDUCED}}\label{dataitem:ifu_cgrph_sci_reduced}
+% \paragraph{\PROD{IFU_cgrph_SCI_REDUCED}}\label{dataitem:ifu_cgrph_sci_reduced}
 % \begin{recipedef}
 % \textbf{\ac{FITS} image structure:}\\
-% Name: & \NEWPROD{IFU_cgrph_SCI_REDUCED}\\[0.3cm]
+% Name: & \PROD{IFU_cgrph_SCI_REDUCED}\\[0.3cm]
 % Description: & IFU dataset after basic reduction \\[0.3cm]
 % \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCI}\\
 % \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IMAGE,LM}\\
 % \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{??}\\
 % OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}} \\
 % \FITS{DO.CATG}: & \FITS{IFU_cgrph_SCI_REDUCED}\\[0.3cm]
-% % Input for recipe: & \NEWREC{metis_ifu_adi_cgrph}\\
+% % Input for recipe: & \REC{metis_ifu_adi_cgrph}\\
 % Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 % \end{recipedef}
@@ -990,15 +990,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\NEWPROD{IFU_cgrph_CENTROID_TAB}}\label{dataitem:ifu_cgrph_centroid_tab}
+\paragraph{\PROD{IFU_cgrph_CENTROID_TAB}}\label{dataitem:ifu_cgrph_centroid_tab}
 \begin{recipedef}
 \textbf{\ac{FITS} structure:}\\
-Name: & \NEWPROD{IFU_cgrph_CENTROID_TAB}\\[0.3cm]
+Name: & \PROD{IFU_cgrph_CENTROID_TAB}\\[0.3cm]
 Description: & Table of central source centroids for an IFU cube  \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_cgrph_CENTROID_TAB}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{IFU_cgrph_CENTROID_TAB}\\[0.3cm]
-Created by: & \NEWREC{metis_ifu_adi_cgrph}\\
+Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -1016,16 +1016,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %              we only include (only) these intermediate data products.
 % HB 20230724: Added them back and made them output of the respective recipes
 %              after discussion with GO.
-\paragraph{\NEWPROD{det_cgrph_PSF_MEDIAN}}\label{dataitem:det_cgrph_psf_median}
+\paragraph{\PROD{det_cgrph_PSF_MEDIAN}}\label{dataitem:det_cgrph_psf_median}
 \label{dataitem:lm_cgrph_psf_median}\label{dataitem:n_cgrph_psf_median}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{det_cgrph_PSF_MEDIAN}\\[0.3cm]
+Name: & \PROD{det_cgrph_PSF_MEDIAN}\\[0.3cm]
 Description: & Median PSF \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{det_cgrph_PSF_MEDIAN}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{det_cgrph_PSF_MEDIAN}\\[0.3cm]
-Created by recipe: & \NEWREC{metis_img_adi_cgrph}\\
+Created by recipe: & \REC{metis_img_adi_cgrph}\\
 Input for recipe: & None\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
@@ -1038,15 +1038,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\NEWPROD{LM_APP_PSF_MEDIAN}}\label{dataitem:lm_app_psf_median}
+\paragraph{\PROD{LM_APP_PSF_MEDIAN}}\label{dataitem:lm_app_psf_median}
 \begin{recipedef}
 \textbf{\ac{FITS} image structure:}\\
-Name: & \NEWPROD{LM_APP_PSF_MEDIAN}\\[0.3cm]
+Name: & \PROD{LM_APP_PSF_MEDIAN}\\[0.3cm]
 Description: & Median PSF \\[0.3cm]
 \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_APP_PSF_MEDIAN}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LM_APP_PSF_MEDIAN}\\[0.3cm]
-Created by recipe: & \NEWREC{metis_lm_adi_app}\\
+Created by recipe: & \REC{metis_lm_adi_app}\\
 Input for recipe: & None\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}

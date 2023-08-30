@@ -2,16 +2,16 @@
 
 \subsubsection{IFU wavelength calibration} \label{drl:ifu_wavecal}
     \begin{recipedef}
-        Name: & \NEWDRL{ifu_wavecal} \\
+        Name: & \DRL{ifu_wavecal} \\
         Purpose: & Find the pixel-to-wavelength conversion for IFU exposures \\
-        Used in recipes: & \NEWREC{metis_ifu_sci_process}\\
+        Used in recipes: & \REC{metis_ifu_sci_process}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
         Input: & \texttt{const hdrl\_image * input} \\
         %Other inputs: &  \\
         %QC outputs: & None\\
         %Output FITS files: & None \\
-        Outputs: & \NEWPROD{IFU_WAVECAL}\\
+        Outputs: & \PROD{IFU_WAVECAL}\\
                  & \texttt{cpl\_error\_code} \\
         General description: &  \\
         Mathematical description: & See section \ref{sssec:ifu_wavecal} \\
@@ -22,16 +22,16 @@
 
 \subsubsection{IFU output grid determination}\label{drl:ifu_grid_output}
     \begin{recipedef}
-        Name: & \NEWDRL{ifu_grid_output} \\
+        Name: & \DRL{ifu_grid_output} \\
         Purpose: & Obtain maximal useful resolution from a set of dithered exposures \\
-        Used in recipes: & \NEWREC{metis_ifu_sci_postprocess}\\
+        Used in recipes: & \REC{metis_ifu_sci_postprocess}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
         Input: & $6\times$ \texttt{const hdrl\_image * input} \\
         Other inputs: & precise position and orientation of individual exposures \\
         %QC outputs: & None\\
         %Output FITS files: & None \\
-        Outputs:    & \NEWPROD{IFU_SCI_COMBINED} \\
+        Outputs:    & \PROD{IFU_SCI_COMBINED} \\
                     & \texttt{cpl\_error\_code} \\
         General description: & Dither and co-add the individual exposures \\
         Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
@@ -42,16 +42,16 @@
 
 \subsubsection{IFU multi-exposure resampling}\label{drl:ifu_resampling}
     \begin{recipedef}
-        Name: & \NEWDRL{ifu_resampling} \\
+        Name: & \DRL{ifu_resampling} \\
         Purpose: & Obtain maximal useful resolution from a set of dithered exposures \\
-        Used in recipes: & \NEWREC{metis_ifu_sci_postprocess}\\
+        Used in recipes: & \REC{metis_ifu_sci_postprocess}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
         Input: & $6\times$ \texttt{const hdrl\_image * input} \\
         Other inputs: & precise position and orientation of individual exposures \\
         %QC outputs: & None\\
         %Output FITS files: & None \\
-        Outputs:    & \NEWPROD{IFU_SCI_COMBINED} \\
+        Outputs:    & \PROD{IFU_SCI_COMBINED} \\
                     & \texttt{cpl\_error\_code} \\
         General description: & Resample the IFU exposures with rectangular pixels onto a square grid \\
         Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
@@ -62,17 +62,17 @@
 
 \subsubsection{IFU multi-exposure co-add}\label{drl:ifu_coadd}
     \begin{recipedef}
-        Name: & \NEWDRL{ifu_coadd} \\
+        Name: & \DRL{ifu_coadd} \\
         Purpose: & Obtain maximal useful resolution from a set of dithered exposures \\
-        Used in recipes: & \NEWREC{metis_ifu_sci_postprocess}\\
+        Used in recipes: & \REC{metis_ifu_sci_postprocess}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
         Input: & $6\times$ \texttt{const hdrl\_image * input} \\
         %Other inputs: & precise position and orientation of individual exposures \\
         %QC outputs: & None\\
         %Output FITS files: & None \\
-        Outputs:    & \NEWPROD{IFU_SCI_COADD} \\
-                    & \NEWPROD{IFU_SCI_COADD_ERROR} \\
+        Outputs:    & \PROD{IFU_SCI_COADD} \\
+                    & \PROD{IFU_SCI_COADD_ERROR} \\
                     & \texttt{cpl\_error\_code} \\
         General description: & Co-add the properly aligned exposures \\
         Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\

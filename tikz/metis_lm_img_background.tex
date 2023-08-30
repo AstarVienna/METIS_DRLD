@@ -28,8 +28,8 @@
 
   %% input box
   \node (input) [below=0.75cm of start-m, input, text width=6cm] {%
-    \textsl{N} \NEWPROD{LM_SCI_BASIC_REDUCED}\\
-    or \textsl{N} \NEWPROD{LM_STD_BASIC_REDUCED}};
+    \textsl{N} \PROD{LM_SCI_BASIC_REDUCED}\\
+    or \textsl{N} \PROD{LM_STD_BASIC_REDUCED}};
 
 
   %% algorithm steps
@@ -59,8 +59,8 @@
   \node (dot_sci_bg) [connection] at
     ($(step_average)!0.4!(step_subtract)$){};
   \node (sci_bg) [right=of dot_sci_bg, sciproduct, text width=5cm]{%
-    \NEWPROD{LM_SCI_BKG}\\
-    or \NEWPROD{LM_STD_BKG}};
+    \PROD{LM_SCI_BKG}\\
+    or \PROD{LM_STD_BKG}};
   \draw (dot_sci_bg) -- (sci_bg);
 
 %  \node (dot_std_bg) [connection] at
@@ -73,15 +73,15 @@
   \node (dot_sci_bg_sub) [connection] at
     ($(step_subtract)!0.25!(stop-t)$){};
   \node (sci_bg_sub) [right=of dot_sci_bg_sub, sciproduct, text width=5cm]{%
-    \NEWPROD{LM_SCI_BKG_SUBTRACTED}
-    or \NEWPROD{LM_STD_BKG_SUBTRACTED}};
+    \PROD{LM_SCI_BKG_SUBTRACTED}
+    or \PROD{LM_STD_BKG_SUBTRACTED}};
   \draw (dot_sci_bg_sub) -- (sci_bg_sub);
 
   \node (dot_sci_obj_cat) [connection] at
     ($(step_subtract)!0.6!(stop-t)$){};
   \node (sci_obj_cat) [right=of dot_sci_obj_cat, sciproduct, text width=5cm]{%
-    \NEWPROD{LM_SCI_OBJECT_CAT}\\
-    or \NEWPROD{LM_STD_OBJECT_CAT}};
+    \PROD{LM_SCI_OBJECT_CAT}\\
+    or \PROD{LM_STD_OBJECT_CAT}};
   \draw (dot_sci_obj_cat) -- (sci_obj_cat);
 
   %% Frame around recipe

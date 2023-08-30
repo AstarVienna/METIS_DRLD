@@ -3,15 +3,15 @@
 %---------------------------------------------------------------------
 \subsubsection{Order background correction}\label{drl:correctorder}\label{drl:correct_order_bg}
 \begin{recipedef}
-Name: & \NEWDRL{correct_order_bg} \\
+Name: & \DRL{correct_order_bg} \\
 Purpose: & Removal of order background contamination (e.g. stray light)\\
-Used in recipes: & \NEWREC{metis_LM_lss_rsrf} \newline
-                  \NEWREC{metis_N_lss_rsrf} \newline
-                  \NEWREC{metis_LM_lss_wave} \newline
-                  \NEWREC{metis_LM_lss_std} \newline
-                  \NEWREC{metis_N_lss_std} \newline
-                  \NEWREC{metis_LM_lss_sci}\newline
-                  \NEWREC{metis_N_lss_sci}\\
+Used in recipes: & \REC{metis_LM_lss_rsrf} \newline
+                  \REC{metis_N_lss_rsrf} \newline
+                  \REC{metis_LM_lss_wave} \newline
+                  \REC{metis_LM_lss_std} \newline
+                  \REC{metis_N_lss_std} \newline
+                  \REC{metis_LM_lss_sci}\newline
+                  \REC{metis_N_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
@@ -30,12 +30,12 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Subtract WCU OFF frame from frame}\label{drl:subtractwcuoffillum}\label{drl:subtract_wcu_off_illum}
 \begin{recipedef}\label{rec:subtrwcuoffillum}
-Name: & \NEWDRL{subtract_wcu_off_illum} \\
+Name: & \DRL{subtract_wcu_off_illum} \\
 Purpose: & Subtract a WCU-OFF frame \\
-Used in recipes: & \NEWREC{metis_LM_lss_rsrf} \\
-& \NEWREC{metis_N_lss_rsrf} \\
-& \NEWREC{metis_lm_adc_slitloss} \\
-& \NEWREC{metis_n_adc_slitloss} \\
+Used in recipes: & \REC{metis_LM_lss_rsrf} \\
+& \REC{metis_N_lss_rsrf} \\
+& \REC{metis_lm_adc_slitloss} \\
+& \REC{metis_n_adc_slitloss} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -52,10 +52,10 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Calculate blackbody spectrum}\label{drl:calcbb}\label{drl:calc_bb}
 \begin{recipedef}\label{rec:calcbb}
-Name: & \NEWDRL{calc_bb} \\
+Name: & \DRL{calc_bb} \\
 Purpose: & Calculate blackbody spectrum \\
-Used in recipes: & \NEWREC{metis_LM_lss_rsrf} \\
-& \NEWREC{metis_N_lss_rsrf} \\
+Used in recipes: & \REC{metis_LM_lss_rsrf} \\
+& \REC{metis_N_lss_rsrf} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & temperature parameter \\
@@ -74,10 +74,10 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Normalise RSRF}\label{drl:normrsrf}\label{drl:norm_flat}
 \begin{recipedef}\label{drl:normflat}
-Name: & \NEWDRL{norm_flat} \\
-Purpose: & Creates normalised flats from \NEWPROD{LM_LSS_RSRF_RAW} / \NEWPROD{N_LSS_RSRF_RAW}\\
-Used in recipes: & \NEWREC{metis_LM_lss_rsrf} \\
-& \NEWREC{metis_N_lss_rsrf} \\
+Name: & \DRL{norm_flat} \\
+Purpose: & Creates normalised flats from \PROD{LM_LSS_RSRF_RAW} / \PROD{N_LSS_RSRF_RAW}\\
+Used in recipes: & \REC{metis_LM_lss_rsrf} \\
+& \REC{metis_N_lss_rsrf} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -95,10 +95,10 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Normalise spectrum}\label{drl:normspec}\label{drl:norm_spec}
 \begin{recipedef}\label{drl:norm_tss}
-Name: & \NEWDRL{norm_spec} \\
+Name: & \DRL{norm_spec} \\
 Purpose: & Creates unity-normalised version from an input \ac{STD} spectra \\
-Used in recipes: & \NEWREC{metis_LM_lss_std} \\
-& \NEWREC{metis_N_lss_std} \\
+Used in recipes: & \REC{metis_LM_lss_std} \\
+& \REC{metis_N_lss_std} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -107,7 +107,7 @@ Input: & \texttt{const hdrl\_image * input} \\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Creates normalised version of a \ac{STD} input spectrum  by fitting the continuum and subsequent division of the fit\\
-Mathematical description: &  Polynomial fit on regions known to contain continuum only; these regions will be defined in Table \NEWSTATCALIB{REF_STD_CAT}\\
+Mathematical description: &  Polynomial fit on regions known to contain continuum only; these regions will be defined in Table \STATCALIB{REF_STD_CAT}\\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See~\cite{DRLVT}. \\
 Unit tests: & See~\cite{DRLVT}. \\
@@ -116,8 +116,8 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 %\subsubsection{Detect order traces}\label{drl:tracedetect}
 %Used in recipes:\\ 
-%\NEWREC{metis_LM_lss_trace} \newline
-%\NEWREC{metis_N_lss_trace} \newline
+%\REC{metis_LM_lss_trace} \newline
+%\REC{metis_N_lss_trace} \newline
 %TBD
 
 
@@ -125,18 +125,18 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Apply RSRF}\label{drl:applyrsrf}\label{drl:apply_rsrf}
 \begin{recipedef}
-Name: & \NEWDRL{apply_rsrf}\\
-Purpose: & applies \NEWPROD{MASTER_LM_LSS_RSRF} to LM-frames\newline
-           applies \NEWPROD{MASTER_N_LSS_RSRF} to N-frames\\
-Used in recipes: & \NEWREC{metis_LM_lss_trace} \newline
-                 \NEWREC{metis_N_lss_trace} \newline
-                 \NEWREC{metis_LM_lss_wave} \newline
-                 \NEWREC{metis_LM_lss_std} \newline
-                 \NEWREC{metis_N_lss_std} \newline
-                 \NEWREC{metis_LM_lss_sci} \newline
-                 \NEWREC{metis_N_lss_sci} \newline 
-                 \NEWREC{metis_lm_adc_slitloss} \newline
-                \NEWREC{metis_n_adc_slitloss}\\
+Name: & \DRL{apply_rsrf}\\
+Purpose: & applies \PROD{MASTER_LM_LSS_RSRF} to LM-frames\newline
+           applies \PROD{MASTER_N_LSS_RSRF} to N-frames\\
+Used in recipes: & \REC{metis_LM_lss_trace} \newline
+                 \REC{metis_N_lss_trace} \newline
+                 \REC{metis_LM_lss_wave} \newline
+                 \REC{metis_LM_lss_std} \newline
+                 \REC{metis_N_lss_std} \newline
+                 \REC{metis_LM_lss_sci} \newline
+                 \REC{metis_N_lss_sci} \newline 
+                 \REC{metis_lm_adc_slitloss} \newline
+                \REC{metis_n_adc_slitloss}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\
@@ -145,7 +145,7 @@ Inputs: & \texttt{const hdrl\_image * input}\\
 %Output FITS files: & None \\
 Other outputs: & \texttt{cpl\_error\_code} \\
 General description: & Normal flatfield process for correcting pixel-to-pixel sensitivities \\
-Mathematical description: & Division by \NEWPROD{MASTER_LM_LSS_RSRF} or  \NEWPROD{MASTER_N_LSS_RSRF}, respectively \\
+Mathematical description: & Division by \PROD{MASTER_LM_LSS_RSRF} or  \PROD{MASTER_N_LSS_RSRF}, respectively \\
 Quality assessment: & Through QC parameters \\
 Error conditions: & See~\cite{DRLVT}. \\
 Unit tests: & See~\cite{DRLVT}. \\
@@ -154,9 +154,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 %%---------------------------------------------------------------------
 %\subsubsection{Wavelength calibration}\label{drl:wavecal}
 %\begin{recipedef}\label{drl:wavecal}
-%Name: & \NEWDRL{wave_cal} \\
+%Name: & \DRL{wave_cal} \\
 %Purpose: & Computes wavelength calibration \\
-%Used in recipes: & \NEWREC{metis_LM_lss_wave} \\
+%Used in recipes: & \REC{metis_LM_lss_wave} \\
 %%Working remarks: & None \\
 %%Function Parameters: & None \\
 %Input: & \texttt{const hdrl\_image * input} \\https://www.overleaf.com/project/5f1abb4137d7690001f8aeb1
@@ -174,11 +174,11 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 %\subsubsection{Detect line peak}\label{drl:linedetect}
 %Used in recipes:\\ 
-%\NEWREC{metis_LM_lss_wave} \newline
-%\NEWREC{metis_LM_lss_std} \newline
-%\NEWREC{metis_N_lss_std} \newline
-%\NEWREC{metis_LM_lss_sci} \newline
-%\NEWREC{metis_N_lss_sci} \newline
+%\REC{metis_LM_lss_wave} \newline
+%\REC{metis_LM_lss_std} \newline
+%\REC{metis_N_lss_std} \newline
+%\REC{metis_LM_lss_sci} \newline
+%\REC{metis_N_lss_sci} \newline
 %TBD
 
 
@@ -186,10 +186,10 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Determine response}\label{drl:determine_response}
 \begin{recipedef}
-Name: & \NEWDRL{determine_response}\\
+Name: & \DRL{determine_response}\\
 Purpose: & Determination of the spectral response function\\
-Used in recipes: &  \NEWREC{metis_LM_lss_std} \newline
-                 \NEWREC{metis_N_lss_std} \\
+Used in recipes: &  \REC{metis_LM_lss_std} \newline
+                 \REC{metis_N_lss_std} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_spectrum1D * input} \\
@@ -206,12 +206,12 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Remove sky background}\label{drl:remove_sky_background}
 \begin{recipedef}\label{rec:removeskybackground}
-Name: & \NEWDRL{remove_sky_background} \\
+Name: & \DRL{remove_sky_background} \\
 Purpose: & Remove sky background from spectra \\
-Used in recipes: & \NEWREC{metis_LM_lss_std} \\
-& \NEWREC{metis_LM_lss_sci}\\
-& \NEWREC{metis_N_lss_std} \\
-& \NEWREC{metis_N_lss_sci}\\
+Used in recipes: & \REC{metis_LM_lss_std} \\
+& \REC{metis_LM_lss_sci}\\
+& \REC{metis_N_lss_std} \\
+& \REC{metis_N_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -229,13 +229,13 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Slit curvature detection}\label{drl:slit_curvature}
 \begin{recipedef}\label{rec:slitcurvature}
-Name: & \NEWDRL{slit_curvature} \\
+Name: & \DRL{slit_curvature} \\
 Purpose: & Determines the slit curvature along the orders \\
-Used in recipes: & \NEWREC{metis_LM_lss_wave} \\
-& \NEWREC{metis_LM_lss_std} \\
-& \NEWREC{metis_LM_lss_sci}\\
-& \NEWREC{metis_N_lss_std} \\
-& \NEWREC{metis_N_lss_sci}\\
+Used in recipes: & \REC{metis_LM_lss_wave} \\
+& \REC{metis_LM_lss_std} \\
+& \REC{metis_LM_lss_sci}\\
+& \REC{metis_N_lss_std} \\
+& \REC{metis_N_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -253,13 +253,13 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Order trace detection}\label{drl:detect_order_trace}
 \begin{recipedef}\label{rec:detectordertrace}
-Name: & \NEWDRL{detect_order_trace} \\
+Name: & \DRL{detect_order_trace} \\
 Purpose: & Determines the order traces on the detectors\\
-Used in recipes: & \NEWREC{metis_LM_lss_wave} \\
-& \NEWREC{metis_LM_lss_std} \\
-& \NEWREC{metis_LM_lss_sci}\\
-& \NEWREC{metis_N_lss_std} \\
-& \NEWREC{metis_N_lss_sci}\\
+Used in recipes: & \REC{metis_LM_lss_wave} \\
+& \REC{metis_LM_lss_std} \\
+& \REC{metis_LM_lss_sci}\\
+& \REC{metis_N_lss_std} \\
+& \REC{metis_N_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -277,12 +277,12 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Object extraction}\label{drl:extract_object}
 \begin{recipedef}
-Name: & \NEWDRL{extract_object}\\
+Name: & \DRL{extract_object}\\
 Purpose: & Extract object spectrum from 2D-spectrum\\
-Used in recipes: & \NEWREC{metis_LM_lss_std} \newline
-                 \NEWREC{metis_N_lss_std} \newline
-                 \NEWREC{metis_LM_lss_sci} \newline
-                 \NEWREC{metis_N_lss_sci} \\
+Used in recipes: & \REC{metis_LM_lss_std} \newline
+                 \REC{metis_N_lss_std} \newline
+                 \REC{metis_LM_lss_sci} \newline
+                 \REC{metis_N_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input\newline const hdrl\_image * background\newline hdrl\_image * output}  \\
@@ -300,10 +300,10 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Apply wavelength calibration}\label{drl:apply_wavecal}
 \begin{recipedef}
-Name: & \NEWDRL{apply_wavecal}\\
-Purpose: & applies \NEWPROD{LM_LSS_WAVE_GUESS}\\
-Used in recipes: & \NEWREC{metis_LM_lss_std} \newline
-                 \NEWREC{metis_LM_lss_sci} \\
+Name: & \DRL{apply_wavecal}\\
+Purpose: & applies \PROD{LM_LSS_WAVE_GUESS}\\
+Used in recipes: & \REC{metis_LM_lss_std} \newline
+                 \REC{metis_LM_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\
@@ -321,10 +321,10 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Apply flux calibration}\label{drl:apply_fluxcal}
 \begin{recipedef}
-Name: & \NEWDRL{apply_fluxcal}\\
-Purpose: & applies \NEWPROD{MASTER_LM_RESPONSE} or \NEWPROD{MASTER_N_RESPONSE} to science frames\\
-Used in recipes: & \NEWREC{metis_LM_lss_sci} \newline
-                 \NEWREC{metis_N_lss_sci} \\
+Name: & \DRL{apply_fluxcal}\\
+Purpose: & applies \PROD{MASTER_LM_RESPONSE} or \PROD{MASTER_N_RESPONSE} to science frames\\
+Used in recipes: & \REC{metis_LM_lss_sci} \newline
+                 \REC{metis_N_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\
@@ -342,10 +342,10 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 \subsubsection{Apply telluric correction}\label{drl:apply_tellcorr}
 \begin{recipedef}
-Name: & \NEWDRL{apply_tellcorr}\\
-Purpose: & applies \NEWSTATCALIB{LM_SYNTH_TRANS} and \NEWSTATCALIB{N_SYNTH_TRANS} to corresponding standard star spectrum (\NEWPROD{LM_LSS_STD_1D} and \NEWPROD{N_LSS_STD_1D})\\
-Used in recipes: & \NEWREC{metis_LM_lss_sci} \\
-                 & \NEWREC{metis_N_lss_sci} \\
+Name: & \DRL{apply_tellcorr}\\
+Purpose: & applies \STATCALIB{LM_SYNTH_TRANS} and \STATCALIB{N_SYNTH_TRANS} to corresponding standard star spectrum (\PROD{LM_LSS_STD_1D} and \PROD{N_LSS_STD_1D})\\
+Used in recipes: & \REC{metis_LM_lss_sci} \\
+                 & \REC{metis_N_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\

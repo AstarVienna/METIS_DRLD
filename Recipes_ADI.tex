@@ -14,7 +14,7 @@ products will be optionally provided in these recipes to facilitate
 their dedicated HCI reductions. Potentially these three recipes can be combined into one with a logical decision tree. To minimize interpolation artefacts any interpolation steps are to be combined as much as possible. Bad pixel maps and image stacks without background subtraction are available as output from the earlier science processing recipes.
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{\REC{metis_img_adi_cgrph}: IMG\_LM/N RAVC/CVC ADI Post Processing}
+\subsubsection{\REC*{metis_img_adi_cgrph}: IMG\_LM/N RAVC/CVC ADI Post Processing}
 \label{sssec:adi_img_vc}
 
 
@@ -51,19 +51,19 @@ compensation of any neutral density transmission).
 %routines.
 
 \begin{recipedef}\label{rec:metis_img_adi_cgrph}
-  Name:                & \NEWREC{metis_img_adi_cgrph}                                        \\
+  Name:                & \REC{metis_img_adi_cgrph}                                        \\
   Purpose:             & Classical ADI post processing for CVC/RAVC coronagraphs      \\
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & None                               \\
   Type:                & Science                                                    \\
-  Input data:          & \NEWPROD{LM_SCI_BASIC_REDUCED} or \NEWPROD{N_SCI_BKG_SUBTRACTED} \\
+  Input data:          & \PROD{LM_SCI_BASIC_REDUCED} or \PROD{N_SCI_BKG_SUBTRACTED} \\
 % TODO: There used to be a reference to N_SCI_BASIC_REDUCED here, but that is not defined, should it be added?
-% or   \NEWPROD{N_SCI_BASIC_REDUCED}                         \\
+% or   \PROD{N_SCI_BASIC_REDUCED}                         \\
 % now replaced with N_SCI_BKG_SUBTRACTE
-                       & \NEWPROD{LM_DISTORTION_TABLE} or \NEWPROD{N_DISTORTION_TABLE} \\
+                       & \PROD{LM_DISTORTION_TABLE} or \PROD{N_DISTORTION_TABLE} \\
 %                        & Coronagraphic throughput map and profile         \\
-                       & \NEWPROD{LM_cgrph_SCI_THROUGHPUT} or \NEWPROD{N_cgrph_SCI_THROUGHPUT} \\
-                       & \NEWRAW{LM_OFF_AXIS_PSF_RAW} or \NEWRAW{N_OFF_AXIS_PSF_RAW}\\
+                       & \PROD{LM_cgrph_SCI_THROUGHPUT} or \PROD{N_cgrph_SCI_THROUGHPUT} \\
+                       & \RAW{LM_OFF_AXIS_PSF_RAW} or \RAW{N_OFF_AXIS_PSF_RAW}\\
    Matched keywords:   & Detector ID             \\
                        & Filter ID               \\
                        & Object ID               \\
@@ -81,18 +81,18 @@ compensation of any neutral density transmission).
                        & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed contrast curves \\
-  Output data:       & \NEWPROD{LM_cgrph_SCI_CALIBRATED} or \NEWPROD{N_cgrph_SCI_CALIBRATED}\\
-                     & \NEWPROD{LM_cgrph_SCI_CENTRED} or \NEWPROD{N_cgrph_SCI_CENTRED}\\
-                     & \NEWPROD{LM_cgrph_CENTROID_TAB} or \NEWPROD{N_cgrph_CENTROID_TAB}\\
-                     & \NEWPROD{LM_cgrph_SCI_SPECKLE} or \NEWPROD{N_cgrph_SCI_SPECKLE}\\
-                     & \NEWPROD{LM_cgrph_SCI_DEROTATED_PSFSUB} or \NEWPROD{N_cgrph_SCI_DEROTATED_PSFSUB}\\
-                     & \NEWPROD{LM_cgrph_SCI_DEROTATED} or \NEWPROD{N_cgrph_SCI_DEROTATED}\\
-                     & \NEWPROD{LM_cgrph_SCI_CONTRAST_RADPROF} or \NEWPROD{N_cgrph_SCI_CONTRAST_RADPROF}\\
-                     & \NEWPROD{LM_cgrph_SCI_CONTRAST_ADI} or \NEWPROD{N_cgrph_SCI_CONTRAST_ADI}\\
-                     & \NEWPROD{LM_cgrph_SCI_THROUGHPUT} or \NEWPROD{N_cgrph_SCI_THROUGHPUT}\\
-                     & \NEWPROD{LM_cgrph_SCI_COVERAGE} or \NEWPROD{N_cgrph_SCI_COVERAGE}\\
-                     & \NEWPROD{LM_cgrph_SCI_SNR} or \NEWPROD{N_cgrph_SCI_SNR}\\
-                     & \NEWPROD{LM_cgrph_PSF_MEDIAN} org \NEWPROD{N_cgrph_PSF_MEDIAN} \\
+  Output data:       & \PROD{LM_cgrph_SCI_CALIBRATED} or \PROD{N_cgrph_SCI_CALIBRATED}\\
+                     & \PROD{LM_cgrph_SCI_CENTRED} or \PROD{N_cgrph_SCI_CENTRED}\\
+                     & \PROD{LM_cgrph_CENTROID_TAB} or \PROD{N_cgrph_CENTROID_TAB}\\
+                     & \PROD{LM_cgrph_SCI_SPECKLE} or \PROD{N_cgrph_SCI_SPECKLE}\\
+                     & \PROD{LM_cgrph_SCI_DEROTATED_PSFSUB} or \PROD{N_cgrph_SCI_DEROTATED_PSFSUB}\\
+                     & \PROD{LM_cgrph_SCI_DEROTATED} or \PROD{N_cgrph_SCI_DEROTATED}\\
+                     & \PROD{LM_cgrph_SCI_CONTRAST_RADPROF} or \PROD{N_cgrph_SCI_CONTRAST_RADPROF}\\
+                     & \PROD{LM_cgrph_SCI_CONTRAST_ADI} or \PROD{N_cgrph_SCI_CONTRAST_ADI}\\
+                     & \PROD{LM_cgrph_SCI_THROUGHPUT} or \PROD{N_cgrph_SCI_THROUGHPUT}\\
+                     & \PROD{LM_cgrph_SCI_COVERAGE} or \PROD{N_cgrph_SCI_COVERAGE}\\
+                     & \PROD{LM_cgrph_SCI_SNR} or \PROD{N_cgrph_SCI_SNR}\\
+                     & \PROD{LM_cgrph_PSF_MEDIAN} org \PROD{N_cgrph_PSF_MEDIAN} \\
 Expected accuracies: & n/a \\
 QC1 parameters:  & \hyperref[qc:qc_det_cgrph_sci_nexposures]{\QC{QC det cgrph SCI NEXPOSURES}}\\
                  & \hyperref[qc:qc_det_cgrph_sci_fwhm_nn]{\QC{QC det cgrph SCI FWHM nn}}\\
@@ -109,14 +109,14 @@ QC1 parameters:  & \hyperref[qc:qc_det_cgrph_sci_nexposures]{\QC{QC det cgrph SC
 \begin{figure}[hb]
   \centering
   \includegraphics[width=0.9\textwidth]{./figures/metis_lm_adi_ravc}
-  \caption[Recipe: \REC{metis_img_adi_cgrph}]{\NEWREC{metis_img_adi_cgrph} -- DET ADI post processing for RAVC/CVC coronagraph.
+  \caption[Recipe: \REC*{metis_img_adi_cgrph}]{\REC{metis_img_adi_cgrph} -- DET ADI post processing for RAVC/CVC coronagraph.
     }
   \label{fig:metis_det_adi_ravc}
 \end{figure}
 
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{\REC{metis_lm_adi_app}: IMG\_LM APP ADI Post Processing}
+\subsubsection{\REC*{metis_lm_adi_app}: IMG\_LM APP ADI Post Processing}
 \label{sssec:adi_img_app}
 
 
@@ -151,14 +151,14 @@ the effective number of included frames.
 
 
 \begin{recipedef}\label{rec:metis_lm_adi_app}
-  Name:                & \NEWREC{metis_lm_adi_app}                                        \\
+  Name:                & \REC{metis_lm_adi_app}                                        \\
   Purpose:             & Classical ADI post processing for APP coronagraph      \\
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & None                               \\
   Type:                & Science                                                    \\
-  Input data:          & \NEWPROD{LM_SCI_BASIC_REDUCED}                            \\
-                       & \NEWPROD{LM_DISTORTION_TABLE} \\
-                       & \NEWRAW{LM_OFF_AXIS_PSF_RAW}                                                  \\
+  Input data:          & \PROD{LM_SCI_BASIC_REDUCED}                            \\
+                       & \PROD{LM_DISTORTION_TABLE} \\
+                       & \RAW{LM_OFF_AXIS_PSF_RAW}                                                  \\
    Matched keywords:   & Detector ID             \\
                        & Filter ID               \\
                        & Object ID               \\
@@ -182,18 +182,18 @@ the effective number of included frames.
                        & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images with image mask   (\CODE{hdrl_imagelist_collapse})\\
                        & call \hyperref[drl:lm_adi_app_contrast]{\CODE{lm_adi_app_contrast}} for raw and post processed images \\
-  Output data:       & \NEWPROD{LM_APP_SCI_CALIBRATED}\\
-                     & \NEWPROD{LM_APP_SCI_CENTRED}\\
-                     & \NEWPROD{LM_APP_CENTROID_TAB}\\
-                     & \NEWPROD{LM_APP_SCI_SPECKLE}\\
-                     & \NEWPROD{LM_APP_SCI_DEROTATED_PSFSUB}\\
-                     & \NEWPROD{LM_APP_SCI_DEROTATED}\\
-                     & \NEWPROD{LM_APP_SCI_CONTRAST_RADPROF}\\
-                     & \NEWPROD{LM_APP_SCI_CONTRAST_ADI}\\
-                     & \NEWPROD{LM_APP_SCI_THROUGHPUT}\\
-                     & \NEWPROD{LM_APP_SCI_COVERAGE}\\
-                     & \NEWPROD{LM_APP_SCI_SNR}\\
-                     & \NEWPROD{LM_APP_PSF_MEDIAN}\\
+  Output data:       & \PROD{LM_APP_SCI_CALIBRATED}\\
+                     & \PROD{LM_APP_SCI_CENTRED}\\
+                     & \PROD{LM_APP_CENTROID_TAB}\\
+                     & \PROD{LM_APP_SCI_SPECKLE}\\
+                     & \PROD{LM_APP_SCI_DEROTATED_PSFSUB}\\
+                     & \PROD{LM_APP_SCI_DEROTATED}\\
+                     & \PROD{LM_APP_SCI_CONTRAST_RADPROF}\\
+                     & \PROD{LM_APP_SCI_CONTRAST_ADI}\\
+                     & \PROD{LM_APP_SCI_THROUGHPUT}\\
+                     & \PROD{LM_APP_SCI_COVERAGE}\\
+                     & \PROD{LM_APP_SCI_SNR}\\
+                     & \PROD{LM_APP_PSF_MEDIAN}\\
 Expected accuracies: & n/a                                                           \\
 QC1 parameters:  & \hyperref[qc:qc_det_app_sci_nexposures]{\QC{QC det APP SCI NEXPOSURES}}\\
                  & \hyperref[qc:qc_det_app_sci_fwhm_nn]{\QC{QC det APP SCI FWHM nn}}\\
@@ -210,13 +210,13 @@ QC1 parameters:  & \hyperref[qc:qc_det_app_sci_nexposures]{\QC{QC det APP SCI NE
 \begin{figure}[hb]
   \centering
   \includegraphics[width=0.9\textwidth]{./figures/metis_lm_adi_app}
-  \caption[Recipe: \REC{metis_lm_adi_app}]{\REC{metis_lm_adi_app} -- ADI post processing for APP coronagraph.
+  \caption[Recipe: \REC*{metis_lm_adi_app}]{\REC*{metis_lm_adi_app} -- ADI post processing for APP coronagraph.
     }
   \label{fig:metis_lm_adi_app}
 \end{figure}
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{\REC{metis_ifu_adi_cgrph}: IFU ADI Post Processing}
+\subsubsection{\REC*{metis_ifu_adi_cgrph}: IFU ADI Post Processing}
 \label{sssec:adi_ifu}
 
 
@@ -262,7 +262,7 @@ PSFs. In addition coverage maps are produced.
 
 
 \begin{recipedef}
-  Name:                & \NEWREC{metis_ifu_adi_cgrph}\label{rec:metis_ifu_adi_cgrph}                                        \\
+  Name:                & \REC{metis_ifu_adi_cgrph}\label{rec:metis_ifu_adi_cgrph}                                        \\
   Purpose:             & Classical ADI post processing for APP/CVC/RAVC coronagraphs with IFU      \\
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & None                               \\
@@ -270,12 +270,12 @@ PSFs. In addition coverage maps are produced.
 % HB 20230626: The IFU_cgrph_SCI_REDUCED is currently not produced by any
 %    recipe. It is probably a subclass of IFU_SCI_REDUCED, so for
 %    now I'm just listing IFU_SCI_REDUCED here.
-%   Input data:          & \NEWPROD{IFU_cgrph_SCI_REDUCED}                            \\
-  Input data:          & \NEWPROD{IFU_SCI_REDUCED}                            \\
-                       & \NEWPROD{IFU_DISTORTION_TABLE}\\
+%   Input data:          & \PROD{IFU_cgrph_SCI_REDUCED}                            \\
+  Input data:          & \PROD{IFU_SCI_REDUCED}                            \\
+                       & \PROD{IFU_DISTORTION_TABLE}\\
 %                        & Coronagraphic throughput map and profile                                                  \\
-                       & \NEWPROD{IFU_cgrph_SCI_THROUGHPUT} \\
-                       & \NEWRAW{IFU_OFF_AXIS_PSF_RAW} \\
+                       & \PROD{IFU_cgrph_SCI_THROUGHPUT} \\
+                       & \RAW{IFU_OFF_AXIS_PSF_RAW} \\
    Matched keywords:   & Detector ID             \\
                        & Filter ID               \\
                        & Object ID               \\
@@ -292,17 +292,17 @@ PSFs. In addition coverage maps are produced.
                        & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
-  Output data:       & \NEWPROD{IFU_cgrph_SCI_CALIBRATED}\\
-                     & \NEWPROD{IFU_cgrph_SCI_CENTRED}\\
-                     & \NEWPROD{IFU_cgrph_CENTROID_TAB}\\
-                     & \NEWPROD{IFU_cgrph_SCI_SPECKLE}\\
-                     & \NEWPROD{IFU_cgrph_SCI_DEROTATED_PSFSUB}\\
-                     & \NEWPROD{IFU_cgrph_SCI_DEROTATED}\\
-                     & \NEWPROD{IFU_cgrph_SCI_CONTRAST_RADPROF}\\
-                     & \NEWPROD{IFU_cgrph_SCI_CONTRAST_ADI}\\
-                     & \NEWPROD{IFU_cgrph_SCI_THROUGHPUT}\\
-                     & \NEWPROD{IFU_cgrph_SCI_SNR}\\
-                     & \NEWPROD{IFU_cgrph_SCI_COVERAGE}                           \\
+  Output data:       & \PROD{IFU_cgrph_SCI_CALIBRATED}\\
+                     & \PROD{IFU_cgrph_SCI_CENTRED}\\
+                     & \PROD{IFU_cgrph_CENTROID_TAB}\\
+                     & \PROD{IFU_cgrph_SCI_SPECKLE}\\
+                     & \PROD{IFU_cgrph_SCI_DEROTATED_PSFSUB}\\
+                     & \PROD{IFU_cgrph_SCI_DEROTATED}\\
+                     & \PROD{IFU_cgrph_SCI_CONTRAST_RADPROF}\\
+                     & \PROD{IFU_cgrph_SCI_CONTRAST_ADI}\\
+                     & \PROD{IFU_cgrph_SCI_THROUGHPUT}\\
+                     & \PROD{IFU_cgrph_SCI_SNR}\\
+                     & \PROD{IFU_cgrph_SCI_COVERAGE}                           \\
 
   Expected accuracies: & n/a                                                           \\
   QC1 parameters: & \hyperref[qc:qc_ifu_cgrph_sci_nexposures]{\QC{QC IFU cgrph SCI NEXPOSURES}}\\
@@ -320,7 +320,7 @@ PSFs. In addition coverage maps are produced.
 \begin{figure}[hb]
   \centering
   \includegraphics[width=0.9\textwidth]{./figures/metis_ifu_adi_ravc}
-  \caption[Recipe: \REC{metis_ifu_adi_cgrph}]{\REC{metis_ifu_adi_cgrph} -- IFU ADI post processing for RAVC/CVC coronagraph.
+  \caption[Recipe: \REC*{metis_ifu_adi_cgrph}]{\REC*{metis_ifu_adi_cgrph} -- IFU ADI post processing for RAVC/CVC coronagraph.
     }
   \label{fig:metis_ifu_adi_cgrph}
 \end{figure}

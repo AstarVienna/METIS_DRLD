@@ -93,36 +93,36 @@ In general, there are four major steps in each of the two cascades:
 %      Data Type   & Classification & Recipe (Level)	& FITS Keywords & static/external  & Products\\
 %    (Templates) & Keywords	 & Processing steps	&		&	CalibDB  &	\\
 %    \hline
-%    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \NEWREC{metis_det_dark} & Exposure time	&	\NEWEXTCALIB{PERSISTENCE_MAP} & Averaged dark frame\\
-%    		& \CODE{DPR.TYPE==DARK}  &			&		&	\NEWPROD{GAIN_MAP_2RG} & Bad pixel map\\
-%    		& \CODE{DPR.TECH==IMAGE}  &			&		&	\NEWPROD{LINEARITY_2RG} & \\
+%    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \REC{metis_det_dark} & Exposure time	&	\EXTCALIB{PERSISTENCE_MAP} & Averaged dark frame\\
+%    		& \CODE{DPR.TYPE==DARK}  &			&		&	\PROD{GAIN_MAP_2RG} & Bad pixel map\\
+%    		& \CODE{DPR.TECH==IMAGE}  &			&		&	\PROD{LINEARITY_2RG} & \\
 %    \hline
-%    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \NEWREC{metis_LM_lss_rsrf} & Exposure time	& \NEWEXTCALIB{PERSISTENCE_MAP}	& Averaged, normalized flatfield\\
-%    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	& 	\NEWPROD{GAIN_MAP_2RG} & \\
-%    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	\NEWPROD{LINEARITY_2RG} & \\
+%    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_rsrf} & Exposure time	& \EXTCALIB{PERSISTENCE_MAP}	& Averaged, normalized flatfield\\
+%    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	& 	\PROD{GAIN_MAP_2RG} & \\
+%    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	\PROD{LINEARITY_2RG} & \\
 %    \hline
-%         	& \CODE{DPR.CATG==CALIB} &\NEWREC{metis_LM_lss_trace} & Exposure time	&	\NEWEXTCALIB{PERSISTENCE_MAP}& Order location\\
-%    		& \CODE{DPR.TYPE==FLAT}  &			&		&	 \NEWPROD{GAIN_MAP_2RG}& (polynomial fit)\\
-%    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	\NEWPROD{LINEARITY_2RG} & \\
+%         	& \CODE{DPR.CATG==CALIB} &\REC{metis_LM_lss_trace} & Exposure time	&	\EXTCALIB{PERSISTENCE_MAP}& Order location\\
+%    		& \CODE{DPR.TYPE==FLAT}  &			&		&	 \PROD{GAIN_MAP_2RG}& (polynomial fit)\\
+%    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	\PROD{LINEARITY_2RG} & \\
 %    \hline
-%    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} &\NEWREC{metis_LM_lss_wave} & Exposure time & \NEWEXTCALIB{PERSISTENCE_MAP}  & wavelength solution\\
-%    		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Grism & \NEWPROD{GAIN_MAP_2RG} &\\
-%    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	\NEWPROD{LINEARITY_2RG}& \\
-%    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \NEWSTATCALIB{LASER_TAB} & \\
+%    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} &\REC{metis_LM_lss_wave} & Exposure time & \EXTCALIB{PERSISTENCE_MAP}  & wavelength solution\\
+%    		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Grism & \PROD{GAIN_MAP_2RG} &\\
+%    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	\PROD{LINEARITY_2RG}& \\
+%    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \STATCALIB{LASER_TAB} & \\
 %    \hline
-%    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \NEWREC{metis_LM_lss_std}& Object name (\ac{STD} star) & \NEWEXTCALIB{PERSISTENCE_MAP} & Instrumental\\
-%      & \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \NEWPROD{GAIN_MAP_2RG} & response function\\
-%    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\NEWPROD{LINEARITY_2RG} & Transmission (optionally)\\
-%    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \NEWEXTCALIB{ATM_LINE_CAT} & Wavelength correction \\
-%    		& & & & \NEWSTATCALIB{LM_SYNTH_TRANS} & (optionally)\\  
-%    		& & & & \NEWSTATCALIB{LM_ADC_SLITLOSS} &\\    
-%    		& & & &  \NEWEXTCALIB{AO_PSF_MODEL} &\\    
-%%    		& & & & \NEWSTATCALIB{TSS_CONT_TAB} &\\    
-%    		& & & & \NEWSTATCALIB{REF_STD_CAT} &\\    \hline
-%    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \NEWREC{metis_LM_lss_sci} & Object name & \NEWEXTCALIB{PERSISTENCE_MAP}  & Science grade spectrum\\
-%    		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \NEWPROD{GAIN_MAP_2RG} &\\
-%    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&\NEWSTATCALIB{LM_ADC_SLITLOSS} & \\
-%    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit  &  \NEWEXTCALIB{ATM_LINE_CAT}	& \\
+%    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_std}& Object name (\ac{STD} star) & \EXTCALIB{PERSISTENCE_MAP} & Instrumental\\
+%      & \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \PROD{GAIN_MAP_2RG} & response function\\
+%    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\PROD{LINEARITY_2RG} & Transmission (optionally)\\
+%    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \EXTCALIB{ATM_LINE_CAT} & Wavelength correction \\
+%    		& & & & \STATCALIB{LM_SYNTH_TRANS} & (optionally)\\  
+%    		& & & & \STATCALIB{LM_ADC_SLITLOSS} &\\    
+%    		& & & &  \EXTCALIB{AO_PSF_MODEL} &\\    
+%%    		& & & & \STATCALIB{TSS_CONT_TAB} &\\    
+%    		& & & & \STATCALIB{REF_STD_CAT} &\\    \hline
+%    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_sci} & Object name & \EXTCALIB{PERSISTENCE_MAP}  & Science grade spectrum\\
+%    		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \PROD{GAIN_MAP_2RG} &\\
+%    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&\STATCALIB{LM_ADC_SLITLOSS} & \\
+%    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit  &  \EXTCALIB{ATM_LINE_CAT}	& \\
 %    \hline
 %    \end{tabular}
 %  \end{center}
@@ -140,17 +140,17 @@ In general, there are four major steps in each of the two cascades:
 %      Input   & Classification & Recipe (Level)	& FITS Keywords & static/external & Products\\
 %    data & Keywords	 & Processing steps	&		&	 CalibDB  &	\\
 %    \hline    
-%%            Science grade spectrum & \CODE{DPR.CATG==SCIENCE} & \NEWREC{metis_LM_lss_mf_model} & Object name & \NEWSTATCALIB{LSF_KERNEL}	 & Best-fit \\
-%    		processed \ac{STD} spectrum& \CODE{DPR.TYPE==OBJECT}   &			  & & \NEWEXTCALIB{ATM_PROFILE}  & \texttt{molecfit} parameters\\
-%    		& \CODE{DPR.TECH==TBD}  &			&		& \NEWEXTCALIB{ATM_LINE_CAT}	& \\
+%%            Science grade spectrum & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_mf_model} & Object name & \STATCALIB{LSF_KERNEL}	 & Best-fit \\
+%    		processed \ac{STD} spectrum& \CODE{DPR.TYPE==OBJECT}   &			  & & \EXTCALIB{ATM_PROFILE}  & \texttt{molecfit} parameters\\
+%    		& \CODE{DPR.TECH==TBD}  &			&		& \EXTCALIB{ATM_LINE_CAT}	& \\
 %    		& \CODE{PRO.CATG==TBD}   &  &  & start parameter set & \\
 %    \hline
-%            & \CODE{DPR.CATG==SCIENCE} &  \NEWREC{metis_LM_lss_mf_calctrans} & Object name & \NEWEXTCALIB{ATM_LINE_CAT}	 & synthetic \\
+%            & \CODE{DPR.CATG==SCIENCE} &  \REC{metis_LM_lss_mf_calctrans} & Object name & \EXTCALIB{ATM_LINE_CAT}	 & synthetic \\
 %    		& \CODE{DPR.TYPE==LSS}   &		&	   &   & Transmission curve\\
 %    		& \CODE{DPR.TECH==TBD}  &			&		& 	& \\
 %    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
 %    \hline
-%            & \CODE{DPR.CATG==SCIENCE} &  \NEWREC{metis_LM_lss_mf_correct} & Object name &  & Absorption corrected\\
+%            & \CODE{DPR.CATG==SCIENCE} &  \REC{metis_LM_lss_mf_correct} & Object name &  & Absorption corrected\\
 %    		& \CODE{DPR.TYPE==LSS}   &			   & &    & science spectrum\\
 %    		& \CODE{DPR.TECH==TBD}  &			&		&	& \\
 %    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
@@ -195,34 +195,34 @@ In general, there are four major steps in each of the two cascades:
 %      Data Type   & Classification & Recipe (Level)	& FITS Keywords & static/external  & Products\\
 %    (Templates) & Keywords	 & Processing steps	&		&	CalibDB  &	\\
 %    \hline
-%    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \NEWREC{metis_det_dark} & Exposure time	& 	\NEWEXTCALIB{PERSISTENCE_MAP} & Averaged dark frame\\
-%    		& \CODE{DPR.TYPE==DARK}  &			&		&	\NEWPROD{GAIN_MAP_GEO} & Bad pixel map\\
-%    		& \CODE{DPR.TECH==IMAGE}  &			&		&	\NEWPROD{LINEARITY_GEO} & \\
+%    \TPL{DARK}	& \CODE{DPR.CATG==CALIB} & \REC{metis_det_dark} & Exposure time	& 	\EXTCALIB{PERSISTENCE_MAP} & Averaged dark frame\\
+%    		& \CODE{DPR.TYPE==DARK}  &			&		&	\PROD{GAIN_MAP_GEO} & Bad pixel map\\
+%    		& \CODE{DPR.TECH==IMAGE}  &			&		&	\PROD{LINEARITY_GEO} & \\
 %    \hline
-%    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \NEWREC{metis_N_lss_rsrf} & Exposure time	& \NEWEXTCALIB{PERSISTENCE_MAP}	& Averaged, normalized flatfield (\ac{RSRF}\\
-%    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	&	\NEWPROD{GAIN_MAP_GEO} & Bad pixel map\\
-%    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	\NEWPROD{LINEARITY_GEO} & \\
+%    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_N_lss_rsrf} & Exposure time	& \EXTCALIB{PERSISTENCE_MAP}	& Averaged, normalized flatfield (\ac{RSRF}\\
+%    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	&	\PROD{GAIN_MAP_GEO} & Bad pixel map\\
+%    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	\PROD{LINEARITY_GEO} & \\
 %    \hline
-%         	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace} }& Exposure time	& 	\NEWEXTCALIB{PERSISTENCE_MAP} & Order location\\
-%    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	&	\NEWPROD{GAIN_MAP_GEO} & (polynomial fit)\\
-%    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	 \NEWPROD{LINEARITY_GEO} & \\
+%         	& \CODE{DPR.CATG==CALIB} & \hyperref[rec:metis_n_lss_trace]{\REC*{metis_N_lss_trace} }& Exposure time	& 	\EXTCALIB{PERSISTENCE_MAP} & Order location\\
+%    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	&	\PROD{GAIN_MAP_GEO} & (polynomial fit)\\
+%    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	 \PROD{LINEARITY_GEO} & \\
 %    \hline
-%    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \NEWREC{metis_N_lss_std} & Object name (\ac{STD} star) & \NEWEXTCALIB{PERSISTENCE_MAP} & Instrumental\\
-%    		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \NEWPROD{GAIN_MAP_GEO} & response function\\
-%    		& \CODE{DPR.TECH==SPECTRUM}   &			   & Grism		& \NEWPROD{LINEARITY_GEO} & transmission (optional)\\
-%    		& \CODE{PRO.CATG==SPECTRUM}   &  &  Slit & \NEWSTATCALIB{N_LSS_WAVE_GUESS} & wavelength correction\\
-%    		& & & & \NEWSTATCALIB{N_SYNTH_TRANS} &\\    		& & & &  \NEWSTATCALIB{N_ADC_SLITLOSS} &\\
-%    		& & & & \NEWEXTCALIB{AO_PSF_MODEL} &\\
-%    		& & & & \NEWSTATCALIB{N_LSS_DIST_SOL} &\\
-%   		& & & & \NEWSTATCALIB{REF_STD_CAT} &\\
+%    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \REC{metis_N_lss_std} & Object name (\ac{STD} star) & \EXTCALIB{PERSISTENCE_MAP} & Instrumental\\
+%    		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \PROD{GAIN_MAP_GEO} & response function\\
+%    		& \CODE{DPR.TECH==SPECTRUM}   &			   & Grism		& \PROD{LINEARITY_GEO} & transmission (optional)\\
+%    		& \CODE{PRO.CATG==SPECTRUM}   &  &  Slit & \STATCALIB{N_LSS_WAVE_GUESS} & wavelength correction\\
+%    		& & & & \STATCALIB{N_SYNTH_TRANS} &\\    		& & & &  \STATCALIB{N_ADC_SLITLOSS} &\\
+%    		& & & & \EXTCALIB{AO_PSF_MODEL} &\\
+%    		& & & & \STATCALIB{N_LSS_DIST_SOL} &\\
+%   		& & & & \STATCALIB{REF_STD_CAT} &\\
 %    \hline
-%    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \NEWREC{metis_N_lss_sci} & Object name &  \NEWEXTCALIB{PERSISTENCE_MAP} & Science grade spectrum\\
-%    		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \NEWPROD{GAIN_MAP_GEO}  &\\
-%    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\NEWPROD{LINEARITY_GEO} & \\
-%    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \NEWEXTCALIB{ATM_LINE_CAT}  & \\
-%    		& & & & \NEWSTATCALIB{N_ADC_SLITLOSS} &\\
-%    		& & & & \NEWSTATCALIB{N_LSS_WAVE_GUESS} &\\
-%    		& & & & \NEWSTATCALIB{N_LSS_DIST_SOL} &\\
+%    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_sci} & Object name &  \EXTCALIB{PERSISTENCE_MAP} & Science grade spectrum\\
+%    		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \PROD{GAIN_MAP_GEO}  &\\
+%    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\PROD{LINEARITY_GEO} & \\
+%    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \EXTCALIB{ATM_LINE_CAT}  & \\
+%    		& & & & \STATCALIB{N_ADC_SLITLOSS} &\\
+%    		& & & & \STATCALIB{N_LSS_WAVE_GUESS} &\\
+%    		& & & & \STATCALIB{N_LSS_DIST_SOL} &\\
 %    \hline
 %    \end{tabular}
 %  \end{center}
@@ -240,17 +240,17 @@ In general, there are four major steps in each of the two cascades:
 %      Input   & Classification & Recipe (Level)	& FITS Keywords & static/external & Products\\
 %    data & Keywords	 & Processing steps	&		&	CalibDB  &	\\
 %    \hline
-%    Science grade spectrum & \CODE{DPR.CATG==SCIENCE} & \NEWREC{metis_N_lss_mf_model} & Object name & \NEWSTATCALIB{LSF_KERNEL}	 & Best-fit \\
-%    	\ac{STD} star spectrum	& \CODE{DPR.TYPE==OBJECT}   &			  & & \NEWEXTCALIB{ATM_PROFILE}  & \texttt{molecfit} parameters\\
-%    		& \CODE{DPR.TECH==TBD}  &			&		& \NEWEXTCALIB{ATM_LINE_CAT}	& \\
+%    Science grade spectrum & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_mf_model} & Object name & \STATCALIB{LSF_KERNEL}	 & Best-fit \\
+%    	\ac{STD} star spectrum	& \CODE{DPR.TYPE==OBJECT}   &			  & & \EXTCALIB{ATM_PROFILE}  & \texttt{molecfit} parameters\\
+%    		& \CODE{DPR.TECH==TBD}  &			&		& \EXTCALIB{ATM_LINE_CAT}	& \\
 %    		& \CODE{PRO.CATG==TBD}   &  &  & start parameter set & \\
 %    \hline
-%            & \CODE{DPR.CATG==SCIENCE} & \NEWREC{metis_N_lss_mf_calctrans} & Object name & \NEWEXTCALIB{ATM_LINE_CAT}	 & synthetic \\
+%            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_mf_calctrans} & Object name & \EXTCALIB{ATM_LINE_CAT}	 & synthetic \\
 %    		& \CODE{DPR.TYPE==LSS}   &		&	   &  & Transmission curve\\
 %    		& \CODE{DPR.TECH==TBD}  &			&		&  	& \\
 %    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
 %    \hline
-%            & \CODE{DPR.CATG==SCIENCE} & \NEWREC{metis_N_lss_mf_correct} & Object name &  & Absorption corrected\\
+%            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_mf_correct} & Object name &  & Absorption corrected\\
 %    		& \CODE{DPR.TYPE==LSS}   &			   &  & & science spectrum\\
 %    		& \CODE{DPR.TECH==TBD}  &			&		&	& \\
 %    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
@@ -265,16 +265,16 @@ In general, there are four major steps in each of the two cascades:
 \subsubsection{Static calibration database}\label{lss:static_calib}
 The static calibration database comprises several data sets, some are updated from time to time:
 \begin{itemize}
-    \item \NEWPROD{GAIN_MAP_2RG}, \NEWPROD{GAIN_MAP_GEO}: These are the detector gain maps of the detectors (2RG=Hawaii2RG, LM-band; GEO=Geosnap, N-band), which are created by the recipe \NEWREC{metis_det_lingain} (see Section~\ref{sssec:metis_det_lingain}). This recipe is carried out every once in a while (see~\cite{METIS-calibration_plan}) as we assume the detectors to be fairly stable.
-    \item \NEWPROD{LINEARITY_2RG}, \NEWPROD{LINEARITY_GEO}: These are the coefficients for the correction of the linearity of the individual pixels. Also created by the recipe \NEWREC{metis_det_lingain} (see Section~\ref{sssec:metis_det_lingain}). 
-    \item \NEWSTATCALIB{LASER_TAB}: The \ac{WCU} provides laser sources for the first guess of the wavelength solution. The main laser frequencies are fixed (\cite{METIS-calibration_plan}) and given in a static table.
-    \item \NEWEXTCALIB{ATM_LINE_CAT}: The main wavelength calibration will be done by means of atmospheric lines, most probably based on the \ac{HITRAN}\footnote{\url{https://hitran.org/}}. They are given in a static catalogue. This database is also required by the telluric correction package \texttt{molecfit}.
-    \item \NEWSTATCALIB{LM_SYNTH_TRANS}/\NEWSTATCALIB{N_SYNTH_TRANS}: For the determination of the continuum of flux standard stars a rough telluric correction is needed. We intend to also offer the possibility to apply static transmission curves for that purpose for performance reasons. These static transmission curves will be determined during commissioning via \texttt{molecfit} or by means of the ESO SkyCalc Tool\footnote{\url{https://www.eso.org/observing/etc/bin/gen/form?INS.MODE=swspectr+INS.NAME=SKYCALC}}.
-    \item \NEWEXTCALIB{AO_PSF_MODEL}: Due to the broad wings of the \ac{PSF} there might be a fraction of the flux falling outside the long slits, leading to some losses. Depending on the stability of the \ac{AO} performance, these losses might be non-constant and maybe need some correction by estimating width of the \ac{PSF}. One idea is to incorporate a static \ac{PSF} model, which is scaled by some \ac{AO} telemetry data. However, many details on that topic are still unclear. We therefore keep it as placeholder for the time being until it is clarified whether such a correction is necessary.
-    \item \NEWSTATCALIB{REF_STD_CAT}: Catalogue of standard stars used for the absolute flux calibration and (optionally) the telluric correction. This catalogue contains theoretical models of a set of standard stars (cf. Section~\ref{ssec:tellcorr}). 
-    %\item \NEWSTATCALIB{TSS_MODEL_CAT}: In some cases, the default modelling method for the telluric correction might not be possible or leading to bad results. We therefore foresee the possibility to use telluric standard stars. For the determination of the transmisison function a model of the selected telluric star is required to remove intrinisic stellar features. In this table, models of a set of such stars are provided to be used for that purpose.
-    %\item \NEWSTATCALIB{TSS_CONT_TAB}: Spectra of telluric standard stars need to be normalised to derive the transmission function of the Earth's atmosphere out of them. This normalisation is done by a polynomial fit on stellar regions unaffected by intrinsic or atmospheric features, ddepend also on the type of the selected star. This table provides continuum regions of the telluric standard star set.
-    \item \NEWSTATCALIB{LM_ADC_SLITLOSS}/\NEWSTATCALIB{N_ADC_SLITLOSS}: It is expected that the fixed positions of the \ac{ADC} will lead specific slit losses, which also depend on the object's position in the slit. The throughput as function of the across-slit position of the source is determined in the recipes \NEWREC{metis_lm_adc_slitloss} and \NEWREC{metis_n_adc_slitloss} (see Section~\ref{sssec:adc_slitlosses} and~\cite{METIS-calibration_plan}). As these losses are assumed to be very stable, these recipes will be carried out only rarely.
-    \item \NEWEXTCALIB{ATM_PROFILE} and \NEWSTATCALIB{LSF_KERNEL}: The telluric correction package \texttt{molecfit} requires an atmospheric profile incorporating height information of the temperature, pressure and molecular abundances as input. Currently we use a static profile (equatorial \texttt{equ.atm}\footnote{\url{https://eodg.atm.ox.ac.uk/RFM/atm/}}) as starting point of the fit of the molecular column densities. In addition, a kernel for the \ac{LSF} is provided. We intend to determine the kernel during commissioning and use this as input. However, it is still unclear in how far the \ac{AO} influences that kernel. The current baseline is to use the static \NEWSTATCALIB{LSF_KERNEL} as starting point for fitting the line spread function.
-    \item \NEWSTATCALIB{N_LSS_DIST_SOL}/\NEWSTATCALIB{N_LSS_WAVE_GUESS}: First guess solutions of the N-band LSS mode are static due to the absence of laser sources after \ac{AIT}. As the instrument is expected to be very stable, these calibration files will be created only once and kept static.
+    \item \PROD{GAIN_MAP_2RG}, \PROD{GAIN_MAP_GEO}: These are the detector gain maps of the detectors (2RG=Hawaii2RG, LM-band; GEO=Geosnap, N-band), which are created by the recipe \REC{metis_det_lingain} (see Section~\ref{sssec:metis_det_lingain}). This recipe is carried out every once in a while (see~\cite{METIS-calibration_plan}) as we assume the detectors to be fairly stable.
+    \item \PROD{LINEARITY_2RG}, \PROD{LINEARITY_GEO}: These are the coefficients for the correction of the linearity of the individual pixels. Also created by the recipe \REC{metis_det_lingain} (see Section~\ref{sssec:metis_det_lingain}). 
+    \item \STATCALIB{LASER_TAB}: The \ac{WCU} provides laser sources for the first guess of the wavelength solution. The main laser frequencies are fixed (\cite{METIS-calibration_plan}) and given in a static table.
+    \item \EXTCALIB{ATM_LINE_CAT}: The main wavelength calibration will be done by means of atmospheric lines, most probably based on the \ac{HITRAN}\footnote{\url{https://hitran.org/}}. They are given in a static catalogue. This database is also required by the telluric correction package \texttt{molecfit}.
+    \item \STATCALIB{LM_SYNTH_TRANS}/\STATCALIB{N_SYNTH_TRANS}: For the determination of the continuum of flux standard stars a rough telluric correction is needed. We intend to also offer the possibility to apply static transmission curves for that purpose for performance reasons. These static transmission curves will be determined during commissioning via \texttt{molecfit} or by means of the ESO SkyCalc Tool\footnote{\url{https://www.eso.org/observing/etc/bin/gen/form?INS.MODE=swspectr+INS.NAME=SKYCALC}}.
+    \item \EXTCALIB{AO_PSF_MODEL}: Due to the broad wings of the \ac{PSF} there might be a fraction of the flux falling outside the long slits, leading to some losses. Depending on the stability of the \ac{AO} performance, these losses might be non-constant and maybe need some correction by estimating width of the \ac{PSF}. One idea is to incorporate a static \ac{PSF} model, which is scaled by some \ac{AO} telemetry data. However, many details on that topic are still unclear. We therefore keep it as placeholder for the time being until it is clarified whether such a correction is necessary.
+    \item \STATCALIB{REF_STD_CAT}: Catalogue of standard stars used for the absolute flux calibration and (optionally) the telluric correction. This catalogue contains theoretical models of a set of standard stars (cf. Section~\ref{ssec:tellcorr}). 
+    %\item \STATCALIB{TSS_MODEL_CAT}: In some cases, the default modelling method for the telluric correction might not be possible or leading to bad results. We therefore foresee the possibility to use telluric standard stars. For the determination of the transmisison function a model of the selected telluric star is required to remove intrinisic stellar features. In this table, models of a set of such stars are provided to be used for that purpose.
+    %\item \STATCALIB{TSS_CONT_TAB}: Spectra of telluric standard stars need to be normalised to derive the transmission function of the Earth's atmosphere out of them. This normalisation is done by a polynomial fit on stellar regions unaffected by intrinsic or atmospheric features, ddepend also on the type of the selected star. This table provides continuum regions of the telluric standard star set.
+    \item \STATCALIB{LM_ADC_SLITLOSS}/\STATCALIB{N_ADC_SLITLOSS}: It is expected that the fixed positions of the \ac{ADC} will lead specific slit losses, which also depend on the object's position in the slit. The throughput as function of the across-slit position of the source is determined in the recipes \REC{metis_lm_adc_slitloss} and \REC{metis_n_adc_slitloss} (see Section~\ref{sssec:adc_slitlosses} and~\cite{METIS-calibration_plan}). As these losses are assumed to be very stable, these recipes will be carried out only rarely.
+    \item \EXTCALIB{ATM_PROFILE} and \STATCALIB{LSF_KERNEL}: The telluric correction package \texttt{molecfit} requires an atmospheric profile incorporating height information of the temperature, pressure and molecular abundances as input. Currently we use a static profile (equatorial \texttt{equ.atm}\footnote{\url{https://eodg.atm.ox.ac.uk/RFM/atm/}}) as starting point of the fit of the molecular column densities. In addition, a kernel for the \ac{LSF} is provided. We intend to determine the kernel during commissioning and use this as input. However, it is still unclear in how far the \ac{AO} influences that kernel. The current baseline is to use the static \STATCALIB{LSF_KERNEL} as starting point for fitting the line spread function.
+    \item \STATCALIB{N_LSS_DIST_SOL}/\STATCALIB{N_LSS_WAVE_GUESS}: First guess solutions of the N-band LSS mode are static due to the absence of laser sources after \ac{AIT}. As the instrument is expected to be very stable, these calibration files will be created only once and kept static.
 \end{itemize}

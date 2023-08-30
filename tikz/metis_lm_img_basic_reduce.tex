@@ -29,10 +29,10 @@
 
   %% input box
   \node (input) [below=0.75cm of start-m, input] {%
-    \textsl{N} \NEWRAW{LM_IMAGE_SCI_RAW} \\
+    \textsl{N} \RAW{LM_IMAGE_SCI_RAW} \\
 % TODO: This recipe is also for STD data
-%     \textsl{N} \NEWRAW{LM_STD_RAW} \\
-    \textsl{M} \NEWRAW{IFU_SKY_RAW}};
+%     \textsl{N} \RAW{LM_STD_RAW} \\
+    \textsl{M} \RAW{IFU_SKY_RAW}};
 
 
   %% algorithm steps
@@ -70,13 +70,13 @@
   \node (connect_linearity) [connection] at
   ($(input)!0.65!(step_linearity)$){};
   \node (linearity) [left=of connect_linearity, external]{%
-    \NEWEXTCALIB{LINEARITY_det}};
+    \EXTCALIB{LINEARITY_det}};
   \draw (linearity) -- (connect_linearity);
 
   \node (connect_persistence) [connection] at
   ($(step_linearity)!0.5!(step_persistence)$){};
   \node (persistence) [left=of connect_persistence, external]{%
-    \NEWEXTCALIB{PERSISTENCE_MAP}};
+    \EXTCALIB{PERSISTENCE_MAP}};
   \draw (persistence) -- (connect_persistence);
 
 %   \node (connectparams) [connection] at
@@ -89,20 +89,20 @@
   \node (connect_masterdark) [connection] at
   ($(step_persistence)!0.5!(step_dark)$){};
   \node (masterdark) [left=of connect_masterdark, calproduct]{%
-    \NEWSTATCALIB{MASTER_DARK_2RG}};
+    \STATCALIB{MASTER_DARK_2RG}};
   \draw (masterdark) -- (connect_masterdark);
 
   \node (connect_masterflat) [connection] at
   ($(step_dark)!0.5!(step_flat)$){};
   \node (flatin) [left=of connect_masterflat, calproduct]{%
-    \NEWSTATCALIB{MASTER_IMG_FLAT_LAMP_LM}\\
-    or \NEWSTATCALIB{MASTER_IMG_FLAT_TWILIGHT_LM}};
+    \STATCALIB{MASTER_IMG_FLAT_LAMP_LM}\\
+    or \STATCALIB{MASTER_IMG_FLAT_TWILIGHT_LM}};
   \draw (flatin) -- (connect_masterflat);
 
   \node (connect_bpm) [connection] at
   ($(step_flat)!0.5!(step_masks)$){};
   \node (bpmin) [left=of connect_bpm, calproduct]{%
-    \NEWSTATCALIB{BADPIX_MAP_2RG}};
+    \STATCALIB{BADPIX_MAP_2RG}};
   \draw (bpmin) -- (connect_bpm);
 
 
@@ -110,13 +110,13 @@
   \node (connect_scired) [connection] at
     ($(step_masks)!0.3!(stop-t)$){};
   \node (scired) [right=of connect_scired, external]{%
-    \NEWPROD{LM_SCI_BASIC_REDUCED}};
+    \PROD{LM_SCI_BASIC_REDUCED}};
   \draw (connect_scired) -- (scired);
 
   \node (connect_stdred) [connection] at
     ($(connect_scired)!0.5!(stop-t)$){};
   \node (stdred) [right=of connect_stdred, external]{%
-    \NEWPROD{LM_STD_BASIC_REDUCED}};
+    \PROD{LM_STD_BASIC_REDUCED}};
   \draw (connect_stdred) -- (stdred);
 
 

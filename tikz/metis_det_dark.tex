@@ -24,19 +24,19 @@
     \TPL{METIS_gen_cal_dark}\\
     \TPL{METIS_gen_cal_InsDark}};
   \pic (start) [below=0.75cm of template] {start};
-  \node (input) [below=0.75cm of start-m, input] {\textsl{N} \NEWRAW{DARK_det_RAW}};
+  \node (input) [below=0.75cm of start-m, input] {\textsl{N} \RAW{DARK_det_RAW}};
   \node (step_linearity) [below=2.0cm of input, redstep] {%
     apply non-linearity correction};
 
   \node (connectlinearity) [connection] at ($(input)!0.65!(step_linearity)$){};
-  \node (linearity) [left=of connectlinearity, external]{\STATCALIB{LINEARITY_det}};
+  \node (linearity) [left=of connectlinearity, external]{\STATCALIB*{LINEARITY_det}};
   \draw (linearity) -- (connectlinearity);
 
   \node (step_persistence) [below of=step_linearity, redstep] {%
     apply persistence correction};
 
   \node (connectpersistence) [connection] at ($(step_linearity)!0.5!(step_persistence)$){};
-  \node (persistence) [left=of connectpersistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
+  \node (persistence) [left=of connectpersistence, external]{\EXTCALIB*{PERSISTENCE_MAP}};
   \draw (persistence) -- (connectpersistence);
 
   \node (step_filtering) [below of=step_persistence, redstep] {%
@@ -54,11 +54,11 @@
 
   %% Output
   \node (connectdark) [connection] at ($(step_filtering)!0.5!(step_thresholding)$){};
-  \node (masterdark) [right=of connectdark, calproduct] {\NEWSTATCALIB{MASTER_DARK_det}};
+  \node (masterdark) [right=of connectdark, calproduct] {\STATCALIB{MASTER_DARK_det}};
   \draw (connectdark) -- (masterdark);
 
   \node (connecthot) [connection] at ($(step_thresholding)!0.5!(stop-t)$){};
-  \node (hot) [right=of connecthot, calproduct] {\NEWSTATCALIB{BADPIX_MAP_det}};
+  \node (hot) [right=of connecthot, calproduct] {\STATCALIB{BADPIX_MAP_det}};
   \draw (connecthot) -- (hot);
 
   %% frame around recipe

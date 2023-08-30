@@ -30,7 +30,7 @@
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input]{%
-    \textsl{N} \NEWRAW{IFU_RSRF_RAW}
+    \textsl{N} \RAW{IFU_RSRF_RAW}
   };
 
   \node (step_detrend) [below=2.5cm of input, redstep]{%
@@ -69,21 +69,21 @@
   \node (connect_dark) [connection] at
     ($(input)!0.35!(step_detrend)$) {};
   \node (darkin) [left=of connect_dark, calproduct]{%
-    \NEWSTATCALIB{MASTER_DARK_IFU}
+    \STATCALIB{MASTER_DARK_IFU}
   };
   \draw (darkin.east) -- (connect_dark);
 
   \node (connect_bp) [connection] at
     ($(input)!0.65!(step_detrend)$) {};
   \node (bpmin) [left=of connect_bp, calproduct]{%
-    \NEWSTATCALIB{BADPIX_MAP_IFU}
+    \STATCALIB{BADPIX_MAP_IFU}
   };
   \draw (bpmin.east) -- (connect_bp);
 
   \node (connect_wavecal) [connection] at
     ($(step_detrend)!0.5!(step_normalize)$) {};
   \node (wavecal) [left=of connect_wavecal, calproduct]{%
-    \NEWSTATCALIB{IFU_WAVECAL}
+    \STATCALIB{IFU_WAVECAL}
   };
   \draw (wavecal) -- (connect_wavecal);
 
@@ -91,21 +91,21 @@
   \node (connectrsrf) [connection] at
   ($(step_average)!0.25!(stop-t)$) {};
   \node (rsrf) [right=of connectrsrf, calproduct]{%
-    \NEWSTATCALIB{RSRF_IFU}
+    \STATCALIB{RSRF_IFU}
   };
   \draw (connectrsrf) -- (rsrf);
 
   \node (connectflat) [connection] at
   ($(step_average)!0.5!(stop-t)$) {};
   \node (flat) [right=of connectflat, calproduct]{%
-    \NEWSTATCALIB{MASTER_FLAT_IFU}
+    \STATCALIB{MASTER_FLAT_IFU}
   };
   \draw (connectflat) -- (flat);
 
   \node (connectbpm) [connection] at
   ($(step_average)!0.75!(stop-t)$) {};
   \node (bpm) [right=of connectbpm, calproduct]{%
-    \NEWSTATCALIB{BADPIX_MAP_IFU}
+    \STATCALIB{BADPIX_MAP_IFU}
   };
   \draw (connectbpm) -- (bpm);
 

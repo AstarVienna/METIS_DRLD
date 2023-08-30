@@ -3,9 +3,9 @@
 %---------------------------------------------------------------------
 \subsubsection{Determine Dark Frames}\label{drl:det_dark}\label{drl:metis_determine_dark}
 \begin{recipedef}
-Name: & \NEWDRL{metis_determine_dark} \\
+Name: & \DRL{metis_determine_dark} \\
 Purpose: & Determine the dark current of the detectors and create dark images\\
-Used in recipes: & \NEWREC{metis_det_dark}, \NEWREC{metis_det_lingain}\\
+Used in recipes: & \REC{metis_det_dark}, \REC{metis_det_lingain}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
@@ -26,9 +26,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Flag Deviant Pixels in Dark Frame}\label{drl:update_dark_mask}\label{drl:metis_update_dark_mask}
 \begin{recipedef}
-Name: & \NEWDRL{metis_update_dark_mask} \\
+Name: & \DRL{metis_update_dark_mask} \\
 Purpose: & Flag deviant (hot, cold, bad) pixels in the master dark and update the image mask\\
-Used in recipes: & \NEWREC{metis_det_dark}\\
+Used in recipes: & \REC{metis_det_dark}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\ 
@@ -48,9 +48,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Non-linearity Correction}\label{drl:img_nonlinear_correction}
 \begin{recipedef}
-Name: & \NEWDRL{img_nonlinear_correction} \\
+Name: & \DRL{img_nonlinear_correction} \\
 Purpose: &Correction for detector non-linearity\\
-Used in recipes: & \NEWREC{metis_lm_img_basic_reduce}\\
+Used in recipes: & \REC{metis_lm_img_basic_reduce}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
@@ -68,9 +68,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Crosstalk correction}\label{drl:img_crosstalk_correction}
 \begin{recipedef}
-Name: & \NEWDRL{img_crosstalk_correction} \\
+Name: & \DRL{img_crosstalk_correction} \\
 Purpose: &Correction for detector crosstalk\\
-Used in recipes: & \NEWREC{metis_lm_img_basic_reduce}\\
+Used in recipes: & \REC{metis_lm_img_basic_reduce}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
@@ -89,13 +89,13 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Apply Persistence Correction}\label{drl:metis_apply_persistence_correction}
 \begin{recipedef}
-Name: & \NEWDRL{metis_apply_persistence_correction} \\
+Name: & \DRL{metis_apply_persistence_correction} \\
 Purpose: & Apply the persistence correction to raw images\\
-Used in recipes: & \NEWREC{metis_lm_img_flat}\\
+Used in recipes: & \REC{metis_lm_img_flat}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-Other inputs: \NEWPROD{PERSISTENCE_MAP} \\
+Other inputs: \PROD{PERSISTENCE_MAP} \\
 QC outputs: \hyperref[qc:qc_persist_count]{\QC{QC PERSIST COUNT}} \\
 %Output FITS files: & None \\
 Outputs: & Corrected raw images\\
