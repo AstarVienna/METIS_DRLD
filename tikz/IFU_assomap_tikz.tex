@@ -277,8 +277,19 @@
   \draw [arrow] (RECscireduce_raw)  -- (RECscireduce_DIscireduced);
   \draw [arrow] (RECstdreduce_raw)  -- (RECstdreduce_DIstdreduced);
 
-  \draw [match] (REClin_DIlin) -- (RECscireduce_DIlin);
-  \draw [match] (RECpers_DIpers) -- (RECscireduce_DIpers);
+  \draw [match] (REClin_DIlin) --
+        (RECpers_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+        (RECgeom_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+        (RECrsrf_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+        (RECdark_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+        (RECwcal_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+        (RECscireduce_DIlin);
+  \draw [match] (RECpers_DIpers) -- 
+        (RECgeom_DIpers) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+        (RECrsrf_DIpers) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+        (RECdark_DIpers) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+        (RECwcal_DIpers) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+        (RECscireduce_DIpers);
   \draw [match] (RECdark_DIdark) -- (RECscireduce_DIdark);
 
   \draw [match] (RECrsrf_DIrsrf) -- (RECwcal_DIrsrf) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] -- (RECscireduce_DIrsrf);
