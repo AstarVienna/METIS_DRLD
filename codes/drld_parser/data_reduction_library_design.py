@@ -638,7 +638,12 @@ class DataReductionLibraryDesign:
         self.filenames_tex = glob.glob(os.path.join(self.path_drld, "*.tex"))
         # Regular tex files.
 
-        self.filenames_tikz = glob.glob(os.path.join(self.path_drld, "**/*.tex"))
+        fns_tikz = glob.glob(os.path.join(self.path_drld, "**/*.tex"))
+        # generated_sections.tex is generated in Makefile
+        self.filenames_tikz = [
+            fn for fn in fns_tikz if "generated_sections.tex" not in fn
+        ]
+
         # Tikz figures.
 
         self.recipes = self.get_recipes()
