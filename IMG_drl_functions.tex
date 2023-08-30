@@ -1,4 +1,3 @@
-
 \subsection{IMG observing mode}\label{sec:drl_functions_img}
 
 %---------------------------------------------------------------------
@@ -10,72 +9,71 @@
 
 \subsubsection{Detrending}\label{drl:img_detrend}
 \begin{recipedef}
-Name: & \hyperref[drl:img_detrend]{\DRL{img_detrend}} \\
-Purpose: &Remove detector signals\\
-Used in recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+    Name: & \NEWDRL{img_detrend} \\
+    Purpose: & Remove detector signals\\
+    Used in recipes: & \REC{metis_lm_img_basic_reduce} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input} \\
-&  \texttt{const ls\_master\_dark\_image * input} \\
-&  \texttt{const ls\_master\_flat\_image * input} \\
+    Input: & \texttt{const hdrl\_image * input} \\
+        &  \texttt{const ls\_master\_dark\_image * input} \\
+        &  \texttt{const ls\_master\_flat\_image * input} \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
-Outputs: & Detrended images [px]\\
-                & \texttt{cpl\_error\_code} \\
-General description: & De-trending the raw image \\
-Mathematical description: & See Section~\ref{rec:metis_lm_img_basic_reduce} \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See~\cite{DRLVT}. \\
-Unit tests: & See~\cite{DRLVT}. \\
+    Outputs: & Detrended images [px]\\
+        & \texttt{cpl\_error\_code} \\
+    General description: & De-trending the raw image \\
+    Mathematical description: & See Section~\ref{rec:metis_lm_img_basic_reduce} \\
+    Quality assessment: & Through QC parameters \\
+    Error conditions: & See~\cite{DRLVT}. \\
+    Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
-
 
 \subsubsection{Building sky background}\label{drl:img_skybackground_build}
 \begin{recipedef}
-Name: & \hyperref[drl:img_skybackground_build]{\DRL{img_skybackground_build}} \\
-Purpose: &Building thermal background signals\\
-Used in recipes: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input} \\
-        & \texttt{const ls\_skybackground\_image} \\
-        %\texttt{const ls\_master_dark_image * input} \\
-    %\texttt{const ls\_master_flat_image * input} \\
-%Other inputs: & None \\
-%QC outputs: & None\\
-%Output FITS files: & None \\
-Outputs: & Building sky background from images [px]\\
-                & \texttt{cpl\_error\_code} \\
-General description: & Removing sky backround from images \\
-Mathematical description: & See Section~\ref{rec:metis_lm_img_background} \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See~\cite{DRLVT}. \\
-Unit tests: & See~\cite{DRLVT}. \\
+    Name: & \NEWDRL{img_skybackground_build} \\
+    Purpose: &Building thermal background signals\\
+    Used in recipes: & \NEWREC{metis_lm_img_background} \\
+    %Working remarks: & None \\
+    %Function Parameters: & None \\
+    Input: & \texttt{const hdrl\_image * input} \\
+            & \texttt{const ls\_skybackground\_image} \\
+            %\texttt{const ls\_master_dark_image * input} \\
+        %\texttt{const ls\_master_flat_image * input} \\
+    %Other inputs: & None \\
+    %QC outputs: & None\\
+    %Output FITS files: & None \\
+    Outputs: & Building sky background from images [px]\\
+                    & \texttt{cpl\_error\_code} \\
+    General description: & Removing sky backround from images \\
+    Mathematical description: & See Section~\ref{rec:metis_lm_img_background} \\
+    Quality assessment: & Through QC parameters \\
+    Error conditions: & See~\cite{DRLVT}. \\
+    Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
         
     
 \subsubsection{Remove sky background}\label{drl:img_skybackground_removal}
 \begin{recipedef}
-Name: & \hyperref[drl:img_skybackground_removal]{\DRL{img_skybackground_removal}} \\
-Purpose: &Remove sky background signals\\
-Used in recipes: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input} \\
-      & \texttt{const ls\_skybackground\_image} \\
-     %\texttt{const ls\_master_dark_image * input} \\
-    %\texttt{const ls\_master_flat_image * input} \\
-%Other inputs: & None \\
-%QC outputs: & None\\
-%Output FITS files: & None \\
-Outputs: & Removing sky background from images [px]\\
-                & \texttt{cpl\_error\_code} \\
-General description: & Removing sky backround from images \\
-Mathematical description: & See Section~\ref{rec:metis_lm_img_background} \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See~\cite{DRLVT}. \\
-Unit tests: & See~\cite{DRLVT}. \\
+    Name: & \NEWDRL{img_skybackground_removal} \\
+    Purpose: &Remove sky background signals\\
+    Used in recipes: & \NEWREC{metis_lm_img_background} \\
+    %Working remarks: & None \\
+    %Function Parameters: & None \\
+    Input: & \texttt{const hdrl\_image * input} \\
+          & \texttt{const ls\_skybackground\_image} \\
+         %\texttt{const ls\_master_dark_image * input} \\
+        %\texttt{const ls\_master_flat_image * input} \\
+    %Other inputs: & None \\
+    %QC outputs: & None\\
+    %Output FITS files: & None \\
+    Outputs: & Removing sky background from images [px]\\
+                    & \texttt{cpl\_error\_code} \\
+    General description: & Removing sky backround from images \\
+    Mathematical description: & See Section~\ref{rec:metis_lm_img_background} \\
+    Quality assessment: & Through QC parameters \\
+    Error conditions: & See~\cite{DRLVT}. \\
+    Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
     
 %\subsubsection{Source extraction}\label{drl:img_source_extraction}
@@ -154,48 +152,48 @@ Unit tests: & See~\cite{DRLVT}. \\
 %\end{recipedef}
 
 
-\subsubsection{Create Master LM Flat}\label{drl:lm_img_flat}\label{drl:metis_lm_img_flat}
+\subsubsection{Create Master LM Flat} \label{drl:metis_lm_img_flat}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_lm_img_flat]{\DRL{metis_lm_img_flat}} \\
-Purpose: & Create master flat field for the LM-band imaging detector\\
-Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
+    Name: & \NEWDRL{metis_lm_img_flat} \\
+    Purpose: & Create master flat field for the LM-band imaging detector \\
+    Used in recipes: & \REC{metis_lm_img_flat} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
-& parameters for combination method\\
-&  \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}   \\
-QC outputs: & QC LM MASTERFLAT RMS\\
+    Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+    Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip}, \dots)\\
+        & parameters for combination method\\
+        & \NEWPROD{BADPIX_MAP_2RG}   \\
+    QC outputs: & QC LM MASTERFLAT RMS\\
 %Output FITS files: & None \\
-Outputs: & Master Flat\\
-         & \texttt{cpl\_error\_code} \\
-General description: & Determination of master flat for flat fielding \\
-Mathematical description: & Combine images with the same DIT, fit slope of pixels against illumination level \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See~\cite{DRLVT}. \\
-Unit tests: & See~\cite{DRLVT}. \\
+    Outputs: & Master Flat\\
+             & \texttt{cpl\_error\_code} \\
+    General description: & Determination of master flat for flat fielding \\
+    Mathematical description: & Combine images with the same DIT, fit slope of pixels against illumination level \\
+    Quality assessment: & Through QC parameters \\
+    Error conditions: & See~\cite{DRLVT}. \\
+    Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 \subsubsection{Create N Master Flat}\label{drl:n_img_flat}\label{drl:metis_n_img_flat}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_n_img_flat]{\DRL{metis_n_img_flat}} \\
-Purpose: & Create master flat field for the N-band imaging detector\\
-Used in recipes: & \hyperref[sssec:n_img_flatfield]{\REC{metis_n_img_flat}}\\
-%Working remarks: & None \\
-%Function Parameters: & None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
-& parameters for combination method\\
-&  \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}   \\
-QC outputs: & QC N MASTERFLAT RMS\\
-%Output FITS files: & None \\
-Outputs: & Master Flat\\
-         & \texttt{cpl\_error\_code} \\
-General description: & Determination of master flat for flat fielding \\
-Mathematical description: & Combine images with the same DIT, fit slope of pixels against illumination level \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & See~\cite{DRLVT}. \\
-Unit tests: & See~\cite{DRLVT}. \\
+    Name: & \NEWDRL{metis_n_img_flat} \\
+    Purpose: & Create master flat field for the N-band imaging detector\\
+    Used in recipes: & \NEWREC{metis_n_img_flat} \\
+    %Working remarks: & None \\
+    %Function Parameters: & None \\
+    Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+    Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
+        & parameters for combination method\\
+        & \NEWPROD{BADPIX_MAP_GEO}   \\
+    QC outputs: & QC N MASTERFLAT RMS\\
+    %Output FITS files: & None \\
+    Outputs: & Master Flat\\
+             & \texttt{cpl\_error\_code} \\
+    General description: & Determination of master flat for flat fielding \\
+    Mathematical description: & Combine images with the same DIT, fit slope of pixels against illumination level \\
+    Quality assessment: & Through QC parameters \\
+    Error conditions: & See~\cite{DRLVT}. \\
+    Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
@@ -250,41 +248,41 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{metis\_derive\_gain}\label{drl:metis_derive_gain}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_derive_gain]{\DRL{metis_derive_gain}} \\
-Purpose: & Determine the gain. \\
-Used in recipes: & \hyperref[sssec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+    Name: & \NEWDRL{metis_derive_gain} \\
+    Purpose: & Determine the gain. \\
+    Used in recipes: & \NEWREC{metis_det_lingain} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & $n\times$ \texttt{const double * means} \\
+    Input: & $n\times$ \texttt{const double * means} \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
-Outputs: & gain [e/adu] \\
+    Outputs: & gain [e/adu] \\
                & \texttt{cpl\_error\_code} \\
-General description: & Determine the gain as the slope of variance against mean of detlin images. \\
-Mathematical description: & See Section~\ref{sssec:gain} \\
-Quality assessment: & Through QC parameters \\
-Error conditions: & None. \\
+    General description: & Determine the gain as the slope of variance against mean of detlin images. \\
+    Mathematical description: & See Section~\ref{sssec:gain} \\
+    Quality assessment: & Through QC parameters \\
+    Error conditions: & None. \\
 %Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 %---------------------------------------------------------------------
 \subsubsection{metis\_derive\_nonlinearity}\label{drl:metis_derive_nonlinearity}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_derive_nonlinearity]{\DRL{metis_derive_nonlinearity}} \\
-Purpose: & Determine the non-linearity coefficients. \\
-Used in recipes: & \hyperref[sssec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+    Name: & \NEWDRL{metis_derive_nonlinearity} \\
+    Purpose: & Determine the non-linearity coefficients. \\
+    Used in recipes: & \NEWREC{metis_det_lingain} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & $n\times$ \texttt{hdrl\_image * image} Dark corrected non-linearity raws. \\
+    Input: & $n\times$ \texttt{hdrl\_image * image} Dark corrected non-linearity raws. \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
-Outputs: & \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_det}} \\
-               & \texttt{cpl\_error\_code} \\
-General description: & Determine the non-linearity coefficients. \\
-Mathematical description: & low-order polynomial fit of the individual pixel values as function of the illumination intensity\\
-Quality assessment: & Through QC parameters \\
-Error conditions: & None. \\
+    Outputs: & \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_det}} \\
+             & \texttt{cpl\_error\_code} \\
+    General description: & Determine the non-linearity coefficients. \\
+    Mathematical description: & low-order polynomial fit of the individual pixel values as function of the illumination intensity\\
+    Quality assessment: & Through QC parameters \\
+    Error conditions: & None. \\
 %Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
