@@ -37,16 +37,16 @@ recipe. If a bad-pixel map is provided on input, it is updated,
 otherwise a new one is created.
 
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}}                                        \\
+  Name:                & \NEWREC{metis_lm_img_flat}                                        \\
   Purpose:             & Create master flat field for the LM-band imaging detector.     \\
   Requirements:        & \REQ{METIS-6096}                                               \\
   Type:                & Calibration                                                    \\
   Templates:           & \TPL{METIS_img_lm_cal_InternalFlat}                            \\
                        & \TPL{METIS_img_lm_cal_TwilightFlat}                               \\
-  Input data:          & \hyperref[dataitem:lm_flat_lamp_raw]{\RAW{LM_FLAT_LAMP_RAW}} \\
-                       & or \hyperref[dataitem:lm_flat_twilight_raw]{\RAW{LM_FLAT_TWILIGHT_RAW}} \\
-                       & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}} (for twilight flats) \\
-                       & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}} \\
+  Input data:          & \NEWRAW{LM_FLAT_LAMP_RAW} \\
+                       & or \NEWRAW{LM_FLAT_TWILIGHT_RAW} \\
+                       & \NEWPROD{MASTER_DARK_2RG} (for twilight flats) \\
+                       & \NEWPROD{BADPIX_MAP_2RG} \\
   Matched keywords:    & Detector ID                                                    \\
                        & Filter ID                                                      \\
                        & ADC ID                                                         \\
@@ -56,16 +56,16 @@ otherwise a new one is created.
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
                          & Threshold(s) for deviant-pixel identification                  \\
- Algorithm:            & Call \hyperref[drl:metis_apply_persistence_correction]{\DRL{metis_apply_persistence_correction}} to apply the persistence correction \\
-                         & For internal flats: call \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}} with \CODE{LAMP OFF} images to create dark frame. \\
+ Algorithm:            & Call \NEWDRL{metis_apply_persistence_correction} to apply the persistence correction \\
+                         & For internal flats: call \NEWREC{metis_det_dark} with \CODE{LAMP OFF} images to create dark frame. \\
  & Subtract internal dark or master dark from flat exposures.     \\
-  & call \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}} to fit slope of pixel values against illumination level. Frames
+  & call \NEWREC{metis_lm_img_flat} to fit slope of pixel values against illumination level. Frames
   with the same exposure time will be averaged.\\
                        & Compute median or average of input frames to improve statistics.\\
-                       & Call \hyperref[drl:metis_update_lm_flat_mask]{\DRL{metis_update_lm_flat_mask}} to flag deviant pixels. \\
-  Output data:         & \hyperref[dataitem:master_img_flat_lamp_lm]{\PROD{MASTER_IMG_FLAT_LAMP_LM}} \\
-                       & or \hyperref[dataitem:master_img_flat_twilight_lm]{\PROD{MASTER_IMG_FLAT_TWILIGHT_LM}} \\
-                       & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}                                           \\
+                       & Call \NEWDRL{metis_update_lm_flat_mask} to flag deviant pixels. \\
+  Output data:         & \NEWPROD{MASTER_IMG_FLAT_LAMP_LM} \\
+                       & or \NEWPROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
+                       & \NEWPROD{BADPIX_MAP_2RG}                                           \\
   Expected accuracies: & 0.5\% (cf.~\cite{METIS_calerrbudget})                                                           \\
   QC1 parameters:      & \QC{QC LM MASTERFLAT RMS}                                      \\
                        & \QC{QC LM MASTERFLAT NBADPIX}                                        \\
@@ -112,7 +112,7 @@ In the vertical dimension, the masked pixels are used to correct for cross-talk.
 Basic statistics of the images can be used to screen for saturation.
 
 \begin{recipedef}
-  Name:             & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}   \\
+  Name:             & \NEWREC{metis_lm_img_basic_reduce}   \\
   Purpose:          & apply basic reduction of images   \\
   Requirements:     & \REQ{METIS-6090} \\
   Type:             & Calibration, Science              \\
@@ -137,20 +137,20 @@ Basic statistics of the images can be used to screen for saturation.
                     & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
                     & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
                     & \TPL{METIS_ifu_cal_psf}                                                                  \\
-  Input data:       & \hyperref[dataitem:lm_image_sci_raw]{\RAW{LM_IMAGE_SCI_RAW}} (Dithered images (standard, science) \\
-%                     & \hyperref[dataitem:ifu_sky_raw]{\RAW{IFU_SKY_RAW}} (Blank sky images, if available.) \\
-%                     & \hyperref[dataitem:lm_detector_mask]{\EXTCALIB{LM_DETECTOR_MASK}} (if available)  \\
-                    & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}} \\
-                    & \hyperref[dataitem:master_img_flat_lamp_lm]{\PROD{MASTER_IMG_FLAT_LAMP_LM}} \\
-                    & or \hyperref[dataitem:master_img_flat_twilight_lm]{\PROD{MASTER_IMG_FLAT_TWILIGHT_LM}} \\
+  Input data:       & \NEWRAW{LM_IMAGE_SCI_RAW} (Dithered images (standard, science) \\
+%                     & \NEWRAW{IFU_SKY_RAW} (Blank sky images, if available.) \\
+%                     & \NEWEXTCALIB{LM_DETECTOR_MASK} (if available)  \\
+                    & \NEWPROD{MASTER_DARK_2RG} \\
+                    & \NEWPROD{MASTER_IMG_FLAT_LAMP_LM} \\
+                    & or \NEWPROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
   Matched keywords: & DIT (for dark)                    \\
                     & Filter ID (for flat)              \\
   Algorithm:        & Remove crosstalk, correct non-linearity \\
                     & Analyse and optionally remove masked regions  \\
                     & Subtract dark, divide by flat       \\
                     & Remove blank sky pattern                \\
-  Output data:      & \hyperref[dataitem:lm_sci_basic_reduced]{\PROD{LM_SCI_BASIC_REDUCED}}       \\
-                    & \hyperref[dataitem:lm_std_basic_reduced]{\PROD{LM_STD_BASIC_REDUCED}}       \\
+  Output data:      & \NEWPROD{LM_SCI_BASIC_REDUCED}       \\
+                    & \NEWPROD{LM_STD_BASIC_REDUCED}       \\
   QC1 parameters:   & \QC{QC LM IMG MEDIAN}             \\
                     & \QC{QC LM IMG STANDARD DEVIATION} \\
                     & \QC{QC LM IMG PEAK}               \\
@@ -212,7 +212,7 @@ For extended objects, all out-of-field exposures will be averaged
 % \TODO{Is this good enough for HCI images or do we need more?}
 
 \begin{recipedef}
-  Name:             & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}                             \\
+  Name:             & \NEWREC{metis_lm_img_background}                             \\
   Purpose:          & estimate and subtract background                          \\
   Requirements:     & \REQ{METIS-6085} and \REQ{METIS-6086} \\
   Type:             & Calibration                                               \\
@@ -226,17 +226,17 @@ For extended objects, all out-of-field exposures will be averaged
 %                    & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
 %                    & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
 %                    & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
-  Input data:       & \hyperref[dataitem:lm_sci_basic_reduced]{\PROD{LM_SCI_BASIC_REDUCED}}                               \\
-                    & \hyperref[dataitem:lm_std_basic_reduced]{\PROD{LM_STD_BASIC_REDUCED}}                               \\
+  Input data:       & \NEWPROD{LM_SCI_BASIC_REDUCED}                               \\
+                    & \NEWPROD{LM_STD_BASIC_REDUCED}                               \\
   Matched keywords: & dither position (\CODE{SKY}?                         \\
   Algorithm:        & Average all or \CODE{SKY} exposures with object rejection \\
                     & Subtract background                                       \\
-  Output data:      & \hyperref[dataitem:lm_sci_bkg]{\PROD{LM_SCI_BKG}}                                         \\
-                    & \hyperref[dataitem:lm_std_bkg]{\PROD{LM_STD_BKG}}                                         \\
-                    & \hyperref[dataitem:lm_sci_bkg_subtracted]{\PROD{LM_SCI_BKG_SUBTRACTED}}                              \\
-                    & \hyperref[dataitem:lm_std_bkg_subtracted]{\PROD{LM_STD_BKG_SUBTRACTED}}                              \\
-                    & \hyperref[dataitem:lm_sci_object_cat]{\PROD{LM_SCI_OBJECT_CAT}}                                  \\
-                    & \hyperref[dataitem:lm_std_object_cat]{\PROD{LM_STD_OBJECT_CAT}}                                  \\
+  Output data:      & \NEWPROD{LM_SCI_BKG}                                         \\
+                    & \NEWPROD{LM_STD_BKG}                                         \\
+                    & \NEWPROD{LM_SCI_BKG_SUBTRACTED}                              \\
+                    & \NEWPROD{LM_STD_BKG_SUBTRACTED}                              \\
+                    & \NEWPROD{LM_SCI_OBJECT_CAT}                                  \\
+                    & \NEWPROD{LM_STD_OBJECT_CAT}                                  \\
   QC1 parameters:   & \QC{QC LM IMG BKG MEDIAN}                                 \\
                     & \QC{QC LM IMG BKG MEDIAN DEVIATION}                       \\
   hdrl functions:   & \CODE{hdrl_imagelist_sub_image}                           \\
@@ -296,7 +296,7 @@ For extended objects, all out-of-field exposures will be averaged
 %   Purpose:             & Determine conversion factor between pixel and world coordinates              \\
 %   Type:                & Calibration                                                                  \\
 %   Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
-%   Input data:          & \hyperref[dataitem:lm_std_bkg_subtracted]{\PROD{LM_STD_BKG_SUBTRACTED}}                                                 \\
+%   Input data:          & \NEWPROD{LM_STD_BKG_SUBTRACTED}                                                 \\
 %                        & photometric standard catalogue                                               \\
 %   Matched keywords:    & OBJECT ID                                                                    \\
 %                        & FILTER ID                                                                    \\
@@ -304,8 +304,8 @@ For extended objects, all out-of-field exposures will be averaged
 %   Algorithm:           & Measure position of stars in pixel coordinates                               \\
 %                        & Compute conversion factor to world coordinates                               \\
 %                        & Measure and evaluate the error.                                              \\
-%   Output data:         & \hyperref[dataitem:lm_std_ast_calib]{\PROD{LM_STD_AST_CALIB}}                                                      \\
-%                        & \hyperref[dataitem:astrometry_tab]{\PROD{ASTROMETRY_TAB}}                                                        \\
+%   Output data:         & \NEWPROD{LM_STD_AST_CALIB}                                                      \\
+%                        & \NEWPROD{ASTROMETRY_TAB}                                                        \\
 %   Expected accuracies: &  $>$0.1$\arcsec$                                                                    \\
 %   QC1 parameters:      & \QC{QC LM AST X POS ERR}                                                     \\
 %                        & \QC{QC LM AST Y POS ERR}                                                     \\
@@ -349,25 +349,25 @@ detection of point sources and surface brightness sensitivity
 following~\cite{visir_manual}.
 
 \begin{recipedef}\label{rec:metis_lm_img_std_process}
-  Name:                & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}                                               \\
+  Name:                & \NEWREC{metis_lm_img_std_process}                                               \\
   Purpose:             & Determine conversion factor between detector counts and physical source flux \\
   Type:                & Calibration                                                                  \\
 % HB 20230710: I've commented the template out because this recipe is not triggered directly by a template.
 %  Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
-  Input data:          & \hyperref[dataitem:lm_std_bkg_subtracted]{\PROD{LM_STD_BKG_SUBTRACTED}}                                                 \\
-                       & \hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}} (photometric standard catalogue) \\
+  Input data:          & \NEWPROD{LM_STD_BKG_SUBTRACTED}                                                 \\
+                       & \NEWEXTCALIB{FLUXSTD_CATALOG} (photometric standard catalogue) \\
   Matched keywords:    & OBJECT ID                                                                    \\
                        & FILTER ID                                                                    \\
   Parameters:          & None                                                                         \\
-  Algorithm:           & Call \hyperref[drl:lm_calculate_std_flux]{\DRL{lm_calculate_std_flux}} to measure flux in input images                      \\
-%                       & call \hyperref[drl:recentre_img]{\DRL{recentre_img}} to recentre and stack images                         \\
+  Algorithm:           & Call \NEWDRL{lm_calculate_std_flux} to measure flux in input images                      \\
+%                       & call \NEWDRL{recentre_img} to recentre and stack images                         \\
                        & call \CODE{hdrl_resample_compute} to recenter the images \\
                        & call \CODE{hdrl_imagelist_collapse} to stack the images \\
-                       & call \hyperref[drl:lm_calculate_std_flux]{\DRL{lm_calculate_std_flux}} on the stacked image to get flux of the star in detector units\\
-                       & call \hyperref[drl:calculate_std_fluxcal]{\DRL{calculate_std_fluxcal}} to calculate the conversion factor to physical units    \\
-                       & call \hyperref[drl:calculate_detection_limits]{\DRL{calculate_detection_limits}} to compute measure background noise (std,rms) and compute detection limits \\
-  Output data:         & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}}                                                       \\
-                       & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                           \\
+                       & call \NEWDRL{lm_calculate_std_flux} on the stacked image to get flux of the star in detector units\\
+                       & call \NEWDRL{calculate_std_fluxcal} to calculate the conversion factor to physical units    \\
+                       & call \NEWDRL{calculate_detection_limits} to compute measure background noise (std,rms) and compute detection limits \\
+  Output data:         & \NEWPROD{LM_STD_COMBINED}                                                       \\
+                       & \NEWPROD{FLUXCAL_TAB}                                                           \\
   Expected accuracies: & 3\% (cf.~\cite{METIS_calerrbudget})                                          \\
   QC1 parameters:      & \QC{QC LM IMG STD BACKGD RMS}                                                \\
                        & \QC{QC LM STD PEAK CNTS}                                                     \\
@@ -424,24 +424,24 @@ from exposure to exposure.  The information about the field
 orientation along with target coordinates, pixel scale and
 higher-order polynomial distortion coefficients is written to the FITS
 header. The images are not resampled by this recipe, this is left to
- \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}}.
+ \NEWREC{metis_lm_img_sci_postprocess}.
 
 
 
 \begin{recipedef}
-  Name:              & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}                     \\
+  Name:              & \NEWREC{metis_lm_img_calibrate}                     \\
   Purpose:           & Convert science images to physical units         \\
                      & Add distortion information                       \\
   Type:              & Calibration                                      \\
   Templates          & None                                             \\
-  Input data:        & \hyperref[dataitem:lm_sci_bkg_subtracted]{\PROD{LM_SCI_BKG_SUBTRACTED}}                     \\
-                     & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                               \\
-                     & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}                       \\
+  Input data:        & \NEWPROD{LM_SCI_BKG_SUBTRACTED}                     \\
+                     & \NEWPROD{FLUXCAL_TAB}                               \\
+                     & \NEWPROD{LM_DISTORTION_TABLE}                       \\
   Matched keywords:  & Filter ID                                        \\
   Parameters:        & None                                             \\
-  Algorithm:         & call \hyperref[drl:lm_scale_image_flux]{\DRL{lm_scale_image_flux}} to Scale image data to ph/s \\
+  Algorithm:         & call \NEWDRL{lm_scale_image_flux} to Scale image data to ph/s \\
                      & add header information (\FITS{BUNIT}, WCS, etc.) \\
-  Output data:       & \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}}                         \\
+  Output data:       & \NEWPROD{LM_SCI_CALIBRATED}                         \\
   QC1 parameters:    & None                                             \\
   hdrl functions:    & \CODE{hdrl_imagelist_mult_scalar}                \\
 \end{recipedef}
@@ -480,22 +480,22 @@ This recipe will only be used in the science-grade pipelines, not at
 the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant with \REQ{METIS-6104}.
 
 \begin{recipedef}\label{rec:metis_lm_img_sci_postprocess}
-  Name:                & \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}}                         \\
+  Name:                & \NEWREC{metis_lm_img_sci_postprocess}                         \\
   Purpose:             & Coadd reduced images.                                      \\
   Requirements:        & \REQ{METIS-6104}                                           \\
   Templates:           & None                                                       \\
   Type:                & Science                                                    \\
-  Input data:          & \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}} (Calibrated science images)       \\
-                       & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}} (Associated bad-pixel maps)           \\
+  Input data:          & \NEWPROD{LM_SCI_CALIBRATED} (Calibrated science images)       \\
+                       & \NEWPROD{BADPIX_MAP_2RG} (Associated bad-pixel maps)           \\
   Parameters:          & None                                                       \\
   Algorithm:           & Check and refine WCS of input images by using the \ac{WFS-FS} data. \\
                        & Determine output pixel grid encompassing all input images. \\
                        & Call \CODE{hdrl_resample_compute} to recenter the images. \\
                        & Call \CODE{hdrl_imagelist_collapse} to stack the images. \\
-  Output data:         & \hyperref[dataitem:lm_sci_coadd]{\PROD{LM_SCI_COADD}} (coadded, mosaiced image)              \\
+  Output data:         & \NEWPROD{LM_SCI_COADD} (coadded, mosaiced image)              \\
 % TheLM_SCI_COADD_ERROR and LM_SCI_COADD_CONTRIB can be layers in LM_SCI_COADD
-%                        & \hyperref[dataitem:lm_sci_coadd_error]{\PROD{LM_SCI_COADD_ERROR}} (coadded, mosaiced error image)  \\
-%                        & \hyperref[dataitem:lm_sci_coadd_contrib]{\PROD{LM_SCI_COADD_CONTRIB}} (contribution map)             \\
+%                        & \NEWPROD{LM_SCI_COADD_ERROR} (coadded, mosaiced error image)  \\
+%                        & \NEWPROD{LM_SCI_COADD_CONTRIB} (contribution map)             \\
   Expected accuracies: & n/a                                                       \\
   QC1 parameters:      & \QC{QC LM SCI NEXPOSURE}                                   \\
 \end{recipedef}
@@ -506,7 +506,7 @@ the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant
     \fontsize{10}{12}\selectfont
     \input{tikz/metis_lm_img_sci_postprocess}
   \caption[Recipe: \REC{metis_lm_img_sci_postprocess}]{%
-    \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}} -- post-processing (coaddition)
+    \NEWREC{metis_lm_img_sci_postprocess} -- post-processing (coaddition)
     of reduced \CODE{IMG_LM} science frames.}
   \label{fig:metis_lm_img_sci_postprocess}
 \end{figure}
@@ -528,23 +528,23 @@ other pipeline product. In addition to the distortion table, a map of
 pixel scale across the detector will be created.
 
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}                                   \\
+  Name:                & \NEWREC{metis_lm_img_distortion}                                   \\
   Purpose:             & Determine optical distortion coefficients for the LM imager.    \\
   Requirements:        & \REQ{METIS-6087}                                                \\
   Templates:           & \TPL{METIS_img_lm_cal_distortion}                               \\
   Type:                & Calibration                                                     \\
-  Input data:          & \hyperref[dataitem:lm_distortion_raw]{\RAW{LM_DISTORTION_RAW}} (Images of grid mask in WCU-FP2 or CFO-FP2.)\\
-                       & \hyperref[dataitem:lm_wcu_off_raw]{\RAW{LM_WCU_OFF_RAW}} \\
-                       & \hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}} (Grid of pinhole mask positions) \\
-                       & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}} \\
+  Input data:          & \NEWRAW{LM_DISTORTION_RAW} (Images of grid mask in WCU-FP2 or CFO-FP2.)\\
+                       & \NEWRAW{LM_WCU_OFF_RAW} \\
+                       & \NEWEXTCALIB{PINHOLE_TABLE} (Grid of pinhole mask positions) \\
+                       & \NEWPROD{BADPIX_MAP_2RG} \\
   Parameters:          & Parameters for fitting routine      \\
 %                       & \TBD \\
   Algorithm:           & Subtract background image.    (\CODE{hdrl_imagelist_sub_image})                                  \\
                        & Measure location of point source images in frames (\CODE{hdrl_catalogue_create})             \\
                        & call \hyperref[drl:fit_distortion]{\CODE{fit_distortion}} to fit polynomial coefficients to deviations from grid positions.  \\
-  Output data:         & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}} \\
-                       & \hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}        \\
-                       & \hyperref[dataitem:lm_dist_reduced]{\PROD{LM_DIST_REDUCED}}               \\
+  Output data:         & \NEWPROD{LM_DISTORTION_TABLE} \\
+                       & \NEWPROD{LM_DISTORTION_MAP}        \\
+                       & \NEWPROD{LM_DIST_REDUCED}               \\
   Expected accuracies: & $10^{-3}$ (cf.~\cite{METIS_calerrbudget})                                                    \\
   QC1 parameters:      & \hyperref[qc:qc_lm_distort_rms]{\QC{QC LM DISTORT RMS}}                                          \\
                        & \hyperref[qc:qc_lm_distort_nsource]{\QC{QC LM DISTORT NSOURCE}}  \\
@@ -559,7 +559,7 @@ pixel scale across the detector will be created.
     \fontsize{10}{12}\selectfont
     \input{tikz/metis_lm_img_distortion}
     \caption[Recipe: \REC{metis_lm_img_distortion}]{%
-    \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}} -- LM IMG distortion calibration}
+    \NEWREC{metis_lm_img_distortion} -- LM IMG distortion calibration}
   \label{fig:metis_lm_img_distortion}
 \end{figure}
 

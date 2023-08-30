@@ -28,7 +28,7 @@ array for which data are being processed.
 \label{rec:metis_det_lingain}
 \label{rec:metisdetlingain}
 
-The recipe \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}} determines detector (non-)linearity and absolute detector
+The recipe \NEWREC{metis_det_lingain} determines detector (non-)linearity and absolute detector
 gain from a set of flat-field frames taken with the broad-band lamp
 over a range of detector exposure times (DITs) and flux levels. The
 recipe structure will be similar as for \CODE{detmon_ir_lg} % Not a \REC because it is not our recipe
@@ -60,24 +60,24 @@ This satisfies \REQ{METIS-5997}.
 
 \newpage
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}                                                             \\
+  Name:                & \NEWREC{metis_det_lingain}                                                             \\
   Purpose:             & determine non-linearity and gain of the detectors                                   \\
   Requirements:        & \REQ{METIS-5997}                                                                    \\
   Type:                & Calibration                                                                         \\
   Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
                        & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
-  Input data:          & \hyperref[dataitem:detlin_det_raw]{\RAW{DETLIN_det_RAW}}: (set of \FITS{FLAT,LAMP} frames taken with increasing DIT) \\
-                       & \hyperref[dataitem:det_wcu_off_raw]{\RAW{det_WCU_OFF_RAW}}: (set of internal darks taken at the start of the template) \\
+  Input data:          & \NEWRAW{DETLIN_det_RAW}: (set of \FITS{FLAT,LAMP} frames taken with increasing DIT) \\
+                       & \NEWRAW{det_WCU_OFF_RAW}: (set of internal darks taken at the start of the template) \\
 %  Matched keywords:    & Subsystem ID \TODO{TBD}                                                             \\
   Algorithm:           & Subtract instrument dark (\CODE{hdrl_imagelist_sub_image}).                         \\
                        & Compute mean and variance for each frame.                              \\
-                       & Gain is determined as the slope of variance against mean (\hyperref[drl:metis_derive_gain]{\DRL{metis_derive_gain}}) \\
+                       & Gain is determined as the slope of variance against mean (\NEWDRL{metis_derive_gain}) \\
                        & Fit polynomial of value as a function of DIT and illumination level for each pixel (\hyperref[drl:metis_derive_nonlinearity]{\CODE{metis_derive_nonlinearity}}). \\
                        & Flag pixels with coefficients significantly different from the mean of all pixels. (\CODE{hdrl_bpm_fit_compute}) \\
-  Output data:         & \hyperref[dataitem:gain_map_det]{\PROD{GAIN_MAP_det}}                                    \\
-                       & \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_det}}                                 \\
-                       & \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}                                \\
+  Output data:         & \NEWPROD{GAIN_MAP_det}                                    \\
+                       & \NEWPROD{LINEARITY_det}                                 \\
+                       & \NEWPROD{BADPIX_MAP_det}                                \\
   Expected accuracies: & 0.5\% background subtraction (cf.~\cite{METIS_calerrbudget})                             \\
                        & 0.1\% non-linearity measurement (cf.~\cite{METIS_calerrbudget})                          \\
   QC1 parameters:      & \hyperref[qc:qc_lin_gain_mean]{\QC{QC LIN GAIN MEAN}}                                    \\
@@ -125,30 +125,30 @@ the average over the detector.
 This fulfills \REQ{METIS-6063}.
 
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}                                                        \\
+  Name:                & \NEWREC{metis_det_dark}                                                        \\
   Purpose:             & determine the dark current of the detectors                                 \\
   Requirements:        & \REQ{METIS-6063}                                                            \\
   Type:                & Calibration                                                                 \\
   Templates:           & \TPL{METIS_gen_cal_dark}                                                    \\
                        & \TPL{METIS_gen_cal_InsDark}                                                 \\
-  Input data:          & \hyperref[dataitem:dark_det_raw]{\RAW{DARK_det_RAW}}  \\
-                       & \hyperref[dataitem:linearity_det]{\STATCALIB{LINEARITY_det}}  \\
+  Input data:          & \NEWRAW{DARK_det_RAW}  \\
+                       & \NEWSTATCALIB{LINEARITY_det}  \\
 % TODO: Remove persistence, because if the raw darks have persistence, we are doing something wrong
-                       & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
+                       & \NEWEXTCALIB{PERSISTENCE_MAP}  \\
   Parameters:          & Combination method (\texttt{median}, \texttt{mean},
                          \texttt{sigclip},\dots)                                                  \\
                        & Parameters for combination methods                                          \\
                        & Thresholds for deviant-pixel identification                                      \\
   Algorithm:           & Group files by detector and \texttt{DIT}, based on header keywords           \\
-                       & Call function \hyperref[drl:metis_determine_dark]{\DRL{metis_determine_dark}} for each set of files\\
-                       & call \hyperref[drl:metis_update_dark_mask]{\DRL{metis_update_dark_mask}} to flag deviant pixels \\
-  Output data:         & \hyperref[dataitem:master_dark_det]{\PROD{MASTER_DARK_det}}                                                      \\
+                       & Call function \NEWDRL{metis_determine_dark} for each set of files\\
+                       & call \NEWDRL{metis_update_dark_mask} to flag deviant pixels \\
+  Output data:         & \NEWPROD{MASTER_DARK_det}                                                      \\
 % The BPM_COLD_det and BPM_HOT_det do not seem to add value that BADPIX_MAP_det
 % does not already provide. Furthermore, the COLD/HOT specific items are not
 % otherwise used in the design, so it seems simpler to just remove them.
-%                       & \hyperref[dataitem:bpm_cold_det]{\PROD{BPM_COLD_det}}                                                         \\
-%                       & \hyperref[dataitem:bpm_hot_det]{\PROD{BPM_HOT_det}}                                                          \\
-                       & \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}                                                          \\
+%                       & \NEWPROD{BPM_COLD_det}                                                         \\
+%                       & \NEWPROD{BPM_HOT_det}                                                          \\
+                       & \NEWPROD{BADPIX_MAP_det}                                                          \\
   Expected accuracies: & 0.1\% (cf.~\cite{METIS_calerrbudget})                                          \\
   QC1 parameters:      & \QC{QC DARK MEAN}                                                              \\
                        & \QC{QC DARK MEDIAN}                                                            \\
@@ -181,14 +181,14 @@ calibration exposure is built from a sequence of exposures preceding the exposur
 We will update this Section as soon as more information is available.
 
 %\begin{recipedef}
-%  Name:                & \hyperref[rec:metis_det_persistence]{\REC{metis_det_persistence}}           \\
+%  Name:                & \NEWREC{metis_det_persistence}           \\
 %  Purpose:             & compute persistence correction maps        \\
 %  Requirements:        & \REQ{METIS-9145}                      \\
 %  Type:                & Calibration                           \\
 %  Templates:           & --                                    \\
 %  Parameters:          & \TBD                                  \\
 %  Algorithm:           & see hdrl functions:                   \\
-%  Output data:         & \hyperref[dataitem:persistence_map]{\PROD{PERSISTENCE_MAP}}                \\
+%  Output data:         & \NEWPROD{PERSISTENCE_MAP}                \\
 %  Expected accuracies: & \TBD                                  \\
 %  QC1 parameters:      & see hdrl functions:                   \\
 %  hdrl functions:      & \TBD (\CODE{hdrl_persistence_compute} \\

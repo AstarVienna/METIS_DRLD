@@ -29,7 +29,7 @@
   \pic (start) {start};
 
   \node (input) [below=0.75cm of start-m, input] {%
-    \hyperref[dataitem:lm_distortion_raw]{\RAW{LM_DISTORTION_RAW}}
+    \NEWRAW{LM_DISTORTION_RAW}
   };
 
   \node (step_subtract) [below=2.5cm of input, redstep]{%
@@ -47,17 +47,17 @@
   %% Input
   \node (connect_wcuoff) [connection] at
   ($(input)!0.65!(step_subtract)$) {};
-  \node (wcuoff) [left=of connect_wcuoff, input] {\hyperref[dataitem:lm_wcu_off_raw]{\RAW{LM_WCU_OFF_RAW}}};
+  \node (wcuoff) [left=of connect_wcuoff, input] {\NEWRAW{LM_WCU_OFF_RAW}};
   \draw (wcuoff) -- (connect_wcuoff);
 
   \node (connect_bpmin) [connection] at
   ($(step_subtract)!0.3!(step_locate)$) {};
-  \node (bpmin) [left=of connect_bpmin, calproduct] {\hyperref[dataitem:badpix_map_2rg]{\STATCALIB{BADPIX_MAP_2RG}}};
+  \node (bpmin) [left=of connect_bpmin, calproduct] {\NEWSTATCALIB{BADPIX_MAP_2RG}};
   \draw (bpmin) -- (connect_bpmin);
 
   \node (connect_pinhole) [connection] at
   ($(step_subtract)!0.7!(step_locate)$) {};
-  \node (pinhole) [left=of connect_pinhole, external] {\hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}}};
+  \node (pinhole) [left=of connect_pinhole, external] {\NEWEXTCALIB{PINHOLE_TABLE}};
   \draw (pinhole) -- (connect_pinhole);
 
   %% Connections
@@ -71,19 +71,19 @@
   \node (connectdisttable) [connection] at
   ($(step_fit)!0.25!(stop-t)$) {};
   \node (disttable) [right=of connectdisttable, calproduct, minimum width=4cm]{%
-    \hyperref[dataitem:lm_distortion_table]{\STATCALIB{LM_DISTORTION_TABLE}}};
+    \NEWSTATCALIB{LM_DISTORTION_TABLE}};
   \draw (connectdisttable) -- (disttable);
 
   \node (connectdistmap) [connection] at
   ($(step_fit)!0.5!(stop-t)$) {};
   \node (distmap) [right=of connectdistmap, calproduct, minimum width=4cm]{%
-    \hyperref[dataitem:lm_distortion_map]{\STATCALIB{LM_DISTORTION_MAP}}};
+    \NEWSTATCALIB{LM_DISTORTION_MAP}};
   \draw (connectdistmap) -- (distmap);
 
   \node (connectdistreduced) [connection] at
   ($(step_fit)!0.75!(stop-t)$) {};
   \node (distreduced) [right=of connectdistreduced, calproduct, minimum width=4cm]{%
-    \hyperref[dataitem:lm_dist_reduced]{\PROD{LM_DIST_REDUCED}}};
+    \NEWPROD{LM_DIST_REDUCED}};
   \draw (connectdistreduced) -- (distreduced);
 
   %% Frame around recipe

@@ -31,8 +31,8 @@
   \pic (start)[below=0.75cm of template]{start};
 
   \node (input) [below=0.75cm of start-m, input] {%
-    \textsl{N} \hyperref[dataitem:n_flat_lamp_raw]{\RAW{N_FLAT_LAMP_RAW}}\\
-    or \textsl{N} \hyperref[dataitem:n_flat_twilight_raw]{\RAW{N_FLAT_TWILIGHT_RAW}}};
+    \textsl{N} \NEWRAW{N_FLAT_LAMP_RAW}\\
+    or \textsl{N} \NEWRAW{N_FLAT_TWILIGHT_RAW}};
 
   \node (step_persistence) [below=2.0cm of input, redstep] {%
     apply persistence correction};
@@ -56,7 +56,7 @@
   \node (connectpers) [connection] at
   ($(input)!0.65!(step_persistence)$){};
   \node (persistence) [left=of connectpers, external]{%
-    \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}};
+    \NEWEXTCALIB{PERSISTENCE_MAP}};
   \draw (persistence) -- (connectpers);
 
 %   \node (connectparams) [connection] at
@@ -69,25 +69,25 @@
   \node (connectbpm) [connection] at
   ($(step_persistence)!0.3!(step_signature)$){};
   \node (bpmin) [left=of connectbpm, calproduct]{%
-    \hyperref[dataitem:badpix_map_geo]{\STATCALIB{BADPIX_MAP_GEO}}};
+    \NEWSTATCALIB{BADPIX_MAP_GEO}};
   \draw (bpmin) -- (connectbpm);
 
   \node (connection_masterdark) [connection] at
   ($(step_persistence)!0.7!(step_signature)$){};
   \node (darkin) [left=of connection_masterdark, calproduct]{%
-    \hyperref[dataitem:master_dark_geo]{\STATCALIB{MASTER_DARK_GEO}}};
+    \NEWSTATCALIB{MASTER_DARK_GEO}};
   \draw (darkin) -- (connection_masterdark);
 
   \node (connectflat) [connection] at
   ($(step_fit)!0.3!(stop-t)$){};
   \node (flatout) [right=of connectflat,calproduct]{%
-    \hyperref[dataitem:master_img_flat_lamp_n]{\STATCALIB{MASTER_IMG_FLAT_LAMP_N}}\\
-    or \hyperref[dataitem:master_img_flat_twilight_n]{\STATCALIB{MASTER_IMG_FLAT_TWILIGHT_N}}};
+    \NEWSTATCALIB{MASTER_IMG_FLAT_LAMP_N}\\
+    or \NEWSTATCALIB{MASTER_IMG_FLAT_TWILIGHT_N}};
   \draw (connectflat) -- (flatout);
 
   \node (connectbpm) [below=0.65cm of connectflat, connection]{};
   \node (bpmout) [right=of connectbpm, calproduct]{%
-    \hyperref[dataitem:badpix_map_geo]{\STATCALIB{BADPIX_MAP_GEO}}};
+    \NEWSTATCALIB{BADPIX_MAP_GEO}};
   \draw (connectbpm) -- (bpmout);
 
   %% Frame around recipe

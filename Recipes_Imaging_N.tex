@@ -48,15 +48,15 @@ recipe. If a bad-pixel map is provided on input, it is updated,
 otherwise a new one is created.
 
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}}                                         \\
+  Name:                & \NEWREC{metis_n_img_flat}                                         \\
   Purpose:             & Create master flat field for the N-band imaging detector.      \\
   Requirements:        & \REQ{METIS-6098}                                               \\
   Type:                & Calibration                                                    \\
   Templates:           & \TPL{METIS_img_n_cal_InternalFlat}                             \\
                        & \TPL{METIS_img_n_cal_TwilightFlat}                               \\
-  Input data:          & \hyperref[dataitem:n_flat_lamp_raw]{\RAW{N_FLAT_LAMP_RAW}} or \hyperref[dataitem:n_flat_twilight_raw]{\RAW{N_FLAT_TWILIGHT_RAW}} \\
-                       & \hyperref[dataitem:master_dark_geo]{\PROD{MASTER_DARK_GEO}} (for twilight flats)                               \\
-                       & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}                                                  \\
+  Input data:          & \NEWRAW{N_FLAT_LAMP_RAW} or \NEWRAW{N_FLAT_TWILIGHT_RAW} \\
+                       & \NEWPROD{MASTER_DARK_GEO} (for twilight flats)                               \\
+                       & \NEWPROD{BADPIX_MAP_GEO}                                                  \\
   Matched keywords:    & Detector ID                                                    \\
                        & Filter ID                                                      \\
                        & ADC ID                                                         \\
@@ -66,17 +66,17 @@ otherwise a new one is created.
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
                        & Threshold(s) for deviant-pixel identification                  \\
-  Algorithm:           & Call \hyperref[drl:metis_apply_persistence_correction]{\DRL{metis_apply_persistence_correction}} to apply the
+  Algorithm:           & Call \NEWDRL{metis_apply_persistence_correction} to apply the
                          persistence correction \\
-                       & For internal flats: call \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}} with \CODE{LAMP OFF}
+                       & For internal flats: call \NEWREC{metis_det_dark} with \CODE{LAMP OFF}
                        images to create dark frame. \\
                        & Subtract internal dark or master dark from flat exposures.     \\
-                       & call \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}} to fit slope of pixel values against
+                       & call \NEWREC{metis_n_img_flat} to fit slope of pixel values against
                        illumination level. Frames with the same exposure time will be averaged.\\
                        & Compute median or average of input frames to improve statistics.\\
-                       & Call \hyperref[drl:metis_update_n_flat_mask]{\DRL{metis_update_n_flat_mask}} to flag deviant pixels. \\
-  Output data:         & \hyperref[dataitem:master_img_flat_lamp_n]{\PROD{MASTER_IMG_FLAT_LAMP_N}} or \hyperref[dataitem:master_img_flat_twilight_n]{\PROD{MASTER_IMG_FLAT_TWILIGHT_N}} \\
-                       & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}                                            \\
+                       & Call \NEWDRL{metis_update_n_flat_mask} to flag deviant pixels. \\
+  Output data:         & \NEWPROD{MASTER_IMG_FLAT_LAMP_N} or \NEWPROD{MASTER_IMG_FLAT_TWILIGHT_N} \\
+                       & \NEWPROD{BADPIX_MAP_GEO}                                            \\
   Expected accuracies: & 0.5\% (cf.~\cite{METIS_calerrbudget})                                                           \\
   QC1 parameters:      & \QC{QC N MASTERFLAT RMS}                                       \\
                        & \QC{QC N MASTERFLAT NBADPIX}                                         \\
@@ -121,7 +121,7 @@ The edges of the N-band detector will be behind a cold mask on all four sides.
 
 
 \begin{recipedef}
-  Name:              & \hyperref[rec:metis_n_img_chopnod]{\REC{metis_n_img_chopnod}}                                    \\
+  Name:              & \NEWREC{metis_n_img_chopnod}                                    \\
   Purpose:           & chop/nod combination of exposures for background subtraction \\
   Requirements:      & \REQ{METIS-6089} \\
   Type:              & Calibration, Science                                         \\
@@ -133,18 +133,18 @@ The edges of the N-band detector will be behind a cold mask on all four sides.
                      & \TPL{METIS_img_n_cal_psf}                                    \\
                      & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
                      & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
-  Input data:        & \hyperref[dataitem:n_image_sci_raw]{\RAW{N_IMAGE_SCI_RAW}} (Chopped/nodded science or standard images)\\
-                     & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}} Bad-pixel map \\
-                     & \hyperref[dataitem:master_img_flat_lamp_n]{\PROD{MASTER_IMG_FLAT_LAMP_N}} \\
-                     & or \hyperref[dataitem:master_img_flat_twilight_n]{\PROD{MASTER_IMG_FLAT_TWILIGHT_N}} \\
+  Input data:        & \NEWRAW{N_IMAGE_SCI_RAW} (Chopped/nodded science or standard images)\\
+                     & \NEWPROD{BADPIX_MAP_GEO} Bad-pixel map \\
+                     & \NEWPROD{MASTER_IMG_FLAT_LAMP_N} \\
+                     & or \NEWPROD{MASTER_IMG_FLAT_TWILIGHT_N} \\
   Matched keywords:  & Filter ID                                                    \\
                      & Chop position                                                \\
                      & Nod position                                                 \\
   Parameters:        & None                                                         \\
   Algorithm:         & Analyse and optionally remove masked regions and correct crosstalk and ghosts \\
                      & Add/subtract images to subtract background                   \\
-  Output data:       & \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}                                  \\
-                     & \hyperref[dataitem:n_std_bkg_subtracted]{\PROD{N_STD_BKG_SUBTRACTED}}                                  \\
+  Output data:       & \NEWPROD{N_SCI_BKG_SUBTRACTED}                                  \\
+                     & \NEWPROD{N_STD_BKG_SUBTRACTED}                                  \\
   QC1 parameters:    & \QC{N IMG PEAK CNTS}                                         \\
   hdrl functions:    & \CODE{hdrl_imagelist_collapse}                               \\
 \end{recipedef}
@@ -184,21 +184,21 @@ detection of point sources and surface brightness sensitivity
 following~\cite{visir_manual}.
 
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}                                                 \\
+  Name:                & \NEWREC{metis_n_img_std_process}                                                 \\
   Purpose:             & Determine conversion factor between detector counts and physical source flux. \\
   Type:                & Calibration                                                                   \\
 % HB 20230710: Recipe not triggered by raw data
 %  Templates:           & \TPL{METIS_img_n_cal_standard}                                                \\
-  Input data:          & \hyperref[dataitem:n_std_bkg_subtracted]{\PROD{N_STD_BKG_SUBTRACTED}}                                                   \\
-                       & \hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}} \\
+  Input data:          & \NEWPROD{N_STD_BKG_SUBTRACTED}                                                   \\
+                       & \NEWEXTCALIB{FLUXSTD_CATALOG} \\
   Matched keywords:    & Object ID                                                                     \\
                        & Filter ID                                                                     \\
   Parameters:          & None                                                                          \\
-  Algorithm:           & call \hyperref[drl:n_calculate_std_flux]{\DRL{n_calculate_std_flux}} to measure the flux in all beams\\
+  Algorithm:           & call \NEWDRL{n_calculate_std_flux} to measure the flux in all beams\\
                        & average and normalize flux values \\
-                       & call \hyperref[drl:calculate_std_fluxcal]{\DRL{calculate_std_fluxcal}} to calculate conversion factor to physical units   \\
-                       & call \hyperref[drl:calculate_detection_limits]{\DRL{calculate_detection_limits}} to compute measured background noise (std, rms) and compute detection limits \\
-  Output data:         & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                            \\
+                       & call \NEWDRL{calculate_std_fluxcal} to calculate conversion factor to physical units   \\
+                       & call \NEWDRL{calculate_detection_limits} to compute measured background noise (std, rms) and compute detection limits \\
+  Output data:         & \NEWPROD{FLUXCAL_TAB}                                                            \\
   Expected accuracies: & 3\% (cf.~\cite{METIS_calerrbudget})                                           \\
   QC1 parameters:      & \QC{QC N STD PEAK CNTS}                                                       \\
                        & \QC{QC N STD APERTURE CNTS}                                                   \\
@@ -246,19 +246,19 @@ header receives the keyword \FITS{BUNIT} with value %
 \CODE{'photon.s**(-1).cm**(-2)'}.
 
 \begin{recipedef}
-  Name:              & \hyperref[rec:metis_n_img_calibrate]{\REC{metis_n_img_calibrate}}                      \\
+  Name:              & \NEWREC{metis_n_img_calibrate}                      \\
   Purpose:           & Convert science image to physical units          \\
                      & Add distortion information                       \\
   Type:              & Calibration                                      \\
   Templates:         &                                                  \\
-  Input data:        & \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}                      \\
-                     & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                               \\
-                     & \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}                        \\
+  Input data:        & \NEWPROD{N_SCI_BKG_SUBTRACTED}                      \\
+                     & \NEWPROD{FLUXCAL_TAB}                               \\
+                     & \NEWPROD{N_DISTORTION_TABLE}                        \\
   Matched keywords:  & Filter ID                                        \\
   Parameters:        & None                                             \\
-  Algorithm:         & call \hyperref[drl:n_scale_image_flux]{\DRL{n_scale_image_flux}} to Scale image data to ph/s \\
+  Algorithm:         & call \NEWDRL{n_scale_image_flux} to Scale image data to ph/s \\
                      & add header information (\FITS{BUNIT}, etc.)\\
-  Output data:       & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}                          \\
+  Output data:       & \NEWPROD{N_SCI_CALIBRATED}                          \\
   QC1 parameters:    & None                                             \\
 \end{recipedef}
 
@@ -286,14 +286,14 @@ source images and add the with the appropriate signs to obtain a
 single image. Extended sources are beyond the scope of the pipeline.
 
 \begin{recipedef}\label{rec:metis_n_img_restore}
-  Name:              & \hyperref[rec:metis_n_img_restore]{\REC{metis_n_img_restore}}                                     \\
+  Name:              & \NEWREC{metis_n_img_restore}                                     \\
   Purpose:           & Restore a single positive beam from chop-nod difference image \\
   Type:              & Science                                                       \\
-  Input data:        & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}}                                       \\
+  Input data:        & \NEWPROD{N_SCI_CALIBRATED}                                       \\
   Parameters:        & size of cutout region                                         \\
-  Algorithm:         & Call \hyperref[drl:cutout_region]{\DRL{cutout_region}} to cut regions around beams                \\
+  Algorithm:         & Call \NEWDRL{cutout_region} to cut regions around beams                \\
                      & Add regions with appropriate signs (\CODE{hdrl_imagelist_collapse})   \\
-  Output data:       & \hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}}                                         \\
+  Output data:       & \NEWPROD{N_SCI_RESTORED}                                         \\
   QC1 parameters:    & None                                                          \\
   hdrl functions:    & \CODE{hdrl_imagelist_collapse}                                \\
 \end{recipedef}
@@ -322,21 +322,21 @@ other pipeline product. In addition to the distortion table, a map of
 pixel scale across the detector will be created.
 
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}                                   \\
+  Name:                & \NEWREC{metis_n_img_distortion}                                   \\
   Purpose:             & Determine optical distortion coefficients for the N imager.    \\
   Templates:           & \TPL{METIS_img_n_cal_distortion}                               \\
   Type:                & Calibration                                                    \\
-  Input data:          & \hyperref[dataitem:n_distortion_raw]{\RAW{N_DISTORTION_RAW}} (Images of grid mask in WCU-FP2 or CFO-FP2.)\\
-                       & \hyperref[dataitem:n_wcu_off_raw]{\RAW{N_WCU_OFF_RAW}} \\
-                       & \hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}} (Grid of pinhole mask positions) \\
-                       & \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}} \\
+  Input data:          & \NEWRAW{N_DISTORTION_RAW} (Images of grid mask in WCU-FP2 or CFO-FP2.)\\
+                       & \NEWRAW{N_WCU_OFF_RAW} \\
+                       & \NEWEXTCALIB{PINHOLE_TABLE} (Grid of pinhole mask positions) \\
+                       & \NEWPROD{BADPIX_MAP_GEO} \\
   Parameters:          & Parameters for fitting routine \\
   Algorithm:           & Subtract background image.  (\CODE{hdrl_imagelist_sub_image})                                       \\
                        & Measure location of point source images in frames.   (\CODE{hdrl_catalogue_create})            \\
-                       & call \hyperref[drl:fit_distortion]{\DRL{fit_distortion}} to fit polynomial coefficients to deviations from grid positions. \\
-  Output data:         & \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}} \\
-                       & \hyperref[dataitem:n_distortion_map]{\PROD{N_DISTORTION_MAP}}        \\
-                       & \hyperref[dataitem:n_dist_reduced]{\PROD{N_DIST_REDUCED}}             \\
+                       & call \NEWDRL{fit_distortion} to fit polynomial coefficients to deviations from grid positions. \\
+  Output data:         & \NEWPROD{N_DISTORTION_TABLE} \\
+                       & \NEWPROD{N_DISTORTION_MAP}        \\
+                       & \NEWPROD{N_DIST_REDUCED}             \\
   Expected accuracies: & $2\times 10^{-3}$ (cf.~\cite{METIS_calerrbudget})                                                            \\
   QC1 parameters:      & \hyperref[qc:qc_n_distort_rms]{\QC{QC N DISTORT RMS} }                                         \\
                        & \hyperref[qc:qc_n_distort_nsource]{\QC{QC N DISTORT NSOURCE}}  \\
@@ -350,7 +350,7 @@ pixel scale across the detector will be created.
     \fontsize{10}{12}\selectfont
     \input{tikz/metis_n_img_distortion}
   \caption[Recipe: \REC{metis_n_img_distortion}]{%
-    \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}} -- \CODE{IMG_N} distortion calibration}
+    \NEWREC{metis_n_img_distortion} -- \CODE{IMG_N} distortion calibration}
   \label{fig:metis_n_img_distortion}
 \end{figure}
 

@@ -1,1 +1,91 @@
-../styles_data.tex
+\makeatletter
+\newcommand{\replaceunderscores}[1]{\expandafter\replace@underscores#1_\relax}
+
+\def\replace@underscores#1_#2\relax{%
+    \ifx \relax #2\relax
+        #1%
+    \else
+        #1%
+        \textunderscore
+        \replace@underscores#2\relax
+    \fi
+}
+
+\ExplSyntaxOn
+% Generic \Smart@Item macro:
+%   use \NEWRAW*{WHATEVER_THIS_IS} where hyperlinks are not needed (TOC, sections...)
+%   and \NEWRAW{WHATEVER_THIS_IS} for a full hyperlink-enabled version in regular text and tikz figures
+% #1 boolean: use hyperlink
+% #2 string: uppercase type of the item
+% #3 string: id of the item
+% #4 string, optional: hyperref prefix
+\NewDocumentCommand{\Smart@Item}{m m m O{dataitem}}{%
+    \IfBooleanTF{#1}{%
+        \texorpdfstring{\lstinline[style=#2style]!#3!}{\replaceunderscores{#3}}%
+    }{%
+        \hyperref[#4:\text_lowercase:n{#3}]{\lstinline[style=#2style]!#3!}%
+    }%
+}
+\ExplSyntaxOff
+
+% Raw FITS file: \NEWRAW{LM_SCI_RAW}
+\NewDocumentCommand{\NEWRAW}      {s m}{\Smart@Item{#1}{RAW}      {#2}}
+\NewDocumentCommand{\NEWPAR}      {s m}{\Smart@Item{#1}{PAR}      {#2}}
+\NewDocumentCommand{\NEWDRL}      {s m}{\Smart@Item{#1}{DRL}      {#2}[drl]}
+\NewDocumentCommand{\NEWREC}      {s m}{\Smart@Item{#1}{REC}      {#2}[rec]}
+\NewDocumentCommand{\NEWQC}       {s m}{\Smart@Item{#1}{QC}       {#2}[qc]}
+\NewDocumentCommand{\NEWPROD}     {s m}{\Smart@Item{#1}{PROD}     {#2}}
+\NewDocumentCommand{\NEWEXTCALIB} {s m}{\Smart@Item{#1}{EXTCALIB} {#2}}
+\NewDocumentCommand{\NEWSTATCALIB}{s m}{\Smart@Item{#1}{STATCALIB}{#2}}
+\NewDocumentCommand{\NEWFITS}     {s m}{\Smart@Item{#1}{FITS}     {#2}}
+
+% Templates: they do not have the starred version, no hyperrefs are created
+\NewDocumentCommand{\NEWTPL}      {m}{\Smart@Item{\BooleanTrue}{TPL}{#1}}
+% Requirements: this only points to Polarion, no internal hyperrefs are created
+\NewDocumentCommand{\NEWREQ}      {m}{\href{https://polarion.astron.nl/polarion/\#/project/METIS/workitem?id=#1}{\textcolor{brown}{#1}}}
+
+\makeatother
+
+%% Write DRL functions names like this: \NEWDRL{function}
+\newcommand{\RAW}[1]{ \texorpdfstring{\lstinline[style=RAWstyle]!#1!}%
+                                     {\replaceunderscores{#1}}}
+
+%% Write DRL functions names like this: \NEWDRL{function}
+\newcommand{\PAR}[1]{ \texorpdfstring{\lstinline[style=PARstyle]!#1!}%
+                                     {\replaceunderscores{#1}}}
+
+%% Write DRL functions names like this: \NEWDRL{function}
+\newcommand{\DRL}[1]{ \texorpdfstring{\lstinline[style=DRLstyle]!#1!}%
+                                     {\replaceunderscores{#1}}}
+
+%% Write recipe names like this: \REC{metis_do_stuff}
+\newcommand{\REC}[1]{ \texorpdfstring{\lstinline[style=RECstyle]!#1!}%
+                                     {\replaceunderscores{#1}}}
+
+%% Write QC parameters like this: \QC{QC_SOMETHING_OR_OTHER}
+\newcommand{\QC}[1]{ \texorpdfstring{\lstinline[style=QCstyle]!#1!}%
+                                    {\replaceunderscores{#1}}}
+
+%% Write templates like this: \TPL{DARK_LM}
+\newcommand{\TPL}[1]{ \texorpdfstring{\lstinline[style=TPLstyle]!#1!}%
+                                     {\replaceunderscores{#1}}}
+
+%% Write products like this: \NEWPROD{SOME_THING}
+\newcommand{\PROD}[1]{ \texorpdfstring{\lstinline[style=PRODstyle]!#1!}%
+                                      {\replaceunderscores{#1}}}
+
+%% Write requirements like this: \REQ{METIS-xxxx}
+\newcommand{\REQ}[1]{\href{https://polarion.astron.nl/polarion/\#/project/METIS/workitem?id=#1}{\textcolor{brown}{#1}}}
+
+%% external calib files
+\newcommand{\EXTCALIB}[1]{ \texorpdfstring{\lstinline[style=EXTCALIBstyle]!#1!}%
+                                          {\replaceunderscores{#1}}}
+
+% static calib files
+\newcommand{\STATCALIB}[1]{ \texorpdfstring{\lstinline[style=STATCALIBstyle]!#1!}%
+                                           {\replaceunderscores{#1}}}
+
+%% Write FITS keywords (and values) like this: \FITS{EXPTIME}
+\newcommand{\FITS}[1]{ \texorpdfstring{\lstinline[]!#1!}%
+                                      {\replaceunderscores{#1}}}
+
