@@ -683,17 +683,13 @@ class AssociationMatrix:
         # 0 is header, 2 is legend
         smatrix = sdata.split("\\matrix")[1]
         srows = smatrix.split("\\\\")
-        print(f"{len(srows)=}")
         thematrix = []
-        for i,srow in enumerate(srows[:-1]):
+        for i, srow in enumerate(srows[:-1]):
             scols = srow.split("&")
-            print(f"{len(scols)=}")
-            # assert len(scols) == 10
             therow = []
-            for j,scol in enumerate(scols):
+            for j, scol in enumerate(scols):
                 snodesep = "\\node"
                 snode = scol.split(snodesep)[1].replace("\n", "  ")
-                print(snode)
                 patterns_to_test = [
                     re.compile(pp)
                     # Patterns are ordered from most specific to least specific.
@@ -724,14 +720,15 @@ class AssociationMatrix:
                 for pattern in patterns_to_test:
                     match = re.match(pattern, snode)
                     if match:
-                        print(match.groups())
                         thecell = AssociationMatrixCell(**match.groupdict())
                         therow.append(thecell)
                         break
                 else:
                     raise ValueError(snode)
             thematrix.append(therow)
-        pprint(thematrix)
+        # pprint(thematrix)
+        assert len(set(len(row) for row in thematrix)) == 1
+
 
 class DataReductionLibraryDesign:
     """The information from the DRLD"""
