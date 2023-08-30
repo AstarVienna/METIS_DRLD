@@ -31,15 +31,19 @@
 % Raw FITS file: \NEWRAW{LM_SCI_RAW}
 \NewDocumentCommand{\NEWRAW}      {s m}{\Smart@Item{#1}{RAW}      {#2}}
 \NewDocumentCommand{\NEWPAR}      {s m}{\Smart@Item{#1}{PAR}      {#2}}
-\NewDocumentCommand{\NEWDRL}      {s m}{\Smart@Item{#1}{DRL}      {#2}}
+\NewDocumentCommand{\NEWDRL}      {s m}{\Smart@Item{#1}{DRL}      {#2}[drl]}
 \NewDocumentCommand{\NEWREC}      {s m}{\Smart@Item{#1}{REC}      {#2}[rec]}
-\NewDocumentCommand{\NEWQC}       {s m}{\Smart@Item{#1}{QC}       {#2}}
-\NewDocumentCommand{\NEWTPL}      {s m}{\Smart@Item{#1}{TPL}      {#2}}
+\NewDocumentCommand{\NEWQC}       {s m}{\Smart@Item{#1}{QC}       {#2}[qc]}
 \NewDocumentCommand{\NEWPROD}     {s m}{\Smart@Item{#1}{PROD}     {#2}}
-\NewDocumentCommand{\NEWREQ}      {s m}{\Smart@Item{#1}{REQ}      {#2}}
 \NewDocumentCommand{\NEWEXTCALIB} {s m}{\Smart@Item{#1}{EXTCALIB} {#2}}
 \NewDocumentCommand{\NEWSTATCALIB}{s m}{\Smart@Item{#1}{STATCALIB}{#2}}
 \NewDocumentCommand{\NEWFITS}     {s m}{\Smart@Item{#1}{FITS}     {#2}}
+
+% Templates: they do not have the starred version, no hyperrefs are created
+\NewDocumentCommand{\NEWTPL}      {m}{\Smart@Item{\BooleanTrue}{TPL}{#1}}
+% Requirements: this only points to Polarion, no internal hyperrefs are created
+\NewDocumentCommand{\NEWREQ}      {m}{\href{https://polarion.astron.nl/polarion/\#/project/METIS/workitem?id=#1}{\textcolor{brown}{#1}}}
+
 \makeatother
 
 %% Write DRL functions names like this: \hyperref[drl:function]{\DRL{function}}
