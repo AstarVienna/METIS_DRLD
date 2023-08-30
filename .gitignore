@@ -17,6 +17,7 @@
 
 # tikz results (should be in figures/)
 tikz/*.pdf
+tikz/generated_sections.tex
 
 # svg converted to pdf (should be in figures/)
 svg/*.pdf
