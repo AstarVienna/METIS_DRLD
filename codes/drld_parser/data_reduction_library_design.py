@@ -677,6 +677,7 @@ class AssociationMatrixCell:
 class AssociationMatrix:
     """AssociationMatrix"""
     def __init__(self, fn):
+        self.filename = fn
         slines1 = [line.strip() for line in open(fn, encoding="utf8").readlines()]
         slines = [line for line in slines1 if not line.startswith("%")]
         sdata = "\n".join(slines)
@@ -695,7 +696,7 @@ class AssociationMatrix:
                     # Patterns are ordered from most specific to least specific.
                     for pp in [
                         # \node[above] (RECdark_raw){\recipebox{\NEWRAW{DARK_IFU_RAW}}{\NEWREC{metis_det_dark}}}; &
-                        r".*?\\recipebox{\\NEWRAW{(?P<dataitem>[A-Z0-9_, ]+)}}{\\NEWREC(?P<recipe>[a-z_\\]+)}}.*?",
+                        r".*?\\recipebox{\\NEWRAW{(?P<dataitem>[A-Z0-9_, ]+)}}{\\NEWREC{(?P<recipe>[a-z_\\]+)}}.*?",
 
                         # \recipebox{DISTORTION}{lm\_img\_distortion}
                         # [above] (all1_raw){%  \recipebox{SCIENCE, STD}{lm\_img\_basic}  };
@@ -720,14 +721,19 @@ class AssociationMatrix:
                 for pattern in patterns_to_test:
                     match = re.match(pattern, snode)
                     if match:
-                        thecell = AssociationMatrixCell(**match.groupdict())
+                        groupd = match.groupdict()
+                        thecell = AssociationMatrixCell(**groupd)
                         therow.append(thecell)
+                        if 'recipe' not in groupd:
+                            assert "recipe" not in scol
                         break
                 else:
                     raise ValueError(snode)
             thematrix.append(therow)
+
         # pprint(thematrix)
         assert len(set(len(row) for row in thematrix)) == 1
+        self.matrix = list(zip(*thematrix))
 
 
 class DataReductionLibraryDesign:
