@@ -5,6 +5,7 @@ import glob
 import hashlib
 import itertools
 import os
+from pprint import pprint
 from pathlib import Path
 import re
 from typing import List
@@ -615,6 +616,124 @@ class Recipe:
             field_old = field
 
         return Recipe(**thedata)
+
+
+class AssociationMatrixCell:
+    def __init__(
+        self,
+        dtype=None,
+        dataitem=None,
+        recipe=None,
+        empty=None,
+        connection=None,
+    ):
+        self.dtype = None
+        self.dataitem = None
+        self.recipe = None
+        self.empty = False
+        self.connection = False
+        if empty:
+            self.empty = True
+            assert dtype is None
+            assert dataitem is None
+            assert recipe is None
+            assert connection is None
+        elif connection:
+            self.connection = True
+            assert dtype is None
+            assert dataitem is None
+            assert recipe is None
+            assert empty is None
+        else:
+            if dataitem:
+                dtype2 = dtype.replace("NEW", "") if dtype else "RAW"
+                self.dataitem = DataItemReference(
+                    name=dataitem,
+                    dtype=dtype2,
+                )
+            if recipe:
+                self.recipe = RecipeReference(
+                    name=recipe,
+                )
+
+    def __str__(self):
+        if self.empty:
+            return "(empty)"
+        elif self.connection:
+            return "(connection)"
+        elif self.recipe and self.dataitem:
+            return f"({self.dataitem.dtype}-{self.dataitem.name}-{self.recipe.name})"
+        elif self.recipe:
+            return f"({self.recipe.name})"
+        elif self.dataitem:
+            return f"({self.dataitem.dtype}-{self.dataitem.name})"
+        else:
+            return "ERROR"
+
+    def __repr__(self):
+        return str(self)
+
+
+class AssociationMatrix:
+    """AssociationMatrix"""
+    def __init__(self, fn):
+        self.filename = fn
+        slines1 = [line.strip() for line in open(fn, encoding="utf8").readlines()]
+        slines = [line for line in slines1 if not line.startswith("%")]
+        sdata = "\n".join(slines)
+        # 0 is header, 2 is legend
+        smatrix = sdata.split("\\matrix")[1]
+        srows = smatrix.split("\\\\")
+        thematrix = []
+        for i, srow in enumerate(srows[:-1]):
+            scols = srow.split("&")
+            therow = []
+            for j, scol in enumerate(scols):
+                snodesep = "\\node"
+                snode = scol.split(snodesep)[1].replace("\n", "  ")
+                patterns_to_test = [
+                    re.compile(pp)
+                    # Patterns are ordered from most specific to least specific.
+                    for pp in [
+                        # \node[above] (RECdark_raw){\recipebox{\NEWRAW{DARK_IFU_RAW}}{\NEWREC{metis_det_dark}}}; &
+                        r".*?\\recipebox{\\NEWRAW{(?P<dataitem>[A-Z0-9_, ]+)}}{\\NEWREC{(?P<recipe>[a-z_\\]+)}}.*?",
+
+                        # \recipebox{DISTORTION}{lm\_img\_distortion}
+                        # [above] (all1_raw){%  \recipebox{SCIENCE, STD}{lm\_img\_basic}  };
+                        r".*?\\recipebox{(?P<dataitem>[A-Z0-9_, ]+)}{(?P<recipe>[a-z_\\]+)}.*?",
+
+                        # \node[above] (RECstd_raw){\recipenotitlebox{\NEWREC{metis_ifu_tellcorr}}}; &
+                        r".*?\\recipenotitlebox{\\NEWREC{(?P<recipe>[a-z_\\]+)}.*?",
+
+                        # (lin_lin) [statcalfile]{\NEWSTATCALIB{LINEARITY_2RG}};
+                        # (pers_pers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}};
+                        # (dark_dark) [calibproduct]{\NEWPROD{MASTER_DARK_2RG}};
+                        r".*?(?P<dtype>[A-Z]+){(?P<dataitem>[A-Z0-9_\\]+).*?",
+
+                        # (sci1_pers)[empty]{};
+                        r".*?(?P<empty>\[empty\]).*?",
+
+                        #     \node (flat_pers)[connection]{}; &
+                        r".*?(?P<connection>\[connection\]).*?",
+
+                    ]
+                ]
+                for pattern in patterns_to_test:
+                    match = re.match(pattern, snode)
+                    if match:
+                        groupd = match.groupdict()
+                        thecell = AssociationMatrixCell(**groupd)
+                        therow.append(thecell)
+                        if 'recipe' not in groupd:
+                            assert "recipe" not in scol
+                        break
+                else:
+                    raise ValueError(snode)
+            thematrix.append(therow)
+
+        # pprint(thematrix)
+        assert len(set(len(row) for row in thematrix)) == 1
+        self.matrix = list(zip(*thematrix))
 
 
 class DataReductionLibraryDesign:

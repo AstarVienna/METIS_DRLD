@@ -12,6 +12,7 @@ from ..drld_parser.data_reduction_library_design import (
     DataItemReference,
     guess_dataitem_type,
     DataItem,
+    AssociationMatrix,
 )
 from ..drld_parser.hacks import (
     TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI,
@@ -765,6 +766,61 @@ See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
     assert dataitem.name_header == "BADPIX_MAP_2RG"
     assert dataitem.name is None
 
+
+def test_associationmatrices():
+    asso_lm = AssociationMatrix(fn="tikz/IMG_LM_assomap_tikz.tex")
+    asso_n = AssociationMatrix(fn="tikz/IMG_N_assomap_tikz.tex")
+    asso_ifu = AssociationMatrix(fn="tikz/IFU_assomap_tikz.tex")
+
+    for asso in [asso_lm, asso_n, asso_ifu]:
+        print()
+        print(asso.filename)
+        problems = []
+        for recipecolumn in asso.matrix:
+            problems_recipe = []
+
+            # Get the recipe
+            recipecell = recipecolumn[0]
+            reciperef = recipecell.recipe
+            recipe_name = reciperef.name
+            recipe_name2 = "metis_" + recipe_name
+            recipe = None
+            if recipe_name in METIS_DataReductionLibraryDesign.recipes:
+                recipe = METIS_DataReductionLibraryDesign.recipes[recipe_name]
+            else:
+                if recipe_name2 in METIS_DataReductionLibraryDesign.recipes:
+                    problems_recipe.append(f"{recipe_name} does not exist but {recipe_name2} does")
+                    recipe = METIS_DataReductionLibraryDesign.recipes[recipe_name2]
+                else:
+                    problems_recipe.append(f"{recipe_name} does not exist")
+            if not recipe:
+                problems.append((recipe_name, problems_recipe))
+                continue
+
+            # Get the first dataitem
+            if recipecell.dataitem is not None:
+                input_primary = recipecell.dataitem
+                input_primary_real = recipe.input_data[0]
+                # The input_primary does not have to be the first, e.g. metis_det_dark only lists the GEO one as first input
+                is_input_primary_really_input = any(
+                    input_primary.name == inp.name for inp in recipe.input_data
+                )
+                if not is_input_primary_really_input:
+                    problems_recipe.append(f"{recipe.name} should not have {input_primary.name} as primary input but {input_primary_real.name}")
+            else:
+                # there is not really a way to get to the primary data item because then it would be necessary to follow the lines, e.g. for IFU
+                ...
+
+            if problems_recipe:
+                problems.append((recipe_name, problems_recipe))
+
+        if problems:
+            for recipe_name, problems_recipe in problems:
+                print(" " + recipe_name)
+                for problem in problems_recipe:
+                    print("   " + problem)
+
+    # assert not problems
 
 def test_tikz():
     """Test whether the names used in the tikz figures exist."""
