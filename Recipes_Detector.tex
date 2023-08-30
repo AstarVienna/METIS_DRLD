@@ -73,7 +73,7 @@ This satisfies \REQ{METIS-5997}.
   Algorithm:           & Subtract instrument dark (\CODE{hdrl_imagelist_sub_image}).                         \\
                        & Compute mean and variance for each frame.                              \\
                        & Gain is determined as the slope of variance against mean (\NEWDRL{metis_derive_gain}) \\
-                       & Fit polynomial of value as a function of DIT and illumination level for each pixel (\hyperref[drl:metis_derive_nonlinearity]{\CODE{metis_derive_nonlinearity}}). \\
+                       & Fit polynomial of value as a function of DIT and illumination level for each pixel (\CODE{metis_derive_nonlinearity}). \\
                        & Flag pixels with coefficients significantly different from the mean of all pixels. (\CODE{hdrl_bpm_fit_compute}) \\
   Output data:         & \NEWPROD{GAIN_MAP_det}                                    \\
                        & \NEWPROD{LINEARITY_det}                                 \\
@@ -92,7 +92,7 @@ This satisfies \REQ{METIS-5997}.
     \def \globalscale {0.700000}
     \fontsize{10}{12}\selectfont
     \input{tikz/metis_det_lingain}
-  \caption[Recipe: \REC{metis_det_lingain}]{\REC{metis_det_lingain} --
+  \caption[Recipe: \REC*{metis_det_lingain}]{\REC{metis_det_lingain} --
     determination of linearity and gain of the detectors.}
   \label{Fig:rec_det_lingain}
 \end{figure}
