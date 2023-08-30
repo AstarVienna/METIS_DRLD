@@ -5,6 +5,7 @@ import glob
 import hashlib
 import itertools
 import os
+from pprint import pprint
 from pathlib import Path
 import re
 from typing import List
@@ -616,6 +617,115 @@ class Recipe:
 
         return Recipe(**thedata)
 
+
+class AssociationMatrixCell:
+    def __init__(
+        self,
+        dtype=None,
+        dataitem=None,
+        recipe=None,
+        empty=None,
+        connection=None,
+    ):
+        self.dtype = None
+        self.dataitem = None
+        self.recipe = None
+        self.empty = False
+        self.connection = False
+        if empty:
+            self.empty = True
+            assert dtype is None
+            assert dataitem is None
+            assert recipe is None
+            assert connection is None
+        elif connection:
+            self.connection = True
+            assert dtype is None
+            assert dataitem is None
+            assert recipe is None
+            assert empty is None
+        else:
+            if dataitem:
+                dtype2 = dtype.replace("NEW", "") if dtype else "RAW"
+                self.dataitem = DataItemReference(
+                    name=dataitem,
+                    dtype=dtype2,
+                )
+            if recipe:
+                self.recipe = RecipeReference(
+                    name=recipe,
+                )
+
+    def __str__(self):
+        if self.empty:
+            return "(empty)"
+        elif self.connection:
+            return "(connection)"
+        elif self.recipe and self.dataitem:
+            return f"({self.dataitem.dtype}-{self.dataitem.name}-{self.recipe.name})"
+        elif self.recipe:
+            return f"({self.recipe.name})"
+        elif self.dataitem:
+            return f"({self.dataitem.dtype}-{self.dataitem.name})"
+        else:
+            return "ERROR"
+
+    def __repr__(self):
+        return str(self)
+
+
+class AssociationMatrix:
+    """AssociationMatrix"""
+    def __init__(self, fn):
+        slines1 = [line.strip() for line in open(fn).readlines()]
+        slines = [line for line in slines1 if not line.startswith("%")]
+        sdata = "\n".join(slines)
+        # 0 is header, 2 is legend
+        smatrix = sdata.split("\\matrix")[1]
+        srows = smatrix.split("\\\\")
+        print(f"{len(srows)=}")
+        thematrix = []
+        for i,srow in enumerate(srows[:-1]):
+            scols = srow.split("&")
+            print(f"{len(scols)=}")
+            # assert len(scols) == 10
+            therow = []
+            for j,scol in enumerate(scols):
+                snodesep = "\\node"
+                snode = scol.split(snodesep)[1].replace("\n", "  ")
+                print(snode)
+                patterns_to_test = [
+                    re.compile(pp)
+                    # Patterns are ordered from most specific to least specific.
+                    for pp in [
+                        # \recipebox{DISTORTION}{lm\_img\_distortion}
+                        # [above] (all1_raw){%  \recipebox{SCIENCE, STD}{lm\_img\_basic}  };
+                        r".*?\\recipebox{(?P<dataitem>[A-Z0-9_, ]+)}{(?P<recipe>[a-z_\\]+)}.*?",
+
+                        # (lin_lin) [statcalfile]{\NEWSTATCALIB{LINEARITY_2RG}};
+                        # (pers_pers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}};
+                        # (dark_dark) [calibproduct]{\NEWPROD{MASTER_DARK_2RG}};
+                        r".*?(?P<dtype>[A-Z]+){(?P<dataitem>[A-Z0-9_\\]+).*?",
+
+                        # (sci1_pers)[empty]{};
+                        r".*?(?P<empty>\[empty\]).*?",
+
+                        #     \node (flat_pers)[connection]{}; &
+                        r".*?(?P<connection>\[connection\]).*?",
+
+                    ]
+                ]
+                for pattern in patterns_to_test:
+                    match = re.match(pattern, snode)
+                    if match:
+                        print(match.groups())
+                        thecell = AssociationMatrixCell(**match.groupdict())
+                        therow.append(thecell)
+                        break
+                else:
+                    raise ValueError(snode)
+            thematrix.append(therow)
+        pprint(thematrix)
 
 class DataReductionLibraryDesign:
     """The information from the DRLD"""

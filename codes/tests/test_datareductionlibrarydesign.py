@@ -12,6 +12,7 @@ from ..drld_parser.data_reduction_library_design import (
     DataItemReference,
     guess_dataitem_type,
     DataItem,
+    AssociationMatrix,
 )
 from ..drld_parser.hacks import (
     TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI,
@@ -764,6 +765,10 @@ See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
     dataitem = DataItem.from_paragraph(stable)
     assert dataitem.name_header == "BADPIX_MAP_2RG"
     assert dataitem.name is None
+
+
+def test_associationmatrices():
+    asso_lm = AssociationMatrix(fn="tikz/IMG_LM_assomap_tikz.tex")
 
 
 def test_tikz():
