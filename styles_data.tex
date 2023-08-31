@@ -23,7 +23,12 @@
     \IfBooleanTF{#1}{%
         \texorpdfstring{\lstinline[style=#2style]!#3!}{\replaceunderscores{#3}}%
     }{%
-        \texorpdfstring{\hyperref[#4:\text_lowercase:n{#3}]{\lstinline[style=#2style]!#3!}}{\replaceunderscores{#3}}%
+        % Replace spaces (e.g. in "QC ABC DEF") with underscores in order to
+        % create a hyperref. The result of xstring macros (StrSubstitute) is not
+        % expandable, and thus the result has to be stored, in MyHyper.
+        % see section 3.2 of xstring manual.
+        \StrSubstitute{#3}{\space}{_}[\MyHyper]
+        \texorpdfstring{\hyperref[#4:\text_lowercase:n{\MyHyper}]{\lstinline[style=#2style]!#3!}}{\replaceunderscores{#3}}%
     }%
 }
 \ExplSyntaxOff
