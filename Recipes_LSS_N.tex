@@ -43,7 +43,7 @@ Algorithm:      & subtract master \ac{WCU} "OFF" frame from illumination frame (
                 & median/mean filtering of subtracted images\\
                 & division by blackbody spectrum\\
                 & normalisation to achieve \ac{RSRF}\\
-Output data:	&  \PROD{MASTER_N_LSS_RSRF} (\FITS{PRO.CATG=MASTER_N_LSS_TRSRF}): master flatfield/\ac{RSRF} \\
+Output data:	&  \PROD{MASTER_N_LSS_RSRF} (\FITS{PRO.CATG}=\CODE{MASTER_N_LSS_TRSRF}): master flatfield/\ac{RSRF} \\
                 & \PROD{MEDIAN_N_LSS_RSRF_IMG}: median map (\ac{QC})\\
                 & \PROD{MEAN_N_LSS_RSRF_IMG}: mean map (\ac{QC})\\
 
@@ -84,7 +84,7 @@ Input data:     & $N\times$ \RAW{N_LSS_RSRF_PINH_RAW} \\
 Parameters: 	& exposure time\\
 Algorithm:      & Detection of the order edges\\
                 & Polynomial fitting\\
-Output data:	& \PROD{N_LSS_TRACE} (\FITS{PRO.CATG=N_LSS_TRACE}): Polynomial coefficients\\
+Output data:	& \PROD{N_LSS_TRACE} (\FITS{PRO.CATG}=\CODE{N_LSS_TRACE}): Polynomial coefficients\\
 Expected accuracies: & 1/10th of a pixel after post-processing\\
                & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
 QC1 parameters: & \hyperref[qc:qc_n_lss_trace_lpolydeg]{\QC{QC N LSS TRACE LPOLYDEG}}: Degree of the polynomial fit of the left order edge\\

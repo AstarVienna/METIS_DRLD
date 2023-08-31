@@ -407,7 +407,7 @@ products of this recipe are fully calibrated individual exposures.
 
 Each image is multiplied by the conversion factor such that pixel
 values are in units of photons per second per centimetre squared. The
-header of each file receives keyword \FITS{BUNIT} with value %
+header of each file receives keyword \FITS*{BUNIT} with value %
 \CODE{'photon.s**(-1).cm**(-2)'}.
 
 % Moved to https://github.com/AstarVienna/METIS_DRLD/issues/98
@@ -440,7 +440,7 @@ header. The images are not resampled by this recipe, this is left to
   Matched keywords:  & Filter ID                                        \\
   Parameters:        & None                                             \\
   Algorithm:         & call \DRL{lm_scale_image_flux} to Scale image data to ph/s \\
-                     & add header information (\FITS{BUNIT}, WCS, etc.) \\
+                     & add header information (\FITS*{BUNIT}, WCS, etc.) \\
   Output data:       & \PROD{LM_SCI_CALIBRATED}                         \\
   QC1 parameters:    & None                                             \\
   hdrl functions:    & \CODE{hdrl_imagelist_mult_scalar}                \\
