@@ -74,11 +74,11 @@ compensation of any neutral density transmission).
                        & parameters for resampling method \\
                        & start and end limit for contrast curve (in $\lambda/D$) \\
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
-  Algorithm:           & call \hyperref[drl:lm_adi_cgrph_centroid]{\CODE{lm_adi_cgrph_centroid}}  or \hyperref[drl:n_adi_cgrph_centroid]{\CODE{n_adi_cgrph_centroid}} to determine the centroids of the central PSFs \\
-                       & call \hyperref[drl:adi_regrid]{\CODE{adi_regrid}} to apply distortion map and regrid images based on position of central PSFs \\
-                       & call \hyperref[drl:lm_adi_cgrph_psf]{\CODE{lm_adi_cgrph_psf}} or \hyperref[drl:n_adi_cgrph_psf]{\CODE{n_adi_cgrph_psf}} to determine the median PSF \\
+  Algorithm:           & call \DRL{lm_adi_cgrph_centroid}  or \DRL{n_adi_cgrph_centroid} to determine the centroids of the central PSFs \\
+                       & call \DRL{adi_regrid} to apply distortion map and regrid images based on position of central PSFs \\
+                       & call \DRL{lm_adi_cgrph_psf} or \DRL{n_adi_cgrph_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
-                       & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
+                       & call \DRL{adi_derotate} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed contrast curves \\
   Output data:       & \PROD{LM_cgrph_SCI_CALIBRATED} or \PROD{N_cgrph_SCI_CALIBRATED}\\
@@ -170,18 +170,18 @@ the effective number of included frames.
                        & start and end limit to contrast curve (in $\lambda/D$) \\
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
 % HB 20230627: There is no APP in the N-band right?
-%   Algorithm:           & call \hyperref[drl:lm_adi_app_centroid]{\CODE{lm_adi_app_centroid}} or  \hyperref[drl:n_adi_app_centroid]{\CODE{n_adi_app_centroid}} to determine the centroids of the central PSFs \\
-%                        & call \hyperref[drl:adi_regrid]{\CODE{adi_regrid}} to apply distortion map and regrid images based on position of central PSFs \\
-%                        & call \hyperref[drl:lm_merge_app_adi_psf]{\CODE{lm_merge_app_adi_psf}} of  \hyperref[drl:n_merge_app_adi_psf]{\CODE{n_merge_app_adi_psf}} to merge the coronagraphic PSFs \\
-%                        & call \hyperref[drl:lm_adi_app_psf]{\CODE{lm_adi_app_psf}} or \hyperref[drl:n_adi_app_psf]{\CODE{n_adi_app_psf}} to determine the median PSF \\
-  Algorithm:           & call \hyperref[drl:lm_adi_app_centroid]{\CODE{lm_adi_app_centroid}} to determine the centroids of the central PSFs \\
-                       & call \hyperref[drl:adi_regrid]{\CODE{adi_regrid}} to apply distortion map and regrid images based on position of central PSFs \\
-                       & call \hyperref[drl:lm_merge_app_adi_psf]{\CODE{lm_merge_app_adi_psf}} to merge the coronagraphic PSFs \\
-                       & call \hyperref[drl:lm_adi_app_psf]{\CODE{lm_adi_app_psf}} to determine the median PSF \\
+%   Algorithm:           & call \DRL{lm_adi_app_centroid} or  \DRL{n_adi_app_centroid} to determine the centroids of the central PSFs \\
+%                        & call \DRL{adi_regrid} to apply distortion map and regrid images based on position of central PSFs \\
+%                        & call \DRL{lm_merge_app_adi_psf} of  \DRL{n_merge_app_adi_psf} to merge the coronagraphic PSFs \\
+%                        & call \DRL{lm_adi_app_psf} or \DRL{n_adi_app_psf} to determine the median PSF \\
+  Algorithm:           & call \DRL{lm_adi_app_centroid} to determine the centroids of the central PSFs \\
+                       & call \DRL{adi_regrid} to apply distortion map and regrid images based on position of central PSFs \\
+                       & call \DRL{lm_merge_app_adi_psf} to merge the coronagraphic PSFs \\
+                       & call \DRL{lm_adi_app_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
-                       & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
+                       & call \DRL{adi_derotate} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images with image mask   (\CODE{hdrl_imagelist_collapse})\\
-                       & call \hyperref[drl:lm_adi_app_contrast]{\CODE{lm_adi_app_contrast}} for raw and post processed images \\
+                       & call \DRL{lm_adi_app_contrast} for raw and post processed images \\
   Output data:       & \PROD{LM_APP_SCI_CALIBRATED}\\
                      & \PROD{LM_APP_SCI_CENTRED}\\
                      & \PROD{LM_APP_CENTROID_TAB}\\
@@ -285,11 +285,11 @@ PSFs. In addition coverage maps are produced.
                        & parameters for resampling method \\
                        & start and end limit to contrast curve (in $\lambda/D$) \\
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
-  Algorithm:           & call \hyperref[drl:lm_adi_cgrph_centroid]{\CODE{det_adi_cgrph_centroid}} to determine the location of the central PSFs \\
-                       & call \hyperref[drl:adi_regrid]{\CODE{ifu_adi_regrid}} to perform distortion correction, square pixel reconstruction and sub-pixel alignment   \\
-                       & call \hyperref[drl:lm_adi_cgrph_psf]{\CODE{det_adi_cgrph_psf}} to determine the median PSF \\
+  Algorithm:           & call \DRL*{det_adi_cgrph_centroid} to determine the location of the central PSFs \\
+                       & call \DRL{ifu_adi_regrid} to perform distortion correction, square pixel reconstruction and sub-pixel alignment   \\
+                       & call \DRL*{det_adi_cgrph_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
-                       & call \hyperref[drl:adi_derotate]{\CODE{adi_derotate}} to derotate both PSF subtracted and unsubtracted images \\
+                       & call \DRL{adi_derotate} to derotate both PSF subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
   Output data:       & \PROD{IFU_cgrph_SCI_CALIBRATED}\\
