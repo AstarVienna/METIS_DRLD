@@ -22,6 +22,8 @@
 \NewDocumentCommand{\Smart@Item}{m m m O{dataitem}}{%
     \IfBooleanTF{#1}{%
         \texorpdfstring{\lstinline[style=#2style]!#3!}{\replaceunderscores{#3}}%
+%        \texorpdfstring{\lstinline[style=#2style]!#3!}{HUGO}%
+%        \texorpdfstring{BUDDEL}{HUGO}%
     }{%
         % Replace spaces (e.g. in "QC ABC DEF") with underscores in order to
         % create a hyperref. The result of xstring macros (StrSubstitute) is not
@@ -31,13 +33,48 @@
         \texorpdfstring{\hyperref[#4:\text_lowercase:n{\MyHyper}]{\lstinline[style=#2style]!#3!}}{\replaceunderscores{#3}}%
     }%
 }
+
+\NewExpandableDocumentCommand{\Smart@Rec}{m m m}{%
+    \IfBooleanTF{#1}{%
+        \texorpdfstring{\lstinline[style=#2style]!#3!}{\replaceunderscores{#3}}%
+%        \texorpdfstring{\lstinline[style=#2style]!#3!}{HUGO}%
+%        \texorpdfstring{BUDDEL}{HUGO}%
+    }{%
+        % Replace spaces (e.g. in "QC ABC DEF") with underscores in order to
+        % create a hyperref. The result of xstring macros (StrSubstitute) is not
+        % expandable, and thus the result has to be stored, in MyHyper.
+        % see section 3.2 of xstring manual.
+        \StrSubstitute{#3}{\space}{_}[\MyHyper]
+        \texorpdfstring{\hyperref[rec:\text_lowercase:n{\MyHyper}]{\lstinline[style=#2style]!#3!}}{\replaceunderscores{#3}}%
+    }%
+}
 \ExplSyntaxOff
+
+
+\ExplSyntaxOff
+
+%% Causes token warnings:
+%%\Smart@Item{\BooleanTrue}{REC}{#1}[rec]p
+%
+%
+%    HH
+%}
+
+% No warning:
+%\newcommand{\REC*S}[1]{HH}
+
+%\newcommand{\RECS}[1]{\Smart@Rec{\BooleanTrue}{REC}{#1}}
 
 % Raw FITS file: \RAW{LM_SCI_RAW}
 \NewDocumentCommand{\RAW}      {s m}{\Smart@Item{#1}{RAW}      {#2}}
 \NewDocumentCommand{\PAR}      {s m}{\Smart@Item{#1}{PAR}      {#2}}
 \NewDocumentCommand{\DRL}      {s m}{\Smart@Item{#1}{DRL}      {#2}[drl]}
-\NewDocumentCommand{\REC}      {s m}{\Smart@Item{#1}{REC}      {#2}[rec]}
+%\NewDocumentCommand{\REC}      {s m}{\Smart@Item{#1}{REC}      {#2}[rec]}
+%\newcommand{\REC*}[1]{\REC*S{#1}}
+%\newcommand{\REC*}[1]{\Smart@Rec{\BooleanTrue}{REC}{#1}}
+%\NewDocumentCommand{\REC*}{m}{\Smart@Rec{\BooleanTrue}{REC}{#1}}
+%\NewExpandableDocumentCommand{\RECS}{m}{\Smart@Rec{\BooleanTrue}{REC}{#1}}
+\NewExpandableDocumentCommand{\REC}      {s m}{\Smart@Rec{#1}{REC}      {#2}}
 \NewDocumentCommand{\QC}       {s m}{\Smart@Item{#1}{QC}       {#2}[qc]}
 \NewDocumentCommand{\PROD}     {s m}{\Smart@Item{#1}{PROD}     {#2}}
 \NewDocumentCommand{\EXTCALIB} {s m}{\Smart@Item{#1}{EXTCALIB} {#2}}
