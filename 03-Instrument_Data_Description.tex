@@ -74,7 +74,7 @@ A subset of the adaptive optics telemetry will be available in the headers of ea
 In particular, the position information of the \ac{WFS-FS} mirror will be available, as this is used in various recipes to determine the offset between dither steps.
 
 The full adaptive optics telemetry will be available as a separate raw data product because of its size and complexity.
-The raw exposure data will contain the \FITS{AOFILE} header keyword that contains the value of the \FITS{ARCFILE} of the corresponding adaptive optics data product.
+The raw exposure data will contain the \FITS*{AOFILE} header keyword that contains the value of the \FITS*{ARCFILE} of the corresponding adaptive optics data product.
 The full adaptive optics telemetry data will not be processed by the pipeline and the exact file format is therefore beyond the scope of this document.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -103,7 +103,7 @@ Each of these templates moves the target position between exposures,
 either using the internal (CFO-PP2) chopper or telescope offsets, and
 takes an exposure at each position, consisting of subintegrations
 defined by DIT and NDIT. Depending on the setting of a Boolean
-template parameter (\FITS{DET CUBE MODE}), all DITs are stored as
+template parameter (\FITS*{DET CUBE MODE}), all DITs are stored as
 layers of 3D cube, or a co-added frame is stored as a 2D image.
 The 3D cube or 2D image are written out in the first extension HDU of the FITS file for consistency.
 
@@ -111,10 +111,10 @@ When offsetting, the accurate (<1 mas) relative field positioning information wi
 
 The header of the FITS file will contain all information that pertains
 to the exposure. This should include information about the position of
-the internal chopper (\FITS{SEQ.CFO.CHOP.POSANG},
-\FITS{SEQ.CFO.CHOP.THROW}), the telescope offsets (\FITS{SEQ OFFSET1},
-\FITS{SEQ OFFSET2}) and the characterisation of the observation as
-\FITS{OBJECT} or \FITS{SKY} (in \FITS{DPR.TYPE}).
+the internal chopper (\FITS*{SEQ.CFO.CHOP.POSANG},
+\FITS*{SEQ.CFO.CHOP.THROW}), the telescope offsets (\FITS{SEQ OFFSET1},
+\FITS*{SEQ OFFSET2}) and the characterisation of the observation as
+\CODE{OBJECT} or \CODE{SKY} (in \FITS*{DPR.TYPE}).
 
 Similar considerations apply to the spectroscopic and coronagraphic
 templates, where pointing offsets are however restricted by the slit
@@ -174,7 +174,7 @@ using telescope offsets. The basic templates for N~imaging are
 
 At each nod position, a series of exposures are taken at alternating
 chop positions. Depending on the setting of the template parameter
-\FITS{DET CUBE MODE}, all exposures are stored as layers of a 3D cube
+\FITS*{DET CUBE MODE}, all exposures are stored as layers of a 3D cube
 or they are precombined in a 2D image. Another chop cycle is then
 taken at another nod position, and so on. Whether separate nod
 positions are stored as individual FITS files or as extension units of
@@ -275,7 +275,7 @@ The basic templates for LM integral-field spectroscopy are:
 Both templates move the target position between exposures, using the
 internal chopper or the telescope. At a given position a number of
 exposures with DIT/NDIT are taken. Depending on the setting of the
-template parameter \FITS{DET CUBE MODE} all the DITs may be stored as
+template parameter \FITS*{DET CUBE MODE} all the DITs may be stored as
 layers of a 3D cube (burst mode) or co-added into a 2D image.
 
 As the IFU contains an array of four detectors, there will be four
@@ -284,7 +284,7 @@ image or cube extensions in the FITS file for one exposure.
 The primary header of the FITS file will contain all information that
 pertains to the exposure. This will include information on the
 position of the internal chopper, the telescope offsets, and the type
-of observation (\FITS{DPR.TYPE=OBJECT} or \FITS{SKY}).
+of observation (\FITS{DPR.TYPE}=\CODE{OBJECT} or \CODE{SKY}).
 
 A typical sequence of IFU exposures will go through a series of
 dispersion grating settings in order to fill gaps in the instantaneous

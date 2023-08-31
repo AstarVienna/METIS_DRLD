@@ -18,9 +18,9 @@ METIS will have three focal plane detector arrays:
   detectors used for LM-band integral-field spectroscopy.
 \end{itemize}
 This section lists recipes that calibrate detector characteristics
-independent of a specific instrument mode. Where \FITS{_det} appears
+independent of a specific instrument mode. Where \CODE{_det} appears
 in FITS keywords of input or product files, it is taken to mean
-\FITS{_LM}, \FITS{_N} or \FITS{_IFU} according to the detector
+\CODE{_LM}, \CODE{_N} or \CODE{_IFU} according to the detector
 array for which data are being processed.
 %------------------------------------------------------------------------------------------------------------------
 \subsubsection{\REC*{metis_det_lingain}: Detector linearity and gain determination}
@@ -67,7 +67,7 @@ This satisfies \REQ{METIS-5997}.
   Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
                        & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
-  Input data:          & \RAW{DETLIN_det_RAW}: (set of \FITS{FLAT,LAMP} frames taken with increasing DIT) \\
+  Input data:          & \RAW{DETLIN_det_RAW}: (set of \CODE{FLAT,LAMP} frames taken with increasing DIT) \\
                        & \RAW{det_WCU_OFF_RAW}: (set of internal darks taken at the start of the template) \\
 %  Matched keywords:    & Subsystem ID \TODO{TBD}                                                             \\
   Algorithm:           & Subtract instrument dark (\CODE{hdrl_imagelist_sub_image}).                         \\
