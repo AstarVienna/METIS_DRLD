@@ -194,7 +194,9 @@ Input for:    & \REC{metis_n_img_flat} \\
               & \REC{metis_N_lss_sci} \\
               & \REC{metis_n_adc_slitloss} \\
 % The n-band does not have a basic_reduce recipe (according to the association map)
-% & \hyperref[]{\CODE{metis_n_img_basic_reduce}}\\
+% & \CODE{metis_n_img_basic_reduce}\\
+% The equivalent would be metis_n_img_chopnod, but that incorrectly does not have a MASTER_DARK as input
+% TODO: Add MASTER_DARK_GEO to metis_n_img_chopnod
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
