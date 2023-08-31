@@ -18,8 +18,20 @@
 % #1 boolean: use hyperlink
 % #2 string: uppercase type of the item
 % #3 string: id of the item
-% #4 string, optional: hyperref prefix
-\NewDocumentCommand{\Smart@Item}{m m m O{dataitem}}{%
+% #4 string: hyperref prefix
+%
+% NewExpandableDocumentCommand is used instead of NewDocumentCommand because
+% this ensures the table of contents is correct if the macros are used in
+% section headers. The xparse manual warns that
+%
+%    There are very rare occasion when it may be useful to create functions
+%    using a fully-expandable argument grabber. [...] This facility should
+%    only be used when absolutely necessary; if you do not understand when
+%    this might be, do not use these functions!
+%
+% Nevertheless, NewExpandableDocumentCommand seems to work well. However,
+% the last argument has to be m, r, R, l, or u, and not O.
+\NewExpandableDocumentCommand{\Smart@Item}{m m m m}{%
     \IfBooleanTF{#1}{%
         \texorpdfstring{\lstinline[style=#2style]!#3!}{\replaceunderscores{#3}}%
     }{%
@@ -34,18 +46,18 @@
 \ExplSyntaxOff
 
 % Raw FITS file: \RAW{LM_SCI_RAW}
-\NewDocumentCommand{\RAW}      {s m}{\Smart@Item{#1}{RAW}      {#2}}
-\NewDocumentCommand{\PAR}      {s m}{\Smart@Item{#1}{PAR}      {#2}}
-\NewDocumentCommand{\DRL}      {s m}{\Smart@Item{#1}{DRL}      {#2}[drl]}
-\NewDocumentCommand{\REC}      {s m}{\Smart@Item{#1}{REC}      {#2}[rec]}
-\NewDocumentCommand{\QC}       {s m}{\Smart@Item{#1}{QC}       {#2}[qc]}
-\NewDocumentCommand{\PROD}     {s m}{\Smart@Item{#1}{PROD}     {#2}}
-\NewDocumentCommand{\EXTCALIB} {s m}{\Smart@Item{#1}{EXTCALIB} {#2}}
-\NewDocumentCommand{\STATCALIB}{s m}{\Smart@Item{#1}{STATCALIB}{#2}}
-\NewDocumentCommand{\FITS}     {s m}{\Smart@Item{#1}{FITS}     {#2}[fits]}
+\NewDocumentCommand{\RAW}      {s m}{\Smart@Item{#1}{RAW}      {#2}{dataitem}}
+\NewDocumentCommand{\PAR}      {s m}{\Smart@Item{#1}{PAR}      {#2}{dataitem}}
+\NewDocumentCommand{\DRL}      {s m}{\Smart@Item{#1}{DRL}      {#2}{drl}}
+\NewExpandableDocumentCommand{\REC}      {s m}{\Smart@Item{#1}{REC}      {#2}{rec}}
+\NewDocumentCommand{\QC}       {s m}{\Smart@Item{#1}{QC}       {#2}{qc}}
+\NewDocumentCommand{\PROD}     {s m}{\Smart@Item{#1}{PROD}     {#2}{dataitem}}
+\NewDocumentCommand{\EXTCALIB} {s m}{\Smart@Item{#1}{EXTCALIB} {#2}{dataitem}}
+\NewDocumentCommand{\STATCALIB}{s m}{\Smart@Item{#1}{STATCALIB}{#2}{dataitem}}
+\NewDocumentCommand{\FITS}     {s m}{\Smart@Item{#1}{FITS}     {#2}{fits}}
 
 % Templates: they do not have the starred version, no hyperrefs are created
-\NewDocumentCommand{\TPL}      {m}{\Smart@Item{\BooleanTrue}{TPL}{#1}}
+\NewDocumentCommand{\TPL}      {m}{\Smart@Item{\BooleanTrue}{TPL}{#1}{}}
 % Requirements: this only points to Polarion, no internal hyperrefs are created
 \NewDocumentCommand{\REQ}      {m}{\href{https://polarion.astron.nl/polarion/\#/project/METIS/workitem?id=#1}{\textcolor{brown}{#1}}}
 
