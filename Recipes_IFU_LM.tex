@@ -22,7 +22,7 @@
 % post-processing recipe (\CODE{metis_ifu_combine}).}
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{\REC{metis_ifu_wavecal}: IFU wavelength calibration}
+\subsubsection{\REC*{metis_ifu_wavecal}: IFU wavelength calibration}
 \label{sssec:ifu_wavecal}
 \label{rec:metis_ifu_wavecal}
 
@@ -77,7 +77,7 @@ slices according to the optical design of the spectrograph.
 The wavelength of each line is known from the settings of the \ac{QCL}, the $x$
 coordinate is obtained by
 %linear interpolation along the line (or perhaps
-using the distortion table from \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}}
+using the distortion table from \REC{metis_ifu_distortion}
 %if necessary).
 
 The recipe produces a multi-extension FITS file with an image
@@ -85,26 +85,26 @@ extension mapping wavelength across each detector in the array.
 A table extension holds the polynomial coefficients.
 
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}               \\
+  Name:                & \REC{metis_ifu_wavecal}               \\
   Purpose:             & Determine pixel-to-wavelength transformation.                           \\
   Requirements:        & \REQ{METIS-6074}, \REQ{METIS-10300}                                     \\
   Type:                & Calibration                                                             \\
   Templates:           & \TPL{METIS_ifu_cal_InternalWave}                                        \\
-  Input data:          & \hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_WAVE_RAW}}                    \\
-                       & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}             \\
-                       & \hyperref[dataitem:badpix_map_ifu]{\PROD{BADPIX_MAP_IFU}}               \\
-                       & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}   \\
+  Input data:          & \RAW{IFU_WAVE_RAW}                    \\
+                       & \PROD{MASTER_DARK_IFU}             \\
+                       & \PROD{BADPIX_MAP_IFU}               \\
+                       & \PROD{IFU_DISTORTION_TABLE}   \\
   Parameters:          & None                                                                    \\
   Algorithm:           & Measure line locations (left and right edges, centroid by Gaussian fit).\\
                        & Compute deviation from optical models.                                  \\
                        & Compute wavelength solution $\xi(x, y, i)$, $\lambda(x, y, i)$.         \\
                        & Compute wavelength map.                                                 \\
-  Output data:         & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}                     \\
+  Output data:         & \PROD{IFU_WAVECAL}                     \\
 Expected accuracies:   & 1/5th of a pixel after post-processing (cf.~\cite{METIS-calibration_plan}, \REQ{METIS-6074}) \\
-  QC1 parameters:      & \QC{QC IFU WAVECAL RMS}                                                 \\
-                       & \QC{QC IFU WAVECAL NLINES}                                              \\
-                       & \QC{QC IFU WAVECAL PEAK CNTS}                                           \\
-                       & \QC{QC IFU WAVECAL LINE WIDTH}                                          \\
+  QC1 parameters:      & \QC*{QC IFU WAVECAL RMS}                                                 \\
+                       & \QC*{QC IFU WAVECAL NLINES}                                              \\
+                       & \QC*{QC IFU WAVECAL PEAK CNTS}                                           \\
+                       & \QC*{QC IFU WAVECAL LINE WIDTH}                                          \\
   \end{recipedef}
 
 \begin{figure}[hb]
@@ -112,7 +112,7 @@ Expected accuracies:   & 1/5th of a pixel after post-processing (cf.~\cite{METIS
     \def \globalscale {0.700000}
     \fontsize{10}{12}\selectfont
     \input{tikz/metis_ifu_wavecal}
-  \caption[Recipe: \REC{metis_ifu_wavecal}]{\REC{metis_ifu_wavecal} --
+  \caption[Recipe: \REC*{metis_ifu_wavecal}]{\REC*{metis_ifu_wavecal} --
     daytime wavelength calibration for the IFU.}
   \label{fig:metis_ifu_wavecal}
 \end{figure}
@@ -120,7 +120,7 @@ Expected accuracies:   & 1/5th of a pixel after post-processing (cf.~\cite{METIS
 
 %------------------------------------------------------------------------------------------------------------------
 \clearpage
-\subsubsection{\REC{metis_ifu_rsrf}: IFU relative spectral response function}
+\subsubsection{\REC*{metis_ifu_rsrf}: IFU relative spectral response function}
 \label{sssec:ifu_rsrf}
 \label{rec:metis_ifu_rsrf}
 
@@ -131,32 +131,32 @@ illuminating the field of view with the black-body calibration lamp at
 two different temperatures. The RSRF is then determined by dividing
 the image by the known lamp continuum shape for the respective
 temperature. We refer to the two-dimensional image obtained by this
-division as \hyperref[dataitem:master_flat_ifu]{\PROD{MASTER_FLAT_IFU}} and the one-dimensional reponse
+division as \PROD{MASTER_FLAT_IFU} and the one-dimensional reponse
 function obtained by averaging at constant wavelength as
-\hyperref[dataitem:rsrf_ifu]{\PROD{RSRF_IFU}}. The bad pixel mask can be updated by identifying pixels
+\PROD{RSRF_IFU}. The bad pixel mask can be updated by identifying pixels
 that deviate strongly from their neighbours.
 
 \begin{recipedef}
-Name:                & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}}                                                     \\
+Name:                & \REC{metis_ifu_rsrf}                                                     \\
 Purpose:             & Create relative spectral response function for the IFU detector.         \\
 Requirements:        & \REQ{METIS-6131}, \REQ{METIS-6698}                                       \\
 Type:                & Calibration                                                              \\
 Templates:           & \TPL{METIS_ifu_cal_rsrf}                                                 \\
-Input data:          & \hyperref[dataitem:ifu_rsrf_raw]{\RAW{IFU_RSRF_RAW}} (Raw flats taken with black-body calibration lamp.)   \\
-                     & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}              \\
-                     & \hyperref[dataitem:badpix_map_ifu]{\PROD{BADPIX_MAP_IFU}}                                                    \\
-                     & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}: image with wavelength at each pixel.                 \\
+Input data:          & \RAW{IFU_RSRF_RAW} (Raw flats taken with black-body calibration lamp.)   \\
+                     & \PROD{MASTER_DARK_IFU}              \\
+                     & \PROD{BADPIX_MAP_IFU}                                                    \\
+                     & \PROD{IFU_WAVECAL}: image with wavelength at each pixel.                 \\
 Parameters:          & None                                                                     \\
 Algorithm:           & Create continuum image by mapping Planck spectrum at $T_{\mathrm{lamp}}$ to
                        wavelength image.                                                        \\
                      & Divide exposures by continuum image.                                     \\
                      & Average exposures to yield master flat (2D RSRF).                        \\
                      & Average in spatial direction to obtain relative response function        \\
-Output data:         & \hyperref[dataitem:master_flat_ifu]{\PROD{MASTER_FLAT_IFU}}                                                   \\
-                     & \hyperref[dataitem:rsrf_ifu]{\PROD{RSRF_IFU}}                                                          \\
-                     & \hyperref[dataitem:badpix_map_ifu]{\PROD{BADPIX_MAP_IFU}}                                                    \\
+Output data:         & \PROD{MASTER_FLAT_IFU}                                                   \\
+                     & \PROD{RSRF_IFU}                                                          \\
+                     & \PROD{BADPIX_MAP_IFU}                                                    \\
 Expected accuracies: & 3\% (\REQ{METIS-6698})                                                   \\
-QC1 parameters:      & \QC{QC IFU RSRF NBADPIX}                                                    \\
+QC1 parameters:      & \QC*{QC IFU RSRF NBADPIX}                                                    \\
 %                     & (more TBD)                                                               \\
 \end{recipedef}
 
@@ -165,7 +165,7 @@ QC1 parameters:      & \QC{QC IFU RSRF NBADPIX}                                 
     \def \globalscale {0.700000}
     \fontsize{10}{12}\selectfont
     \input{tikz/metis_ifu_rsrf}
-  \caption[Recipe: \REC{metis_ifu_rsrf}]{\REC{metis_ifu_rsrf} --
+  \caption[Recipe: \REC*{metis_ifu_rsrf}]{\REC*{metis_ifu_rsrf} --
     creation of IFU relative spectral response function.}
   \label{fig:metis_ifu_rsrf}
 \end{figure}
@@ -173,7 +173,7 @@ QC1 parameters:      & \QC{QC IFU RSRF NBADPIX}                                 
 
 %------------------------------------------------------------------------------------------------------------------
 \clearpage
-\subsubsection{\REC{metis_ifu_std_process}: IFU flux standard reduction}
+\subsubsection{\REC*{metis_ifu_std_process}: IFU flux standard reduction}
 \label{sssec:ifu_std_process}
 \label{rec:metis_ifu_std_process}
 
@@ -198,17 +198,17 @@ may be refined by measuring telluric emission and/or absorption lines
 (by fitting with \lstinline{molecfit}).
 
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}                                            \\
+  Name:                & \REC{metis_ifu_std_process}                                            \\
   Purpose:             & Determine conversion between detector counts and physical source flux. \\
   Requirements:        & \REQ{METIS-6131}                                                       \\
   Type:                & Calibration                                                            \\
   Templates:           & \TPL{METIS_ifu_cal_standard}                                           \\
-  Input data:          & \hyperref[dataitem:ifu_std_raw]{\RAW{IFU_STD_RAW}} (Raw spectra of flux standard star)                  \\
-                       & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}            \\
-                       & \hyperref[dataitem:rsrf_ifu]{\PROD{RSRF_IFU}} (2D relative spectral response function)               \\
-                       & \hyperref[dataitem:badpix_map_ifu]{\PROD{BADPIX_MAP_IFU}}  \\
-                       & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}} \\
-                       & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}} \\
+  Input data:          & \RAW{IFU_STD_RAW} (Raw spectra of flux standard star)                  \\
+                       & \PROD{MASTER_DARK_IFU}            \\
+                       & \PROD{RSRF_IFU} (2D relative spectral response function)               \\
+                       & \PROD{BADPIX_MAP_IFU}  \\
+                       & \PROD{IFU_WAVECAL} \\
+                       & \PROD{IFU_DISTORTION_TABLE} \\
   Parameters:          & None                                                                   \\
   Algorithm:           & Subtract dark, divide by master flat                                   \\
                        & Estimate stray light and subtract                                      \\
@@ -217,13 +217,13 @@ may be refined by measuring telluric emission and/or absorption lines
                        & Extract 1D spectrum of star                                            \\
                        & Compute and apply telluric correction                                  \\
                        & Compute conversion to physical units as function of wavelength.        \\
-  Output data:         & \hyperref[dataitem:ifu_std_reduced_cube]{\PROD{IFU_STD_REDUCED_CUBE}}  \\
-                       & \hyperref[dataitem:ifu_std_background_cube]{\PROD{IFU_STD_BACKGROUND_CUBE}}                                         \\
-                       & \hyperref[dataitem:ifu_std_reduced_1d]{\PROD{IFU_STD_REDUCED_1D}}                                              \\
-                       & \hyperref[dataitem:ifu_std_telluric_1d]{\PROD{IFU_STD_TELLURIC_1D}}                                             \\
-                       & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}                                                     \\
+  Output data:         & \PROD{IFU_STD_REDUCED_CUBE}  \\
+                       & \PROD{IFU_STD_BACKGROUND_CUBE}                                         \\
+                       & \PROD{IFU_STD_REDUCED_1D}                                              \\
+                       & \PROD{IFU_STD_TELLURIC_1D}                                             \\
+                       & \PROD{FLUXCAL_TAB}                                                     \\
   Expected accuracies: & $<5$\% absolute flux calibration \\
-  QC1 parameters:      & \QC{QC IFU STD STRAYLIGHT MEAN}                                        \\
+  QC1 parameters:      & \QC*{QC IFU STD STRAYLIGHT MEAN}                                        \\
 \end{recipedef}
 
 \begin{figure}[hb]
@@ -231,14 +231,14 @@ may be refined by measuring telluric emission and/or absorption lines
     \def \globalscale {0.700000}
     \fontsize{10}{12}\selectfont
     \input{tikz/metis_ifu_std_process}
-  \caption[Recipe: \REC{metis_ifu_std_process}]{%
-    \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}} -- reduction of IFU flux standard
+  \caption[Recipe: \REC*{metis_ifu_std_process}]{%
+    \REC{metis_ifu_std_process} -- reduction of IFU flux standard
     frames and flux calibration (not all data products are shown).}
   \label{fig:metis_ifu_std_process}
 \end{figure}
 
 \clearpage
-\subsubsection{\REC{metis_ifu_sci_process}: IFU science reduction}
+\subsubsection{\REC*{metis_ifu_sci_process}: IFU science reduction}
 \label{sssec:ifu_sci_process}
 \label{rec:metis_ifu_sci_process}
 
@@ -315,8 +315,8 @@ The recipe produces the following (intermediate) data products:
   Sect.~8.9 of~\cite{DRLS}.
 % TODO: Decide on the below.
 %  Whether this step is included
-%  in the present recipe \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} or is postponed to
-%  the more general recipe \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}} is TBD. It
+%  in the present recipe \REC{metis_ifu_sci_process} or is postponed to
+%  the more general recipe \REC{metis_ifu_sci_postprocess} is TBD. It
 %  may be formally required to do the image reconstruction here if
 %  templates are set up to obtain a fixed set of spatially dithered and
 %  rotated exposures aimed at reconstructing a fully sampled PSF in
@@ -333,10 +333,10 @@ observatory pipeline, a variant of the recipe may be implemented with
 reduced functionality and output. The observatory recipe may also have
 to include features to determine QC parameters for the LM-band images
 that are taken in parallel with the IFU exposures, similar to
- \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}.
+ \REC{metis_lm_img_basic_reduce}.
 
 \begin{recipedef}
-Name:                & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}                                                              \\
+Name:                & \REC{metis_ifu_sci_process}                                                              \\
 Purpose:             & Reduction of individual science exposures.                                               \\
 Requirements:        & \REQ{METIS-6131}, \REQ{METIS-6309}                                                       \\
 Type:                & Science                                                                                  \\
@@ -353,16 +353,16 @@ Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                       
                      & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
                      & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
                      & \TPL{METIS_ifu_cal_psf}                                                                  \\
-Input data:          & \hyperref[dataitem:ifu_sci_raw]{\RAW{IFU_SCI_RAW}} (Dithered science exposures.) \\
-                     & \hyperref[dataitem:ifu_sky_raw]{\RAW{IFU_SKY_RAW}} (Blank sky images, if available.) \\
-                     & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}                              \\
-                       & \hyperref[dataitem:rsrf_ifu]{\PROD{RSRF_IFU}} (2D relative spectral response function)               \\
-                       & \hyperref[dataitem:badpix_map_ifu]{\PROD{BADPIX_MAP_IFU}}  \\
-                       & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}} \\
+Input data:          & \RAW{IFU_SCI_RAW} (Dithered science exposures.) \\
+                     & \RAW{IFU_SKY_RAW} (Blank sky images, if available.) \\
+                     & \PROD{MASTER_DARK_IFU}                              \\
+                       & \PROD{RSRF_IFU} (2D relative spectral response function)               \\
+                       & \PROD{BADPIX_MAP_IFU}  \\
+                       & \PROD{IFU_WAVECAL} \\
 % TODO: I believe this should not be just FLUXCAL_TAB as it is not a table but an image
-                     & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}} (Flux calibration table) \\
-                       & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}} \\
-                     & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}} (Line spread kernel to be used with \CODE{molecfit}) \\
+                     & \PROD{FLUXCAL_TAB} (Flux calibration table) \\
+                       & \PROD{IFU_DISTORTION_TABLE} \\
+                     & \STATCALIB{LSF_KERNEL} (Line spread kernel to be used with \CODE{molecfit}) \\
 Parameters:          & telluric correction (yes/no)                                                             \\
 %                     & more TBD                                                                                 \\
 Algorithm:           & Subtract dark, divide by master flat                                                     \\
@@ -373,15 +373,15 @@ Algorithm:           & Subtract dark, divide by master flat                     
                      & Rectify spectra and assemble cube                                                        \\
                      & Extract 1D object spectrum                                                               \\
                      & Compute telluric correction and apply to reduced images and cube                         \\
-Output data:         & \hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}} (2D, per exposure)           \\
-                     & \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}} (2D, per exposure)   \\
-                     & \hyperref[dataitem:ifu_sci_background]{\PROD{IFU_SCI_BACKGROUND}} (2D, per exposure)     \\
-                     & \hyperref[dataitem:ifu_sci_reduced_cube]{\PROD{IFU_SCI_REDUCED_CUBE}} (3D, per exposure) \\
-                     & \hyperref[dataitem:ifu_sci_reduced_cube_tac]{\PROD{IFU_SCI_REDUCED_CUBE_TAC}} (3D, per exposure) \\
-                     & \hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}} (3D)                       \\
-                     & \hyperref[dataitem:ifu_sci_combined_tac]{\PROD{IFU_SCI_COMBINED_TAC}} (3D)               \\
-                     & \hyperref[dataitem:ifu_sci_object_1d]{\PROD{IFU_SCI_OBJECT_1D}}  (1D)                    \\
-                     & \hyperref[dataitem:ifu_sci_telluric_1d]{\PROD{IFU_SCI_TELLURIC_1D}}                      \\
+Output data:         & \PROD{IFU_SCI_REDUCED} (2D, per exposure)           \\
+                     & \PROD{IFU_SCI_REDUCED_TAC} (2D, per exposure)   \\
+                     & \PROD{IFU_SCI_BACKGROUND} (2D, per exposure)     \\
+                     & \PROD{IFU_SCI_REDUCED_CUBE} (3D, per exposure) \\
+                     & \PROD{IFU_SCI_REDUCED_CUBE_TAC} (3D, per exposure) \\
+                     & \PROD{IFU_SCI_COMBINED} (3D)                       \\
+                     & \PROD{IFU_SCI_COMBINED_TAC} (3D)               \\
+                     & \PROD{IFU_SCI_OBJECT_1D}  (1D)                    \\
+                     & \PROD{IFU_SCI_TELLURIC_1D}                      \\
 Expected accuracies: & for wavelength: 1/5th of a pixel after post-processing\\
             & (cf.~\cite{METIS-calibration_plan}, \REQ{METIS-6074} \\
             & for flux: 10\% over an atmospheric band \\
@@ -396,15 +396,15 @@ QC1 parameters:      & None                                                     
     \def \globalscale {0.700000}
     \fontsize{10}{12}\selectfont
     \input{tikz/metis_ifu_sci_process}
-  \caption[Recipe: \REC{metis_ifu_sci_process}]{%
-    \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} -- reduction of IFU science frames.}
+  \caption[Recipe: \REC*{metis_ifu_sci_process}]{%
+    \REC{metis_ifu_sci_process} -- reduction of IFU science frames.}
   \label{fig:metis_ifu_sci_process}
 \end{figure}
 
 
 %------------------------------------------------------------------------------------------------------------------
 \clearpage
-\subsubsection{\REC{metis_ifu_tellcorr}: IFU telluric absorption correction}
+\subsubsection{\REC*{metis_ifu_tellcorr}: IFU telluric absorption correction}
 \label{sssec:ifu_tellcorr}
 \label{rec:metis_ifu_tellcorr}
 
@@ -413,29 +413,29 @@ cube. The correction is done via a model atmospheric spectrum derived
 with \CODE{molecfit}.
 
 An automatic telluric correction can be performed as part of
-\hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}. In an interactive environment it may be
+\REC{metis_ifu_sci_process}. In an interactive environment it may be
 better to do the telluric correction as a separate post-processing
 step with a user-defined aperture for the extraction of a 1D object
 spectrum. The spectrum is extracted from a combined cube
-(\hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}}) but may be applied to other products of
-\hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} specified in the input set of frames.
+(\PROD{IFU_SCI_COMBINED}) but may be applied to other products of
+\REC{metis_ifu_sci_process} specified in the input set of frames.
 
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_ifu_tellcorr]{\REC{metis_ifu_tellcorr}}                                                        \\
+  Name:                & \REC{metis_ifu_tellcorr}                                                        \\
   Purpose:             & Remove telluric absorption features                                             \\
   Requirements:        & \REQ{METIS-6091}                                                                \\
   Type:                & Calibration / post processing                                                   \\
   Templates:           & ---                                                                             \\
-  Input data:          & \hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}} -- reduced combined IFU cube                            \\
-                       & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}} -- Line spread kernel to be used with \CODE{molecfit}         \\
-                       & \hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}} -- Atmospheric input profile to be used with \CODE{molecfit} \\
+  Input data:          & \PROD{IFU_SCI_COMBINED} -- reduced combined IFU cube                            \\
+                       & \STATCALIB{LSF_KERNEL} -- Line spread kernel to be used with \CODE{molecfit}         \\
+                       & \EXTCALIB{ATM_PROFILE} -- Atmospheric input profile to be used with \CODE{molecfit} \\
   Parameters:          & extraction aperture parameters                                                  \\
                        & \CODE{molecfit} parameters                                                      \\
                        & atmospheric profile incl.\ radiometer data                                      \\
                        & line spread kernel                                                              \\
   Algorithm:           & extract 1D spectrum                                                             \\
                        & Application of molecfit                                                         \\
-  Output data:         & \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}                                                      \\
+  Output data:         & \PROD{IFU_SCI_REDUCED_TAC}                                                      \\
   Expected accuracies: & 2\%~\cite{METIS_calerrbudget}                                                   \\
   QC1 parameters:      & None                                                                            \\
 \end{recipedef}
@@ -445,7 +445,7 @@ spectrum. The spectrum is extracted from a combined cube
     \def \globalscale {0.700000}
     \fontsize{10}{12}\selectfont
     \input{tikz/metis_ifu_tellcorr}
-  \caption[Recipe: \REC{metis_ifu_tellcorr}]{\REC{metis_ifu_tellcorr}
+  \caption[Recipe: \REC*{metis_ifu_tellcorr}]{\REC*{metis_ifu_tellcorr}
     -- telluric correction of reduced IFU science cubes.}
   \label{fig:metis_ifu_tellcorr}
 \end{figure}
@@ -453,7 +453,7 @@ spectrum. The spectrum is extracted from a combined cube
 
 %------------------------------------------------------------------------------------------------------------------
 \clearpage
-\subsubsection{\REC{metis_ifu_sci_postprocess}: IFU science postprocessing}
+\subsubsection{\REC*{metis_ifu_sci_postprocess}: IFU science postprocessing}
 \label{sssec:ifu_sci_postprocess}
 \label{rec:metis_ifu_sci_postprocess}
 
@@ -487,18 +487,18 @@ The recipe is only used in the science-grade pipelines, not at the
 observatory.
 
 \begin{recipedef}
-  Name:           & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}}  \\
+  Name:           & \REC{metis_ifu_sci_postprocess}  \\
   Purpose:        & Coaddition and mosaicing of reduced science cubes.                         \\
   Requirements:   & \REQ{METIS-6131}                                                           \\
   Type:           & Science                                                                    \\
   Templates:      & None                                                                       \\
-  Input data:     & Reduced science cubes (\hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}}, \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}) \\
+  Input data:     & Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \PROD{IFU_SCI_REDUCED_TAC}) \\
   Parameters:     & None                                                                       \\
   Algorithm:      & Call \hyperref[drl:ifu_grid_output]{\CODE{ifu_grid_output}} to find the output grid encompassing all input cubes \\
                   & Call \hyperref[drl:ifu_resampling]{\CODE{ifu_resampling}} to resample input cubes to output grid   \\
                   & Call \hyperref[drl:ifu_coadd]{\CODE{ifu_coadd}} to stack the images                    \\
-  Output data:    & \hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}                    \\
-                  & \hyperref[dataitem:ifu_sci_coadd_error]{\PROD{IFU_SCI_COADD_ERROR}}        \\
+  Output data:    & \PROD{IFU_SCI_COADD}                    \\
+                  & \PROD{IFU_SCI_COADD_ERROR}        \\
   QC1 parameters: & ---                                                                        \\
 \end{recipedef}
 
@@ -507,8 +507,8 @@ observatory.
     \def \globalscale {0.700000}
     \fontsize{10}{12}\selectfont
     \input{tikz/metis_ifu_sci_postprocess}
-  \caption[Recipe: \REC{metis_ifu_sci_postprocess}]{%
-    \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}} -- post-processing (coaddition) of
+  \caption[Recipe: \REC*{metis_ifu_sci_postprocess}]{%
+    \REC{metis_ifu_sci_postprocess} -- post-processing (coaddition) of
     reduced IFU science frames.}
   \label{fig:metis_ifu_sci_postprocess}
 \end{figure}
@@ -516,7 +516,7 @@ observatory.
 
 %------------------------------------------------------------------------------------------------------------------
 \clearpage
-\subsubsection{\REC{metis_ifu_distortion}: IFU distortion calibration}
+\subsubsection{\REC*{metis_ifu_distortion}: IFU distortion calibration}
 \label{sssec:ifu_distortion}
 \label{rec:metis_ifu_distortion}
 
@@ -528,21 +528,21 @@ array to sky positions. Measurement of the FWHM of the spots gives an
 indication of the variation of spectral resolution across the field of view.
 
 \begin{recipedef}
-  Name:                & \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}}                                                  \\
+  Name:                & \REC{metis_ifu_distortion}                                                  \\
   Purpose:             & Determine geometric distortion coefficients for the IFU.                    \\
   Requirements:        & \REQ{METIS-6087}, \REQ{METIS-6073}                                          \\
   Type:                & Calibration                                                                 \\
   Templates:           & \TPL{METIS_ifu_cal_distortion}                                              \\
-  Input data:          & \hyperref[dataitem:ifu_distortion_raw]{\RAW{IFU_DISTORTION_RAW}} (Images of multi-pinhole mask.) \\
+  Input data:          & \RAW{IFU_DISTORTION_RAW} (Images of multi-pinhole mask.) \\
   Parameters:          & None                                                                        \\
   Algorithm:           & Calculate table mapping pixel position to position on sky.                  \\
-  Output data:         & \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}                                                 \\
-                       & \hyperref[dataitem:ifu_dist_reduced]{\PROD{IFU_DIST_REDUCED}}                                                     \\
+  Output data:         & \PROD{IFU_DISTORTION_TABLE}                                                 \\
+                       & \PROD{IFU_DIST_REDUCED}                                                     \\
 Expected accuracies: & 1/10th of a pixel after post-processing\\
                & (cf.~\cite{METIS-calibration_plan}, R-MET-106, \REQ{METIS-167}, \REQ{METIS-1371})\\
-  QC1 parameters:      & \QC{QC IFU DISTORT RMS}: RMS deviation between measured position and model \\
-                       & \QC{QC IFU DISTORT FWHM}:   Measured FWHM of spots                            \\
-                       & \QC{QC IFU DISTORT NSPOTS}: Number of identified spots                        \\
+  QC1 parameters:      & \QC*{QC IFU DISTORT RMS}: RMS deviation between measured position and model \\
+                       & \QC*{QC IFU DISTORT FWHM}:   Measured FWHM of spots                            \\
+                       & \QC*{QC IFU DISTORT NSPOTS}: Number of identified spots                        \\
 \end{recipedef}
 
 \begin{figure}[hb]
@@ -550,8 +550,8 @@ Expected accuracies: & 1/10th of a pixel after post-processing\\
     \def \globalscale {0.700000}
     \fontsize{10}{12}\selectfont
     \input{tikz/metis_ifu_distortion}
-  \caption[Recipe: \REC{metis_ifu_distortion}]{%
-    \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}} -- IFU distortion calibration}
+  \caption[Recipe: \REC*{metis_ifu_distortion}]{%
+    \REC{metis_ifu_distortion} -- IFU distortion calibration}
   \label{fig:metis_ifu_distortion}
 \end{figure}
 

@@ -26,7 +26,7 @@
   \pic (start) {start};
 
   \node (input) [below=0.75cm of start-m, input, text width=4cm, fill=sciproductcolor]{%
-    \textsl{N} \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}}};
+    \textsl{N} \PROD{LM_SCI_CALIBRATED}};
 
   \node (step_determinegrid) [below=2.5cm of input, redstep]{%
     determine output grid};
@@ -50,21 +50,21 @@
   \node (connect_badpix) [connection] at
   ($(input)!0.75!(step_determinegrid)$) {};
   \node (badpix) [left=of connect_badpix, calproduct]{%
-    \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}};
+    \PROD{BADPIX_MAP_2RG}};
   \draw (badpix) -- (connect_badpix);
 
   %% Output
   \node (connectcoadd) [connection] at
   ($(step_coadd)!0.33!(stop-t)$) {};
   \node (coadd) [right=of connectcoadd, sciproduct]{%
-    \hyperref[dataitem:lm_sci_coadd]{\PROD{LM_SCI_COADD}}};
+    \PROD{LM_SCI_COADD}};
   \draw (connectcoadd) -- (coadd);
 
 % HB: Contribution map is in an extension
 %  \node (connectcontrib) [connection] at
 %  ($(step_coadd)!0.6!(stop-t)$) {};
 %  \node (contrib) [right=of connectcontrib, sciproduct]{%
-%    \hyperref[dataitem:lm_sci_coadd_contrib]{\PROD{LM_SCI_COADD_CONTRIB}}};
+%    \PROD{LM_SCI_COADD_CONTRIB}};
 %  \draw (connectcontrib) -- (contrib);
 
 

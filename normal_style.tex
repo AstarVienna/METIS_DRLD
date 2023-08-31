@@ -28,7 +28,7 @@
   basicstyle=\ttfamily\color{darkgreen}%
   \lst@ifdisplaystyle\scriptsize\fi}
 
-%% Write QC parameters like this: \QC{QC_SOMETHING_OR_OTHER}
+%% Write QC parameters like this: \QC*{QC_SOMETHING_OR_OTHER}
 \lstdefinestyle{QCstyle}{%
   basicstyle=\ttfamily\color{darkblue}%
   \lst@ifdisplaystyle\scriptsize\fi}
@@ -38,7 +38,7 @@
   basicstyle=\ttfamily\color{darkred}%
   \lst@ifdisplaystyle\scriptsize\fi}
 
-%% Write products like this: \hyperref[dataitem:some_thing]{\PROD{SOME_THING}}
+%% Write products like this: \PROD{SOME_THING}
 \lstdefinestyle{PRODstyle}{%
   basicstyle=\ttfamily\color{darkorange}%
   \lst@ifdisplaystyle\scriptsize\fi}
@@ -51,5 +51,10 @@
 % static calib files
 \lstdefinestyle{STATCALIBstyle}{%
   basicstyle=\ttfamily\color{teal}%
+  \lst@ifdisplaystyle\scriptsize\fi}
+
+% static calib files
+\lstdefinestyle{FITSstyle}{%
+  basicstyle=\ttfamily\color{black}%
   \lst@ifdisplaystyle\scriptsize\fi}
 \makeatother

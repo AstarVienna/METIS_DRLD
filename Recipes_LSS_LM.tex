@@ -4,151 +4,151 @@
 
 A draft of the reduction cascade is shown in
 Figs.~\ref{Fig:LMLssAssomap1} and \ref{Fig:LMLssAssomap2}% together with the data processing table (Tables~\ref{Tab:LMLssDatProc1} and ~\ref{Tab:LMLssDatProc2}). 
-The first part aims to update the static calibration database, in particular the creation of the gain map (\hyperref[Sec:detector_calibration]{\REC{metis_det_lingain}}) and the determination of the \ac{ADC} slitlosses (\hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}}). They are executed only when an update is required, e.g. after a major instrument intervention or on yearly basis. The second part comprises the basic calibrations, e.g. the dark correction and the spectroscopic flatfielding via \ac{RSRF}, followed by the third part, the main calibration steps, incorporating the determination of the first guess wavelength solution by means of the laser sources in the \ac{WCU} and the determination of the response curve for the flux calibration. Subsequently, the main reduction is conducted, which applies the previously created master calibration files to the science frames. Both, the standard star and the science observations are wavelength calibrated with the help of the atmospheric lines visible in the respective spectra. Therefore the main step of the wavelength calibration is carried out in the recipes \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} and \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}. Optionally, the telluric correction can be done with a telluric standard star.\\
+The first part aims to update the static calibration database, in particular the creation of the gain map (\REC{metis_det_lingain}) and the determination of the \ac{ADC} slitlosses (\REC{metis_lm_adc_slitloss}). They are executed only when an update is required, e.g. after a major instrument intervention or on yearly basis. The second part comprises the basic calibrations, e.g. the dark correction and the spectroscopic flatfielding via \ac{RSRF}, followed by the third part, the main calibration steps, incorporating the determination of the first guess wavelength solution by means of the laser sources in the \ac{WCU} and the determination of the response curve for the flux calibration. Subsequently, the main reduction is conducted, which applies the previously created master calibration files to the science frames. Both, the standard star and the science observations are wavelength calibrated with the help of the atmospheric lines visible in the respective spectra. Therefore the main step of the wavelength calibration is carried out in the recipes \REC{metis_LM_lss_std} and \REC{metis_LM_lss_sci}. Finally, the telluric absorption correction is applied using the modelling approach with \texttt{molecfit}. Optionally, the telluric correction can be done with a telluric standard star.\\
 Note that the list of \ac{QC} parameters in the recipe descriptions will be extended whenever necessary.\\
 
-\subsubsection{\REC{metis_det_lingain} and \REC{metis_det_dark}: Linearity/Gain}
+\subsubsection{\REC*{metis_det_lingain} and \REC*{metis_det_dark}: Linearity/Gain}
 These recipes aim for detector-specific calibrations and are therefore the same as in the imaging pipeline. Common detector calibrations are described in Section~\ref{Sec:detector_calibration}.
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{\REC{metis_LM_adc_slitloss}: Slit loss determination}
-The recipe \hyperref[sssec:adc_slitlosses]{\REC{metis_LM_adc_slitloss}} aims to determine the slit losses induced by the fixed \ac{ADC} positions as function of the object position across the slit. The recipe aims to create a table with slitlosses (\hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}}), which is added to the static database and used in the recipes \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slit-losses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit-losses" in the Calibration Plan~\cite{METIS-calibration_plan}. 
+\subsubsection{\REC*{metis_LM_adc_slitloss}: Slit loss determination}
+The recipe \REC{metis_LM_adc_slitloss} aims to determine the slit losses induced by the fixed \ac{ADC} positions as function of the object position across the slit. The recipe aims to create a table with slitlosses (\STATCALIB{LM_ADC_SLITLOSS}), which is added to the static database and used in the recipes \REC{metis_LM_lss_std}. This recipe is to be carried out only when an update of the database is needed. The algorithm and the workflow of the recipe to determine the slit-losses is given in Section~\ref{sssec:adc_slitlosses}, more information can be found in Section "Calibration of slit-losses" in the Calibration Plan~\cite{METIS-calibration_plan}. 
 
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{\REC{metis_LM_lss_rsrf}:  Flatfielding}\label{rec:metis_lm_lss_rsrf}
-The recipe \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} aims to create a spectroscopic master flatfield for determining the pixel-to-pixel sensitivity and to enable the order location algorithm (\hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}}).
+\subsubsection{\REC*{metis_LM_lss_rsrf}:  Flatfielding}\label{rec:metis_lm_lss_rsrf}
+The recipe \REC{metis_LM_lss_rsrf} aims to create a spectroscopic master flatfield for determining the pixel-to-pixel sensitivity and to enable the order location algorithm (\REC{metis_LM_lss_trace}).
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_rsrf_v0.83.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_rsrf}]{\REC{metis_LM_lss_rsrf} --
+  \caption[Recipe: \REC*{metis_LM_lss_rsrf}]{\REC*{metis_LM_lss_rsrf} --
     Recipe workflow to create the spectroscopic flatfield by means of the \ac{RSRF}.}
   \label{Fig:rec_lm_lss_rsrf}
 \end{figure}
 
 \begin{recipedef}
-Name:		& \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}}  \\
+Name:		& \REC{metis_LM_lss_rsrf}  \\
 Purpose:	& Spectroscopic flatfielding with \ac{RSRF} \\
 Type:		& Calibration\\
 Requirements: &  METIS-6084, METIS-3291, METIS-9099 \\
 Templates:           & \TPL{METIS_spec_lm_cal_rsrf} \\
-Input data:     & $N\times$ \hyperref[dataitem:lm_lss_rsrf_raw]{\RAW{LM_LSS_RSRF_RAW}} \\
-                & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:linearity_2rg]{\STATCALIB{LINEARITY_2RG}}  \\
-                & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}  \\
-                & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
-                & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
+Input data:     & $N\times$ \RAW{LM_LSS_RSRF_RAW} \\
+                & \EXTCALIB{PERSISTENCE_MAP}  \\
+                & \STATCALIB{LINEARITY_2RG}  \\
+                & \PROD{GAIN_MAP_2RG}  \\
+                & \PROD{BADPIX_MAP_2RG}  \\
+                & \PROD{MASTER_DARK_2RG}  \\
 Parameters: 	& exposure time, spectral setup (L or M band)\\
 Algorithm:      & subtract master \ac{WCU} "OFF" frame from illumination frame (done on individual images)\\
                 & median/mean filtering of subtracted images\\
                 & division by blackbody spectrum\\
                 & normalisation to achieve \ac{RSRF}\\
-Output data:	& \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} (\FITS{PRO.CATG=MASTER_LM_LSS_RSRF}): master flatfield/\ac{RSRF} \\
-                & \hyperref[dataitem:median_lm_lss_rsrf_img]{\PROD{MEDIAN_LM_LSS_RSRF_IMG}}: median map (\ac{QC})\\
-                & \hyperref[dataitem:mean_lm_lss_rsrf_img]{\PROD{MEAN_LM_LSS_RSRF_IMG}}: mean map (\ac{QC})\\
+Output data:	& \PROD{MASTER_LM_LSS_RSRF} (\FITS{PRO.CATG}=\CODE{MASTER_LM_LSS_RSRF}): master flatfield/\ac{RSRF} \\
+                & \PROD{MEDIAN_LM_LSS_RSRF_IMG}: median map (\ac{QC})\\
+                & \PROD{MEAN_LM_LSS_RSRF_IMG}: mean map (\ac{QC})\\
 Expected accuracies: & 3\% (cf.~\cite{METIS-calibration_plan} and~\cite{METIS_calerrbudget})\\
-QC1 parameters: & \hyperref[qc:qc_lm_lss_rsrf_mean_level]{\QC{QC LM LSS RSRF MEAN LEVEL}}: Mean level of the \ac{RSRF}\\
-                & \hyperref[qc:qc_lm_lss_rsrf_median_level]{\QC{QC LM LSS RSRF MEDIAN LEVEL}}: Median level of the \ac{RSRF}\\
-                & \hyperref[qc:qc_lm_lss_rsrf_intordr_level]{\QC{QC LM LSS RSRF INTORDR LEVEL}}: Flux level of the interorder background\\
-                & \hyperref[qc:qc_lm_lss_rsrf_norm_stdev]{\QC{QC LM LSS RSRF NORM STDEV}}: Standard deviation of the normalised \ac{RSRF}\\
-                & \hyperref[qc:qc_lm_lss_rsrf_norm_snr]{\QC{QC LM LSS RSRF NORM SNR}}: \ac{SNR} of the normalised \ac{RSRF}\\
+QC1 parameters: & \QC{QC LM LSS RSRF MEAN LEVEL}: Mean level of the \ac{RSRF}\\
+                & \QC{QC LM LSS RSRF MEDIAN LEVEL}: Median level of the \ac{RSRF}\\
+                & \QC{QC LM LSS RSRF INTORDR LEVEL}: Flux level of the interorder background\\
+                & \QC{QC LM LSS RSRF NORM STDEV}: Standard deviation of the normalised \ac{RSRF}\\
+                & \QC{QC LM LSS RSRF NORM SNR}: \ac{SNR} of the normalised \ac{RSRF}\\
 %                & more TBD\\
 \end{recipedef}
 \clearpage
 
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{\REC{metis_LM_lss_trace}:  Order detection}\label{rec:metis_lm_lss_trace}
-The recipe \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} aims at detecting the order and a polynomial fitting of the order location (see~\cite{pis02} and~\cite{pis21} for details on the algorithms). The detection and polynomial fitting is based on flatfield frames taken through a pinhole mask, which leads to individual pinhole traces along the entire dispersion direction.
+\subsubsection{\REC*{metis_LM_lss_trace}:  Order detection}\label{rec:metis_lm_lss_trace}
+The recipe \REC{metis_LM_lss_trace} aims at detecting the order and a polynomial fitting of the order location (see~\cite{pis02} and~\cite{pis21} for details on the algorithms). The detection and polynomial fitting is based on flatfield frames taken through a pinhole mask, which leads to individual pinhole traces along the entire dispersion direction.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_trace_v0.83.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_trace}]{\REC{metis_LM_lss_trace} --
+  \caption[Recipe: \REC*{metis_LM_lss_trace}]{\REC*{metis_LM_lss_trace} --
     Detection and polynomial fitting of the order location.}
   \label{Fig:rec_lm_lss_wtrace}
 \end{figure}
 
 \begin{recipedef}
-Name:		&  \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} \\
+Name:		&  \REC{metis_LM_lss_trace} \\
 Purpose:	& Detection of order location \\
 Type:		& Calibration\\
 Requirements: & None \\
 Templates:           & \TPL{METIS_spec_lm_cal_rsrfpinh}  \\
-Input data:     & $N\times$ \hyperref[dataitem:lm_lss_rsrf_pinh_raw]{\RAW{LM_LSS_RSRF_PINH_RAW}} \\
-                & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:linearity_2rg]{\STATCALIB{LINEARITY_2RG}}  \\
-                & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}  \\
-                & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
-                & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
-                & \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} \\
+Input data:     & $N\times$ \RAW{LM_LSS_RSRF_PINH_RAW} \\
+                & \EXTCALIB{PERSISTENCE_MAP}  \\
+                & \STATCALIB{LINEARITY_2RG}  \\
+                & \PROD{GAIN_MAP_2RG}  \\
+                & \PROD{BADPIX_MAP_2RG}  \\
+                & \PROD{MASTER_DARK_2RG}  \\
+                & \PROD{MASTER_LM_LSS_RSRF} \\
 Parameters: 	& exposure time, spectral setup (L or M band)\\
 Algorithm:      & Detection of the order edges\\
                 & Polynomial fitting\\
-Output data:	& \hyperref[dataitem:lm_lss_trace]{\PROD{LM_LSS_TRACE}} (\FITS{PRO.CATG=LM_LSS_TRACE}): order table\\
+Output data:	& \PROD{LM_LSS_TRACE} (\FITS{PRO.CATG}=\CODE{LM_LSS_TRACE}): order table\\
 Expected accuracies: & 1/10th of a pixel after post-processing\\
                & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
-QC1 parameters: & \hyperref[qc:qc_lm_lss_trace_lpolydeg]{\QC{QC LM LSS TRACE LPOLYDEG}}: Degree of the polynomial fit of the left order edge\\
-                & \hyperref[qc:qc_lm_lss_trace_lcoeff<i>]{\QC{QC LM LSS TRACE LCOEFF<i>}}: $i$-th coefficient of the polynomial of the left order edge\\
-                & \hyperref[qc:qc_lm_lss_trace_rpolydeg]{\QC{QC LM LSS TRACE RPOLYDEG}}: Degree of the polynomial fit of the right order edge\\
-                & \hyperref[qc:qc_lm_lss_trace_rcoeff<i>]{\QC{QC LM LSS TRACE RCOEFF<i>}}: $i$-th coefficient of the polynomial of the right order edge\\
-                & \hyperref[qc:qc_lm_lss_trace_intordr_level]{\QC{QC LM LSS TRACE INTORDR LEVEL}}: Flux level of the interorder background\\
+QC1 parameters: & \QC{QC LM LSS TRACE LPOLYDEG}: Degree of the polynomial fit of the left order edge\\
+                & \QC{QC LM LSS TRACE LCOEFF<i>}: $i$-th coefficient of the polynomial of the left order edge\\
+                & \QC{QC LM LSS TRACE RPOLYDEG}: Degree of the polynomial fit of the right order edge\\
+                & \QC{QC LM LSS TRACE RCOEFF<i>}: $i$-th coefficient of the polynomial of the right order edge\\
+                & \QC{QC LM LSS TRACE INTORDR LEVEL}: Flux level of the interorder background\\
 %                & more TBD\\
 \end{recipedef}
 
 \clearpage
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{\REC{metis_LM_lss_wave}:  Wavelength calibration}\label{rec:metis_lm_lss_wave}
-This recipe aims at determining the first guess of the wavelength calibration on basis of the \ac{WCU} laser sources (c.f. \cite{METIS-calibration_plan}). Therefore the first steps are the removal of the detector signature of the \FITS{LM_WAVE_RAW} frames by applying the master calibration files derived in the previous steps, following by the background subtraction (if needed) and the application of the RSRF. The distortion of the lines (i.e. possible tilt, curvature,...) and the wavelength solution is determined by the algorithm developed by Piskunov et al. (\cite{pis02}, \cite{pis21}). The reference frame is defined by the laser line catalogue (\hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}}).\\
+\subsubsection{\REC*{metis_LM_lss_wave}:  Wavelength calibration}\label{rec:metis_lm_lss_wave}
+This recipe aims at determining the first guess of the wavelength calibration on basis of the \ac{WCU} laser sources (c.f. \cite{METIS-calibration_plan}). Therefore the first steps are the removal of the detector signature of the \RAW*{LM_WAVE_RAW} frames by applying the master calibration files derived in the previous steps, following by the background subtraction (if needed) and the application of the RSRF. The distortion of the lines (i.e. possible tilt, curvature,...) and the wavelength solution is determined by the algorithm developed by Piskunov et al. (\cite{pis02}, \cite{pis21}). The reference frame is defined by the laser line catalogue (\STATCALIB{LASER_TAB}).\\
 This is in compliance with \REQ{METIS-6074}.\\
 \textit{Remark:}  For the N-band there will be laser sources only at \ac{AIT} available, from which we derive the first guess solution in the same way. Although this solution will eventually be put into the static calibration database, we need a recipe to process the N-band data. This will be done with this recipe.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_wave_v0.83.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_wave}]{\REC{metis_LM_lss_wave} --
+  \caption[Recipe: \REC*{metis_LM_lss_wave}]{\REC*{metis_LM_lss_wave} --
     Creation of the LM LSS master wavelength correction.}
   \label{Fig:rec_lm_lss_trace}
 \end{figure}
 \clearpage
 
 \begin{recipedef}
-Name:		& \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \\
+Name:		& \REC{metis_LM_lss_wave} \\
 Purpose:	& Wavelength calibration \\
 Type:		& Calibration\\
 Requirements: & METIS-6084, METIS-1371, METIS-6074 \\
 Templates:           & \TPL{METIS_spec_lm_cal_internalwave}, \\
-Input data: 	& \hyperref[dataitem:lm_lss_wave_raw]{\RAW{LM_LSS_WAVE_RAW}}\\
-                & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:linearity_2rg]{\STATCALIB{LINEARITY_2RG}}  \\
-                & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}  \\
-                & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
-                & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
-                & \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} \\
-                & \hyperref[dataitem:lm_lss_trace]{\PROD{LM_LSS_TRACE}} \\
-                & \hyperref[dataitem:laser_tab]{\STATCALIB{LASER_TAB}} \\
-                % & \hyperref[dataitem:ref_airg_cat]{\STATCALIB{REF_AIRG_CAT}} \\
+Input data: 	& \RAW{LM_LSS_WAVE_RAW}\\
+                & \EXTCALIB{PERSISTENCE_MAP}  \\
+                & \STATCALIB{LINEARITY_2RG}  \\
+                & \PROD{GAIN_MAP_2RG}  \\
+                & \PROD{BADPIX_MAP_2RG}  \\
+                & \PROD{MASTER_DARK_2RG}  \\
+                & \PROD{MASTER_LM_LSS_RSRF} \\
+                & \PROD{LM_LSS_TRACE} \\
+                & \STATCALIB{LASER_TAB} \\
+                % & \STATCALIB{REF_AIRG_CAT} \\
 Parameters: 	& exposure time, spectral setup (L or M band)\\
 Algorithm:      & Application of detector master calibration files\\
                 & Determination and application of the distortion correction\\
                 & Determination of the first guess of the wavelength solution by polynomial fit of the detected laser source lines\\
-Output data:	& \hyperref[dataitem:lm_lss_curve]{\PROD{LM_LSS_CURVE}} (\FITS{PRO.CATG=LM_LSS_CURVE}): Curvature properties (\ac{QC}) \\
-                & \hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}} (\FITS{PRO.CATG=LM_LSS_DIST_SOL}): Distortion solution\\
-                & \hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}} (\FITS{PRO.CATG=LM_LSS_WAVE_GUESS}): Wavelength first guess\\
+Output data:	& \PROD{LM_LSS_CURVE} (\FITS{PRO.CATG}=\CODE{LM_LSS_CURVE}): Curvature properties (\ac{QC}) \\
+                & \PROD{LM_LSS_DIST_SOL} (\FITS{PRO.CATG}=\CODE{LM_LSS_DIST_SOL}): Distortion solution\\
+                & \PROD{LM_LSS_WAVE_GUESS} (\FITS{PRO.CATG}=\CODE{LM_LSS_WAVE_GUESS}): Wavelength first guess\\
 Expected accuracies: & 1/10th of a pixel after post-processing\\
                & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
-QC1 parameters: & \hyperref[qc:qc_lm_lss_wave_polydeg]{\QC{QC LM LSS WAVE POLYDEG}}: Degree of the first guess polynomial\\
-                & \hyperref[qc:qc_lm_lss_wave_coeff<i>]{\QC{QC LM LSS WAVE COEFF<i>}}: $i$-th coefficient of the polynomial\\
-                & \hyperref[qc:qc_lm_lss_wave_nlines]{\QC{QC LM LSS WAVE NLINES}}: Number of detected (laser) lines; should be constant\\
-                & \hyperref[qc:qc_lm_lss_wave_linefwhmavg]{\QC{QC LM LSS WAVE LINEFWHMAVG}}: Average of the \ac{FWHM} of the detected lines (should be widely constant)\\
-                & \hyperref[qc:qc_lm_lss_wave_intordr_level]{\QC{QC LM LSS WAVE INTORDR LEVEL}}: Flux level of the interorder background\\
+QC1 parameters: & \QC{QC LM LSS WAVE POLYDEG}: Degree of the first guess polynomial\\
+                & \QC{QC LM LSS WAVE COEFF<i>}: $i$-th coefficient of the polynomial\\
+                & \QC{QC LM LSS WAVE NLINES}: Number of detected (laser) lines; should be constant\\
+                & \QC{QC LM LSS WAVE LINEFWHMAVG}: Average of the \ac{FWHM} of the detected lines (should be widely constant)\\
+                & \QC{QC LM LSS WAVE INTORDR LEVEL}: Flux level of the interorder background\\
 %                & more TBD: e.g. QC params for distortion determination and correction\\
 \end{recipedef}
 
 \clearpage
 %------------------------------------------------------------------------------------------------------------------
-\subsubsection{\REC{metis_LM_lss_std}:  Standard star processing}\label{rec:metis_lm_lss_std}
-This recipe aims at processing standard stars used for the absolute flux calibration and (optionally) for the telluric feature removal: As first step the detector master calibration files derived previously are applied followed by the background subtraction, if needed the distortion correction (\hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}}), and
-the wavelength calibration by means of the first guess solution (\hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}}) and the telluric sky lines (c.f. Sect.\,8.5 in~\cite{DRLS}). Then the recipe removes sky background, extracts the standard star spectrum object and collapses the 2D to 1D spectra. In case the \ac{STD} is used only for the flux calibration, a telluric correction is required to better compare the corresponding model spectrum. This is done by means of the standard star observations itself or (optionally) with a synthetic transmission curve (either a standard curve derived by the ESO Skycalc Tool\footnote{\url{https://www.eso.org/observing/etc/bin/gen/form?INS.MODE=swspectr+INS.NAME=SKYCALC}}, a standard curve (\hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}) or \texttt{molecfit}. It is on the user's decision whether the standard star is used for the absolute flux calibration only, or also used for the telluric correction of the science target. The response function is then calculated as ratio of the measured 1d-\ac{STD} spectrum and a detailed model containing absolute flux information.
+\subsubsection{\REC*{metis_LM_lss_std}:  Standard star processing}\label{rec:metis_lm_lss_std}
+This recipe aims at processing standard stars used for the absolute flux calibration and (optionally) for the telluric feature removal: As first step the detector master calibration files derived previously are applied followed by the background subtraction, if needed the distortion correction (\PROD{LM_LSS_DIST_SOL}), and
+the wavelength calibration by means of the first guess solution (\PROD{LM_LSS_WAVE_GUESS}) and the telluric sky lines (c.f. Sect.\,8.5 in~\cite{DRLS}). Then the recipe removes sky background, extracts the standard star spectrum object and collapses the 2D to 1D spectra. In case the \ac{STD} is used only for the flux calibration, a telluric correction is required to better compare the corresponding model spectrum. This is done by means of the standard star observations itself or (optionally) with a synthetic transmission curve (either a standard curve derived by the ESO Skycalc Tool\footnote{\url{https://www.eso.org/observing/etc/bin/gen/form?INS.MODE=swspectr+INS.NAME=SKYCALC}}, a standard curve (\STATCALIB{LM_SYNTH_TRANS}) or \texttt{molecfit}. It is on the user's decision whether the standard star is used for the absolute flux calibration only, or also used for the telluric correction of the science target. The response function is then calculated as ratio of the measured 1d-\ac{STD} spectrum and a detailed model containing absolute flux information.
 
 %As one needs to determine the stellar continuum regions, a telluric correction is required to increase these regions. This can be done either by applying a fairly simple telluric correction in an automated way to the standard star spectrum. In case the the user decides to use the standard star also for the telluric correction, a transmission function is derived from that in the "classical" way (cf. Section~\ref{sssec:tecllcorrclassic}), which will be optionally used for the telluric correction also for the science target. This star spectrum can also be optionally used for the wavelength solution and for the flux calibration, if the \ac{TSS} is suited for that. The response curve is obtained by comparing the extracted spectrum with a model and/or another reference spectrum of the standard star. Currently it is foreseen to use the same standard stars as in \ac{CRIRES}/CRIRES+ and \ac{VISIR}. It is under investigation whether more stars are needed.
 
@@ -157,20 +157,20 @@ Please note that the procedure of the \ac{STD} handling changes when the classic
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.4\textheight]{figures/metis_lm_lss_std_v0.83.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_std}]{\REC{metis_LM_lss_std} --
+  \caption[Recipe: \REC*{metis_LM_lss_std}]{\REC*{metis_LM_lss_std} --
     Calibration recipe for processing standard stars for (combined) telluric and  spectro-photometric calibration.}
   \label{Fig:rec_lm_lss_flux1}
 \end{figure}
 %\begin{figure}[ht]
 %  \centering
 %  \includegraphics[width=0.6\textheight]{figures/metis_lm_lss_std_v0.8_part_2.pdf}
-%  \caption[Recipe: \REC{metis_LM_lss_std}]{\REC{metis_LM_lss_std} --
+%  \caption[Recipe: \REC*{metis_LM_lss_std}]{\REC*{metis_LM_lss_std} --
 %    Part 2 of the calibration recipe for processing spectrophotometric and telluric standard stars.}
 %  \label{Fig:rec_lm_lss_flux2}
 %\end{figure}
 \clearpage
 \begin{recipedef}
-Name:		& \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
+Name:		& \REC{metis_LM_lss_std} \\
 Purpose:	& Flux calibration \\
 Type:		& Calibration\\
 Requirements: & METIS-6084, METIS-6074, METIS-2757 \\
@@ -178,22 +178,22 @@ Templates:      & \TPL{METIS_spec_lm_acq}, \\
                 & \TPL{METIS_spec_lmn_acq}, \\
                 & \TPL{METIS_spec_lm_cal_standard}\\
                 & \TPL{METIS_spec_lmn_obs_AutoChopNodOnSlit}\\
-Input data: 	& \hyperref[dataitem:lm_lss_std_raw]{\RAW{LM_LSS_STD_RAW}}\\
-                & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:linearity_2rg]{\STATCALIB{LINEARITY_2RG}}  \\
-                & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}  \\
-                & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
-                & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
-                & \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} \\
-                & \hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}} \\
-                & \hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}} \\
-                & \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} \\
-                & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} \\
-%                & \hyperref[dataitem:tss_model_cat]{\STATCALIB{TSS_MODEL_CAT}}\\
-%                & \hyperref[dataitem:tss_cont_tab]{\STATCALIB{TSS_CONT_TAB}}\\
-                & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}}\\
-                & \hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}\\
-                & \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}} \\
+Input data: 	& \RAW{LM_LSS_STD_RAW}\\
+                & \EXTCALIB{PERSISTENCE_MAP}  \\
+                & \STATCALIB{LINEARITY_2RG}  \\
+                & \PROD{GAIN_MAP_2RG}  \\
+                & \PROD{BADPIX_MAP_2RG}  \\
+                & \PROD{MASTER_DARK_2RG}  \\
+                & \PROD{MASTER_LM_LSS_RSRF} \\
+                & \PROD{LM_LSS_DIST_SOL} \\
+                & \PROD{LM_LSS_WAVE_GUESS} \\
+                & \EXTCALIB{AO_PSF_MODEL} \\
+                & \EXTCALIB{ATM_LINE_CAT} \\
+%                & \STATCALIB{TSS_MODEL_CAT}\\
+%                & \STATCALIB{TSS_CONT_TAB}\\
+                & \STATCALIB{LM_ADC_SLITLOSS}\\
+                & \STATCALIB{LM_SYNTH_TRANS}\\
+                & \STATCALIB{REF_STD_CAT} \\
 Parameters: 	& exposure time, spectral setup (L or M band), target information, nodding parameters\\
 Algorithm:      & Application of master calibration files\\
                 & Background removal\\
@@ -203,55 +203,55 @@ Algorithm:      & Application of master calibration files\\
                 & Removing sky lines: Creation and Subtraction of 2D sky\\
                 & Collapsing 2D to 1D spectrum, (see Fig.\,\ref{Fig:rec_lm_lss_sci})\\
                 & Determination and application of response curve\\
-Output data:	& \hyperref[dataitem:lm_lss_std_obj_map]{\PROD{LM_LSS_STD_OBJ_MAP}}: Pixel map of object pixels (\ac{QC})\\
-            	& \hyperref[dataitem:lm_lss_std_sky_map]{\PROD{LM_LSS_STD_SKY_MAP}}: Pixel map of sky pixels (\ac{QC})\\
-              	& \hyperref[dataitem:lm_lss_std_1d]{\PROD{LM_LSS_STD_1D}}: coadded, wavelength calibrated, collapsed 1D spectrum\\
-              	& \hyperref[dataitem:lm_lss_std_wave]{\PROD{LM_LSS_STD_WAVE}}: Wavelength solution derived from the \ac{STD} star (optional)\\
-            	& \hyperref[dataitem:std_transmission]{\PROD{STD_TRANSMISSION}}: Transmission function derived by means of the \ac{STD} (\ac{QC})\\        
-                & \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}}: response function (optionally including the transmission) \\
+Output data:	& \PROD{LM_LSS_STD_OBJ_MAP}: Pixel map of object pixels (\ac{QC})\\
+            	& \PROD{LM_LSS_STD_SKY_MAP}: Pixel map of sky pixels (\ac{QC})\\
+              	& \PROD{LM_LSS_STD_1D}: coadded, wavelength calibrated, collapsed 1D spectrum\\
+              	& \PROD{LM_LSS_STD_WAVE}: Wavelength solution derived from the \ac{STD} star (optional)\\
+            	& \PROD{STD_TRANSMISSION}: Transmission function derived by means of the \ac{STD} (\ac{QC})\\        
+                & \PROD{MASTER_LM_RESPONSE}: response function (optionally including the transmission) \\
 Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
             & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
             & for flux: 10\% over an atmospheric band \\
             & $<30$\% absolute line flux accuracy\\
             & $<5$\% absolute flux calibration \\
             & (cf.~\cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
-QC1 parameters: & \hyperref[qc:qc_lm_lss_std_backgd_mean]{\QC{QC LM LSS STD BACKGD MEAN}}: Mean value of background\\
-                & \hyperref[qc:qc_lm_lss_std_backgd_median]{\QC{QC LM LSS STD BACKGD MEDIAN}}: Median value of background\\
-                & \hyperref[qc:qc_lm_lss_std_backgd_stdev]{\QC{QC LM LSS STD BACKGD STDEV}}: Standard deviation value of background\\
-                & \hyperref[qc:qc_lm_lss_std_snr]{\QC{QC LM LSS STD SNR}}: Signal-to-noise ration of flux standard star spectrum\\
-                & \hyperref[qc:qc_lm_lss_std_noiselev]{\QC{QC LM LSS STD NOISELEV}}: Noise level of flux standard star spectrum\\
-                & \hyperref[qc:qc_lm_lss_std_fwhm]{\QC{QC LM LSS STD FWHM}}: FWHM of flux standard spectrum\\
-                & \hyperref[qc:qc_lm_lss_std_intordr_level]{\QC{QC LM LSS STD INTORDR LEVEL}}: Flux level of the interorder background\\
-                & \hyperref[qc:qc_lm_lss_std_avglevel]{\QC{QC LM LSS STD AVGLEVEL}}: Average level of the standard star flux \\
-                & \hyperref[qc:qc_lm_lss_std_wavecal_devmean]{\QC{QC LM LSS STD WAVECAL DEVMEAN}}: Mean deviation from the
+QC1 parameters: & \QC{QC LM LSS STD BACKGD MEAN}: Mean value of background\\
+                & \QC{QC LM LSS STD BACKGD MEDIAN}: Median value of background\\
+                & \QC{QC LM LSS STD BACKGD STDEV}: Standard deviation value of background\\
+                & \QC{QC LM LSS STD SNR}: Signal-to-noise ration of flux standard star spectrum\\
+                & \QC{QC LM LSS STD NOISELEV}: Noise level of flux standard star spectrum\\
+                & \QC{QC LM LSS STD FWHM}: FWHM of flux standard spectrum\\
+                & \QC{QC LM LSS STD INTORDR LEVEL}: Flux level of the interorder background\\
+                & \QC{QC LM LSS STD AVGLEVEL}: Average level of the standard star flux \\
+                & \QC{QC LM LSS STD WAVECAL DEVMEAN}: Mean deviation from the
                   wavelength reference frame\\
-                & \hyperref[qc:qc_lm_lss_std_wavecal_fwhm]{\QC{QC LM LSS STD WAVECAL FWHM}}: Measured FWHM of lines\\
-                & \hyperref[qc:qc_lm_lss_std_wavecal_nident]{\QC{QC LM LSS STD WAVECAL NIDENT}}: Number of identified lines\\
-                & \hyperref[qc:qc_lm_lss_std_wavecal_nmatch]{\QC{QC LM LSS STD WAVECAL NMATCH}}: Number of lines matched between
+                & \QC{QC LM LSS STD WAVECAL FWHM}: Measured FWHM of lines\\
+                & \QC{QC LM LSS STD WAVECAL NIDENT}: Number of identified lines\\
+                & \QC{QC LM LSS STD WAVECAL NMATCH}: Number of lines matched between
                     catalogue and spectrum\\
-                & \hyperref[qc:qc_lm_lss_std_wavecal_polydeg]{\QC{QC LM LSS STD WAVECAL POLYDEG}}: Degree of the polynomial\\
-                & \hyperref[qc:qc_lm_lss_std_wavecal_polycoeff<n>]{\QC{QC LM LSS STD WAVECAL POLYCOEFF<n>}}: $n$-th coefficient of the polynomial\\
-                & \hyperref[qc:qc_lm_lss_std_snr]{\QC{QC LM LSS STD SNR}}: Signal-to-noise ration of flux standard star spectrum\\
-                & \hyperref[qc:qc_lm_lss_std_noiselev]{\QC{QC LM LSS STD NOISELEV}}: Noise level of flux standard star spectrum\\
-                & \hyperref[qc:qc_lm_lss_std_fwhm]{\QC{QC LM LSS STD FWHM}}: FWHM of flux standard spectrum\\
-%                & \hyperref[qc:qc_lm_lss_std_psfloss]{\QC{QC LM LSS STD PSFLOSS}}: Fraction of AO induced slit losses (TBdef)\\
+                & \QC{QC LM LSS STD WAVECAL POLYDEG}: Degree of the polynomial\\
+                & \QC{QC LM LSS STD WAVECAL POLYCOEFF<n>}: $n$-th coefficient of the polynomial\\
+                & \QC{QC LM LSS STD SNR}: Signal-to-noise ration of flux standard star spectrum\\
+                & \QC{QC LM LSS STD NOISELEV}: Noise level of flux standard star spectrum\\
+                & \QC{QC LM LSS STD FWHM}: FWHM of flux standard spectrum\\
+%                & \QC{QC LM LSS STD PSFLOSS}: Fraction of AO induced slit losses (TBdef)\\
 %                & more TBD
 \end{recipedef}
 %------------------------------------------------------------------------------------------------------------------
 \clearpage
-\subsubsection{\REC{metis_LM_lss_sci}:  Science reduction}\label{rec:metis_lm_lss_sci}
+\subsubsection{\REC*{metis_LM_lss_sci}:  Science reduction}\label{rec:metis_lm_lss_sci}
 The science calibration recipe comprises the extraction of the object (i.e. separation of object/sky pixels), removing the sky lines, the application of the response curve previously defined, the 2D to 1D collapse and the co-addition. It also applies an absolute flux calibration (optionally with the telluric correction in one step, cf. Section~\ref{ssec:tellcorr}).
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.36\textheight]{figures/metis_lm_lss_sci_v0.83.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_sci}]{\REC{metis_LM_lss_sci} --
+  \caption[Recipe: \REC*{metis_LM_lss_sci}]{\REC*{metis_LM_lss_sci} --
     Science reduction recipe.}
   \label{Fig:rec_lm_lss_sci}
 \end{figure}
 \clearpage
 
 \begin{recipedef}
-Name:		& \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
+Name:		& \REC{metis_LM_lss_sci} \\
 Purpose:    & Science data calibration\\
 Type:		& Science reduction\\
 Requirements: & METIS-6084 \\
@@ -261,21 +261,21 @@ Templates:      & \TPL{METIS_spec_lm_acq}, \\
                 & \TPL{METIS_spec_lm_obs_AutoNodOnSlit}, \\
                 & \TPL{METIS_spec_lm_obs_GenericOffset} \\
                 & \TPL{METIS_spec_lmn_obs_AutoChopNodOnSlit}\\
-Input data: 	& \hyperref[dataitem:lm_lss_sci_raw]{\RAW{LM_LSS_SCI_RAW}}\\
-                & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}  \\
-                & \hyperref[dataitem:linearity_2rg]{\STATCALIB{LINEARITY_2RG}}  \\
-                & \hyperref[dataitem:gain_map_2rg]{\PROD{GAIN_MAP_2RG}}  \\
-                & \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}  \\
-                & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}  \\
-                & \hyperref[dataitem:master_lm_lss_rsrf]{\PROD{MASTER_LM_LSS_RSRF}} \\
-                & \hyperref[dataitem:lm_lss_dist_sol]{\PROD{LM_LSS_DIST_SOL}} \\
-                & \hyperref[dataitem:lm_lss_wave_guess]{\PROD{LM_LSS_WAVE_GUESS}} \\
-                & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} \\
-                & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}}\\
-            	& \hyperref[dataitem:std_transmission]{\PROD{STD_TRANSMISSION}} (optional)\\             
-                %& \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}} \\
-                %& \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}}\\
-                & \hyperref[dataitem:master_lm_response]{\PROD{MASTER_LM_RESPONSE}} \\
+Input data: 	& \RAW{LM_LSS_SCI_RAW}\\
+                & \EXTCALIB{PERSISTENCE_MAP}  \\
+                & \STATCALIB{LINEARITY_2RG}  \\
+                & \PROD{GAIN_MAP_2RG}  \\
+                & \PROD{BADPIX_MAP_2RG}  \\
+                & \PROD{MASTER_DARK_2RG}  \\
+                & \PROD{MASTER_LM_LSS_RSRF} \\
+                & \PROD{LM_LSS_DIST_SOL} \\
+                & \PROD{LM_LSS_WAVE_GUESS} \\
+                & \EXTCALIB{ATM_LINE_CAT} \\
+                & \STATCALIB{LM_ADC_SLITLOSS}\\
+            	& \PROD{STD_TRANSMISSION} (optional)\\             
+                %& \EXTCALIB{AO_PSF_MODEL} \\
+                %& \STATCALIB{LSF_KERNEL}\\
+                & \PROD{MASTER_LM_RESPONSE} \\
 Parameters: 	& exposure time, spectral setup (L or M band), target information, nodding parameters\\
 Algorithm:      & Application of the detector master calib files\\
                 & wavelength calibration \\
@@ -284,16 +284,16 @@ Algorithm:      & Application of the detector master calib files\\
                 & Coaddition of individual object spectra of one OB\\
                 & Collapsing 2D to 1D spectrum, (see Fig.\,\ref{Fig:rec_lm_lss_sci})\\
                 & Application of the response function (flux calibration) \\
-Output data:	& \hyperref[dataitem:lm_lss_sci_obj_map]{\PROD{LM_LSS_SCI_OBJ_MAP}}: Pixel map of object pixels (\ac{QC})\\
-            	& \hyperref[dataitem:lm_lss_sci_sky_map]{\PROD{LM_LSS_SCI_SKY_MAP}}: Pixel map of sky pixels (\ac{QC})\\
-            	& \hyperref[dataitem:lm_lss_sci_2d]{\PROD{LM_LSS_SCI_2D}}: coadded, wavelength calibrated 2D spectrum\\
-                & (\FITS{PRO_CATG}: \FITS{LM_LSS_2d_coadd_wavecal}) \\
-                & \hyperref[dataitem:lm_lss_sci_1d]{\PROD{LM_LSS_SCI_1D}}: coadded, wavelength calibrated 1D spectrum\\
-                & (\FITS{PRO_CATG}: \FITS{LM_LSS_1d_coadd_wavecal}) \\
-                & \hyperref[dataitem:lm_lss_sci_flux_2d]{\PROD{LM_LSS_SCI_FLUX_2D}}: coadded, wavelength + flux calibrated 2D spectrum\\
-                & (\FITS{PRO_CATG}: \FITS{LM_LSS_2d_coadd_wavecal}) \\
-              	& \hyperref[dataitem:lm_lss_sci_flux_1d]{\PROD{LM_LSS_SCI_FLUX_1D}}: coadded, wavelength + flux 1D spectrum\\
-                & (\FITS{PRO_CATG}: \FITS{LM_LSS_1d_coadd_wavecal}) \\
+Output data:	& \PROD{LM_LSS_SCI_OBJ_MAP}: Pixel map of object pixels (\ac{QC})\\
+            	& \PROD{LM_LSS_SCI_SKY_MAP}: Pixel map of sky pixels (\ac{QC})\\
+            	& \PROD{LM_LSS_SCI_2D}: coadded, wavelength calibrated 2D spectrum\\
+                & (\FITS{PRO.CATG}: \CODE{LM_LSS_2d_coadd_wavecal}) \\
+                & \PROD{LM_LSS_SCI_1D}: coadded, wavelength calibrated 1D spectrum\\
+                & (\FITS{PRO.CATG}: \CODE{LM_LSS_1d_coadd_wavecal}) \\
+                & \PROD{LM_LSS_SCI_FLUX_2D}: coadded, wavelength + flux calibrated 2D spectrum\\
+                & (\FITS{PRO.CATG}: \CODE{LM_LSS_2d_coadd_wavecal}) \\
+              	& \PROD{LM_LSS_SCI_FLUX_1D}: coadded, wavelength + flux 1D spectrum\\
+                & (\FITS{PRO.CATG}: \CODE{LM_LSS_1d_coadd_wavecal}) \\
 Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
             & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
             & for flux: 10\% over an atmospheric band \\
@@ -302,105 +302,105 @@ Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
             & (cf.~\cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
             & for optional telluric correction: 10\% within an atmospheric band); desired: 2\% 
             (\cite{METIS-calibration_plan})\\
-QC1 parameters: & \hyperref[qc:qc_lm_lss_sci_snr]{\QC{QC LM LSS SCI SNR}}: Signal-to-noise ration of science spectrum\\
-                & \hyperref[qc:qc_lm_lss_sci_noiselev]{\QC{QC LM LSS SCI NOISELEV}}: Noise level of science spectrum\\
-                & \hyperref[qc:qc_lm_lss_sci_flux_snr]{\QC{QC LM LSS SCI FLUX SNR}}: Signal-to-noise ration of flux calibrated  science spectrum\\
-                & \hyperref[qc:qc_lm_lss_sci_flux_noiselev]{\QC{QC LM LSS SCI FLUX NOISELEV}}: Noise level of flux calibrated science spectrum\\
-                & \hyperref[qc:qc_lm_lss_sci_intordr_level]{\QC{QC LM LSS SCI INTORDR LEVEL}}: Flux level of the interorder background\\
-                & \hyperref[qc:qc_lm_lss_sci_wavecal_devmean]{\QC{QC LM LSS SCI WAVECAL DEVMEAN}}: Mean deviation from the wavelength reference frame\\
-                & \hyperref[qc:qc_lm_lss_sci_wavecal_fwhm]{\QC{QC LM LSS SCI WAVECAL FWHM}}: Measured FWHM of lines\\
-                & \hyperref[qc:qc_lm_lss_sci_wavecal_nident]{\QC{QC LM LSS SCI WAVECAL NIDENT}}: Number of identified lines\\
-                & \hyperref[qc:qc_lm_lss_sci_wavecal_nmatch]{\QC{QC LM LSS SCI WAVECAL NMATCH}}: Number of lines matched between catalogue and spectrum\\
-                & \hyperref[qc:qc_lm_lss_sci_wavecal_polydeg]{\QC{QC LM LSS SCI WAVECAL POLYDEG}}: Degree of the wavelength polynomial\\
-                & \hyperref[qc:qc_lm_lss_sci_wavecal_polycoeff<n>]{\QC{QC LM LSS SCI WAVECAL POLYCOEFF<n>}}: $n$-th coefficient of the polynomial\\
+QC1 parameters: & \QC{QC LM LSS SCI SNR}: Signal-to-noise ration of science spectrum\\
+                & \QC{QC LM LSS SCI NOISELEV}: Noise level of science spectrum\\
+                & \QC{QC LM LSS SCI FLUX SNR}: Signal-to-noise ration of flux calibrated  science spectrum\\
+                & \QC{QC LM LSS SCI FLUX NOISELEV}: Noise level of flux calibrated science spectrum\\
+                & \QC{QC LM LSS SCI INTORDR LEVEL}: Flux level of the interorder background\\
+                & \QC{QC LM LSS SCI WAVECAL DEVMEAN}: Mean deviation from the wavelength reference frame\\
+                & \QC{QC LM LSS SCI WAVECAL FWHM}: Measured FWHM of lines\\
+                & \QC{QC LM LSS SCI WAVECAL NIDENT}: Number of identified lines\\
+                & \QC{QC LM LSS SCI WAVECAL NMATCH}: Number of lines matched between catalogue and spectrum\\
+                & \QC{QC LM LSS SCI WAVECAL POLYDEG}: Degree of the wavelength polynomial\\
+                & \QC{QC LM LSS SCI WAVECAL POLYCOEFF<n>}: $n$-th coefficient of the polynomial\\
 %                & more TBD\\
 \end{recipedef}
 %------------------------------------------------------------------------------------------------------------------
 \clearpage
 
-\subsubsection{\REC{metis_LM_lss_mf_model}:  Telluric correction}\label{rec:metis_lm_lss_mf_model}
-The telluric correction will be done with the package \texttt{molecfit}\footnote{\url{https://www.eso.org/sci/software/pipelines/molecfit/molecfit-pipe-recipes.html}}. It is realised in three individual recipes, \hyperref[rec:metis_lm_lss_mf_model]{\REC{metis_LM_lss_mf_model}}, which calculates the best-fit model, \hyperref[rec:metis_lm_lss_mf_calctrans]{\REC{metis_LM_lss_mf_calctrans}}, which creates a synthetic transmission curve, and \hyperref[rec:metis_lm_lss_mf_correct]{\REC{metis_LM_lss_mf_correct}}, which performs the actual telluric correction by means of the synthetic transmission.
+\subsubsection{\REC*{metis_LM_lss_mf_model}:  Telluric correction}\label{rec:metis_lm_lss_mf_model}
+The telluric correction will be done with the package \texttt{molecfit}\footnote{\url{https://www.eso.org/sci/software/pipelines/molecfit/molecfit-pipe-recipes.html}}. It is realised in three individual recipes, \REC{metis_LM_lss_mf_model}, which calculates the best-fit model, \REC{metis_LM_lss_mf_calctrans}, which creates a synthetic transmission curve, and \REC{metis_LM_lss_mf_correct}, which performs the actual telluric correction by means of the synthetic transmission.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_mf_model_v0.83.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_mf_model}]{\REC{metis_LM_lss_mf_model} --
+  \caption[Recipe: \REC*{metis_LM_lss_mf_model}]{\REC*{metis_LM_lss_mf_model} --
     Recipe to achieve the best-fit for the calculation of the synthetic transmission curve for the telluric correction.}
   \label{Fig:rec_lm_lss_mf_model}
 \end{figure}
 \clearpage
 
 \begin{recipedef}
-Name:		& \hyperref[rec:metis_lm_lss_mf_model]{\REC{metis_LM_lss_mf_model}} \\
+Name:		& \REC{metis_LM_lss_mf_model} \\
 Purpose:	& Achieve the best fit for modelling the transmission curve to be applied as telluric correction \\
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
 Templates:           & None\\
-Input data: 	& \hyperref[dataitem:lm_lss_sci_flux_1d]{\PROD{LM_LSS_SCI_FLUX_1D}}\\
-                & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}} \\
-                & \hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}} \\
-                & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} \\
+Input data: 	& \PROD{LM_LSS_SCI_FLUX_1D}\\
+                & \STATCALIB{LSF_KERNEL} \\
+                & \EXTCALIB{ATM_PROFILE} \\
+                & \EXTCALIB{ATM_LINE_CAT} \\
 Parameters: 	& \texttt{molecfit} parameters (c.f. \cite{molecfit})\\
 Algorithm:      & Fit of telluric features visible in the science input spectrum\\
                 & Determination of best-fit parameter set\\
-Output data:	& \hyperref[dataitem:mf_best_fit_tab]{\PROD{MF_BEST_FIT_TAB}}: Table with best-fit parameters\\
+Output data:	& \PROD{MF_BEST_FIT_TAB}: Table with best-fit parameters\\
 Expected accuracies: & n/a\\
 QC1 parameters: & cf.~\cite{molecfit}\\
 \end{recipedef}
 
 %------------------------------------------------------------------------------------------------------------------
 \clearpage
-\subsubsection{\REC{metis_LM_lss_mf_calctrans}:  Telluric correction}\label{rec:metis_lm_lss_mf_calctrans}
+\subsubsection{\REC*{metis_LM_lss_mf_calctrans}:  Telluric correction}\label{rec:metis_lm_lss_mf_calctrans}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_mf_calctrans_v0.83.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_mf_calctrans}]{\REC{metis_LM_lss_mf_calctrans} --
+  \caption[Recipe: \REC*{metis_LM_lss_mf_calctrans}]{\REC*{metis_LM_lss_mf_calctrans} --
     Recipe to calculate the synthetic transmission to be applied as telluric correction.}
   \label{Fig:rec_lm_lss_mf_calctrans}
 \end{figure}
 \clearpage
 
 \begin{recipedef}
-Name:		& \hyperref[rec:metis_lm_lss_mf_calctrans]{\REC{metis_LM_lss_mf_calctrans}} \\
+Name:		& \REC{metis_LM_lss_mf_calctrans} \\
 Purpose:	& Calculation of the synthetic transmission \\
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
 Templates:           & None\\
-Input data: 	& \hyperref[dataitem:mf_best_fit_tab]{\PROD{MF_BEST_FIT_TAB}}: Table with best-fit parameters\\
-                & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}} \\
-                & \hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}} \\
-                & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}} \\
+Input data: 	& \PROD{MF_BEST_FIT_TAB}: Table with best-fit parameters\\
+                & \STATCALIB{LSF_KERNEL} \\
+                & \EXTCALIB{ATM_PROFILE} \\
+                & \EXTCALIB{ATM_LINE_CAT} \\
 Parameters: 	& \texttt{molecfit} parameters (c.f.  \cite{molecfit})\\
 Algorithm:      & Calculate the entire transmission curve by means of the best-fit parameters\\
-Output data:	& \hyperref[dataitem:lm_lss_synth_trans]{\PROD{LM_LSS_SYNTH_TRANS}}: synth. transmission\\
+Output data:	& \PROD{LM_LSS_SYNTH_TRANS}: synth. transmission\\
 Expected accuracies: & n/a\\
 QC1 parameters: & cf.~\cite{molecfit}\\
 \end{recipedef}
 
-\subsubsection{\REC{metis_LM_lss_mf_correct}:  Telluric correction}\label{rec:metis_lm_lss_mf_correct}
+\subsubsection{\REC*{metis_LM_lss_mf_correct}:  Telluric correction}\label{rec:metis_lm_lss_mf_correct}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_mf_correct_v0.83.pdf}
-  \caption[Recipe: \REC{metis_LM_lss_mf_correct}]{\REC{metis_LM_lss_mf_correct} --
+  \caption[Recipe: \REC*{metis_LM_lss_mf_correct}]{\REC*{metis_LM_lss_mf_correct} --
     Recipe to apply the telluric correction.}
   \label{Fig:rec_lm_lss_mf_correct}
 \end{figure}
 \clearpage
 
 \begin{recipedef}
-Name:		& \hyperref[rec:metis_lm_lss_mf_correct]{\REC{metis_LM_lss_mf_correct}} \\
+Name:		& \REC{metis_LM_lss_mf_correct} \\
 Purpose:	& Apply the synthetic transmission to the science spectra \\
 Type:		& Post-calibration\\
 Requirements: & METIS-4051, METIS-6091 \\
 Templates:           & None\\
-Input data: 	& \hyperref[dataitem:lm_lss_sci_flux_1d]{\PROD{LM_LSS_SCI_FLUX_1D}}\\
-                & \hyperref[dataitem:lm_lss_synth_trans]{\PROD{LM_LSS_SYNTH_TRANS}}\\
+Input data: 	& \PROD{LM_LSS_SCI_FLUX_1D}\\
+                & \PROD{LM_LSS_SYNTH_TRANS}\\
 Parameters: 	& None\\
 Algorithm:      & Apply telluric correction, i.e. divide the input science spectrum\\
                 & by the synthetic transmission\\
-Output data:	& \hyperref[dataitem:lm_lss_sci_flux_tellcorr_1d]{\PROD{LM_LSS_SCI_FLUX_TELLCORR_1D}}\\
+Output data:	& \PROD{LM_LSS_SCI_FLUX_TELLCORR_1D}\\
 Expected accuracies: & Telluric removal must be good enough to reach the required spectro-photometric accuracy (10\% within an atmospheric band). Desired: 2\% (\cite{METIS-calibration_plan})\\
 QC1 parameters: & cf.~\cite{molecfit}\\
 \end{recipedef}

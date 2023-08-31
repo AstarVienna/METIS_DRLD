@@ -3,9 +3,10 @@
 \section{QC Parameters}\label{sec:qc_parameters}
 The following placeholders are used in the QC parameter names:
 \begin{itemize}
-  \item \FITS{det} is a placeholder for either \FITS{LM}, \FITS{N}, or \FITS{IFU}
-  \item \FITS{cgrph} is a placeholder for one of the coronographs
-  \item \FITS{nn} is a placeholder for a numerical index
+  \item \CODE{det} is a placeholder for either \CODE{LM}, \CODE{N}, or \CODE{IFU}
+  \item \CODE{cgrph} is a placeholder for one of the coronographs
+% nn suffix removed for now because it caused problems with the headers
+%  \item \FITS{nn} is a placeholder for a numerical index
 \end{itemize}
 
 \subsection{Calibration}
@@ -15,7 +16,7 @@ The following placeholders are used in the QC parameter names:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC PERSIST COUNT}\label{qc:qc_persist_count}
 \begin{recipedef}
-Name & \QC{QC PERSIST COUNT} \tabularnewline
+Name & \QC*{QC PERSIST COUNT} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -23,7 +24,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[drl:metis_apply_persistence_correction]{\DRL{metis_apply_persistence_correction}}\\
+Created by & \DRL{metis_apply_persistence_correction}\\
 Description & Number of pixels heavily affected by persistence \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -36,7 +37,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC DARK MEAN}\label{qc:qc_dark_mean}
 \begin{recipedef}
-Name & \QC{QC DARK MEAN} \tabularnewline
+Name & \QC*{QC DARK MEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -44,7 +45,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
+Created by & \REC{metis_det_dark}\\
 Description & Mean level of the dark frame \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -56,7 +57,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC DARK MEDIAN}\label{qc:qc_dark_median}
 \begin{recipedef}
-Name & \QC{QC DARK MEDIAN} \tabularnewline
+Name & \QC*{QC DARK MEDIAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -64,7 +65,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
+Created by & \REC{metis_det_dark}\\
 Description & Median level of the dark frame \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -76,7 +77,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC DARK RMS}\label{qc:qc_dark_rms}
 \begin{recipedef}
-Name & \QC{QC DARK RMS} \tabularnewline
+Name & \QC*{QC DARK RMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -84,7 +85,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
+Created by & \REC{metis_det_dark}\\
 Description & RMS level of the dark frame \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -96,7 +97,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC DARK NBADPIX}\label{qc:qc_dark_nbadpix}
 \begin{recipedef}
-Name & \QC{QC DARK NBADPIX} \tabularnewline
+Name & \QC*{QC DARK NBADPIX} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -104,7 +105,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
+Created by & \REC{metis_det_dark}\\
 Description & Number of bad pixels in the image maxk \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -117,7 +118,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC DARK NCOLDPIX}\label{qc:qc_dark_ncoldpix}
 \begin{recipedef}
-Name & \QC{QC DARK NCOLDPIX} \tabularnewline
+Name & \QC*{QC DARK NCOLDPIX} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -125,7 +126,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
+Created by & \REC{metis_det_dark}\\
 Description & Number of cold pixels in the image maxk \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -138,7 +139,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC DARK NHOTPIX}\label{qc:qc_dark_nhotpix}
 \begin{recipedef}
-Name & \QC{QC DARK NHOTPIX} \tabularnewline
+Name & \QC*{QC DARK NHOTPIX} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -146,7 +147,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}}\\
+Created by & \REC{metis_det_dark}\\
 Description & Number of hot pixels in the image maxk \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -159,7 +160,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM MASTERFLAT RMS}\label{qc:qc_lm_masterflat_rms}
 \begin{recipedef}
-Name & \QC{QC LM MASTERFLAT RMS} \tabularnewline
+Name & \QC*{QC LM MASTERFLAT RMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -167,7 +168,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}}\\
+Created by & \REC{metis_lm_img_flat}\\
 Description & RMS of the master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -175,7 +176,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM MASTERFLAT NBADPIX}\label{qc:qc_lm_masterflat_nbadpix}
 \begin{recipedef}
-Name & \QC{QC LM MASTERFLAT NBADPIX} \tabularnewline
+Name & \QC*{QC LM MASTERFLAT NBADPIX} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -183,15 +184,15 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}}\\
+Created by & \REC{metis_lm_img_flat}\\
 Description & Number of bad pixels in the image mask \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{QC LM FLAT MEAN \#\#}\label{qc:lmflatmeannn}
+\subsubsection{QC LM FLAT MEAN}\label{qc:lmflatmean}
 \begin{recipedef}
-Name & \QC{QC LM FLAT MEAN \#\#} \tabularnewline
+Name & \QC*{QC LM FLAT MEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -199,15 +200,15 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}}\\
+Created by & \REC{metis_lm_img_flat}\\
 Description & Mean value of a single flat field image \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{QC LM FLAT RMS \#\#}\label{qc:lmflatrmsnn}
+\subsubsection{QC LM FLAT RMS}\label{qc:lmflatrms}\label{qc:qc_lm_flat_rms}
 \begin{recipedef}
-Name & \QC{QC LM FLAT RMS \#\#} \tabularnewline
+Name & \QC*{QC LM FLAT RMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -215,7 +216,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}}\\
+Created by & \REC{metis_lm_img_flat}\\
 Description & RMS value of a single flat field image \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -224,7 +225,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC N MASTERFLAT RMS}\label{qc:qc_n_masterflat_rms}
 \begin{recipedef}
-Name & \QC{QC N MASTERFLAT RMS} \tabularnewline
+Name & \QC*{QC N MASTERFLAT RMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -232,7 +233,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}}\\
+Created by & \REC{metis_n_img_flat}\\
 Description & RMS of the master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -240,7 +241,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N MASTERFLAT NBADPIX}\label{qc:qc_n_masterflat_nbadpix}
 \begin{recipedef}
-Name & \QC{QC N MASTERFLAT NBADPIX} \tabularnewline
+Name & \QC*{QC N MASTERFLAT NBADPIX} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -248,15 +249,15 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}}\\
+Created by & \REC{metis_n_img_flat}\\
 Description & Number of bad pixels in the image mask \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{QC N FLAT MEAN \#\#}\label{qc:nflatmeannn}
+\subsubsection{QC N FLAT MEAN}\label{qc:nflatmean}\label{qc:n_flat_mean}
 \begin{recipedef}
-Name & \QC{QC N FLAT MEAN \#\#} \tabularnewline
+Name & \QC*{QC N FLAT MEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -264,15 +265,15 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}}\\
+Created by & \REC{metis_n_img_flat}\\
 Description & Mean value of a single flat field image \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{QC N FLAT RMS \#\#}\label{qc:nflatrmsnn}
+\subsubsection{QC N FLAT RMS}\label{qc:nflatrms}
 \begin{recipedef}
-Name & \QC{QC N FLAT RMS \#\#} \tabularnewline
+Name & \QC*{QC N FLAT RMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -280,7 +281,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}}\\
+Created by & \REC{metis_n_img_flat}\\
 Description & RMS value of a single flat field image \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -296,7 +297,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LIN GAIN MEAN}\label{qc:qc_lin_gain_mean}
 \begin{recipedef}
-Name & \QC{QC LIN GAIN MEAN} \tabularnewline
+Name & \QC*{QC LIN GAIN MEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -304,14 +305,14 @@ Value & \%.3f \tabularnewline
 Unit & e/adu \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+Created by & \REC{metis_det_lingain}\\
 Description & Mean value of the gain \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
 \subsubsection{QC LIN GAIN RMS}\label{qc:qc_lin_gain_rms}
 \begin{recipedef}
-Name & \QC{QC LIN GAIN RMS} \tabularnewline
+Name & \QC*{QC LIN GAIN RMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -319,14 +320,14 @@ Value & \%.3f \tabularnewline
 Unit & e/adu \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+Created by & \REC{metis_det_lingain}\\
 Description & Root mean square of the gain values\tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
 \subsubsection{QC LM IMG STD BACKGD RMS}\label{qc:qc_lm_img_std_backgd_rms}
 \begin{recipedef}
-Name & \QC{QC LM IMG STD BACKGD RMS} \tabularnewline
+Name & \QC*{QC LM IMG STD BACKGD RMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -334,7 +335,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Created by & \REC{metis_lm_img_std_process}\\
 Description & RMS of the background of the standard star photometry \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -342,7 +343,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM STD PEAK CNTS}\label{qc:qc_lm_std_peak_cnts}
 \begin{recipedef}
-Name & \QC{QC LM STD PEAK CNTS} \tabularnewline
+Name & \QC*{QC LM STD PEAK CNTS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -350,7 +351,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Created by & \REC{metis_lm_img_std_process}\\
 Description & peak counts of the standard star \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -358,7 +359,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM STD APERTURE CNTS}\label{qc:qc_lm_std_aperture_cnts}
 \begin{recipedef}
-Name & \QC{QC LM STD APERTURE CNTS} \tabularnewline
+Name & \QC*{QC LM STD APERTURE CNTS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -366,7 +367,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Created by & \REC{metis_lm_img_std_process}\\
 Description & aperture counts of the standard star \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -374,7 +375,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM STD STREHL}\label{qc:qc_lm_std_strehl}
 \begin{recipedef}
-Name & \QC{QC LM STD STREHL} \tabularnewline
+Name & \QC*{QC LM STD STREHL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -382,7 +383,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Created by & \REC{metis_lm_img_std_process}\\
 Description & strehl ratio of the standard star \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -391,7 +392,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC LM STD FWHM}\label{qc:qc_lm_std_fwhm}
 \begin{recipedef}
-Name & \QC{QC LM STD FWHM} \tabularnewline
+Name & \QC*{QC LM STD FWHM} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -399,7 +400,7 @@ Value & \%.3f \tabularnewline
 Unit & pixels \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Created by & \REC{metis_lm_img_std_process}\\
 Description & FWHM of the standard star PSF \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -408,7 +409,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC LM STD ELLIP}\label{qc:qc_lm_std_ellip}
 \begin{recipedef}
-Name & \QC{QC LM STD ELLIP} \tabularnewline
+Name & \QC*{QC LM STD ELLIP} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -416,7 +417,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Created by & \REC{metis_lm_img_std_process}\\
 Description & Ellipticity of the standard star PSF \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -424,7 +425,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM STD FLUXCONV}\label{qc:qc_lm_std_fluxconv}
 \begin{recipedef}
-Name & \QC{QC LM STD FLUXCONV} \tabularnewline
+Name & \QC*{QC LM STD FLUXCONV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -432,7 +433,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Created by & \REC{metis_lm_img_std_process}\\
 Description & Flux conversion to physical units, determined from the standard star \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -441,7 +442,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC LM STD AIRMASS}\label{qc:qc_lm_std_airmass}
 \begin{recipedef}
-Name & \QC{QC LM STD AIRMASS} \tabularnewline
+Name & \QC*{QC LM STD AIRMASS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -449,7 +450,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Created by & \REC{metis_lm_img_std_process}\\
 Description & Airmass of the standard star observation \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -459,7 +460,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC LM SENSITIVITY}\label{qc:qc_lm_sensitivity}
 \begin{recipedef}
-Name & \QC{QC LM SENSITIVITY} \tabularnewline
+Name & \QC*{QC LM SENSITIVITY} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -467,7 +468,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Created by & \REC{metis_lm_img_std_process}\\
 Description & Sensitivity of point source detections \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -477,7 +478,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC LM AREA SENSITIVITY}\label{qc:qc_lm_area_sensitivity}
 \begin{recipedef}
-Name & \QC{QC LM AREA SENSITIVITY} \tabularnewline
+Name & \QC*{QC LM AREA SENSITIVITY} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -485,7 +486,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
+Created by & \REC{metis_lm_img_std_process}\\
 Description & Sensitivity extended source detections \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -494,7 +495,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N STD PEAK CNTS}\label{qc:qc_n_std_peak_cnts}
 \begin{recipedef}
-Name & \QC{QC N STD PEAK CNTS} \tabularnewline
+Name & \QC*{QC N STD PEAK CNTS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -502,7 +503,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Created by & \REC{metis_n_img_std_process}\\
 Description & peak counts of the standard star \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -510,7 +511,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N STD APERTURE CNTS}\label{qc:qc_n_std_aperture_cnts}
 \begin{recipedef}
-Name & \QC{QC N STD APERTURE CNTS} \tabularnewline
+Name & \QC*{QC N STD APERTURE CNTS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -518,7 +519,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Created by & \REC{metis_n_img_std_process}\\
 Description & aperture counts of the standard star \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -526,7 +527,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N STD STREHL}\label{qc:qc_n_std_strehl}
 \begin{recipedef}
-Name & \QC{QC N STD STREHL} \tabularnewline
+Name & \QC*{QC N STD STREHL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -534,7 +535,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Created by & \REC{metis_n_img_std_process}\\
 Description & strehl ratio of the standard star \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -544,7 +545,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC N STD FWHM}\label{qc:qc_n_std_fwhm}
 \begin{recipedef}
-Name & \QC{QC N STD FWHM} \tabularnewline
+Name & \QC*{QC N STD FWHM} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -552,7 +553,7 @@ Value & \%.3f \tabularnewline
 Unit & pixels \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Created by & \REC{metis_n_img_std_process}\\
 Description & FWHM of the standard star PSF \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -561,7 +562,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC N STD ELLIP}\label{qc:qc_n_std_ellip}
 \begin{recipedef}
-Name & \QC{QC N STD ELLIP} \tabularnewline
+Name & \QC*{QC N STD ELLIP} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -569,7 +570,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Created by & \REC{metis_n_img_std_process}\\
 Description & Ellipticity of the standard star PSF \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -578,7 +579,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC N STD FLUXCONV}\label{qc:qc_n_std_fluxconv}
 \begin{recipedef}
-Name & \QC{QC N STD FLUXCONV} \tabularnewline
+Name & \QC*{QC N STD FLUXCONV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -586,7 +587,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Created by & \REC{metis_n_img_std_process}\\
 Description & Flux conversion to physical units, determined from the standard star \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -595,7 +596,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC N STD AIRMASS}\label{qc:qc_n_std_airmass}
 \begin{recipedef}
-Name & \QC{QC N STD AIRMASS} \tabularnewline
+Name & \QC*{QC N STD AIRMASS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -603,7 +604,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Created by & \REC{metis_n_img_std_process}\\
 Description & Airmass of the standard star observation \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -613,7 +614,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC N SENSITIVITY}\label{qc:qc_n_sensitivity}
 \begin{recipedef}
-Name & \QC{QC N SENSITIVITY} \tabularnewline
+Name & \QC*{QC N SENSITIVITY} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -621,7 +622,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Created by & \REC{metis_n_img_std_process}\\
 Description & Sensitivity of point source detections \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -631,7 +632,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC N AREA SENSITIVITY}\label{qc:qc_n_area_sensitivity}
 \begin{recipedef}
-Name & \QC{QC N AREA SENSITIVITY} \tabularnewline
+Name & \QC*{QC N AREA SENSITIVITY} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -639,7 +640,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Created by & \REC{metis_n_img_std_process}\\
 Description & Sensitivity extended source detections \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -655,7 +656,7 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM IMG MEDIAN}\label{qc:qc_lm_img_median}
 \begin{recipedef}
-Name & \QC{QC LM IMG MEDIAN} \tabularnewline
+Name & \QC*{QC LM IMG MEDIAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -663,14 +664,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+Created by & \REC{metis_lm_img_basic_reduce}\\
 Description & Median level of the LM image \tabularnewline
 Comment &  \tabularnewline
 \end{recipedef}
 
 \subsubsection{QC LM IMG STANDARD DEVIATION}\label{qc:qc_lm_img_standard_deviation}
 \begin{recipedef}
-Name & \QC{QC LM IMG STANDARD DEVIATION} \tabularnewline
+Name & \QC*{QC LM IMG STANDARD DEVIATION} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -678,14 +679,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+Created by & \REC{metis_lm_img_basic_reduce}\\
 Description & Standard deviation of the LM image \tabularnewline
 Comment &  \tabularnewline
 \end{recipedef}
 
 \subsubsection{QC LM IMG PEAK}\label{qc:qc_lm_img_peak}
 \begin{recipedef}
-Name & \QC{QC LM IMG PEAK} \tabularnewline
+Name & \QC*{QC LM IMG PEAK} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -693,7 +694,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+Created by & \REC{metis_lm_img_basic_reduce}\\
 Description & Peak value the LM image \tabularnewline
 Comment &  \tabularnewline
 \end{recipedef}
@@ -701,7 +702,7 @@ Comment &  \tabularnewline
 
 \subsubsection{QC LM IMG BKG MEDIAN}\label{qc:qc_lm_img_bkg_median}
 \begin{recipedef}
-Name & \QC{QC LM IMG BKG MEDIAN} \tabularnewline
+Name & \QC*{QC LM IMG BKG MEDIAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -709,7 +710,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
+Created by & \REC{metis_lm_img_background}\\
 Description & Median value of the background removed LM image \tabularnewline
 Comment &  \tabularnewline
 \end{recipedef}
@@ -717,7 +718,7 @@ Comment &  \tabularnewline
 
 \subsubsection{QC LM IMG BKG MEDIAN DEVIATION}\label{qc:qc_lm_img_bkg_median_deviation}
 \begin{recipedef}
-Name & \QC{QC LM IMG BKG MEDIAN DEVIATION} \tabularnewline
+Name & \QC*{QC LM IMG BKG MEDIAN DEVIATION} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -725,14 +726,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
+Created by & \REC{metis_lm_img_background}\\
 Description & Median deviation of the background removed LM image \tabularnewline
 Comment &  \tabularnewline
 \end{recipedef}
 
 \subsubsection{QC LIN NUM BADPIX}\label{qc:qc_lin_num_badpix}
 \begin{recipedef}
-Name & \QC{QC LIN NUM BADPIX} \tabularnewline
+Name & \QC*{QC LIN NUM BADPIX} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -740,8 +741,8 @@ Value & \%i \tabularnewline
 Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}\\
-Description & Number of bad pixels as derived in \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}}.\tabularnewline
+Created by & \REC{metis_det_lingain}\\
+Description & Number of bad pixels as derived in \REC{metis_det_lingain}.\tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
@@ -751,7 +752,7 @@ Comment & None \tabularnewline
 
 \subsubsection{QC IFU STD FWHM}\label{qc:qc_ifu_std_fwhm}
 \begin{recipedef}
-Name & \QC{QC IFU STD FWHM} \tabularnewline
+Name & \QC*{QC IFU STD FWHM} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -759,14 +760,14 @@ Value & \%.3f \tabularnewline
 Unit & "pixels" (spaxel) \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
+Created by & \REC{metis_ifu_std_process}\\
 Description & FWHM of the standard star PSF averaged over central wavelength bins \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
 \subsubsection{QC IFU STD ELLIP}\label{qc:qc_ifu_std_ellip}
 \begin{recipedef}
-Name & \QC{QC IFU STD ELLIP} \tabularnewline
+Name & \QC*{QC IFU STD ELLIP} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -774,7 +775,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
+Created by & \REC{metis_ifu_std_process}\\
 Description & Ellipticity of the standard star PSF averaged over central wavelength bins  \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
@@ -783,7 +784,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC IFU WAVECAL LINE WIDTH}\label{qc:qc_ifu_wavecal_line_width}
 \begin{recipedef}
-Name & \QC{QC IFU WAVECAL LINE WIDTH} \tabularnewline
+Name & \QC*{QC IFU WAVECAL LINE WIDTH} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -791,7 +792,7 @@ Value & \%.3f \tabularnewline
 Unit & pix \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}\\
+Created by & \REC{metis_ifu_wavecal}\\
 Description &  The width (FWHM) of the laser line is measured by fitting a Gaussian to it.  \tabularnewline
 Comment & This fulfills \REQ{METIS-6073} \tabularnewline
 \end{recipedef}
@@ -809,7 +810,7 @@ Comment & This fulfills \REQ{METIS-6073} \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS RSRF MEAN LEVEL}\label{qc:qc_lm_lss_rsrf_mean_level}
 \begin{recipedef}
-Name & \QC{QC LM LSS RSRF MEAN LEVEL} \tabularnewline
+Name & \QC*{QC LM LSS RSRF MEAN LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -817,7 +818,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}}\\
+Created by & \REC{metis_LM_lss_rsrf}\\
 Description & Mean level of the \ac{RSRF} \tabularnewline
 Comment &  \tabularnewline
 \end{recipedef}
@@ -825,7 +826,7 @@ Comment &  \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS RSRF MEDIAN LEVEL}\label{qc:qc_lm_lss_rsrf_median_level}
 \begin{recipedef}
-Name & \QC{QC LM LSS RSRF MEDIAN LEVEL} \tabularnewline
+Name & \QC*{QC LM LSS RSRF MEDIAN LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -833,7 +834,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}}\\
+Created by & \REC{metis_LM_lss_rsrf}\\
 Description & Median level of the \ac{RSRF} \tabularnewline
 Comment &  \tabularnewline
 \end{recipedef}
@@ -841,7 +842,7 @@ Comment &  \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS RSRF INTORDR LEVEL}\label{qc:qc_lm_lss_rsrf_intordr_level}
 \begin{recipedef}
-Name & \QC{QC LM LSS RSRF INTORDR LEVEL} \tabularnewline
+Name & \QC*{QC LM LSS RSRF INTORDR LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -849,7 +850,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}}\\
+Created by & \REC{metis_LM_lss_rsrf}\\
 Description &  Flux level of the interorder background \tabularnewline
 Comment & Determined outside the trace \tabularnewline
 \end{recipedef}
@@ -857,7 +858,7 @@ Comment & Determined outside the trace \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS RSRF NORM STDEV}\label{qc:qc_lm_lss_rsrf_norm_stdev}
 \begin{recipedef}
-Name & \QC{QC LM LSS RSRF NORM STDEV} \tabularnewline
+Name & \QC*{QC LM LSS RSRF NORM STDEV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -865,7 +866,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}}\\
+Created by & \REC{metis_LM_lss_rsrf}\\
 Description & Standard deviation of the normalised \ac{RSRF}  \tabularnewline
 Comment & None  \tabularnewline
 \end{recipedef}
@@ -873,7 +874,7 @@ Comment & None  \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS RSRF NORM SNR}\label{qc:qc_lm_lss_rsrf_norm_snr}
 \begin{recipedef}
-Name & \QC{QC LM LSS RSRF NORM SNR} \tabularnewline
+Name & \QC*{QC LM LSS RSRF NORM SNR} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -881,7 +882,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}}\\
+Created by & \REC{metis_LM_lss_rsrf}\\
 escription & \ac{SNR} of the normalised \ac{RSRF} \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -889,7 +890,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS TRACE LPOLYDEG}\label{qc:qc_lm_lss_trace_lpolydeg}
 \begin{recipedef}
-Name & \QC{QC LM LSS TRACE LPOLYDEG} \tabularnewline
+Name & \QC*{QC LM LSS TRACE LPOLYDEG} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -897,7 +898,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}}\\
+Created by & \REC{metis_LM_lss_trace}\\
 Description & Degree of the polynomial fit of the left order edge \tabularnewline
 Comment & "Left" edge means the order edge closer to left detector edge \tabularnewline
 \end{recipedef}
@@ -905,7 +906,7 @@ Comment & "Left" edge means the order edge closer to left detector edge \tabular
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS TRACE LCOEFF<i>}\label{qc:qc_lm_lss_trace_lcoeff<i>}
 \begin{recipedef}
-Name & \QC{QC LM LSS TRACE LCOEFF<i>} \tabularnewline
+Name & \QC*{QC LM LSS TRACE LCOEFF<i>} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -913,7 +914,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}}\\
+Created by & \REC{metis_LM_lss_trace}\\
 Description & $i$-th coefficient of the polynomial of the left order edge \tabularnewline
 Comment & "Left" edge means the order edge closer to left detector edge \tabularnewline
 \end{recipedef}
@@ -921,7 +922,7 @@ Comment & "Left" edge means the order edge closer to left detector edge \tabular
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS TRACE RPOLYDEG}\label{qc:qc_lm_lss_trace_rpolydeg}
 \begin{recipedef}
-Name & \QC{QC LM LSS TRACE RPOLYDEG} \tabularnewline
+Name & \QC*{QC LM LSS TRACE RPOLYDEG} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -929,7 +930,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}}\\
+Created by & \REC{metis_LM_lss_trace}\\
 Description & Degree of the polynomial fit of the right order edge \tabularnewline
 Comment & "Right" edge means the order edge closer to right detector edge \tabularnewline
 \end{recipedef}
@@ -937,7 +938,7 @@ Comment & "Right" edge means the order edge closer to right detector edge \tabul
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS TRACE RCOEFF<i>}\label{qc:qc_lm_lss_trace_rcoeff<i>}
 \begin{recipedef}
-Name & \QC{QC LM LSS TRACE RCOEFF<i>} \tabularnewline
+Name & \QC*{QC LM LSS TRACE RCOEFF<i>} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -945,7 +946,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}}\\
+Created by & \REC{metis_LM_lss_trace}\\
 Description & $i$-th coefficient of the polynomial of the right order edge \tabularnewline
 Comment & "Right" edge means the order edge closer to right detector edge \tabularnewline
 \end{recipedef}
@@ -953,7 +954,7 @@ Comment & "Right" edge means the order edge closer to right detector edge \tabul
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS TRACE INTORDR LEVEL}\label{qc:qc_lm_lss_trace_intordr_level}
 \begin{recipedef}
-Name & \QC{QC LM LSS TRACE INTORDR LEVEL} \tabularnewline
+Name & \QC*{QC LM LSS TRACE INTORDR LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -961,7 +962,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}}\\
+Created by & \REC{metis_LM_lss_trace}\\
 Description & Flux level of the interorder background \tabularnewline
 Comment & Determined outside the order \tabularnewline
 \end{recipedef}
@@ -969,7 +970,7 @@ Comment & Determined outside the order \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS WAVE POLYDEG}\label{qc:qc_lm_lss_wave_polydeg}
 \begin{recipedef}
-Name & \QC{QC LM LSS WAVE POLYDEG} \tabularnewline
+Name & \QC*{QC LM LSS WAVE POLYDEG} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -977,7 +978,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}}\\
+Created by & \REC{metis_LM_lss_wave}\\
 Description & Degree of the first guess polynomial \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -985,7 +986,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS WAVE COEFF<i>}\label{qc:qc_lm_lss_wave_coeff<i>}
 \begin{recipedef}
-Name & \QC{QC LM LSS WAVE COEFF<i>} \tabularnewline
+Name & \QC*{QC LM LSS WAVE COEFF<i>} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -993,7 +994,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}}\\
+Created by & \REC{metis_LM_lss_wave}\\
 Description & $i$-th coefficient of the polynomial \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1001,7 +1002,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS WAVE NLINES}\label{qc:qc_lm_lss_wave_nlines}
 \begin{recipedef}
-Name & \QC{QC LM LSS WAVE NLINES} \tabularnewline
+Name & \QC*{QC LM LSS WAVE NLINES} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1009,7 +1010,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}}\\
+Created by & \REC{metis_LM_lss_wave}\\
 Description & Number of detected (laser) lines; should be constant \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1017,7 +1018,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS WAVE LINEFWHMAVG}\label{qc:qc_lm_lss_wave_linefwhmavg}
 \begin{recipedef}
-Name & \QC{QC LM LSS WAVE LINEFWHMAVG} \tabularnewline
+Name & \QC*{QC LM LSS WAVE LINEFWHMAVG} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1025,7 +1026,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}}\\
+Created by & \REC{metis_LM_lss_wave}\\
 Description & Average of the \ac{FWHM} of the detected lines (should be widely constant) \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1033,7 +1034,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS WAVE INTORDR LEVEL}\label{qc:qc_lm_lss_wave_intordr_level}
 \begin{recipedef}
-Name & \QC{QC LM LSS WAVE INTORDR LEVEL} \tabularnewline
+Name & \QC*{QC LM LSS WAVE INTORDR LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1041,7 +1042,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}}\\
+Created by & \REC{metis_LM_lss_wave}\\
 Description & Flux level of the interorder background \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1050,7 +1051,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD BACKGD MEAN}\label{qc:qc_lm_lss_std_backgd_mean}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD BACKGD MEAN} \tabularnewline
+Name & \QC*{QC LM LSS STD BACKGD MEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1058,7 +1059,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description &  Mean value of background \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1066,7 +1067,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD BACKGD MEDIAN}\label{qc:qc_lm_lss_std_backgd_median}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD BACKGD MEDIAN} \tabularnewline
+Name & \QC*{QC LM LSS STD BACKGD MEDIAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1074,7 +1075,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description & Median value of background \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1082,7 +1083,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD BACKGD STDEV}\label{qc:qc_lm_lss_std_backgd_stdev}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD BACKGD STDEV} \tabularnewline
+Name & \QC*{QC LM LSS STD BACKGD STDEV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1090,7 +1091,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description & Standard deviation value of background \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1098,7 +1099,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD SNR}\label{qc:qc_lm_lss_std_snr}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD SNR} \tabularnewline
+Name & \QC*{QC LM LSS STD SNR} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1106,7 +1107,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description & Signal-to-noise ratio of flux standard star spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1114,7 +1115,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD NOISELEV}\label{qc:qc_lm_lss_std_noiselev}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD NOISELEV} \tabularnewline
+Name & \QC*{QC LM LSS STD NOISELEV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1122,7 +1123,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description & Noise level of flux standard star spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1130,7 +1131,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD FWHM}\label{qc:qc_lm_lss_std_fwhm}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD FWHM} \tabularnewline
+Name & \QC*{QC LM LSS STD FWHM} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1138,7 +1139,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description & FWHM of flux standard spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1146,7 +1147,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD INTORDR LEVEL}\label{qc:qc_lm_lss_std_intordr_level}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD INTORDR LEVEL} \tabularnewline
+Name & \QC*{QC LM LSS STD INTORDR LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1154,7 +1155,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description & Flux level of the interorder background\tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1162,7 +1163,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD AVGLEVEL}\label{qc:qc_lm_lss_std_avglevel}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD AVGLEVEL} \tabularnewline
+Name & \QC*{QC LM LSS STD AVGLEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1170,7 +1171,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description &  \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1178,7 +1179,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD WAVECAL DEVMEAN}\label{qc:qc_lm_lss_std_wavecal_devmean}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD WAVECAL DEVMEAN} \tabularnewline
+Name & \QC*{QC LM LSS STD WAVECAL DEVMEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1186,7 +1187,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description & Mean deviation from the wavelength reference frame \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1194,7 +1195,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD WAVECAL FWHM}\label{qc:qc_lm_lss_std_wavecal_fwhm}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD WAVECAL FWHM} \tabularnewline
+Name & \QC*{QC LM LSS STD WAVECAL FWHM} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1202,7 +1203,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description & Mean \ac{FWHM} of the atmospheric lines used for wavelength calibration \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1210,7 +1211,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD WAVECAL NIDENT}\label{qc:qc_lm_lss_std_wavecal_nident}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD WAVECAL NIDENT} \tabularnewline
+Name & \QC*{QC LM LSS STD WAVECAL NIDENT} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1218,7 +1219,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description &  Number of identified lines \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1226,7 +1227,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD WAVECAL NMATCH}\label{qc:qc_lm_lss_std_wavecal_nmatch}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD WAVECAL NMATCH} \tabularnewline
+Name & \QC*{QC LM LSS STD WAVECAL NMATCH} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1234,7 +1235,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description &Number of lines matched between
                     catalogue and spectrum  \tabularnewline
 Comment & None \tabularnewline
@@ -1243,7 +1244,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD WAVECAL POLYDEG}\label{qc:qc_lm_lss_std_wavecal_polydeg}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD WAVECAL POLYDEG} \tabularnewline
+Name & \QC*{QC LM LSS STD WAVECAL POLYDEG} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1251,7 +1252,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description & Degree of the polynomial\tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1259,7 +1260,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS STD WAVECAL POLYCOEFF<n>}\label{qc:qc_lm_lss_std_wavecal_polycoeff<n>}
 \begin{recipedef}
-Name & \QC{QC LM LSS STD WAVECAL POLYCOEFF<n>} \tabularnewline
+Name & \QC*{QC LM LSS STD WAVECAL POLYCOEFF<n>} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1267,7 +1268,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+Created by & \REC{metis_LM_lss_std}\\
 Description & $n$-th coefficient of the polynomial \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1278,7 +1279,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{QC LM LSS STD PSFLOSS}\label{qc:qc_lm_lss_std_psfloss}
 %\begin{recipedef}
-%Name & \QC{QC LM LSS STD PSFLOSS} \tabularnewline
+%Name & \QC*{QC LM LSS STD PSFLOSS} \tabularnewline
 %Class & header \tabularnewline
 %Context & QC \tabularnewline
 %Type & double \tabularnewline
@@ -1286,7 +1287,7 @@ Comment & None \tabularnewline
 %Unit & n/a \tabularnewline
 %Default & None  \tabularnewline
 %Range & None \tabularnewline
-%Created by & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}}\\
+%Created by & \REC{metis_LM_lss_std}\\
 %Description & Fraction of AO induced slit losses (TBdef) \tabularnewline
 %Comment & None \tabularnewline
 %\end{recipedef}
@@ -1294,7 +1295,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS SCI SNR}\label{qc:qc_lm_lss_sci_snr}
 \begin{recipedef}
-Name & \QC{QC LM LSS SCI SNR} \tabularnewline
+Name & \QC*{QC LM LSS SCI SNR} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1302,14 +1303,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+Created by & \REC{metis_LM_lss_sci}\\
 Description & Signal-to-noise ration of science spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS SCI NOISELEV}\label{qc:qc_lm_lss_sci_noiselev}
 \begin{recipedef}
-Name & \QC{QC LM LSS SCI NOISELEV} \tabularnewline
+Name & \QC*{QC LM LSS SCI NOISELEV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1317,14 +1318,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+Created by & \REC{metis_LM_lss_sci}\\
 Description & Noise level of science spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS SCI FLUX SNR}\label{qc:qc_lm_lss_sci_flux_snr}
 \begin{recipedef}
-Name & \QC{QC LM LSS SCI FLUX SNR} \tabularnewline
+Name & \QC*{QC LM LSS SCI FLUX SNR} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1332,14 +1333,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+Created by & \REC{metis_LM_lss_sci}\\
 Description & Signal-to-noise ration of flux calibrated science spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS SCI FLUX NOISELEV}\label{qc:qc_lm_lss_sci_flux_noiselev}
 \begin{recipedef}
-Name & \QC{QC LM LSS SCI FLUX NOISELEV} \tabularnewline
+Name & \QC*{QC LM LSS SCI FLUX NOISELEV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1347,14 +1348,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+Created by & \REC{metis_LM_lss_sci}\\
 Description & Noise level of flux calibrated science spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS SCI INTORDR LEVEL}\label{qc:qc_lm_lss_sci_intordr_level}
 \begin{recipedef}
-Name & \QC{QC LM LSS SCI INTORDR LEVEL} \tabularnewline
+Name & \QC*{QC LM LSS SCI INTORDR LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1362,14 +1363,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+Created by & \REC{metis_LM_lss_sci}\\
 Description & Flux level of the interorder background \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS SCI WAVECAL DEVMEAN}\label{qc:qc_lm_lss_sci_wavecal_devmean}
 \begin{recipedef}
-Name & \QC{QC LM LSS SCI WAVECAL DEVMEAN} \tabularnewline
+Name & \QC*{QC LM LSS SCI WAVECAL DEVMEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1377,14 +1378,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+Created by & \REC{metis_LM_lss_sci}\\
 Description & Mean deviation from the wavelength reference frame \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS SCI WAVECAL FWHM}\label{qc:qc_lm_lss_sci_wavecal_fwhm}
 \begin{recipedef}
-Name & \QC{QC LM LSS SCI WAVECAL FWHM} \tabularnewline
+Name & \QC*{QC LM LSS SCI WAVECAL FWHM} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1392,14 +1393,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+Created by & \REC{metis_LM_lss_sci}\\
 Description & Measured FWHM of lines \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS SCI WAVECAL NIDENT}\label{qc:qc_lm_lss_sci_wavecal_nident}
 \begin{recipedef}
-Name & \QC{QC LM LSS SCI WAVECAL NIDENT} \tabularnewline
+Name & \QC*{QC LM LSS SCI WAVECAL NIDENT} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1407,14 +1408,14 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+Created by & \REC{metis_LM_lss_sci}\\
 Description & Number of identified lines \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS SCI WAVECAL NMATCH}\label{qc:qc_lm_lss_sci_wavecal_nmatch}
 \begin{recipedef}
-Name & \QC{QC LM LSS SCI WAVECAL NMATCH} \tabularnewline
+Name & \QC*{QC LM LSS SCI WAVECAL NMATCH} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1422,14 +1423,14 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+Created by & \REC{metis_LM_lss_sci}\\
 Description & Number of lines matched between catalogue and spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS SCI WAVECAL POLYDEG}\label{qc:qc_lm_lss_sci_wavecal_polydeg}
 \begin{recipedef}
-Name & \QC{QC LM LSS SCI WAVECAL POLYDEG} \tabularnewline
+Name & \QC*{QC LM LSS SCI WAVECAL POLYDEG} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1437,14 +1438,14 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+Created by & \REC{metis_LM_lss_sci}\\
 Description & Degree of the wavelength polynomial \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM LSS SCI WAVECAL POLYCOEFF<n>}\label{qc:qc_lm_lss_sci_wavecal_polycoeff<n>}
 \begin{recipedef}
-Name & \QC{QC LM LSS SCI WAVECAL POLYCOEFF<n>} \tabularnewline
+Name & \QC*{QC LM LSS SCI WAVECAL POLYCOEFF<n>} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1452,7 +1453,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}}\\
+Created by & \REC{metis_LM_lss_sci}\\
 Description & $n$-th coefficient of the polynomial \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1462,7 +1463,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS RSRF MEAN LEVEL}\label{qc:qc_n_lss_rsrf_mean_level}
 \begin{recipedef}
-Name & \QC{QC N LSS RSRF MEAN LEVEL} \tabularnewline
+Name & \QC*{QC N LSS RSRF MEAN LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1470,7 +1471,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}}\\
+Created by & \REC{metis_N_lss_rsrf}\\
 Description & Mean level of the \ac{RSRF} \tabularnewline
 Comment &  \tabularnewline
 \end{recipedef}
@@ -1478,7 +1479,7 @@ Comment &  \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS RSRF MEDIAN LEVEL}\label{qc:qc_n_lss_rsrf_median_level}
 \begin{recipedef}
-Name & \QC{QC N LSS RSRF MEDIAN LEVEL} \tabularnewline
+Name & \QC*{QC N LSS RSRF MEDIAN LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1486,7 +1487,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}}\\
+Created by & \REC{metis_N_lss_rsrf}\\
 Description & Median level of the \ac{RSRF} \tabularnewline
 Comment &  \tabularnewline
 \end{recipedef}
@@ -1494,7 +1495,7 @@ Comment &  \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS RSRF INTORDR LEVEL}\label{qc:qc_n_lss_rsrf_intordr_level}
 \begin{recipedef}
-Name & \QC{QC N LSS RSRF MEDIAN LEVEL} \tabularnewline
+Name & \QC*{QC N LSS RSRF MEDIAN LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1502,7 +1503,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}}\\
+Created by & \REC{metis_N_lss_rsrf}\\
 Description &  Flux level of the interorder background \tabularnewline
 Comment & Determined outside the trace \tabularnewline
 \end{recipedef}
@@ -1510,7 +1511,7 @@ Comment & Determined outside the trace \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS RSRF NORM STDEV}\label{qc:qc_n_lss_rsrf_norm_stdev}
 \begin{recipedef}
-Name & \QC{QC N LSS RSRF NORM STDEV} \tabularnewline
+Name & \QC*{QC N LSS RSRF NORM STDEV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1518,7 +1519,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}}\\
+Created by & \REC{metis_N_lss_rsrf}\\
 Description & Standard deviation of the normalised \ac{RSRF}  \tabularnewline
 Comment & None  \tabularnewline
 \end{recipedef}
@@ -1526,7 +1527,7 @@ Comment & None  \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS RSRF NORM SNR}\label{qc:qc_n_lss_rsrf_norm_snr}
 \begin{recipedef}
-Name & \QC{QC N LSS RSRF NORM SNR} \tabularnewline
+Name & \QC*{QC N LSS RSRF NORM SNR} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1534,7 +1535,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}}\\
+Created by & \REC{metis_N_lss_rsrf}\\
 escription & \ac{SNR} of the normalised \ac{RSRF} \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1542,7 +1543,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS TRACE LPOLYDEG}\label{qc:qc_n_lss_trace_lpolydeg}
 \begin{recipedef}
-Name & \QC{QC N LSS TRACE LPOLYDEG} \tabularnewline
+Name & \QC*{QC N LSS TRACE LPOLYDEG} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1550,7 +1551,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}}\\
+Created by & \REC{metis_N_lss_trace}\\
 Description & Degree of the polynomial fit of the left order edge \tabularnewline
 Comment & "Left" edge means the order edge closer to left detector edge \tabularnewline
 \end{recipedef}
@@ -1558,7 +1559,7 @@ Comment & "Left" edge means the order edge closer to left detector edge \tabular
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS TRACE LCOEFF<i>}\label{qc:qc_n_lss_trace_lcoeff<i>}
 \begin{recipedef}
-Name & \QC{QC N LSS TRACE LCOEFF<i>} \tabularnewline
+Name & \QC*{QC N LSS TRACE LCOEFF<i>} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1566,7 +1567,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}}\\
+Created by & \REC{metis_N_lss_trace}\\
 Description & $i$-th coefficient of the polynomial of the left order edge \tabularnewline
 Comment & "Left" edge means the order edge closer to left detector edge \tabularnewline
 \end{recipedef}
@@ -1574,7 +1575,7 @@ Comment & "Left" edge means the order edge closer to left detector edge \tabular
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS TRACE RPOLYDEG}\label{qc:qc_n_lss_trace_rpolydeg}
 \begin{recipedef}
-Name & \QC{QC N LSS TRACE RPOLYDEG} \tabularnewline
+Name & \QC*{QC N LSS TRACE RPOLYDEG} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1582,7 +1583,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}}\\
+Created by & \REC{metis_N_lss_trace}\\
 Description & Degree of the polynomial fit of the right order edge \tabularnewline
 Comment & "Right" edge means the order edge closer to right detector edge \tabularnewline
 \end{recipedef}
@@ -1590,7 +1591,7 @@ Comment & "Right" edge means the order edge closer to right detector edge \tabul
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS TRACE RCOEFF<i>}\label{qc:qc_n_lss_trace_rcoeff<i>}
 \begin{recipedef}
-Name & \QC{QC N LSS TRACE RCOEFF<i>} \tabularnewline
+Name & \QC*{QC N LSS TRACE RCOEFF<i>} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1598,7 +1599,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}}\\
+Created by & \REC{metis_N_lss_trace}\\
 Description & $i$-th coefficient of the polynomial of the right order edge \tabularnewline
 Comment & "Right" edge means the order edge closer to right detector edge \tabularnewline
 \end{recipedef}
@@ -1606,7 +1607,7 @@ Comment & "Right" edge means the order edge closer to right detector edge \tabul
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS TRACE INTORDR LEVEL}\label{qc:qc_n_lss_trace_intordr_level}
 \begin{recipedef}
-Name & \QC{QC N LSS TRACE INTORDR LEVEL} \tabularnewline
+Name & \QC*{QC N LSS TRACE INTORDR LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1614,7 +1615,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}}\\
+Created by & \REC{metis_N_lss_trace}\\
 Description & Flux level of the interorder background \tabularnewline
 Comment & Determined outside the order \tabularnewline
 \end{recipedef}
@@ -1622,7 +1623,7 @@ Comment & Determined outside the order \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD BACKGD MEAN}\label{qc:qc_n_lss_std_backgd_mean}
 \begin{recipedef}
-Name & \QC{QC N LSS STD BACKGD MEAN} \tabularnewline
+Name & \QC*{QC N LSS STD BACKGD MEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1630,7 +1631,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description &  Mean value of background \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1638,7 +1639,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD BACKGD MEDIAN}\label{qc:qc_n_lss_std_backgd_median}
 \begin{recipedef}
-Name & \QC{QC N LSS STD BACKGD MEDIAN} \tabularnewline
+Name & \QC*{QC N LSS STD BACKGD MEDIAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1646,7 +1647,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description & Median value of background \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1654,7 +1655,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD BACKGD STDEV}\label{qc:qc_n_lss_std_backgd_stdev}
 \begin{recipedef}
-Name & \QC{QC N LSS STD BACKGD STDEV} \tabularnewline
+Name & \QC*{QC N LSS STD BACKGD STDEV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1662,7 +1663,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description & Standard deviation value of background \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1670,7 +1671,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD SNR}\label{qc:qc_n_lss_std_snr}
 \begin{recipedef}
-Name & \QC{QC N LSS STD SNR} \tabularnewline
+Name & \QC*{QC N LSS STD SNR} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1678,7 +1679,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description & Signal-to-noise ration of flux standard star spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1686,7 +1687,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD NOISELEV}\label{qc:qc_n_lss_std_noiselev}
 \begin{recipedef}
-Name & \QC{QC N LSS STD NOISELEV} \tabularnewline
+Name & \QC*{QC N LSS STD NOISELEV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1694,7 +1695,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description & Noise level of flux standard star spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1702,7 +1703,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD FWHM}\label{qc:qc_n_lss_std_fwhm}
 \begin{recipedef}
-Name & \QC{QC N LSS STD FWHM} \tabularnewline
+Name & \QC*{QC N LSS STD FWHM} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1710,7 +1711,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description & FWHM of flux standard spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1718,7 +1719,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD INTORDR LEVEL}\label{qc:qc_n_lss_std_intordr_level}
 \begin{recipedef}
-Name & \QC{QC N LSS STD INTORDR LEVEL} \tabularnewline
+Name & \QC*{QC N LSS STD INTORDR LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1726,7 +1727,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description & Flux level of the interorder background\tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1734,7 +1735,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD AVGLEVEL}\label{qc:qc_n_lss_std_avglevel}
 \begin{recipedef}
-Name & \QC{QC N LSS STD AVGLEVEL} \tabularnewline
+Name & \QC*{QC N LSS STD AVGLEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1742,7 +1743,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description &  \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1750,7 +1751,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD WAVECAL DEVMEAN}\label{qc:qc_n_lss_std_wavecal_devmean}
 \begin{recipedef}
-Name & \QC{QC N LSS STD WAVECAL DEVMEAN} \tabularnewline
+Name & \QC*{QC N LSS STD WAVECAL DEVMEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1758,7 +1759,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description & Mean deviation from the wavelength reference frame \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1766,7 +1767,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD WAVECAL FWHM}\label{qc:qc_n_lss_std_wavecal_fwhm}
 \begin{recipedef}
-Name & \QC{QC N LSS STD WAVECAL FWHM} \tabularnewline
+Name & \QC*{QC N LSS STD WAVECAL FWHM} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1774,7 +1775,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description & Mean \ac{FWHM} of the atmospheric lines used for wavelength calibration \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1782,7 +1783,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD WAVECAL NIDENT}\label{qc:qc_n_lss_std_wavecal_nident}
 \begin{recipedef}
-Name & \QC{QC N LSS STD WAVECAL NIDENT} \tabularnewline
+Name & \QC*{QC N LSS STD WAVECAL NIDENT} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1790,7 +1791,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description &  Number of identified lines \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1798,7 +1799,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD WAVECAL NMATCH}\label{qc:qc_n_lss_std_wavecal_nmatch}
 \begin{recipedef}
-Name & \QC{QC N LSS STD WAVECAL NMATCH} \tabularnewline
+Name & \QC*{QC N LSS STD WAVECAL NMATCH} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1806,7 +1807,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description &Number of lines matched between
                     catalogue and spectrum  \tabularnewline
 Comment & None \tabularnewline
@@ -1815,7 +1816,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD WAVECAL POLYDEG}\label{qc:qc_n_lss_std_wavecal_polydeg}
 \begin{recipedef}
-Name & \QC{QC N LSS STD WAVECAL POLYDEG} \tabularnewline
+Name & \QC*{QC N LSS STD WAVECAL POLYDEG} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1823,7 +1824,7 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description & Degree of the polynomial\tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1831,7 +1832,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS STD WAVECAL POLYCOEFF<n>}\label{qc:qc_n_lss_std_wavecal_polycoeff<n>}
 \begin{recipedef}
-Name & \QC{QC N LSS STD WAVECAL POLYCOEFF<n>} \tabularnewline
+Name & \QC*{QC N LSS STD WAVECAL POLYCOEFF<n>} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1839,7 +1840,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+Created by & \REC{metis_N_lss_std}\\
 Description & $n$-th coefficient of the polynomial \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -1848,7 +1849,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{QC N LSS STD PSFLOSS}\label{qc:qc_n_lss_std_psfloss}
 %\begin{recipedef}
-%Name & \QC{QC N LSS STD PSFLOSS} \tabularnewline
+%Name & \QC*{QC N LSS STD PSFLOSS} \tabularnewline
 %Class & header \tabularnewline
 %Context & QC \tabularnewline
 %Type & double \tabularnewline
@@ -1856,7 +1857,7 @@ Comment & None \tabularnewline
 %Unit & n/a \tabularnewline
 %Default & None  \tabularnewline
 %Range & None \tabularnewline
-%Created by & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}}\\
+%Created by & \REC{metis_N_lss_std}\\
 %Description & Fraction of AO induced slit losses (TBdef) \tabularnewline
 %Comment & None \tabularnewline
 %\end{recipedef}
@@ -1864,7 +1865,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS SCI SNR}\label{qc:qc_n_lss_sci_snr}
 \begin{recipedef}
-Name & \QC{QC N LSS SCI SNR} \tabularnewline
+Name & \QC*{QC N LSS SCI SNR} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1872,14 +1873,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
+Created by & \REC{metis_N_lss_sci}\\
 Description & Signal-to-noise ration of science spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS SCI NOISELEV}\label{qc:qc_n_lss_sci_noiselev}
 \begin{recipedef}
-Name & \QC{QC N LSS SCI NOISELEV} \tabularnewline
+Name & \QC*{QC N LSS SCI NOISELEV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1887,14 +1888,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
+Created by & \REC{metis_N_lss_sci}\\
 Description & Noise level of science spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS SCI FLUX SNR}\label{qc:qc_n_lss_sci_flux_snr}
 \begin{recipedef}
-Name & \QC{QC N LSS SCI FLUX SNR} \tabularnewline
+Name & \QC*{QC N LSS SCI FLUX SNR} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1902,14 +1903,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
+Created by & \REC{metis_N_lss_sci}\\
 Description & Signal-to-noise ration of flux calibrated science spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS SCI FLUX NOISELEV}\label{qc:qc_n_lss_sci_flux_noiselev}
 \begin{recipedef}
-Name & \QC{QC N LSS SCI FLUX NOISELEV} \tabularnewline
+Name & \QC*{QC N LSS SCI FLUX NOISELEV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1917,14 +1918,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
+Created by & \REC{metis_N_lss_sci}\\
 Description & Noise level of flux calibrated science spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS SCI INTORDR LEVEL}\label{qc:qc_n_lss_sci_intordr_level}
 \begin{recipedef}
-Name & \QC{QC N LSS SCI INTORDR LEVEL} \tabularnewline
+Name & \QC*{QC N LSS SCI INTORDR LEVEL} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1932,14 +1933,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
+Created by & \REC{metis_N_lss_sci}\\
 Description & Flux level of the interorder background \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS SCI WAVECAL DEVMEAN}\label{qc:qc_n_lss_sci_wavecal_devmean}
 \begin{recipedef}
-Name & \QC{QC N LSS SCI WAVECAL DEVMEAN} \tabularnewline
+Name & \QC*{QC N LSS SCI WAVECAL DEVMEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1947,14 +1948,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
+Created by & \REC{metis_N_lss_sci}\\
 Description & Mean deviation from the wavelength reference frame \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS SCI WAVECAL FWHM}\label{qc:qc_n_lss_sci_wavecal_fwhm}
 \begin{recipedef}
-Name & \QC{QC N LSS SCI WAVECAL FWHM} \tabularnewline
+Name & \QC*{QC N LSS SCI WAVECAL FWHM} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1962,14 +1963,14 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
+Created by & \REC{metis_N_lss_sci}\\
 Description & Measured FWHM of lines \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS SCI WAVECAL NIDENT}\label{qc:qc_n_lss_sci_wavecal_nident}
 \begin{recipedef}
-Name & \QC{QC N LSS SCI WAVECAL NIDENT} \tabularnewline
+Name & \QC*{QC N LSS SCI WAVECAL NIDENT} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1977,14 +1978,14 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
+Created by & \REC{metis_N_lss_sci}\\
 Description & Number of identified lines \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS SCI WAVECAL NMATCH}\label{qc:qc_n_lss_sci_wavecal_nmatch}
 \begin{recipedef}
-Name & \QC{QC N LSS SCI WAVECAL NMATCH} \tabularnewline
+Name & \QC*{QC N LSS SCI WAVECAL NMATCH} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -1992,14 +1993,14 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
+Created by & \REC{metis_N_lss_sci}\\
 Description & Number of lines matched between catalogue and spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS SCI WAVECAL POLYDEG}\label{qc:qc_n_lss_sci_wavecal_polydeg}
 \begin{recipedef}
-Name & \QC{QC N LSS SCI WAVECAL POLYDEG} \tabularnewline
+Name & \QC*{QC N LSS SCI WAVECAL POLYDEG} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -2007,14 +2008,14 @@ Value & \%i \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
+Created by & \REC{metis_N_lss_sci}\\
 Description & Degree of the wavelength polynomial \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N LSS SCI WAVECAL POLYCOEFF<n>}\label{qc:qc_n_lss_sci_wavecal_polycoeff<n>}
 \begin{recipedef}
-Name & \QC{QC N LSS SCI WAVECAL POLYCOEFF<n>} \tabularnewline
+Name & \QC*{QC N LSS SCI WAVECAL POLYCOEFF<n>} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -2022,7 +2023,7 @@ Value & \%.3f \tabularnewline
 Unit & n/a \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}}\\
+Created by & \REC{metis_N_lss_sci}\\
 Description & $n$-th coefficient of the polynomial \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -2030,7 +2031,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM DISTORT RMS}\label{qc:qc_lm_distort_rms}
 \begin{recipedef}
-Name & \QC{QC LM DISTORT RMS} \tabularnewline
+Name & \QC*{QC LM DISTORT RMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -2038,7 +2039,7 @@ Value & \%.3f \tabularnewline
 Unit & pixels \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
+Created by & \REC{metis_lm_img_distortion}\\
 Description & RMS of deviation of the distortion fit from expected values  \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -2047,7 +2048,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N DISTORT RMS}\label{qc:qc_n_distort_rms}
 \begin{recipedef}
-Name & \QC{QC N DISTORT RMS} \tabularnewline
+Name & \QC*{QC N DISTORT RMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -2055,7 +2056,7 @@ Value & \%.3f \tabularnewline
 Unit & pixels \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
-Created by & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Created by & \REC{metis_n_img_distortion}\\
 Description & RMS of deviation of the distortion fit from expected values  \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -2064,7 +2065,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC LM DISTORT NSOURCE}\label{qc:qc_lm_distort_nsource}
 \begin{recipedef}
-Name & \QC{QC LM DISTORT NSOURCE} \tabularnewline
+Name & \QC*{QC LM DISTORT NSOURCE} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -2072,7 +2073,7 @@ Value & \%i \tabularnewline
 Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & 0 to number of pinholes \tabularnewline
-Created by & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
+Created by & \REC{metis_lm_img_distortion}\\
 Description & number of positions used to fit the distortion polynomial  \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -2082,7 +2083,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QC N DISTORT NSOURCE}\label{qc:qc_n_distort_nsource}
 \begin{recipedef}
-Name & \QC{QC N DISTORT NSOURCE} \tabularnewline
+Name & \QC*{QC N DISTORT NSOURCE} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
@@ -2090,7 +2091,7 @@ Value & \%i \tabularnewline
 Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & 0 to number of pinholes \tabularnewline
-Created by & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Created by & \REC{metis_n_img_distortion}\\
 Description & number of positions used to fit the distortion polynomial  \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
@@ -2103,7 +2104,7 @@ Comment & None \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{}\label{qc:}
 %\begin{recipedef}
-%Name & \QC{} \tabularnewline
+%Name & \QC*{} \tabularnewline
 %Class & header \tabularnewline
 %Context & QC \tabularnewline
 %Type & double \tabularnewline
@@ -2111,7 +2112,7 @@ Comment & None \tabularnewline
 %Unit & n/a \tabularnewline
 %Default & None  \tabularnewline
 %Range & None \tabularnewline
-%Created by & \hyperref[rec:]{\REC{}}\\
+%Created by & \REC{}\\
 %Description &  \tabularnewline
 %Comment & None \tabularnewline
 %\end{recipedef}

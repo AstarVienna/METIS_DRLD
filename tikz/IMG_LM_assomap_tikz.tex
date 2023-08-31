@@ -73,7 +73,7 @@
 
     %%% Calibration products
     % Row *_lin
-    \node (lin_lin) [statcalfile]{\NEWSTATCALIB{LINEARITY_2RG}}; &
+    \node (lin_lin) [statcalfile]{\STATCALIB{LINEARITY_2RG}}; &
     \node (pers_lin)[empty]{}; &
     \node (dist_lin)[empty]{}; &
     \node (dark_lin)[empty]{}; &
@@ -86,7 +86,7 @@
 
     % Row persistence
     \node (lin_pers)[empty]{}; &
-    \node (pers_pers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}}; &
+    \node (pers_pers)[extcalfile]{\STATCALIB*{PERSISTENCE_MAP}}; &
     \node (dist_pers)[empty]{}; &
     \node (dark_pers)[empty]{}; &
     \node (flat_pers)[connection]{}; &
@@ -100,7 +100,7 @@
     \node (lin_dark) [empty]{}; &
     \node (pers_dark) [empty]{}; &
     \node (dist_dark) [empty]{}; &
-    \node (dark_dark) [calibproduct]{\NEWPROD{MASTER_DARK_2RG}}; &
+    \node (dark_dark) [calibproduct]{\PROD{MASTER_DARK_2RG}}; &
     \node (flat_dark)[connection]{}; &
     \node (all1_dark)[connection]{}; &
     \node (all2_dark)[empty]{}; &
@@ -113,7 +113,7 @@
     \node (pers_flat) [empty]{}; &
     \node (dist_flat)[empty]{}; &
     \node (dark_flat)[empty]{}; &
-    \node (flat_flat) [calibproduct]{\NEWPROD{MASTER_IMG_FLAT_LAMP_LM}}; &
+    \node (flat_flat) [calibproduct]{\PROD{MASTER_IMG_FLAT_LAMP_LM}}; &
     \node (all1_flat)[connection]{}; &
     \node (all2_flat)[empty]{}; &
     \node (std_flat)[empty]{}; &
@@ -126,8 +126,8 @@
     \node (dist_all1)[empty]{}; &
     \node (dark_all1)[empty]{}; &
     \node (flat_all1)[empty]{}; &
-    \node (all1_all1)[calibproduct]{\NEWPROD{LM_STD_BASIC_REDUCED}}; &
-    \node (all2_all1)[calibproduct]{\NEWPROD{LM_STD_BKG_SUBTRACTED}}; &
+    \node (all1_all1)[calibproduct]{\PROD{LM_STD_BASIC_REDUCED}}; &
+    \node (all2_all1)[calibproduct]{\PROD{LM_STD_BKG_SUBTRACTED}}; &
     \node (std_all1)[connection]{}; &
     \node (sci1_all1)[empty]{}; &
     \node (sci2_all1) [empty]{}; \\
@@ -138,8 +138,8 @@
     \node (dist_all2)[empty]{}; &
     \node (dark_all2)[empty]{}; &
     \node (flat_all2)[empty]{}; &
-    \node (all1_all2)[scienceproduct]{\NEWPROD{LM_SCI_BASIC_REDUCED}}; &
-    \node (all2_all2)[scienceproduct]{\NEWPROD{LM_SCI_BKG_SUBTRACTED}}; &
+    \node (all1_all2)[scienceproduct]{\PROD{LM_SCI_BASIC_REDUCED}}; &
+    \node (all2_all2)[scienceproduct]{\PROD{LM_SCI_BKG_SUBTRACTED}}; &
     \node (std_all2)[empty]{}; &
     \node (sci1_all2)[connection]{}; &
     \node (sci2_all2) [empty]{}; \\
@@ -147,7 +147,7 @@
     % Row *_dist
     \node (lin_dist) [empty]{}; &
     \node (pers_dist) [empty]{}; &
-    \node (dist_dist)[statcalfile]{\NEWSTATCALIB{LM_DISTORTION_TABLE}}; &
+    \node (dist_dist)[statcalfile]{\STATCALIB{LM_DISTORTION_TABLE}}; &
     \node (dark_dist)[empty]{}; &
     \node (flat_dist) [empty]{}; &
     \node (all1_dist)[empty]{}; &
@@ -160,7 +160,7 @@
     \node (lin_std) [empty]{}; &
     \node (pers_std) [empty]{}; &
     \node (dist_std)[empty]{}; &
-    \node (dark_std)[extcalfile]{\NEWEXTCALIB{FLUXSTD_CATALOG}}; &
+    \node (dark_std)[extcalfile]{\EXTCALIB{FLUXSTD_CATALOG}}; &
     \node (flat_std)[empty]{}; &
     \node (all1_std)[empty]{}; &
     \node (all2_std)[empty]{}; &
@@ -176,7 +176,7 @@
     \node (flat_sci1)[empty]{}; &
     \node (all1_sci1)[empty]{}; &
     \node (all2_sci1)[empty]{}; &
-    \node (std_sci1)[calibproduct]{\NEWPROD{FLUXCAL_TAB}}; &
+    \node (std_sci1)[calibproduct]{\PROD{FLUXCAL_TAB}}; &
     \node (sci1_sci1)[connection]{}; &
     \node (sci2_sci1)[empty]{}; \\
 
@@ -189,7 +189,7 @@
     \node (all1_sci2)[empty]{}; &
     \node (all2_sci2)[empty]{}; &
     \node (std_sci2)[empty]{}; &
-    \node (sci1_sci2) [scienceproduct]{\NEWPROD{LM_SCI_CALIBRATED}}; &
+    \node (sci1_sci2) [scienceproduct]{\PROD{LM_SCI_CALIBRATED}}; &
     \node (sci2_sci2) [connection]{}; \\
 
     % Row *_prod
@@ -202,7 +202,7 @@
     \node(all2_prod) [empty]{}; &
     \node(std_prod) [empty]{}; &
     \node(sci1_prod) [empty]{}; &
-    \node (sci2_prod)[scienceproduct]{\NEWPROD{LM_SCI_COADD}}; \\
+    \node (sci2_prod)[scienceproduct]{\PROD{LM_SCI_COADD}}; \\
   };    % end matrix
 
   \node (t1) at ($(dist_raw)!0.5!(dark_raw)$){};

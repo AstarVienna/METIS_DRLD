@@ -1,32 +1,32 @@
 
 \subsection{Static and external calibration database data items}\label{ssec:caldb_items_structures}
-Static calibrations are data which are updated very rarely only and stay static the most of the time or arise from external sources. The first data are created by specific calibration recipes invoked only once in a while (e.g. the detector linearity and gain determination section~\ref{sssec:metis_det_lingain}). External data either created individually for each frame by \ac{ESO} as in case of the \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}, or taken from external databases (e.g. \ac{HITRAN} in case of the \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}).
+Static calibrations are data which are updated very rarely only and stay static the most of the time or arise from external sources. The first data are created by specific calibration recipes invoked only once in a while (e.g. the detector linearity and gain determination section~\ref{sssec:metis_det_lingain}). External data either created individually for each frame by \ac{ESO} as in case of the \EXTCALIB{PERSISTENCE_MAP}, or taken from external databases (e.g. \ac{HITRAN} in case of the \EXTCALIB{ATM_LINE_CAT}).
 
 \subsubsection{General calibration database item structures}\label{sssec:generalcaldbdatastructs}
 This section describes items of the static calibration database, which are used in all/more than one, the \ac{IMG} and the \ac{LSS} pipelines. This concerns mainly the detector calibration files.
 
-\paragraph{\hyperref[dataitem:gain_map_det]{\STATCALIB{GAIN_MAP_det}}}\label{dataitem:gain_map_det}\label{dataitem:gainmap}
+\paragraph{\STATCALIB{GAIN_MAP_det}}\label{dataitem:gain_map_det}\label{dataitem:gainmap}
 \label{dataitem:gain_map_2rg}\label{dataitem:gain_map_geo}\label{dataitem:gain_map_ifu}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:gain_map_det]{\STATCALIB{GAIN_MAP_det}}\\[0.3cm]
+Name: & \STATCALIB{GAIN_MAP_det}\\[0.3cm]
 Description: & Gain map\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{GAIN_MAP_det}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{GAIN_MAP_det}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{GAIN_MAP_det}\\[0.3cm]
-Created by recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}} \\
-Input for:    & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
-              & \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} \\
-              & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \\
-              & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
-              & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
-              & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
-              & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}} \\
-              & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
-              & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
-              & \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}} \\
-              & \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \\
-              & \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} \\
+\FITS{DO.CATG}: & \CODE{GAIN_MAP_det}\\[0.3cm]
+Created by recipe: & \REC{metis_det_lingain} \\
+Input for:    & \REC{metis_LM_lss_rsrf} \\
+              & \REC{metis_LM_lss_trace} \\
+              & \REC{metis_LM_lss_wave} \\
+              & \REC{metis_LM_lss_std} \\
+              & \REC{metis_LM_lss_sci} \\
+              & \REC{metis_N_lss_rsrf} \\
+              & \REC{metis_N_lss_trace} \\
+              & \REC{metis_N_lss_std} \\
+              & \REC{metis_N_lss_sci} \\
+              & \REC{metis_img_chophome} \\
+              & \REC{metis_lm_adc_slitloss} \\
+              & \REC{metis_n_adc_slitloss} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & Correcting for differences in gain.\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -41,42 +41,42 @@ Purpose: & Correcting for differences in gain.\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}}\label{dataitem:badpix_map_det}\label{dataitem:badpixmap}
+\paragraph{\PROD{BADPIX_MAP_det}}\label{dataitem:badpix_map_det}\label{dataitem:badpixmap}
 
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}\\[0.3cm]
+Name: & \PROD{BADPIX_MAP_det}\\[0.3cm]
 Description: & Bad pixel map. Also contains detector masks. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{BADPIX_MAP_det}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{BADPIX_MAP_det}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
-\FITS{DO.CATG}: & \FITS{BADPIX_MAP_det}\\[0.3cm]
-Created by recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}} \\
-                  & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}} \\
-                  & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}} \\
-                  & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}} \\
-                  & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}} \\
-Input for:    & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}} \\
-              & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}} \\
-              & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}} \\
-              & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} \\
-              & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}} \\
-              & \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}} \\
-              & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}} \\
-              & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}} \\
-              & \hyperref[rec:metis_n_img_chopnod]{\REC{metis_n_img_chopnod}} \\
-              & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}} \\
-              & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
-              & \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} \\
-              & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \\
-              & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
-              & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
-              & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
-              & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}} \\
-              & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
-              & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
-              & \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}} \\
-              & \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \\
-              & \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} \\
+\FITS{DO.CATG}: & \CODE{BADPIX_MAP_det}\\[0.3cm]
+Created by recipe: & \REC{metis_det_lingain} \\
+                  & \REC{metis_ifu_rsrf} \\
+                  & \REC{metis_det_dark} \\
+                  & \REC{metis_lm_img_flat} \\
+                  & \REC{metis_n_img_flat} \\
+Input for:    & \REC{metis_ifu_wavecal} \\
+              & \REC{metis_ifu_rsrf} \\
+              & \REC{metis_ifu_std_process} \\
+              & \REC{metis_ifu_sci_process} \\
+              & \REC{metis_lm_img_flat} \\
+              & \REC{metis_lm_img_sci_postprocess} \\
+              & \REC{metis_lm_img_distortion} \\
+              & \REC{metis_n_img_flat} \\
+              & \REC{metis_n_img_chopnod} \\
+              & \REC{metis_n_img_distortion} \\
+              & \REC{metis_LM_lss_rsrf} \\
+              & \REC{metis_LM_lss_trace} \\
+              & \REC{metis_LM_lss_wave} \\
+              & \REC{metis_LM_lss_std} \\
+              & \REC{metis_LM_lss_sci} \\
+              & \REC{metis_N_lss_rsrf} \\
+              & \REC{metis_N_lss_trace} \\
+              & \REC{metis_N_lss_std} \\
+              & \REC{metis_N_lss_sci} \\
+              & \REC{metis_img_chophome} \\
+              & \REC{metis_lm_adc_slitloss} \\
+              & \REC{metis_n_adc_slitloss} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -88,41 +88,41 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}}\label{dataitem:badpix_map_2rg}
-See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
+\paragraph{\PROD{BADPIX_MAP_2RG}}\label{dataitem:badpix_map_2rg}
+See \PROD{BADPIX_MAP_det}.
 
-\paragraph{\hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}}\label{dataitem:badpix_map_geo}
-See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
+\paragraph{\PROD{BADPIX_MAP_GEO}}\label{dataitem:badpix_map_geo}
+See \PROD{BADPIX_MAP_det}.
 
-\paragraph{\hyperref[dataitem:badpix_map_ifu]{\PROD{BADPIX_MAP_IFU}}}\label{dataitem:badpix_map_ifu}
-See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
+\paragraph{\PROD{BADPIX_MAP_IFU}}\label{dataitem:badpix_map_ifu}
+See \PROD{BADPIX_MAP_det}.
 
-\paragraph{\hyperref[dataitem:linearity_det]{\PROD{LINEARITY_det}}}\label{dataitem:linearity_det}\label{dataitem:linearity}\label{dataitem:linearity_lm}\label{dataitem:linearity_ifu}\label{dataitem:linearity_n}\label{dataitem:linearity_2rg}\label{dataitem:linearity_geo}
+\paragraph{\PROD{LINEARITY_det}}\label{dataitem:linearity_det}\label{dataitem:linearity}\label{dataitem:linearity_lm}\label{dataitem:linearity_ifu}\label{dataitem:linearity_n}\label{dataitem:linearity_2rg}\label{dataitem:linearity_geo}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_det}}\\[0.3cm]
+Name: & \PROD{LINEARITY_det}\\[0.3cm]
 Description: & Coefficients for the pixel non-linearity correction\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LINEARITY_det}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LINEARITY_det}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
-\FITS{DO.CATG}: & \FITS{LINEARITY_det}\\[0.3cm]
-Created by recipe: & \hyperref[rec:metis_det_lingain]{\REC{metis_det_lingain}} \\
-Input for:    & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}} \\
-              & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
-              & \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} \\
-              & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \\
-              & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
-              & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
-              & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
-              & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}} \\
-              & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
-              & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
-              & \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}} \\
-              & \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \\
-              & \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} \\
+\FITS{DO.CATG}: & \CODE{LINEARITY_det}\\[0.3cm]
+Created by recipe: & \REC{metis_det_lingain} \\
+Input for:    & \REC{metis_det_dark} \\
+              & \REC{metis_LM_lss_rsrf} \\
+              & \REC{metis_LM_lss_trace} \\
+              & \REC{metis_LM_lss_wave} \\
+              & \REC{metis_LM_lss_std} \\
+              & \REC{metis_LM_lss_sci} \\
+              & \REC{metis_N_lss_rsrf} \\
+              & \REC{metis_N_lss_trace} \\
+              & \REC{metis_N_lss_std} \\
+              & \REC{metis_N_lss_sci} \\
+              & \REC{metis_img_chophome} \\
+              & \REC{metis_lm_adc_slitloss} \\
+              & \REC{metis_n_adc_slitloss} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -132,36 +132,36 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\hyperref[dataitem:master_dark_det]{\PROD{MASTER_DARK_det}}}\label{dataitem:master_dark_det}
+\paragraph{\PROD{MASTER_DARK_det}}\label{dataitem:master_dark_det}
 \label{dataitem:masterdark}
-Depending on context, a \hyperref[dataitem:master_dark_det]{\PROD{MASTER_DARK_det}} can refer to either a
+Depending on context, a \PROD{MASTER_DARK_det} can refer to either a
 \begin{enumerate}
-\item \hyperref[dataitem:master_dark_geo]{\PROD{MASTER_DARK_GEO}}
-\item \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}
-\item \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}
+\item \PROD{MASTER_DARK_GEO}
+\item \PROD{MASTER_DARK_2RG}
+\item \PROD{MASTER_DARK_IFU}
 \end{enumerate}
 
 
-\paragraph{\hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}}\label{dataitem:master_dark_2rg}
+\paragraph{\PROD{MASTER_DARK_2RG}}\label{dataitem:master_dark_2rg}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:master_dark_2rg]{\PROD{MASTER_DARK_2RG}}\\[0.3cm]
+Name: & \PROD{MASTER_DARK_2RG}\\[0.3cm]
 Description: & Master dark frame for LM detector data \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_DARK_2RG} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{MASTER_DARK_2RG} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{MASTER_DARK_2RG}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{MASTER_DARK_2RG}\\[0.3cm]
 %Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
-Created by: & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}} \\
-Input for:    & \hyperref[rec:metis_lm_img_flat]{\REC{metis_lm_img_flat}} \\
-              & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}} \\
-              & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
-              & \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} \\
-              & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \\
-              & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
-              & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
-              & \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}} \\
-              & \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \\
-& \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+Created by: & \REC{metis_det_dark} \\
+Input for:    & \REC{metis_lm_img_flat} \\
+              & \REC{metis_lm_img_basic_reduce} \\
+              & \REC{metis_LM_lss_rsrf} \\
+              & \REC{metis_LM_lss_trace} \\
+              & \REC{metis_LM_lss_wave} \\
+              & \REC{metis_LM_lss_std} \\
+              & \REC{metis_LM_lss_sci} \\
+              & \REC{metis_img_chophome} \\
+              & \REC{metis_lm_adc_slitloss} \\
+& \REC{metis_lm_img_basic_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -177,22 +177,22 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:master_dark_geo]{\PROD{MASTER_DARK_GEO}}}\label{dataitem:master_dark_geo}
+\paragraph{\PROD{MASTER_DARK_GEO}}\label{dataitem:master_dark_geo}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:master_dark_geo]{\PROD{MASTER_DARK_GEO}}\\[0.3cm]
+Name: & \PROD{MASTER_DARK_GEO}\\[0.3cm]
 Description: & Master dark frame for N detector data \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_DARK_GEO} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{MASTER_DARK_GEO} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{MASTER_DARK_GEO}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{MASTER_DARK_GEO}\\[0.3cm]
 %Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
-Created by: & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}} \\
-Input for:    & \hyperref[rec:metis_n_img_flat]{\REC{metis_n_img_flat}} \\
-              & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
-              & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}} \\
-              & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
-              & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
-              & \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} \\
+Created by: & \REC{metis_det_dark} \\
+Input for:    & \REC{metis_n_img_flat} \\
+              & \REC{metis_N_lss_rsrf} \\
+              & \REC{metis_N_lss_trace} \\
+              & \REC{metis_N_lss_std} \\
+              & \REC{metis_N_lss_sci} \\
+              & \REC{metis_n_adc_slitloss} \\
 % The n-band does not have a basic_reduce recipe (according to the association map)
 % & \hyperref[]{\CODE{metis_n_img_basic_reduce}}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -212,17 +212,17 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \subsubsection{IFU calibration database item structures}\label{sssec:lmscaldbdatastructs}
 
 
-\paragraph{\hyperref[dataitem:rsrf_ifu]{\PROD{RSRF_IFU}}}\label{dataitem:rsrf_ifu}
+\paragraph{\PROD{RSRF_IFU}}\label{dataitem:rsrf_ifu}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:rsrf_ifu]{\PROD{RSRF_IFU}}\\[0.3cm]
+Name: & \PROD{RSRF_IFU}\\[0.3cm]
 Description: & 2D relative spectral response function \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{RSRF_IFU}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{RSRF_IFU}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{RSRF_IFU}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}}\\
-Input for:    & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}} \\
-              & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} \\
+\FITS{DO.CATG}: & \CODE{RSRF_IFU}\\[0.3cm]
+Created by: & \REC{metis_ifu_rsrf}\\
+Input for:    & \REC{metis_ifu_std_process} \\
+              & \REC{metis_ifu_sci_process} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -240,31 +240,31 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}}}\label{dataitem:det_distortion_table}
-Depending on context, a \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}} can refer to either a
+\paragraph{\PROD{det_DISTORTION_TABLE}}\label{dataitem:det_distortion_table}
+Depending on context, a \PROD{det_DISTORTION_TABLE} can refer to either a
 \begin{enumerate}
-\item \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}
-\item \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}
-\item \hyperref[dataitem:ifu_distortion_table]{\PROD{IFU_DISTORTION_TABLE}}
+\item \PROD{N_DISTORTION_TABLE}
+\item \PROD{LM_DISTORTION_TABLE}
+\item \PROD{IFU_DISTORTION_TABLE}
 \end{enumerate}
 
 
-\paragraph{\hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}}\label{dataitem:lm_distortion_table}
+\paragraph{\PROD{LM_DISTORTION_TABLE}}\label{dataitem:lm_distortion_table}
 \begin{recipedef}
 \textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}\\[0.3cm]
+Name: & \PROD{LM_DISTORTION_TABLE}\\[0.3cm]
 Description: & Table of distortion information\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_DISTORTION_TABLE} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LM_DISTORTION_TABLE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{LM_DISTORTION_TABLE}\\[0.3cm]
-Created by: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}} \\
-Input for:    & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}} \\
-              & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}} \\
-              & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}} \\
+\FITS{DO.CATG}: & \CODE{LM_DISTORTION_TABLE}\\[0.3cm]
+Created by: & \REC{metis_lm_img_distortion} \\
+Input for:    & \REC{metis_lm_img_calibrate} \\
+              & \REC{metis_img_adi_cgrph} \\
+              & \REC{metis_lm_adi_app} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}}\label{drsstructure:LM_DISTORTION_TABLE}
+\paragraph{\PROD{LM_DISTORTION_TABLE}}\label{drsstructure:LM_DISTORTION_TABLE}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -275,21 +275,21 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}}\label{dataitem:n_distortion_table}
+\paragraph{\PROD{N_DISTORTION_TABLE}}\label{dataitem:n_distortion_table}
 \begin{recipedef}
 \textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}\\[0.3cm]
+Name: & \PROD{N_DISTORTION_TABLE}\\[0.3cm]
 Description: & Table of distortion information\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_DISTORTION_TABLE} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_DISTORTION_TABLE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{N_DISTORTION_TABLE}\\[0.3cm]
-Created by: & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}} \\
-Input for:    & \hyperref[rec:metis_n_img_calibrate]{\REC{metis_n_img_calibrate}} \\
-              & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}} \\
+\FITS{DO.CATG}: & \CODE{N_DISTORTION_TABLE}\\[0.3cm]
+Created by: & \REC{metis_n_img_distortion} \\
+Input for:    & \REC{metis_n_img_calibrate} \\
+              & \REC{metis_img_adi_cgrph} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}}\label{drsstructure:N_DISTORTION_TABLE}
+\paragraph{\PROD{N_DISTORTION_TABLE}}\label{drsstructure:N_DISTORTION_TABLE}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -300,29 +300,29 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:det_distortion_map]{\PROD{det_DISTORTION_MAP}}}\label{dataitem:det_distortion_map}
-Depending on context, a \hyperref[dataitem:det_distortion_map]{\PROD{det_DISTORTION_MAP}} can refer to either a
+\paragraph{\PROD{det_DISTORTION_MAP}}\label{dataitem:det_distortion_map}
+Depending on context, a \PROD{det_DISTORTION_MAP} can refer to either a
 \begin{enumerate}
-\item \hyperref[dataitem:n_distortion_map]{\PROD{N_DISTORTION_MAP}}
-\item \hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}
-% \item \hyperref[dataitem:ifu_distortion_map]{\PROD{ifu_distortion_map}}
+\item \PROD{N_DISTORTION_MAP}
+\item \PROD{LM_DISTORTION_MAP}
+% \item \PROD{ifu_distortion_map}
 \end{enumerate}
 
 
-\paragraph{\hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}}\label{dataitem:lm_distortion_map}
+\paragraph{\PROD{LM_DISTORTION_MAP}}\label{dataitem:lm_distortion_map}
 \begin{recipedef}
 \textbf{\ac{FITS} IMAGE file structure:}\\
-Name: & \hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}\\[0.3cm]
+Name: & \PROD{LM_DISTORTION_MAP}\\[0.3cm]
 Description: & Map of pixel scale across the detector\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_DISTORTION_MAP} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LM_DISTORTION_MAP} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{LM_DISTORTION_MAP}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{LM_DISTORTION_MAP}\\[0.3cm]
 %Template: & \TPL{METIS_img_lm_cal_distortion}\\
-Created by: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}} \\
+Created by: & \REC{metis_lm_img_distortion} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:lm_distortion_map]{\PROD{LM_DISTORTION_MAP}}}\label{drsstructure:LM_DISTORTION_MAP}
+\paragraph{\PROD{LM_DISTORTION_MAP}}\label{drsstructure:LM_DISTORTION_MAP}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -334,20 +334,20 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:n_distortion_map]{\PROD{N_DISTORTION_MAP}}}\label{dataitem:n_distortion_map}
+\paragraph{\PROD{N_DISTORTION_MAP}}\label{dataitem:n_distortion_map}
 \begin{recipedef}
 \textbf{\ac{FITS} IMAGE file structure:}\\
-Name: & \hyperref[dataitem:n_distortion_map]{\PROD{N_DISTORTION_MAP}}\\[0.3cm]
+Name: & \PROD{N_DISTORTION_MAP}\\[0.3cm]
 Description: & Map of pixel scale across the detector\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_DISTORTION_MAP} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_DISTORTION_MAP} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{N_DISTORTION_MAP}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{N_DISTORTION_MAP}\\[0.3cm]
 %Template: & \TPL{METIS_img_n_cal_distortion}\\
-Created by: & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Created by: & \REC{metis_n_img_distortion}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:n_distortion_map]{\PROD{N_DISTORTION_MAP}}}\label{drsstructure:N_DISTORTION_MAP}
+\paragraph{\PROD{N_DISTORTION_MAP}}\label{drsstructure:N_DISTORTION_MAP}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -359,15 +359,15 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 %  TODO: Perhaps bring this back if we want to use data quality layers and propagate those
-% \paragraph{\hyperref[dataitem:lm_detector_mask]{\EXTCALIB{LM_DETECTOR_MASK}}}\label{dataitem:lm_detector_mask}
+% \paragraph{\EXTCALIB{LM_DETECTOR_MASK}}\label{dataitem:lm_detector_mask}
 % \begin{recipedef}
 % \textbf{\ac{FITS} file structure:}\\
-% Name: & \hyperref[dataitem:lm_detector_mask]{\EXTCALIB{LM_DETECTOR_MASK}}\\[0.3cm]
+% Name: & \EXTCALIB{LM_DETECTOR_MASK}\\[0.3cm]
 % Description: & Masked region for LM detector \\[0.3cm]
-% \hyperref[fits:pro.catg]{\FITS{DPR.CATG}}: & \FITS{LM_DETECTOR_MASK}\\
+% \hyperref[fits:pro.catg]{\FITS{DPR.CATG}}: & \CODE{LM_DETECTOR_MASK}\\
 % OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-% \FITS{DO.CATG}: & \FITS{LM_DETECTOR_MASK}\\[0.3cm]
-% Input for recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+% \FITS{DO.CATG}: & \CODE{LM_DETECTOR_MASK}\\[0.3cm]
+% Input for recipes: & \REC{metis_lm_img_basic_reduce}\\
 % Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % \end{recipedef}
 % \begin{datastructdef}
@@ -382,16 +382,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}}}\label{dataitem:fluxstd_catalog}
+\paragraph{\EXTCALIB{FLUXSTD_CATALOG}}\label{dataitem:fluxstd_catalog}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:fluxstd_catalog]{\EXTCALIB{FLUXSTD_CATALOG}}\\[0.3cm]
+Name: & \EXTCALIB{FLUXSTD_CATALOG}\\[0.3cm]
 Description: & Catalog of standard stars \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{FLUXSTD_CATALOG}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{FLUXSTD_CATALOG}\\
 OCA keywords: & None \\
-\FITS{DO.CATG}: & \FITS{FLUXSTD_CATALOG}\\[0.3cm]
-Input for:    & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}} \\
-              & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}} \\
+\FITS{DO.CATG}: & \CODE{FLUXSTD_CATALOG}\\[0.3cm]
+Input for:    & \REC{metis_lm_img_std_process} \\
+              & \REC{metis_n_img_std_process} \\
 \end{recipedef}
 % \begin{datastructdef}
 % \textbf{Corresponding \ac{CPL} structure:}
@@ -403,17 +403,17 @@ Input for:    & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_pr
 % \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}}}\label{dataitem:pinhole_table}
+\paragraph{\EXTCALIB{PINHOLE_TABLE}}\label{dataitem:pinhole_table}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}}\\[0.3cm]
+Name: & \EXTCALIB{PINHOLE_TABLE}\\[0.3cm]
 Description: & Table of pinhole locations. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{PINHOLE_TABLE} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{PINHOLE_TABLE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{PINHOLE_TABLE}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{PINHOLE_TABLE}\\[0.3cm]
 % TODO: Source
-Used in recipes: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
-                 & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Used in recipes: & \REC{metis_lm_img_distortion}\\
+                 & \REC{metis_n_img_distortion}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -427,21 +427,21 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}}\label{dataitem:fluxcal_tab}
+\paragraph{\PROD{FLUXCAL_TAB}}\label{dataitem:fluxcal_tab}
 % TODO: FLUXCAL_TAB is wrong, it should be an image, see https://github.com/AstarVienna/METIS_DRLD/issues/87
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}}\\[0.3cm]
+Name: & \PROD{FLUXCAL_TAB}\\[0.3cm]
 Description: & Conversion between instrumental and physical flux units. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{FLUXCAL_TAB} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{FLUXCAL_TAB} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{FLUXCAL_TAB}\\[0.3cm]
-Input for:    & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} \\
-              & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}} \\
-              & \hyperref[rec:metis_n_img_calibrate]{\REC{metis_n_img_calibrate}} \\
-Produced by recipe: & \hyperref[rec:metis_lm_img_std_process]{\REC{metis_lm_img_std_process}}\\
-              & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}} \\
-              & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}} \\
+\FITS{DO.CATG}: & \CODE{FLUXCAL_TAB}\\[0.3cm]
+Input for:    & \REC{metis_ifu_sci_process} \\
+              & \REC{metis_lm_img_calibrate} \\
+              & \REC{metis_n_img_calibrate} \\
+Produced by recipe: & \REC{metis_lm_img_std_process}\\
+              & \REC{metis_n_img_std_process} \\
+              & \REC{metis_ifu_std_process} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -459,28 +459,28 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \subsubsection{LSS calibration database item structures}\label{sssec:lsscaldbdatastructs}
 \textbf{External calibration data}
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}}\label{dataitem:persistence_map}
+\paragraph{\EXTCALIB{PERSISTENCE_MAP}}\label{dataitem:persistence_map}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}\\[0.3cm]
+Name: & \EXTCALIB{PERSISTENCE_MAP}\\[0.3cm]
 Description: & Persistence map\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{PERSISTENCE_MAP}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{PERSISTENCE_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{PERSISTENCE_MAP}\\[0.3cm]
-Source: & created by \ac{ESO} with recipe \hyperref[rec:metis_det_persistence]{\REC{metis_det_persistence}}\\
-Input for:    & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}} \\
-              & \hyperref[rec:metis_lm_lss_rsrf]{\REC{metis_LM_lss_rsrf}} \\
-              & \hyperref[rec:metis_lm_lss_trace]{\REC{metis_LM_lss_trace}} \\
-              & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \\
-              & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
-              & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
-              & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_N_lss_rsrf}} \\
-              & \hyperref[rec:metis_n_lss_trace]{\REC{metis_N_lss_trace}} \\
-              & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
-              & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
-              & \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}} \\
-              & \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \\
-              & \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} \\
+\FITS{DO.CATG}: & \CODE{PERSISTENCE_MAP}\\[0.3cm]
+Source: & created by \ac{ESO} with recipe \REC{metis_det_persistence}\\
+Input for:    & \REC{metis_det_dark} \\
+              & \REC{metis_LM_lss_rsrf} \\
+              & \REC{metis_LM_lss_trace} \\
+              & \REC{metis_LM_lss_wave} \\
+              & \REC{metis_LM_lss_std} \\
+              & \REC{metis_LM_lss_sci} \\
+              & \REC{metis_N_lss_rsrf} \\
+              & \REC{metis_N_lss_trace} \\
+              & \REC{metis_N_lss_std} \\
+              & \REC{metis_N_lss_sci} \\
+              & \REC{metis_img_chophome} \\
+              & \REC{metis_lm_adc_slitloss} \\
+              & \REC{metis_n_adc_slitloss} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & removal of persistence patterns\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -495,30 +495,30 @@ Purpose: & removal of persistence patterns\\
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}}\label{dataitem:atm_line_cat}
+\paragraph{\EXTCALIB{ATM_LINE_CAT}}\label{dataitem:atm_line_cat}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:atm_line_cat]{\EXTCALIB{ATM_LINE_CAT}}\\[0.3cm]
+Name: & \EXTCALIB{ATM_LINE_CAT}\\[0.3cm]
 Description: & Line list of atmospheric emission and absorption lines\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{ATM_LINE_CAT}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{ATM_LINE_CAT}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{ATM_LINE_CAT}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{ATM_LINE_CAT}\\[0.3cm]
 Source: & \ac{HITRAN} database (\url{https://hitran.org/})\\
-Input for:    & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
-              & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
-              & \hyperref[rec:metis_lm_lss_mf_model]{\REC{metis_LM_lss_mf_model}} \\
-              & \hyperref[rec:metis_lm_lss_mf_calctrans]{\REC{metis_LM_lss_mf_calctrans}} \\
-              & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
-              & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
-              & \hyperref[rec:metis_n_lss_mf_model]{\REC{metis_N_lss_mf_model}} \\
-              & \hyperref[rec:metis_n_lss_mf_calctrans]{\REC{metis_N_lss_mf_calctrans}} \\
+Input for:    & \REC{metis_LM_lss_std} \\
+              & \REC{metis_LM_lss_sci} \\
+              & \REC{metis_LM_lss_mf_model} \\
+              & \REC{metis_LM_lss_mf_calctrans} \\
+              & \REC{metis_N_lss_std} \\
+              & \REC{metis_N_lss_sci} \\
+              & \REC{metis_N_lss_mf_model} \\
+              & \REC{metis_N_lss_mf_calctrans} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & wavelength calibration\\
         & sky emission removal\\
         & telluric correction\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -529,22 +529,22 @@ Purpose: & wavelength calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}}}\label{dataitem:ao_psf_model}
+\paragraph{\EXTCALIB{AO_PSF_MODEL}}\label{dataitem:ao_psf_model}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ao_psf_model]{\EXTCALIB{AO_PSF_MODEL}}\\[0.3cm]
+Name: & \EXTCALIB{AO_PSF_MODEL}\\[0.3cm]
 Description: & Model of the \ac{AO} induced \ac{PSF}\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{AO_PSF_MODEL}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{AO_PSF_MODEL}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{AO_PSF_MODEL}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{AO_PSF_MODEL}\\[0.3cm]
 Source: & \ac{PSF} modelling \\
-Input for:    & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
-              & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
+Input for:    & \REC{metis_LM_lss_std} \\
+              & \REC{metis_N_lss_std} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & flux calibration\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -555,26 +555,26 @@ Purpose: & flux calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}}}\label{dataitem:atm_profile}
+\paragraph{\EXTCALIB{ATM_PROFILE}}\label{dataitem:atm_profile}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:atm_profile]{\EXTCALIB{ATM_PROFILE}}\\[0.3cm]
+Name: & \EXTCALIB{ATM_PROFILE}\\[0.3cm]
 Description: & atmospheric profile containing height information on temperature, pressure and molecular abundances\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{ATM_PROFILE}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{ATM_PROFILE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{ATM_PROFILE}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{ATM_PROFILE}\\[0.3cm]
 Source: & Taken from \url{https://eodg.atm.ox.ac.uk/RFM/atm/}\\
-Input for:    & \hyperref[rec:metis_ifu_tellcorr]{\REC{metis_ifu_tellcorr}} \\
-              & \hyperref[rec:metis_lm_lss_mf_model]{\REC{metis_LM_lss_mf_model}} \\
-              & \hyperref[rec:metis_lm_lss_mf_calctrans]{\REC{metis_LM_lss_mf_calctrans}} \\
-              & \hyperref[rec:metis_n_lss_mf_model]{\REC{metis_N_lss_mf_model}} \\
-              & \hyperref[rec:metis_n_lss_mf_calctrans]{\REC{metis_N_lss_mf_calctrans}} \\
+Input for:    & \REC{metis_ifu_tellcorr} \\
+              & \REC{metis_LM_lss_mf_model} \\
+              & \REC{metis_LM_lss_mf_calctrans} \\
+              & \REC{metis_N_lss_mf_model} \\
+              & \REC{metis_N_lss_mf_calctrans} \\
 Comment: & Currently the \texttt{equ.atm} is standard. Refinement with data from L-HATPRO radiometer desired.\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & telluric correction\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
@@ -586,16 +586,16 @@ Purpose: & telluric correction\\
 
 % ##################################################################################### 
 \textbf{Static calibration data}
-\paragraph{\hyperref[dataitem:laser_tab]{\EXTCALIB{LASER_TAB}}}\label{dataitem:laser_tab}
+\paragraph{\EXTCALIB{LASER_TAB}}\label{dataitem:laser_tab}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:laser_tab]{\EXTCALIB{LASER_TAB}}\\[0.3cm]
+Name: & \EXTCALIB{LASER_TAB}\\[0.3cm]
 Description: & Line list of the \ac{WCU} laser sources\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LASER_TAB}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LASER_TAB}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{LASER_TAB}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{LASER_TAB}\\[0.3cm]
 Source: & Lab measurements during \ac{AIT} phase\\
-Input for:    & \hyperref[rec:metis_lm_lss_wave]{\REC{metis_LM_lss_wave}} \\
+Input for:    & \REC{metis_LM_lss_wave} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & wavelength calibration\\
 \end{recipedef}
@@ -609,25 +609,25 @@ Purpose: & wavelength calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-%\paragraph{\hyperref[dataitem:tss_model_cat]{\STATCALIB{TSS_MODEL_CAT}}}\label{dataitem:tss_model_cat}
+%\paragraph{\STATCALIB{TSS_MODEL_CAT}}\label{dataitem:tss_model_cat}
 %TBWritten
 % ##################################################################################### 
-%\paragraph{\hyperref[dataitem:tss_cont_tab]{\STATCALIB{TSS_CONT_TAB}}}\label{dataitem:tss_cont_tab}
+%\paragraph{\STATCALIB{TSS_CONT_TAB}}\label{dataitem:tss_cont_tab}
 %TBWritten
 
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}}}\label{dataitem:ref_std_cat}
+\paragraph{\STATCALIB{REF_STD_CAT}}\label{dataitem:ref_std_cat}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ref_std_cat]{\STATCALIB{REF_STD_CAT}}\\[0.3cm]
+Name: & \STATCALIB{REF_STD_CAT}\\[0.3cm]
 Description: & Catalogue of flux standard stars (reference spectra)\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{REF_STD_CAT}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{REF_STD_CAT}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{REF_STD_CAT}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{REF_STD_CAT}\\[0.3cm]
 Source: & most probably same as \ac{CRIRES} and \ac{VISIR}; see also~\cite{METIS-calibration_plan} \\
-Input for:    & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
-              & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
+Input for:    & \REC{metis_LM_lss_std} \\
+              & \REC{metis_N_lss_std} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & flux calibration\\
 \end{recipedef}
@@ -641,17 +641,17 @@ Purpose: & flux calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}}}\label{dataitem:lm_adc_slitloss}
+\paragraph{\STATCALIB{LM_ADC_SLITLOSS}}\label{dataitem:lm_adc_slitloss}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lm_adc_slitloss]{\STATCALIB{LM_ADC_SLITLOSS}}\\[0.3cm]
+Name: & \STATCALIB{LM_ADC_SLITLOSS}\\[0.3cm]
 Description: & Table of the LM-band slitlosses as function of the object position across the slit\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_ADC_SLITLOSS}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LM_ADC_SLITLOSS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{LM_ADC_SLITLOSS}\\[0.3cm]
-Source: & recipe \hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} (see Section~\ref{sssec:adc_slitlosses} and~\cite{METIS-calibration_plan}) \\
-Input for:    & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
-              & \hyperref[rec:metis_lm_lss_sci]{\REC{metis_LM_lss_sci}} \\
+\FITS{DO.CATG}: & \CODE{LM_ADC_SLITLOSS}\\[0.3cm]
+Source: & recipe \REC{metis_lm_adc_slitloss} (see Section~\ref{sssec:adc_slitlosses} and~\cite{METIS-calibration_plan}) \\
+Input for:    & \REC{metis_LM_lss_std} \\
+              & \REC{metis_LM_lss_sci} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & flux calibration\\
 \end{recipedef}
@@ -665,17 +665,17 @@ Purpose: & flux calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}}\label{dataitem:n_adc_slitloss}
+\paragraph{\STATCALIB{N_ADC_SLITLOSS}}\label{dataitem:n_adc_slitloss}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:n_adc_slitloss]{\STATCALIB{N_ADC_SLITLOSS}}\\[0.3cm]
+Name: & \STATCALIB{N_ADC_SLITLOSS}\\[0.3cm]
 Description: & Table of the N-band slitlosses as function of the object position across the slit\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_ADC_SLITLOSS}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_ADC_SLITLOSS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{N_ADC_SLITLOSS}\\[0.3cm]
-Source: & recipe \hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}} (see Section~\ref{sssec:adc_slitlosses} and~\cite{METIS-calibration_plan}) \\
-Input for:    & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
-              & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
+\FITS{DO.CATG}: & \CODE{N_ADC_SLITLOSS}\\[0.3cm]
+Source: & recipe \REC{metis_n_adc_slitloss} (see Section~\ref{sssec:adc_slitlosses} and~\cite{METIS-calibration_plan}) \\
+Input for:    & \REC{metis_N_lss_std} \\
+              & \REC{metis_N_lss_sci} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & flux calibration\\
 \end{recipedef}
@@ -689,21 +689,21 @@ Purpose: & flux calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}}}\label{dataitem:lsf_kernel}
+\paragraph{\STATCALIB{LSF_KERNEL}}\label{dataitem:lsf_kernel}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lsf_kernel]{\STATCALIB{LSF_KERNEL}}\\[0.3cm]
+Name: & \STATCALIB{LSF_KERNEL}\\[0.3cm]
 Description: & Wavelength dependent model of the \ac{LSF}\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LSF_KERNEL}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LSF_KERNEL}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{LSF_KERNEL}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{LSF_KERNEL}\\[0.3cm]
 Source: & Determined during \ac{AIT} phase and commissioning\\
-Input for:    & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} \\
-              & \hyperref[rec:metis_ifu_tellcorr]{\REC{metis_ifu_tellcorr}} \\
-              & \hyperref[rec:metis_lm_lss_mf_model]{\REC{metis_LM_lss_mf_model}} \\
-              & \hyperref[rec:metis_lm_lss_mf_calctrans]{\REC{metis_LM_lss_mf_calctrans}} \\
-              & \hyperref[rec:metis_n_lss_mf_model]{\REC{metis_N_lss_mf_model}} \\
-              & \hyperref[rec:metis_n_lss_mf_calctrans]{\REC{metis_N_lss_mf_calctrans}} \\
+Input for:    & \REC{metis_ifu_sci_process} \\
+              & \REC{metis_ifu_tellcorr} \\
+              & \REC{metis_LM_lss_mf_model} \\
+              & \REC{metis_LM_lss_mf_calctrans} \\
+              & \REC{metis_N_lss_mf_model} \\
+              & \REC{metis_N_lss_mf_calctrans} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & telluric correction\\
 \end{recipedef}
@@ -717,17 +717,17 @@ Purpose: & telluric correction\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:n_lss_dist_sol]{\STATCALIB{N_LSS_DIST_SOL}}}\label{dataitem:n_lss_dist_sol}
+\paragraph{\STATCALIB{N_LSS_DIST_SOL}}\label{dataitem:n_lss_dist_sol}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:n_lss_dist_sol]{\STATCALIB{N_LSS_DIST_SOL}}\\[0.3cm]
+Name: & \STATCALIB{N_LSS_DIST_SOL}\\[0.3cm]
 Description: & N-band geometrical distortion solution\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_DIST_SOL}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_LSS_DIST_SOL}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{N_LSS_DIST_SOL}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{N_LSS_DIST_SOL}\\[0.3cm]
 Source: & Determined during \ac{AIT} phase with N-band laser sources\\
-Input for:    & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
-              & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
+Input for:    & \REC{metis_N_lss_std} \\
+              & \REC{metis_N_lss_sci} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & wavelength calibration / rectification\\
 \end{recipedef}
@@ -741,17 +741,17 @@ Purpose: & wavelength calibration / rectification\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:n_lss_wave_guess]{\STATCALIB{N_LSS_WAVE_GUESS}}}\label{dataitem:n_lss_wave_guess}
+\paragraph{\STATCALIB{N_LSS_WAVE_GUESS}}\label{dataitem:n_lss_wave_guess}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:n_lss_wave_guess]{\STATCALIB{N_LSS_WAVE_GUESS}}\\[0.3cm]
+Name: & \STATCALIB{N_LSS_WAVE_GUESS}\\[0.3cm]
 Description: & First guess of the N-band wavelength solution\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_WAVE_GUESS}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_LSS_WAVE_GUESS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{N_LSS_WAVE_GUESS}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{N_LSS_WAVE_GUESS}\\[0.3cm]
 Source: & During \ac{AIT} phase N-band laser sources will be available to create the first guess of the wavelength solution\\
-Input for:    & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
-              & \hyperref[rec:metis_n_lss_sci]{\REC{metis_N_lss_sci}} \\
+Input for:    & \REC{metis_N_lss_std} \\
+              & \REC{metis_N_lss_sci} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & wavelength calibration\\
 \end{recipedef}
@@ -765,16 +765,16 @@ Purpose: & wavelength calibration\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}}\label{dataitem:lm_synth_trans}
+\paragraph{\STATCALIB{LM_SYNTH_TRANS}}\label{dataitem:lm_synth_trans}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:lm_synth_trans]{\STATCALIB{LM_SYNTH_TRANS}}\\[0.3cm]
+Name: & \STATCALIB{LM_SYNTH_TRANS}\\[0.3cm]
 Description: & Synthetic transmission curve to be used for telluric correction of flux standard stars\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_SYNTH_TRANS}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LM_SYNTH_TRANS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{LM_SYNTH_TRANS}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{LM_SYNTH_TRANS}\\[0.3cm]
 Source: & Calculated by \texttt{molecfit} with averaged parameters\\
-Input for:    & \hyperref[rec:metis_lm_lss_std]{\REC{metis_LM_lss_std}} \\
+Input for:    & \REC{metis_LM_lss_std} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & telluric correction of flux standard stars\\
 \end{recipedef}
@@ -788,16 +788,16 @@ Purpose: & telluric correction of flux standard stars\\
 \end{datastructdef}
 
 % ##################################################################################### 
-\paragraph{\hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}}}\label{dataitem:n_synth_trans}
+\paragraph{\STATCALIB{N_SYNTH_TRANS}}\label{dataitem:n_synth_trans}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:n_synth_trans]{\STATCALIB{N_SYNTH_TRANS}}\\[0.3cm]
+Name: & \STATCALIB{N_SYNTH_TRANS}\\[0.3cm]
 Description: & Synthetic transmission curve to be used for telluric correction of flux standard stars\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_SYNTH_TRANS}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_SYNTH_TRANS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{N_SYNTH_TRANS}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{N_SYNTH_TRANS}\\[0.3cm]
 Source: & Calculated by \texttt{molecfit} with averaged parameters\\
-Input for:    & \hyperref[rec:metis_n_lss_std]{\REC{metis_N_lss_std}} \\
+Input for:    & \REC{metis_N_lss_std} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & telluric correction of flux standard stars\\
 \end{recipedef}
@@ -809,8 +809,8 @@ Purpose: & telluric correction of flux standard stars\\
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
-%\paragraph{\hyperref[dataitem:]{\PROD{}}}\label{dataitem:}
-%\paragraph{\hyperref[dataitem:]{\PROD{}}}\label{dataitem:}
-%\paragraph{\hyperref[dataitem:]{\PROD{}}}\label{dataitem:}
+%\paragraph{\PROD{}}\label{dataitem:}
+%\paragraph{\PROD{}}\label{dataitem:}
+%\paragraph{\PROD{}}\label{dataitem:}
 
 

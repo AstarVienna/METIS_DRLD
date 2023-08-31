@@ -95,6 +95,20 @@ Range & 1..10 \tabularnewline
 Description & Number of detector integrations \tabularnewline
 \end{recipedef}
 
+\subsubsection{DO.CATG}\label{fits:do.catg}
+\begin{recipedef}
+Name & DO CATG \tabularnewline
+Class & workflow \tabularnewline
+Context & Workflow \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Set by workflow orchestrator\tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Data Organizer Category. Only a transient keyword, will not be saved to FITS files. \tabularnewline
+\end{recipedef}
+
 \subsubsection{DPR.CATG}\label{fits:dpr.catg}
 \begin{recipedef}
 Name & DPR CATG \tabularnewline
@@ -736,21 +750,21 @@ Description & Slit name \tabularnewline
 
   \FITS{INS.SLIT.NAME} & \FITS{INS.FILT.NAME} & Description & Spectral setup \\ [0.5ex] 
  \hline\hline
-\PAR{SHORT} & \PAR{SPEC_IJ} &short 16mas$\times$3" slit & IzJ\\
-%\PAR{HK_NARROW} & short 16mas$\times$3" slit & HK\\
-\PAR{BROAD} & \PAR{SPEC_IJ} &broad 48mas$\times$3" slit & IzJ\\
-\PAR{BROAD} & \PAR{SPEC_HK} &broad 48mas$\times$3" slit & HK\\
-\PAR{LONG} & \PAR{SPEC_J} &long 20mas$\times$15" slit & J\\
-\PAR{LONG} & \PAR{SPEC_HK} &long 20mas$\times$15" slit & HK\\
-\PAR{SHORT_SH} & \PAR{SPEC_IJ} &shifted 16mas$\times$3" slit & IzJ\\
-%\PAR{HK_NARROW_SHIFTED} & 16mas$\times$3" slit & HK\\
-\PAR{BROAD_SH} & \PAR{SPEC_IJ} &shifted 48mas$\times$3" slit & IzJ\\
-\PAR{BROAD_SH} & \PAR{SPEC_HK}  &shifted 48mas$\times$3" slit & HK\\
-\PAR{LONG_SH} & \PAR{SPEC_J} & shifted 20mas$\times$15" slit & J\\
-\PAR{LONG_SH} & \PAR{SPEC_HK} & shifted 20mas$\times$15" slit & HK\\
+\PAR*{SHORT} & \PAR*{SPEC_IJ} &short 16mas$\times$3" slit & IzJ\\
+%\PAR*{HK_NARROW} & short 16mas$\times$3" slit & HK\\
+\PAR*{BROAD} & \PAR*{SPEC_IJ} &broad 48mas$\times$3" slit & IzJ\\
+\PAR*{BROAD} & \PAR*{SPEC_HK} &broad 48mas$\times$3" slit & HK\\
+\PAR*{LONG} & \PAR*{SPEC_J} &long 20mas$\times$15" slit & J\\
+\PAR*{LONG} & \PAR*{SPEC_HK} &long 20mas$\times$15" slit & HK\\
+\PAR*{SHORT_SH} & \PAR*{SPEC_IJ} &shifted 16mas$\times$3" slit & IzJ\\
+%\PAR*{HK_NARROW_SHIFTED} & 16mas$\times$3" slit & HK\\
+\PAR*{BROAD_SH} & \PAR*{SPEC_IJ} &shifted 48mas$\times$3" slit & IzJ\\
+\PAR*{BROAD_SH} & \PAR*{SPEC_HK}  &shifted 48mas$\times$3" slit & HK\\
+\PAR*{LONG_SH} & \PAR*{SPEC_J} & shifted 20mas$\times$15" slit & J\\
+\PAR*{LONG_SH} & \PAR*{SPEC_HK} & shifted 20mas$\times$15" slit & HK\\
  \hline
-\PAR{PINH} & all & pinhole slit & all\\
-\PAR{PINH_SH} & all &shifted pinhole slit & all\\
+\PAR*{PINH} & all & pinhole slit & all\\
+\PAR*{PINH_SH} & all &shifted pinhole slit & all\\
  \hline
 \end{tabular}
 \caption[VALUES for the FITS keywords]{Values for the \ac{FITS} keywords \FITS{INS.FILT.NAME} and \FITS{INS.SLIT.NAME} representing the spectrosopic modes}.
