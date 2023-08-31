@@ -47,11 +47,11 @@ Output data:	& \PROD{MASTER_LM_LSS_RSRF} (\FITS{PRO.CATG}=\CODE{MASTER_LM_LSS_RS
                 & \PROD{MEDIAN_LM_LSS_RSRF_IMG}: median map (\ac{QC})\\
                 & \PROD{MEAN_LM_LSS_RSRF_IMG}: mean map (\ac{QC})\\
 Expected accuracies: & 3\% (cf.~\cite{METIS-calibration_plan} and~\cite{METIS_calerrbudget})\\
-QC1 parameters: & \hyperref[qc:qc_lm_lss_rsrf_mean_level]{\QC{QC LM LSS RSRF MEAN LEVEL}}: Mean level of the \ac{RSRF}\\
-                & \hyperref[qc:qc_lm_lss_rsrf_median_level]{\QC{QC LM LSS RSRF MEDIAN LEVEL}}: Median level of the \ac{RSRF}\\
-                & \hyperref[qc:qc_lm_lss_rsrf_intordr_level]{\QC{QC LM LSS RSRF INTORDR LEVEL}}: Flux level of the interorder background\\
-                & \hyperref[qc:qc_lm_lss_rsrf_norm_stdev]{\QC{QC LM LSS RSRF NORM STDEV}}: Standard deviation of the normalised \ac{RSRF}\\
-                & \hyperref[qc:qc_lm_lss_rsrf_norm_snr]{\QC{QC LM LSS RSRF NORM SNR}}: \ac{SNR} of the normalised \ac{RSRF}\\
+QC1 parameters: & \QC{QC LM LSS RSRF MEAN LEVEL}: Mean level of the \ac{RSRF}\\
+                & \QC{QC LM LSS RSRF MEDIAN LEVEL}: Median level of the \ac{RSRF}\\
+                & \QC{QC LM LSS RSRF INTORDR LEVEL}: Flux level of the interorder background\\
+                & \QC{QC LM LSS RSRF NORM STDEV}: Standard deviation of the normalised \ac{RSRF}\\
+                & \QC{QC LM LSS RSRF NORM SNR}: \ac{SNR} of the normalised \ac{RSRF}\\
 %                & more TBD\\
 \end{recipedef}
 \clearpage
@@ -87,11 +87,11 @@ Algorithm:      & Detection of the order edges\\
 Output data:	& \PROD{LM_LSS_TRACE} (\FITS{PRO.CATG}=\CODE{LM_LSS_TRACE}): order table\\
 Expected accuracies: & 1/10th of a pixel after post-processing\\
                & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
-QC1 parameters: & \hyperref[qc:qc_lm_lss_trace_lpolydeg]{\QC{QC LM LSS TRACE LPOLYDEG}}: Degree of the polynomial fit of the left order edge\\
-                & \hyperref[qc:qc_lm_lss_trace_lcoeff<i>]{\QC{QC LM LSS TRACE LCOEFF<i>}}: $i$-th coefficient of the polynomial of the left order edge\\
-                & \hyperref[qc:qc_lm_lss_trace_rpolydeg]{\QC{QC LM LSS TRACE RPOLYDEG}}: Degree of the polynomial fit of the right order edge\\
-                & \hyperref[qc:qc_lm_lss_trace_rcoeff<i>]{\QC{QC LM LSS TRACE RCOEFF<i>}}: $i$-th coefficient of the polynomial of the right order edge\\
-                & \hyperref[qc:qc_lm_lss_trace_intordr_level]{\QC{QC LM LSS TRACE INTORDR LEVEL}}: Flux level of the interorder background\\
+QC1 parameters: & \QC{QC LM LSS TRACE LPOLYDEG}: Degree of the polynomial fit of the left order edge\\
+                & \QC{QC LM LSS TRACE LCOEFF<i>}: $i$-th coefficient of the polynomial of the left order edge\\
+                & \QC{QC LM LSS TRACE RPOLYDEG}: Degree of the polynomial fit of the right order edge\\
+                & \QC{QC LM LSS TRACE RCOEFF<i>}: $i$-th coefficient of the polynomial of the right order edge\\
+                & \QC{QC LM LSS TRACE INTORDR LEVEL}: Flux level of the interorder background\\
 %                & more TBD\\
 \end{recipedef}
 
@@ -136,11 +136,11 @@ Output data:	& \PROD{LM_LSS_CURVE} (\FITS{PRO.CATG}=\CODE{LM_LSS_CURVE}): Curvat
                 & \PROD{LM_LSS_WAVE_GUESS} (\FITS{PRO.CATG}=\CODE{LM_LSS_WAVE_GUESS}): Wavelength first guess\\
 Expected accuracies: & 1/10th of a pixel after post-processing\\
                & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
-QC1 parameters: & \hyperref[qc:qc_lm_lss_wave_polydeg]{\QC{QC LM LSS WAVE POLYDEG}}: Degree of the first guess polynomial\\
-                & \hyperref[qc:qc_lm_lss_wave_coeff<i>]{\QC{QC LM LSS WAVE COEFF<i>}}: $i$-th coefficient of the polynomial\\
-                & \hyperref[qc:qc_lm_lss_wave_nlines]{\QC{QC LM LSS WAVE NLINES}}: Number of detected (laser) lines; should be constant\\
-                & \hyperref[qc:qc_lm_lss_wave_linefwhmavg]{\QC{QC LM LSS WAVE LINEFWHMAVG}}: Average of the \ac{FWHM} of the detected lines (should be widely constant)\\
-                & \hyperref[qc:qc_lm_lss_wave_intordr_level]{\QC{QC LM LSS WAVE INTORDR LEVEL}}: Flux level of the interorder background\\
+QC1 parameters: & \QC{QC LM LSS WAVE POLYDEG}: Degree of the first guess polynomial\\
+                & \QC{QC LM LSS WAVE COEFF<i>}: $i$-th coefficient of the polynomial\\
+                & \QC{QC LM LSS WAVE NLINES}: Number of detected (laser) lines; should be constant\\
+                & \QC{QC LM LSS WAVE LINEFWHMAVG}: Average of the \ac{FWHM} of the detected lines (should be widely constant)\\
+                & \QC{QC LM LSS WAVE INTORDR LEVEL}: Flux level of the interorder background\\
 %                & more TBD: e.g. QC params for distortion determination and correction\\
 \end{recipedef}
 
@@ -215,26 +215,26 @@ Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
             & $<30$\% absolute line flux accuracy\\
             & $<5$\% absolute flux calibration \\
             & (cf.~\cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
-QC1 parameters: & \hyperref[qc:qc_lm_lss_std_backgd_mean]{\QC{QC LM LSS STD BACKGD MEAN}}: Mean value of background\\
-                & \hyperref[qc:qc_lm_lss_std_backgd_median]{\QC{QC LM LSS STD BACKGD MEDIAN}}: Median value of background\\
-                & \hyperref[qc:qc_lm_lss_std_backgd_stdev]{\QC{QC LM LSS STD BACKGD STDEV}}: Standard deviation value of background\\
-                & \hyperref[qc:qc_lm_lss_std_snr]{\QC{QC LM LSS STD SNR}}: Signal-to-noise ration of flux standard star spectrum\\
-                & \hyperref[qc:qc_lm_lss_std_noiselev]{\QC{QC LM LSS STD NOISELEV}}: Noise level of flux standard star spectrum\\
-                & \hyperref[qc:qc_lm_lss_std_fwhm]{\QC{QC LM LSS STD FWHM}}: FWHM of flux standard spectrum\\
-                & \hyperref[qc:qc_lm_lss_std_intordr_level]{\QC{QC LM LSS STD INTORDR LEVEL}}: Flux level of the interorder background\\
-                & \hyperref[qc:qc_lm_lss_std_avglevel]{\QC{QC LM LSS STD AVGLEVEL}}: Average level of the standard star flux \\
-                & \hyperref[qc:qc_lm_lss_std_wavecal_devmean]{\QC{QC LM LSS STD WAVECAL DEVMEAN}}: Mean deviation from the
+QC1 parameters: & \QC{QC LM LSS STD BACKGD MEAN}: Mean value of background\\
+                & \QC{QC LM LSS STD BACKGD MEDIAN}: Median value of background\\
+                & \QC{QC LM LSS STD BACKGD STDEV}: Standard deviation value of background\\
+                & \QC{QC LM LSS STD SNR}: Signal-to-noise ration of flux standard star spectrum\\
+                & \QC{QC LM LSS STD NOISELEV}: Noise level of flux standard star spectrum\\
+                & \QC{QC LM LSS STD FWHM}: FWHM of flux standard spectrum\\
+                & \QC{QC LM LSS STD INTORDR LEVEL}: Flux level of the interorder background\\
+                & \QC{QC LM LSS STD AVGLEVEL}: Average level of the standard star flux \\
+                & \QC{QC LM LSS STD WAVECAL DEVMEAN}: Mean deviation from the
                   wavelength reference frame\\
-                & \hyperref[qc:qc_lm_lss_std_wavecal_fwhm]{\QC{QC LM LSS STD WAVECAL FWHM}}: Measured FWHM of lines\\
-                & \hyperref[qc:qc_lm_lss_std_wavecal_nident]{\QC{QC LM LSS STD WAVECAL NIDENT}}: Number of identified lines\\
-                & \hyperref[qc:qc_lm_lss_std_wavecal_nmatch]{\QC{QC LM LSS STD WAVECAL NMATCH}}: Number of lines matched between
+                & \QC{QC LM LSS STD WAVECAL FWHM}: Measured FWHM of lines\\
+                & \QC{QC LM LSS STD WAVECAL NIDENT}: Number of identified lines\\
+                & \QC{QC LM LSS STD WAVECAL NMATCH}: Number of lines matched between
                     catalogue and spectrum\\
-                & \hyperref[qc:qc_lm_lss_std_wavecal_polydeg]{\QC{QC LM LSS STD WAVECAL POLYDEG}}: Degree of the polynomial\\
-                & \hyperref[qc:qc_lm_lss_std_wavecal_polycoeff<n>]{\QC{QC LM LSS STD WAVECAL POLYCOEFF<n>}}: $n$-th coefficient of the polynomial\\
-                & \hyperref[qc:qc_lm_lss_std_snr]{\QC{QC LM LSS STD SNR}}: Signal-to-noise ration of flux standard star spectrum\\
-                & \hyperref[qc:qc_lm_lss_std_noiselev]{\QC{QC LM LSS STD NOISELEV}}: Noise level of flux standard star spectrum\\
-                & \hyperref[qc:qc_lm_lss_std_fwhm]{\QC{QC LM LSS STD FWHM}}: FWHM of flux standard spectrum\\
-%                & \hyperref[qc:qc_lm_lss_std_psfloss]{\QC{QC LM LSS STD PSFLOSS}}: Fraction of AO induced slit losses (TBdef)\\
+                & \QC{QC LM LSS STD WAVECAL POLYDEG}: Degree of the polynomial\\
+                & \QC{QC LM LSS STD WAVECAL POLYCOEFF<n>}: $n$-th coefficient of the polynomial\\
+                & \QC{QC LM LSS STD SNR}: Signal-to-noise ration of flux standard star spectrum\\
+                & \QC{QC LM LSS STD NOISELEV}: Noise level of flux standard star spectrum\\
+                & \QC{QC LM LSS STD FWHM}: FWHM of flux standard spectrum\\
+%                & \QC{QC LM LSS STD PSFLOSS}: Fraction of AO induced slit losses (TBdef)\\
 %                & more TBD
 \end{recipedef}
 %------------------------------------------------------------------------------------------------------------------
@@ -302,17 +302,17 @@ Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
             & (cf.~\cite{METIS-calibration_plan}, R-MET-107, R-MET-82)\\
             & for optional telluric correction: 10\% within an atmospheric band); desired: 2\% 
             (\cite{METIS-calibration_plan})\\
-QC1 parameters: & \hyperref[qc:qc_lm_lss_sci_snr]{\QC{QC LM LSS SCI SNR}}: Signal-to-noise ration of science spectrum\\
-                & \hyperref[qc:qc_lm_lss_sci_noiselev]{\QC{QC LM LSS SCI NOISELEV}}: Noise level of science spectrum\\
-                & \hyperref[qc:qc_lm_lss_sci_flux_snr]{\QC{QC LM LSS SCI FLUX SNR}}: Signal-to-noise ration of flux calibrated  science spectrum\\
-                & \hyperref[qc:qc_lm_lss_sci_flux_noiselev]{\QC{QC LM LSS SCI FLUX NOISELEV}}: Noise level of flux calibrated science spectrum\\
-                & \hyperref[qc:qc_lm_lss_sci_intordr_level]{\QC{QC LM LSS SCI INTORDR LEVEL}}: Flux level of the interorder background\\
-                & \hyperref[qc:qc_lm_lss_sci_wavecal_devmean]{\QC{QC LM LSS SCI WAVECAL DEVMEAN}}: Mean deviation from the wavelength reference frame\\
-                & \hyperref[qc:qc_lm_lss_sci_wavecal_fwhm]{\QC{QC LM LSS SCI WAVECAL FWHM}}: Measured FWHM of lines\\
-                & \hyperref[qc:qc_lm_lss_sci_wavecal_nident]{\QC{QC LM LSS SCI WAVECAL NIDENT}}: Number of identified lines\\
-                & \hyperref[qc:qc_lm_lss_sci_wavecal_nmatch]{\QC{QC LM LSS SCI WAVECAL NMATCH}}: Number of lines matched between catalogue and spectrum\\
-                & \hyperref[qc:qc_lm_lss_sci_wavecal_polydeg]{\QC{QC LM LSS SCI WAVECAL POLYDEG}}: Degree of the wavelength polynomial\\
-                & \hyperref[qc:qc_lm_lss_sci_wavecal_polycoeff<n>]{\QC{QC LM LSS SCI WAVECAL POLYCOEFF<n>}}: $n$-th coefficient of the polynomial\\
+QC1 parameters: & \QC{QC LM LSS SCI SNR}: Signal-to-noise ration of science spectrum\\
+                & \QC{QC LM LSS SCI NOISELEV}: Noise level of science spectrum\\
+                & \QC{QC LM LSS SCI FLUX SNR}: Signal-to-noise ration of flux calibrated  science spectrum\\
+                & \QC{QC LM LSS SCI FLUX NOISELEV}: Noise level of flux calibrated science spectrum\\
+                & \QC{QC LM LSS SCI INTORDR LEVEL}: Flux level of the interorder background\\
+                & \QC{QC LM LSS SCI WAVECAL DEVMEAN}: Mean deviation from the wavelength reference frame\\
+                & \QC{QC LM LSS SCI WAVECAL FWHM}: Measured FWHM of lines\\
+                & \QC{QC LM LSS SCI WAVECAL NIDENT}: Number of identified lines\\
+                & \QC{QC LM LSS SCI WAVECAL NMATCH}: Number of lines matched between catalogue and spectrum\\
+                & \QC{QC LM LSS SCI WAVECAL POLYDEG}: Degree of the wavelength polynomial\\
+                & \QC{QC LM LSS SCI WAVECAL POLYCOEFF<n>}: $n$-th coefficient of the polynomial\\
 %                & more TBD\\
 \end{recipedef}
 %------------------------------------------------------------------------------------------------------------------
