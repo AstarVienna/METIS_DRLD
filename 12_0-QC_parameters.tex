@@ -5,7 +5,8 @@ The following placeholders are used in the QC parameter names:
 \begin{itemize}
   \item \FITS{det} is a placeholder for either \FITS{LM}, \FITS{N}, or \FITS{IFU}
   \item \FITS{cgrph} is a placeholder for one of the coronographs
-  \item \FITS{nn} is a placeholder for a numerical index
+% nn suffix removed for now because it caused problems with the headers
+%  \item \FITS{nn} is a placeholder for a numerical index
 \end{itemize}
 
 \subsection{Calibration}
@@ -189,9 +190,9 @@ Comment & \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{QC LM FLAT MEAN \#\#}\label{qc:lmflatmeannn}
+\subsubsection{QC LM FLAT MEAN}\label{qc:lmflatmean}
 \begin{recipedef}
-Name & \QC*{QC LM FLAT MEAN \#\#} \tabularnewline
+Name & \QC*{QC LM FLAT MEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -205,9 +206,9 @@ Comment & \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{QC LM FLAT RMS \#\#}\label{qc:lmflatrmsnn}
+\subsubsection{QC LM FLAT RMS}\label{qc:lmflatrms}
 \begin{recipedef}
-Name & \QC*{QC LM FLAT RMS \#\#} \tabularnewline
+Name & \QC*{QC LM FLAT RMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -254,9 +255,9 @@ Comment & \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{QC N FLAT MEAN \#\#}\label{qc:nflatmeannn}
+\subsubsection{QC N FLAT MEAN}\label{qc:nflatmean}
 \begin{recipedef}
-Name & \QC{QC N FLAT MEAN \#\#} \tabularnewline
+Name & \QC{QC N FLAT MEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -270,9 +271,9 @@ Comment & \tabularnewline
 \end{recipedef}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{QC N FLAT RMS \#\#}\label{qc:nflatrmsnn}
+\subsubsection{QC N FLAT RMS}\label{qc:nflatrms}
 \begin{recipedef}
-Name & \QC{QC N FLAT RMS \#\#} \tabularnewline
+Name & \QC{QC N FLAT RMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
