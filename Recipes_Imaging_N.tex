@@ -78,10 +78,10 @@ otherwise a new one is created.
   Output data:         & \PROD{MASTER_IMG_FLAT_LAMP_N} or \PROD{MASTER_IMG_FLAT_TWILIGHT_N} \\
                        & \PROD{BADPIX_MAP_GEO}                                            \\
   Expected accuracies: & 0.5\% (cf.~\cite{METIS_calerrbudget})                                                           \\
-  QC1 parameters:      & \QC{QC N MASTERFLAT RMS}                                       \\
-                       & \QC{QC N MASTERFLAT NBADPIX}                                         \\
-                       & \QC{QC N FLAT MEAN}                                            \\
-                       & \QC{QC N FLAT RMS}                                             \\
+  QC1 parameters:      & \QC*{QC N MASTERFLAT RMS}                                       \\
+                       & \QC*{QC N MASTERFLAT NBADPIX}                                         \\
+                       & \QC*{QC N FLAT MEAN}                                            \\
+                       & \QC*{QC N FLAT RMS}                                             \\
   hdrl functions:      & \CODE{hdrl_bpm_fit_compute}                                    \\
                        & \CODE{hdrl_imagelist_collapse}                                 \\
                        & \CODE{hdrl_imagelist_sub_image}                                \\
@@ -145,7 +145,7 @@ The edges of the N-band detector will be behind a cold mask on all four sides.
                      & Add/subtract images to subtract background                   \\
   Output data:       & \PROD{N_SCI_BKG_SUBTRACTED}                                  \\
                      & \PROD{N_STD_BKG_SUBTRACTED}                                  \\
-  QC1 parameters:    & \QC{N IMG PEAK CNTS}                                         \\
+  QC1 parameters:    & \QC*{N IMG PEAK CNTS}                                         \\
   hdrl functions:    & \CODE{hdrl_imagelist_collapse}                               \\
 \end{recipedef}
 
@@ -200,13 +200,13 @@ following~\cite{visir_manual}.
                        & call \DRL{calculate_detection_limits} to compute measured background noise (std, rms) and compute detection limits \\
   Output data:         & \PROD{FLUXCAL_TAB}                                                            \\
   Expected accuracies: & 3\% (cf.~\cite{METIS_calerrbudget})                                           \\
-  QC1 parameters:      & \QC{QC N STD PEAK CNTS}                                                       \\
-                       & \QC{QC N STD APERTURE CNTS}                                                   \\
-                       & \QC{QC N STD STREHL}                                                          \\
-                       & \QC{QC N STD FLUXCONV}                                                        \\
-                       & \QC{QC N STD AIRMASS}                                                         \\
-                       & \QC{QC N SENSITIVITY}                                                         \\
-                       & \QC{QC N AREA SENSITIVITY}                                                    \\
+  QC1 parameters:      & \QC*{QC N STD PEAK CNTS}                                                       \\
+                       & \QC*{QC N STD APERTURE CNTS}                                                   \\
+                       & \QC*{QC N STD STREHL}                                                          \\
+                       & \QC*{QC N STD FLUXCONV}                                                        \\
+                       & \QC*{QC N STD AIRMASS}                                                         \\
+                       & \QC*{QC N SENSITIVITY}                                                         \\
+                       & \QC*{QC N AREA SENSITIVITY}                                                    \\
   hdrl functions:      & \CODE{hdrl_catalogue_create}                                                  \\
                        & \CODE{hdrl_strehl_compute}                                                    \\
 \end{recipedef}
