@@ -11,8 +11,8 @@ This section describes items of the static calibration database, which are used 
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{GAIN_MAP_det}\\[0.3cm]
 Description: & Gain map\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{GAIN_MAP_det}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{GAIN_MAP_det}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{GAIN_MAP_det}\\[0.3cm]
 Created by recipe: & \REC{metis_det_lingain} \\
 Input for:    & \REC{metis_LM_lss_rsrf} \\
@@ -34,7 +34,7 @@ Purpose: & Correcting for differences in gain.\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.tech]{\FITS{PRO.TECH}},  \hyperref[fits:det.id]{\FITS{DET.ID}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{PRO.TECH},  \FITS{DET.ID})}
     \item \texttt{hdrl\_image ** image: Images image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -47,8 +47,8 @@ Purpose: & Correcting for differences in gain.\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{BADPIX_MAP_det}\\[0.3cm]
 Description: & Bad pixel map. Also contains detector masks. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{BADPIX_MAP_det}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
+\FITS{PRO.CATG}: & \CODE{BADPIX_MAP_det}\\
+OCA keywords: & \FITS{PRO.CATG} \\
 \FITS{DO.CATG}: & \CODE{BADPIX_MAP_det}\\[0.3cm]
 Created by recipe: & \REC{metis_det_lingain} \\
                   & \REC{metis_ifu_rsrf} \\
@@ -82,7 +82,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}}
     \item \texttt{cpl\_image ** image: one image per detector with only the data quality layer in use}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -102,8 +102,8 @@ See \PROD{BADPIX_MAP_det}.
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{LINEARITY_det}\\[0.3cm]
 Description: & Coefficients for the pixel non-linearity correction\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LINEARITY_det}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
+\FITS{PRO.CATG}: & \CODE{LINEARITY_det}\\
+OCA keywords: & \FITS{PRO.CATG} \\
 \FITS{DO.CATG}: & \CODE{LINEARITY_det}\\[0.3cm]
 Created by recipe: & \REC{metis_det_lingain} \\
 Input for:    & \REC{metis_det_dark} \\
@@ -126,7 +126,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}}
     \item \texttt{hdrl\_image ** image: list of images with coefficients for the non-linearity correction}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
@@ -147,8 +147,8 @@ Depending on context, a \PROD{MASTER_DARK_det} can refer to either a
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{MASTER_DARK_2RG}\\[0.3cm]
 Description: & Master dark frame for LM detector data \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{MASTER_DARK_2RG} \\[0.3cm]
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{MASTER_DARK_2RG} \\[0.3cm]
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{MASTER_DARK_2RG}\\[0.3cm]
 %Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by: & \REC{metis_det_dark} \\
@@ -168,7 +168,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -182,8 +182,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{MASTER_DARK_GEO}\\[0.3cm]
 Description: & Master dark frame for N detector data \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{MASTER_DARK_GEO} \\[0.3cm]
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{MASTER_DARK_GEO} \\[0.3cm]
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{MASTER_DARK_GEO}\\[0.3cm]
 %Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by: & \REC{metis_det_dark} \\
@@ -194,14 +194,16 @@ Input for:    & \REC{metis_n_img_flat} \\
               & \REC{metis_N_lss_sci} \\
               & \REC{metis_n_adc_slitloss} \\
 % The n-band does not have a basic_reduce recipe (according to the association map)
-% & \hyperref[]{\CODE{metis_n_img_basic_reduce}}\\
+% & \CODE{metis_n_img_basic_reduce}\\
+% The equivalent would be metis_n_img_chopnod, but that incorrectly does not have a MASTER_DARK as input
+% TODO: Add MASTER_DARK_GEO to metis_n_img_chopnod
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -217,8 +219,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{RSRF_IFU}\\[0.3cm]
 Description: & 2D relative spectral response function \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{RSRF_IFU}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{RSRF_IFU}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{RSRF_IFU}\\[0.3cm]
 Created by: & \REC{metis_ifu_rsrf}\\
 Input for:    & \REC{metis_ifu_std_process} \\
@@ -229,7 +231,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_image ** image: Four images with spectral response of each pixel}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
@@ -254,8 +256,8 @@ Depending on context, a \PROD{det_DISTORTION_TABLE} can refer to either a
 \textbf{\ac{FITS} TABLE file structure:}\\
 Name: & \PROD{LM_DISTORTION_TABLE}\\[0.3cm]
 Description: & Table of distortion information\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LM_DISTORTION_TABLE} \\[0.3cm]
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{LM_DISTORTION_TABLE} \\[0.3cm]
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{LM_DISTORTION_TABLE}\\[0.3cm]
 Created by: & \REC{metis_lm_img_distortion} \\
 Input for:    & \REC{metis_lm_img_calibrate} \\
@@ -268,7 +270,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
     \item \texttt{cpl\_table * table}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -280,8 +282,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} TABLE file structure:}\\
 Name: & \PROD{N_DISTORTION_TABLE}\\[0.3cm]
 Description: & Table of distortion information\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_DISTORTION_TABLE} \\[0.3cm]
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{N_DISTORTION_TABLE} \\[0.3cm]
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{N_DISTORTION_TABLE}\\[0.3cm]
 Created by: & \REC{metis_n_img_distortion} \\
 Input for:    & \REC{metis_n_img_calibrate} \\
@@ -293,7 +295,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -314,8 +316,8 @@ Depending on context, a \PROD{det_DISTORTION_MAP} can refer to either a
 \textbf{\ac{FITS} IMAGE file structure:}\\
 Name: & \PROD{LM_DISTORTION_MAP}\\[0.3cm]
 Description: & Map of pixel scale across the detector\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LM_DISTORTION_MAP} \\[0.3cm]
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{LM_DISTORTION_MAP} \\[0.3cm]
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{LM_DISTORTION_MAP}\\[0.3cm]
 %Template: & \TPL{METIS_img_lm_cal_distortion}\\
 Created by: & \REC{metis_lm_img_distortion} \\
@@ -326,7 +328,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
     \item \texttt{cpl\_image * map}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -339,8 +341,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} IMAGE file structure:}\\
 Name: & \PROD{N_DISTORTION_MAP}\\[0.3cm]
 Description: & Map of pixel scale across the detector\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_DISTORTION_MAP} \\[0.3cm]
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{N_DISTORTION_MAP} \\[0.3cm]
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{N_DISTORTION_MAP}\\[0.3cm]
 %Template: & \TPL{METIS_img_n_cal_distortion}\\
 Created by: & \REC{metis_n_img_distortion}\\
@@ -351,7 +353,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
     \item \texttt{cpl\_image * map}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -364,8 +366,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % \textbf{\ac{FITS} file structure:}\\
 % Name: & \EXTCALIB{LM_DETECTOR_MASK}\\[0.3cm]
 % Description: & Masked region for LM detector \\[0.3cm]
-% \hyperref[fits:pro.catg]{\FITS{DPR.CATG}}: & \CODE{LM_DETECTOR_MASK}\\
-% OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
+% \FITS{DPR.CATG}: & \CODE{LM_DETECTOR_MASK}\\
+% OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
 % \FITS{DO.CATG}: & \CODE{LM_DETECTOR_MASK}\\[0.3cm]
 % Input for recipes: & \REC{metis_lm_img_basic_reduce}\\
 % Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -373,7 +375,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % \begin{datastructdef}
 % \textbf{Corresponding \ac{CPL} structure:}
 % \begin{enumerate}
-%     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+%     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
 %     \item \texttt{hdrl\_image * image: Single image}
 %     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 % \end{enumerate}
@@ -387,7 +389,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{FLUXSTD_CATALOG}\\[0.3cm]
 Description: & Catalog of standard stars \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{FLUXSTD_CATALOG}\\
+\FITS{PRO.CATG}: & \CODE{FLUXSTD_CATALOG}\\
 OCA keywords: & None \\
 \FITS{DO.CATG}: & \CODE{FLUXSTD_CATALOG}\\[0.3cm]
 Input for:    & \REC{metis_lm_img_std_process} \\
@@ -396,7 +398,7 @@ Input for:    & \REC{metis_lm_img_std_process} \\
 % \begin{datastructdef}
 % \textbf{Corresponding \ac{CPL} structure:}
 % \begin{enumerate}
-%     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+%     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
 %     \item \texttt{hdrl\_image * image: Single image}
 %     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 % \end{enumerate}
@@ -408,8 +410,8 @@ Input for:    & \REC{metis_lm_img_std_process} \\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{PINHOLE_TABLE}\\[0.3cm]
 Description: & Table of pinhole locations. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{PINHOLE_TABLE} \\[0.3cm]
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{PINHOLE_TABLE} \\[0.3cm]
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{PINHOLE_TABLE}\\[0.3cm]
 % TODO: Source
 Used in recipes: & \REC{metis_lm_img_distortion}\\
@@ -419,7 +421,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_table * image: table with pinhole locations}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -433,8 +435,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{FLUXCAL_TAB}\\[0.3cm]
 Description: & Conversion between instrumental and physical flux units. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{FLUXCAL_TAB} \\[0.3cm]
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{FLUXCAL_TAB} \\[0.3cm]
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{FLUXCAL_TAB}\\[0.3cm]
 Input for:    & \REC{metis_ifu_sci_process} \\
               & \REC{metis_lm_img_calibrate} \\
@@ -447,7 +449,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_table * table: table}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -464,8 +466,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{PERSISTENCE_MAP}\\[0.3cm]
 Description: & Persistence map\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{PERSISTENCE_MAP}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{PERSISTENCE_MAP}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{PERSISTENCE_MAP}\\[0.3cm]
 Source: & created by \ac{ESO} with recipe \REC{metis_det_persistence}\\
 Input for:    & \REC{metis_det_dark} \\
@@ -488,7 +490,7 @@ Purpose: & removal of persistence patterns\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:pro.tech]{\FITS{PRO.TECH}},  \hyperref[fits:det.id]{\FITS{DET.ID}}) }
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{PRO.TECH},  \FITS{DET.ID}) }
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -500,8 +502,8 @@ Purpose: & removal of persistence patterns\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{ATM_LINE_CAT}\\[0.3cm]
 Description: & Line list of atmospheric emission and absorption lines\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{ATM_LINE_CAT}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{ATM_LINE_CAT}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{ATM_LINE_CAT}\\[0.3cm]
 Source: & \ac{HITRAN} database (\url{https://hitran.org/})\\
 Input for:    & \REC{metis_LM_lss_std} \\
@@ -522,7 +524,7 @@ Purpose: & wavelength calibration\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -534,8 +536,8 @@ Purpose: & wavelength calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{AO_PSF_MODEL}\\[0.3cm]
 Description: & Model of the \ac{AO} induced \ac{PSF}\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{AO_PSF_MODEL}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{AO_PSF_MODEL}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{AO_PSF_MODEL}\\[0.3cm]
 Source: & \ac{PSF} modelling \\
 Input for:    & \REC{metis_LM_lss_std} \\
@@ -548,7 +550,7 @@ Purpose: & flux calibration\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -560,8 +562,8 @@ Purpose: & flux calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{ATM_PROFILE}\\[0.3cm]
 Description: & atmospheric profile containing height information on temperature, pressure and molecular abundances\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{ATM_PROFILE}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{ATM_PROFILE}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{ATM_PROFILE}\\[0.3cm]
 Source: & Taken from \url{https://eodg.atm.ox.ac.uk/RFM/atm/}\\
 Input for:    & \REC{metis_ifu_tellcorr} \\
@@ -578,7 +580,7 @@ Purpose: & telluric correction\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -591,8 +593,8 @@ Purpose: & telluric correction\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{LASER_TAB}\\[0.3cm]
 Description: & Line list of the \ac{WCU} laser sources\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LASER_TAB}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{LASER_TAB}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{LASER_TAB}\\[0.3cm]
 Source: & Lab measurements during \ac{AIT} phase\\
 Input for:    & \REC{metis_LM_lss_wave} \\
@@ -602,7 +604,7 @@ Purpose: & wavelength calibration\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -622,8 +624,8 @@ Purpose: & wavelength calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{REF_STD_CAT}\\[0.3cm]
 Description: & Catalogue of flux standard stars (reference spectra)\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{REF_STD_CAT}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{REF_STD_CAT}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{REF_STD_CAT}\\[0.3cm]
 Source: & most probably same as \ac{CRIRES} and \ac{VISIR}; see also~\cite{METIS-calibration_plan} \\
 Input for:    & \REC{metis_LM_lss_std} \\
@@ -634,7 +636,7 @@ Purpose: & flux calibration\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -646,8 +648,8 @@ Purpose: & flux calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{LM_ADC_SLITLOSS}\\[0.3cm]
 Description: & Table of the LM-band slitlosses as function of the object position across the slit\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LM_ADC_SLITLOSS}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{LM_ADC_SLITLOSS}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{LM_ADC_SLITLOSS}\\[0.3cm]
 Source: & recipe \REC{metis_lm_adc_slitloss} (see Section~\ref{sssec:adc_slitlosses} and~\cite{METIS-calibration_plan}) \\
 Input for:    & \REC{metis_LM_lss_std} \\
@@ -658,7 +660,7 @@ Purpose: & flux calibration\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -670,8 +672,8 @@ Purpose: & flux calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{N_ADC_SLITLOSS}\\[0.3cm]
 Description: & Table of the N-band slitlosses as function of the object position across the slit\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_ADC_SLITLOSS}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{N_ADC_SLITLOSS}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{N_ADC_SLITLOSS}\\[0.3cm]
 Source: & recipe \REC{metis_n_adc_slitloss} (see Section~\ref{sssec:adc_slitlosses} and~\cite{METIS-calibration_plan}) \\
 Input for:    & \REC{metis_N_lss_std} \\
@@ -682,7 +684,7 @@ Purpose: & flux calibration\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -694,8 +696,8 @@ Purpose: & flux calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{LSF_KERNEL}\\[0.3cm]
 Description: & Wavelength dependent model of the \ac{LSF}\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LSF_KERNEL}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{LSF_KERNEL}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{LSF_KERNEL}\\[0.3cm]
 Source: & Determined during \ac{AIT} phase and commissioning\\
 Input for:    & \REC{metis_ifu_sci_process} \\
@@ -710,7 +712,7 @@ Purpose: & telluric correction\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -722,8 +724,8 @@ Purpose: & telluric correction\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{N_LSS_DIST_SOL}\\[0.3cm]
 Description: & N-band geometrical distortion solution\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_LSS_DIST_SOL}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{N_LSS_DIST_SOL}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{N_LSS_DIST_SOL}\\[0.3cm]
 Source: & Determined during \ac{AIT} phase with N-band laser sources\\
 Input for:    & \REC{metis_N_lss_std} \\
@@ -734,7 +736,7 @@ Purpose: & wavelength calibration / rectification\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -746,8 +748,8 @@ Purpose: & wavelength calibration / rectification\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{N_LSS_WAVE_GUESS}\\[0.3cm]
 Description: & First guess of the N-band wavelength solution\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_LSS_WAVE_GUESS}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{N_LSS_WAVE_GUESS}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{N_LSS_WAVE_GUESS}\\[0.3cm]
 Source: & During \ac{AIT} phase N-band laser sources will be available to create the first guess of the wavelength solution\\
 Input for:    & \REC{metis_N_lss_std} \\
@@ -758,7 +760,7 @@ Purpose: & wavelength calibration\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -770,8 +772,8 @@ Purpose: & wavelength calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{LM_SYNTH_TRANS}\\[0.3cm]
 Description: & Synthetic transmission curve to be used for telluric correction of flux standard stars\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LM_SYNTH_TRANS}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{LM_SYNTH_TRANS}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{LM_SYNTH_TRANS}\\[0.3cm]
 Source: & Calculated by \texttt{molecfit} with averaged parameters\\
 Input for:    & \REC{metis_LM_lss_std} \\
@@ -781,7 +783,7 @@ Purpose: & telluric correction of flux standard stars\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -793,8 +795,8 @@ Purpose: & telluric correction of flux standard stars\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{N_SYNTH_TRANS}\\[0.3cm]
 Description: & Synthetic transmission curve to be used for telluric correction of flux standard stars\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_SYNTH_TRANS}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
+\FITS{PRO.CATG}: & \CODE{N_SYNTH_TRANS}\\
+OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{N_SYNTH_TRANS}\\[0.3cm]
 Source: & Calculated by \texttt{molecfit} with averaged parameters\\
 Input for:    & \REC{metis_N_lss_std} \\
@@ -804,7 +806,7 @@ Purpose: & telluric correction of flux standard stars\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
