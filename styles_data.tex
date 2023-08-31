@@ -5,18 +5,52 @@
     \ifx \relax #2\relax
         #1%
     \else
-            #1%
+        #1%
         \textunderscore
         \replace@underscores#2\relax
     \fi
 }
+
+\ExplSyntaxOn
+% Generic \Smart@Item macro:
+%   use \NEWRAW*{WHATEVER_THIS_IS} where hyperlinks are not needed (TOC, sections...)
+%   and \NEWRAW{WHATEVER_THIS_IS} for a full hyperlink-enabled version in regular text and tikz figures
+% #1 boolean: use hyperlink
+% #2 string: uppercase type of the item
+% #3 string: id of the item
+% #4 string, optional: hyperref prefix
+\NewDocumentCommand{\Smart@Item}{m m m O{dataitem}}{%
+    \IfBooleanTF{#1}{%
+        \texorpdfstring{\lstinline[style=#2style]!#3!}{\replaceunderscores{#3}}%
+    }{%
+        \hyperref[#4:\text_lowercase:n{#3}]{\lstinline[style=#2style]!#3!}%
+    }%
+}
+\ExplSyntaxOff
+
+% Raw FITS file: \NEWRAW{LM_SCI_RAW}
+\NewDocumentCommand{\NEWRAW}      {s m}{\Smart@Item{#1}{RAW}      {#2}}
+\NewDocumentCommand{\NEWPAR}      {s m}{\Smart@Item{#1}{PAR}      {#2}}
+\NewDocumentCommand{\NEWDRL}      {s m}{\Smart@Item{#1}{DRL}      {#2}[drl]}
+\NewDocumentCommand{\NEWREC}      {s m}{\Smart@Item{#1}{REC}      {#2}[rec]}
+\NewDocumentCommand{\NEWQC}       {s m}{\Smart@Item{#1}{QC}       {#2}[qc]}
+\NewDocumentCommand{\NEWPROD}     {s m}{\Smart@Item{#1}{PROD}     {#2}}
+\NewDocumentCommand{\NEWEXTCALIB} {s m}{\Smart@Item{#1}{EXTCALIB} {#2}}
+\NewDocumentCommand{\NEWSTATCALIB}{s m}{\Smart@Item{#1}{STATCALIB}{#2}}
+\NewDocumentCommand{\NEWFITS}     {s m}{\Smart@Item{#1}{FITS}     {#2}}
+
+% Templates: they do not have the starred version, no hyperrefs are created
+\NewDocumentCommand{\NEWTPL}      {m}{\Smart@Item{\BooleanTrue}{TPL}{#1}}
+% Requirements: this only points to Polarion, no internal hyperrefs are created
+\NewDocumentCommand{\NEWREQ}      {m}{\href{https://polarion.astron.nl/polarion/\#/project/METIS/workitem?id=#1}{\textcolor{brown}{#1}}}
+
 \makeatother
 
-%% Write a raw FITS file like this: \hyperref[dataitem:lm_sci_raw]{\RAW{LM_SCI_RAW}}
+%% Write DRL functions names like this: \hyperref[drl:function]{\DRL{function}}
 \newcommand{\RAW}[1]{ \texorpdfstring{\lstinline[style=RAWstyle]!#1!}%
                                      {\replaceunderscores{#1}}}
 
-%% Write parameters like this: \PAR{DARK_LM}
+%% Write DRL functions names like this: \hyperref[drl:function]{\DRL{function}}
 \newcommand{\PAR}[1]{ \texorpdfstring{\lstinline[style=PARstyle]!#1!}%
                                      {\replaceunderscores{#1}}}
 
