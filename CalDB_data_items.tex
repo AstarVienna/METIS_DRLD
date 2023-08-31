@@ -11,7 +11,7 @@ This section describes items of the static calibration database, which are used 
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{GAIN_MAP_det}\\[0.3cm]
 Description: & Gain map\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{GAIN_MAP_det}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{GAIN_MAP_det}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{GAIN_MAP_det}\\[0.3cm]
 Created by recipe: & \REC{metis_det_lingain} \\
@@ -47,7 +47,7 @@ Purpose: & Correcting for differences in gain.\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{BADPIX_MAP_det}\\[0.3cm]
 Description: & Bad pixel map. Also contains detector masks. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{BADPIX_MAP_det}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{BADPIX_MAP_det}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{BADPIX_MAP_det}\\[0.3cm]
 Created by recipe: & \REC{metis_det_lingain} \\
@@ -102,7 +102,7 @@ See \PROD{BADPIX_MAP_det}.
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{LINEARITY_det}\\[0.3cm]
 Description: & Coefficients for the pixel non-linearity correction\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LINEARITY_det}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LINEARITY_det}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}} \\
 \FITS{DO.CATG}: & \FITS{LINEARITY_det}\\[0.3cm]
 Created by recipe: & \REC{metis_det_lingain} \\
@@ -147,7 +147,7 @@ Depending on context, a \PROD{MASTER_DARK_det} can refer to either a
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{MASTER_DARK_2RG}\\[0.3cm]
 Description: & Master dark frame for LM detector data \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_DARK_2RG} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{MASTER_DARK_2RG} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{MASTER_DARK_2RG}\\[0.3cm]
 %Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
@@ -182,7 +182,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{MASTER_DARK_GEO}\\[0.3cm]
 Description: & Master dark frame for N detector data \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_DARK_GEO} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{MASTER_DARK_GEO} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{MASTER_DARK_GEO}\\[0.3cm]
 %Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
@@ -217,7 +217,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{RSRF_IFU}\\[0.3cm]
 Description: & 2D relative spectral response function \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{RSRF_IFU}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{RSRF_IFU}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{RSRF_IFU}\\[0.3cm]
 Created by: & \REC{metis_ifu_rsrf}\\
@@ -254,7 +254,7 @@ Depending on context, a \PROD{det_DISTORTION_TABLE} can refer to either a
 \textbf{\ac{FITS} TABLE file structure:}\\
 Name: & \PROD{LM_DISTORTION_TABLE}\\[0.3cm]
 Description: & Table of distortion information\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_DISTORTION_TABLE} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LM_DISTORTION_TABLE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_DISTORTION_TABLE}\\[0.3cm]
 Created by: & \REC{metis_lm_img_distortion} \\
@@ -280,7 +280,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} TABLE file structure:}\\
 Name: & \PROD{N_DISTORTION_TABLE}\\[0.3cm]
 Description: & Table of distortion information\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_DISTORTION_TABLE} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_DISTORTION_TABLE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_DISTORTION_TABLE}\\[0.3cm]
 Created by: & \REC{metis_n_img_distortion} \\
@@ -314,7 +314,7 @@ Depending on context, a \PROD{det_DISTORTION_MAP} can refer to either a
 \textbf{\ac{FITS} IMAGE file structure:}\\
 Name: & \PROD{LM_DISTORTION_MAP}\\[0.3cm]
 Description: & Map of pixel scale across the detector\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_DISTORTION_MAP} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LM_DISTORTION_MAP} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_DISTORTION_MAP}\\[0.3cm]
 %Template: & \TPL{METIS_img_lm_cal_distortion}\\
@@ -339,7 +339,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} IMAGE file structure:}\\
 Name: & \PROD{N_DISTORTION_MAP}\\[0.3cm]
 Description: & Map of pixel scale across the detector\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_DISTORTION_MAP} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_DISTORTION_MAP} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_DISTORTION_MAP}\\[0.3cm]
 %Template: & \TPL{METIS_img_n_cal_distortion}\\
@@ -364,7 +364,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % \textbf{\ac{FITS} file structure:}\\
 % Name: & \EXTCALIB{LM_DETECTOR_MASK}\\[0.3cm]
 % Description: & Masked region for LM detector \\[0.3cm]
-% \hyperref[fits:pro.catg]{\FITS{DPR.CATG}}: & \FITS{LM_DETECTOR_MASK}\\
+% \hyperref[fits:pro.catg]{\FITS{DPR.CATG}}: & \CODE{LM_DETECTOR_MASK}\\
 % OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
 % \FITS{DO.CATG}: & \FITS{LM_DETECTOR_MASK}\\[0.3cm]
 % Input for recipes: & \REC{metis_lm_img_basic_reduce}\\
@@ -387,7 +387,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{FLUXSTD_CATALOG}\\[0.3cm]
 Description: & Catalog of standard stars \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{FLUXSTD_CATALOG}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{FLUXSTD_CATALOG}\\
 OCA keywords: & None \\
 \FITS{DO.CATG}: & \FITS{FLUXSTD_CATALOG}\\[0.3cm]
 Input for:    & \REC{metis_lm_img_std_process} \\
@@ -408,7 +408,7 @@ Input for:    & \REC{metis_lm_img_std_process} \\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{PINHOLE_TABLE}\\[0.3cm]
 Description: & Table of pinhole locations. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{PINHOLE_TABLE} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{PINHOLE_TABLE} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{PINHOLE_TABLE}\\[0.3cm]
 % TODO: Source
@@ -433,7 +433,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{FLUXCAL_TAB}\\[0.3cm]
 Description: & Conversion between instrumental and physical flux units. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{FLUXCAL_TAB} \\[0.3cm]
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{FLUXCAL_TAB} \\[0.3cm]
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{FLUXCAL_TAB}\\[0.3cm]
 Input for:    & \REC{metis_ifu_sci_process} \\
@@ -464,7 +464,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{PERSISTENCE_MAP}\\[0.3cm]
 Description: & Persistence map\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{PERSISTENCE_MAP}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{PERSISTENCE_MAP}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{PERSISTENCE_MAP}\\[0.3cm]
 Source: & created by \ac{ESO} with recipe \REC{metis_det_persistence}\\
@@ -500,7 +500,7 @@ Purpose: & removal of persistence patterns\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{ATM_LINE_CAT}\\[0.3cm]
 Description: & Line list of atmospheric emission and absorption lines\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{ATM_LINE_CAT}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{ATM_LINE_CAT}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{ATM_LINE_CAT}\\[0.3cm]
 Source: & \ac{HITRAN} database (\url{https://hitran.org/})\\
@@ -534,7 +534,7 @@ Purpose: & wavelength calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{AO_PSF_MODEL}\\[0.3cm]
 Description: & Model of the \ac{AO} induced \ac{PSF}\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{AO_PSF_MODEL}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{AO_PSF_MODEL}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{AO_PSF_MODEL}\\[0.3cm]
 Source: & \ac{PSF} modelling \\
@@ -560,7 +560,7 @@ Purpose: & flux calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{ATM_PROFILE}\\[0.3cm]
 Description: & atmospheric profile containing height information on temperature, pressure and molecular abundances\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{ATM_PROFILE}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{ATM_PROFILE}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{ATM_PROFILE}\\[0.3cm]
 Source: & Taken from \url{https://eodg.atm.ox.ac.uk/RFM/atm/}\\
@@ -591,7 +591,7 @@ Purpose: & telluric correction\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \EXTCALIB{LASER_TAB}\\[0.3cm]
 Description: & Line list of the \ac{WCU} laser sources\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LASER_TAB}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LASER_TAB}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LASER_TAB}\\[0.3cm]
 Source: & Lab measurements during \ac{AIT} phase\\
@@ -622,7 +622,7 @@ Purpose: & wavelength calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{REF_STD_CAT}\\[0.3cm]
 Description: & Catalogue of flux standard stars (reference spectra)\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{REF_STD_CAT}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{REF_STD_CAT}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{REF_STD_CAT}\\[0.3cm]
 Source: & most probably same as \ac{CRIRES} and \ac{VISIR}; see also~\cite{METIS-calibration_plan} \\
@@ -646,7 +646,7 @@ Purpose: & flux calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{LM_ADC_SLITLOSS}\\[0.3cm]
 Description: & Table of the LM-band slitlosses as function of the object position across the slit\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_ADC_SLITLOSS}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LM_ADC_SLITLOSS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_ADC_SLITLOSS}\\[0.3cm]
 Source: & recipe \REC{metis_lm_adc_slitloss} (see Section~\ref{sssec:adc_slitlosses} and~\cite{METIS-calibration_plan}) \\
@@ -670,7 +670,7 @@ Purpose: & flux calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{N_ADC_SLITLOSS}\\[0.3cm]
 Description: & Table of the N-band slitlosses as function of the object position across the slit\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_ADC_SLITLOSS}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_ADC_SLITLOSS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_ADC_SLITLOSS}\\[0.3cm]
 Source: & recipe \REC{metis_n_adc_slitloss} (see Section~\ref{sssec:adc_slitlosses} and~\cite{METIS-calibration_plan}) \\
@@ -694,7 +694,7 @@ Purpose: & flux calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{LSF_KERNEL}\\[0.3cm]
 Description: & Wavelength dependent model of the \ac{LSF}\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LSF_KERNEL}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LSF_KERNEL}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LSF_KERNEL}\\[0.3cm]
 Source: & Determined during \ac{AIT} phase and commissioning\\
@@ -722,7 +722,7 @@ Purpose: & telluric correction\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{N_LSS_DIST_SOL}\\[0.3cm]
 Description: & N-band geometrical distortion solution\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_DIST_SOL}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_LSS_DIST_SOL}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_DIST_SOL}\\[0.3cm]
 Source: & Determined during \ac{AIT} phase with N-band laser sources\\
@@ -746,7 +746,7 @@ Purpose: & wavelength calibration / rectification\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{N_LSS_WAVE_GUESS}\\[0.3cm]
 Description: & First guess of the N-band wavelength solution\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_LSS_WAVE_GUESS}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_LSS_WAVE_GUESS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_LSS_WAVE_GUESS}\\[0.3cm]
 Source: & During \ac{AIT} phase N-band laser sources will be available to create the first guess of the wavelength solution\\
@@ -770,7 +770,7 @@ Purpose: & wavelength calibration\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{LM_SYNTH_TRANS}\\[0.3cm]
 Description: & Synthetic transmission curve to be used for telluric correction of flux standard stars\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{LM_SYNTH_TRANS}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{LM_SYNTH_TRANS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{LM_SYNTH_TRANS}\\[0.3cm]
 Source: & Calculated by \texttt{molecfit} with averaged parameters\\
@@ -793,7 +793,7 @@ Purpose: & telluric correction of flux standard stars\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \STATCALIB{N_SYNTH_TRANS}\\[0.3cm]
 Description: & Synthetic transmission curve to be used for telluric correction of flux standard stars\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{N_SYNTH_TRANS}\\
+\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \CODE{N_SYNTH_TRANS}\\
 OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
 \FITS{DO.CATG}: & \FITS{N_SYNTH_TRANS}\\[0.3cm]
 Source: & Calculated by \texttt{molecfit} with averaged parameters\\
