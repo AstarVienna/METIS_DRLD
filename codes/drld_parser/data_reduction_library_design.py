@@ -138,14 +138,16 @@ class DataItem:
         line_header = lines1[0]
         # E.g. \paragraph{\hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}}\label{dataitem:master_n_lss_rsrf}
         regex_header = re.compile(
-            r"\\paragraph{\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}}\\label{(?P<label>.*?)}"
+            # r"\\paragraph{\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}}\\label{(?P<label>.*?)}"
+            r"\\paragraph{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}\\label{(?P<label>.*?)}"
         )
         match = regex_header.match(line_header)
         group = match.groupdict()
-        hyperref = group["hyperref"]
+        # hyperref = group["hyperref"]
         dtype_header = group["dtype"]
         name_header = group["name"]
         label = group["label"]
+        hyperref = label
         assert hyperref == label
         assert label.startswith("dataitem")
         assert hyperref == f"dataitem:{name_header.lower()}"
@@ -248,7 +250,7 @@ class DataItem:
                     # to expand those here, because there is no knowledge
                     # about which templates exist at this stage.
                 elif field_old in ["pro_catg", "do_catg", "dpr_catg", "dpr_tech", "dpr_type"]:
-                    value = re.sub("\\\\FITS{(.*?)}", " \\1 ", value)
+                    value = re.sub("\\\\(FITS|CODE){(.*?)}", " \\2 ", value)
                     value = value.strip()
                 elif field_old in ["created_by", "input_for"]:
                     # These should all be \REC{something}
@@ -337,6 +339,10 @@ class DataItemReference:
 
     def __post_init__(self):
         # TODO: perhaps use pydantic?
+        if self.description is not None:
+            self.description = self.description.strip("() ")
+        if self.description == '':
+            self.description = None
         if self.name is not None:
             self.name = self.name.replace("\\", "")
             self.name = HACK_INCORRECT_INPUT_DATA.get(self.name, self.name)
@@ -355,25 +361,33 @@ class DataItemReference:
         \PROD{MF\_BEST\_FIT\_TAB}
         Chopped/nodded science or standard images
         """
+        line2 = line.replace("\\times", " times")
         patterns_to_test = [
             re.compile(pp)
             # Patterns are ordered from most specific to least specific.
             for pp in [
-                r"\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}: (?P<description>.*)",
-                r"(?P<description>.*?) \\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}",
+                r"\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}:[ ]+(?P<description>.*)",
+                r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)}:[ ]+(?P<description>.*)",
+                r"(?P<description>.+)[ ]\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}",
+                r"(?P<description>[^\\]+?)[ ]*\\(?P<dtype>[A-Z]+){(?P<name>.*?)}",
                 r"\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}",
-                r"(?P<description>.*?) \(\\(?P<dtype>[A-Z]+){(?P<name>.*?)}\)",
-                r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)} \((?P<description>.*?)\)",
+                r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)}[ ]+\((?P<description>.*?)\)",
+                r"(?P<description>.+)[ ]+\(\\(?P<dtype>[A-Z]+){(?P<name>.*?)}\)",
                 r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)}",
-                r"(?P<description>.*)",
+                # r"(?P<description>.*)",
             ]
         ]
         for pattern in patterns_to_test:
-            match = re.match(pattern, line)
+            match = re.match(pattern, line2)
             if match:
                 return DataItemReference(**match.groupdict())
+        else:
+            assert not any(
+                pp in line2
+                for pp in ["PROD", "RAW", "STATCALIB", "EXTCALIB"]
+            )
+            return DataItemReference(description=line2)
 
-        return DataItemReference
 
 
 @dataclasses.dataclass
@@ -407,6 +421,9 @@ class RecipeReference:
             self.name = self.name.replace("\\", "")
             self.name = HACK_INCORRECT_INPUT_DATA.get(self.name, self.name)
 
+        if self.description is not None:
+            self.description = self.description.strip("() ")
+
     @staticmethod
     def from_line(line):
         r"""Parse a line from a DataItem definition.
@@ -420,8 +437,11 @@ class RecipeReference:
             # Patterns are ordered from most specific to least specific.
             for pp in [
                 r"\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}: (?P<description>.*)",
+                r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)}: (?P<description>.*)",
                 r"(?P<description>.*?) \\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}",
+                r"(?P<description>.*?) \\(?P<dtype>[A-Z]+){(?P<name>.*?)}",
                 r"\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}",
+                r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)}",
                 r"(?P<description>.*?) \(\\(?P<dtype>[A-Z]+){(?P<name>.*?)}\)",
                 r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)} \((?P<description>.*?)\)",
                 r"\\(?P<dtype>[A-Z]+){(?P<name>.*?)}",
@@ -531,16 +551,17 @@ class Recipe:
                     value1 = []
                     for val in value.split("\n"):
                         # Some are weird like
-                        # (\FITS{PRO_CATG}: \FITS{LM_LSS_2d_coadd_wavecal})
-                        if val.startswith("(") and "PRO_CATG" in val:
+                        # (\FITS{PRO.CATG}: \FITS{LM_LSS_2d_coadd_wavecal})
+                        # TODO: Fix those weird ones above
+                        if val.startswith("(") and "PRO.CATG" in val:
                             continue
 
                         # Some of these have " or " in them and need to be split
                         # \hyperref[dataitem:lm_cgrph_sci_speckle]{\PROD{LM_cgrph_SCI_SPECKLE}} or \hyperref[dataitem:n_cgrph_sci_speckle]{\PROD{N_cgrph_SCI_SPECKLE}}\\
-                        if " or " in val and val.count("hyperref") == 2:
+                        if " or " in val and val.count("\\") == 2:
                             val_left, val_right = val.split(" or ")
-                            assert "hyperref" in val_left, f"Can't understand {val}"
-                            assert "hyperref" in val_right, f"Can't understand {val}"
+                            # assert "hyperref" in val_left, f"Can't understand {val}"
+                            # assert "hyperref" in val_right, f"Can't understand {val}"
                             value1.append(DataItemReference.from_recipe_line(val_left.strip()))
                             value1.append(DataItemReference.from_recipe_line(val_right.strip()))
                         else:
@@ -696,19 +717,21 @@ class AssociationMatrix:
                     # Patterns are ordered from most specific to least specific.
                     for pp in [
                         # \node[above] (RECdark_raw){\recipebox{\NEWRAW{DARK_IFU_RAW}}{\NEWREC{metis_det_dark}}}; &
-                        r".*?\\recipebox{\\NEWRAW{(?P<dataitem>[A-Z0-9_, ]+)}}{\\NEWREC{(?P<recipe>[a-z_\\]+)}}.*?",
+                        # node[above] (RECstdreduce_raw){\\recipebox{\\RAW{IFU_STD_RAW}}{\\REC*{metis_ifu_reduce}}}; &
+                        r".*?\\recipebox{\\RAW\*?{(?P<dataitem>[A-Z0-9_, ]+)}}{\\REC\*?{(?P<recipe>[a-z_\\]+)}}.*?",
 
                         # \recipebox{DISTORTION}{lm\_img\_distortion}
                         # [above] (all1_raw){%  \recipebox{SCIENCE, STD}{lm\_img\_basic}  };
-                        r".*?\\recipebox{(?P<dataitem>[A-Z0-9_, ]+)}{(?P<recipe>[a-z_\\]+)}.*?",
+                        r".*?\\recipebox{(?P<dataitem>\*?[A-Z0-9_, ]+)}{(?P<recipe>[a-z_\\]+)}.*?",
 
                         # \node[above] (RECstd_raw){\recipenotitlebox{\NEWREC{metis_ifu_tellcorr}}}; &
-                        r".*?\\recipenotitlebox{\\NEWREC{(?P<recipe>[a-z_\\]+)}.*?",
+                        r".*?\\recipenotitlebox{\\REC\*?{(?P<recipe>[a-z_\\]+)}.*?",
 
                         # (lin_lin) [statcalfile]{\NEWSTATCALIB{LINEARITY_2RG}};
                         # (pers_pers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}};
                         # (dark_dark) [calibproduct]{\NEWPROD{MASTER_DARK_2RG}};
-                        r".*?(?P<dtype>[A-Z]+){(?P<dataitem>[A-Z0-9_\\]+).*?",
+                        # (pers_pers)[extcalfile]{\STATCALIB * {PERSISTENCE_MAP}};
+                        r".*?(?P<dtype>[A-Z]+)\*?{(?P<dataitem>[A-Z0-9_\\]+).*?",
 
                         # (sci1_pers)[empty]{};
                         r".*?(?P<empty>\[empty\]).*?",

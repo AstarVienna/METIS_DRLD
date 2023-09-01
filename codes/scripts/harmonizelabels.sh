@@ -1,3 +1,7 @@
+# This script used to add hyperrefs to many macros. The hyperrefs are now added
+# by the macros themselves, so that functionality has been commented out.
+# The script still ensures labels are correct.
+
 # Replace e.g. \PROD{LM\_RSRF\_RAW} with \PROD{LM_RSRF\_RAW}
 #sed --follow-symlinks -E 's|(\\PROD\{[a-zA-Z_]+)\\_|\1_|g' -i -- *.tex tikz/*.tex
 sed --follow-symlinks -E 's|(\\[A-Z]+\{[0-9a-zA-Z_]+)\\_|\1_|g' -i -- *.tex tikz/*.tex
@@ -37,14 +41,14 @@ sed --follow-symlinks -E 's!\\REC\{([0-9a-zA-Z_]*)([}: ]+)\\label\{rec:[0-9a-zA-
 sed --follow-symlinks -E 's!\\QC\{([0-9a-zA-Z<>#_ ]*)([}: ]+)\\label\{qc:[0-9a-zA-Z_:<>#]*}!\\QC\{\1\2\\label\{qc:\1}!g' -i -- *.tex tikz/*.tex
 
 # Convert all PRODs that are not yet a link. That is, " \PROD{SOMETHING}"
-sed --follow-symlinks -E 's!([ \(])\\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[dataitem:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
-sed --follow-symlinks -E 's!([ x}]\{)\\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[dataitem:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
-sed --follow-symlinks -E 's!^\\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}!\\hyperref\[dataitem:\2]\{\\\1\{\2}}!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!([ \(])\\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[dataitem:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!([ x}]\{)\\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[dataitem:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!^\\(PROD|RAW|STATCALIB|EXTCALIB)\{([0-9a-zA-Z_]+)}!\\hyperref\[dataitem:\2]\{\\\1\{\2}}!g' -i -- *.tex tikz/*.tex
 
 # Convert all DRL that do not yet have a hyperref.
-sed --follow-symlinks -E 's!([ \(])\\(DRL)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[drl:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
-sed --follow-symlinks -E 's!( \{)\\(DRL)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[drl:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
-sed --follow-symlinks -E 's!^\\(DRL)\{([0-9a-zA-Z_]+)}!\\hyperref\[drl:\2]\{\\\1\{\2}}!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!([ \(])\\(DRL)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[drl:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!( \{)\\(DRL)\{([0-9a-zA-Z_]+)}!\1\\hyperref\[drl:\3]\{\\\2\{\3}}!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!^\\(DRL)\{([0-9a-zA-Z_]+)}!\\hyperref\[drl:\2]\{\\\1\{\2}}!g' -i -- *.tex tikz/*.tex
 
 # Convert all QC that do not yet have a hyperref.
 # TODO: enable
@@ -53,19 +57,19 @@ sed --follow-symlinks -E 's!^\\(DRL)\{([0-9a-zA-Z_]+)}!\\hyperref\[drl:\2]\{\\\1
 # \REC is also used in subsection headers, those should not be hyperrefs.
 # \subsubsection{Recipes \REC{metis_det_lingain} and \REC{metis_det_dark}}
 # So first replace those with a placeholder.
-sed --follow-symlinks -E 's!(subsection.*\\)REC!\1QQQQQQ!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!(subsection.*\\)REC!\1QQQQQQ!g' -i -- *.tex tikz/*.tex
 # Do it twice, because occasionally there are two in a header.
-sed --follow-symlinks -E 's!(subsection.*\\)REC!\1QQQQQQ!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!(subsection.*\\)REC!\1QQQQQQ!g' -i -- *.tex tikz/*.tex
 # \REC is also used in the short captions for the table of contents.
 #   \caption[Recipe: \REC{metis_lm_img_flat}]{\REC{metis_lm_img_flat} ... }
 # This can be determined by checking for the closing ].
 # Then add a hyperref to all \REC.
-sed --follow-symlinks -E 's!([ \(])\\REC\{([0-9a-zA-Z_]+)}([^]])!\1\\hyperref\[rec:\2]\{\\REC\{\2}}\3!g' -i -- *.tex tikz/*.tex
-sed --follow-symlinks -E 's!([ x}]\{)\\REC\{([0-9a-zA-Z_]+)}([^]])!\1\\hyperref\[rec:\2]\{\\REC\{\2}}\3!g' -i -- *.tex tikz/*.tex
-sed --follow-symlinks -E 's!^\\REC\{([0-9a-zA-Z_]+)}([^]])!\\hyperref\[rec:\1]\{\\REC\{\1}}\2!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!([ \(])\\REC\{([0-9a-zA-Z_]+)}([^]])!\1\\hyperref\[rec:\2]\{\\REC\{\2}}\3!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!([ x}]\{)\\REC\{([0-9a-zA-Z_]+)}([^]])!\1\\hyperref\[rec:\2]\{\\REC\{\2}}\3!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!^\\REC\{([0-9a-zA-Z_]+)}([^]])!\\hyperref\[rec:\1]\{\\REC\{\1}}\2!g' -i -- *.tex tikz/*.tex
 # Finally replace the placeholder again.
-sed --follow-symlinks -E 's!(subsection.*\\)QQQQQQ!\1REC!g' -i -- *.tex tikz/*.tex
-sed --follow-symlinks -E 's!(subsection.*\\)QQQQQQ!\1REC!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!(subsection.*\\)QQQQQQ!\1REC!g' -i -- *.tex tikz/*.tex
+#sed --follow-symlinks -E 's!(subsection.*\\)QQQQQQ!\1REC!g' -i -- *.tex tikz/*.tex
 
 
 # The QC ones can have spaces, we need to removed those
