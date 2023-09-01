@@ -801,6 +801,7 @@ def test_parse_dataitem_from_paragraph():
 
 
 def test_associationmatrices():
+    """Some tests for the association matrices. This code is horrible."""
     asso_lm = AssociationMatrix(fn="tikz/IMG_LM_assomap_tikz.tex")
     asso_n = AssociationMatrix(fn="tikz/IMG_N_assomap_tikz.tex")
     asso_ifu = AssociationMatrix(fn="tikz/IFU_assomap_tikz.tex")
@@ -847,6 +848,28 @@ def test_associationmatrices():
             else:
                 # there is not really a way to get to the primary data item because then it would be necessary to follow the lines, e.g. for IFU
                 ...
+
+            # Try to see whether input is correct.
+            for icell, cell in enumerate(recipecolumn):
+                if cell.connection:
+                    # Find out what it is.
+                    # TODO: Use the path? But cannot always do that.
+                    # TODO: in reverse order?
+                    for cell2 in [col[icell] for col in asso.matrix]:
+                        if cell2.dataitem is not None:
+                            # found it
+                            thedataitem = cell2.dataitem
+                            break
+                    else:
+                        raise ValueError
+                    is_input_really_input = any(
+                        thedataitem.name == inp.name for inp in recipe.input_data
+                    )
+                    if not is_input_really_input:
+                        problems_recipe.append(f"{recipe.name} has {thedataitem.name} as input in the association matrix, but not in the recipe table")
+            # TODO: Vice-versa, check whether all input in the recipe table is
+            # also in the association matrix. This is harder, because some
+            # might be optional.
 
             if problems_recipe:
                 problems.append((recipe_name, problems_recipe))
