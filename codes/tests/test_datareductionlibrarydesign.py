@@ -816,7 +816,7 @@ def test_associationmatrices():
             # Get the recipe
             recipecell = recipecolumn[0]
             reciperef = recipecell.recipe
-            raw_dataitemref = recipecell.dataitem
+            raw_dataitemref = recipecell.dataitems[0] if recipecell.dataitems else None
             if reciperef is None:
                 # can happen if there is calibration data on the left
                 assert str(recipecell) == "(empty)"
@@ -845,18 +845,19 @@ def test_associationmatrices():
                 continue
 
             # Get the first dataitem
-            if recipecell.dataitem is not None:
-                input_primary = recipecell.dataitem
-                input_primary_real = recipe.input_data[0]
-                # The input_primary does not have to be the first, e.g. metis_det_dark only lists the GEO one as first input
-                is_input_primary_really_input = any(
-                    input_primary.name == inp.name for inp in recipe.input_data
-                )
-                if not is_input_primary_really_input:
-                    problems_recipe.append(f"{recipe.name} should not have {input_primary.name} as primary input but {input_primary_real.name}")
+            if recipecell.dataitems is not None:
+                for input_primary in recipecell.dataitems:
+                    input_primary_real = recipe.input_data[0]
+                    # The input_primary does not have to be the first, e.g. metis_det_dark only lists the GEO one as first input
+                    is_input_primary_really_input = any(
+                        input_primary.name == inp.name for inp in recipe.input_data
+                    )
+                    if not is_input_primary_really_input:
+                        problems_recipe.append(f"{recipe.name} should not have {input_primary.name} as primary input but {input_primary_real.name}")
             else:
                 # there is not really a way to get to the primary data item because then it would be necessary to follow the lines, e.g. for IFU
                 ...
+                input_primary = None
 
             # Try to see whether input is correct.
             for icell, cell in enumerate(recipecolumn):
@@ -865,20 +866,27 @@ def test_associationmatrices():
                     # TODO: Use the path? But cannot always do that.
                     # TODO: in reverse order?
                     for cell2 in [col[icell] for col in asso.matrix]:
-                        if cell2.dataitem is not None:
+                        if cell2.dataitems is not None:
                             # found it
-                            thedataitem = cell2.dataitem
+                            thedataitems = cell2.dataitems
                             break
                     else:
                         raise ValueError
                     is_input_really_input = any(
-                        thedataitem.name == inp.name for inp in recipe.input_data
+                        thedataitem.name == inp.name
+                        for inp in recipe.input_data
+                        for thedataitem in thedataitems
                     )
                     if not is_input_really_input:
-                        problems_recipe.append(f"{recipe.name} has {thedataitem.name} as input in the association matrix, but not in the recipe table")
+                        sthedataitem = "+".join(td.name for td in thedataitems)
+                        problems_recipe.append(f"{recipe.name} has {sthedataitem} as input in the association matrix, but not in the recipe table")
             # TODO: Vice-versa, check whether all input in the recipe table is
             # also in the association matrix. This is harder, because some
             # might be optional.
+
+            # Try to see whether the output is correct
+            for icell, cell in enumerate(recipecolumn):
+                print(cell)
 
             if problems_recipe:
                 problems.append((recipe_name, problems_recipe))
@@ -889,7 +897,7 @@ def test_associationmatrices():
                 for problem in problems_recipe:
                     print("   " + problem)
 
-    # assert not problems
+    assert not problems
 
 def test_tikz():
     """Test whether the names used in the tikz figures exist."""

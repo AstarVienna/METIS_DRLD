@@ -642,53 +642,53 @@ class Recipe:
 class AssociationMatrixCell:
     def __init__(
         self,
-        dtype=None,
-        dataitem=None,
+        # dtype=None,
+        dataitems=None,
         recipe=None,
         empty=None,
         connection=None,
+        tikz=None,
     ):
-        self.dtype = None
-        self.dataitem = None
         self.recipe = None
         self.empty = False
         self.connection = False
+        self.tikz = tikz
+        self.dataitems = dataitems
         if empty:
             self.empty = True
-            assert dtype is None
-            assert dataitem is None
+            # assert dtype is None
+            assert dataitems is None
             assert recipe is None
             assert connection is None
         elif connection:
             self.connection = True
-            assert dtype is None
-            assert dataitem is None
+            # assert dtype is None
+            assert dataitems is None
             assert recipe is None
             assert empty is None
         else:
-            if dataitem:
-                dtype2 = dtype.replace("NEW", "") if dtype else "RAW"
-                self.dataitem = DataItemReference(
-                    name=dataitem,
-                    dtype=dtype2,
-                )
             if recipe:
                 self.recipe = RecipeReference(
                     name=recipe,
                 )
 
     def __str__(self):
+        if self.dataitems is not None:
+            sdataitems = "+".join(di.name for di in self.dataitems)
+        else:
+            sdataitems = ""
         if self.empty:
             return "(empty)"
         elif self.connection:
             return "(connection)"
-        elif self.recipe and self.dataitem:
-            return f"({self.dataitem.dtype}-{self.dataitem.name}-{self.recipe.name})"
+        elif self.recipe and self.dataitems:
+            return f"({sdataitems}-{self.recipe.name})"
         elif self.recipe:
             return f"({self.recipe.name})"
-        elif self.dataitem:
-            return f"({self.dataitem.dtype}-{self.dataitem.name})"
+        elif self.dataitems:
+            return f"({sdataitems})"
         else:
+            raise ValueError
             return "ERROR"
 
     def __repr__(self):
@@ -711,7 +711,7 @@ class AssociationMatrix:
             therow = []
             for j, scol in enumerate(scols):
                 snodesep = "\\node"
-                snode = scol.split(snodesep)[1].replace("\n", "  ")
+                snode = scol.split(snodesep, maxsplit=1)[1].replace("\n", "  ")
                 patterns_to_test = [
                     re.compile(pp)
                     # Patterns are ordered from most specific to least specific.
@@ -731,7 +731,8 @@ class AssociationMatrix:
                         # (pers_pers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}};
                         # (dark_dark) [calibproduct]{\NEWPROD{MASTER_DARK_2RG}};
                         # (pers_pers)[extcalfile]{\STATCALIB * {PERSISTENCE_MAP}};
-                        r".*?(?P<dtype>[A-Z]+)\*?{(?P<dataitem>[A-Z0-9_\\]+).*?",
+                        # Handled below
+                        # r".*?(?P<dtype>[A-Z]+)\*?{(?P<dataitem>[A-Z0-9_\\]+).*?",
 
                         # (sci1_pers)[empty]{};
                         r".*?(?P<empty>\[empty\]).*?",
@@ -745,13 +746,30 @@ class AssociationMatrix:
                     match = re.match(pattern, snode)
                     if match:
                         groupd = match.groupdict()
-                        thecell = AssociationMatrixCell(**groupd)
+                        if "dataitem" in groupd:
+                            dataitem_name = groupd.pop("dataitem")
+                            dtype = groupd.get("dtype", "RAW")
+                            dataitem = DataItemReference(
+                                name=dataitem_name,
+                                dtype=dtype,
+                            )
+                            groupd["dataitems"] = [dataitem]
+                        thecell = AssociationMatrixCell(tikz=snode, **groupd)
                         therow.append(thecell)
                         if 'recipe' not in groupd:
                             assert "recipe" not in scol
                         break
                 else:
-                    raise ValueError(snode)
+                    pattern_dataitems = r".*?(?P<dtype>[A-Z]+)\*?{(?P<name>[A-Z0-9_\\]+).*?"
+                    matches = list(re.finditer(pattern_dataitems, snode))
+                    assert matches, ValueError(snode)
+                    dataitemrefs = [
+                        DataItemReference(**match.groupdict())
+                        for match in matches
+                    ]
+                    thecell = AssociationMatrixCell(dataitems=dataitemrefs, tikz=snode)
+                    therow.append(thecell)
+
             thematrix.append(therow)
 
         # pprint(thematrix)
