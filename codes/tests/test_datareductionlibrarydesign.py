@@ -816,6 +816,7 @@ def test_associationmatrices():
             # Get the recipe
             recipecell = recipecolumn[0]
             reciperef = recipecell.recipe
+            raw_dataitemref = recipecell.dataitem
             if reciperef is None:
                 # can happen if there is calibration data on the left
                 assert str(recipecell) == "(empty)"
@@ -831,6 +832,14 @@ def test_associationmatrices():
                     recipe = METIS_DataReductionLibraryDesign.recipes[recipe_name2]
                 else:
                     problems_recipe.append(f"{recipe_name} does not exist")
+
+            if raw_dataitemref is not None:
+                assert recipe_name
+                # TODO: support other organizations of the matrix?
+                assert raw_dataitemref.dtype == "RAW"
+                if raw_dataitemref.name not in METIS_DataReductionLibraryDesign.dataitems:
+                    problems_recipe.append(f"{recipe_name} is triggered by {raw_dataitemref.name} which does not exist")
+
             if not recipe:
                 problems.append((recipe_name, problems_recipe))
                 continue
