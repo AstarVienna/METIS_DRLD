@@ -452,7 +452,9 @@ header. The images are not resampled by this recipe, this is left to
 
 \begin{figure}[hb]
   \centering
-  \includegraphics[width=0.9\textwidth]{lm_img_calibrate}
+  \def \globalscale {0.700000}
+  \fontsize{10}{12}\selectfont
+  \input{tikz/metis_lm_img_calibrate}
   \caption[Recipe: \REC*{metis_lm_img_calibrate}]{\REC*{metis_lm_img_calibrate} --
     Convert images to physical flux units and update FITS header}
   \label{fig:metis_lm_img_calibrate}

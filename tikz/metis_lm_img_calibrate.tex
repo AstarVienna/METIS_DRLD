@@ -10,19 +10,19 @@
   \sffamily
 
   %% Grid for orientation. Comment out for final figure!
- \draw[help lines, green](-8, 0) grid (8, 21);
+% \draw[help lines, green](-8, 0) grid (8, 21);
 
   %%% Put workflow commands here:
   %% Main reduction workflow
 
   \node (template) [template]{%
-   METIS\_lm\_img\_calibrate
+   \TPL{METIS_lm_img_calibrate}
   };
 
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input]{%
-    \textsl{N} LM\_SCI\_BKG\_SUBTRACTED
+    \textsl{N} \PROD{LM_SCI_BKG_SUBTRACTED}
   };
 
   \node (step1) [below=2cm of input, redstep]{%
@@ -66,7 +66,7 @@
   \node (connectpers) [connection] at
   ($(input)!0.35!(step1)$) {};
   \node (persistence) [left=3.95cm of connectpers,yshift=0.8cm, calproduct]{%
-    FLUXCAL\_TAB
+    \PROD{FLUXCAL_TAB}
   };
   \draw (persistence.east) -- ++(1., 0) -- ++(0., 0.8) -- ++(3., 0);
 
@@ -119,12 +119,12 @@
  % \node (connectfluxcal) [connection] at
  % ($(step5)!0.8!(stop-t)$) {};
   \node (fluxcal) [right=2cm of step2, calproduct]{%
-    LM\_SCI\_CALIBRATED
+    \PROD{LM_SCI_CALIBRATED}
   };
   \draw (step2) -- (fluxcal);
 
   \node (disttab) [left=2cm of step2, calproduct]{%
-    LM\_DISTORTION\_TABLE
+    \PROD{LM_DISTORTION_TABLE}
   };
   \draw (disttab)-- (step2);
 
