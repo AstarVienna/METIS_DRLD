@@ -884,9 +884,19 @@ def test_associationmatrices():
             # also in the association matrix. This is harder, because some
             # might be optional.
 
-            # Try to see whether the output is correct
-            for icell, cell in enumerate(recipecolumn):
-                print(cell)
+            # Try to see whether the output is correct.
+            # Skip the first cell, as that is the raw data which is checked elsewhere.
+            recipe_output = [do.name for do in recipe.output_data] if recipe is not None else []
+            for icell, cell in enumerate(recipecolumn[1:], 1):
+                if cell.dataitems is None:
+                    continue
+                for diref in cell.dataitems:
+                    if diref.name not in METIS_DataReductionLibraryDesign.dataitems:
+                        problems_recipe.append(f"{recipe_name} claims to produce {diref.name}, which does not exist")
+                    elif diref.name not in recipe_output:
+                        problems_recipe.append(f"{recipe_name} listed as producing {diref.name}, but it doesn't, only {recipe_output}")
+
+
 
             if problems_recipe:
                 problems.append((recipe_name, problems_recipe))
