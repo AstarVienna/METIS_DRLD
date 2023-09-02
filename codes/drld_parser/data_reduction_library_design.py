@@ -86,7 +86,7 @@ def guess_dataitem_type(name, raise_exception=False):
         print([rec.name for rec, _ in direfs_input])
         print(datatypes_output)
         print([rec.name for rec, _ in direfs_output])
-        assert not raise_exception
+        assert not raise_exception, f"{name} has different types, see output above"
 
     return (datatypes_input + datatypes_output)[0]
 
@@ -999,7 +999,7 @@ class DataReductionLibraryDesign:
             name = dataitem.name
             dataitem_existing = dataitems3.get(name, None)
             # E.g. MASTER_DARK_2RG can be added while MASTER_DARK_det is there
-            assert dataitem_existing is None or "det" in dataitem_existing.name
+            assert dataitem_existing is None or "det" in dataitem_existing.name, f"{dataitem_existing} is a duplicate"
             dataitems3[dataitem.name] = dataitem
 
             if "det" in name:
@@ -1022,6 +1022,12 @@ class DataReductionLibraryDesign:
         not_templates = [
             "METIS_IMAGE",
             "METIS_CUBE",
+        ] + [
+            # These are still mentioned in filenames and such.
+            "metis_ifu_sci_postprocess",
+            "metis_ifu_sci_process",
+            "metis_ifu_std_process",
+            "metis_ifu_tellcorr",
         ] + list(self.recipes.keys())
         not_templates += [rec.lower() for rec in not_templates]
         template_names_normal = []
@@ -1075,10 +1081,16 @@ class DataReductionLibraryDesign:
 
         # Everything starts with metis_ except detmon_ir_lg
         not_recipes = {"metis_do_stuff", "metis_", ""}
+        all_lines = [
+            line
+            for fn in self.filenames_tex
+            for line in open(fn, encoding="utf8").readlines()
+            if not line.strip().startswith("%")
+        ]
         recipe_names_u = [
             recname.replace("\\", "")
             for fn in self.filenames_tex
-            for recname in re.findall("\\\\REC{(.*?)}", open(fn, encoding="utf8").read())
+            for recname in re.findall("\\\\REC\*?{(.*?)}", "\n".join(all_lines))
             if recname not in not_recipes
         ]
         return sorted(set(recipe_names_u))
