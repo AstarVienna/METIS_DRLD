@@ -444,8 +444,9 @@ science data if both are available and of sufficient quality.
                        & \CODE{molecfit} parameters                                                      \\
                        & atmospheric profile incl.\ radiometer data                                      \\
                        & line spread kernel                                                              \\
-  Algorithm:           & extract 1D spectrum                                                             \\
-                       & Application of molecfit                                                         \\
+  Algorithm:           & Extract 1D spectrum of science object or standard star.                         \\
+                       & Compute telluric correction.                                                    \\
+                       & Compute conversion to physical units as function of wavelength.                 \\
   Output data:         & \PROD{IFU_TELLURIC}                                                             \\
                        & \PROD{FLUXCAL_TAB} (for standard stars)                                         \\
                        & \PROD{IFU_SCI_REDUCED_1D} or \PROD{IFU_STD_REDUCED_1D} (1D)                     \\
