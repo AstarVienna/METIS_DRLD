@@ -23,13 +23,13 @@
     \node[above] (RECscireduce_raw){\recipebox{\RAW{IFU_SCI_RAW}}{\REC*{metis_ifu_reduce}}}; &
 %      \recipebox{\RAW{IFU_STD_RAW}}}{\REC{metis_ifu_std_process}}}
 %      \recipenotitlebox{\REC{metis_ifu_std_process}}}
-%      so actually this is now just the same as tellcorr
-    \node[above] (RECstd_raw){\recipenotitlebox{\REC{metis_ifu_tellcorr}}}; &
-    \node[above] (RECtac_raw){\recipenotitlebox{\REC{metis_ifu_tellcorr}}}; &
+%      so actually this is now just the same as telluric
+    \node[above] (RECstd_raw){\recipenotitlebox{\REC{metis_ifu_telluric}}}; &
+    \node[above] (RECtac_raw){\recipenotitlebox{\REC{metis_ifu_telluric}}}; &
 %      \recipebox{\RAW{IFU_SCI_RAW}}}{\REC{metis_ifu_sci_process}}}
 %      \recipenotitlebox{\REC{metis_ifu_sci_process}}}
-    \node[above] (RECsci1_raw){\recipenotitlebox{\REC*{metis_ifu_sci_calibrate}}}; &
-    \node[above] (RECsci2_raw){\recipenotitlebox{\REC{metis_ifu_sci_postprocess}}}; \\
+    \node[above] (RECsci1_raw){\recipenotitlebox{\REC*{metis_ifu_calibrate}}}; &
+    \node[above] (RECsci2_raw){\recipenotitlebox{\REC{metis_ifu_postprocess}}}; \\
 %    &
 %    \node[above] (adi_raw){%
 %      \recipenotitlebox{\REC{metis_ifu_adi_cgrph}}}
@@ -134,7 +134,7 @@
     \node (RECscireduce_DIscireduced)[scienceproduct]{\EXTCALIB{IFU_SCI_REDUCED}};
     \node (RECscireduce_DIscibackground)[scienceproduct,below=0.5cm]{\EXTCALIB{IFU_SCI_BACKGROUND}};
     \node (RECscireduce_DIscireducedcube)[scienceproduct,below=1.25cm]{\EXTCALIB{IFU_SCI_REDUCED_CUBE}};
-    \node (RECscireduce_DIsciobject1d)[scienceproduct,below=2.0cm]{\EXTCALIB{IFU_SCI_OBJECT_1D}};
+    \node (RECscireduce_DIsciobject1d)[scienceproduct,below=2.0cm]{\EXTCALIB{IFU_SCI_REDUCED_1D}};
     \draw [-] (RECscireduce_DIscireduced) -- (RECscireduce_DIscibackground) -- (RECscireduce_DIscireducedcube) -- (RECscireduce_DIsciobject1d); &
     \node (RECstd_DIscireduced)[empty]{}; &
     \node (RECtac_DIscireduced)[empty]{}; &

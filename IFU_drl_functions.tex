@@ -4,7 +4,7 @@
     \begin{recipedef}
         Name: & \DRL{ifu_wavecal} \\
         Purpose: & Find the pixel-to-wavelength conversion for IFU exposures \\
-        Used in recipes: & \REC{metis_ifu_sci_process}\\
+        Used in recipes: & \REC{metis_ifu_reduce}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
         Input: & \texttt{const hdrl\_image * input} \\
@@ -24,7 +24,7 @@
     \begin{recipedef}
         Name: & \DRL{ifu_grid_output} \\
         Purpose: & Obtain maximal useful resolution from a set of dithered exposures \\
-        Used in recipes: & \REC{metis_ifu_sci_postprocess}\\
+        Used in recipes: & \REC{metis_ifu_postprocess}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
         Input: & $6\times$ \texttt{const hdrl\_image * input} \\
@@ -44,7 +44,7 @@
     \begin{recipedef}
         Name: & \DRL{ifu_resampling} \\
         Purpose: & Obtain maximal useful resolution from a set of dithered exposures \\
-        Used in recipes: & \REC{metis_ifu_sci_postprocess}\\
+        Used in recipes: & \REC{metis_ifu_postprocess}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
         Input: & $6\times$ \texttt{const hdrl\_image * input} \\
@@ -64,7 +64,7 @@
     \begin{recipedef}
         Name: & \DRL{ifu_coadd} \\
         Purpose: & Obtain maximal useful resolution from a set of dithered exposures \\
-        Used in recipes: & \REC{metis_ifu_sci_postprocess}\\
+        Used in recipes: & \REC{metis_ifu_postprocess}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
         Input: & $6\times$ \texttt{const hdrl\_image * input} \\
@@ -72,7 +72,7 @@
         %QC outputs: & None\\
         %Output FITS files: & None \\
         Outputs:    & \PROD{IFU_SCI_COADD} \\
-                    & \PROD{IFU_SCI_COADD_ERROR} \\
+%                    & \PROD{IFU_SCI_COADD_ERROR} \\
                     & \texttt{cpl\_error\_code} \\
         General description: & Co-add the properly aligned exposures \\
         Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
