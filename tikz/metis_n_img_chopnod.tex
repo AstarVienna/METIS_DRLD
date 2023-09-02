@@ -1,0 +1,139 @@
+% % Document preamble. Comment out for final figure! Footer too!
+% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+% \usepackage{hyperref}
+% \usepackage{listings}
+% \input{black_style}
+% \input{styles_data}
+% \begin{document}
+
+
+\input{black_style}
+\input{recipe_config}
+
+
+\begin{tikzpicture}
+  [x=1cm,
+  y=-1cm,
+  align=center,
+  node distance=2cm and 3.5cm]
+  \sffamily
+
+
+  %% template names
+  \node (template) [template] {%
+    \TPL{METIS_img_n_cal_standard}         \\
+    \TPL{METIS_img_n_obs_AutoChopNod}      \\
+    \TPL{METIS_img_n_obs_GenericChopNod}   \\
+    \TPL{METIS_img_n_cvc_obs_AutoChop}     \\
+    \TPL{METIS_img_n_cal_psf}              \\
+    \TPL{METIS_img_lmn_obs_AutoChopNod}    \\
+    \TPL{METIS_img_lmn_obs_GenericChopNod} };
+
+  \pic (start)[below=0.75cm of template]{start};
+
+
+  %% input box
+  \node (input) [below=0.75cm of start-m, input] {%
+    \textsl{N} \RAW{N_IMAGE_SCI_RAW} or \RAW{N_IMAGE_STD_RAW}};
+%    \textsl{M} \RAW{IFU_SKY_RAW}};
+
+
+  %% algorithm steps
+  \node (step_linearity) [below=2.0cm of input, redstep]{%
+    Correct non-linearity};
+
+  \node (step_persistence) [below of=step_linearity, redstep]{%
+    Correct persistence};
+
+  \node (step_dark) [below of=step_persistence, redstep]{%
+    subtract dark};
+
+  \node (step_flat) [below of=step_dark, redstep]{%
+    divide by flat};
+
+  \node (step_masks) [below of=step_flat, redstep]{%
+    analyse and remove masked regions};
+
+  \pic (stop) [below=2.5cm of step_masks] {stop};
+
+
+  %% Connections
+  \draw (template) -- (input);
+  \draw (input) -- (step_linearity);
+  \draw (step_linearity) -- (step_persistence);
+  \draw (step_persistence) -- (step_dark);
+  \draw (step_dark) -- (step_flat);
+  \draw (step_flat) -- (step_masks);
+  \draw (step_masks) -- (stop-t);
+
+
+  %% External data
+
+  % External input
+  \node (connect_linearity) [connection] at
+  ($(input)!0.65!(step_linearity)$){};
+  \node (linearity) [left=of connect_linearity, external]{%
+    \EXTCALIB{LINEARITY_GEO}};
+  \draw (linearity) -- (connect_linearity);
+
+  \node (connect_persistence) [connection] at
+  ($(step_linearity)!0.5!(step_persistence)$){};
+  \node (persistence) [left=of connect_persistence, external]{%
+    \EXTCALIB{PERSISTENCE_MAP}};
+  \draw (persistence) -- (connect_persistence);
+
+%   \node (connectparams) [connection] at
+%   ($(input)!0.7!(step_dark.north)$){};
+%   \node (params) [left=of connectparams, params]{%
+%     Recipe params:\\
+%     INS.IMG.SETUP};
+%   \draw (params) -- (connectparams);
+
+  \node (connect_masterdark) [connection] at
+  ($(step_persistence)!0.5!(step_dark)$){};
+  \node (masterdark) [left=of connect_masterdark, calproduct]{%
+    \STATCALIB{MASTER_DARK_GEO}};
+  \draw (masterdark) -- (connect_masterdark);
+
+  \node (connect_masterflat) [connection] at
+  ($(step_dark)!0.5!(step_flat)$){};
+  \node (flatin) [left=of connect_masterflat, calproduct]{%
+    \STATCALIB{MASTER_IMG_FLAT_LAMP_N}\\
+    or \STATCALIB{MASTER_IMG_FLAT_TWILIGHT_N}};
+  \draw (flatin) -- (connect_masterflat);
+
+  \node (connect_bpm) [connection] at
+  ($(step_flat)!0.5!(step_masks)$){};
+  \node (bpmin) [left=of connect_bpm, calproduct]{%
+    \STATCALIB{BADPIX_MAP_GEO}};
+  \draw (bpmin) -- (connect_bpm);
+
+
+  % External output
+  \node (connect_scired) [connection] at
+    ($(step_masks)!0.3!(stop-t)$){};
+  \node (scired) [right=of connect_scired, external]{%
+    \PROD{N_SCI_BKG_SUBTRACTED}};
+  \draw (connect_scired) -- (scired);
+
+  \node (connect_stdred) [connection] at
+    ($(connect_scired)!0.5!(stop-t)$){};
+  \node (stdred) [right=of connect_stdred, external]{%
+    \PROD{N_STD_BKG_SUBTRACTED}};
+  \draw (connect_stdred) -- (stdred);
+
+
+  %% Frame around recipe
+  \draw [frame] ($(input)!0.35!(step_linearity) -(2.85,0)$) rectangle
+  ($(step_masks)!0.75!(stop-t) + (2.85,0)$);
+  \node [framecolor, anchor=north west] at
+  ($(input)!0.35!(step_linearity) - (2.85,0)$){%
+    \textsl{metis\_n\_img\_chopnod}};
+
+    
+\end{tikzpicture}
+\input{normal_style}
+
+
+% % Document footer. Comment out for final figure! Header too!
+% \end{document}
