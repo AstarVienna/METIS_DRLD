@@ -219,6 +219,9 @@ HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA = {
     "metis_spec_n_acq",
 }
 
+HACK_RECIPES_THAT_DO_NOT_NEED_A_FIGURE = {
+    "metis_pupil_imaging",
+}
 
 def hack_rename_template_header(name_template_file, name_template_header):
     """Some template files on the wiki have incorrect headers.

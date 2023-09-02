@@ -9,19 +9,19 @@
   \sffamily
 
   %% Grid for orientation. Comment out for final figure!
- \draw[help lines, green](-8, 0) grid (8, 21);
+% \draw[help lines, green](-8, 0) grid (8, 21);
 
   %%% Put workflow commands here:
   %% Main reduction workflow
 
   \node (template) [template]{%
-   METIS\_lm\_img\_std\_process
+   \TPL{METIS_lm_img_std_process}
   };
 
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input]{%
-    \textsl{N} LM\_STD\_AST\_CALIB
+    \textsl{N} \PROD{LM_STD_BKG_SUBTRACTED}
   };
 
   \node (step1) [below=2cm of input, redstep]{%
@@ -67,7 +67,7 @@
   \node (connectpers) [connection] at
   ($(input)!0.35!(step1)$) {};
   \node (persistence) [left=3.95cm of connectpers,yshift=0.8cm, external]{%
-    FLUXSTD\_CATALOG
+    \EXTCALIB{FLUXSTD_CATALOG}
   };
   \draw (persistence.east) -- ++(1., 0) -- ++(0., 0.8) -- ++(3., 0);
 
@@ -99,10 +99,10 @@
   %\draw (distortion.east) -- ++(1., 0) -- ++(0., -0.3) -- ++(1., 0);
 
   % Further input
-  \node (molecparams) [left=3.95cm of connectpers,yshift=-0.8cm, params]{%
-    recipe parameters:\\INS.IMG.SETUP
-  };
-  \draw (molecparams.east) -- ++(0.25, 0) -- ++(0., -0.8) -- ++(3.75, 0);;
+%  \node (molecparams) [left=3.95cm of connectpers,yshift=-0.8cm, params]{%
+%    recipe parameters:\\INS.IMG.SETUP
+%  };
+%  \draw (molecparams.east) -- ++(0.25, 0) -- ++(0., -0.8) -- ++(3.75, 0);;
 
   %\node (stdcat) [left=2cm of step5, external] {%
    % FLUXSTD\_CATALOG
@@ -113,14 +113,14 @@
   %\node (connectreduced) [connection] at
  % ($(step5)!0.4!(stop-t)$) {};
   \node (reduced) [right=2cm of step2, calproduct]{%
-    LM\_STD\_COMBINED
+    \PROD{LM_STD_COMBINED}
   };
   \draw (step2) -- (reduced);
 
  % \node (connectfluxcal) [connection] at
  % ($(step5)!0.8!(stop-t)$) {};
   \node (fluxcal) [right=2cm of step4, calproduct]{%
-    FLUXCAL\_TAB
+    \PROD{FLUXCAL_TAB}
   };
   \draw (step4) -- (fluxcal);
 
