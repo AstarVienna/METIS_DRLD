@@ -1,12 +1,3 @@
-% % Document preamble. Comment out for final figure! Footer too!
-% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
-% \usepackage{hyperref}
-% \usepackage{listings}
-% \input{black_style}
-% \input{styles_data}
-% \begin{document}
-
-
 \input{black_style}
 \input{recipe_config}
 
@@ -21,19 +12,37 @@
 
   %% template names
   \node (template) [template] {%
-    METIS\_img\_lm\_cal\_standard\\
-    METIS\_img\_lm\_*\_obs\_*};
+%    METIS\_img\_lm\_cal\_standard\\
+%    METIS\_img\_lm\_*\_obs\_*
+    \TPL{METIS_img_lm_cal_standard}  \\
+    \TPL{METIS_img_lm_obs_AutoJitter} \\
+    \TPL{METIS_img_lm_obs_GenericOffset} \\
+    \TPL{METIS_img_lm_obs_FixedSkyOffset} \\
+    \TPL{METIS_img_lm_app_obs_FixedOffset} \\
+    \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
+    \TPL{METIS_img_lm_cal_psf}             \\
+    % LMN combined templates:
+    \TPL{METIS_img_lmn_obs_AutoChopNod} \\
+    \TPL{METIS_img_lmn_obs_GenericChopNod} \\
+    % All IFU templates also create an LM image:
+    \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
+    \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
+    \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
+    \TPL{METIS_ifu_ext_obs_GenericOffset}                                                    \\
+    \TPL{METIS_ifu_vc_obs_FixedSkyOffset}                                                    \\
+    \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset}                                                \\
+    \TPL{METIS_ifu_app_obs_Stare}                                                            \\
+    \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
+    \TPL{METIS_ifu_cal_psf}                                                                  \\
+  };
 
   \pic (start)[below=0.75cm of template]{start};
 
 
   %% input box
   \node (input) [below=0.75cm of start-m, input] {%
-    \textsl{N} \RAW{LM_IMAGE_SCI_RAW} \\
-% TODO: This recipe is also for STD data
-%     \textsl{N} \RAW{LM_STD_RAW} \\
-    \textsl{M} \RAW{IFU_SKY_RAW}};
-
+    \textsl{N} \RAW{LM_IMAGE_SCI_RAW} or\\
+    \textsl{N} \RAW{LM_IMAGE_STD_RAW}};
 
   %% algorithm steps
   \node (step_linearity) [below=2.0cm of input, redstep]{%
@@ -99,11 +108,11 @@
     or \STATCALIB{MASTER_IMG_FLAT_TWILIGHT_LM}};
   \draw (flatin) -- (connect_masterflat);
 
-  \node (connect_bpm) [connection] at
-  ($(step_flat)!0.5!(step_masks)$){};
-  \node (bpmin) [left=of connect_bpm, calproduct]{%
-    \STATCALIB{BADPIX_MAP_2RG}};
-  \draw (bpmin) -- (connect_bpm);
+%  \node (connect_bpm) [connection] at
+%  ($(step_flat)!0.5!(step_masks)$){};
+%  \node (bpmin) [left=of connect_bpm, calproduct]{%
+%    \STATCALIB{BADPIX_MAP_2RG}};
+%  \draw (bpmin) -- (connect_bpm);
 
 
   % External output
@@ -125,12 +134,8 @@
   ($(step_masks)!0.75!(stop-t) + (2.85,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.35!(step_linearity) - (2.85,0)$){%
-    \textsl{metis\_lm\_img\_basic\_reduce}};
+    \REC{metis_lm_img_basic_reduce}};
 
     
 \end{tikzpicture}
 \input{normal_style}
-
-
-% % Document footer. Comment out for final figure! Header too!
-% \end{document}

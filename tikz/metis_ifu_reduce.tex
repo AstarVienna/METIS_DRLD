@@ -1,3 +1,4 @@
+\input{black_style}
 \input{recipe_config}
 
 \begin{tikzpicture}
@@ -30,32 +31,34 @@
 
   \node (input) [below=0.75cm of start-m, input]{%
     \textsl{N} \RAW{IFU_SCI_RAW} or \\
-    \textsl{N} \RAW{IFU_STD_RAW}
+    \textsl{N} \RAW{IFU_STD_RAW} and \\
+    % TODO: Decide how to represent these IFU_SKY_RAW observations
+    \textsl{M} \RAW{IFU_SKY_RAW}
   };
 
-  \node (step1) [below=2cm of input, redstep]{%
+  \node (step_signature) [below=6cm of input, redstep]{%
     detector signature\\
     removal
   };
 
-  \node (step2)[below=0.7cm of step1, redstep]{%
+  \node (step_background)[below=0.7cm of step_signature, redstep]{%
     background\\
     subtraction
   };
 
-  \node (step3)[below=0.7cm of step2, redstep]{%
-    flux calibration
-  };
+%  \node (step_fluxcal)[below=0.7cm of step_background, redstep]{%
+%    flux calibration
+%  };
 
-  \node (step4) [below=0.7cm of step3, redstep]{%
+  \node (step_rectification) [below=3.0cm of step_background, redstep]{%
     rectification
   };
 
-  \node (step5) [below=0.7cm of step4, redstep]{%
+  \node (step_reconstruction) [below=2.0cm of step_rectification, redstep]{%
     Image\,reconstruction
   };
 
-%  \node (step6) [below=0.7cm of step5, redstep]{%
+%  \node (step6) [below=0.7cm of step_reconstruction, redstep]{%
 %    1D extraction
 %  };
 
@@ -63,59 +66,58 @@
 %    telluric correction
 %  };
 
-  \pic (stop) [below=3.5cm of step5]{stop};
+  \pic (stop) [below=2.0cm of step_reconstruction]{stop};
 
   %% Connections
   \draw (template) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (step2);
-  \draw (step2) -- (step3);
-  \draw (step3) -- (step4);
-  \draw (step4) -- (step5);
-  \draw (step5) -- (stop-t);
+  \draw (input) -- (step_signature);
+  \draw (step_signature) -- (step_background);
+  \draw (step_background) -- (step_rectification);
+%  \draw (step_fluxcal) -- (step_reconstruction);
+  \draw (step_rectification) -- (step_reconstruction);
+  \draw (step_reconstruction) -- (stop-t);
 %  \draw (step6) -- (step7);
 %  \draw (step7) -- (stop-t);
 
   %% Input
-  \node (connectpers) [connection] at
-  ($(input)!0.35!(step1)$) {};
-  \node (persistence) [left=3.95cm of connectpers, external]{%
-    \EXTCALIB{PERSISTENCE_MAP}
-  };
+  % Input for detector signature removal (step_signature)
+
+  \node (connectpers) [connection] at ($(input)!0.25!(step_signature)$) {};
+  \node (persistence) [left=of connectpers, external]{\EXTCALIB{PERSISTENCE_MAP}};
   \draw [-](persistence) -- (connectpers);
 
-  % Input for detector signature removal (step1)
-  \node (bpmin) [left=2cm of step1, yshift=0.8cm, calproduct]{%
-    \PROD{BADPIX_MAP_IFU}
-  };
-  \draw (bpmin.east) -- ++(1., 0) -- ++(0., 0.6) -- ++(1., 0);
+  \node (connectnonlin) [connection] at ($(input)!0.40!(step_signature)$) {};
+  \node (nonlin) [left=of connectnonlin, calproduct]{\STATCALIB{LINEARITY_IFU}};
+  \draw [-](nonlin) -- (connectnonlin);
 
-  \node (darkin) [left=2cm of step1, calproduct] {%
-    \PROD{MASTER_DARK_IFU}
-  };
-  \draw (darkin) -- (step1);
+  \node (connectbpm) [connection] at ($(input)!0.55!(step_signature)$) {};
+  \node (bpmin) [left=of connectbpm, calproduct]{\PROD{BADPIX_MAP_IFU}};
+  \draw [-](bpmin) -- (connectbpm);
+%  \draw (bpmin.east) -- ++(1., 0) -- ++(0., 0.6) -- ++(1., 0);
 
-  \node (flatin) [left=2cm of step1, yshift=-0.8cm, calproduct]{%
-    \PROD{MASTER_FLAT_IFU}
-  };
-  \draw (flatin.east) -- ++(1., 0) -- ++(0., -0.6) -- ++(1., 0);
+  \node (connectdark) [connection] at ($(input)!0.70!(step_signature)$) {};
+  \node (darkin) [left=of connectdark, calproduct] {\PROD{MASTER_DARK_IFU}};
+  \draw (darkin) -- (connectdark);
 
-  % Input for flux calibration (step3)
-  \node (fcalin) [left=2cm of step3, calproduct]{%
-    \PROD{FLUXCAL_TAB}
-  };
-  \draw (fcalin) -- (step3);
+  \node (connectflat) [connection] at ($(input)!0.85!(step_signature)$) {};
+  \node (flatin) [left=of connectflat, calproduct]{\PROD{RSRF_IFU}};
+  \draw (flatin.east) -- (connectflat);
+%  \draw (flatin.east) -- ++(1., 0) -- ++(0., -0.6) -- ++(1., 0);
 
-  % Input for rectification (step4)
-  \node (wavecal) [left=2cm of step4, yshift=0.4cm, calproduct]{%
-    \PROD{IFU_WAVECAL}
-  };
-  \draw (wavecal.east) -- ++(1., 0) -- ++(0., 0.3) -- ++(1., 0);
+  % Input for flux calibration (step_fluxcal)
+%  \node (fcalin) [left=2cm of step_fluxcal, calproduct]{%
+%    \PROD{FLUXCAL_TAB}
+%  };
+%  \draw (fcalin) -- (step_fluxcal);
 
-  \node (distortion) [left=2cm of step4, yshift=-0.4cm, calproduct]{%
-    \PROD{IFU_DISTORTION_TABLE}
-  };
-  \draw (distortion.east) -- ++(1., 0) -- ++(0., -0.3) -- ++(1., 0);
+  % Input for rectification (step_reconstruction)
+  \node (connectwavecal) [connection] at ($(step_background)!0.55!(step_rectification)$) {};
+  \node (wavecal) [left=of connectwavecal, calproduct]{\PROD{IFU_WAVECAL}};
+  \draw (wavecal) -- (connectwavecal);
+
+  \node (connectdistortion) [connection] at ($(step_background)!0.8!(step_rectification)$) {};
+  \node (distortion) [left=of connectdistortion, calproduct]{\PROD{IFU_DISTORTION_TABLE}};
+  \draw (distortion) -- (connectdistortion);
 
   % Further input
 %  \node (molecparams) [left=2cm of step7, params]{%
@@ -126,33 +128,37 @@
 
   %% Output
 
-  % Output of background subtraction (step2)
-  \node (backgroundreduced) [right=1.cm of step2, calproduct]{%
+  % Output of background subtraction (step_background)
+  \node (connect_background) [connection] at ($(step_background)!0.2!(step_rectification)$) {};
+  \node (backgroundreduced) [right=of connect_background, calproduct]{%
     \PROD{IFU_SCI_BACKGROUND} or \\
-    \PROD{IFU_SCI_BACKGROUND}
+    \PROD{IFU_STD_BACKGROUND}
   };
-  \draw (step2) -- (backgroundreduced);
+  \draw (connect_background) -- (backgroundreduced);
 
-  % Output of flux calibration (step3)
-  \node (sci_reduced) [right=1cm of step3, sciproduct]{%
+  % Output of reduce
+  \node (connect_reduced) [connection] at ($(step_background)!0.45!(step_rectification)$) {};
+  \node (sci_reduced) [right=of connect_reduced, sciproduct]{%
     \PROD{IFU_SCI_REDUCED} or \\
     \PROD{IFU_STD_REDUCED}
   };
-  \draw (step3) -- (sci_reduced);
+  \draw (connect_reduced) -- (sci_reduced);
 
-  % Output of rectification (step4)
-  \node (sci_reduced_cube) [right=1cm of step4, sciproduct]{%
+  % Output of rectification (step_reconstruction)
+  \node (connect_reducedcube) [connection] at ($(step_rectification)!0.5!(step_reconstruction)$) {};
+  \node (sci_reduced_cube) [right=of connect_reducedcube, sciproduct]{%
     \PROD{IFU_SCI_REDUCED_CUBE} or \\
     \PROD{IFU_STD_REDUCED_CUBE}
   };
-  \draw (step4) -- (sci_reduced_cube);
+  \draw (connect_reducedcube) -- (sci_reduced_cube);
 
-  % Output of image reconstruction (step5)
-  \node (sci_combined) [right=1cm of step5, sciproduct]{%
+  % Output of image reconstruction (step_reconstruction)
+  \node (connect_combinedcube) [connection] at ($(step_reconstruction)!0.35!(stop-t)$) {};
+  \node (sci_combined) [right=of connect_combinedcube, sciproduct]{%
     \PROD{IFU_SCI_COMBINED} or \\
     \PROD{IFU_STD_COMBINED}
   };
-  \draw (step5) -- (sci_combined);
+  \draw (connect_combinedcube) -- (sci_combined);
 
   % Output of 1d extraction (step6)
 %  \node (sci_object) [right=1cm of step6, sciproduct]{%
@@ -167,10 +173,11 @@
 %  \draw (step7) -- (sci_reduced_tac);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.5!(step1) - (3.5,0)$)
-  rectangle ($(step5)!0.5!(stop-t) + (2.5,0)$);
+  \draw [frame] ($(input)!0.15!(step_signature) - (2.5,0)$)
+  rectangle ($(step_reconstruction)!0.5!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.5!(step1) - (3.5, 0)$) {%
+  ($(input)!0.15!(step_signature) - (2.5, 0)$) {%
     \REC{metis_ifu_reduce}};
 
 \end{tikzpicture}
+\input{normal_style}

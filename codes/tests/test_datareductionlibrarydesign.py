@@ -1,4 +1,5 @@
 import glob
+import re
 
 # noinspection PyUnresolvedReferences
 from pprint import pprint
@@ -21,6 +22,7 @@ from ..drld_parser.hacks import (
     HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS,
     HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA,
     HACK_RECIPES_THAT_DO_NOT_NEED_A_FIGURE,
+    HACK_RECIPES_THAT_WERE_NOT_GOING_TO_CHECK_TIKZ_FOR,
 )
 from ..drld_parser.template_manual import METIS_TemplateManual
 
@@ -919,10 +921,11 @@ def test_associationmatrices():
 
 def test_tikz():
     """Test whether the names used in the tikz figures exist."""
-    problems = []
+    problems = {}
     dir_tikz = METIS_DataReductionLibraryDesign.path_drld / "tikz"
     dir_figures = METIS_DataReductionLibraryDesign.path_drld / "figures"
     for name_recipe, recipe in METIS_DataReductionLibraryDesign.recipes.items():
+        problems_recipe = []
         name_recipe_lower = name_recipe.lower()
         if name_recipe == name_recipe_lower:
             names = [name_recipe]
@@ -937,10 +940,79 @@ def test_tikz():
         if len(fns_that_exist) != 1:
             if name_recipe in HACK_RECIPES_THAT_DO_NOT_NEED_A_FIGURE:
                 continue
-            problems.append(f"There there should be exactly one figure for {name_recipe} , not {fns_that_exist}")
+            problems_recipe.append(f"There there should be exactly one figure for {name_recipe} , not {fns_that_exist}")
 
-    for problem in problems:
-        print(problem)
+        # If there are no figures, bail
+        if not fns_that_exist:
+            continue
+
+        fn_to_use = fns_that_exist[0]
+        # If there is no tikz figure, bail.
+        if fn_to_use.suffix != ".tex":
+            continue
+
+        # Let's skip some of the ADI for now
+        if name_recipe in HACK_RECIPES_THAT_WERE_NOT_GOING_TO_CHECK_TIKZ_FOR:
+            continue
+
+        # This is a tikz figure, lets see whether it makes sense.
+        data1 = fn_to_use.read_text(encoding="utf-8")
+        data2 = [
+            line
+            for line in data1.splitlines()
+            if not line.strip().startswith("%")
+        ]
+        data = "\n".join(data2)
+
+        if "black_style" not in data:
+            problems_recipe.append(f"The figure for {name_recipe} does not set black_style")
+        if "normal_style" not in data:
+            problems_recipe.append(f"The figure for {name_recipe} does not set normal_style back")
+
+        # pattern = r"\\(RAW|PROD|EXTCALIB|STATCALIB){(.*?)}"
+        pattern = r"\\(RAW|PROD|EXTCALIB|STATCALIB|TPL|REC){(.*?)}"
+        matches = re.findall(pattern, data)
+        names_in_figure = [
+            name.lower() if name.startswith("METIS_") else name
+            for _dtype, name in matches
+        ]
+        names_in_table = [diref.name for diref in recipe.input_data + recipe.output_data] + recipe.templates + [name_recipe]
+        for name_di in names_in_figure:
+            names_di_expanded = [
+                name_di.replace("det", lmn)
+                for lmn in ["LM", "N", "IFU", "2RG", "GEO", "det"]
+            ]
+            is_name_used = any(
+                name in names_in_table
+                for name in names_di_expanded
+            )
+            if not is_name_used:
+                problems_recipe.append(f"The figure for {name_recipe} has {name_di} as input/output/template/recipe, but the table doesn't!")
+
+        # Vice-versa, does the recipe use dataitems that are not in the figures?
+        for name_di in names_in_table:
+            names_di_expanded = [
+                name_di.replace(lmn, "det")
+                for lmn in ["LM", "N", "IFU", "2RG", "GEO", "det"]
+            ]
+            is_name_used = any(
+                name in names_in_figure
+                for name in names_di_expanded
+            )
+            if not is_name_used:
+                problems_recipe.append(f"The table for {name_recipe} has {name_di} as input/output/template/recipe, but it is not in the figure!")
+
+
+        if problems_recipe:
+            problems_recipe.append(f"{names_in_table=}")
+            problems_recipe.append(f"{names_in_figure=}")
+            problems[name_recipe] = problems_recipe
+
+    for name_recipe, problems_recipe in problems.items():
+        print()
+        print(name_recipe)
+        for problem in problems_recipe:
+            print("  " + problem)
 
     assert not problems
 

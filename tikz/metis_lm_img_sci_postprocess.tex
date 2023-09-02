@@ -1,12 +1,3 @@
-% % Document preamble. Comment out for final figure! Footer too!
-% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
-% \usepackage{hyperref}
-% \usepackage{listings}
-% \input{black_style}
-% \input{styles_data}
-% \begin{document}
-
-
 \input{black_style}
 \input{recipe_config}
 
@@ -74,11 +65,7 @@
   ($(step_coadd)!0.85!(stop-t) + (2.5, 0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.5!(step_determinegrid) - (2.5, 0)$){%
-    \textsl{metis\_lm\_img\_sci\_postprocess}};
+    \REC{metis_lm_img_sci_postprocess}};
 
 \end{tikzpicture}
 \input{normal_style}
-
-
-% % Document footer. Comment out for final figure! Header too!
-% \end{document}

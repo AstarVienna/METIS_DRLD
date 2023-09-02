@@ -1,12 +1,3 @@
-% % Document preamble. Comment out for final figure! Footer too!
-% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
-% \usepackage{hyperref}
-% \usepackage{listings}
-% \input{black_style}
-% \input{styles_data}
-% \begin{document}
-
-
 \input{black_style}
 \input{recipe_config}
 
@@ -73,11 +64,7 @@
   ($(step_fluxcal)!0.85!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.25!(step_tellcorr) - (2.75, 0)$){%
-    \textsl{metis\_ifu\_calibrate}};
+    \REC{metis_ifu_calibrate}};
 
 \end{tikzpicture}
 \input{normal_style}
-
-
-% % Document footer. Comment out for final figure! Header too!
-% \end{document}

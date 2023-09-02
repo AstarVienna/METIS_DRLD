@@ -1,12 +1,3 @@
-% % Document preamble. Comment out for final figure! Footer too!
-% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
-% \usepackage{hyperref}
-% \usepackage{listings}
-% \input{black_style}
-% \input{styles_data}
-% \begin{document}
-
-
 \input{black_style}
 \input{recipe_config}
 
@@ -23,10 +14,10 @@
   %%% Put workflow commands here:
   %% Main reduction workflow
 
-%  \node (template) [template]{%
-%    METIS\_img\_n\_cal\_distortion};
+  %% template names
+  \node (template) [template] {\TPL{METIS_img_n_cal_distortion}};
 
-  \pic (start) {start};
+  \pic (start)[below=0.75cm of template]{start};
 
   \node (input) [below=0.75cm of start-m, input] {%
     \RAW{N_DISTORTION_RAW}
@@ -92,11 +83,7 @@
   ($(step_fit)!0.85!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.25!(step_subtract) - (2.75, 0)$){%
-    \textsl{metis\_n\_img\_distortion}};
+    \REC{metis_n_img_distortion}};
 
 \end{tikzpicture}
 \input{normal_style}
-
-
-% % Document footer. Comment out for final figure! Header too!
-% \end{document}
