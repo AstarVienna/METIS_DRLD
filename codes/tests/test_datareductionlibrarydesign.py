@@ -20,6 +20,7 @@ from ..drld_parser.hacks import (
     HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING,
     HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS,
     HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA,
+    HACK_RECIPES_THAT_DO_NOT_NEED_A_FIGURE,
 )
 from ..drld_parser.template_manual import METIS_TemplateManual
 
@@ -915,18 +916,34 @@ def test_associationmatrices():
 
     assert not problems
 
+
 def test_tikz():
     """Test whether the names used in the tikz figures exist."""
+    problems = []
     dir_tikz = METIS_DataReductionLibraryDesign.path_drld / "tikz"
     dir_figures = METIS_DataReductionLibraryDesign.path_drld / "figures"
     for name_recipe, recipe in METIS_DataReductionLibraryDesign.recipes.items():
-        fn_tikz = dir_tikz / f"{name_recipe}.tex"
-        fn_pdf = dir_figures / f"{name_recipe}.pdf"
-        fn_png = dir_figures / f"{name_recipe}.png"
-        # print(fn_tikz)
-        fns = (fn_tikz, fn_pdf, fn_png)
-        do_fns_exist = [fn.exists() for fn in fns]
-        # assert sum(do_fns_exist) == 1, f"There there should be exactly one figure for {name_recipe}, not {do_fns_exist}"
+        name_recipe_lower = name_recipe.lower()
+        if name_recipe == name_recipe_lower:
+            names = [name_recipe]
+        else:
+            names = [name_recipe, name_recipe_lower]
+        fns_that_exist = [
+            fn
+            for name in names
+            for fn in list(dir_tikz.glob(f"{name}*.tex")) + list(dir_figures.glob(f"{name}*.pdf")) + list(
+                dir_figures.glob(f"{name}*.png"))
+        ]
+        if len(fns_that_exist) != 1:
+            if name_recipe in HACK_RECIPES_THAT_DO_NOT_NEED_A_FIGURE:
+                continue
+            problems.append(f"There there should be exactly one figure for {name_recipe} , not {fns_that_exist}")
+
+    for problem in problems:
+        print(problem)
+
+    assert not problems
+
 
 
 # TODO: Order of input in recipes, primary input should go first!
