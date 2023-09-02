@@ -1,12 +1,3 @@
-% % Document preamble. Comment out for final figure! Footer too!
-% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
-% \usepackage{hyperref}
-% \usepackage{listings}
-% \input{black_style}
-% \input{styles_data}
-% \begin{document}
-
-
 \input{black_style}
 \input{recipe_config}
 
@@ -89,13 +80,9 @@
   ($(step_subtract)!0.85!(stop-t) + (2.85,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.35!(step_average) - (2.85,0)$){%
-    \textsl{metis\_lm\_img\_background}};
+    \REC{metis_lm_img_background}};
 
 
 
 \end{tikzpicture}
 \input{normal_style}
-
-
-% % Document footer. Comment out for final figure! Header too!
-% \end{document}

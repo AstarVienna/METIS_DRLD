@@ -1,12 +1,3 @@
-% % Document preamble. Comment out for final figure! Footer too!
-% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
-% \usepackage{hyperref}
-% \usepackage{listings}
-% \input{black_style}
-% \input{styles_data}
-% \begin{document}
-
-
 \input{black_style}
 \input{recipe_config}
 
@@ -34,10 +25,10 @@
     \textsl{N} \RAW{N_FLAT_LAMP_RAW}\\
     or \textsl{N} \RAW{N_FLAT_TWILIGHT_RAW}};
 
-  \node (step_persistence) [below=2.0cm of input, redstep] {%
-    apply persistence correction};
+%  \node (step_persistence) [below=2.0cm of input, redstep] {%
+%    apply persistence correction};
 
-  \node (step_signature) [below=2.0cm of step_persistence, redstep]{%
+  \node (step_signature) [below=3.0cm of input, redstep]{%
     detector signature\\ removal};
 
   \node (step_fit) [below of=step_signature, redstep]{%
@@ -47,17 +38,18 @@
 
   %% Connections
   \draw (template) -- (input);
-  \draw (input) -- (step_persistence);
-  \draw (step_persistence) -- (step_signature);
+%  \draw (input) -- (step_persistence);
+%  \draw (step_persistence) -- (step_signature);
+  \draw (input) -- (step_signature);
   \draw (step_signature) -- (step_fit);
   \draw (step_fit) -- (stop-t);
 
-  %% Output
-  \node (connectpers) [connection] at
-  ($(input)!0.65!(step_persistence)$){};
-  \node (persistence) [left=of connectpers, external]{%
-    \EXTCALIB{PERSISTENCE_MAP}};
-  \draw (persistence) -- (connectpers);
+  %% Other input
+%  \node (connectpers) [connection] at
+%  ($(input)!0.65!(step_persistence)$){};
+%  \node (persistence) [left=of connectpers, external]{%
+%    \EXTCALIB{PERSISTENCE_MAP}};
+%  \draw (persistence) -- (connectpers);
 
 %   \node (connectparams) [connection] at
 %   ($(input)!0.7!(step_signature.north)$){};
@@ -67,16 +59,18 @@
 %   \draw (params) -- (connectparams);
 
   \node (connectbpm) [connection] at
-  ($(step_persistence)!0.3!(step_signature)$){};
+  ($(input)!0.5!(step_signature)$){};
   \node (bpmin) [left=of connectbpm, calproduct]{%
     \STATCALIB{BADPIX_MAP_GEO}};
   \draw (bpmin) -- (connectbpm);
 
   \node (connection_masterdark) [connection] at
-  ($(step_persistence)!0.7!(step_signature)$){};
+  ($(input)!0.7!(step_signature)$){};
   \node (darkin) [left=of connection_masterdark, calproduct]{%
     \STATCALIB{MASTER_DARK_GEO}};
   \draw (darkin) -- (connection_masterdark);
+
+  % Output
 
   \node (connectflat) [connection] at
   ($(step_fit)!0.3!(stop-t)$){};
@@ -91,15 +85,11 @@
   \draw (connectbpm) -- (bpmout);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.35!(step_persistence) -(2.85,0)$) rectangle
+  \draw [frame] ($(input)!0.25!(step_signature) -(2.85,0)$) rectangle
   ($(step_fit)!0.75!(stop-t) + (2.85,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.35!(step_persistence) - (2.85,0)$){%
-    \textsl{metis\_n\_img\_flat}};
+  ($(input)!0.25!(step_signature) - (2.85,0)$){%
+    \REC{metis_n_img_flat}};
 
 \end{tikzpicture}
 \input{normal_style}
-
-
-% % Document footer. Comment out for final figure! Header too!
-% \end{document}

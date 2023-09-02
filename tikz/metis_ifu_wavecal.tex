@@ -70,6 +70,13 @@
   };
   \draw (bpmin.east) -- (connect_bp);
 
+  \node (connect_distortion) [connection] at
+    ($(step_detrend)!0.5!(step_locatelines)$) {};
+  \node (distortion) [left=of connect_distortion, calproduct]{%
+    \STATCALIB{IFU_DISTORTION_TABLE}
+  };
+  \draw (distortion.east) -- (connect_distortion);
+
   %% Output
   \node (connectwavecal) [connection] at
   ($(step_fit.south)!0.35!(stop-t)$) {};
@@ -83,7 +90,7 @@
   rectangle ($(step_fit)!0.7!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.2!(step_detrend) - (3, 0)$) {%
-    \textsl{metis\_ifu\_wavecal}};
+    \REC{metis_ifu_wavecal}};
 
 \end{tikzpicture}
 \input{normal_style}

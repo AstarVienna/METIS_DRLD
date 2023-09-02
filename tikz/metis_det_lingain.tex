@@ -33,10 +33,10 @@
     \textsl{N} \RAW{DETLIN_det_RAW}\\
     \RAW{det_WCU_OFF_RAW}};
 
-  \node (step_persistence) [below=2.0cm of input, redstep] {%
-    apply persistence correction};
+%  \node (step_persistence) [below=2.0cm of input, redstep] {%
+%    apply persistence correction};
 
-  \node (step_dark) [below of=step_persistence, redstep]{%
+  \node (step_dark) [below of=input, redstep]{%
     subtract dark};
 
   \node (step_gain) [below of=step_dark, redstep]{%
@@ -52,17 +52,17 @@
 
   %% Connections
   \draw (template) -- (input);
-  \draw (input) -- (step_persistence);
-  \draw (step_persistence) -- (step_dark);
+%  \draw (input) -- (step_persistence);
+  \draw (input) -- (step_dark);
   \draw (step_dark) -- (step_gain);
   \draw (step_gain) -- (step_linearity);
   \draw (step_linearity) -- (step_thresholding);
   \draw (step_thresholding) -- (stop-t);
 
   %% Other input
-  \node (connect_persistence) [connection] at ($(input)!0.65!(step_persistence)$){};
-  \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
-  \draw (persistence) -- (connect_persistence);
+%  \node (connect_persistence) [connection] at ($(input)!0.65!(step_persistence)$){};
+%  \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
+%  \draw (persistence) -- (connect_persistence);
 
   \node (params) [left=of step_thresholding.center, params]{%
     Recipe params:\\
@@ -90,9 +90,9 @@
   \draw (connectbpm) -- (bpm);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.4!(step_persistence) - (2.75cm,0)$) rectangle ($(step_thresholding)!0.5!(stop-t) + (2.75cm, 0)$);
+  \draw [frame] ($(input)!0.4!(step_dark) - (2.75cm,0)$) rectangle ($(step_thresholding)!0.5!(stop-t) + (2.75cm, 0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.4!(step_persistence) - (2.75cm,0)$){\textsl{metis\_det\_lingain}};
+  ($(input)!0.4!(step_dark) - (2.75cm,0)$){\REC{metis_det_lingain}};
 \end{tikzpicture}
 \input{normal_style}
 

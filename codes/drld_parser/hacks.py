@@ -223,6 +223,12 @@ HACK_RECIPES_THAT_DO_NOT_NEED_A_FIGURE = {
     "metis_pupil_imaging",
 }
 
+HACK_RECIPES_THAT_WERE_NOT_GOING_TO_CHECK_TIKZ_FOR = {
+    "metis_img_adi_cgrph",
+    "metis_lm_adi_app",
+    "metis_ifu_adi_cgrph",
+}
+
 def hack_rename_template_header(name_template_file, name_template_header):
     """Some template files on the wiki have incorrect headers.
 
