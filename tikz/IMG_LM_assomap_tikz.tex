@@ -22,42 +22,43 @@
 
     % Row *_raw
     \node [above] (lin_raw){%
-      \recipebox{DETLIN}{det\_lingain}
+      \recipebox{\RAW{DETLIN_2RG_RAW}}{\REC{metis_det_lingain}}
     };
     &
-    \node [above] (pers_raw){%
-        \recipebox{PERSISTENCE}{persistence\_map}
-    };
+% TODO: Put back in once we actually include the persistence recipe in the DRLD
+%    \node [above] (pers_raw){%
+%        \recipebox{\RAW{PERSISTENCE}}{\REC{metis_persistence_map}}
+%    };
+    \node [above] (pers_raw)[empty]{};
     &
     \node [above] (dist_raw){%
-      \recipebox{DISTORTION}{lm\_img\_distortion}
+      \recipebox{\RAW{LM_DISTORTION_RAW}}{\REC{metis_lm_img_distortion}}
     };
     &
     \node[above] (dark_raw) {%
-      \recipebox{DARK}{det\_dark}
+      \recipebox{\RAW{DARK_2RG_RAW}}{\REC{metis_det_dark}}
     };
     &
     \node[above] (flat_raw){%
-      \recipebox{FLAT}{lm\_img\_flat}
+      \recipebox{\RAW{LM_FLAT_LAMP_RAW}}{\REC{metis_lm_img_flat}}
     };
     &
     \node[above] (all1_raw){%
-      \recipebox{SCIENCE, STD}{lm\_img\_basic}
+      \recipebox{\RAW{LM_IMAGE_SCI_RAW}, \RAW{LM_IMAGE_STD_RAW}}{\REC{metis_lm_img_basic_reduce}}
     };
     &
     \node[above] (all2_raw){%
-      \recipebox{SCIENCE, STD}{lm\_img\_background}
+      \recipebox{\RAW{LM_SCI_BASIC_REDUCED}, \RAW{LM_STD_BASIC_REDUCED}}{\REC{metis_lm_img_background}}
     };
     &
-    \node[above] (std_raw){%
-      \recipebox{PHOT STD}{lm\_img\_std\_process}
-    };
-    &
-    \node[above] (sci1_raw){%
-      \recipebox{SCIENCE}{lm\_img\_sci\_calibrate}
-    };
-    &
-    \node[above] (sci2_raw){\recipebox{SCIENCE}{lm\_img\_sci\_coadd}};
+%    \node[above] (std_raw){\recipebox{\RAW{PHOT_STD}}{\REC{metis_lm_img_std_process}}}; &
+    \node[above] (std_raw){\recipenotitlebox{\REC{metis_lm_img_std_process}}}; &
+
+%    \node[above] (sci1_raw){\recipebox{\RAW{SCIENCE}}{\REC{metis_lm_img_calibrate}}}; &
+    \node[above] (sci1_raw){\recipenotitlebox{\REC{metis_lm_img_calibrate}}}; &
+
+%    \node[above] (sci2_raw){\recipebox{\RAW{SCIENCE}}{\REC{metis_lm_img_coadd}}};
+    \node[above] (sci2_raw){\recipenotitlebox{\REC{metis_lm_img_sci_postprocess}}};
 
    % \node[above] (sci2_raw){%     % needs width parameter to box
    %  \begin{tcolorbox}[%
@@ -205,15 +206,16 @@
     \node (sci2_prod)[scienceproduct]{\PROD{LM_SCI_COADD}}; \\
   };    % end matrix
 
-  \node (t1) at ($(dist_raw)!0.5!(dark_raw)$){};
-  \node (t2) at ($(dist_prod)!0.5!(dark_prod)$){} ;
+  \node (t1) at ($(dist_raw.east)!0.5!(dark_raw.west)$){};
+  \node (t2) at ($(dist_prod.east)!0.5!(dark_prod.west)$){} ;
   \draw [thick,dashed] ([yshift=8mm]t1.north) -- ([yshift=-8mm]t2.south);
 
 
 
   %% Vertical connections
   \draw [arrow] (lin_raw)  -- (lin_lin);
-  \draw [arrow] (pers_raw) -- (pers_pers);
+% TODO: Put back in once we actually include the persistence recipe in the DRLD
+%  \draw [arrow] (pers_raw) -- (pers_pers);
   \draw [arrow] (dist_raw) -- (dist_dist);
   \draw [arrow] (dark_raw) -- (dark_dark);
   \draw [arrow] (flat_raw) -- (flat_flat);
