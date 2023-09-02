@@ -57,8 +57,7 @@ Created by recipe: & \REC{metis_det_lingain} \\
                   & \REC{metis_n_img_flat} \\
 Input for:    & \REC{metis_ifu_wavecal} \\
               & \REC{metis_ifu_rsrf} \\
-              & \REC{metis_ifu_std_process} \\
-              & \REC{metis_ifu_sci_process} \\
+              & \REC{metis_ifu_reduce} \\
               & \REC{metis_lm_img_flat} \\
               & \REC{metis_lm_img_sci_postprocess} \\
               & \REC{metis_lm_img_distortion} \\
@@ -119,6 +118,7 @@ Input for:    & \REC{metis_det_dark} \\
               & \REC{metis_img_chophome} \\
               & \REC{metis_lm_adc_slitloss} \\
               & \REC{metis_n_adc_slitloss} \\
+              & \REC{metis_ifu_reduce} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -223,8 +223,7 @@ Description: & 2D relative spectral response function \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{RSRF_IFU}\\[0.3cm]
 Created by: & \REC{metis_ifu_rsrf}\\
-Input for:    & \REC{metis_ifu_std_process} \\
-              & \REC{metis_ifu_sci_process} \\
+Input for:    & \REC{metis_ifu_reduce} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -394,6 +393,7 @@ OCA keywords: & None \\
 \FITS{DO.CATG}: & \CODE{FLUXSTD_CATALOG}\\[0.3cm]
 Input for:    & \REC{metis_lm_img_std_process} \\
               & \REC{metis_n_img_std_process} \\
+              & \REC{metis_ifu_telluric} \\
 \end{recipedef}
 % \begin{datastructdef}
 % \textbf{Corresponding \ac{CPL} structure:}
@@ -438,12 +438,12 @@ Description: & Conversion between instrumental and physical flux units. \\[0.3cm
 \FITS{PRO.CATG}: & \CODE{FLUXCAL_TAB} \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{FLUXCAL_TAB}\\[0.3cm]
-Input for:    & \REC{metis_ifu_sci_process} \\
+Input for:    & \REC{metis_ifu_calibrate} \\
               & \REC{metis_lm_img_calibrate} \\
               & \REC{metis_n_img_calibrate} \\
-Produced by recipe: & \REC{metis_lm_img_std_process}\\
+Created by:   & \REC{metis_ifu_telluric} \\
+              & \REC{metis_lm_img_std_process} \\
               & \REC{metis_n_img_std_process} \\
-              & \REC{metis_ifu_std_process} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -483,6 +483,7 @@ Input for:    & \REC{metis_det_dark} \\
               & \REC{metis_img_chophome} \\
               & \REC{metis_lm_adc_slitloss} \\
               & \REC{metis_n_adc_slitloss} \\
+              & \REC{metis_ifu_reduce} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & removal of persistence patterns\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -566,7 +567,7 @@ Description: & atmospheric profile containing height information on temperature,
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{ATM_PROFILE}\\[0.3cm]
 Source: & Taken from \url{https://eodg.atm.ox.ac.uk/RFM/atm/}\\
-Input for:    & \REC{metis_ifu_tellcorr} \\
+Input for:    & \REC{metis_ifu_telluric} \\
               & \REC{metis_LM_lss_mf_model} \\
               & \REC{metis_LM_lss_mf_calctrans} \\
               & \REC{metis_N_lss_mf_model} \\
@@ -700,8 +701,7 @@ Description: & Wavelength dependent model of the \ac{LSF}\\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{LSF_KERNEL}\\[0.3cm]
 Source: & Determined during \ac{AIT} phase and commissioning\\
-Input for:    & \REC{metis_ifu_sci_process} \\
-              & \REC{metis_ifu_tellcorr} \\
+Input for:    & \REC{metis_ifu_telluric} \\
               & \REC{metis_LM_lss_mf_model} \\
               & \REC{metis_LM_lss_mf_calctrans} \\
               & \REC{metis_N_lss_mf_model} \\

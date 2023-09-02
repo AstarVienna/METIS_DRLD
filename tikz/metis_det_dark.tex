@@ -29,14 +29,14 @@
     apply non-linearity correction};
 
   \node (connectlinearity) [connection] at ($(input)!0.65!(step_linearity)$){};
-  \node (linearity) [left=of connectlinearity, external]{\STATCALIB*{LINEARITY_det}};
+  \node (linearity) [left=of connectlinearity, external]{\STATCALIB{LINEARITY_det}};
   \draw (linearity) -- (connectlinearity);
 
   \node (step_persistence) [below of=step_linearity, redstep] {%
     apply persistence correction};
 
   \node (connectpersistence) [connection] at ($(step_linearity)!0.5!(step_persistence)$){};
-  \node (persistence) [left=of connectpersistence, external]{\EXTCALIB*{PERSISTENCE_MAP}};
+  \node (persistence) [left=of connectpersistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
   \draw (persistence) -- (connectpersistence);
 
   \node (step_filtering) [below of=step_persistence, redstep] {%

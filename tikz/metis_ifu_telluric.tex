@@ -17,50 +17,65 @@
   \pic (start) {start};
 
   \node (input) [below=0.75cm of start-m, input, fill=sciproductcolor]{%
-    IFU\_SCI\_REDUCED
+    \PROD{IFU_SCI_REDUCED}
   };
 
-  \node (step1) [below=2cm of input, redstep]{%
+  \node (step4) [below=1.cm of input, redstep]{%
+    1D extraction
+  };
+
+  \node (step1) [below=2cm of step4, redstep]{%
     Molecfit
   };
 
-  \pic (stop) [below=2.cm of step1]{stop};
+  \node (step6) [below=1.cm of step1, redstep]{%
+    flux calibration
+  };
+
+  \pic (stop) [below=2.cm of step6]{stop};
 
   %% Connections
   \draw (start-m) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (stop-t);
+  \draw (input) -- (step4);
+  \draw (step4) -- (step1);
+  \draw (step1) -- (step6);
+  \draw (step6) -- (stop-t);
 
   %% Input
   \node (params) [left=1.5cm of step1, yshift=1.cm, params]{%
-    Molecfit params\\
-    INS.IFU.SETUP
+    Molecfit params
+%    INS.IFU.SETUP
   };
   \draw (params.east) -- ++(1, 0) -- ++(0., 0.8) -- ++(0.5, 0);
 
   \node (lsfkernel) [left=1.5cm of step1, calib]{%
-    IFU\_KERNEL
+    \STATCALIB{LSF_KERNEL}
   };
   \draw (lsfkernel.east) -- (step1);
 
   \node (atmprofile) [left=1.5cm of step1, yshift=-1cm, external]{%
-    ATM\_PROFILE
+    \EXTCALIB{ATM_PROFILE}
   };
   \draw (atmprofile.east) -- ++(1, 0) -- ++(0., -0.8) -- ++(0.5, 0);
 
+  \node (stdcat) [left=2cm of step6, external] {%
+    \EXTCALIB{FLUXSTD_CATALOG}
+  };
+  \draw (stdcat.east) -- (step6);
+
   %% Output
   \node (connecttac) [connection] at
-  ($(step1)!0.5!(stop-t)$) {};
+  ($(step4)!0.5!(stop-t)$) {};
   \node (reduced) [right=of connecttac, sciproduct, text width=4cm]{%
-    IFU\_SCI\_REDUCED\_TAC
+    \PROD{IFU_TELLURIC}
   };
   \draw (connecttac) -- (reduced);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.35!(step1) - (3,0)$)
-  rectangle ($(step1)!0.75!(stop-t) + (2.5,0)$);
+  \draw [frame] ($(input)!0.35!(step4) - (3,0)$)
+  rectangle ($(step6)!0.75!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.35!(step1) - (3, 0)$) {%
-    \textsl{metis\_ifu\_tellcorr}};
+  ($(input)!0.35!(step4) - (3, 0)$) {%
+    \textsl{metis\_ifu\_telluric}};
 
 \end{tikzpicture}

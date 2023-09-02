@@ -61,7 +61,7 @@
 
   %% Other input
   \node (connect_persistence) [connection] at ($(input)!0.65!(step_persistence)$){};
-  \node (persistence) [left=of connect_persistence, external]{\EXTCALIB*{PERSISTENCE_MAP}};
+  \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
   \draw (persistence) -- (connect_persistence);
 
   \node (params) [left=of step_thresholding.center, params]{%

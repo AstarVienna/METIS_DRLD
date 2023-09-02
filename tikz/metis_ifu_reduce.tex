@@ -14,17 +14,23 @@
   %% Main reduction workflow
 
   \node (template) [template]{%
-    METIS\_ifu\_obs\_$\ast$ \\
-    METIS\_ifu\_ext\_obs\_$\ast$ \\
-    METIS\_ifu\_$\langle$hci$\rangle$\_obs\_$\ast$ \\
-    METIS\_ifu\_ext\_$\langle$hci$\rangle$\_obs\_$\ast$ \\
-    METIS\_ifu\_cal\_psf
+    \TPL{METIS_ifu_obs_FixedSkyOffset}        \\
+    \TPL{METIS_ifu_obs_GenericOffset}         \\
+    \TPL{METIS_ifu_ext_obs_FixedSkyOffset}    \\
+    \TPL{METIS_ifu_ext_obs_GenericOffset}     \\
+    \TPL{METIS_ifu_vc_obs_FixedSkyOffset}     \\
+    \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset} \\
+    \TPL{METIS_ifu_app_obs_Stare}             \\
+    \TPL{METIS_ifu_ext_app_obs_Stare}         \\
+    \TPL{METIS_ifu_cal_psf}                   \\
+    \TPL{METIS_ifu_cal_standard}
   };
 
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input]{%
-    \textsl{N} IFU\_SCI\_RAW
+    \textsl{N} \RAW{IFU_SCI_RAW} or \\
+    \textsl{N} \RAW{IFU_STD_RAW}
   };
 
   \node (step1) [below=2cm of input, redstep]{%
@@ -49,15 +55,15 @@
     Image\,reconstruction
   };
 
-  \node (step6) [below=0.7cm of step5, redstep]{%
-    1D extraction
-  };
+%  \node (step6) [below=0.7cm of step5, redstep]{%
+%    1D extraction
+%  };
 
-  \node (step7) [below=0.7cm of step6, redstep]{%
-    telluric correction
-  };
+%  \node (step7) [below=0.7cm of step6, redstep]{%
+%    telluric correction
+%  };
 
-  \pic (stop) [below=1.5cm of step7]{stop};
+  \pic (stop) [below=3.5cm of step5]{stop};
 
   %% Connections
   \draw (template) -- (input);
@@ -66,101 +72,105 @@
   \draw (step2) -- (step3);
   \draw (step3) -- (step4);
   \draw (step4) -- (step5);
-  \draw (step5) -- (step6);
-  \draw (step6) -- (step7);
-  \draw (step7) -- (stop-t);
+  \draw (step5) -- (stop-t);
+%  \draw (step6) -- (step7);
+%  \draw (step7) -- (stop-t);
 
   %% Input
   \node (connectpers) [connection] at
   ($(input)!0.35!(step1)$) {};
   \node (persistence) [left=3.95cm of connectpers, external]{%
-    PERSISTENCE\_MAP
+    \EXTCALIB{PERSISTENCE_MAP}
   };
   \draw [-](persistence) -- (connectpers);
 
   % Input for detector signature removal (step1)
   \node (bpmin) [left=2cm of step1, yshift=0.8cm, calproduct]{%
-    BADPIX\_MAP\_IFU
+    \PROD{BADPIX_MAP_IFU}
   };
   \draw (bpmin.east) -- ++(1., 0) -- ++(0., 0.6) -- ++(1., 0);
 
   \node (darkin) [left=2cm of step1, calproduct] {%
-    MASTER\_DARK\_IFU
+    \PROD{MASTER_DARK_IFU}
   };
   \draw (darkin) -- (step1);
 
   \node (flatin) [left=2cm of step1, yshift=-0.8cm, calproduct]{%
-    MASTER\_FLAT\_IFU
+    \PROD{MASTER_FLAT_IFU}
   };
   \draw (flatin.east) -- ++(1., 0) -- ++(0., -0.6) -- ++(1., 0);
 
   % Input for flux calibration (step3)
   \node (fcalin) [left=2cm of step3, calproduct]{%
-    FLUXCAL\_TAB
+    \PROD{FLUXCAL_TAB}
   };
   \draw (fcalin) -- (step3);
 
   % Input for rectification (step4)
   \node (wavecal) [left=2cm of step4, yshift=0.4cm, calproduct]{%
-    IFU\_WAVECAL
+    \PROD{IFU_WAVECAL}
   };
   \draw (wavecal.east) -- ++(1., 0) -- ++(0., 0.3) -- ++(1., 0);
 
   \node (distortion) [left=2cm of step4, yshift=-0.4cm, calproduct]{%
-    IFU\_DISTORT\_TAB
+    \PROD{IFU_DISTORTION_TABLE}
   };
   \draw (distortion.east) -- ++(1., 0) -- ++(0., -0.3) -- ++(1., 0);
 
   % Further input
-  \node (molecparams) [left=2cm of step7, params]{%
-    molecfit parameters
-  };
-  \draw (molecparams) -- (step7);
+%  \node (molecparams) [left=2cm of step7, params]{%
+%    molecfit parameters
+%  };
+%  \draw (molecparams) -- (step7);
 
 
   %% Output
 
   % Output of background subtraction (step2)
   \node (backgroundreduced) [right=1.cm of step2, calproduct]{%
-    SCI\_BACKGROUND
+    \PROD{IFU_SCI_BACKGROUND} or \\
+    \PROD{IFU_SCI_BACKGROUND}
   };
   \draw (step2) -- (backgroundreduced);
 
   % Output of flux calibration (step3)
   \node (sci_reduced) [right=1cm of step3, sciproduct]{%
-    SCI\_REDUCED
+    \PROD{IFU_SCI_REDUCED} or \\
+    \PROD{IFU_STD_REDUCED}
   };
   \draw (step3) -- (sci_reduced);
 
   % Output of rectification (step4)
   \node (sci_reduced_cube) [right=1cm of step4, sciproduct]{%
-    SCI\_REDUCED\_CUBE
+    \PROD{IFU_SCI_REDUCED_CUBE} or \\
+    \PROD{IFU_STD_REDUCED_CUBE}
   };
   \draw (step4) -- (sci_reduced_cube);
 
   % Output of image reconstruction (step5)
   \node (sci_combined) [right=1cm of step5, sciproduct]{%
-    SCI\_COMBINED
+    \PROD{IFU_SCI_COMBINED} or \\
+    \PROD{IFU_STD_COMBINED}
   };
   \draw (step5) -- (sci_combined);
 
   % Output of 1d extraction (step6)
-  \node (sci_object) [right=1cm of step6, sciproduct]{%
-    SCI\_OBJECT
-  };
-  \draw (step6) -- (sci_object);
+%  \node (sci_object) [right=1cm of step6, sciproduct]{%
+%    \PROD{SCI_OBJECT}
+%  };
+%  \draw (step6) -- (sci_object);
 
   % Output of telluric correction (step7)
-  \node (sci_reduced_tac) [right=1cm of step7, sciproduct]{%
-    SCI\_REDUCED\_TAC
-  };
-  \draw (step7) -- (sci_reduced_tac);
+%  \node (sci_reduced_tac) [right=1cm of step7, sciproduct]{%
+%    \PROD{SCI_REDUCED_TAC}
+%  };
+%  \draw (step7) -- (sci_reduced_tac);
 
   %% Frame around recipe
   \draw [frame] ($(input)!0.5!(step1) - (3.5,0)$)
-  rectangle ($(step7)!0.5!(stop-t) + (2.5,0)$);
+  rectangle ($(step5)!0.5!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.5!(step1) - (3.5, 0)$) {%
-    \textsl{metis\_ifu\_sci\_process}};
+    \REC{metis_ifu_reduce}};
 
 \end{tikzpicture}

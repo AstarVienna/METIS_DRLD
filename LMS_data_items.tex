@@ -95,7 +95,7 @@ Description: & Raw spectra of flux standard star.\\[0.3cm]
 OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
 \FITS{DO.CATG}: & \CODE{IFU_STD_RAW}\\[0.3cm]
 Template: & \TPL{METIS_ifu_cal_standard}\\
-Input for recipe: & \REC{metis_ifu_std_process}\\
+Input for recipe: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -130,7 +130,7 @@ Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                       
                      & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
                      & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
                      & \TPL{METIS_ifu_cal_psf}                                                                  \\
-Input for recipe: & \REC{metis_ifu_sci_process}\\
+Input for recipe: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -165,7 +165,7 @@ Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                       
                      & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
                      & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
                      & \TPL{METIS_ifu_cal_psf}                                                                  \\
-Input for recipe: & \REC{metis_ifu_sci_process}\\
+Input for recipe: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -199,8 +199,7 @@ OCA keywords: & \FITS{PRO.CATG}\\
 Created by: & \REC{metis_det_dark} \\
 Input for recipes: & \REC{metis_ifu_rsrf}\\
 & \REC{metis_ifu_wavecal}\\
-& \REC{metis_ifu_std_process}\\
-& \REC{metis_ifu_sci_process}\\
+& \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -246,8 +245,7 @@ OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{IFU_WAVECAL}\\[0.3cm]
 Created by: & \REC{metis_ifu_wavecal}\\
 Input for:    & \REC{metis_ifu_rsrf} \\
-              & \REC{metis_ifu_std_process} \\
-              & \REC{metis_ifu_sci_process} \\
+              & \REC{metis_ifu_reduce} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & wavelength calibration\\
 \end{recipedef}
@@ -261,44 +259,39 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
+% TODO: The IFU_STD_BACKGROUND_CUBE got lost when redoing the IFU workflow, should it be reinstated?
+% For now it is replaced with IFU_STD_BACKGROUND
+%\paragraph{\PROD{IFU_STD_BACKGROUND_CUBE}}\label{dataitem:ifu_std_background_cube}
+%\begin{recipedef}
+%\textbf{\ac{FITS} file structure:}\\
+%Name: & \PROD{IFU_STD_BACKGROUND_CUBE}\\[0.3cm]
+%Description: &  A rectified spectral cube of the background with a linear wavelength grid. \\[0.3cm]
+%\FITS{PRO.CATG}: & \CODE{IFU_STD_BACKGROUND_CUBE}\\
+%OCA keywords: & \FITS{PRO.CATG}\\
+%\FITS{DO.CATG}: & \CODE{IFU_STD_BACKGROUND_CUBE}\\[0.3cm]
+%Created by: & \REC{metis_ifu_reduce}\\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%% Purpose: & \\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+%    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+%    \item \texttt{hdrl\_imagelist * image: Spectral cube}
+%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
 
-\paragraph{\PROD{IFU_STD_BACKGROUND_CUBE}}\label{dataitem:ifu_std_background_cube}
+
+\paragraph{\PROD{IFU_STD_BACKGROUND}}\label{dataitem:ifu_std_background}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{IFU_STD_BACKGROUND_CUBE}\\[0.3cm]
-Description: &  A rectified spectral cube of the background with a linear wavelength grid. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{IFU_STD_BACKGROUND_CUBE}\\
+Name: & \PROD{IFU_STD_BACKGROUND}\\[0.3cm]
+Description: & Reduced 2D detector image of background. \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_STD_BACKGROUND}\\
 OCA keywords: & \FITS{PRO.CATG}\\
-\FITS{DO.CATG}: & \CODE{IFU_STD_BACKGROUND_CUBE}\\[0.3cm]
-Created by: & \REC{metis_ifu_std_process}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-% Purpose: & \\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
-    \item \texttt{hdrl\_imagelist * image: Spectral cube}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
-
-
-
-
-
-
-
-
-\paragraph{\PROD{IFU_STD_REDUCED_CUBE}}\label{dataitem:ifu_std_reduced_cube}
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{IFU_STD_REDUCED_CUBE}\\[0.3cm]
-Description: & Reduced 2D detector image of spectroscopic flux standard star. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{IFU_STD_REDUCED_CUBE}\\
-OCA keywords: & \FITS{PRO.CATG}\\
-\FITS{DO.CATG}: & \CODE{IFU_STD_REDUCED_CUBE}\\[0.3cm]
-Created by: & \REC{metis_ifu_std_process}\\
+\FITS{DO.CATG}: & \CODE{IFU_STD_BACKGROUND}\\[0.3cm]
+Created by: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -311,15 +304,20 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\PROD{IFU_STD_TELLURIC_1D}}\label{dataitem:ifu_std_telluric_1d}
+
+
+
+
+\paragraph{\PROD{IFU_STD_REDUCED}}\label{dataitem:ifu_std_reduced}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{IFU_STD_TELLURIC_1D}\\[0.3cm]
-Description: & Spectrum of telluric standard star. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{IFU_STD_TELLURIC_1D}\\
+Name: & \PROD{IFU_STD_REDUCED}\\[0.3cm]
+Description: & Reduced 2D detector image of standard star. \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_STD_REDUCED}\\
 OCA keywords: & \FITS{PRO.CATG}\\
-\FITS{DO.CATG}: & \CODE{IFU_STD_TELLURIC_1D}\\[0.3cm]
-Created by: & \REC{metis_ifu_std_process}\\
+\FITS{DO.CATG}: & \CODE{IFU_STD_REDUCED}\\[0.3cm]
+Created by: & \REC{metis_ifu_reduce}\\
+Input for:    & None \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -327,10 +325,54 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
-    \item \texttt{cpl\_table * image: table}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+    \item \texttt{hdrl\_image ** image: Four images}
+    \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
+
+
+\paragraph{\PROD{IFU_STD_REDUCED_CUBE}}\label{dataitem:ifu_std_reduced_cube}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \PROD{IFU_STD_REDUCED_CUBE}\\[0.3cm]
+Description: & Reduced 2D detector image of spectroscopic flux standard star. \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_STD_REDUCED_CUBE}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_STD_REDUCED_CUBE}\\[0.3cm]
+Created by: & \REC{metis_ifu_reduce}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+% Purpose: & \\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{hdrl\_image ** image: Four images}
+    \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+% This is the same as IFU_STD_REDUCED_1D?
+%\paragraph{\PROD{IFU_STD_TELLURIC_1D}}\label{dataitem:ifu_std_telluric_1d}
+%\begin{recipedef}
+%\textbf{\ac{FITS} file structure:}\\
+%Name: & \PROD{IFU_STD_TELLURIC_1D}\\[0.3cm]
+%Description: & Spectrum of telluric standard star. \\[0.3cm]
+%\FITS{PRO.CATG}: & \CODE{IFU_STD_TELLURIC_1D}\\
+%OCA keywords: & \FITS{PRO.CATG}\\
+%\FITS{DO.CATG}: & \CODE{IFU_STD_TELLURIC_1D}\\[0.3cm]
+%Created by: & \REC{metis_ifu_telluric}\\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%% Purpose: & \\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+%    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+%    \item \texttt{cpl\_table * image: table}
+%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
 
 
 \paragraph{\PROD{IFU_STD_REDUCED_1D}}\label{dataitem:ifu_std_reduced_1d}
@@ -341,7 +383,7 @@ Description: & Spectrum of a reduced telluric standard star. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_STD_REDUCED_1D}\\
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{IFU_STD_REDUCED_1D}\\[0.3cm]
-Created by: & \REC{metis_ifu_std_process}\\
+Created by: & \REC{metis_ifu_telluric}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -354,6 +396,30 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
+
+
+
+\paragraph{\PROD{IFU_TELLURIC}}\label{dataitem:ifu_telluric}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \PROD{IFU_TELLURIC}\\[0.3cm]
+Description: & Telluric absorption correction. \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_TELLURIC}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_TELLURIC}\\[0.3cm]
+Created by: & \REC{metis_ifu_telluric}\\
+Input for:    & \REC{metis_ifu_calibrate} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+% Purpose: & \\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_table * image: table}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
 
 
 
@@ -377,8 +443,8 @@ Description: & Reduced 2D detector image of science object. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED}\\
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED}\\[0.3cm]
-Created by: & \REC{metis_ifu_sci_process}\\
-Input for:    & \REC{metis_ifu_sci_postprocess} \\
+Created by: & \REC{metis_ifu_reduce}\\
+Input for:    & \REC{metis_ifu_calibrate} \\
               & \REC{metis_ifu_adi_cgrph} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
@@ -402,7 +468,7 @@ Description: & Reduced 2D detector image of background. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_SCI_BACKGROUND}\\
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_BACKGROUND}\\[0.3cm]
-Created by: & \REC{metis_ifu_sci_process}\\
+Created by: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -417,30 +483,30 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\PROD{IFU_SCI_REDUCED_TAC}}\label{dataitem:ifu_sci_reduced_tac}
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{IFU_SCI_REDUCED_TAC}\\[0.3cm]
-Description: & Reduced and telluric absorption corrected 2D detector image of science object. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED_TAC}\\
-OCA keywords: & \FITS{PRO.CATG}\\
-\FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED_TAC}\\[0.3cm]
-%Created by: & \REC{metis_ifu_std_process}\\
-% TODO: is metis_ifu_tellcorr correct?
-Created by:   & \REC{metis_ifu_sci_process} \\
-              & \REC{metis_ifu_tellcorr} \\
-Input for:    & \REC{metis_ifu_sci_postprocess} \\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-% Purpose: & \\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
-    \item \texttt{hdrl\_image ** image: Four images}
-    \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
+%\paragraph{\PROD{IFU_SCI_REDUCED_TAC}}\label{dataitem:ifu_sci_reduced_tac}
+%\begin{recipedef}
+%\textbf{\ac{FITS} file structure:}\\
+%Name: & \PROD{IFU_SCI_REDUCED_TAC}\\[0.3cm]
+%Description: & Reduced and telluric absorption corrected 2D detector image of science object. \\[0.3cm]
+%\FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED_TAC}\\
+%OCA keywords: & \FITS{PRO.CATG}\\
+%\FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED_TAC}\\[0.3cm]
+%%Created by: & \REC{metis_ifu_std_process}\\
+%% TODO: is metis_ifu_telluric correct?
+%Created by:   & \REC{metis_ifu_sci_process} \\
+%              & \REC{metis_ifu_telluric} \\
+%Input for:    & \REC{metis_ifu_sci_postprocess} \\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%% Purpose: & \\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+%    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+%    \item \texttt{hdrl\_image ** image: Four images}
+%    \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
 
 
 
@@ -452,7 +518,7 @@ Description: &  A rectified spectral cube with a linear wavelength grid. \\[0.3c
 \FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED_CUBE}\\
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED_CUBE}\\[0.3cm]
-Created by: & \REC{metis_ifu_sci_process}\\
+Created by: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -470,15 +536,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\PROD{IFU_SCI_REDUCED_CUBE_TAC}}\label{dataitem:ifu_sci_reduced_cube_tac}
+\paragraph{\PROD{IFU_SCI_CUBE_CALIBRATED}}\label{dataitem:ifu_sci_cube_calibrated}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{IFU_SCI_REDUCED_CUBE_TAC}\\[0.3cm]
+Name: & \PROD{IFU_SCI_CUBE_CALIBRATED}\\[0.3cm]
 Description: &  A telluric absorption corrected rectified spectral cube with a linear wavelength grid. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED_CUBE_TAC}\\
+\FITS{PRO.CATG}: & \CODE{IFU_SCI_CUBE_CALIBRATED}\\
 OCA keywords: & \FITS{PRO.CATG}\\
-\FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED_CUBE_TAC}\\[0.3cm]
-Created by: & \REC{metis_ifu_sci_process}\\
+\FITS{DO.CATG}: & \CODE{IFU_SCI_CUBE_CALIBRATED}\\[0.3cm]
+Created by: & \REC{metis_ifu_calibrate}\\
+Input for:    & \REC{metis_ifu_postprocess} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -497,12 +564,12 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{IFU_SCI_COMBINED}\\[0.3cm]
-Description: &  Spectral cube of science object. \\[0.3cm]
+Description: & Spectral cube of science object, combining multiple exposures. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_SCI_COMBINED}\\
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_COMBINED}\\[0.3cm]
-Created by: & \REC{metis_ifu_sci_process}\\
-Input for:    & \REC{metis_ifu_tellcorr} \\
+Created by: & \REC{metis_ifu_reduce}\\
+Input for:    & \REC{metis_ifu_telluric} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -515,17 +582,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-
-
-\paragraph{\PROD{IFU_SCI_COMBINED_TAC}}\label{dataitem:ifu_sci_combined_tac}
+\paragraph{\PROD{IFU_STD_COMBINED}}\label{dataitem:ifu_std_combined}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{IFU_SCI_COMBINED_TAC}\\[0.3cm]
-Description: & Telluric absorption corrected spectral cube of science object. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{IFU_SCI_COMBINED_TAC}\\
+Name: & \PROD{IFU_STD_COMBINED}\\[0.3cm]
+Description: & Spectral cube of standard star, combining multiple exposures. \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_STD_COMBINED}\\
 OCA keywords: & \FITS{PRO.CATG}\\
-\FITS{DO.CATG}: & \CODE{IFU_SCI_COMBINED_TAC}\\[0.3cm]
-Created by: & \REC{metis_ifu_sci_process}\\
+\FITS{DO.CATG}: & \CODE{IFU_STD_COMBINED}\\[0.3cm]
+Created by: & \REC{metis_ifu_reduce}\\
+Input for:    & \REC{metis_ifu_telluric} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -540,19 +606,42 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
+%\paragraph{\PROD{IFU_SCI_COMBINED_TAC}}\label{dataitem:ifu_sci_combined_tac}
+%\begin{recipedef}
+%\textbf{\ac{FITS} file structure:}\\
+%Name: & \PROD{IFU_SCI_COMBINED_TAC}\\[0.3cm]
+%Description: & Telluric absorption corrected spectral cube of science object. \\[0.3cm]
+%\FITS{PRO.CATG}: & \CODE{IFU_SCI_COMBINED_TAC}\\
+%OCA keywords: & \FITS{PRO.CATG}\\
+%\FITS{DO.CATG}: & \CODE{IFU_SCI_COMBINED_TAC}\\[0.3cm]
+%Created by: & \REC{metis_ifu_sci_process}\\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%% Purpose: & \\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+%    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+%    \item \texttt{hdrl\_imagelist * image: Spectral cube}
+%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
 
 
 
 
-\paragraph{\PROD{IFU_SCI_OBJECT_1D}}\label{dataitem:ifu_sci_object_1d}
+
+
+
+\paragraph{\PROD{IFU_SCI_REDUCED_1D}}\label{dataitem:ifu_sci_reduced_1d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{IFU_SCI_OBJECT_1D}\\[0.3cm]
+Name: & \PROD{IFU_SCI_REDUCED_1D}\\[0.3cm]
 Description: & Spectrum of science object. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{IFU_SCI_OBJECT_1D}\\
+\FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED_1D}\\
 OCA keywords: & \FITS{PRO.CATG}\\
-\FITS{DO.CATG}: & \CODE{IFU_SCI_OBJECT_1D}\\[0.3cm]
-Created by: & \REC{metis_ifu_sci_process}\\
+\FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED_1D}\\[0.3cm]
+Created by: & \REC{metis_ifu_telluric}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -566,27 +655,27 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-
-\paragraph{\PROD{IFU_SCI_TELLURIC_1D}}\label{dataitem:ifu_sci_telluric_1d}
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{IFU_SCI_TELLURIC_1D}\\[0.3cm]
-Description: & Telluric absorption corrected spectrum of science object. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{IFU_SCI_TELLURIC_1D}\\
-OCA keywords: & \FITS{PRO.CATG}\\
-\FITS{DO.CATG}: & \CODE{IFU_SCI_TELLURIC_1D}\\[0.3cm]
-Created by: & \REC{metis_ifu_sci_process}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-% Purpose: & \\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
-    \item \texttt{cpl\_table * image: table}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
+% TODO: Put IFU_SCI_TELLURIC_1D back in? Maybe if it is required.
+%\paragraph{\PROD{IFU_SCI_TELLURIC_1D}}\label{dataitem:ifu_sci_telluric_1d}
+%\begin{recipedef}
+%\textbf{\ac{FITS} file structure:}\\
+%Name: & \PROD{IFU_SCI_TELLURIC_1D}\\[0.3cm]
+%Description: & Telluric absorption corrected spectrum of science object. \\[0.3cm]
+%\FITS{PRO.CATG}: & \CODE{IFU_SCI_TELLURIC_1D}\\
+%OCA keywords: & \FITS{PRO.CATG}\\
+%\FITS{DO.CATG}: & \CODE{IFU_SCI_TELLURIC_1D}\\[0.3cm]
+%Created by: & \REC{metis_ifu_telluric}\\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%% Purpose: & \\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+%    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+%    \item \texttt{cpl\_table * image: table}
+%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
 
 
 
@@ -607,7 +696,7 @@ Description: &  Spectral cube of science object, a coadd of a number of reduced 
 \FITS{PRO.CATG}: & \CODE{IFU_SCI_COADD}\\
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_COADD}\\[0.3cm]
-Created by:   & \REC{metis_ifu_sci_postprocess} \\
+Created by:   & \REC{metis_ifu_postprocess} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
@@ -621,26 +710,26 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
-\paragraph{\PROD{IFU_SCI_COADD_ERROR}}\label{dataitem:ifu_sci_coadd_error}
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{IFU_SCI_COADD_ERROR}\\[0.3cm]
-Description: &  The standard error of an \PROD{IFU_SCI_COADD}. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{IFU_SCI_COADD_ERROR}\\
-OCA keywords: & \FITS{PRO.CATG}\\
-\FITS{DO.CATG}: & \CODE{IFU_SCI_COADD_ERROR}\\[0.3cm]
-Created by: & \REC{metis_ifu_sci_postprocess}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-% Purpose: & \\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
-    \item \texttt{hdrl\_imagelist * image: Spectral cube}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
+%\paragraph{\PROD{IFU_SCI_COADD_ERROR}}\label{dataitem:ifu_sci_coadd_error}
+%\begin{recipedef}
+%\textbf{\ac{FITS} file structure:}\\
+%Name: & \PROD{IFU_SCI_COADD_ERROR}\\[0.3cm]
+%Description: &  The standard error of an \PROD{IFU_SCI_COADD}. \\[0.3cm]
+%\FITS{PRO.CATG}: & \CODE{IFU_SCI_COADD_ERROR}\\
+%OCA keywords: & \FITS{PRO.CATG}\\
+%\FITS{DO.CATG}: & \CODE{IFU_SCI_COADD_ERROR}\\[0.3cm]
+%Created by: & \REC{metis_ifu_sci_postprocess}\\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%% Purpose: & \\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+%    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+%    \item \texttt{hdrl\_imagelist * image: Spectral cube}
+%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
 
 
 

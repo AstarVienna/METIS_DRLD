@@ -1,0 +1,83 @@
+% % Document preamble. Comment out for final figure! Footer too!
+% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+% \usepackage{hyperref}
+% \usepackage{listings}
+% \input{black_style}
+% \input{styles_data}
+% \begin{document}
+
+
+\input{black_style}
+\input{recipe_config}
+
+\begin{tikzpicture}
+  [x=1cm,
+  y=-1cm,
+  align=center,
+  node distance=2cm and 3cm]
+  \sffamily
+
+  %% Grid for orientation. Comment out for final figure!
+  % \draw[help lines, green](-5, 0) grid (8, 11);
+
+  %%% Put workflow commands here:
+  %% Main reduction workflow
+
+%  \node (template) [template]{%
+%    METIS\_img\_lm\_cal\_distortion};
+
+  \pic (start) {start};
+
+  \node (input) [below=0.75cm of start-m, input] {%
+    \PROD{IFU_SCI_REDUCED}
+  };
+
+  \node (step_tellcorr) [below=2.5cm of input, redstep]{%
+    Correct for telluric absorption.
+  };
+
+  \node (step_fluxcal) [below=2.5cm of step_tellcorr, redstep]{%
+    Apply flux calibration.
+  };
+  
+  \pic (stop) [below=3cm of step_fluxcal]{stop};
+
+  %% Input
+  \node (connect_telluric) [connection] at
+  ($(input)!0.65!(step_tellcorr)$) {};
+  \node (telluric) [left=of connect_telluric, input] {\PROD{IFU_TELLURIC}};
+  \draw (telluric) -- (connect_telluric);
+
+  \node (connect_fluxcal) [connection] at
+  ($(step_tellcorr)!0.5!(step_fluxcal)$) {};
+  \node (fluxcal) [left=of connect_fluxcal, calproduct] {\PROD{FLUXCAL_TAB}};
+  \draw (fluxcal) -- (connect_fluxcal);
+  
+  %% Connections
+  \draw (start-m) -- (input);
+  \draw (input) -- (step_tellcorr);
+  \draw (step_tellcorr) -- (step_fluxcal);
+  \draw (step_fluxcal) -- (stop-t);
+
+  %% Output
+
+  \node (connectdistmap) [connection] at
+  ($(step_fluxcal)!0.5!(stop-t)$) {};
+  \node (distmap) [right=of connectdistmap, calproduct, minimum width=4cm]{%
+    \STATCALIB{IFU_SCI_CUBE_CALIBRATED}};
+  \draw (connectdistmap) -- (distmap);
+
+  %% Frame around recipe
+  \draw [frame]
+  ($(input)!0.25!(step_tellcorr) - (2.75,0)$) rectangle
+  ($(step_fluxcal)!0.85!(stop-t) + (2.5,0)$);
+  \node [framecolor, anchor=north west] at
+  ($(input)!0.25!(step_tellcorr) - (2.75, 0)$){%
+    \textsl{metis\_ifu\_calibrate}};
+
+\end{tikzpicture}
+\input{normal_style}
+
+
+% % Document footer. Comment out for final figure! Header too!
+% \end{document}

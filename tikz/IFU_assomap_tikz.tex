@@ -19,17 +19,17 @@
     \node[above] (RECrsrf_raw){\recipebox{\RAW{IFU_RSRF_RAW}}{\REC{metis_ifu_rsrf}}}; &
     \node[above] (RECdark_raw){\recipebox{\RAW{DARK_IFU_RAW}}{\REC{metis_det_dark}}}; &
     \node[above] (RECwcal_raw){\recipebox{\RAW{IFU_WAVE_RAW}}{\REC{metis_ifu_wavecal}}}; &
-    \node[above] (RECstdreduce_raw){\recipebox{\RAW{IFU_STD_RAW}}{\REC*{metis_ifu_reduce}}}; &
-    \node[above] (RECscireduce_raw){\recipebox{\RAW{IFU_SCI_RAW}}{\REC*{metis_ifu_reduce}}}; &
+    \node[above] (RECstdreduce_raw){\recipebox{\RAW{IFU_STD_RAW}}{\REC{metis_ifu_reduce}}}; &
+    \node[above] (RECscireduce_raw){\recipebox{\RAW{IFU_SCI_RAW}}{\REC{metis_ifu_reduce}}}; &
 %      \recipebox{\RAW{IFU_STD_RAW}}}{\REC{metis_ifu_std_process}}}
 %      \recipenotitlebox{\REC{metis_ifu_std_process}}}
-%      so actually this is now just the same as tellcorr
-    \node[above] (RECstd_raw){\recipenotitlebox{\REC{metis_ifu_tellcorr}}}; &
-    \node[above] (RECtac_raw){\recipenotitlebox{\REC{metis_ifu_tellcorr}}}; &
+%      so actually this is now just the same as telluric
+    \node[above] (RECstd_raw){\recipenotitlebox{\REC{metis_ifu_telluric}}}; &
+    \node[above] (RECtac_raw){\recipenotitlebox{\REC{metis_ifu_telluric}}}; &
 %      \recipebox{\RAW{IFU_SCI_RAW}}}{\REC{metis_ifu_sci_process}}}
 %      \recipenotitlebox{\REC{metis_ifu_sci_process}}}
-    \node[above] (RECsci1_raw){\recipenotitlebox{\REC*{metis_ifu_sci_calibrate}}}; &
-    \node[above] (RECsci2_raw){\recipenotitlebox{\REC{metis_ifu_sci_postprocess}}}; \\
+    \node[above] (RECsci1_raw){\recipenotitlebox{\REC{metis_ifu_calibrate}}}; &
+    \node[above] (RECsci2_raw){\recipenotitlebox{\REC{metis_ifu_postprocess}}}; \\
 %    &
 %    \node[above] (adi_raw){%
 %      \recipenotitlebox{\REC{metis_ifu_adi_cgrph}}}
@@ -80,7 +80,7 @@
     \node (REClin_DIgeom)[empty]{}; &
     \node (RECpers_DIgeom)[empty]{}; &
     \node (RECgeom_DIgeom)[statcalfile]{\PROD{IFU_DISTORTION_TABLE}}; &
-    \node (RECrsrf_DIgeom)[connection]{}; &
+    \node (RECrsrf_DIgeom)[empty]{}; &
     \node (RECdark_DIgeom)[empty]{}; &
     \node (RECwcal_DIgeom)[connection]{}; &
     \node (RECstdreduce_DIgeom)[connection]{}; &
@@ -134,8 +134,8 @@
     \node (RECscireduce_DIscireduced)[scienceproduct]{\EXTCALIB{IFU_SCI_REDUCED}};
     \node (RECscireduce_DIscibackground)[scienceproduct,below=0.5cm]{\EXTCALIB{IFU_SCI_BACKGROUND}};
     \node (RECscireduce_DIscireducedcube)[scienceproduct,below=1.25cm]{\EXTCALIB{IFU_SCI_REDUCED_CUBE}};
-    \node (RECscireduce_DIsciobject1d)[scienceproduct,below=2.0cm]{\EXTCALIB{IFU_SCI_OBJECT_1D}};
-    \draw [-] (RECscireduce_DIscireduced) -- (RECscireduce_DIscibackground) -- (RECscireduce_DIscireducedcube) -- (RECscireduce_DIsciobject1d); &
+    \node (RECscireduce_DIscicombined)[scienceproduct,below=2.0cm]{\EXTCALIB{IFU_SCI_COMBINED}};
+    \draw [-] (RECscireduce_DIscireduced) -- (RECscireduce_DIscibackground) -- (RECscireduce_DIscireducedcube) -- (RECscireduce_DIscicombined); &
     \node (RECstd_DIscireduced)[empty]{}; &
     \node (RECtac_DIscireduced)[empty]{}; &
     \node (RECsci1_DIscireduced)[empty]{}; &
@@ -149,10 +149,11 @@
     \node (RECrsrf_DIstdreduced)[empty]{}; &
     \node (RECdark_DIstdreduced)[empty]{}; &
     \node (RECwcal_DIstdreduced)[empty]{}; &
-    \node (RECstdreduce_DIstdreduced)[scienceproduct]{\PROD*{IFU_STD_REDUCED}};
-    \node (RECstdreduce_DIstdbackground)[scienceproduct,below=0.5cm]{\PROD*{IFU_STD_BACKGROUND}};
-    \node (RECstdreduce_DIstdobject1d)[scienceproduct,below=1.25cm]{\PROD*{IFU_STD_OBJECT_1D}};
-    \draw [-] (RECstdreduce_DIstdreduced) -- (RECstdreduce_DIstdbackground) -- (RECstdreduce_DIstdobject1d); &
+    \node (RECstdreduce_DIstdreduced)[scienceproduct]{\PROD{IFU_STD_REDUCED}};
+    \node (RECstdreduce_DIstdbackground)[scienceproduct,below=0.5cm]{\PROD{IFU_STD_BACKGROUND}};
+    \node (RECstdreduce_DIstdreducedcube)[scienceproduct,below=1.25cm]{\EXTCALIB{IFU_STD_REDUCED_CUBE}};
+    \node (RECstdreduce_DIstdcombined)[scienceproduct,below=2.cm]{\EXTCALIB{IFU_STD_COMBINED}};
+    \draw [-] (RECstdreduce_DIstdreduced) -- (RECstdreduce_DIstdbackground) -- (RECstdreduce_DIstdreducedcube) -- (RECstdreduce_DIstdcombined); &
     \node (RECscireduce_DIstdreduced)[empty]{}; &
     \node (RECstd_DIstdreduced)[empty]{}; &
     \node (RECtac_DIstdreduced)[empty]{}; &
@@ -187,7 +188,7 @@
     \node (RECstdreduce_DItac)[empty]{}; &
     \node (RECscireduce_DItac)[empty]{}; &
     \node (RECstd_DItac)[empty]{}; &
-    \node (RECtac_DItac)[calibproduct]{\PROD*{IFU_TELLURIC}}; &
+    \node (RECtac_DItac)[calibproduct]{\PROD{IFU_TELLURIC}}; &
     \node (RECsci1_DItac)[connection]{}; &
     \node (RECsci2_DItac)[empty]{}; \\
 %    &
@@ -203,7 +204,7 @@
     \node (RECstdreduce_DIfcal)[empty]{}; &
     \node (RECscireduce_DIfcal)[empty]{}; &
     \node (RECstd_DIfcal)[calibproduct]{\PROD{FLUXCAL_TAB}};
-    \node (RECstd_DItelluricstd)[calibproduct,below=.5cm]{\PROD*{IFU_TELLURIC}};
+    \node (RECstd_DItelluricstd)[calibproduct,below=.5cm]{\PROD{IFU_TELLURIC}};
     \draw [-] (RECstd_DIfcal) -- (RECstd_DItelluricstd); &
     \node (RECtac_DIfcal)[empty]{}; &
     \node (RECsci1_DIfcal)[connection]{};
@@ -225,7 +226,7 @@
     \node (RECstd_DIsci1)[empty]{}; &
 %    \node (RECtac_DIsci1)[scienceproduct]{\PROD{IFU_SCI_CALIBRATED_TAC}}};
     \node (RECtac_DIsci1)[empty]{}; &
-    \node (RECsci1_DIsci1)[scienceproduct]{\PROD*{IFU_SCI_CUBE_CALIBRATED}}; &
+    \node (RECsci1_DIsci1)[scienceproduct]{\PROD{IFU_SCI_CUBE_CALIBRATED}}; &
     \node (RECsci2_DIsci1)[connection]{}; \\
 %    &
 %    \node (adi_DIsci1)[empty]{};
@@ -302,15 +303,15 @@
   \draw [match] (RECrsrf_DIrsrf) -- (RECwcal_DIrsrf) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] -- (RECscireduce_DIrsrf);
 
   \draw [match] (RECwcal_DIwcal)  -- (RECscireduce_DIwcal);
-  \draw [match] (RECgeom_DIgeom)  -- (RECscireduce_DIgeom);
+  \draw [match] (RECgeom_DIgeom) -- (RECrsrf_DIgeom) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] -- (RECscireduce_DIgeom);
   \draw [match] (RECdark_DIfluxstd)   -- (RECstd_DIfluxstd);   % Line from FLUXSTD_CATALOG to further
   \draw [match] (RECstd_DIfcal)  -- (RECsci1_DIfcal);
   \draw [match,dashed] (RECstd_DItelluricstd)  -- (RECsci1_DItelluricstd);
   \draw [match] (RECtac_DItac)  -- (RECsci1_DItac);
 
 % -| means first horizontal, then vertical
-  \draw [arrow] (RECstdreduce_DIstdobject1d) -| (RECstd_DIfcal);
-  \draw [arrow] (RECscireduce_DIscireducedcube) -| (RECtac_DItac);
+  \draw [arrow] (RECstdreduce_DIstdcombined) -| (RECstd_DIfcal);
+  \draw [arrow] (RECscireduce_DIscicombined) -| (RECtac_DItac);
   \draw [arrow] (RECscireduce_DIscireduced) -| (RECsci1_DIsci1);
   \draw [arrow] (RECsci1_DIsci1) -| (RECsci2_adi);
 

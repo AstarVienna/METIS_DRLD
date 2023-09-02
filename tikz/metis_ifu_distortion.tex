@@ -14,21 +14,20 @@
   %% Main reduction workflow
 
   \node (template) [template]{%
-    METIS\_ifu\_cal\_distortion
+    \TPL{METIS_ifu_cal_distortion}
   };
 
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input]{%
-    IFU\_DIST\_ON \\
-    IFU\_DIST\_OFF
+    \RAW{IFU_DISTORTION_RAW}
   };
 
-  \node (step1) [below=1.5cm of input, redstep]{%
-    subtract DIST\_OFF
-  };
+%  \node (step1) [below=1.5cm of input, redstep]{%
+%    subtract DIST\_OFF
+%  };
 
-  \node (step2) [below=1.cm of step1, redstep]{%
+  \node (step2) [below=1.cm of input, redstep]{%
     locate images
   };
 
@@ -40,37 +39,36 @@
 
   %% Connections
   \draw (template) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (step2);
+  \draw (input) -- (step2);
   \draw (step2) -- (step3);
   \draw (step3) -- (stop-t);
 
   %% Input
-  \node (bpmin) [left=2cm of step2, yshift=0, calproduct]{%
-    BADPIX\_MAP\_IFU
-  };
-  \draw (bpmin) -- (step2);
+%  \node (bpmin) [left=2cm of step2, yshift=0, calproduct]{%
+%    BADPIX\_MAP\_IFU
+%  };
+%  \draw (bpmin) -- (step2);
 
   %% Output
   \node (connect dist table) [connection] at
   ($(step3)!0.4!(stop-t)$) {};
   \node (dist table) [right=of connect dist table, calproduct]{%
-    IFU\_DIST\_TABLE
+    \PROD{IFU_DISTORTION_TABLE}
   };
   \draw (connect dist table) -- (dist table);
 
   \node (connect dist reduced) [connection] at
   ($(step3)!0.75!(stop-t)$) {};
   \node (dist reduced) [right=of connect dist reduced, calproduct]{%
-    IFU\_DIST\_REDUCED
+    \PROD{IFU_DIST_REDUCED}
   };
   \draw (connect dist reduced) -- (dist reduced);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.5!(step1) - (3.25,0)$)
+  \draw [frame] ($(input)!0.5!(step2) - (3.25,0)$)
   rectangle ($(step3)!0.275!(stop-t) + (2.75,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.5!(step1) - (3.25, 0)$) {%
+  ($(input)!0.5!(step2) - (3.25, 0)$) {%
     \textsl{metis\_ifu\_distortion}};
 
 \end{tikzpicture}
