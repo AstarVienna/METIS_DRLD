@@ -344,11 +344,13 @@ Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                       
                      & \TPL{METIS_ifu_cal_psf}                                                                  \\
                      & \TPL{METIS_ifu_cal_standard}                                                             \\
 Input data:          & \RAW{IFU_SCI_RAW} or \RAW{IFU_STD_RAW}                                                   \\
-                     & \RAW{IFU_SKY_RAW} (Blank sky images, if available.) \\
-                     & \PROD{MASTER_DARK_IFU}                              \\
-                     & \PROD{RSRF_IFU} (2D relative spectral response function)               \\
-                     & \PROD{BADPIX_MAP_IFU}  \\
-                     & \PROD{IFU_WAVECAL} \\
+                     & \RAW{IFU_SKY_RAW} (Blank sky images, if available.)                                      \\
+                     & \STATCALIB{LINEARITY_IFU}                                                                \\
+                     & \EXTCALIB{PERSISTENCE_MAP}                                                               \\
+                     & \PROD{MASTER_DARK_IFU}                                                                   \\
+                     & \PROD{RSRF_IFU} (2D relative spectral response function)                                 \\
+                     & \PROD{BADPIX_MAP_IFU}                                                                    \\
+                     & \PROD{IFU_WAVECAL}                                                                       \\
 % TODO: I believe this should not be just FLUXCAL_TAB as it is not a table but an image
 %                     & \PROD{FLUXCAL_TAB} (Flux calibration table) \\
                      & \PROD{IFU_DISTORTION_TABLE} \\
@@ -435,6 +437,7 @@ science data if both are available and of sufficient quality.
   Type:                & Calibration / post processing                                                   \\
   Templates:           & ---                                                                             \\
   Input data:          & \PROD{IFU_SCI_COMBINED} or \PROD{IFU_STD_COMBINED} -- reduced combined IFU cube \\
+                       & \EXTCALIB{FLUXSTD_CATALOG} (photometric standard catalogue)                     \\
                        & \STATCALIB{LSF_KERNEL} -- Line spread kernel to be used with \CODE{molecfit}    \\
                        & \EXTCALIB{ATM_PROFILE} -- Atmospheric input profile to be used with \CODE{molecfit} \\
   Parameters:          & extraction aperture parameters                                                  \\
