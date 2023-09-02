@@ -657,13 +657,13 @@ class AssociationMatrixCell:
         if empty:
             self.empty = True
             # assert dtype is None
-            assert dataitems is None
+            assert not dataitems
             assert recipe is None
             assert connection is None
         elif connection:
             self.connection = True
             # assert dtype is None
-            assert dataitems is None
+            assert not dataitems
             assert recipe is None
             assert empty is None
         else:
@@ -691,8 +691,8 @@ class AssociationMatrixCell:
             raise ValueError
             return "ERROR"
 
-    def __repr__(self):
-        return str(self)
+    # def __repr__(self):
+    #     return str(self)
 
 
 class AssociationMatrix:
@@ -718,11 +718,13 @@ class AssociationMatrix:
                     for pp in [
                         # \node[above] (RECdark_raw){\recipebox{\NEWRAW{DARK_IFU_RAW}}{\NEWREC{metis_det_dark}}}; &
                         # node[above] (RECstdreduce_raw){\\recipebox{\\RAW{IFU_STD_RAW}}{\\REC*{metis_ifu_reduce}}}; &
-                        r".*?\\recipebox{\\RAW\*?{(?P<dataitem>[A-Z0-9_, ]+)}}{\\REC\*?{(?P<recipe>[a-z_\\]+)}}.*?",
+                        # r".*?\\recipebox{\\RAW\*?{(?P<dataitem>[A-Z0-9_, ]+)}}{\\REC\*?{(?P<recipe>[a-z_\\]+)}}.*?",
+                        r".*?\\recipebox{[^}]*}{\\REC\*?{(?P<recipe>[a-z_\\]+)}}.*?",
 
                         # \recipebox{DISTORTION}{lm\_img\_distortion}
                         # [above] (all1_raw){%  \recipebox{SCIENCE, STD}{lm\_img\_basic}  };
-                        r".*?\\recipebox{(?P<dataitem>\*?[A-Z0-9_, ]+)}{(?P<recipe>[a-z_\\]+)}.*?",
+                        # r".*?\\recipebox{(?P<dataitem>\*?[A-Z0-9_, ]+)}{(?P<recipe>[a-z_\\]+)}.*?",
+                        r".*?\\recipebox{[^}]*}{(?P<recipe>[a-z_\\]+)}.*?",
 
                         # \node[above] (RECstd_raw){\recipenotitlebox{\NEWREC{metis_ifu_tellcorr}}}; &
                         r".*?\\recipenotitlebox{\\REC\*?{(?P<recipe>[a-z_\\]+)}.*?",
@@ -742,31 +744,42 @@ class AssociationMatrix:
 
                     ]
                 ]
+                pattern_dataitems = r"(?P<all>\\(?P<dtype>[A-Z]+)\*?{(?P<name>[A-Z0-9_\\]+)})"
+                matches = [
+                    match
+                    for match in list(re.finditer(pattern_dataitems, snode))
+                    if "REC" not in match["dtype"]
+                ]
+                dataitemrefs = [
+                    DataItemReference(
+                        dtype=match["dtype"],
+                        name=match["name"],
+                    )
+                    for match in matches
+                ]
+                snode2 = snode
+                # Remove matches because they confuse the regexps if there are more than one.
+                for match in matches:
+                    snode2 = snode2.replace(match["all"], "")
                 for pattern in patterns_to_test:
-                    match = re.match(pattern, snode)
+                    match = re.match(pattern, snode2)
                     if match:
                         groupd = match.groupdict()
-                        if "dataitem" in groupd:
-                            dataitem_name = groupd.pop("dataitem")
-                            dtype = groupd.get("dtype", "RAW")
-                            dataitem = DataItemReference(
-                                name=dataitem_name,
-                                dtype=dtype,
-                            )
-                            groupd["dataitems"] = [dataitem]
-                        thecell = AssociationMatrixCell(tikz=snode, **groupd)
+                        # if "dataitem" in groupd:
+                        #     dataitem_name = groupd.pop("dataitem")
+                        #     dtype = groupd.get("dtype", "RAW")
+                        #     dataitem = DataItemReference(
+                        #         name=dataitem_name,
+                        #         dtype=dtype,
+                        #     )
+                        #     groupd["dataitems"] = [dataitem]
+                        thecell = AssociationMatrixCell(tikz=snode, dataitems=dataitemrefs, **groupd)
                         therow.append(thecell)
                         if 'recipe' not in groupd:
                             assert "recipe" not in scol
                         break
                 else:
-                    pattern_dataitems = r".*?(?P<dtype>[A-Z]+)\*?{(?P<name>[A-Z0-9_\\]+).*?"
-                    matches = list(re.finditer(pattern_dataitems, snode))
-                    assert matches, ValueError(snode)
-                    dataitemrefs = [
-                        DataItemReference(**match.groupdict())
-                        for match in matches
-                    ]
+                    assert dataitemrefs, ValueError(snode)
                     thecell = AssociationMatrixCell(dataitems=dataitemrefs, tikz=snode)
                     therow.append(thecell)
 
