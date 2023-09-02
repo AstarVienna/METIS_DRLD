@@ -807,8 +807,8 @@ def test_associationmatrices():
     asso_ifu = AssociationMatrix(fn="tikz/IFU_assomap_tikz.tex")
 
     for asso in [asso_lm, asso_n, asso_ifu]:
-        print()
-        print(asso.filename)
+        # print()
+        # print(asso.filename)
         problems = []
         for recipecolumn in asso.matrix:
             problems_recipe = []
@@ -865,8 +865,9 @@ def test_associationmatrices():
                 if cell.connection:
                     # Find out what it is.
                     # TODO: Use the path? But cannot always do that.
-                    # TODO: in reverse order?
-                    for cell2 in [col[icell] for col in asso.matrix]:
+                    # Needs to be in reverse order because occasionally there
+                    # are multiple products on one row.
+                    for cell2 in [col[icell] for col in asso.matrix][::-1]:
                         if cell2.dataitems:
                             # found it
                             thedataitems = cell2.dataitems
@@ -916,6 +917,16 @@ def test_associationmatrices():
 
 def test_tikz():
     """Test whether the names used in the tikz figures exist."""
+    dir_tikz = METIS_DataReductionLibraryDesign.path_drld / "tikz"
+    dir_figures = METIS_DataReductionLibraryDesign.path_drld / "figures"
+    for name_recipe, recipe in METIS_DataReductionLibraryDesign.recipes.items():
+        fn_tikz = dir_tikz / f"{name_recipe}.tex"
+        fn_pdf = dir_figures / f"{name_recipe}.pdf"
+        fn_png = dir_figures / f"{name_recipe}.png"
+        # print(fn_tikz)
+        fns = (fn_tikz, fn_pdf, fn_png)
+        do_fns_exist = [fn.exists() for fn in fns]
+        # assert sum(do_fns_exist) == 1, f"There there should be exactly one figure for {name_recipe}, not {do_fns_exist}"
 
 
 # TODO: Order of input in recipes, primary input should go first!
