@@ -913,7 +913,7 @@ def test_associationmatrices():
                 for problem in problems_recipe:
                     print("   " + problem)
 
-    # assert not problems
+    assert not problems
 
 def test_tikz():
     """Test whether the names used in the tikz figures exist."""
