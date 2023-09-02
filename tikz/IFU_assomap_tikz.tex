@@ -11,7 +11,7 @@
 
     % Row *_raw
 
-    \node[above] (REClin_raw){\recipebox{\RAW{LINEARITY_IFU}}{\REC{metis_det_lingain}}}; &
+    \node[above] (REClin_raw){\recipebox{\RAW{DETLIN_IFU_RAW}}{\REC{metis_det_lingain}}}; &
 % TODO: Put back in once we actually include the persistence recipe in the DRLD
 %    \node[above] (RECpers_raw){\recipebox{\RAW{PERSISTENCE}}{\REC{metis_det_persistence}}}; &
     \node[above] (RECpers_raw)[empty]{}; &
@@ -267,8 +267,8 @@
 
 
   % dashed line separating daily procedure
-  \node (t1) at ($(RECrsrf_raw)!0.5!(RECdark_raw)$){};
-  \node (t2) at ($(RECrsrf_adi)!0.5!(RECdark_adi)$){} ;
+  \node (t1) at ($(RECrsrf_raw.east)!0.5!(RECdark_raw.west)$){};
+  \node (t2) at ($(RECrsrf_adi.east)!0.5!(RECdark_adi.west)$){} ;
   \draw [thick,dashed] ([yshift=4ex]t1.north) -- ([yshift=-0ex]t2.south);
 
 

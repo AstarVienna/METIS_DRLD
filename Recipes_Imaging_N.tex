@@ -133,7 +133,7 @@ The edges of the N-band detector will be behind a cold mask on all four sides.
                      & \TPL{METIS_img_n_cal_psf}                                    \\
                      & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
                      & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
-  Input data:        & \RAW{N_IMAGE_SCI_RAW} (Chopped/nodded science or standard images)\\
+  Input data:        & \RAW{N_IMAGE_SCI_RAW} or \RAW{N_IMAGE_STD_RAW} \\
                      & \PROD{BADPIX_MAP_GEO} Bad-pixel map \\
                      & \PROD{MASTER_IMG_FLAT_LAMP_N} \\
                      & or \PROD{MASTER_IMG_FLAT_TWILIGHT_N} \\
@@ -143,8 +143,7 @@ The edges of the N-band detector will be behind a cold mask on all four sides.
   Parameters:        & None                                                         \\
   Algorithm:         & Analyse and optionally remove masked regions and correct crosstalk and ghosts \\
                      & Add/subtract images to subtract background                   \\
-  Output data:       & \PROD{N_SCI_BKG_SUBTRACTED}                                  \\
-                     & \PROD{N_STD_BKG_SUBTRACTED}                                  \\
+  Output data:       & \PROD{N_SCI_BKG_SUBTRACTED} or \PROD{N_STD_BKG_SUBTRACTED} \\
   QC1 parameters:    & \QC*{N IMG PEAK CNTS}                                         \\
   hdrl functions:    & \CODE{hdrl_imagelist_collapse}                               \\
 \end{recipedef}

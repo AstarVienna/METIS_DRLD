@@ -801,6 +801,7 @@ def test_parse_dataitem_from_paragraph():
 
 
 def test_associationmatrices():
+    """Some tests for the association matrices. This code is horrible."""
     asso_lm = AssociationMatrix(fn="tikz/IMG_LM_assomap_tikz.tex")
     asso_n = AssociationMatrix(fn="tikz/IMG_N_assomap_tikz.tex")
     asso_ifu = AssociationMatrix(fn="tikz/IFU_assomap_tikz.tex")
@@ -815,6 +816,7 @@ def test_associationmatrices():
             # Get the recipe
             recipecell = recipecolumn[0]
             reciperef = recipecell.recipe
+            raw_dataitemref = recipecell.dataitems[0] if recipecell.dataitems else None
             if reciperef is None:
                 # can happen if there is calibration data on the left
                 assert str(recipecell) == "(empty)"
@@ -830,23 +832,76 @@ def test_associationmatrices():
                     recipe = METIS_DataReductionLibraryDesign.recipes[recipe_name2]
                 else:
                     problems_recipe.append(f"{recipe_name} does not exist")
+
+            if raw_dataitemref is not None:
+                assert recipe_name
+                # TODO: Support other organizations of the matrix?
+                # TODO: E.g. now the LM and N band show data products there too
+                # assert raw_dataitemref.dtype == "RAW"
+                if raw_dataitemref.name not in METIS_DataReductionLibraryDesign.dataitems:
+                    problems_recipe.append(f"{recipe_name} is triggered by {raw_dataitemref.name} which does not exist")
+
             if not recipe:
                 problems.append((recipe_name, problems_recipe))
                 continue
 
             # Get the first dataitem
-            if recipecell.dataitem is not None:
-                input_primary = recipecell.dataitem
-                input_primary_real = recipe.input_data[0]
-                # The input_primary does not have to be the first, e.g. metis_det_dark only lists the GEO one as first input
-                is_input_primary_really_input = any(
-                    input_primary.name == inp.name for inp in recipe.input_data
-                )
-                if not is_input_primary_really_input:
-                    problems_recipe.append(f"{recipe.name} should not have {input_primary.name} as primary input but {input_primary_real.name}")
+            if recipecell.dataitems is not None:
+                for input_primary in recipecell.dataitems:
+                    input_primary_real = recipe.input_data[0]
+                    # The input_primary does not have to be the first, e.g. metis_det_dark only lists the GEO one as first input
+                    is_input_primary_really_input = any(
+                        input_primary.name == inp.name for inp in recipe.input_data
+                    )
+                    if not is_input_primary_really_input:
+                        problems_recipe.append(f"{recipe.name} should not have {input_primary.name} as primary input but {input_primary_real.name}")
             else:
                 # there is not really a way to get to the primary data item because then it would be necessary to follow the lines, e.g. for IFU
                 ...
+                input_primary = None
+
+            # Try to see whether input is correct.
+            for icell, cell in enumerate(recipecolumn):
+                if cell.connection:
+                    # Find out what it is.
+                    # TODO: Use the path? But cannot always do that.
+                    # TODO: in reverse order?
+                    for cell2 in [col[icell] for col in asso.matrix]:
+                        if cell2.dataitems:
+                            # found it
+                            thedataitems = cell2.dataitems
+                            break
+                    else:
+                        raise ValueError
+                    is_input_really_input = any(
+                        thedataitem.name == inp.name
+                        for inp in recipe.input_data
+                        for thedataitem in thedataitems
+                    )
+                    if not is_input_really_input:
+                        sthedataitem = "+".join(td.name for td in thedataitems)
+                        problems_recipe.append(f"{recipe.name} has {sthedataitem} as input in the association matrix, but not in the recipe table")
+                        assert sthedataitem, ValueError("sthedataitem should never be empty")
+            # TODO: Vice-versa, check whether all input in the recipe table is
+            # also in the association matrix. This is harder, because some
+            # might be optional.
+
+            # Try to see whether the output is correct.
+            # Skip the first cell, as that is the raw data which is checked elsewhere.
+            recipe_output = [do.name for do in recipe.output_data] if recipe is not None else []
+            for icell, cell in enumerate(recipecolumn[1:], 1):
+                if cell.dataitems is None:
+                    continue
+                for diref in cell.dataitems:
+                    if diref.name in {"FLUXSTD_CATALOG", "PERSISTENCE_MAP"}:
+                        # FLUXSTD_CATALOG is an external file, and listed above another calibration file for convenience
+                        continue
+                    if diref.name not in METIS_DataReductionLibraryDesign.dataitems:
+                        problems_recipe.append(f"{recipe_name} claims to produce {diref.name}, which does not exist")
+                    elif diref.name not in recipe_output:
+                        problems_recipe.append(f"{recipe_name} listed as producing {diref.name}, but it doesn't, only {recipe_output}")
+
+
 
             if problems_recipe:
                 problems.append((recipe_name, problems_recipe))

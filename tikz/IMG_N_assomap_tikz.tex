@@ -21,15 +21,17 @@
     % *_raw, *_lin, *_dark, *_flat, *_std, *_sci1, *_sci2, *_prod
 
     % Row *_raw
-    \node[above] (lin_raw){\recipebox{DETLIN}{det\_detlin}}; &
-    \node[above] (pers_raw){\recipebox{PERSISTENCE}{persistence\_map}}; &
-    \node[above] (dist_raw){\recipebox{DISTORTION}{n\_img\_distortion}}; &
-    \node[above] (dark_raw){\recipebox{DARK}{det\_dark}}; &
-    \node[above] (flat_raw){\recipebox{FLAT}{n\_img\_flat}}; &
-    \node[above] (chop_raw){\recipebox{CHOPNOD}{n\_img\_chopnod}}; &
-    \node[above] (std_raw){\recipebox{PHOT STD}{n\_img\_std\_process}}; &
-    \node[above] (cal_raw){\recipebox{SCIENCE}{n\_img\_sci\_calibrate}}; &
-    \node[above] (rest_raw){\recipebox{SCIENCE}{n\_img\_restore}}; \\
+    \node[above] (lin_raw){\recipebox{\RAW{DETLIN_GEO_RAW}}{\REC{metis_det_lingain}}}; &
+% TODO: Put back in once we actually include the persistence recipe in the DRLD
+%    \node[above] (pers_raw){\recipebox{\RAW{PERSISTENCE}}{\REC{metis_det_persistence_map}}}; &
+    \node[above] (pers_raw)[empty]{}; &
+    \node[above] (dist_raw){\recipebox{\RAW{N_DISTORTION_RAW}}{\REC{metis_n_img_distortion}}}; &
+    \node[above] (dark_raw){\recipebox{\RAW{DARK_GEO_RAW}}{\REC{metis_det_dark}}}; &
+    \node[above] (flat_raw){\recipebox{\RAW{N_FLAT_LAMP_RAW} \RAW{N_FLAT_TWILIGHT_RAW}}{\REC{metis_n_img_flat}}}; &
+    \node[above] (chop_raw){\recipebox{\RAW{N_IMAGE_SCI_RAW}}{\REC{metis_n_img_chopnod}}}; &
+    \node[above] (std_raw){\recipebox{\PROD{N_STD_BKG_SUBTRACTED}}{\REC{metis_n_img_std_process}}}; &
+    \node[above] (cal_raw){\recipebox{\PROD{N_SCI_BKG_SUBTRACTED}}{\REC{metis_n_img_calibrate}}}; &
+    \node[above] (rest_raw){\recipebox{\RAW{N_SCI_CALIBRATED}}{\REC{metis_n_img_restore}}}; \\
 
     %%% Calibration products
     % Row *_lin
@@ -71,7 +73,8 @@
     \node (pers_flat)[empty]{}; &
     \node (dist_flat) [empty]{}; &
     \node (dark_flat)[empty]{}; &
-    \node (flat_flat) [qcproduct]{\STATCALIB{MASTER_IMG_FLAT_LAMP_N}}; &
+    \node (flat_flat) [qcproduct]{\STATCALIB{MASTER_IMG_FLAT_LAMP_N}};
+      \node (flat_flat2) [qcproduct,below=.5cm]{\STATCALIB{MASTER_IMG_FLAT_TWILIGHT_N}}; &
     \node (chop_flat)[connection]{}; &
     \node (std_flat)[empty]{}; &
     \node (cal_flat)[empty]{}; &
@@ -158,13 +161,14 @@
 %    & & & & & \\
   };    % end matrix
 
-  \node (t1) at ($(dist_raw)!0.5!(dark_raw)$){};
-  \node (t2) at ($(dist_prod)!0.5!(dark_prod)$){} ;
+  \node (t1) at ($(dist_raw.east)!0.5!(dark_raw.west)$){};
+  \node (t2) at ($(dist_prod.east)!0.5!(dark_prod.west)$){} ;
   \draw [thick,dashed] ([yshift=8mm]t1.north) -- ([yshift=-8mm]t2.south);
 
   %% Vertical connections
   \draw [arrow] (lin_raw) -- (lin_lin);
-  \draw [arrow] (pers_raw) -- (pers_pers);
+% TODO: Put back in once we actually include the persistence recipe in the DRLD
+%  \draw [arrow] (pers_raw) -- (pers_pers);
   \draw [arrow] (dark_raw) -- (dark_dark);
   \draw [arrow] (flat_raw) -- (flat_flat);
   \draw [arrow] (dist_raw) -- (dist_dist);

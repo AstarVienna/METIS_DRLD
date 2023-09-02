@@ -13,9 +13,7 @@ Description: & Raw exposure of the LM image mode.\\[0.3cm]
 OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
 \FITS{DO.CATG}: & \CODE{LM_IMAGE_SCI_RAW}\\[0.3cm]
 % TODO: Some of the offset templates also produce a SKY or PSF observation that should also be processed
-Template: & \TPL{METIS_img_lm_cal_standard}\\
-%           & \TPL{METIS_img_lm_*_obs_*}       \\
-          & \TPL{METIS_img_lm_obs_AutoJitter} \\
+Template: & \TPL{METIS_img_lm_obs_AutoJitter} \\
           & \TPL{METIS_img_lm_obs_GenericOffset} \\
           & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
           & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
@@ -46,6 +44,30 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
+\paragraph{\RAW{LM_IMAGE_STD_RAW}}\label{dataitem:lm_image_std_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \RAW{LM_IMAGE_STD_RAW}\\[0.3cm]
+Description: & Raw exposure of a standard star in the LM image mode.\\[0.3cm]
+\FITS{DPR.CATG}: & \CODE{CALIB}\\
+\FITS{DPR.TECH}: & \CODE{IMAGE,LM} \\
+\FITS{DPR.TYPE}: & \CODE{STD} \\[0.3cm]
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+\FITS{DO.CATG}: & \CODE{LM_IMAGE_STD_RAW}\\[0.3cm]
+Template:  & \TPL{METIS_img_lm_cal_standard} \\
+           & \TPL{METIS_ifu_cal_standard}\\
+Input for: & \REC{metis_lm_img_basic_reduce} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
 
 \paragraph{\RAW{N_IMAGE_SCI_RAW}}\label{dataitem:n_image_sci_raw}
 
@@ -58,8 +80,7 @@ Description: & Raw exposure of the N image mode.\\[0.3cm]
 \FITS{DPR.TYPE}: & \CODE{OBJECT} \\[0.3cm]
 OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
 \FITS{DO.CATG}: & \CODE{N_IMAGE_SCI_RAW}\\[0.3cm]
-Template: & \TPL{METIS_img_n_cal_standard}\\
-                     & \TPL{METIS_img_n_obs_AutoChopNod}                            \\
+Template:            & \TPL{METIS_img_n_obs_AutoChopNod}                            \\
                      & \TPL{METIS_img_n_obs_GenericChopNod}                         \\
                      & \TPL{METIS_img_n_cvc_obs_AutoChop}                           \\
                      & \TPL{METIS_img_n_cal_psf}                                    \\
@@ -70,6 +91,29 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
 %\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+\paragraph{\RAW{N_IMAGE_STD_RAW}}\label{dataitem:n_image_std_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \RAW{N_IMAGE_STD_RAW}\\[0.3cm]
+Description: & Raw exposure of the N image mode.\\[0.3cm]
+\FITS{DPR.CATG}: & \CODE{CALIB}\\
+\FITS{DPR.TECH}: & \CODE{IMAGE,N} \\
+\FITS{DPR.TYPE}: & \CODE{OBJECT} \\[0.3cm]
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+\FITS{DO.CATG}: & \CODE{N_IMAGE_STD_RAW}\\[0.3cm]
+Template: & \TPL{METIS_img_n_cal_standard}\\
+Input for recipe: & \REC{metis_n_img_chopnod} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
