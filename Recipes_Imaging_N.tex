@@ -276,6 +276,7 @@ header receives the keyword \FITS*{BUNIT} with value %
 \label{n_img_restoration}
 \label{rec:n_img_restoration}
 \label{sssec:n_img_restoration}
+\label{rec:metis_n_img_restore}
 
 This recipe attempts to combine the positive and negative beams of the
 chop-nod difference image into a single positive image of the
@@ -284,7 +285,7 @@ between the beams, it suffices to cut out small regions around the
 source images and add the with the appropriate signs to obtain a
 single image. Extended sources are beyond the scope of the pipeline.
 
-\begin{recipedef}\label{rec:metis_n_img_restore}
+\begin{recipedef}
   Name:              & \REC{metis_n_img_restore}                                     \\
   Purpose:           & Restore a single positive beam from chop-nod difference image \\
   Type:              & Science                                                       \\
