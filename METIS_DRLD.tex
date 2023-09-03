@@ -207,9 +207,8 @@
 %% Use environment recipedef to define a new recipe.
 \newenvironment{recipedef}
 {% begin code
-% The enhanced jigsaw conflicts with tikz figures, and doesn't seem to do anything.
-%   \begin{tcolorbox}[breakable,enhanced jigsaw]%
-  \begin{tcolorbox}[breakable]%
+% The enhanced jigsaw allows the box to visually continue when it is broken over two pages.
+   \begin{tcolorbox}[breakable,enhanced jigsaw]%
     \begin{longtable*}{p{0.24\hsize}p{0.69\hsize}}}
       {% end code
     \end{longtable*}%
@@ -218,9 +217,8 @@
 %% Use environment datastructdef to define the data structure of a data item (see e.g. LSS_data_structures.tex)
 \newenvironment{datastructdef}
 {% begin code
-% The enhanced jigsaw conflicts with tikz figures, and doesn't seem to do anything.
-%   \begin{tcolorbox}[breakable,enhanced jigsaw]%
-  \begin{tcolorbox}[breakable]%
+% The enhanced jigsaw allows the box to visually continue when it is broken over two pages.
+   \begin{tcolorbox}[breakable,enhanced jigsaw]%
     \begin{longtable*}{p{0.97\hsize}}}
       {% end code
     \end{longtable*}%
