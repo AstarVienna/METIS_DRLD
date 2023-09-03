@@ -339,11 +339,16 @@ complex sequence can be uniquely identified.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Reduced data format}
+\subsection{Processed data format}
 \label{ssec:reduced_data_format}
 
 All data products, both intermediary and final ones, will be provided in FITS format. Final data products will be saved according to~\cite{ESO-products_standard}, fulfilling \REQ{METIS-6061} and \REQ{METIS-6080}.
 
+The list of individual data products can be found in
+Ch.~\ref{sec:drl_data_structures}.
+
+\subsubsection{Processed data product headers}
+\label{sssec:processeddataheaders}
 If there are additional meta-data necessary for archiving, processing, analysis, and distribution, they will be added. \REQ{METIS-6082}.
 
 By default, recipes try to preserve the information of the FITS headers of the input \ac{SOF} in the output products:
@@ -357,8 +362,86 @@ The same is true for \ac{AO} Telemetry, in particular the reference to the raw d
 
 The saving-functions provided by ESO \ac{CPL}, given the list of input frames, add this list to the headers of data products, thus providing provenance information in compliance with \REQ{METIS-9627}.
 
-The list of individual data products can be found in
-Ch.~\ref{sec:drl_data_structures}.
+\subsubsection{Processed data product extensions}
+\label{sssec:processeddataextensions}
+
+All process data will be structured following~\cite{Fits-format-description}
+``FITS format description for pipeline products with data, error and quality
+information''.
+In particular, each processed data product will have the following three
+FITS extensions for each detector readout:
+
+\begin{itemize}
+  \item \CODE{DATA}: the pixel data,
+  \item \CODE{ERROR}: the uncertainty, quantified as standard error because
+    that is what the \ac{HDRL} uses internally, and
+  \item \CODE{QUALITY}: the data quality, a bit mask indicating bad pixels
+    (see also~\ref{ssec:criticalbadpixeldetermination}).
+\end{itemize}
+
+The \CODE{HDUCLAS*} keywords are used to encode which extension is which,
+following~\cite{Fits-format-description}, see Table~{tab:hduclas}.
+
+\begin{table}[ht!]
+  \centering
+  \begin{tabular}{l l l l}
+    \textbf{HDU type}                       & \FITS{HDUCLAS1} & \FITS{HDUCLAS2} & \FITS{HDUCLAS3}  \\
+    \hline
+    science/calibration data (\CODE{DATA})  & \CODE{IMAGE}    & \CODE{DATA}     & --               \\
+    uncertainty/error        (\CODE{ERROR}) & \CODE{IMAGE}    & \CODE{ERROR}    & \CODE{RMSE}      \\
+    data quality             (\CODE{DQ})    & \CODE{IMAGE}    & \CODE{QUALITY}  & \CODE{FLAG32BIT} \\
+  \end{tabular}
+  \label{tab:hduclas}
+  \caption[HDU types]{HDU types following~\cite{Fits-format-description}.}
+\end{table}
+
+The follow headers are also relevant:
+\begin{itemize}
+  \item \FITS{EXTNAME}: The name of this extension.
+  \item \FITS{SCIDATA}: The name of the corresponding extension with the science/calibration data.
+  \item \FITS{ERRDATA}: The name of the corresponding extension with the uncertainty.
+  \item \FITS{QUALDATA}: The name of the corresponding extension with the data quality.
+\end{itemize}
+
+Only two of \FITS{SCIDATA}, \FITS{ERRDATA}, \FITS{QUALDATA} are present for each
+extension, because the extension does not point to itself.
+
+For example, a hypothetical data product with a single \ac{IFU} detector
+readout would have three extensions with the following headers:
+
+Extension 1:
+\begin{verbatim}
+EXTNAME = 'IFU1.SCI'         / Extension name
+HDUCLAS1= 'IMAGE   '         / Image data format
+HDUCLAS2= 'DATA    '         / Identification as science extension
+HDUCLAS3= '        '         / Empty
+ERRDATA = 'IFU1.ERR'         / Name of corresponding error extension
+QUALDATA= 'IFU1.DQ '         / Name of corresponding data quality extension
+\end{verbatim}
+
+Extension 2:
+\begin{verbatim}
+EXTNAME = 'IFU1.ERR'         / Extension name
+HDUCLAS1= 'IMAGE   '         / Image data format
+HDUCLAS2= 'ERROR   '         / Identification as uncertainty extension
+HDUCLAS3= 'RMSE    '         / Encoding as root-mean-square error
+SCIDATA = 'IFU1.SCI'         / Name of corresponding science extension
+QUALDATA= 'IFU1.DQ '         / Name of corresponding data quality extension
+\end{verbatim}
+
+Extension 3:
+\begin{verbatim}
+EXTNAME = 'IFU1.SCI'         / Extension name
+HDUCLAS1= 'IMAGE   '         / Image data format
+HDUCLAS2= 'QUALITY '         / Identification as data quality extension
+HDUCLAS3= 'FLAG32BIT'        / Encoding as 32-bit flag mask
+SCIDATA = 'IFU1.SCI'         / Name of corresponding science extension
+ERRDATA = 'IFU1.ERR'         / Name of corresponding uncertainty extension
+\end{verbatim}
+
+% TODO: Describe exceptions like non-linearity
+
+
 
 % THE END
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
