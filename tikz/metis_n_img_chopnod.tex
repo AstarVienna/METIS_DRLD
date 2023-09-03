@@ -58,13 +58,13 @@
 
 
   %% Connections
-  \draw (template) -- (input);
-  \draw (input) -- (step_linearity);
-  \draw (step_linearity) -- (step_persistence);
-  \draw (step_persistence) -- (step_dark);
-  \draw (step_dark) -- (step_flat);
-  \draw (step_flat) -- (step_masks);
-  \draw (step_masks) -- (stop-t);
+  \draw [connection_arrow] (template) -- (input);
+  \draw [connection_arrow] (input) -- (step_linearity);
+  \draw [connection_arrow] (step_linearity) -- (step_persistence);
+  \draw [connection_arrow] (step_persistence) -- (step_dark);
+  \draw [connection_arrow] (step_dark) -- (step_flat);
+  \draw [connection_arrow] (step_flat) -- (step_masks);
+  \draw [connection_arrow] (step_masks) -- (stop-t);
 
 
   %% External data
@@ -74,37 +74,37 @@
   ($(input)!0.65!(step_linearity)$){};
   \node (linearity) [left=of connect_linearity, external]{%
     \EXTCALIB{LINEARITY_GEO}};
-  \draw (linearity) -- (connect_linearity);
+  \draw [connection_arrow] (linearity) -- (connect_linearity);
 
   \node (connect_persistence) [connection] at
   ($(step_linearity)!0.5!(step_persistence)$){};
   \node (persistence) [left=of connect_persistence, external]{%
     \EXTCALIB{PERSISTENCE_MAP}};
-  \draw (persistence) -- (connect_persistence);
+  \draw [connection_arrow] (persistence) -- (connect_persistence);
 
 %   \node (connectparams) [connection] at
 %   ($(input)!0.7!(step_dark.north)$){};
 %   \node (params) [left=of connectparams, params]{%
 %     Recipe params:\\
 %     INS.IMG.SETUP};
-%   \draw (params) -- (connectparams);
+%   \draw [connection_arrow] (params) -- (connectparams);
 
   \node (connect_masterdark) [connection] at
   ($(step_persistence)!0.5!(step_dark)$){};
   \node (masterdark) [left=of connect_masterdark, calproduct]{%
     \STATCALIB{MASTER_DARK_GEO}};
-  \draw (masterdark) -- (connect_masterdark);
+  \draw [connection_arrow] (masterdark) -- (connect_masterdark);
 
   \node (connect_masterflat) [connection] at
   ($(step_dark)!0.5!(step_flat)$){};
   \node (flatin) [left=of connect_masterflat, calproduct]{%
     \STATCALIB{MASTER_IMG_FLAT_LAMP_N}\\
     or \STATCALIB{MASTER_IMG_FLAT_TWILIGHT_N}};
-  \draw (flatin) -- (connect_masterflat);
+  \draw [connection_arrow] (flatin) -- (connect_masterflat);
 
 %  \node (connect_bpm) [connection] at ($(step_flat)!0.5!(step_masks)$){};
 %  \node (bpmin) [left=of connect_bpm, calproduct]{\STATCALIB{BADPIX_MAP_GEO}};
-%  \draw (bpmin) -- (connect_bpm);
+%  \draw [connection_arrow] (bpmin) -- (connect_bpm);
 
 
   % External output
@@ -112,13 +112,13 @@
     ($(step_masks)!0.3!(stop-t)$){};
   \node (scired) [right=of connect_scired, external]{%
     \PROD{N_SCI_BKG_SUBTRACTED}};
-  \draw (connect_scired) -- (scired);
+  \draw [connection_arrow] (connect_scired) -- (scired);
 
   \node (connect_stdred) [connection] at
     ($(connect_scired)!0.5!(stop-t)$){};
   \node (stdred) [right=of connect_stdred, external]{%
     \PROD{N_STD_BKG_SUBTRACTED}};
-  \draw (connect_stdred) -- (stdred);
+  \draw [connection_arrow] (connect_stdred) -- (stdred);
 
 
   %% Frame around recipe

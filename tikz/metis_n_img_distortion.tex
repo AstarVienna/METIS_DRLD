@@ -39,42 +39,42 @@
   \node (connect_wcuoff) [connection] at
   ($(input)!0.65!(step_subtract)$) {};
   \node (wcuoff) [left=of connect_wcuoff, input] {\RAW{N_WCU_OFF_RAW}};
-  \draw (wcuoff) -- (connect_wcuoff);
+  \draw [connection_arrow] (wcuoff) -- (connect_wcuoff);
 
 %  \node (connect_bpmin) [connection] at ($(step_subtract)!0.3!(step_locate)$) {};
 %  \node (bpmin) [left=of connect_bpmin, calproduct] {\STATCALIB{BADPIX_MAP_GEO}};
-%  \draw (bpmin) -- (connect_bpmin);
+%  \draw [connection_arrow] (bpmin) -- (connect_bpmin);
 
   \node (connect_pinhole) [connection] at
   ($(step_subtract)!0.7!(step_locate)$) {};
   \node (pinhole) [left=of connect_pinhole, external] {\EXTCALIB{PINHOLE_TABLE}};
-  \draw (pinhole) -- (connect_pinhole);
+  \draw [connection_arrow] (pinhole) -- (connect_pinhole);
 
   %% Connections
-  \draw (start-m) -- (input);
-  \draw (input) -- (step_subtract);
-  \draw (step_subtract) -- (step_locate);
-  \draw (step_locate) -- (step_fit);
-  \draw (step_fit) -- (stop-t);
+  \draw [connection_arrow] (start-m) -- (input);
+  \draw [connection_arrow] (input) -- (step_subtract);
+  \draw [connection_arrow] (step_subtract) -- (step_locate);
+  \draw [connection_arrow] (step_locate) -- (step_fit);
+  \draw [connection_arrow] (step_fit) -- (stop-t);
 
   %% Output
   \node (connectdisttable) [connection] at
   ($(step_fit)!0.25!(stop-t)$) {};
   \node (disttable) [right=of connectdisttable, calproduct, minimum width=4cm]{%
     \STATCALIB{N_DISTORTION_TABLE}};
-  \draw (connectdisttable) -- (disttable);
+  \draw [connection_arrow] (connectdisttable) -- (disttable);
 
   \node (connectdistmap) [connection] at
   ($(step_fit)!0.5!(stop-t)$) {};
   \node (distmap) [right=of connectdistmap, calproduct, minimum width=4cm]{%
     \STATCALIB{N_DISTORTION_MAP}};
-  \draw (connectdistmap) -- (distmap);
+  \draw [connection_arrow] (connectdistmap) -- (distmap);
 
   \node (connectdistreduced) [connection] at
   ($(step_fit)!0.75!(stop-t)$) {};
   \node (distreduced) [right=of connectdistreduced, calproduct, minimum width=4cm]{%
     \PROD{N_DIST_REDUCED}};
-  \draw (connectdistreduced) -- (distreduced);
+  \draw [connection_arrow] (connectdistreduced) -- (distreduced);
 
   %% Frame around recipe
   \draw [frame]

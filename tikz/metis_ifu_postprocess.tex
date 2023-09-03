@@ -37,11 +37,11 @@
   \pic (stop) [below=2.cm of step3]{stop};
 
   %% Connections
-  \draw (start-m) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (step2);
-  \draw (step2) -- (step3);
-  \draw (step3) -- (stop-t);
+  \draw [connection_arrow] (start-m) -- (input);
+  \draw [connection_arrow] (input) -- (step1);
+  \draw [connection_arrow] (step1) -- (step2);
+  \draw [connection_arrow] (step2) -- (step3);
+  \draw [connection_arrow] (step3) -- (stop-t);
 
   %% Output
   \node (connect sci coadd) [connection] at
@@ -49,7 +49,7 @@
   \node (sci coadd) [right=of connect sci coadd, sciproduct]{%
     \PROD{IFU_SCI_COADD}
   };
-  \draw (connect sci coadd) -- (sci coadd);
+  \draw [connection_arrow] (connect sci coadd) -- (sci coadd);
 
   %% Frame around recipe
   \draw [frame] ($(input)!0.5!(step1) - (4,0)$)

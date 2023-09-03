@@ -69,15 +69,15 @@
   \pic (stop) [below=2.0cm of step_reconstruction]{stop};
 
   %% Connections
-  \draw (template) -- (input);
-  \draw (input) -- (step_signature);
-  \draw (step_signature) -- (step_background);
-  \draw (step_background) -- (step_rectification);
-%  \draw (step_fluxcal) -- (step_reconstruction);
-  \draw (step_rectification) -- (step_reconstruction);
-  \draw (step_reconstruction) -- (stop-t);
-%  \draw (step6) -- (step7);
-%  \draw (step7) -- (stop-t);
+  \draw [connection_arrow] (template) -- (input);
+  \draw [connection_arrow] (input) -- (step_signature);
+  \draw [connection_arrow] (step_signature) -- (step_background);
+  \draw [connection_arrow] (step_background) -- (step_rectification);
+%  \draw [connection_arrow] (step_fluxcal) -- (step_reconstruction);
+  \draw [connection_arrow] (step_rectification) -- (step_reconstruction);
+  \draw [connection_arrow] (step_reconstruction) -- (stop-t);
+%  \draw [connection_arrow] (step6) -- (step7);
+%  \draw [connection_arrow] (step7) -- (stop-t);
 
   %% Input
   % Input for detector signature removal (step_signature)
@@ -96,33 +96,33 @@
 
   \node (connectdark) [connection] at ($(input)!0.70!(step_signature)$) {};
   \node (darkin) [left=of connectdark, calproduct] {\PROD{MASTER_DARK_IFU}};
-  \draw (darkin) -- (connectdark);
+  \draw [connection_arrow] (darkin) -- (connectdark);
 
   \node (connectflat) [connection] at ($(input)!0.85!(step_signature)$) {};
   \node (flatin) [left=of connectflat, calproduct]{\PROD{RSRF_IFU}};
-  \draw (flatin.east) -- (connectflat);
-%  \draw (flatin.east) -- ++(1., 0) -- ++(0., -0.6) -- ++(1., 0);
+  \draw [connection_arrow] (flatin.east) -- (connectflat);
+%  \draw [connection_arrow] (flatin.east) -- ++(1., 0) -- ++(0., -0.6) -- ++(1., 0);
 
   % Input for flux calibration (step_fluxcal)
 %  \node (fcalin) [left=2cm of step_fluxcal, calproduct]{%
 %    \PROD{FLUXCAL_TAB}
 %  };
-%  \draw (fcalin) -- (step_fluxcal);
+%  \draw [connection_arrow] (fcalin) -- (step_fluxcal);
 
   % Input for rectification (step_reconstruction)
   \node (connectwavecal) [connection] at ($(step_background)!0.55!(step_rectification)$) {};
   \node (wavecal) [left=of connectwavecal, calproduct]{\PROD{IFU_WAVECAL}};
-  \draw (wavecal) -- (connectwavecal);
+  \draw [connection_arrow] (wavecal) -- (connectwavecal);
 
   \node (connectdistortion) [connection] at ($(step_background)!0.8!(step_rectification)$) {};
   \node (distortion) [left=of connectdistortion, calproduct]{\PROD{IFU_DISTORTION_TABLE}};
-  \draw (distortion) -- (connectdistortion);
+  \draw [connection_arrow] (distortion) -- (connectdistortion);
 
   % Further input
 %  \node (molecparams) [left=2cm of step7, params]{%
 %    molecfit parameters
 %  };
-%  \draw (molecparams) -- (step7);
+%  \draw [connection_arrow] (molecparams) -- (step7);
 
 
   %% Output
@@ -133,7 +133,7 @@
     \PROD{IFU_SCI_BACKGROUND} or \\
     \PROD{IFU_STD_BACKGROUND}
   };
-  \draw (connect_background) -- (backgroundreduced);
+  \draw [connection_arrow] (connect_background) -- (backgroundreduced);
 
   % Output of reduce
   \node (connect_reduced) [connection] at ($(step_background)!0.45!(step_rectification)$) {};
@@ -141,7 +141,7 @@
     \PROD{IFU_SCI_REDUCED} or \\
     \PROD{IFU_STD_REDUCED}
   };
-  \draw (connect_reduced) -- (sci_reduced);
+  \draw [connection_arrow] (connect_reduced) -- (sci_reduced);
 
   % Output of rectification (step_reconstruction)
   \node (connect_reducedcube) [connection] at ($(step_rectification)!0.5!(step_reconstruction)$) {};
@@ -149,7 +149,7 @@
     \PROD{IFU_SCI_REDUCED_CUBE} or \\
     \PROD{IFU_STD_REDUCED_CUBE}
   };
-  \draw (connect_reducedcube) -- (sci_reduced_cube);
+  \draw [connection_arrow] (connect_reducedcube) -- (sci_reduced_cube);
 
   % Output of image reconstruction (step_reconstruction)
   \node (connect_combinedcube) [connection] at ($(step_reconstruction)!0.35!(stop-t)$) {};
@@ -157,19 +157,19 @@
     \PROD{IFU_SCI_COMBINED} or \\
     \PROD{IFU_STD_COMBINED}
   };
-  \draw (connect_combinedcube) -- (sci_combined);
+  \draw [connection_arrow] (connect_combinedcube) -- (sci_combined);
 
   % Output of 1d extraction (step6)
 %  \node (sci_object) [right=1cm of step6, sciproduct]{%
 %    \PROD{SCI_OBJECT}
 %  };
-%  \draw (step6) -- (sci_object);
+%  \draw [connection_arrow] (step6) -- (sci_object);
 
   % Output of telluric correction (step7)
 %  \node (sci_reduced_tac) [right=1cm of step7, sciproduct]{%
 %    \PROD{SCI_REDUCED_TAC}
 %  };
-%  \draw (step7) -- (sci_reduced_tac);
+%  \draw [connection_arrow] (step7) -- (sci_reduced_tac);
 
   %% Frame around recipe
   \draw [frame] ($(input)!0.15!(step_signature) - (2.5,0)$)

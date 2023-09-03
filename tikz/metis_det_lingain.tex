@@ -51,43 +51,43 @@
   \pic (stop) [below=2.5cm of step_thresholding]{stop};
 
   %% Connections
-  \draw (template) -- (input);
-%  \draw (input) -- (step_persistence);
-  \draw (input) -- (step_dark);
-  \draw (step_dark) -- (step_gain);
-  \draw (step_gain) -- (step_linearity);
-  \draw (step_linearity) -- (step_thresholding);
-  \draw (step_thresholding) -- (stop-t);
+  \draw [connection_arrow] (template) -- (input);
+%  \draw [connection_arrow] (input) -- (step_persistence);
+  \draw [connection_arrow] (input) -- (step_dark);
+  \draw [connection_arrow] (step_dark) -- (step_gain);
+  \draw [connection_arrow] (step_gain) -- (step_linearity);
+  \draw [connection_arrow] (step_linearity) -- (step_thresholding);
+  \draw [connection_arrow] (step_thresholding) -- (stop-t);
 
   %% Other input
 %  \node (connect_persistence) [connection] at ($(input)!0.65!(step_persistence)$){};
 %  \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
-%  \draw (persistence) -- (connect_persistence);
+%  \draw [connection_arrow] (persistence) -- (connect_persistence);
 
   \node (params) [left=of step_thresholding.center, params]{%
     Recipe params:\\
     THRESH\_LOWLIM\\
     THRESH\_UPLIM};
-  \draw (params) -- (step_thresholding);
+  \draw [connection_arrow] (params) -- (step_thresholding);
 
   %% Output
   \node (connectgain) [connection] at
   ($(step_gain)!0.5!(step_linearity)$){};
   \node (gainmap) [right=of connectgain, calproduct]{%
     \STATCALIB{GAIN_MAP_det}};
-  \draw (connectgain) -- (gainmap);
+  \draw [connection_arrow] (connectgain) -- (gainmap);
 
   \node (connectlin) [connection] at
   ($(step_linearity)!0.5!(step_thresholding)$) {};
   \node (linearity) [right=of connectlin, calproduct]{%
     \STATCALIB{LINEARITY_det}};
-  \draw (connectlin) -- (linearity);
+  \draw [connection_arrow] (connectlin) -- (linearity);
 
   \node (connectbpm) [connection] at
   ($(step_thresholding)!0.35!(stop-t)$) {};
   \node (bpm) [right=of connectbpm, calproduct]{%
     \STATCALIB{BADPIX_MAP_det}};
-  \draw (connectbpm) -- (bpm);
+  \draw [connection_arrow] (connectbpm) -- (bpm);
 
   %% Frame around recipe
   \draw [frame] ($(input)!0.4!(step_dark) - (2.75cm,0)$) rectangle ($(step_thresholding)!0.5!(stop-t) + (2.75cm, 0)$);

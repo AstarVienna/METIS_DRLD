@@ -39,16 +39,16 @@
   \pic (stop) [below=2.5cm of step3]{stop};
 
   %% Connections
-  \draw (template) -- (input);
-  \draw (input) -- (step2);
-  \draw (step2) -- (step3);
-  \draw (step3) -- (stop-t);
+  \draw [connection_arrow] (template) -- (input);
+  \draw [connection_arrow] (input) -- (step2);
+  \draw [connection_arrow] (step2) -- (step3);
+  \draw [connection_arrow] (step3) -- (stop-t);
 
   %% Input
 %  \node (bpmin) [left=2cm of step2, yshift=0, calproduct]{%
 %    BADPIX\_MAP\_IFU
 %  };
-%  \draw (bpmin) -- (step2);
+%  \draw [connection_arrow] (bpmin) -- (step2);
 
   %% Output
   \node (connect dist table) [connection] at
@@ -56,14 +56,14 @@
   \node (dist table) [right=of connect dist table, calproduct]{%
     \PROD{IFU_DISTORTION_TABLE}
   };
-  \draw (connect dist table) -- (dist table);
+  \draw [connection_arrow] (connect dist table) -- (dist table);
 
   \node (connect dist reduced) [connection] at
   ($(step3)!0.75!(stop-t)$) {};
   \node (dist reduced) [right=of connect dist reduced, calproduct]{%
     \PROD{IFU_DIST_REDUCED}
   };
-  \draw (connect dist reduced) -- (dist reduced);
+  \draw [connection_arrow] (connect dist reduced) -- (dist reduced);
 
   %% Frame around recipe
   \draw [frame] ($(input)!0.5!(step2) - (3.25,0)$)

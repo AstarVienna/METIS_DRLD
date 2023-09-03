@@ -31,30 +31,30 @@
   \pic (stop) [below=3cm of step_coadd] {stop};
 
   %% Connections
-  \draw (start-m) -- (input);
-  \draw (input) -- (step_determinegrid);
-  \draw (step_determinegrid) -- (step_resample);
-  \draw (step_resample) -- (step_coadd);
-  \draw (step_coadd) -- (stop-t);
+  \draw [connection_arrow] (start-m) -- (input);
+  \draw [connection_arrow] (input) -- (step_determinegrid);
+  \draw [connection_arrow] (step_determinegrid) -- (step_resample);
+  \draw [connection_arrow] (step_resample) -- (step_coadd);
+  \draw [connection_arrow] (step_coadd) -- (stop-t);
 
   %% Input
 %  \node (connect_badpix) [connection] at ($(input)!0.75!(step_determinegrid)$) {};
 %  \node (badpix) [left=of connect_badpix, calproduct]{\PROD{BADPIX_MAP_2RG}};
-%  \draw (badpix) -- (connect_badpix);
+%  \draw [connection_arrow] (badpix) -- (connect_badpix);
 
   %% Output
   \node (connectcoadd) [connection] at
   ($(step_coadd)!0.33!(stop-t)$) {};
   \node (coadd) [right=of connectcoadd, sciproduct]{%
     \PROD{LM_SCI_COADD}};
-  \draw (connectcoadd) -- (coadd);
+  \draw [connection_arrow] (connectcoadd) -- (coadd);
 
 % HB: Contribution map is in an extension
 %  \node (connectcontrib) [connection] at
 %  ($(step_coadd)!0.6!(stop-t)$) {};
 %  \node (contrib) [right=of connectcontrib, sciproduct]{%
 %    \PROD{LM_SCI_COADD_CONTRIB}};
-%  \draw (connectcontrib) -- (contrib);
+%  \draw [connection_arrow] (connectcontrib) -- (contrib);
 
 
   %% Frame around recipe
