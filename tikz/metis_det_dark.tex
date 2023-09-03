@@ -30,14 +30,14 @@
 
   \node (connectlinearity) [connection] at ($(input)!0.65!(step_linearity)$){};
   \node (linearity) [left=of connectlinearity, external]{\STATCALIB{LINEARITY_det}};
-  \draw (linearity) -- (connectlinearity);
+  \draw [connection_arrow] (linearity) -- (connectlinearity);
 
   \node (step_persistence) [below of=step_linearity, redstep] {%
     apply persistence correction};
 
   \node (connectpersistence) [connection] at ($(step_linearity)!0.5!(step_persistence)$){};
   \node (persistence) [left=of connectpersistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
-  \draw (persistence) -- (connectpersistence);
+  \draw [connection_arrow] (persistence) -- (connectpersistence);
 
   \node (step_filtering) [below of=step_persistence, redstep] {%
     per pixel median/ mean filtering};
@@ -45,21 +45,21 @@
   \pic (stop) [below=2.0cm of step_thresholding] {stop};
 
   %% Connections
-  \draw (template) -- (input);
-  \draw (input) -- (step_linearity);
-  \draw (step_linearity) -- (step_persistence);
-  \draw (step_persistence) -- (step_filtering);
-  \draw (step_filtering) -- (step_thresholding);
-  \draw (step_thresholding) -- (stop-t);
+  \draw [connection_arrow] (template) -- (input);
+  \draw [connection_arrow] (input) -- (step_linearity);
+  \draw [connection_arrow] (step_linearity) -- (step_persistence);
+  \draw [connection_arrow] (step_persistence) -- (step_filtering);
+  \draw [connection_arrow] (step_filtering) -- (step_thresholding);
+  \draw [connection_arrow] (step_thresholding) -- (stop-t);
 
   %% Output
   \node (connectdark) [connection] at ($(step_filtering)!0.5!(step_thresholding)$){};
   \node (masterdark) [right=of connectdark, calproduct] {\STATCALIB{MASTER_DARK_det}};
-  \draw (connectdark) -- (masterdark);
+  \draw [connection_arrow] (connectdark) -- (masterdark);
 
   \node (connecthot) [connection] at ($(step_thresholding)!0.5!(stop-t)$){};
   \node (hot) [right=of connecthot, calproduct] {\STATCALIB{BADPIX_MAP_det}};
-  \draw (connecthot) -- (hot);
+  \draw [connection_arrow] (connecthot) -- (hot);
 
   %% frame around recipe
   \draw [frame] ($(input)!0.4!(step_linearity) - (2.5cm,0)$)

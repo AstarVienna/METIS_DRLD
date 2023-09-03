@@ -37,36 +37,36 @@
   \pic (stop) [below=2.5cm of step_fit] {stop};
 
   %% Connections
-  \draw (template) -- (input);
-%  \draw (input) -- (step_persistence);
-%  \draw (step_persistence) -- (step_signature);
-  \draw (input) -- (step_signature);
-  \draw (step_signature) -- (step_fit);
-  \draw (step_fit) -- (stop-t);
+  \draw [connection_arrow] (template) -- (input);
+%  \draw [connection_arrow] (input) -- (step_persistence);
+%  \draw [connection_arrow] (step_persistence) -- (step_signature);
+  \draw [connection_arrow] (input) -- (step_signature);
+  \draw [connection_arrow] (step_signature) -- (step_fit);
+  \draw [connection_arrow] (step_fit) -- (stop-t);
 
   %% Other input
 %  \node (connectpers) [connection] at
 %  ($(input)!0.65!(step_persistence)$){};
 %  \node (persistence) [left=of connectpers, external]{%
 %    \EXTCALIB{PERSISTENCE_MAP}};
-%  \draw (persistence) -- (connectpers);
+%  \draw [connection_arrow] (persistence) -- (connectpers);
 
 %   \node (connectparams) [connection] at
 %   ($(input)!0.7!(step_signature.north)$){};
 %   \node (params) [left=of connectparams, params]{%
 %     Recipe params:\\
 %     INS.IMG.SETUP};
-%   \draw (params) -- (connectparams);
+%   \draw [connection_arrow] (params) -- (connectparams);
 
 %  \node (connectbpm) [connection] at ($(input)!0.5!(step_signature)$){};
 %  \node (bpmin) [left=of connectbpm, calproduct]{\STATCALIB{BADPIX_MAP_GEO}};
-%  \draw (bpmin) -- (connectbpm);
+%  \draw [connection_arrow] (bpmin) -- (connectbpm);
 
   \node (connection_masterdark) [connection] at
   ($(input)!0.7!(step_signature)$){};
   \node (darkin) [left=of connection_masterdark, calproduct]{%
     \STATCALIB{MASTER_DARK_GEO}};
-  \draw (darkin) -- (connection_masterdark);
+  \draw [connection_arrow] (darkin) -- (connection_masterdark);
 
   % Output
 
@@ -75,12 +75,12 @@
   \node (flatout) [right=of connectflat,calproduct]{%
     \STATCALIB{MASTER_IMG_FLAT_LAMP_N}\\
     or \STATCALIB{MASTER_IMG_FLAT_TWILIGHT_N}};
-  \draw (connectflat) -- (flatout);
+  \draw [connection_arrow] (connectflat) -- (flatout);
 
   \node (connectbpm) [below=0.65cm of connectflat, connection]{};
   \node (bpmout) [right=of connectbpm, calproduct]{%
     \STATCALIB{BADPIX_MAP_GEO}};
-  \draw (connectbpm) -- (bpmout);
+  \draw [connection_arrow] (connectbpm) -- (bpmout);
 
   %% Frame around recipe
   \draw [frame] ($(input)!0.25!(step_signature) -(2.85,0)$) rectangle

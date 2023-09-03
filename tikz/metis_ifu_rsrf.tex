@@ -51,11 +51,11 @@
   \pic (stop) [below=3.5cm of step_average]{stop};
 
   %% Connections
-  \draw (template) -- (input);
-  \draw (input) -- (step_detrend);
-  \draw (step_detrend) -- (step_normalize);
-  \draw (step_normalize) -- (step_average);
-  \draw (step_average) -- (stop-t);
+  \draw [connection_arrow] (template) -- (input);
+  \draw [connection_arrow] (input) -- (step_detrend);
+  \draw [connection_arrow] (step_detrend) -- (step_normalize);
+  \draw [connection_arrow] (step_normalize) -- (step_average);
+  \draw [connection_arrow] (step_average) -- (stop-t);
 
   %% Input
 % if your rsrf raw has persistence, you are doin
@@ -64,25 +64,25 @@
 %  \node (persistence) [left=3.95cm of connectpersistence, external]{%
 %    PERSISTENCE\_MAP
 %  };
-%  \draw (persistence) -- (connectpersistence);
+%  \draw [connection_arrow] (persistence) -- (connectpersistence);
 
   \node (connect_dark) [connection] at
     ($(input)!0.35!(step_detrend)$) {};
   \node (darkin) [left=of connect_dark, calproduct]{%
     \STATCALIB{MASTER_DARK_IFU}
   };
-  \draw (darkin.east) -- (connect_dark);
+  \draw [connection_arrow] (darkin.east) -- (connect_dark);
 
 %  \node (connect_bp) [connection] at ($(input)!0.65!(step_detrend)$) {};
 %  \node (bpmin) [left=of connect_bp, calproduct]{\STATCALIB{BADPIX_MAP_IFU}};
-%  \draw (bpmin.east) -- (connect_bp);
+%  \draw [connection_arrow] (bpmin.east) -- (connect_bp);
 
   \node (connect_wavecal) [connection] at
     ($(step_detrend)!0.5!(step_normalize)$) {};
   \node (wavecal) [left=of connect_wavecal, calproduct]{%
     \STATCALIB{IFU_WAVECAL}
   };
-  \draw (wavecal) -- (connect_wavecal);
+  \draw [connection_arrow] (wavecal) -- (connect_wavecal);
 
   %% Output
   \node (connectrsrf) [connection] at
@@ -90,21 +90,21 @@
   \node (rsrf) [right=of connectrsrf, calproduct]{%
     \STATCALIB{RSRF_IFU}
   };
-  \draw (connectrsrf) -- (rsrf);
+  \draw [connection_arrow] (connectrsrf) -- (rsrf);
 
   \node (connectflat) [connection] at
   ($(step_average)!0.5!(stop-t)$) {};
   \node (flat) [right=of connectflat, calproduct]{%
     \STATCALIB{MASTER_FLAT_IFU}
   };
-  \draw (connectflat) -- (flat);
+  \draw [connection_arrow] (connectflat) -- (flat);
 
   \node (connectbpm) [connection] at
   ($(step_average)!0.75!(stop-t)$) {};
   \node (bpm) [right=of connectbpm, calproduct]{%
     \STATCALIB{BADPIX_MAP_IFU}
   };
-  \draw (connectbpm) -- (bpm);
+  \draw [connection_arrow] (connectbpm) -- (bpm);
 
   %% Frame around recipe
   \draw [frame] ($(input)!0.2!(step_detrend) - (2.5,0)$)

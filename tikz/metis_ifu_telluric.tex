@@ -36,33 +36,33 @@
   \pic (stop) [below=2.cm of step_fluxcal]{stop};
 
   %% Connections
-  \draw (start-m) -- (input);
-  \draw (input) -- (step_extraction);
-  \draw (step_extraction) -- (step_molecfit);
-  \draw (step_molecfit) -- (step_fluxcal);
-  \draw (step_fluxcal) -- (stop-t);
+  \draw [connection_arrow] (start-m) -- (input);
+  \draw [connection_arrow] (input) -- (step_extraction);
+  \draw [connection_arrow] (step_extraction) -- (step_molecfit);
+  \draw [connection_arrow] (step_molecfit) -- (step_fluxcal);
+  \draw [connection_arrow] (step_fluxcal) -- (stop-t);
 
   %% Input
   \node (params) [left=1.5cm of step_molecfit, yshift=1.cm, params]{%
     Molecfit params
 %    INS.IFU.SETUP
   };
-  \draw (params.east) -- ++(1, 0) -- ++(0., 0.8) -- ++(0.5, 0);
+  \draw [connection_arrow] (params.east) -- ++(1, 0) -- ++(0., 0.8) -- ++(0.5, 0);
 
   \node (lsfkernel) [left=1.5cm of step_molecfit, calib]{%
     \STATCALIB{LSF_KERNEL}
   };
-  \draw (lsfkernel.east) -- (step_molecfit);
+  \draw [connection_arrow] (lsfkernel.east) -- (step_molecfit);
 
   \node (atmprofile) [left=1.5cm of step_molecfit, yshift=-1cm, external]{%
     \EXTCALIB{ATM_PROFILE}
   };
-  \draw (atmprofile.east) -- ++(1, 0) -- ++(0., -0.8) -- ++(0.5, 0);
+  \draw [connection_arrow] (atmprofile.east) -- ++(1, 0) -- ++(0., -0.8) -- ++(0.5, 0);
 
   \node (stdcat) [left=2cm of step_fluxcal, external] {%
     \EXTCALIB{FLUXSTD_CATALOG}
   };
-  \draw (stdcat.east) -- (step_fluxcal);
+  \draw [connection_arrow] (stdcat.east) -- (step_fluxcal);
 
   %% Output
   \node (connectred) [connection] at
@@ -71,21 +71,21 @@
     \PROD{IFU_SCI_REDUCED_1D} or \\
     \PROD{IFU_STD_REDUCED_1D}
   };
-  \draw (connectred) -- (red);
+  \draw [connection_arrow] (connectred) -- (red);
 
   \node (connecttel) [connection] at
   ($(step_molecfit)!0.5!(step_fluxcal)$) {};
   \node (telluric) [right=of connecttel, sciproduct, text width=4cm]{%
     \PROD{IFU_TELLURIC}
   };
-  \draw (connecttel) -- (telluric);
+  \draw [connection_arrow] (connecttel) -- (telluric);
 
   \node (connectfluxcal) [connection] at
   ($(step_fluxcal)!0.5!(stop-t)$) {};
   \node (fluxcal) [right=of connectfluxcal, sciproduct, text width=4cm]{%
     \PROD{FLUXCAL_TAB}
   };
-  \draw (connectfluxcal) -- (fluxcal);
+  \draw [connection_arrow] (connectfluxcal) -- (fluxcal);
 
   %% Frame around recipe
   \draw [frame] ($(input)!0.35!(step_extraction) - (3,0)$)

@@ -36,10 +36,10 @@
 
 
   %% Connections
-  \draw (start-m) -- (input);
-  \draw (input) -- (step_average);
-  \draw (step_average) -- (step_subtract);
-  \draw (step_subtract) -- (stop-t);
+  \draw [connection_arrow] (start-m) -- (input);
+  \draw [connection_arrow] (input) -- (step_average);
+  \draw [connection_arrow] (step_average) -- (step_subtract);
+  \draw [connection_arrow] (step_subtract) -- (stop-t);
 
 
   %% External data
@@ -52,13 +52,13 @@
   \node (sci_bg) [right=of dot_sci_bg, sciproduct, text width=5cm]{%
     \PROD{LM_SCI_BKG}\\
     or \PROD{LM_STD_BKG}};
-  \draw (dot_sci_bg) -- (sci_bg);
+  \draw [connection_arrow] (dot_sci_bg) -- (sci_bg);
 
 %  \node (dot_std_bg) [connection] at
 %    ($(step_average)!0.6!(step_subtract)$){};
 %  \node (std_bg) [right=of dot_std_bg, sciproduct, text width=5cm]{%
 %    LM\_STD\_BKG};
-%  \draw (dot_std_bg) -- (std_bg);
+%  \draw [connection_arrow] (dot_std_bg) -- (std_bg);
 
 
   \node (dot_sci_bg_sub) [connection] at
@@ -66,14 +66,14 @@
   \node (sci_bg_sub) [right=of dot_sci_bg_sub, sciproduct, text width=5cm]{%
     \PROD{LM_SCI_BKG_SUBTRACTED}
     or \PROD{LM_STD_BKG_SUBTRACTED}};
-  \draw (dot_sci_bg_sub) -- (sci_bg_sub);
+  \draw [connection_arrow] (dot_sci_bg_sub) -- (sci_bg_sub);
 
   \node (dot_sci_obj_cat) [connection] at
     ($(step_subtract)!0.6!(stop-t)$){};
   \node (sci_obj_cat) [right=of dot_sci_obj_cat, sciproduct, text width=5cm]{%
     \PROD{LM_SCI_OBJECT_CAT}\\
     or \PROD{LM_STD_OBJECT_CAT}};
-  \draw (dot_sci_obj_cat) -- (sci_obj_cat);
+  \draw [connection_arrow] (dot_sci_obj_cat) -- (sci_obj_cat);
 
   %% Frame around recipe
   \draw [frame] ($(input)!0.35!(step_average) -(2.85,0)$) rectangle

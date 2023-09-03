@@ -37,18 +37,18 @@
   \node (connect_telluric) [connection] at
   ($(input)!0.65!(step_tellcorr)$) {};
   \node (telluric) [left=of connect_telluric, input] {\PROD{IFU_TELLURIC}};
-  \draw (telluric) -- (connect_telluric);
+  \draw [connection_arrow] (telluric) -- (connect_telluric);
 
   \node (connect_fluxcal) [connection] at
   ($(step_tellcorr)!0.5!(step_fluxcal)$) {};
   \node (fluxcal) [left=of connect_fluxcal, calproduct] {\PROD{FLUXCAL_TAB}};
-  \draw (fluxcal) -- (connect_fluxcal);
+  \draw [connection_arrow] (fluxcal) -- (connect_fluxcal);
   
   %% Connections
-  \draw (start-m) -- (input);
-  \draw (input) -- (step_tellcorr);
-  \draw (step_tellcorr) -- (step_fluxcal);
-  \draw (step_fluxcal) -- (stop-t);
+  \draw [connection_arrow] (start-m) -- (input);
+  \draw [connection_arrow] (input) -- (step_tellcorr);
+  \draw [connection_arrow] (step_tellcorr) -- (step_fluxcal);
+  \draw [connection_arrow] (step_fluxcal) -- (stop-t);
 
   %% Output
 
@@ -56,7 +56,7 @@
   ($(step_fluxcal)!0.5!(stop-t)$) {};
   \node (distmap) [right=of connectdistmap, calproduct, minimum width=4cm]{%
     \STATCALIB{IFU_SCI_CUBE_CALIBRATED}};
-  \draw (connectdistmap) -- (distmap);
+  \draw [connection_arrow] (connectdistmap) -- (distmap);
 
   %% Frame around recipe
   \draw [frame]
