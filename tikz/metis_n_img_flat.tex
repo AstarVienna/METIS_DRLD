@@ -58,11 +58,9 @@
 %     INS.IMG.SETUP};
 %   \draw (params) -- (connectparams);
 
-  \node (connectbpm) [connection] at
-  ($(input)!0.5!(step_signature)$){};
-  \node (bpmin) [left=of connectbpm, calproduct]{%
-    \STATCALIB{BADPIX_MAP_GEO}};
-  \draw (bpmin) -- (connectbpm);
+%  \node (connectbpm) [connection] at ($(input)!0.5!(step_signature)$){};
+%  \node (bpmin) [left=of connectbpm, calproduct]{\STATCALIB{BADPIX_MAP_GEO}};
+%  \draw (bpmin) -- (connectbpm);
 
   \node (connection_masterdark) [connection] at
   ($(input)!0.7!(step_signature)$){};

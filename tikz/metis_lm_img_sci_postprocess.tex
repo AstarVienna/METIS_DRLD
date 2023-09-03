@@ -38,11 +38,9 @@
   \draw (step_coadd) -- (stop-t);
 
   %% Input
-  \node (connect_badpix) [connection] at
-  ($(input)!0.75!(step_determinegrid)$) {};
-  \node (badpix) [left=of connect_badpix, calproduct]{%
-    \PROD{BADPIX_MAP_2RG}};
-  \draw (badpix) -- (connect_badpix);
+%  \node (connect_badpix) [connection] at ($(input)!0.75!(step_determinegrid)$) {};
+%  \node (badpix) [left=of connect_badpix, calproduct]{\PROD{BADPIX_MAP_2RG}};
+%  \draw (badpix) -- (connect_badpix);
 
   %% Output
   \node (connectcoadd) [connection] at

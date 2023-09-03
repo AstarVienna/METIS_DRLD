@@ -90,10 +90,9 @@
   \node (nonlin) [left=of connectnonlin, calproduct]{\STATCALIB{LINEARITY_IFU}};
   \draw [-](nonlin) -- (connectnonlin);
 
-  \node (connectbpm) [connection] at ($(input)!0.55!(step_signature)$) {};
-  \node (bpmin) [left=of connectbpm, calproduct]{\PROD{BADPIX_MAP_IFU}};
-  \draw [-](bpmin) -- (connectbpm);
-%  \draw (bpmin.east) -- ++(1., 0) -- ++(0., 0.6) -- ++(1., 0);
+%  \node (connectbpm) [connection] at ($(input)!0.55!(step_signature)$) {};
+%  \node (bpmin) [left=of connectbpm, calproduct]{\PROD{BADPIX_MAP_IFU}};
+%  \draw [-](bpmin) -- (connectbpm);
 
   \node (connectdark) [connection] at ($(input)!0.70!(step_signature)$) {};
   \node (darkin) [left=of connectdark, calproduct] {\PROD{MASTER_DARK_IFU}};

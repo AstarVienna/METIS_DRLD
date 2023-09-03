@@ -65,14 +65,12 @@
 %     INS.IMG.SETUP};
 %   \draw (params) -- (connectparams);
 
-  \node (connectbpm) [connection] at
-  ($(step_persistence)!0.3!(step_signature)$){};
-  \node (bpmin) [left=of connectbpm, calproduct]{%
-    \STATCALIB{BADPIX_MAP_2RG}};
-  \draw (bpmin) -- (connectbpm);
+%  \node (connectbpm) [connection] at ($(step_persistence)!0.3!(step_signature)$){};
+%  \node (bpmin) [left=of connectbpm, calproduct]{\STATCALIB{BADPIX_MAP_2RG}};
+%  \draw (bpmin) -- (connectbpm);
 
   \node (connection_masterdark) [connection] at
-  ($(step_persistence)!0.7!(step_signature)$){};
+  ($(input)!0.7!(step_signature)$){};
   \node (darkin) [left=of connection_masterdark, calproduct]{%
     \STATCALIB{MASTER_DARK_2RG}};
   \draw (darkin) -- (connection_masterdark);
