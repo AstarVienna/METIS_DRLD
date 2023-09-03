@@ -92,7 +92,7 @@ A table extension holds the polynomial coefficients.
   Templates:           & \TPL{METIS_ifu_cal_InternalWave}                                        \\
   Input data:          & \RAW{IFU_WAVE_RAW}                    \\
                        & \PROD{MASTER_DARK_IFU}             \\
-                       & \PROD{BADPIX_MAP_IFU}               \\
+%                       & \PROD{BADPIX_MAP_IFU}               \\
                        & \PROD{IFU_DISTORTION_TABLE}   \\
   Parameters:          & None                                                                    \\
   Algorithm:           & Measure line locations (left and right edges, centroid by Gaussian fit).\\
@@ -144,7 +144,7 @@ Type:                & Calibration                                              
 Templates:           & \TPL{METIS_ifu_cal_rsrf}                                                 \\
 Input data:          & \RAW{IFU_RSRF_RAW} (Raw flats taken with black-body calibration lamp.)   \\
                      & \PROD{MASTER_DARK_IFU}              \\
-                     & \PROD{BADPIX_MAP_IFU}                                                    \\
+%                     & \PROD{BADPIX_MAP_IFU}                                                    \\
                      & \PROD{IFU_WAVECAL}: image with wavelength at each pixel.                 \\
 Parameters:          & None                                                                     \\
 Algorithm:           & Create continuum image by mapping Planck spectrum at $T_{\mathrm{lamp}}$ to
@@ -349,7 +349,7 @@ Input data:          & \RAW{IFU_SCI_RAW} or \RAW{IFU_STD_RAW}                   
                      & \EXTCALIB{PERSISTENCE_MAP}                                                               \\
                      & \PROD{MASTER_DARK_IFU}                                                                   \\
                      & \PROD{RSRF_IFU} (2D relative spectral response function)                                 \\
-                     & \PROD{BADPIX_MAP_IFU}                                                                    \\
+%                     & \PROD{BADPIX_MAP_IFU}                                                                    \\
                      & \PROD{IFU_WAVECAL}                                                                       \\
 % TODO: I believe this should not be just FLUXCAL_TAB as it is not a table but an image
 %                     & \PROD{FLUXCAL_TAB} (Flux calibration table) \\

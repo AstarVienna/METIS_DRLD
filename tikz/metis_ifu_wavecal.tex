@@ -63,12 +63,9 @@
   };
   \draw (darkin.east) -- (connect_dark);
 
-  \node (connect_bp) [connection] at
-    ($(input)!0.65!(step_detrend)$) {};
-  \node (bpmin) [left=of connect_bp, calproduct]{%
-    \STATCALIB{BADPIX_MAP_IFU}
-  };
-  \draw (bpmin.east) -- (connect_bp);
+%  \node (connect_bp) [connection] at($(input)!0.65!(step_detrend)$) {};
+%  \node (bpmin) [left=of connect_bp, calproduct]{\STATCALIB{BADPIX_MAP_IFU}};
+%  \draw (bpmin.east) -- (connect_bp);
 
   \node (connect_distortion) [connection] at
     ($(step_detrend)!0.5!(step_locatelines)$) {};

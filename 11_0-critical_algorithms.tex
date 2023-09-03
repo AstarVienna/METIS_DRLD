@@ -171,13 +171,32 @@ MATISSE has dealt with the detector masks adequately and the same procedures wil
 
 \subsection{Bad pixel determination}\label{ssec:criticalbadpixeldetermination}
 
-Bad pixels are an issue in any detector and have to be are monitored and stored.
+Bad pixels are an issue in any detector and have to be monitored and stored.
 This is usually done with the help of DARK and FLATFIELD frames.
 Cold/hot pixels can be identified by using DARKS since they have pixel values which are far from an expected values (e.g.\ median value).
 Non-linear pixels can be detected with illumination flats, that is, the detector is illuminated uniformly by a flatfield source.
-Using  several exposure times / flux levels, non-linearities in pixels can be found by fitting polynomials to each  individual pixel.
+Using several exposure times / flux levels, non-linearities in pixels can be found by fitting polynomials to each individual pixel.
 
-We intend to introduce a bad pixel classification similar to the convention introduced in the X-Shooter Pipeline Manual (cf.\ Section 11.3 in~\cite{xshooter_manual}), adapted to our needs.
+Each processed data product will contain a data quality extension for each
+data extension (Section~\ref{sssec:processeddataextensions}), including
+calibration data products.
+Note that every science product will need its own bad pixel map, to keep track
+of pixels affected by persistence.
+Having an extra data quality extension will therefore not significantly affect
+the data volume.
+
+It is therefore not necessary to have a dedicated data product for the
+bad pixels;
+the propagation of bad pixels through the pipeline can be done
+by copying (XOR-ing) the bits of the data quality layer of the calibration data
+into the data quality layer of the data that is being processed.
+Nevertheless, it can be useful to have such a data product, and several recipes
+can therefore have a \PROD{BADPIX_MAP_det} as output or input anyway.
+
+We will use a bad pixel classification similar to the convention introduced in
+the X-Shooter Pipeline Manual (cf.\ Section 11.3 in~\cite{xshooter_manual}),
+adapted to our needs.
+
 
 %\TODO{
 %    Surely every other instrument on planet earth has some sort of algo for this.

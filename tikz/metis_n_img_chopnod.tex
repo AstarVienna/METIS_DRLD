@@ -102,11 +102,9 @@
     or \STATCALIB{MASTER_IMG_FLAT_TWILIGHT_N}};
   \draw (flatin) -- (connect_masterflat);
 
-  \node (connect_bpm) [connection] at
-  ($(step_flat)!0.5!(step_masks)$){};
-  \node (bpmin) [left=of connect_bpm, calproduct]{%
-    \STATCALIB{BADPIX_MAP_GEO}};
-  \draw (bpmin) -- (connect_bpm);
+%  \node (connect_bpm) [connection] at ($(step_flat)!0.5!(step_masks)$){};
+%  \node (bpmin) [left=of connect_bpm, calproduct]{\STATCALIB{BADPIX_MAP_GEO}};
+%  \draw (bpmin) -- (connect_bpm);
 
 
   % External output

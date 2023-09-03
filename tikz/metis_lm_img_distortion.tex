@@ -41,10 +41,9 @@
   \node (wcuoff) [left=of connect_wcuoff, input] {\RAW{LM_WCU_OFF_RAW}};
   \draw (wcuoff) -- (connect_wcuoff);
 
-  \node (connect_bpmin) [connection] at
-  ($(step_subtract)!0.3!(step_locate)$) {};
-  \node (bpmin) [left=of connect_bpmin, calproduct] {\STATCALIB{BADPIX_MAP_2RG}};
-  \draw (bpmin) -- (connect_bpmin);
+%  \node (connect_bpmin) [connection] at ($(step_subtract)!0.3!(step_locate)$) {};
+%  \node (bpmin) [left=of connect_bpmin, calproduct] {\STATCALIB{BADPIX_MAP_2RG}};
+%  \draw (bpmin) -- (connect_bpmin);
 
   \node (connect_pinhole) [connection] at
   ($(step_subtract)!0.7!(step_locate)$) {};

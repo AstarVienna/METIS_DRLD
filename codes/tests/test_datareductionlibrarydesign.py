@@ -977,6 +977,14 @@ def test_tikz():
             for _dtype, name in matches
         ]
         names_in_table = [diref.name for diref in recipe.input_data + recipe.output_data] + recipe.templates + [name_recipe]
+
+        # Check for duplicate names:]. Primarily used to fint BADPIX input,
+        # which is not necessary since all data products have a data quality
+        # layer.
+        duplicates = [name for name in names_in_figure if names_in_figure.count(name) > 1]
+        if duplicates:
+            problems_recipe.append(f"{name_recipe} mentions some names multiple times: {duplicates}")
+
         for name_di in names_in_figure:
             names_di_expanded = [
                 name_di.replace("det", lmn)
@@ -1016,6 +1024,25 @@ def test_tikz():
 
     assert not problems
 
+
+def test_badpixinput():
+    """The imaging and IFU pipelines do not need a bad pixel map as input.
+
+    Every calibration product has a data quality layer that is propagated
+    to the data being processed.
+    """
+    problems = []
+    for name_recipe, recipe in METIS_DataReductionLibraryDesign.recipes.items():
+        if any(toskip in name_recipe.lower() for toskip in {"lss", "adc"}):
+            continue
+        names_input = [diref.name.upper() for diref in recipe.input_data]
+        input_bp = [name for name in names_input if "BADPIX" in name]
+        if input_bp:
+            problems.append(f"{name_recipe} has {input_bp} as input, which is not necessary")
+
+    for problem in problems:
+        print(problem)
+    assert not problems
 
 
 # TODO: Order of input in recipes, primary input should go first!
