@@ -47,11 +47,9 @@ otherwise a new one is created.
                        & or \RAW{LM_FLAT_TWILIGHT_RAW} \\
                        & \PROD{MASTER_DARK_2RG} (for twilight flats) \\
 %                       & \PROD{BADPIX_MAP_2RG} \\
-  Matched keywords:    & Detector ID                                                    \\
-                       & Filter ID                                                      \\
-                       & ADC ID                                                         \\
-                       & Flat type (internal or twilight)                               \\
-%                       & possibly others (e.g.\ coronagraphic mask, \TBD)               \\
+  Matched keywords:    & \FITS{DET.DIT}                                                   \\
+                       & \FITS{DET.NDIT}                                                  \\
+                       & \FITS{DRS.FILTER}                                                     \\
   Parameters:          & Combination method (\texttt{mean}, \texttt{median},
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
@@ -145,8 +143,9 @@ Basic statistics of the images can be used to screen for saturation.
                     & \PROD{MASTER_DARK_2RG} \\
                     & \PROD{MASTER_IMG_FLAT_LAMP_LM} \\
                     & or \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
-  Matched keywords: & DIT (for dark)                    \\
-                    & Filter ID (for flat)              \\
+    Matched keywords:    & \FITS{DET.DIT}                                                   \\
+                       & \FITS{DET.NDIT}                                                   \\
+                       & \FITS{DRS.FILTER}                                                     \\
   Algorithm:        & Remove crosstalk, correct non-linearity \\
                     & Analyse and optionally remove masked regions  \\
                     & Subtract dark, divide by flat       \\
@@ -232,7 +231,7 @@ For extended objects, all out-of-field exposures will be averaged
 %                    & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
   Input data:       & \PROD{LM_SCI_BASIC_REDUCED}                               \\
                     & \PROD{LM_STD_BASIC_REDUCED}                               \\
-  Matched keywords: & offset position (\CODE{SKY}?                         \\
+  Matched keywords: & \FITS{DRS.FILTER} \\
   Algorithm:        & Average all or \CODE{SKY} exposures with object rejection \\
                     & Subtract background                                       \\
   Output data:      & \PROD{LM_SCI_BKG}                                         \\
@@ -361,8 +360,7 @@ following~\cite{visir_manual}.
 %  Templates:           & \TPL{METIS_img_lm_cal_standard}                                              \\
   Input data:          & \PROD{LM_STD_BKG_SUBTRACTED}                                                 \\
                        & \EXTCALIB{FLUXSTD_CATALOG} (photometric standard catalogue) \\
-  Matched keywords:    & OBJECT ID                                                                    \\
-                       & FILTER ID                                                                    \\
+  Matched keywords:    & \FITS{DRS.FILTER}                                                                 \\
   Parameters:          & None                                                                         \\
   Algorithm:           & Call \DRL{lm_calculate_std_flux} to measure flux in input images                      \\
 %                       & call \DRL{recentre_img} to recentre and stack images                         \\
@@ -443,7 +441,7 @@ header. The images are not resampled by this recipe, this is left to
   Input data:        & \PROD{LM_SCI_BKG_SUBTRACTED}                     \\
                      & \PROD{FLUXCAL_TAB}                               \\
                      & \PROD{LM_DISTORTION_TABLE}                       \\
-  Matched keywords:  & Filter ID                                        \\
+  Matched keywords:  & \FITS{DRS.FILTER} \\
   Parameters:        & None                                             \\
   Algorithm:         & call \DRL{lm_scale_image_flux} to Scale image data to ph/s \\
                      & add header information (\FITS*{BUNIT}, WCS, etc.) \\
@@ -496,6 +494,7 @@ the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant
   Type:                & Science                                                    \\
   Input data:          & \PROD{LM_SCI_CALIBRATED} (Calibrated science images)       \\
 %                       & \PROD{BADPIX_MAP_2RG} (Associated bad-pixel maps)           \\
+  Matched keywords:  & \FITS{DRS.FILTER} \\
   Parameters:          & None                                                       \\
   Algorithm:           & Check and refine WCS of input images by using the \ac{WFS-FS} data. \\
                        & Determine output pixel grid encompassing all input images. \\
@@ -545,6 +544,7 @@ pixel scale across the detector will be created.
   Input data:          & \RAW{LM_DISTORTION_RAW} (Images of grid mask in WCU-FP2 or CFO-FP2.)\\
                        & \RAW{LM_WCU_OFF_RAW} \\
                        & \EXTCALIB{PINHOLE_TABLE} (Grid of pinhole mask positions) \\
+  Matched keywords:  & \FITS{DRS.FILTER} \\
 %                       & \PROD{BADPIX_MAP_2RG} \\
   Parameters:          & Parameters for fitting routine      \\
 %                       & \TBD \\

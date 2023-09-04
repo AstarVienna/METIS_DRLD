@@ -57,11 +57,9 @@ otherwise a new one is created.
   Input data:          & \RAW{N_FLAT_LAMP_RAW} or \RAW{N_FLAT_TWILIGHT_RAW} \\
                        & \PROD{MASTER_DARK_GEO} (for twilight flats)                               \\
 %                       & \PROD{BADPIX_MAP_GEO}                                                  \\
-  Matched keywords:    & Detector ID                                                    \\
-                       & Filter ID                                                      \\
-                       & ADC ID                                                         \\
-                       & Flat type (internal or twilight)                               \\
-%                       & possibly others (e.g.\ coronagraphic mask, \TBD)               \\
+  Matched keywords:    & \FITS{DET.DIT}                                                   \\
+                       & \FITS{DET.NDIT}                                                   \\
+                       & \FITS{DRS.FILTER}                                                     \\
   Parameters:          & Combination method (\texttt{mean}, \texttt{median},
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
@@ -140,9 +138,9 @@ The edges of the N-band detector will be behind a cold mask on all four sides.
                      & \EXTCALIB{PERSISTENCE_MAP} \\
                      & \PROD{MASTER_IMG_FLAT_LAMP_N} \\
                      & or \PROD{MASTER_IMG_FLAT_TWILIGHT_N} \\
-  Matched keywords:  & Filter ID                                                    \\
-                     & Chop position                                                \\
-                     & Nod position                                                 \\
+  Matched keywords:    & \FITS{DET.DIT}                                                   \\
+                       & \FITS{DET.NDIT}                                                   \\
+                       & \FITS{DRS.FILTER}                                                     \\
   Parameters:        & None                                                         \\
   Algorithm:         & Analyse and optionally remove masked regions and correct crosstalk and ghosts \\
                      & Add/subtract images to subtract background                   \\
@@ -193,8 +191,7 @@ following~\cite{visir_manual}.
 %  Templates:           & \TPL{METIS_img_n_cal_standard}                                                \\
   Input data:          & \PROD{N_STD_BKG_SUBTRACTED}                                                   \\
                        & \EXTCALIB{FLUXSTD_CATALOG} \\
-  Matched keywords:    & Object ID                                                                     \\
-                       & Filter ID                                                                     \\
+  Matched keywords:    & \FITS{DRS.FILTER} \\
   Parameters:          & None                                                                          \\
   Algorithm:           & call \DRL{n_calculate_std_flux} to measure the flux in all beams\\
                        & average and normalize flux values \\
@@ -257,7 +254,7 @@ header receives the keyword \FITS*{BUNIT} with value %
   Input data:        & \PROD{N_SCI_BKG_SUBTRACTED}                      \\
                      & \PROD{FLUXCAL_TAB}                               \\
                      & \PROD{N_DISTORTION_TABLE}                        \\
-  Matched keywords:  & Filter ID                                        \\
+  Matched keywords:    & \FITS{DRS.FILTER} \\
   Parameters:        & None                                             \\
   Algorithm:         & call \DRL{n_scale_image_flux} to Scale image data to ph/s \\
                      & add header information (\FITS*{BUNIT}, etc.)\\
@@ -296,6 +293,7 @@ single image. Extended sources are beyond the scope of the pipeline.
   Purpose:           & Restore a single positive beam from chop-nod difference image \\
   Type:              & Science                                                       \\
   Input data:        & \PROD{N_SCI_CALIBRATED}                                       \\
+  Matched keywords:    & \FITS{DRS.FILTER} \\
   Parameters:        & size of cutout region                                         \\
   Algorithm:         & Call \DRL{cutout_region} to cut regions around beams                \\
                      & Add regions with appropriate signs (\CODE{hdrl_imagelist_collapse})   \\
@@ -336,6 +334,7 @@ pixel scale across the detector will be created.
                        & \RAW{N_WCU_OFF_RAW} \\
                        & \EXTCALIB{PINHOLE_TABLE} (Grid of pinhole mask positions) \\
 %                       & \PROD{BADPIX_MAP_GEO} \\
+  Matched keywords:    & \FITS{DRS.FILTER} \\
   Parameters:          & Parameters for fitting routine \\
   Algorithm:           & Subtract background image.  (\CODE{hdrl_imagelist_sub_image})                                       \\
                        & Measure location of point source images in frames.   (\CODE{hdrl_catalogue_create})            \\

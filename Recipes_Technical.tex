@@ -36,7 +36,7 @@ It is not foreseen to be used by scientists in regular operation.
   Templates:           & \TPL{METIS_pup_lm}                            \\
                        & \TPL{METIS_pup_n}                             \\
   Input data:          & \RAW{LM_PUPIL_RAW} or \RAW{N_PUPIL_RAW} \\
-  Matched keywords:    & Detector ID                                   \\
+  Matched keywords:    & \FITS{DRS.PUPIL} \\
   Algorithm            & Apply dark current and flat field corrections.\\
   Output data:         & \PROD{LM_PUPIL_REDUCED} or \PROD{N_PUPIL_REDUCED} \\
   Expected accuracies: & n/a                                           \\
@@ -76,6 +76,9 @@ Input data:     & \RAW{LM_CHOPPERHOME_RAW} \\
 %                & \PROD{BADPIX_MAP_2RG}  \\
                 & \PROD{MASTER_DARK_2RG}  \\
                 & \PROD{MASTER_IMG_FLAT_LAMP_LM}  \\
+Matched Keywords & \FITS{DET.DIT} \\
+                 & \FITS{DET.NDIT} \\
+                 & \FITS{DRS.FILTER} \\
 Parameters: 	& None\\
 Algorithm:      & remove detector signature\\
                 & remove median background\\
@@ -127,6 +130,9 @@ Input data:     & \RAW{LM_SLITLOSSES_RAW} \\
                 & \PROD{BADPIX_MAP_2RG}  \\
                 & \PROD{MASTER_DARK_2RG}  \\
                 & \PROD{MASTER_IMG_FLAT_LAMP_LM}  \\
+Matched Keywords & \FITS{DET.DIT} \\
+                 & \FITS{DET.NDIT} \\
+                 & \FITS{DRS.FILTER} \\
 Parameters: 	& exposure time, offset positions\\
 Algorithm:      & remove detector signature\\
                 & remove dark\\
@@ -160,7 +166,10 @@ Input data:     & \RAW{N_SLITLOSSES_RAW} \\
                 & \PROD{GAIN_MAP_GEO}  \\
                 & \PROD{BADPIX_MAP_GEO}  \\
                 & \PROD{MASTER_DARK_GEO}  \\
-                & \PROD{MASTER_IMG_FLAT_LAMP_N}  \\
+& \PROD{MASTER_IMG_FLAT_LAMP_N}  \\
+Matched Keywords & \FITS{DET.DIT} \\
+                 & \FITS{DET.NDIT} \\
+                 & \FITS{DRS.FILTER} \\
 Parameters: 	& exposure time, offset positions\\
 Algorithm:      & remove detector signature\\
                 & remove dark\\

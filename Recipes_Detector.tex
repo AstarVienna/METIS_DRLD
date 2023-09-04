@@ -69,7 +69,7 @@ This satisfies \REQ{METIS-5997}.
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
   Input data:          & \RAW{DETLIN_det_RAW}: (set of \CODE{FLAT,LAMP} frames taken with increasing DIT) \\
                        & \RAW{det_WCU_OFF_RAW}: (set of internal darks taken at the start of the template) \\
-%  Matched keywords:    & Subsystem ID \TODO{TBD}                                                             \\
+  Matched keywords:    & \\
   Algorithm:           & Subtract instrument dark (\CODE{hdrl_imagelist_sub_image}).                         \\
                        & Compute mean and variance for each frame.                              \\
                        & Gain is determined as the slope of variance against mean (\DRL{metis_derive_gain}) \\
@@ -132,7 +132,8 @@ This fulfills \REQ{METIS-6063}.
   Templates:           & \TPL{METIS_gen_cal_dark}                                                    \\
                        & \TPL{METIS_gen_cal_InsDark}                                                 \\
   Input data:          & \RAW{DARK_det_RAW}  \\
-                       & \STATCALIB{LINEARITY_det}  \\
+  & \STATCALIB{LINEARITY_det}  \\
+  Matched Keywords: \\
 % TODO: Remove persistence, because if the raw darks have persistence, we are doing something wrong
                        & \EXTCALIB{PERSISTENCE_MAP}  \\
   Parameters:          & Combination method (\texttt{median}, \texttt{mean},
