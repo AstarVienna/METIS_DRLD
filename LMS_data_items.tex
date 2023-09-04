@@ -3,26 +3,26 @@
 \subsubsection{Raw data item structures}\label{sssec:lmsrawdatastructs}
 
 % #####################################################################################
-\paragraph{\hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_WAVE_RAW}}}\label{dataitem:ifu_wave_raw}
+\paragraph{\RAW{IFU_WAVE_RAW}}\label{dataitem:ifu_wave_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_wave_raw]{\RAW{IFU_WAVE_RAW}}\\[0.3cm]
+Name: & \RAW{IFU_WAVE_RAW}\\[0.3cm]
 Description: & Raw exposure of the \ac{WCU} laser sources through the \ac{IFU} to achieve the first guess of the wavelength calibration.\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IFU} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{WAVE} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{IFU_WAVE_RAW}\\[0.3cm]
+\FITS{DPR.CATG}: & \CODE{CALIB}\\
+\FITS{DPR.TECH}: & \CODE{IFU} \\
+\FITS{DPR.TYPE}: & \CODE{WAVE} \\[0.3cm]
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+\FITS{DO.CATG}: & \CODE{IFU_WAVE_RAW}\\[0.3cm]
 Template: & \TPL{METIS_ifu_cal_InternalWave}\\
-Input for:    & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}} \\
+Input for:    & \REC{metis_ifu_wavecal} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -30,26 +30,26 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 % #####################################################################################
-\paragraph{\hyperref[dataitem:ifu_rsrf_raw]{\RAW{IFU_RSRF_RAW}}}\label{dataitem:ifu_rsrf_raw}
+\paragraph{\RAW{IFU_RSRF_RAW}}\label{dataitem:ifu_rsrf_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_rsrf_raw]{\RAW{IFU_RSRF_RAW}}\\[0.3cm]
+Name: & \RAW{IFU_RSRF_RAW}\\[0.3cm]
 Description: & Raw flats taken with black-body calibration lamp.\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IFU} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{RSRF} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{IFU_RSRF_RAW}\\[0.3cm]
+\FITS{DPR.CATG}: & \CODE{CALIB}\\
+\FITS{DPR.TECH}: & \CODE{IFU} \\
+\FITS{DPR.TYPE}: & \CODE{RSRF} \\[0.3cm]
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+\FITS{DO.CATG}: & \CODE{IFU_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_ifu_cal_rsrf}\\
-Input for recipe: & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}}\\
+Input for recipe: & \REC{metis_ifu_rsrf}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -57,26 +57,26 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 % #####################################################################################
-\paragraph{\hyperref[dataitem:ifu_distortion_raw]{\RAW{IFU_DISTORTION_RAW}}}\label{dataitem:ifu_distortion_raw}
+\paragraph{\RAW{IFU_DISTORTION_RAW}}\label{dataitem:ifu_distortion_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_distortion_raw]{\RAW{IFU_DISTORTION_RAW}}\\[0.3cm]
+Name: & \RAW{IFU_DISTORTION_RAW}\\[0.3cm]
 Description: & Images of multi-pinhole mask.\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IFU} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{DISTORTION} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{IFU_DISTORTION_RAW}\\[0.3cm]
+\FITS{DPR.CATG}: & \CODE{CALIB}\\
+\FITS{DPR.TECH}: & \CODE{IFU} \\
+\FITS{DPR.TYPE}: & \CODE{DISTORTION} \\[0.3cm]
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+\FITS{DO.CATG}: & \CODE{IFU_DISTORTION_RAW}\\[0.3cm]
 Template: & \TPL{METIS_ifu_cal_distortion}\\
-Input for recipe: & \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}}\\
+Input for recipe: & \REC{metis_ifu_distortion}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -84,26 +84,26 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 % #####################################################################################
-\paragraph{\hyperref[dataitem:ifu_std_raw]{\RAW{IFU_STD_RAW}}}\label{dataitem:ifu_std_raw}
+\paragraph{\RAW{IFU_STD_RAW}}\label{dataitem:ifu_std_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_std_raw]{\RAW{IFU_STD_RAW}}\\[0.3cm]
+Name: & \RAW{IFU_STD_RAW}\\[0.3cm]
 Description: & Raw spectra of flux standard star.\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IFU} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{STD} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}\\
-\FITS{DO.CATG}: & \FITS{IFU_STD_RAW}\\[0.3cm]
+\FITS{DPR.CATG}: & \CODE{CALIB}\\
+\FITS{DPR.TECH}: & \CODE{IFU} \\
+\FITS{DPR.TYPE}: & \CODE{STD} \\[0.3cm]
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+\FITS{DO.CATG}: & \CODE{IFU_STD_RAW}\\[0.3cm]
 Template: & \TPL{METIS_ifu_cal_standard}\\
-Input for recipe: & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
+Input for recipe: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
     \item \texttt{hdrl\_image ** image: Four images for each nod/offset position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -111,16 +111,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 % #####################################################################################
-\paragraph{\hyperref[dataitem:ifu_sci_raw]{\RAW{IFU_SCI_RAW}}}\label{dataitem:ifu_sci_raw}
+\paragraph{\RAW{IFU_SCI_RAW}}\label{dataitem:ifu_sci_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_raw]{\RAW{IFU_SCI_RAW}}\\[0.3cm]
+Name: & \RAW{IFU_SCI_RAW}\\[0.3cm]
 Description: & IFU raw exposure of a science object.\\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{SCIENCE}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IFU} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{OBJECT} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_RAW}\\[0.3cm]
+\FITS{DPR.CATG}: & \CODE{SCIENCE}\\
+\FITS{DPR.TECH}: & \CODE{IFU} \\
+\FITS{DPR.TYPE}: & \CODE{OBJECT} \\[0.3cm]
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}\\
+\FITS{DO.CATG}: & \CODE{IFU_SCI_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
                      & \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
                      & \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
@@ -130,15 +130,15 @@ Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                       
                      & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
                      & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
                      & \TPL{METIS_ifu_cal_psf}                                                                  \\
-Input for recipe: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+Input for recipe: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
     \item \texttt{hdrl\_image ** image: Four images for each nodding/offset position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -146,16 +146,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 % #####################################################################################
-\paragraph{\hyperref[dataitem:ifu_sky_raw]{\RAW{IFU_SKY_RAW}}}\label{dataitem:ifu_sky_raw}
+\paragraph{\RAW{IFU_SKY_RAW}}\label{dataitem:ifu_sky_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sky_raw]{\RAW{IFU_SKY_RAW}}\\[0.3cm]
+Name: & \RAW{IFU_SKY_RAW}\\[0.3cm]
 Description: & Blank sky exposure, optional. \\[0.3cm]
-\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}: & \FITS{CALIB}\\
-\hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}: & \FITS{IFU} \\
-\hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}: & \FITS{SKY} \\[0.3cm]
-OCA keywords: & \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}}, \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SKY_RAW}\\[0.3cm]
+\FITS{DPR.CATG}: & \CODE{CALIB}\\
+\FITS{DPR.TECH}: & \CODE{IFU} \\
+\FITS{DPR.TYPE}: & \CODE{SKY} \\[0.3cm]
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}\\
+\FITS{DO.CATG}: & \CODE{IFU_SKY_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
                      & \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
                      & \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
@@ -165,15 +165,15 @@ Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                       
                      & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
                      & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
                      & \TPL{METIS_ifu_cal_psf}                                                                  \\
-Input for recipe: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+Input for recipe: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}}, \hyperref[fits:ins.opti11.name]{\FITS{INS.OPTI11.NAME}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
     \item \texttt{hdrl\_image ** image: Four images for each nodding/offset position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -187,173 +187,239 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:lmsprocdatastructs}
 
 
-\paragraph{\hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}}\label{dataitem:master_dark_ifu}
+\paragraph{\PROD{MASTER_DARK_IFU}}\label{dataitem:master_dark_ifu}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:master_dark_ifu]{\PROD{MASTER_DARK_IFU}}\\[0.3cm]
+Name: & \PROD{MASTER_DARK_IFU}\\[0.3cm]
 Description: & Master dark frame for IFU detector data \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_DARK_IFU} \\[0.3cm]
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{MASTER_DARK_IFU}\\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{MASTER_DARK_IFU} \\[0.3cm]
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{MASTER_DARK_IFU}\\[0.3cm]
 %Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
-Created by: & \hyperref[rec:metis_det_dark]{\REC{metis_det_dark}} \\
-Input for recipes: & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}}\\
-& \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}\\
-& \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
-& \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+Created by: & \REC{metis_det_dark} \\
+Input for recipes: & \REC{metis_ifu_rsrf}\\
+& \REC{metis_ifu_wavecal}\\
+& \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:dpr.catg]{\FITS{DPR.CATG}},  \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}},  \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}},  \hyperref[fits:ins.opti3.name]{\FITS{INS.OPTI3.NAME}},  \hyperref[fits:ins.opti9.name]{\FITS{INS.OPTI9.NAME}},  \hyperref[fits:ins.opti10.name]{\FITS{INS.OPTI10.NAME}})}
-    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{hdrl\_image ** images: Four images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:master_flat_ifu]{\PROD{MASTER_FLAT_IFU}}}\label{dataitem:master_flat_ifu}
+\paragraph{\PROD{MASTER_FLAT_IFU}}\label{dataitem:master_flat_ifu}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:master_flat_ifu]{\PROD{MASTER_FLAT_IFU}}\\[0.3cm]
+Name: & \PROD{MASTER_FLAT_IFU}\\[0.3cm]
 Description: & Master flat frame for IFU image data \\[0.3cm]
-\FITS{DO.CATG}: & \FITS{MASTER_FLAT_IFU}\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_FLAT_IFU}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-Created by: & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}} \\
+\FITS{DO.CATG}: & \CODE{MASTER_FLAT_IFU}\\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{MASTER_FLAT_IFU}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+Created by: & \REC{metis_ifu_rsrf} \\
 Input for recipes: & None\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_image * image: Four images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}}\label{dataitem:ifu_wavecal}
+\paragraph{\PROD{IFU_WAVECAL}}\label{dataitem:ifu_wavecal}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_wavecal]{\PROD{IFU_WAVECAL}}\\[0.3cm]
+Name: & \PROD{IFU_WAVECAL}\\[0.3cm]
 Description: & Image with wavelength at each pixel. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_WAVECAL}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_WAVECAL}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_wavecal]{\REC{metis_ifu_wavecal}}\\
-Input for:    & \hyperref[rec:metis_ifu_rsrf]{\REC{metis_ifu_rsrf}} \\
-              & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}} \\
-              & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} \\
+\FITS{PRO.CATG}: & \CODE{IFU_WAVECAL}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_WAVECAL}\\[0.3cm]
+Created by: & \REC{metis_ifu_wavecal}\\
+Input for:    & \REC{metis_ifu_rsrf} \\
+              & \REC{metis_ifu_reduce} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & wavelength calibration\\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_image ** image: Four images with wavelength of each pixel}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
 
 
+% TODO: The IFU_STD_BACKGROUND_CUBE got lost when redoing the IFU workflow, should it be reinstated?
+% For now it is replaced with IFU_STD_BACKGROUND
+%\paragraph{\PROD{IFU_STD_BACKGROUND_CUBE}}\label{dataitem:ifu_std_background_cube}
+%\begin{recipedef}
+%\textbf{\ac{FITS} file structure:}\\
+%Name: & \PROD{IFU_STD_BACKGROUND_CUBE}\\[0.3cm]
+%Description: &  A rectified spectral cube of the background with a linear wavelength grid. \\[0.3cm]
+%\FITS{PRO.CATG}: & \CODE{IFU_STD_BACKGROUND_CUBE}\\
+%OCA keywords: & \FITS{PRO.CATG}\\
+%\FITS{DO.CATG}: & \CODE{IFU_STD_BACKGROUND_CUBE}\\[0.3cm]
+%Created by: & \REC{metis_ifu_reduce}\\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%% Purpose: & \\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+%    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+%    \item \texttt{hdrl\_imagelist * image: Spectral cube}
+%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
 
-\paragraph{\hyperref[dataitem:ifu_std_background_cube]{\PROD{IFU_STD_BACKGROUND_CUBE}}}\label{dataitem:ifu_std_background_cube}
+
+\paragraph{\PROD{IFU_STD_BACKGROUND}}\label{dataitem:ifu_std_background}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_std_background_cube]{\PROD{IFU_STD_BACKGROUND_CUBE}}\\[0.3cm]
-Description: &  A rectified spectral cube of the background with a linear wavelength grid. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_STD_BACKGROUND_CUBE}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_STD_BACKGROUND_CUBE}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
+Name: & \PROD{IFU_STD_BACKGROUND}\\[0.3cm]
+Description: & Reduced 2D detector image of background. \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_STD_BACKGROUND}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_STD_BACKGROUND}\\[0.3cm]
+Created by: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
-    \item \texttt{hdrl\_imagelist * image: Spectral cube}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
-
-
-
-
-
-
-
-
-\paragraph{\hyperref[dataitem:ifu_std_reduced_cube]{\PROD{IFU_STD_REDUCED_CUBE}}}\label{dataitem:ifu_std_reduced_cube}
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_std_reduced_cube]{\PROD{IFU_STD_REDUCED_CUBE}}\\[0.3cm]
-Description: & Reduced 2D detector image of spectroscopic flux standard star. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_STD_REDUCED_CUBE}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_STD_REDUCED_CUBE}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-% Purpose: & \\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\hyperref[dataitem:ifu_std_telluric_1d]{\PROD{IFU_STD_TELLURIC_1D}}}\label{dataitem:ifu_std_telluric_1d}
+
+
+
+
+\paragraph{\PROD{IFU_STD_REDUCED}}\label{dataitem:ifu_std_reduced}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_std_telluric_1d]{\PROD{IFU_STD_TELLURIC_1D}}\\[0.3cm]
-Description: & Spectrum of telluric standard star. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_STD_TELLURIC_1D}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_STD_TELLURIC_1D}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
+Name: & \PROD{IFU_STD_REDUCED}\\[0.3cm]
+Description: & Reduced 2D detector image of standard star. \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_STD_REDUCED}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_STD_REDUCED}\\[0.3cm]
+Created by: & \REC{metis_ifu_reduce}\\
+Input for:    & None \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
-    \item \texttt{cpl\_table * image: table}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{hdrl\_image ** image: Four images}
+    \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:ifu_std_reduced_1d]{\PROD{IFU_STD_REDUCED_1D}}}\label{dataitem:ifu_std_reduced_1d}
+\paragraph{\PROD{IFU_STD_REDUCED_CUBE}}\label{dataitem:ifu_std_reduced_cube}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_std_reduced_1d]{\PROD{IFU_STD_REDUCED_1D}}\\[0.3cm]
+Name: & \PROD{IFU_STD_REDUCED_CUBE}\\[0.3cm]
+Description: & Reduced 2D detector image of spectroscopic flux standard star. \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_STD_REDUCED_CUBE}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_STD_REDUCED_CUBE}\\[0.3cm]
+Created by: & \REC{metis_ifu_reduce}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+% Purpose: & \\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{hdrl\_image ** image: Four images}
+    \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+% This is the same as IFU_STD_REDUCED_1D?
+%\paragraph{\PROD{IFU_STD_TELLURIC_1D}}\label{dataitem:ifu_std_telluric_1d}
+%\begin{recipedef}
+%\textbf{\ac{FITS} file structure:}\\
+%Name: & \PROD{IFU_STD_TELLURIC_1D}\\[0.3cm]
+%Description: & Spectrum of telluric standard star. \\[0.3cm]
+%\FITS{PRO.CATG}: & \CODE{IFU_STD_TELLURIC_1D}\\
+%OCA keywords: & \FITS{PRO.CATG}\\
+%\FITS{DO.CATG}: & \CODE{IFU_STD_TELLURIC_1D}\\[0.3cm]
+%Created by: & \REC{metis_ifu_telluric}\\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%% Purpose: & \\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+%    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+%    \item \texttt{cpl\_table * image: table}
+%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
+
+
+\paragraph{\PROD{IFU_STD_REDUCED_1D}}\label{dataitem:ifu_std_reduced_1d}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \PROD{IFU_STD_REDUCED_1D}\\[0.3cm]
 Description: & Spectrum of a reduced telluric standard star. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_STD_REDUCED_1D}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_STD_REDUCED_1D}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
+\FITS{PRO.CATG}: & \CODE{IFU_STD_REDUCED_1D}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_STD_REDUCED_1D}\\[0.3cm]
+Created by: & \REC{metis_ifu_telluric}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{cpl\_table * image: table}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
 
+
+
+
+\paragraph{\PROD{IFU_TELLURIC}}\label{dataitem:ifu_telluric}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \PROD{IFU_TELLURIC}\\[0.3cm]
+Description: & Telluric absorption correction. \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_TELLURIC}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_TELLURIC}\\[0.3cm]
+Created by: & \REC{metis_ifu_telluric}\\
+Input for:    & \REC{metis_ifu_calibrate} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+% Purpose: & \\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_table * image: table}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
 
 
 
@@ -369,23 +435,24 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \subsubsection{Final data item structures}\label{sssec:lmsfinaldatastructs}
 
 
-\paragraph{\hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}}}\label{dataitem:ifu_sci_reduced}
+\paragraph{\PROD{IFU_SCI_REDUCED}}\label{dataitem:ifu_sci_reduced}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_reduced]{\PROD{IFU_SCI_REDUCED}}\\[0.3cm]
+Name: & \PROD{IFU_SCI_REDUCED}\\[0.3cm]
 Description: & Reduced 2D detector image of science object. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_REDUCED}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_REDUCED}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
-Input for:    & \hyperref[rec:metis_ifu_adi_cgrph]{\REC{metis_ifu_adi_cgrph}} \\
+\FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED}\\[0.3cm]
+Created by: & \REC{metis_ifu_reduce}\\
+Input for:    & \REC{metis_ifu_calibrate} \\
+              & \REC{metis_ifu_adi_cgrph} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
@@ -393,22 +460,22 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:ifu_sci_background]{\PROD{IFU_SCI_BACKGROUND}}}\label{dataitem:ifu_sci_background}
+\paragraph{\PROD{IFU_SCI_BACKGROUND}}\label{dataitem:ifu_sci_background}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_background]{\PROD{IFU_SCI_BACKGROUND}}\\[0.3cm]
+Name: & \PROD{IFU_SCI_BACKGROUND}\\[0.3cm]
 Description: & Reduced 2D detector image of background. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_BACKGROUND}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_BACKGROUND}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+\FITS{PRO.CATG}: & \CODE{IFU_SCI_BACKGROUND}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_SCI_BACKGROUND}\\[0.3cm]
+Created by: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
@@ -416,49 +483,49 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}}\label{dataitem:ifu_sci_reduced_tac}
+%\paragraph{\PROD{IFU_SCI_REDUCED_TAC}}\label{dataitem:ifu_sci_reduced_tac}
+%\begin{recipedef}
+%\textbf{\ac{FITS} file structure:}\\
+%Name: & \PROD{IFU_SCI_REDUCED_TAC}\\[0.3cm]
+%Description: & Reduced and telluric absorption corrected 2D detector image of science object. \\[0.3cm]
+%\FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED_TAC}\\
+%OCA keywords: & \FITS{PRO.CATG}\\
+%\FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED_TAC}\\[0.3cm]
+%%Created by: & \REC{metis_ifu_std_process}\\
+%% TODO: is metis_ifu_telluric correct?
+%Created by:   & \REC{metis_ifu_sci_process} \\
+%              & \REC{metis_ifu_telluric} \\
+%Input for:    & \REC{metis_ifu_sci_postprocess} \\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%% Purpose: & \\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+%    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+%    \item \texttt{hdrl\_image ** image: Four images}
+%    \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
+
+
+
+\paragraph{\PROD{IFU_SCI_REDUCED_CUBE}}\label{dataitem:ifu_sci_reduced_cube}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_reduced_tac]{\PROD{IFU_SCI_REDUCED_TAC}}\\[0.3cm]
-Description: & Reduced and telluric absorption corrected 2D detector image of science object. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_REDUCED_TAC}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_REDUCED_TAC}\\[0.3cm]
-%Created by: & \hyperref[rec:metis_ifu_std_process]{\REC{metis_ifu_std_process}}\\
-% TODO: is metis_ifu_tellcorr correct?
-Created by:   & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}} \\
-              & \hyperref[rec:metis_ifu_tellcorr]{\REC{metis_ifu_tellcorr}} \\
-Input for:    & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}} \\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-% Purpose: & \\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
-    \item \texttt{hdrl\_image ** image: Four images}
-    \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
-
-
-
-\paragraph{\hyperref[dataitem:ifu_sci_reduced_cube]{\PROD{IFU_SCI_REDUCED_CUBE}}}\label{dataitem:ifu_sci_reduced_cube}
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_reduced_cube]{\PROD{IFU_SCI_REDUCED_CUBE}}\\[0.3cm]
+Name: & \PROD{IFU_SCI_REDUCED_CUBE}\\[0.3cm]
 Description: &  A rectified spectral cube with a linear wavelength grid. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_REDUCED_CUBE}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_REDUCED_CUBE}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+\FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED_CUBE}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED_CUBE}\\[0.3cm]
+Created by: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_imagelist * image: Spectral cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -469,22 +536,23 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:ifu_sci_reduced_cube_tac]{\PROD{IFU_SCI_REDUCED_CUBE_TAC}}}\label{dataitem:ifu_sci_reduced_cube_tac}
+\paragraph{\PROD{IFU_SCI_CUBE_CALIBRATED}}\label{dataitem:ifu_sci_cube_calibrated}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_reduced_cube_tac]{\PROD{IFU_SCI_REDUCED_CUBE_TAC}}\\[0.3cm]
+Name: & \PROD{IFU_SCI_CUBE_CALIBRATED}\\[0.3cm]
 Description: &  A telluric absorption corrected rectified spectral cube with a linear wavelength grid. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_REDUCED_CUBE_TAC}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_REDUCED_CUBE_TAC}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+\FITS{PRO.CATG}: & \CODE{IFU_SCI_CUBE_CALIBRATED}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_SCI_CUBE_CALIBRATED}\\[0.3cm]
+Created by: & \REC{metis_ifu_calibrate}\\
+Input for:    & \REC{metis_ifu_postprocess} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_imagelist * image: Spectral cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -492,23 +560,45 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}}}\label{dataitem:ifu_sci_combined}
+\paragraph{\PROD{IFU_SCI_COMBINED}}\label{dataitem:ifu_sci_combined}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_combined]{\PROD{IFU_SCI_COMBINED}}\\[0.3cm]
-Description: &  Spectral cube of science object. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_COMBINED}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_COMBINED}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
-Input for:    & \hyperref[rec:metis_ifu_tellcorr]{\REC{metis_ifu_tellcorr}} \\
+Name: & \PROD{IFU_SCI_COMBINED}\\[0.3cm]
+Description: & Spectral cube of science object, combining multiple exposures. \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_SCI_COMBINED}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_SCI_COMBINED}\\[0.3cm]
+Created by: & \REC{metis_ifu_reduce}\\
+Input for:    & \REC{metis_ifu_telluric} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{hdrl\_imagelist * image: Spectral cube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+\paragraph{\PROD{IFU_STD_COMBINED}}\label{dataitem:ifu_std_combined}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \PROD{IFU_STD_COMBINED}\\[0.3cm]
+Description: & Spectral cube of standard star, combining multiple exposures. \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_STD_COMBINED}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_STD_COMBINED}\\[0.3cm]
+Created by: & \REC{metis_ifu_reduce}\\
+Input for:    & \REC{metis_ifu_telluric} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+% Purpose: & \\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_imagelist * image: Spectral cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -516,151 +606,151 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-\paragraph{\hyperref[dataitem:ifu_sci_combined_tac]{\PROD{IFU_SCI_COMBINED_TAC}}}\label{dataitem:ifu_sci_combined_tac}
+%\paragraph{\PROD{IFU_SCI_COMBINED_TAC}}\label{dataitem:ifu_sci_combined_tac}
+%\begin{recipedef}
+%\textbf{\ac{FITS} file structure:}\\
+%Name: & \PROD{IFU_SCI_COMBINED_TAC}\\[0.3cm]
+%Description: & Telluric absorption corrected spectral cube of science object. \\[0.3cm]
+%\FITS{PRO.CATG}: & \CODE{IFU_SCI_COMBINED_TAC}\\
+%OCA keywords: & \FITS{PRO.CATG}\\
+%\FITS{DO.CATG}: & \CODE{IFU_SCI_COMBINED_TAC}\\[0.3cm]
+%Created by: & \REC{metis_ifu_sci_process}\\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%% Purpose: & \\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+%    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+%    \item \texttt{hdrl\_imagelist * image: Spectral cube}
+%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
+
+
+
+
+
+
+
+\paragraph{\PROD{IFU_SCI_REDUCED_1D}}\label{dataitem:ifu_sci_reduced_1d}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_combined_tac]{\PROD{IFU_SCI_COMBINED_TAC}}\\[0.3cm]
-Description: & Telluric absorption corrected spectral cube of science object. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_COMBINED_TAC}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_COMBINED_TAC}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-% Purpose: & \\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
-    \item \texttt{hdrl\_imagelist * image: Spectral cube}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
-
-
-
-
-
-
-
-\paragraph{\hyperref[dataitem:ifu_sci_object_1d]{\PROD{IFU_SCI_OBJECT_1D}}}\label{dataitem:ifu_sci_object_1d}
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_object_1d]{\PROD{IFU_SCI_OBJECT_1D}}\\[0.3cm]
+Name: & \PROD{IFU_SCI_REDUCED_1D}\\[0.3cm]
 Description: & Spectrum of science object. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_OBJECT_1D}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_OBJECT_1D}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
+\FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED_1D}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED_1D}\\[0.3cm]
+Created by: & \REC{metis_ifu_telluric}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{cpl\_table * image: table}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
 
 
+% TODO: Put IFU_SCI_TELLURIC_1D back in? Maybe if it is required.
+%\paragraph{\PROD{IFU_SCI_TELLURIC_1D}}\label{dataitem:ifu_sci_telluric_1d}
+%\begin{recipedef}
+%\textbf{\ac{FITS} file structure:}\\
+%Name: & \PROD{IFU_SCI_TELLURIC_1D}\\[0.3cm]
+%Description: & Telluric absorption corrected spectrum of science object. \\[0.3cm]
+%\FITS{PRO.CATG}: & \CODE{IFU_SCI_TELLURIC_1D}\\
+%OCA keywords: & \FITS{PRO.CATG}\\
+%\FITS{DO.CATG}: & \CODE{IFU_SCI_TELLURIC_1D}\\[0.3cm]
+%Created by: & \REC{metis_ifu_telluric}\\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%% Purpose: & \\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+%    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+%    \item \texttt{cpl\_table * image: table}
+%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
 
-\paragraph{\hyperref[dataitem:ifu_sci_telluric_1d]{\PROD{IFU_SCI_TELLURIC_1D}}}\label{dataitem:ifu_sci_telluric_1d}
+
+
+
+
+
+
+
+
+
+
+
+\paragraph{\PROD{IFU_SCI_COADD}}\label{dataitem:ifu_sci_coadd}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_telluric_1d]{\PROD{IFU_SCI_TELLURIC_1D}}\\[0.3cm]
-Description: & Telluric absorption corrected spectrum of science object. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_TELLURIC_1D}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_TELLURIC_1D}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_process]{\REC{metis_ifu_sci_process}}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-% Purpose: & \\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
-    \item \texttt{cpl\_table * image: table}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
-
-
-
-
-
-
-
-
-
-
-
-
-\paragraph{\hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}}\label{dataitem:ifu_sci_coadd}
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}\\[0.3cm]
+Name: & \PROD{IFU_SCI_COADD}\\[0.3cm]
 Description: &  Spectral cube of science object, a coadd of a number of reduced IFU exposures covering a different spatial and wavelength ranges. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_COADD}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_COADD}\\[0.3cm]
-Created by:   & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}} \\
+\FITS{PRO.CATG}: & \CODE{IFU_SCI_COADD}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_SCI_COADD}\\[0.3cm]
+Created by:   & \REC{metis_ifu_postprocess} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 % Purpose: & \\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{hdrl\_imagelist * image: Spectral cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
 
 
-\paragraph{\hyperref[dataitem:ifu_sci_coadd_error]{\PROD{IFU_SCI_COADD_ERROR}}}\label{dataitem:ifu_sci_coadd_error}
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:ifu_sci_coadd_error]{\PROD{IFU_SCI_COADD_ERROR}}\\[0.3cm]
-Description: &  The standard error of an \hyperref[dataitem:ifu_sci_coadd]{\PROD{IFU_SCI_COADD}}. \\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_SCI_COADD_ERROR}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_SCI_COADD_ERROR}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_sci_postprocess]{\REC{metis_ifu_sci_postprocess}}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-% Purpose: & \\
-\end{recipedef}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
-    \item \texttt{hdrl\_imagelist * image: Spectral cube}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}
+%\paragraph{\PROD{IFU_SCI_COADD_ERROR}}\label{dataitem:ifu_sci_coadd_error}
+%\begin{recipedef}
+%\textbf{\ac{FITS} file structure:}\\
+%Name: & \PROD{IFU_SCI_COADD_ERROR}\\[0.3cm]
+%Description: &  The standard error of an \PROD{IFU_SCI_COADD}. \\[0.3cm]
+%\FITS{PRO.CATG}: & \CODE{IFU_SCI_COADD_ERROR}\\
+%OCA keywords: & \FITS{PRO.CATG}\\
+%\FITS{DO.CATG}: & \CODE{IFU_SCI_COADD_ERROR}\\[0.3cm]
+%Created by: & \REC{metis_ifu_sci_postprocess}\\
+%Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%% Purpose: & \\
+%\end{recipedef}
+%\begin{datastructdef}
+%\textbf{Corresponding \ac{CPL} structure:}
+%\begin{enumerate}
+%    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+%    \item \texttt{hdrl\_imagelist * image: Spectral cube}
+%    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+%\end{enumerate}
+%\end{datastructdef}
 
 
 
 
 
-\paragraph{\hyperref[dataitem:ifu_dist_reduced]{\PROD{IFU_DIST_REDUCED}}}\label{dataitem:ifu_dist_reduced}
+\paragraph{\PROD{IFU_DIST_REDUCED}}\label{dataitem:ifu_dist_reduced}
 \begin{recipedef}
 \textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \hyperref[dataitem:ifu_dist_reduced]{\PROD{IFU_DIST_REDUCED}}\\[0.3cm]
+Name: & \PROD{IFU_DIST_REDUCED}\\[0.3cm]
 Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{IFU_DIST_REDUCED}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}\\
-\FITS{DO.CATG}: & \FITS{IFU_DIST_REDUCED}\\[0.3cm]
-Created by: & \hyperref[rec:metis_ifu_distortion]{\REC{metis_ifu_distortion}}\\
+\FITS{PRO.CATG}: & \CODE{IFU_DIST_REDUCED}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_DIST_REDUCED}\\[0.3cm]
+Created by: & \REC{metis_ifu_distortion}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
-\paragraph{\hyperref[dataitem:ifu_dist_reduced]{\PROD{IFU_DIST_REDUCED}}}\label{drsstructure:IFU_DIST_REDUCED}
+%\paragraph{\PROD{IFU_DIST_REDUCED}}\label{drsstructure:IFU_DIST_REDUCED}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
     \item \texttt{cpl\_table * table: Distortion table}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}

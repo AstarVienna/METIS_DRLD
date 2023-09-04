@@ -24,20 +24,20 @@
     \TPL{METIS_gen_cal_dark}\\
     \TPL{METIS_gen_cal_InsDark}};
   \pic (start) [below=0.75cm of template] {start};
-  \node (input) [below=0.75cm of start-m, input] {\textsl{N} \hyperref[dataitem:dark_det_raw]{\RAW{DARK_det_RAW}}};
+  \node (input) [below=0.75cm of start-m, input] {\textsl{N} \RAW{DARK_det_RAW}};
   \node (step_linearity) [below=2.0cm of input, redstep] {%
     apply non-linearity correction};
 
   \node (connectlinearity) [connection] at ($(input)!0.65!(step_linearity)$){};
   \node (linearity) [left=of connectlinearity, external]{\STATCALIB{LINEARITY_det}};
-  \draw (linearity) -- (connectlinearity);
+  \draw [connection_arrow] (linearity) -- (connectlinearity);
 
   \node (step_persistence) [below of=step_linearity, redstep] {%
     apply persistence correction};
 
   \node (connectpersistence) [connection] at ($(step_linearity)!0.5!(step_persistence)$){};
   \node (persistence) [left=of connectpersistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
-  \draw (persistence) -- (connectpersistence);
+  \draw [connection_arrow] (persistence) -- (connectpersistence);
 
   \node (step_filtering) [below of=step_persistence, redstep] {%
     per pixel median/ mean filtering};
@@ -45,27 +45,27 @@
   \pic (stop) [below=2.0cm of step_thresholding] {stop};
 
   %% Connections
-  \draw (template) -- (input);
-  \draw (input) -- (step_linearity);
-  \draw (step_linearity) -- (step_persistence);
-  \draw (step_persistence) -- (step_filtering);
-  \draw (step_filtering) -- (step_thresholding);
-  \draw (step_thresholding) -- (stop-t);
+  \draw [connection_arrow] (template) -- (input);
+  \draw [connection_arrow] (input) -- (step_linearity);
+  \draw [connection_arrow] (step_linearity) -- (step_persistence);
+  \draw [connection_arrow] (step_persistence) -- (step_filtering);
+  \draw [connection_arrow] (step_filtering) -- (step_thresholding);
+  \draw [connection_arrow] (step_thresholding) -- (stop-t);
 
   %% Output
   \node (connectdark) [connection] at ($(step_filtering)!0.5!(step_thresholding)$){};
-  \node (masterdark) [right=of connectdark, calproduct] {\hyperref[dataitem:master_dark_det]{\STATCALIB{MASTER_DARK_det}}};
-  \draw (connectdark) -- (masterdark);
+  \node (masterdark) [right=of connectdark, calproduct] {\STATCALIB{MASTER_DARK_det}};
+  \draw [connection_arrow] (connectdark) -- (masterdark);
 
   \node (connecthot) [connection] at ($(step_thresholding)!0.5!(stop-t)$){};
-  \node (hot) [right=of connecthot, calproduct] {\hyperref[dataitem:badpix_map_det]{\STATCALIB{BADPIX_MAP_det}}};
-  \draw (connecthot) -- (hot);
+  \node (hot) [right=of connecthot, calproduct] {\STATCALIB{BADPIX_MAP_det}};
+  \draw [connection_arrow] (connecthot) -- (hot);
 
   %% frame around recipe
   \draw [frame] ($(input)!0.4!(step_linearity) - (2.5cm,0)$)
   rectangle ($(step_thresholding)!0.7!(stop-t) + (2.5cm, 0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.4!(step_linearity) - (2.5cm,0)$) {\textsl{metis\_det\_dark}};
+  ($(input)!0.4!(step_linearity) - (2.5cm,0)$) {\REC{metis_det_dark}};
 
 \end{tikzpicture}
 \input{normal_style}

@@ -107,7 +107,7 @@ The GeoSnap detector is expected to not suffer from persistence (see~\cite{Leise
 
 However, since the determination of this pattern relies on observations previously done, this approach requires access to these data, which might arise from completely other observing runs and are therefore proprietary.
 Therefore, the avoidance of persistence, i.e. a sophisticated planning / persistence management should be one of the major goals for the planning of the observations and the operational concept.
-In case a persistence correction is required, a subtraction of a persistence map (\hyperref[dataitem:persistence_map]{\EXTCALIB{PERSISTENCE_MAP}}) is foreseen in any individual recipe. This map is created by the recipe \hyperref[rec:metis_det_persistence]{\REC{metis_det_persistence}} (cf. Section~\ref{rec:metis_det_persistence}) , which is carried out by \ac{ESO} and relies on the algorithm provided by \ac{ESO}.
+In case a persistence correction is required, a subtraction of a persistence map (\EXTCALIB{PERSISTENCE_MAP}) is foreseen in any individual recipe. This map is created by the recipe \REC{metis_det_persistence} (cf. Section~\ref{rec:metis_det_persistence}) , which is carried out by \ac{ESO} and relies on the algorithm provided by \ac{ESO}.
 
 %\TODO{Will have access to a HDRL function from ESO.
 %The interface is TBD.
@@ -127,7 +127,7 @@ In~\cite{matisse_minutes}, the correction is described as follows:
 \begin{displayquote}
     Cross-talk correction is done in two steps using the masked pixels in the vertical direction, which are equivalent to two masked outputs.
     \begin{itemize}
-        \item Step 1 : The [w]hole line is corrected by an offset.
+        \item Step 1 : The whole line is corrected by an offset.
         \item Step 2 : Each pixel is corrected using the corresponding masked pixel in terms of raw
             number in the two vertical masked outputs.
     \end{itemize}
@@ -171,13 +171,32 @@ MATISSE has dealt with the detector masks adequately and the same procedures wil
 
 \subsection{Bad pixel determination}\label{ssec:criticalbadpixeldetermination}
 
-Bad pixels are an issue in any detector and have to be are monitored and stored.
+Bad pixels are an issue in any detector and have to be monitored and stored.
 This is usually done with the help of DARK and FLATFIELD frames.
 Cold/hot pixels can be identified by using DARKS since they have pixel values which are far from an expected values (e.g.\ median value).
 Non-linear pixels can be detected with illumination flats, that is, the detector is illuminated uniformly by a flatfield source.
-Using  several exposure times / flux levels, non-linearities in pixels can be found by fitting polynomials to each  individual pixel.
+Using several exposure times / flux levels, non-linearities in pixels can be found by fitting polynomials to each individual pixel.
 
-We intend to introduce a bad pixel classification similar to the convention introduced in the X-Shooter Pipeline Manual (cf.\ Section 11.3 in~\cite{xshooter_manual}), adapted to our needs.
+Each processed data product will contain a data quality extension for each
+data extension (Section~\ref{sssec:processeddataextensions}), including
+calibration data products.
+Note that every science product will need its own bad pixel map, to keep track
+of pixels affected by persistence.
+Having an extra data quality extension will therefore not significantly affect
+the data volume.
+
+It is therefore not necessary to have a dedicated data product for the
+bad pixels;
+the propagation of bad pixels through the pipeline can be done
+by copying (XOR-ing) the bits of the data quality layer of the calibration data
+into the data quality layer of the data that is being processed.
+Nevertheless, it can be useful to have such a data product, and several recipes
+can therefore have a \PROD{BADPIX_MAP_det} as output or input anyway.
+
+We will use a bad pixel classification similar to the convention introduced in
+the X-Shooter Pipeline Manual (cf.\ Section 11.3 in~\cite{xshooter_manual}),
+adapted to our needs.
+
 
 %\TODO{
 %    Surely every other instrument on planet earth has some sort of algo for this.
@@ -210,7 +229,7 @@ ruled out since \ac{PDR}.
 % }
 
 \subsubsection{LM bands}
-Small ($< 1000 \arcsec$) and slow (1 min timescale) dithered offsets of the field with respect to the LM IMG or \ac{IFU} detector are expected to be performed by the METIS-internal chopper mirror.
+Small ($< 5 \arcsec$) and slow (1 min timescale) dithered offsets of the field with respect to the LM IMG or \ac{IFU} detector are expected to be performed by the METIS-internal chopper mirror.
 The pipeline will determine the sky background from the dithered images and produce background maps without the sources and background-subtracted versions of the maps with the sources.
 For In-field-dithering, this is done by determining a flux scaling factor for each ``dither'' position, aligning the exposures (by either using a 2d cross-correlation routine on bright sources or by using the offset values applied to the chopper), scaling the frames to a common median and removing objects by rejecting the highest and lowest pixels.
 The remaining pixels are then averaged, or medianed, to produce the sky frame which is then scaled to match the median of the object frame before being subtracted.
@@ -220,11 +239,10 @@ The best approach to determine the flux scaling factor of each dither exposure i
 The pipeline would also support sky subtraction using separate sky images for out-of-field dithering modes, i.e.\ when the observed field is crowded or full of extended emission.
 
 \subsubsection{N bands}\label{sssec:nbandsbackgroundsubtracion}
-To ensure proper background sampling at the longer wavelengths, small ($< 1000 \arcsec$) and fast ($\approx 10 \mathrm{Hz}$) chopping offsets of the field with respect to the N IMG detector are expected to be performed by the METIS-internal chopper mirror.
+To ensure proper background sampling at the longer wavelengths, small ($< 5 \arcsec$) and fast ($\approx 10 \mathrm{Hz}$) chopping offsets of the field with respect to the N IMG detector are expected to be performed by the METIS-internal chopper mirror.
 The chopping residuals from the previous step will be corrected by nodding the telescope to a different position and repeating the same chopping procedure.
 %The chopping and nodding sequence is expected to follow what is currently being done with VISIR.
 A 3-point parallel nodding sequence is followed, which should give a higher \ac{SNR} than the 2 point pattern used in e.g.~VISIR (cf.~\cite{METIS-operational_concept}).
-The
 
 The pipeline will determine the sky background from the chopped and nodded images and produce background maps without the sources and background-subtracted versions of the maps with the sources.
 For each nodding cycle the subsequent chop-cycle frames are subtracted from each other (mean of on-source frames minus mean of off-source frames) resulting in a single chop-difference frame, i.e. nod half-cycle frame.
@@ -264,12 +282,12 @@ The wavelength calibration and distortion correction critical algorithm is split
 %    to determine the rectification. The WCU lamp spectrum might provide
 %    a 0\textsuperscript{th}-order guess, which is refined with a table,
 %    which includes information on the distortion introduced by the
-%    grisms (\hyperref[dataitem:grism_tab]{\STATCALIB{GRISM_TAB}}).
+%    grisms (\STATCALIB{GRISM_TAB}).
 %  \item Since we know the wavelength range (from the optical system), a
 %    cross correlation of the lines with respect to the molecular
 %    emission lines from line databases
 %    (e.g.\ HITRAN\footnote{\url{https://hitran.org/}},
-%    \hyperref[dataitem:atm_line_cat]{\STATCALIB{ATM_LINE_CAT}}) is possible.
+%    \STATCALIB{ATM_LINE_CAT}) is possible.
 %\end{itemize}
 
 %Special emphasis has to be drawn that the rows to detect the atmospheric emission lines are not to cover the science objects, since intrinsic target emission lines might disturb the cross correlation.

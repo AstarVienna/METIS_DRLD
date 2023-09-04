@@ -7,16 +7,16 @@
 
 \subsubsection{Detect centroid in LM images}\label{drl:lm_adi_cgrph_centroid}
 \begin{recipedef}
-Name: & \hyperref[drl:lm_adi_cgrph_centroid]{\DRL{lm_adi_cgrph_centroid}} \\
+Name: & \DRL{lm_adi_cgrph_centroid} \\
 Purpose: & Detect the centroid in a sequence of LM band CVC/RAVC coronographic images\\
-Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
+Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: & \QC{QC LM cgrph FWHM nn}\\
+QC outputs: & \QC*{QC LM cgrph FWHM nn}\\
 %Output FITS files: & None \\
-Outputs: & \hyperref[dataitem:lm_cgrph_centroid_tab]{\PROD{lm_cgrph_CENTROID_TAB}}\\
+Outputs: & \PROD{lm_cgrph_CENTROID_TAB}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Centroiding of source in LM band coronagraphic images \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging}  \\
@@ -29,16 +29,16 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Detect centroid in N images}\label{drl:n_adi_cgrph_centroid}
 \begin{recipedef}
-Name: & \hyperref[drl:n_adi_cgrph_centroid]{\DRL{n_adi_cgrph_centroid}} \\
+Name: & \DRL{n_adi_cgrph_centroid} \\
 Purpose: & Detect the centroids in a sequence of N band CVC/RAVC coronographic images\\
-Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
+Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: & \QC{QC N cgrph FWHM nn}\\
+QC outputs: & \QC*{QC N cgrph FWHM nn}\\
 %Output FITS files: & None \\
-Outputs: & \hyperref[dataitem:n_cgrph_centroid_tab]{\PROD{n_cgrph_CENTROID_TAB}}\\
+Outputs: & \PROD{n_cgrph_CENTROID_TAB}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Centroiding of source in N band coronagraphic images \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging}  \\
@@ -52,16 +52,16 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Detect centroid in APP LM images}\label{drl:lm_adi_app_centroid}
 \begin{recipedef}
-Name: & \hyperref[drl:lm_adi_app_centroid]{\DRL{lm_adi_app_centroid}} \\
+Name: & \DRL{lm_adi_app_centroid} \\
 Purpose: & Determine the centroid in a sequence of LM band APP coronographic images\\
-Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
+Used in recipes: & \REC{metis_lm_adi_app}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: & \QC{QC LM APP FWHM nn}\\
+QC outputs: & \QC*{QC LM APP FWHM nn}\\
 %Output FITS files: & None \\
-Outputs: & \hyperref[dataitem:lm_app_centroid_tab]{\PROD{lm_app_CENTROID_TAB}}\\
+Outputs: & \PROD{lm_app_CENTROID_TAB}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Determine source location in LM band APP coronagraphic images, through the \ac{WFS-FS} position and by centroiding \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging}  \\
@@ -74,16 +74,16 @@ Unit tests: & See~\cite{DRLVT}. \\
 % HB 20230627: There is no APP in the N-band right?
 % \subsubsection{Detect centroid in APP N images}\label{drl:n_adi_app_centroid}
 % \begin{recipedef}
-% Name: & \hyperref[drl:n_adi_app_centroid]{\DRL{n_adi_app_centroid}} \\
+% Name: & \DRL{n_adi_app_centroid} \\
 % Purpose: & Detect the centroids in a sequence of N band APP coronographic images\\
-% Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
+% Used in recipes: & \REC{metis_lm_adi_app}\\
 % %Working remarks: & None \\
 % %Function Parameters: & None \\
 % Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 % %Other inputs: & None \\
 % QC outputs: & QC N APP FWHM nn\\
 % %Output FITS files: & None \\
-% Outputs: & \hyperref[dataitem:n_app_centroid_tab]{\PROD{n_app_CENTROID_TAB}}\\
+% Outputs: & \PROD{n_app_CENTROID_TAB}\\
 %                 & \texttt{cpl\_error\_code} \\
 % General description: & Centroiding of source in N band APP coronagraphic images \\
 % Mathematical description: & see Section~\ref{ssec:algo_app_imaging}  \\
@@ -98,18 +98,18 @@ Unit tests: & See~\cite{DRLVT}. \\
 \subsubsection{Calculate Median PSF for ADI LM band}\label{drl:lm_adi_cgrph_psf}
 
 \begin{recipedef}
-Name: & \hyperref[drl:lm_adi_cgrph_psf]{\DRL{lm_adi_cgrph_psf}} \\
+Name: & \DRL{lm_adi_cgrph_psf} \\
 Purpose: & Calculate median PSF for sequence of ADI images\\
-Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
+Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      & parameters for combination method\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       &  \hyperref[dataitem:lm_cgrph_centroid_tab]{\PROD{lm_cgrph_CENTROID_TAB}}\\
+       &  \PROD{lm_cgrph_CENTROID_TAB}\\
 %Other inputs: & None \\
-QC outputs: & \QC{QC det cgrph SCI FWHM nn}\\
+QC outputs: & \QC*{QC det cgrph SCI FWHM nn}\\
 %Output FITS files: & None \\
-Outputs: & \hyperref[dataitem:lm_cgrph_psf_median]{\PROD{lm_cgrph_PSF_MEDIAN}}\\
+Outputs: & \PROD{lm_cgrph_PSF_MEDIAN}\\
 Outputs: & \texttt{hdrl\_image * psf\_median}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images\ \\
@@ -124,18 +124,18 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Calculate median PSF for ADI N band}\label{drl:n_adi_cgrph_psf}
 \begin{recipedef}
-Name: & \hyperref[drl:n_adi_cgrph_psf]{\DRL{n_adi_cgrph_psf}} \\
+Name: & \DRL{n_adi_cgrph_psf} \\
 Purpose: & Calculate median PSF for sequence of ADI images\\
-Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
+Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      & parameters for combination method\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       &  \hyperref[dataitem:n_cgrph_centroid_tab]{\PROD{N_cgrph_CENTROID_TAB}}\\
+       &  \PROD{N_cgrph_CENTROID_TAB}\\
 %Other inputs: & None \\
-QC outputs: & \QC{QC det cgrph SCI FWHM nn}\\
+QC outputs: & \QC*{QC det cgrph SCI FWHM nn}\\
 %Output FITS files: & None \\
-Outputs: & \hyperref[dataitem:n_cgrph_psf_median]{\PROD{N_cgrph_PSF_MEDIAN}}\\
+Outputs: & \PROD{N_cgrph_PSF_MEDIAN}\\
 Outputs: & \texttt{hdrl\_image * psf\_median}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images\ \\
@@ -150,18 +150,18 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Calculate median PSF for APP LM band}\label{drl:lm_adi_app_psf}
 \begin{recipedef}
-Name: & \hyperref[drl:lm_adi_app_psf]{\DRL{lm_adi_app_psf}} \\
+Name: & \DRL{lm_adi_app_psf} \\
 Purpose: & Calculate median PSF for sequence of ADI images\\
-Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
+Used in recipes: & \REC{metis_lm_adi_app}\\
 %Working remarks: & None \\
 Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      & parameters for combination method\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       &  \hyperref[dataitem:lm_app_centroid_tab]{\PROD{LM_app_CENTROID_TAB}}\\
+       &  \PROD{LM_app_CENTROID_TAB}\\
 %Other inputs: & None \\
-QC outputs: & \QC{QC det APP SCI FWHM nn}\\
+QC outputs: & \QC*{QC det APP SCI FWHM nn}\\
 %Output FITS files: & None \\
-Outputs: & \hyperref[dataitem:lm_app_psf_median]{\PROD{LM_APP_PSF_MEDIAN}}\\
+Outputs: & \PROD{LM_APP_PSF_MEDIAN}\\
 Outputs: & \texttt{hdrl\_image * psf\_median}\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images\ \\
@@ -176,18 +176,18 @@ Unit tests: & See~\cite{DRLVT}. \\
 % HB 20230627: There is no APP in the N-band right?
 % \subsubsection{Calculate median PSF for APP N band}\label{drl:n_adi_app_psf}
 % \begin{recipedef}
-% Name: & \hyperref[drl:n_adi_app_psf]{\DRL{n_adi_app_psf}} \\
+% Name: & \DRL{n_adi_app_psf} \\
 % Purpose: & Calculate median PSF for sequence of ADI images for the APP coronograph\\
-% Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
+% Used in recipes: & \REC{metis_lm_adi_app}\\
 % %Working remarks: & None \\
 % Function Parameters: & combination method (median, mean, sigma clipped...)\\
 %                      & parameters for combination method\\
 % Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-%        &  \hyperref[dataitem:n_app_centroid_tab]{\PROD{n_app_CENTROID_TAB}}\\
+%        &  \PROD{n_app_CENTROID_TAB}\\
 % %Other inputs: & None \\
 % QC outputs: & QC det APP SCI FWHM nn\\
 % %Output FITS files: & None \\
-% Outputs: & \hyperref[dataitem:n_app_psf_median]{\PROD{n_app_PSF_MEDIAN}}\\
+% Outputs: & \PROD{n_app_PSF_MEDIAN}\\
 %                 & \texttt{cpl\_error\_code} \\
 % General description: & Calculation of median PSF for sequence of ADI images  for the APP coronograph \\
 % Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
@@ -200,9 +200,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Merge PSFs for LM band APP image}\label{drl:lm_merge_app_adi_psf}\label{drl:lm_merge_app_psf}
 \begin{recipedef}
-Name: & \hyperref[drl:lm_merge_app_psf]{\DRL{lm_merge_app_psf}} \\
+Name: & \DRL{lm_merge_app_psf} \\
 Purpose: & Merge the components of the PSF for an LM band APP coronagraph image\\
-Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
+Used in recipes: & \REC{metis_lm_adi_app}\\
 %Working remarks: & None \\
 Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      & parameters for combination method\\
@@ -221,9 +221,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 % NO N-band APP
 %\subsubsection{Merge PSFs for N band APP image}\label{drl:n_merge_app_adi_psf}
 %\begin{recipedef}
-%Name: & \hyperref[drl:n_merge_app_psf]{\DRL{n_merge_app_psf}} \\
+%Name: & \DRL{n_merge_app_psf} \\
 %Purpose: & Merge the components of the PSF for an N band APP coronagraph image\\
-%Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
+%Used in recipes: & \REC{metis_lm_adi_app}\\
 %Working remarks: & None \\
 %Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      %& parameters for combination method\\
@@ -243,18 +243,18 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Apply distortion correction}\label{drl:adi_regrid}
 \begin{recipedef}
-Name: & \hyperref[drl:adi_regrid]{\DRL{adi_regrid}} \\
+Name: & \DRL{adi_regrid} \\
 Purpose: & Apply distortion correction and regrid to align images\\
-Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
+Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: & Resampling method\\
                      & parameters for resampling method\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       & \hyperref[dataitem:det_cgrph_centroid_tab]{\PROD{det_cgrph_CENTROID_TAB}}\\
-       & \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}}\\
+       & \PROD{det_cgrph_CENTROID_TAB}\\
+       & \PROD{det_DISTORTION_TABLE}\\
 %Other inputs: & Parameters for regridding \\
 QC outputs: & None\\
-Output FITS files: & \hyperref[dataitem:det_cgrph_sci_centred]{\PROD{det_cgrph_SCI_CENTRED}} \\
+Output FITS files: & \PROD{det_cgrph_SCI_CENTRED} \\
 Outputs: &   \texttt{cpl\_error\_code} \\
 General description: & Apply the distortion correction and align images on a subpixel scale \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
@@ -268,18 +268,18 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Regrid IFU image}\label{drl:ifu_adi_regrid}
 \begin{recipedef}
-Name: & \hyperref[drl:ifu_adi_regrid]{\DRL{ifu_adi_regrid}} \\
+Name: & \DRL{ifu_adi_regrid} \\
 Purpose: & Apply distortion correction, perform square pixel reconstruction, and regrid to align images\\
-Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
+Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: & Resampling method\\
                      & parameters for resampling method\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       & \hyperref[dataitem:det_cgrph_centroid_tab]{\PROD{det_cgrph_CENTROID_TAB}}\\
-       & \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}}]]\\
+       & \PROD{det_cgrph_CENTROID_TAB}\\
+       & \PROD{det_DISTORTION_TABLE}]]\\
 %Other inputs: & Parameters for regridding \\
 QC outputs: & None\\
-Output FITS files: & \hyperref[dataitem:det_cgrph_sci_centred]{\PROD{det_cgrph_SCI_CENTRED}} \\
+Output FITS files: & \PROD{det_cgrph_SCI_CENTRED} \\
 Outputs: &   \texttt{cpl\_error\_code} \\
 General description: & Apply the distortion correction, perform square pixel reconstruction, and align images on a subpixel scale \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
@@ -293,18 +293,18 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Derotate ADI images}\label{drl:adi_derotate}
 \begin{recipedef}
-Name: & \hyperref[drl:adi_derotate]{\DRL{adi_derotate}} \\
+Name: & \DRL{adi_derotate} \\
 Purpose: & Derotate a sequence of coronagraphic images\\
-Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
+Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: method for resampling\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: & \QC{QC det cgrph SCI SNR MEAN} \\
-            & \QC{QC det cgrph SCI SNR PEAK} \\
-Output FITS files: & \hyperref[dataitem:det_cgrph_sci_derotated_psfsub]{\PROD{det_cgrph_SCI_DEROTATED_PSFSUB}} \\
-                   & \hyperref[dataitem:det_cgrph_sci_derotated]{\PROD{det_cgrph_SCI_DEROTATED}} \\
-Outputs: & \hyperref[dataitem:det_cgrph_psf_median]{\PROD{det_cgrph_PSF_MEDIAN}}\\
+QC outputs: & \QC*{QC det cgrph SCI SNR MEAN} \\
+            & \QC*{QC det cgrph SCI SNR PEAK} \\
+Output FITS files: & \PROD{det_cgrph_SCI_DEROTATED_PSFSUB} \\
+                   & \PROD{det_cgrph_SCI_DEROTATED} \\
+Outputs: & \PROD{det_cgrph_PSF_MEDIAN}\\
 %                & \texttt{cpl\_error\_code} \\
 General description: & derotate a sequence of ADI images \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
@@ -317,18 +317,18 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Calculate contrast curve for LM band}\label{drl:lm_adi_cgrph_contrast}
 \begin{recipedef}
-Name: & \hyperref[drl:lm_adi_cgrph_contrast]{\DRL{lm_adi_cgrph_contrast}} \\
+Name: & \DRL{lm_adi_cgrph_contrast} \\
 Purpose: & Calculate contrast curves for a sequence of LM band coronagraphic images, for the RAVC/CVC coronagraph\\
-Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
+Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
-QC outputs: & \QC{QC LM cgrph SCI CONTRAST RAW LAMD}\\
-            & \QC{QC LM cgrph SCI CONTRAST ADI LAMD}\\
-  Output FITS files: & \hyperref[dataitem:lm_cgrph_sci_contrast_radprof]{\PROD{LM_cgrph_SCI_CONTRAST_RADPROF}} \\
-                     & \hyperref[dataitem:lm_cgrph_sci_contrast_adi]{\PROD{LM_cgrph_SCI_CONTRAST_ADI}} \\
-                     & \hyperref[dataitem:lm_cgrph_sci_throughput]{\PROD{LM_cgrph_SCI_THROUGHPUT}} \\
+QC outputs: & \QC*{QC LM cgrph SCI CONTRAST RAW LAMD}\\
+            & \QC*{QC LM cgrph SCI CONTRAST ADI LAMD}\\
+  Output FITS files: & \PROD{LM_cgrph_SCI_CONTRAST_RADPROF} \\
+                     & \PROD{LM_cgrph_SCI_CONTRAST_ADI} \\
+                     & \PROD{LM_cgrph_SCI_THROUGHPUT} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: &  Calculate contrast curves for a sequence of LM band coronagraphic images, for the  RAVC/CVC coronagraph\\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
@@ -342,18 +342,18 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Calculate contrast curve for N band}\label{drl:n_adi_cgrph_contrast}
 \begin{recipedef}
-Name: & \hyperref[drl:n_adi_cgrph_contrast]{\DRL{n_adi_cgrph_contrast}} \\
+Name: & \DRL{n_adi_cgrph_contrast} \\
 Purpose: & Calculate contrast curves for a sequence of N band coronagraphic images, for the RAVC/CVC coronagraph\\
-Used in recipes: & \hyperref[rec:metis_img_adi_cgrph]{\REC{metis_img_adi_cgrph}}\\
+Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
-QC outputs: & \QC{QC N cgrph SCI CONTRAST RAW LAMD}\\
-            & \QC{QC N cgrph SCI CONTRAST ADI LAMD}\\
-  Output FITS files: & \hyperref[dataitem:n_cgrph_sci_contrast_radprof]{\PROD{N_cgrph_SCI_CONTRAST_RADPROF}} \\
-                     & \hyperref[dataitem:n_cgrph_sci_contrast_adi]{\PROD{N_cgrph_SCI_CONTRAST_ADI}} \\
-                     & \hyperref[dataitem:n_cgrph_sci_throughput]{\PROD{N_cgrph_SCI_THROUGHPUT}} \\
+QC outputs: & \QC*{QC N cgrph SCI CONTRAST RAW LAMD}\\
+            & \QC*{QC N cgrph SCI CONTRAST ADI LAMD}\\
+  Output FITS files: & \PROD{N_cgrph_SCI_CONTRAST_RADPROF} \\
+                     & \PROD{N_cgrph_SCI_CONTRAST_ADI} \\
+                     & \PROD{N_cgrph_SCI_THROUGHPUT} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: &  Calculate contrast curves for a sequence of N band coronagraphic images, for the  RAVC/CVC coronagraph\\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
@@ -367,18 +367,18 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Calculate contrast curve for APP LM band}\label{drl:lm_adi_app_contrast}
 \begin{recipedef}
-Name: & \hyperref[drl:lm_adi_app_contrast]{\DRL{lm_adi_app_contrast}} \\
+Name: & \DRL{lm_adi_app_contrast} \\
 Purpose: & Calculate contrast curves for a sequence of LM band coronagraphic images, for the APP coronagraph\\
-Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
+Used in recipes: & \REC{metis_lm_adi_app}\\
 %Working remarks: & None \\
 Function Parameters: None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
-QC outputs: & \QC{QC det APP SCI CONTRAST RAW LAMD}\\
-            & \QC{QC det APP SCI CONTRAST ADI LAMD}\\
-  Output FITS files: & \hyperref[dataitem:lm_app_sci_contrast_radprof]{\PROD{LM_APP_SCI_CONTRAST_RADPROF}} \\
-                     & \hyperref[dataitem:lm_app_sci_contrast_adi]{\PROD{LM_APP_SCI_CONTRAST_ADI}} \\
-                     & \hyperref[dataitem:lm_app_sci_throughput]{\PROD{LM_APP_SCI_THROUGHPUT}} \\
+QC outputs: & \QC*{QC det APP SCI CONTRAST RAW LAMD}\\
+            & \QC*{QC det APP SCI CONTRAST ADI LAMD}\\
+  Output FITS files: & \PROD{LM_APP_SCI_CONTRAST_RADPROF} \\
+                     & \PROD{LM_APP_SCI_CONTRAST_ADI} \\
+                     & \PROD{LM_APP_SCI_THROUGHPUT} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: &  Calculate contrast curves for a sequence of LM band coronagraphic images, for the  APP coronagraph\\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
@@ -392,18 +392,18 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 %\subsubsection{Calculate contrast curve for N APP images}\label{drl:n_adi_app_contrast}
 %\begin{recipedef}
-%Name: & \hyperref[drl:n_adi_app_contrast]{\DRL{n_adi_app_contrast}} \\
+%Name: & \DRL{n_adi_app_contrast} \\
 %Purpose: & Calculate contrast curves for a sequence of N band coronagraphic images, for the APP coronagraph\\
-%Used in recipes: & \hyperref[rec:metis_lm_adi_app]{\REC{metis_lm_adi_app}}\\
+%Used in recipes: & \REC{metis_lm_adi_app}\\
 %Working remarks: & None \\
 %Function Parameters: None \\
 %Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & Off-axis PSF reference \\
 %QC outputs: & QC det APP SCI CONTRAST RAW LAMD\\
             %& QC det APP SCI CONTRAST ADI LAMD\\
-  %Output FITS files: & \hyperref[dataitem:lm_app_sci_contrast_radprof]{\PROD{LM_APP_SCI_CONTRAST_RADPROF}} \\
-                     %& \hyperref[dataitem:lm_app_sci_contrast_adi]{\PROD{LM_APP_SCI_CONTRAST_ADI}} \\
-                     %& \hyperref[dataitem:lm_app_sci_throughput]{\PROD{LM_APP_SCI_THROUGHPUT}} \\
+  %Output FITS files: & \PROD{LM_APP_SCI_CONTRAST_RADPROF} \\
+                     %& \PROD{LM_APP_SCI_CONTRAST_ADI} \\
+                     %& \PROD{LM_APP_SCI_THROUGHPUT} \\
 %Outputs: & \texttt{cpl\_error\_code} \\
 %General description: &  Calculate contrast curves for a sequence of N band coronagraphic images, for the  APP coronagraph\\
 %Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\

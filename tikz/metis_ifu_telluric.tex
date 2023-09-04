@@ -1,0 +1,98 @@
+\input{black_style}
+\input{recipe_config}
+
+\begin{tikzpicture}
+  [x=1cm,
+  y=-1cm,
+  align=center,
+  node distance=2cm and 3cm]
+  \sffamily
+
+  %% Grid for orientation. Comment out for final figure!
+  % \draw[help lines, green](-5, 0) grid (8, 11);
+
+  %%% Put workflow commands here:
+  %% Main reduction workflow
+
+  \pic (start) {start};
+
+  \node (input) [below=0.75cm of start-m, input, fill=sciproductcolor]{%
+    \PROD{IFU_SCI_COMBINED} or \\
+    \PROD{IFU_STD_COMBINED} or \\
+  };
+
+  \node (step_extraction) [below=1.cm of input, redstep]{%
+    1D extraction
+  };
+
+  \node (step_molecfit) [below=2cm of step_extraction, redstep]{%
+    Molecfit
+  };
+
+  \node (step_fluxcal) [below=1.cm of step_molecfit, redstep]{%
+    flux calibration
+  };
+
+  \pic (stop) [below=2.cm of step_fluxcal]{stop};
+
+  %% Connections
+  \draw [connection_arrow] (start-m) -- (input);
+  \draw [connection_arrow] (input) -- (step_extraction);
+  \draw [connection_arrow] (step_extraction) -- (step_molecfit);
+  \draw [connection_arrow] (step_molecfit) -- (step_fluxcal);
+  \draw [connection_arrow] (step_fluxcal) -- (stop-t);
+
+  %% Input
+  \node (params) [left=1.5cm of step_molecfit, yshift=1.cm, params]{%
+    Molecfit params
+%    INS.IFU.SETUP
+  };
+  \draw [connection_arrow] (params.east) -- ++(1, 0) -- ++(0., 0.8) -- ++(0.5, 0);
+
+  \node (lsfkernel) [left=1.5cm of step_molecfit, calib]{%
+    \STATCALIB{LSF_KERNEL}
+  };
+  \draw [connection_arrow] (lsfkernel.east) -- (step_molecfit);
+
+  \node (atmprofile) [left=1.5cm of step_molecfit, yshift=-1cm, external]{%
+    \EXTCALIB{ATM_PROFILE}
+  };
+  \draw [connection_arrow] (atmprofile.east) -- ++(1, 0) -- ++(0., -0.8) -- ++(0.5, 0);
+
+  \node (stdcat) [left=2cm of step_fluxcal, external] {%
+    \EXTCALIB{FLUXSTD_CATALOG}
+  };
+  \draw [connection_arrow] (stdcat.east) -- (step_fluxcal);
+
+  %% Output
+  \node (connectred) [connection] at
+  ($(step_extraction)!0.5!(step_molecfit)$) {};
+  \node (red) [right=of connectred, sciproduct, text width=4cm]{%
+    \PROD{IFU_SCI_REDUCED_1D} or \\
+    \PROD{IFU_STD_REDUCED_1D}
+  };
+  \draw [connection_arrow] (connectred) -- (red);
+
+  \node (connecttel) [connection] at
+  ($(step_molecfit)!0.5!(step_fluxcal)$) {};
+  \node (telluric) [right=of connecttel, sciproduct, text width=4cm]{%
+    \PROD{IFU_TELLURIC}
+  };
+  \draw [connection_arrow] (connecttel) -- (telluric);
+
+  \node (connectfluxcal) [connection] at
+  ($(step_fluxcal)!0.5!(stop-t)$) {};
+  \node (fluxcal) [right=of connectfluxcal, sciproduct, text width=4cm]{%
+    \PROD{FLUXCAL_TAB}
+  };
+  \draw [connection_arrow] (connectfluxcal) -- (fluxcal);
+
+  %% Frame around recipe
+  \draw [frame] ($(input)!0.35!(step_extraction) - (3,0)$)
+  rectangle ($(step_fluxcal)!0.75!(stop-t) + (2.5,0)$);
+  \node [framecolor, anchor=north west] at
+  ($(input)!0.35!(step_extraction) - (3, 0)$) {%
+    \REC{metis_ifu_telluric}};
+
+\end{tikzpicture}
+\input{normal_style}

@@ -23,7 +23,7 @@ E.g.
 \begin{itemize}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords}: a pointer to the \texttt{cpl\_propertylist} that holds the \ac{FITS} headers of the primary extension,
     \item \texttt{cpl\_propertylist ** extkeywords: Extension keywords}: a pointer to a list of pointers to \texttt{cpl\_propertylist} instances that hold the \ac{FITS} headers for each extension,
-    \item \texttt{hdrl\_image * image: Image}: a pointer to a \texttt{hdrl\_image} instance holding the one image (for the central detector, or spanning all detectors) of this structure,
+    \item \texttt{hdrl\_image * image: Image}: a pointer to a \texttt{hdrl\_image} instance holding the one image (for the single detector in N and LM, or spanning all detectors for the IFU) of this structure,
     \item \texttt{hdrl\_imagelist * images: Images}: a pointer to a \texttt{hdrl\_imagelist} instance holding all the images (one for each detector) of this structure.
 \end{itemize}
 

@@ -1,12 +1,3 @@
-% % Document preamble. Comment out for final figure! Footer too!
-% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
-% \usepackage{hyperref}
-% \usepackage{listings}
-% \input{black_style}
-% \input{styles_data}
-% \begin{document}
-
-
 \input{black_style}
 \input{recipe_config}
 
@@ -23,13 +14,13 @@
   %%% Put workflow commands here:
   %% Main reduction workflow
 
-%  \node (template) [template]{%
-%    METIS\_img\_n\_cal\_distortion};
+  %% template names
+  \node (template) [template] {\TPL{METIS_img_n_cal_distortion}};
 
-  \pic (start) {start};
+  \pic (start)[below=0.75cm of template]{start};
 
   \node (input) [below=0.75cm of start-m, input] {%
-    \hyperref[dataitem:n_distortion_raw]{\RAW{N_DISTORTION_RAW}}
+    \RAW{N_DISTORTION_RAW}
   };
 
   \node (step_subtract) [below=2.5cm of input, redstep]{%
@@ -47,44 +38,43 @@
   %% Input
   \node (connect_wcuoff) [connection] at
   ($(input)!0.65!(step_subtract)$) {};
-  \node (wcuoff) [left=of connect_wcuoff, input] {\hyperref[dataitem:n_wcu_off_raw]{\RAW{N_WCU_OFF_RAW}}};
-  \draw (wcuoff) -- (connect_wcuoff);
+  \node (wcuoff) [left=of connect_wcuoff, input] {\RAW{N_WCU_OFF_RAW}};
+  \draw [connection_arrow] (wcuoff) -- (connect_wcuoff);
 
-  \node (connect_bpmin) [connection] at
-  ($(step_subtract)!0.3!(step_locate)$) {};
-  \node (bpmin) [left=of connect_bpmin, calproduct] {\hyperref[dataitem:badpix_map_geo]{\STATCALIB{BADPIX_MAP_GEO}}};
-  \draw (bpmin) -- (connect_bpmin);
+%  \node (connect_bpmin) [connection] at ($(step_subtract)!0.3!(step_locate)$) {};
+%  \node (bpmin) [left=of connect_bpmin, calproduct] {\STATCALIB{BADPIX_MAP_GEO}};
+%  \draw [connection_arrow] (bpmin) -- (connect_bpmin);
 
   \node (connect_pinhole) [connection] at
   ($(step_subtract)!0.7!(step_locate)$) {};
-  \node (pinhole) [left=of connect_pinhole, external] {\hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}}};
-  \draw (pinhole) -- (connect_pinhole);
+  \node (pinhole) [left=of connect_pinhole, external] {\EXTCALIB{PINHOLE_TABLE}};
+  \draw [connection_arrow] (pinhole) -- (connect_pinhole);
 
   %% Connections
-  \draw (start-m) -- (input);
-  \draw (input) -- (step_subtract);
-  \draw (step_subtract) -- (step_locate);
-  \draw (step_locate) -- (step_fit);
-  \draw (step_fit) -- (stop-t);
+  \draw [connection_arrow] (start-m) -- (input);
+  \draw [connection_arrow] (input) -- (step_subtract);
+  \draw [connection_arrow] (step_subtract) -- (step_locate);
+  \draw [connection_arrow] (step_locate) -- (step_fit);
+  \draw [connection_arrow] (step_fit) -- (stop-t);
 
   %% Output
   \node (connectdisttable) [connection] at
   ($(step_fit)!0.25!(stop-t)$) {};
   \node (disttable) [right=of connectdisttable, calproduct, minimum width=4cm]{%
-    \hyperref[dataitem:n_distortion_table]{\STATCALIB{N_DISTORTION_TABLE}}};
-  \draw (connectdisttable) -- (disttable);
+    \STATCALIB{N_DISTORTION_TABLE}};
+  \draw [connection_arrow] (connectdisttable) -- (disttable);
 
   \node (connectdistmap) [connection] at
   ($(step_fit)!0.5!(stop-t)$) {};
   \node (distmap) [right=of connectdistmap, calproduct, minimum width=4cm]{%
-    \hyperref[dataitem:n_distortion_map]{\STATCALIB{N_DISTORTION_MAP}}};
-  \draw (connectdistmap) -- (distmap);
+    \STATCALIB{N_DISTORTION_MAP}};
+  \draw [connection_arrow] (connectdistmap) -- (distmap);
 
   \node (connectdistreduced) [connection] at
   ($(step_fit)!0.75!(stop-t)$) {};
   \node (distreduced) [right=of connectdistreduced, calproduct, minimum width=4cm]{%
-    \hyperref[dataitem:n_dist_reduced]{\PROD{N_DIST_REDUCED}}};
-  \draw (connectdistreduced) -- (distreduced);
+    \PROD{N_DIST_REDUCED}};
+  \draw [connection_arrow] (connectdistreduced) -- (distreduced);
 
   %% Frame around recipe
   \draw [frame]
@@ -92,11 +82,7 @@
   ($(step_fit)!0.85!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.25!(step_subtract) - (2.75, 0)$){%
-    \textsl{metis\_n\_img\_distortion}};
+    \REC{metis_n_img_distortion}};
 
 \end{tikzpicture}
 \input{normal_style}
-
-
-% % Document footer. Comment out for final figure! Header too!
-% \end{document}

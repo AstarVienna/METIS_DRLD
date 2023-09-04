@@ -22,42 +22,43 @@
 
     % Row *_raw
     \node [above] (lin_raw){%
-      \recipebox{DETLIN}{det\_lingain}
+      \recipebox{\RAW{DETLIN_2RG_RAW}}{\REC{metis_det_lingain}}
     };
     &
-    \node [above] (pers_raw){%
-        \recipebox{PERSISTENCE}{persistence\_map}
-    };
+% TODO: Put back in once we actually include the persistence recipe in the DRLD
+%    \node [above] (pers_raw){%
+%        \recipebox{\RAW{PERSISTENCE}}{\REC{metis_persistence_map}}
+%    };
+    \node [above] (pers_raw)[empty]{};
     &
     \node [above] (dist_raw){%
-      \recipebox{DISTORTION}{lm\_img\_distortion}
+      \recipebox{\RAW{LM_DISTORTION_RAW}}{\REC{metis_lm_img_distortion}}
     };
     &
     \node[above] (dark_raw) {%
-      \recipebox{DARK}{det\_dark}
+      \recipebox{\RAW{DARK_2RG_RAW}}{\REC{metis_det_dark}}
     };
     &
     \node[above] (flat_raw){%
-      \recipebox{FLAT}{lm\_img\_flat}
+      \recipebox{\RAW{LM_FLAT_LAMP_RAW}}{\REC{metis_lm_img_flat}}
     };
     &
     \node[above] (all1_raw){%
-      \recipebox{SCIENCE, STD}{lm\_img\_basic}
+      \recipebox{\RAW{LM_IMAGE_SCI_RAW}, \RAW{LM_IMAGE_STD_RAW}}{\REC{metis_lm_img_basic_reduce}}
     };
     &
     \node[above] (all2_raw){%
-      \recipebox{SCIENCE, STD}{lm\_img\_background}
+      \recipebox{\RAW{LM_SCI_BASIC_REDUCED}, \RAW{LM_STD_BASIC_REDUCED}}{\REC{metis_lm_img_background}}
     };
     &
-    \node[above] (std_raw){%
-      \recipebox{PHOT STD}{lm\_img\_std\_process}
-    };
-    &
-    \node[above] (sci1_raw){%
-      \recipebox{SCIENCE}{lm\_img\_sci\_calibrate}
-    };
-    &
-    \node[above] (sci2_raw){\recipebox{SCIENCE}{lm\_img\_sci\_coadd}};
+%    \node[above] (std_raw){\recipebox{\RAW{PHOT_STD}}{\REC{metis_lm_img_std_process}}}; &
+    \node[above] (std_raw){\recipenotitlebox{\REC{metis_lm_img_std_process}}}; &
+
+%    \node[above] (sci1_raw){\recipebox{\RAW{SCIENCE}}{\REC{metis_lm_img_calibrate}}}; &
+    \node[above] (sci1_raw){\recipenotitlebox{\REC{metis_lm_img_calibrate}}}; &
+
+%    \node[above] (sci2_raw){\recipebox{\RAW{SCIENCE}}{\REC{metis_lm_img_coadd}}};
+    \node[above] (sci2_raw){\recipenotitlebox{\REC{metis_lm_img_sci_postprocess}}};
 
    % \node[above] (sci2_raw){%     % needs width parameter to box
    %  \begin{tcolorbox}[%
@@ -73,11 +74,11 @@
 
     %%% Calibration products
     % Row *_lin
-    \node (lin_lin) [statcalfile]{\NEWSTATCALIB{LINEARITY_2RG}}; &
+    \node (lin_lin) [statcalfile]{\STATCALIB{LINEARITY_2RG}}; &
     \node (pers_lin)[empty]{}; &
     \node (dist_lin)[empty]{}; &
     \node (dark_lin)[empty]{}; &
-    \node (flat_lin)[connection]{}; &
+    \node (flat_lin)[empty]{}; &
     \node (all1_lin)[connection]{}; &
     \node (all2_lin)[empty]{}; &
     \node (std_lin)[empty]{}; &
@@ -86,10 +87,10 @@
 
     % Row persistence
     \node (lin_pers)[empty]{}; &
-    \node (pers_pers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}}; &
+    \node (pers_pers)[extcalfile]{\STATCALIB*{PERSISTENCE_MAP}}; &
     \node (dist_pers)[empty]{}; &
     \node (dark_pers)[empty]{}; &
-    \node (flat_pers)[connection]{}; &
+    \node (flat_pers)[empty]{}; &
     \node (all1_pers)[connection]{}; &
     \node (all2_pers)[empty]{}; &
     \node (std_pers)[empty]{}; &
@@ -100,7 +101,7 @@
     \node (lin_dark) [empty]{}; &
     \node (pers_dark) [empty]{}; &
     \node (dist_dark) [empty]{}; &
-    \node (dark_dark) [calibproduct]{\NEWPROD{MASTER_DARK_2RG}}; &
+    \node (dark_dark) [calibproduct]{\PROD{MASTER_DARK_2RG}}; &
     \node (flat_dark)[connection]{}; &
     \node (all1_dark)[connection]{}; &
     \node (all2_dark)[empty]{}; &
@@ -113,7 +114,7 @@
     \node (pers_flat) [empty]{}; &
     \node (dist_flat)[empty]{}; &
     \node (dark_flat)[empty]{}; &
-    \node (flat_flat) [calibproduct]{\NEWPROD{MASTER_IMG_FLAT_LAMP_LM}}; &
+    \node (flat_flat) [calibproduct]{\PROD{MASTER_IMG_FLAT_LAMP_LM}}; &
     \node (all1_flat)[connection]{}; &
     \node (all2_flat)[empty]{}; &
     \node (std_flat)[empty]{}; &
@@ -126,8 +127,8 @@
     \node (dist_all1)[empty]{}; &
     \node (dark_all1)[empty]{}; &
     \node (flat_all1)[empty]{}; &
-    \node (all1_all1)[calibproduct]{\NEWPROD{LM_STD_BASIC_REDUCED}}; &
-    \node (all2_all1)[calibproduct]{\NEWPROD{LM_STD_BKG_SUBTRACTED}}; &
+    \node (all1_all1)[calibproduct]{\PROD{LM_STD_BASIC_REDUCED}}; &
+    \node (all2_all1)[calibproduct]{\PROD{LM_STD_BKG_SUBTRACTED}}; &
     \node (std_all1)[connection]{}; &
     \node (sci1_all1)[empty]{}; &
     \node (sci2_all1) [empty]{}; \\
@@ -138,8 +139,8 @@
     \node (dist_all2)[empty]{}; &
     \node (dark_all2)[empty]{}; &
     \node (flat_all2)[empty]{}; &
-    \node (all1_all2)[scienceproduct]{\NEWPROD{LM_SCI_BASIC_REDUCED}}; &
-    \node (all2_all2)[scienceproduct]{\NEWPROD{LM_SCI_BKG_SUBTRACTED}}; &
+    \node (all1_all2)[scienceproduct]{\PROD{LM_SCI_BASIC_REDUCED}}; &
+    \node (all2_all2)[scienceproduct]{\PROD{LM_SCI_BKG_SUBTRACTED}}; &
     \node (std_all2)[empty]{}; &
     \node (sci1_all2)[connection]{}; &
     \node (sci2_all2) [empty]{}; \\
@@ -147,7 +148,7 @@
     % Row *_dist
     \node (lin_dist) [empty]{}; &
     \node (pers_dist) [empty]{}; &
-    \node (dist_dist)[statcalfile]{\NEWSTATCALIB{LM_DISTORTION_TABLE}}; &
+    \node (dist_dist)[statcalfile]{\STATCALIB{LM_DISTORTION_TABLE}}; &
     \node (dark_dist)[empty]{}; &
     \node (flat_dist) [empty]{}; &
     \node (all1_dist)[empty]{}; &
@@ -160,7 +161,7 @@
     \node (lin_std) [empty]{}; &
     \node (pers_std) [empty]{}; &
     \node (dist_std)[empty]{}; &
-    \node (dark_std)[extcalfile]{\NEWEXTCALIB{FLUXSTD_CATALOG}}; &
+    \node (dark_std)[extcalfile]{\EXTCALIB{FLUXSTD_CATALOG}}; &
     \node (flat_std)[empty]{}; &
     \node (all1_std)[empty]{}; &
     \node (all2_std)[empty]{}; &
@@ -176,7 +177,7 @@
     \node (flat_sci1)[empty]{}; &
     \node (all1_sci1)[empty]{}; &
     \node (all2_sci1)[empty]{}; &
-    \node (std_sci1)[calibproduct]{\NEWPROD{FLUXCAL_TAB}}; &
+    \node (std_sci1)[calibproduct]{\PROD{FLUXCAL_TAB}}; &
     \node (sci1_sci1)[connection]{}; &
     \node (sci2_sci1)[empty]{}; \\
 
@@ -189,7 +190,7 @@
     \node (all1_sci2)[empty]{}; &
     \node (all2_sci2)[empty]{}; &
     \node (std_sci2)[empty]{}; &
-    \node (sci1_sci2) [scienceproduct]{\NEWPROD{LM_SCI_CALIBRATED}}; &
+    \node (sci1_sci2) [scienceproduct]{\PROD{LM_SCI_CALIBRATED}}; &
     \node (sci2_sci2) [connection]{}; \\
 
     % Row *_prod
@@ -202,18 +203,19 @@
     \node(all2_prod) [empty]{}; &
     \node(std_prod) [empty]{}; &
     \node(sci1_prod) [empty]{}; &
-    \node (sci2_prod)[scienceproduct]{\NEWPROD{LM_SCI_COADD}}; \\
+    \node (sci2_prod)[scienceproduct]{\PROD{LM_SCI_COADD}}; \\
   };    % end matrix
 
-  \node (t1) at ($(dist_raw)!0.5!(dark_raw)$){};
-  \node (t2) at ($(dist_prod)!0.5!(dark_prod)$){} ;
+  \node (t1) at ($(dist_raw.east)!0.5!(dark_raw.west)$){};
+  \node (t2) at ($(dist_prod.east)!0.5!(dark_prod.west)$){} ;
   \draw [thick,dashed] ([yshift=8mm]t1.north) -- ([yshift=-8mm]t2.south);
 
 
 
   %% Vertical connections
   \draw [arrow] (lin_raw)  -- (lin_lin);
-  \draw [arrow] (pers_raw) -- (pers_pers);
+% TODO: Put back in once we actually include the persistence recipe in the DRLD
+%  \draw [arrow] (pers_raw) -- (pers_pers);
   \draw [arrow] (dist_raw) -- (dist_dist);
   \draw [arrow] (dark_raw) -- (dark_dark);
   \draw [arrow] (flat_raw) -- (flat_flat);
@@ -258,7 +260,7 @@
     \draw [arrow,fill=black] (0,0.4) -- (0,-0.3);  %% should be centred relative to column
     & \node {processing step}; \\
 
-    \draw (-1, 0.5ex) -- (1,0.5ex) node [connection,yshift=0cm]{};
+    \draw [connection_arrow] (-1, 0.5ex) -- (1,0.5ex) node [connection,yshift=0cm]{};
     & \node {product match}; \\
   };    %% end matrix (legend)
 

@@ -10,9 +10,9 @@
 
 \subsubsection{Detrending}\label{drl:img_detrend}
 \begin{recipedef}
-Name: & \hyperref[drl:img_detrend]{\DRL{img_detrend}} \\
+Name: & \DRL{img_detrend} \\
 Purpose: &Remove detector signals\\
-Used in recipes: & \hyperref[rec:metis_lm_img_basic_reduce]{\REC{metis_lm_img_basic_reduce}}\\
+Used in recipes: & \REC{metis_lm_img_basic_reduce}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -33,9 +33,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Building sky background}\label{drl:img_skybackground_build}
 \begin{recipedef}
-Name: & \hyperref[drl:img_skybackground_build]{\DRL{img_skybackground_build}} \\
+Name: & \DRL{img_skybackground_build} \\
 Purpose: &Building thermal background signals\\
-Used in recipes: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
+Used in recipes: & \REC{metis_lm_img_background}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -57,9 +57,9 @@ Unit tests: & See~\cite{DRLVT}. \\
     
 \subsubsection{Remove sky background}\label{drl:img_skybackground_removal}
 \begin{recipedef}
-Name: & \hyperref[drl:img_skybackground_removal]{\DRL{img_skybackground_removal}} \\
+Name: & \DRL{img_skybackground_removal} \\
 Purpose: &Remove sky background signals\\
-Used in recipes: & \hyperref[rec:metis_lm_img_background]{\REC{metis_lm_img_background}}\\
+Used in recipes: & \REC{metis_lm_img_background}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
@@ -80,12 +80,12 @@ Unit tests: & See~\cite{DRLVT}. \\
     
 %\subsubsection{Source extraction}\label{drl:img_source_extraction}
 %\begin{recipedef}
-%Name: & \hyperref[drl:img_source_extraction]{\DRL{img_source_extraction}} \\
+%Name: & \DRL{img_source_extraction} \\
 %Purpose: &Measure and extract source information for position calibration\\
 %% HB 20230628: The metis_lm_img_astrometry_process seems unnecessary, so it
 %%    is commented out. See https://github.com/AstarVienna/METIS_DRLD/pull/65
 %%    where we can discuss this further.
-%%Used in recipes: & \hyperref[rec:metis_lm_img_astrometry_process]{\CODE{metis_lm_img_astrometry_process}}\\
+%%Used in recipes: & \REC*{metis_lm_img_astrometry_process}\\
 %Used in recipes: & None\\
 %%Working remarks: & None \\
 %%Function Parameters: & None \\
@@ -108,9 +108,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 % HB 20230726: Apparently we should do all this without cross-correlation but instead use the WFS-FS mirror information. Nevertheless maybe having this function is useful.
 %\subsubsection{Astrometry calibration}\label{drl:img_astrometry_calib}
 %\begin{recipedef}
-%Name: & \hyperref[drl:img_astrometry_calib]{\DRL{img_astrometry_calib}} \\
+%Name: & \DRL{img_astrometry_calib} \\
 %Purpose: &Check and refine WCS of input images by cross-correlation and dtermine the grid\\
-%Used in recipes: & \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}}\\
+%Used in recipes: & \REC{metis_lm_img_sci_postprocess}\\
 %%Working remarks: & None \\
 %%Function Parameters: & None \\
 %Input: & \texttt{const hdrl\_image * input} \\
@@ -133,9 +133,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 %   For resampling we can use hdrl_resample_imagelist_to_table or hdrl_resample_compute.
 %\subsubsection{Image Resample and Coadding}\label{drl:img_resample_coadding}
 %\begin{recipedef}
-%Name: & \hyperref[drl:img_resample_coadding]{\DRL{img_resample_coadding}} \\
+%Name: & \DRL{img_resample_coadding} \\
 %Purpose: &Calculate the conversion bewtween pixels and sky coordinates\\
-%Used in recipes: & \hyperref[rec:metis_lm_img_sci_postprocess]{\REC{metis_lm_img_sci_postprocess}}\\
+%Used in recipes: & \REC{metis_lm_img_sci_postprocess}\\
 %%Working remarks: & None \\
 %%Function Parameters: & None \\
 %Input: & \texttt{const hdrl\_image * input} \\
@@ -156,15 +156,15 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Create Master LM Flat}\label{drl:lm_img_flat}\label{drl:metis_lm_img_flat}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_lm_img_flat]{\DRL{metis_lm_img_flat}} \\
+Name: & \DRL{metis_lm_img_flat} \\
 Purpose: & Create master flat field for the LM-band imaging detector\\
-Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
+Used in recipes: & \REC{metis_lm_img_flat}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
 & parameters for combination method\\
-&  \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}   \\
+&  \PROD{BADPIX_MAP_2RG}   \\
 QC outputs: & QC LM MASTERFLAT RMS\\
 %Output FITS files: & None \\
 Outputs: & Master Flat\\
@@ -178,15 +178,15 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Create N Master Flat}\label{drl:n_img_flat}\label{drl:metis_n_img_flat}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_n_img_flat]{\DRL{metis_n_img_flat}} \\
+Name: & \DRL{metis_n_img_flat} \\
 Purpose: & Create master flat field for the N-band imaging detector\\
-Used in recipes: & \hyperref[sssec:n_img_flatfield]{\REC{metis_n_img_flat}}\\
+Used in recipes: & \REC{metis_n_img_flat}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
 & parameters for combination method\\
-&  \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}   \\
+&  \PROD{BADPIX_MAP_GEO}   \\
 QC outputs: & QC N MASTERFLAT RMS\\
 %Output FITS files: & None \\
 Outputs: & Master Flat\\
@@ -201,17 +201,17 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Flag Deviant Pixels in LM Flat Field}\label{drl:update_lm_flat_mask}\label{drl:metis_update_lm_flat_mask}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_update_lm_flat_mask]{\DRL{metis_update_lm_flat_mask}} \\
+Name: & \DRL{metis_update_lm_flat_mask} \\
 Purpose: & Flag deviant pixels in the LM master flat and update the image mask\\
-Used in recipes: & \hyperref[sssec:lm_img_flatfield]{\REC{metis_lm_img_flat}}\\
+Used in recipes: & \REC{metis_lm_img_flat}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & flat \texttt{const hdrl\_image * input} \\
-&  \hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}   \\
+&  \PROD{BADPIX_MAP_2RG}   \\
 & Threshold(s) for deviant pixel detection\\
 QC outputs: & QC LM FLAT NBADPIX\\
-            & QC LM FLAT MEAN \#\#\\
-            & QC LM FLAT RMS \#\#\\
+            & QC LM FLAT MEAN\\
+            & QC LM FLAT RMS\\
 %Output FITS files: & None \\
 Outputs:         & Updated flat field mask\\
                  & \texttt{cpl\_error\_code} \\
@@ -224,17 +224,17 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Flag Deviant Pixels in N Flat Field}\label{drl:update_n_flat_mask}\label{drl:metis_update_n_flat_mask}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_update_n_flat_mask]{\DRL{metis_update_n_flat_mask}} \\
+Name: & \DRL{metis_update_n_flat_mask} \\
 Purpose: & Flag deviant pixels in the N master flat and update the image mask\\
-Used in recipes: & \hyperref[sssec:n_img_flatfield]{\REC{metis_n_img_flat}}\\
+Used in recipes: & \REC{metis_n_img_flat}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & flat \texttt{const hdrl\_image * input} \\
-&  \hyperref[dataitem:badpix_map_geo]{\PROD{BADPIX_MAP_GEO}}   \\
+&  \PROD{BADPIX_MAP_GEO}   \\
 & Threshold(s) for deviant pixel detection\\
 QC outputs: & QC N FLAT NBADPIX\\
-            & QC N FLAT MEAN \#\#\\
-            & QC N FLAT RMS \#\#\\
+            & QC N FLAT MEAN\\
+            & QC N FLAT RMS\\
 %Output FITS files: & None \\
 Outputs:         & Updated flat field mask\\
                  & \texttt{cpl\_error\_code} \\
@@ -250,9 +250,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{metis\_derive\_gain}\label{drl:metis_derive_gain}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_derive_gain]{\DRL{metis_derive_gain}} \\
+Name: & \DRL{metis_derive_gain} \\
 Purpose: & Determine the gain. \\
-Used in recipes: & \hyperref[sssec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+Used in recipes: & \REC{metis_det_lingain}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const double * means} \\
@@ -270,16 +270,16 @@ Error conditions: & None. \\
 %---------------------------------------------------------------------
 \subsubsection{metis\_derive\_nonlinearity}\label{drl:metis_derive_nonlinearity}
 \begin{recipedef}
-Name: & \hyperref[drl:metis_derive_nonlinearity]{\DRL{metis_derive_nonlinearity}} \\
+Name: & \DRL{metis_derive_nonlinearity} \\
 Purpose: & Determine the non-linearity coefficients. \\
-Used in recipes: & \hyperref[sssec:metis_det_lingain]{\REC{metis_det_lingain}}\\
+Used in recipes: & \REC{metis_det_lingain}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{hdrl\_image * image} Dark corrected non-linearity raws. \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
-Outputs: & \hyperref[dataitem:linearity_det]{\PROD{LINEARITY_det}} \\
+Outputs: & \PROD{LINEARITY_det} \\
                & \texttt{cpl\_error\_code} \\
 General description: & Determine the non-linearity coefficients. \\
 Mathematical description: & low-order polynomial fit of the individual pixel values as function of the illumination intensity\\
@@ -290,19 +290,19 @@ Error conditions: & None. \\
 
 \subsubsection{Measure LM Band Flux of Standard Star}\label{drl:lm_calculate_std_flux}
 \begin{recipedef}
-Name: & \hyperref[drl:lm_calculate_std_flux]{\DRL{lm_calculate_std_flux}} \\
+Name: & \DRL{lm_calculate_std_flux} \\
 Purpose: & Calculate LM band flux and position of standard star in detector units \\
-Used in recipes: & \hyperref[sssec:lm_img_photstd]{\REC{metis_lm_img_std_process}}\\
+Used in recipes: & \REC{metis_lm_img_std_process}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & photometric standard catalogue \\
-QC outputs: & \QC{QC LM IMG STD BACKGD RMS}\\
-            & \QC{QC LM STD PEAK CNTS}\\
-            & \QC{QC LM STD APERTURE CNTS}\\
-            & \QC{QC LM STD STREHL}\\
-            & \QC{QC LM STD AIRMASS}                                                       \\
-%Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
+QC outputs: & \QC*{QC LM IMG STD BACKGD RMS}\\
+            & \QC*{QC LM STD PEAK CNTS}\\
+            & \QC*{QC LM STD APERTURE CNTS}\\
+            & \QC*{QC LM STD STREHL}\\
+            & \QC*{QC LM STD AIRMASS}                                                       \\
+%Output FITS files: & \PROD{LM_STD_COMBINED} \\
 Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result structure)  \\
                & \texttt{cpl\_error\_code} \\
 General description: & Photometry of standard star \\
@@ -315,19 +315,19 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Measure N band Flux of Standard Star}\label{drl:n_std_flux}\label{drl:n_calculate_std_flux}
 \begin{recipedef}
-Name: & \hyperref[drl:n_calculate_std_flux]{\DRL{n_calculate_std_flux}} \\
+Name: & \DRL{n_calculate_std_flux} \\
 Purpose: & Calculate N band flux and position of standard star in detector units \\
-Used in recipes: & \hyperref[rec:metis_n_img_std_process]{\REC{metis_n_img_std_process}}\\
+Used in recipes: & \REC{metis_n_img_std_process}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
 %Other inputs: & photometric standard catalogue \\
-QC outputs: & \QC{QC N IMG STD BACKGD RMS}\\
-            & \QC{QC N STD PEAK CNTS}\\
-            & \QC{QC N STD APERTURE CNTS}\\
-            & \QC{QC N STD STREHL}\\
-            & \QC{QC N STD AIRMASS}                                                       \\
-%Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
+QC outputs: & \QC*{QC N IMG STD BACKGD RMS}\\
+            & \QC*{QC N STD PEAK CNTS}\\
+            & \QC*{QC N STD APERTURE CNTS}\\
+            & \QC*{QC N STD STREHL}\\
+            & \QC*{QC N STD AIRMASS}                                                       \\
+%Output FITS files: & \PROD{LM_STD_COMBINED} \\
 Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result structure)  \\
                & \texttt{cpl\_error\_code} \\
 General description: & Photometry of standard star \\
@@ -343,9 +343,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 %   For resampling we can use hdrl_resample_imagelist_to_table or hdrl_resample_compute.
 %\subsubsection{Recentre and Stack Images}\label{drl:recentre_img}
 %\begin{recipedef}
-%Name: & \hyperref[drl:recentre_img]{\DRL{recentre_img}} \\
+%Name: & \DRL{recentre_img} \\
 %Purpose: & Recentre images based on position of standard star, and stack \\
-%Used in recipes: & \hyperref[sssec:lm_img_photstd]{\REC{metis_lm_img_std_process}}\\
+%Used in recipes: & \REC{metis_lm_img_std_process}\\
 %%Working remarks: & None \\
 %%Function Parameters: & None \\
 %Input: & $n\times$ \texttt{const hdrl\_image * input} \\
@@ -354,7 +354,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 %%            & QC det STD PEAK CNTS\\
 %%            & QC det STD APERTURE CNTS\\
 %%            & QC det STD STREHL\\
-%Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
+%Output FITS files: & \PROD{LM_STD_COMBINED} \\
 %Outputs: & \texttt{cpl\_error\_code} \\
 %General description: & shifting and stacking of a sequence of images \\
 %Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
@@ -365,9 +365,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Calculate Flux Calibration}\label{drl:calculate_std_fluxcal}
 \begin{recipedef}
-Name: & \hyperref[drl:calculate_std_fluxcal]{\DRL{calculate_std_fluxcal}} \\
+Name: & \DRL{calculate_std_fluxcal} \\
 Purpose: & Calculate the conversion between instrumental and physical flux units \\
-Used in recipes: & \hyperref[sssec:lm_img_photstd]{\REC{metis_lm_img_std_process}}\\
+Used in recipes: & \REC{metis_lm_img_std_process}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & Flux of standard star in instrumental units \\
@@ -376,8 +376,8 @@ Other inputs: & photometric standard catalogue \\
 %            & QC det STD PEAK CNTS\\
 %            & QC det STD APERTURE CNTS\\
 %            & QC det STD STREHL\\
-%Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
-Outputs: & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}} \\
+%Output FITS files: & \PROD{LM_STD_COMBINED} \\
+Outputs: & \PROD{FLUXCAL_TAB} \\
                & \texttt{cpl\_error\_code} \\
 General description: & Calculate flux conversion to physical units \\
 Mathematical description: & See Section~\ref{sssec:lm_img_photstd} \\
@@ -388,16 +388,16 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Calculate Detection Limits}\label{drl:calculate_detection_limits}
 \begin{recipedef}
-Name: & \hyperref[drl:calculate_detection_limits]{\DRL{calculate_detection_limits}} \\
+Name: & \DRL{calculate_detection_limits} \\
 Purpose: & Calculate Detection Limits \\
-Used in recipes: & \hyperref[sssec:lm_img_photstd]{\REC{metis_lm_img_std_process}}\\
+Used in recipes: & \REC{metis_lm_img_std_process}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: &  \texttt{const hdrl\_image * input} \\
-Other inputs: & \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}} \\
+Other inputs: & \PROD{FLUXCAL_TAB} \\
 QC outputs: & QC det LM SENSITIVITY\\
             & QC det LM AREA SENSITIVITY\\
-%Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
+%Output FITS files: & \PROD{LM_STD_COMBINED} \\
 Outputs: & detection limits for standard star  \\
                & \texttt{cpl\_error\_code} \\
 General description: & Calculate detection limits of standard star \\
@@ -411,11 +411,11 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Detect peak centroid location}\label{drl:img_peakcentroid}\label{drl:detect_centroid_peak}
 \begin{recipedef}
-Name: & \hyperref[drl:detect_centroid_peak]{\DRL{detect_centroid_peak}} \\
+Name: & \DRL{detect_centroid_peak} \\
 Purpose: &Detect the location of a source peak by a centroid\\
-Used in recipes: & \hyperref[rec:metis_img_chophome]{\REC{metis_img_chophome}}\newline
-\hyperref[rec:metis_lm_adc_slitloss]{\REC{metis_lm_adc_slitloss}} \newline
-\hyperref[rec:metis_n_adc_slitloss]{\REC{metis_n_adc_slitloss}}\\
+Used in recipes: & \REC{metis_img_chophome}\newline
+\REC{metis_lm_adc_slitloss} \newline
+\REC{metis_n_adc_slitloss}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
@@ -434,16 +434,16 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Convert LM Image to Physical Flux}\label{drl:lm_scale_image_flux}
 \begin{recipedef}
-Name: & \hyperref[drl:lm_scale_image_flux]{\DRL{lm_scale_image_flux}} \\
+Name: & \DRL{lm_scale_image_flux} \\
 Purpose: & Calculate the conversion between instrumental and physical flux units \\
-Used in recipes: & \hyperref[rec:metis_lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
+Used in recipes: & \REC{metis_lm_img_calibrate}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \hyperref[dataitem:lm_sci_bkg_subtracted]{\PROD{LM_SCI_BKG_SUBTRACTED}}\\
-         \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}} \\
+Input: & \PROD{LM_SCI_BKG_SUBTRACTED}\\
+         \PROD{FLUXCAL_TAB} \\
 Other inputs: & None \\
 QC outputs: & None\\
-%Output FITS files: & \hyperref[dataitem:lm_std_combined]{\PROD{LM_STD_COMBINED}} \\
+%Output FITS files: & \PROD{LM_STD_COMBINED} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Convert instrumental flux to ph/s \\
 Mathematical description: & See Section~\ref{sssec:lm_img_calibrate} \\
@@ -456,15 +456,15 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Add LM Calibration Information to Header}\label{drl:lm_update_header_distortion}
 \begin{recipedef}
-Name: & \hyperref[drl:lm_update_header_distortion]{\DRL{lm_update_header_distortion}} \\
+Name: & \DRL{lm_update_header_distortion} \\
 Purpose: & Update the FITS header with calibration data (WCS, distortion, units)  \\
-Used in recipes: & \hyperref[sssec:lm_img_calibrate]{\REC{metis_lm_img_calibrate}}\\
+Used in recipes: & \REC{metis_lm_img_calibrate}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &   \hyperref[dataitem:lm_sci_bkg_subtracted]{\PROD{LM_SCI_BKG_SUBTRACTED}}\\
-       &   \hyperref[dataitem:lm_distortion_table]{\PROD{LM_DISTORTION_TABLE}}\\
+Input: &   \PROD{LM_SCI_BKG_SUBTRACTED}\\
+       &   \PROD{LM_DISTORTION_TABLE}\\
 QC outputs: & None \\
-Output FITS files: & \hyperref[dataitem:lm_sci_calibrated]{\PROD{LM_SCI_CALIBRATED}} \\
+Output FITS files: & \PROD{LM_SCI_CALIBRATED} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Add disortion, WCS and BUNIT information to FITS header \\
 Mathematical description: & See Section~\ref{sssec:lm_img_calibrate} \\
@@ -476,16 +476,16 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Convert N Image to Physical Flux}\label{drl:n_scale_image_flux}
 \begin{recipedef}
-Name: & \hyperref[drl:n_scale_image_flux]{\DRL{n_scale_image_flux}} \\
+Name: & \DRL{n_scale_image_flux} \\
 Purpose: & Calculate the conversion between instrumental and physical flux units \\
-Used in recipes: & \hyperref[rec:metis_n_img_calibrate]{\REC{metis_n_img_calibrate}}\\
+Used in recipes: & \REC{metis_n_img_calibrate}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}\\
-         \hyperref[dataitem:fluxcal_tab]{\PROD{FLUXCAL_TAB}} \\
+Input: & \PROD{N_SCI_BKG_SUBTRACTED}\\
+         \PROD{FLUXCAL_TAB} \\
 Other inputs: & None \\
 QC outputs: & None\\
-%Output FITS files: & \hyperref[dataitem:n_std_combined]{\PROD{N_STD_COMBINED}} \\
+%Output FITS files: & \PROD{N_STD_COMBINED} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Convert instrumental flux to ph/s \\
 Mathematical description: & See Section~\ref{sssec:n_img_calibrate} \\
@@ -498,15 +498,15 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Add N Calibration Information to Header}\label{drl:n_update_header_distortion}
 \begin{recipedef}
-Name: & \hyperref[drl:n_update_header_distortion]{\DRL{n_update_header_distortion}} \\
+Name: & \DRL{n_update_header_distortion} \\
 Purpose: & Update the FITS header with calibration data (WCS, distortion, units)  \\
-Used in recipes: & \hyperref[rec:metis_n_img_calibrate]{\REC{metis_n_img_calibrate}}\\
+Used in recipes: & \REC{metis_n_img_calibrate}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &   \hyperref[dataitem:n_sci_bkg_subtracted]{\PROD{N_SCI_BKG_SUBTRACTED}}\\
-       &   \hyperref[dataitem:n_distortion_table]{\PROD{N_DISTORTION_TABLE}}\\
+Input: &   \PROD{N_SCI_BKG_SUBTRACTED}\\
+       &   \PROD{N_DISTORTION_TABLE}\\
 QC outputs: & None \\
-Output FITS files: & \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}} \\
+Output FITS files: & \PROD{N_SCI_CALIBRATED} \\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Add disortion and BUNIT information to FITS header \\
 Mathematical description: & See Section~\ref{sssec:n_img_calibrate} \\
@@ -519,19 +519,19 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Fit Distortion Parameters}\label{drl:fit_distortion}
 \begin{recipedef}
-Name: & \hyperref[drl:fit_distortion]{\DRL{fit_distortion}} \\
+Name: & \DRL{fit_distortion} \\
 Purpose: & Fit optical distortion coefficients based on pinhole mask image  \\
-Used in recipes: & \hyperref[rec:metis_lm_img_distortion]{\REC{metis_lm_img_distortion}}\\
-                 & \hyperref[rec:metis_n_img_distortion]{\REC{metis_n_img_distortion}}\\
+Used in recipes: & \REC{metis_lm_img_distortion}\\
+                 & \REC{metis_n_img_distortion}\\
 %Working remarks: & None \\
 Function Parameters: & parameters for fitting routine \\
 Input: &   Catalogue of detected sources \\
-       &   \hyperref[dataitem:pinhole_table]{\EXTCALIB{PINHOLE_TABLE}}\\
-QC outputs: & \QC{QC det DISTORT RMS}  \\
-            & \QC{QC det DISTORT NSOURCE}  \\
-Output FITS files: & \hyperref[dataitem:det_dist_reduced]{\PROD{det_DIST_REDUCED}}\\
-                   & \hyperref[dataitem:det_distortion_map]{\PROD{det_DISTORTION_MAP}}\\
-Outputs:  &  \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}} \\
+       &   \EXTCALIB{PINHOLE_TABLE}\\
+QC outputs: & \QC*{QC det DISTORT RMS}  \\
+            & \QC*{QC det DISTORT NSOURCE}  \\
+Output FITS files: & \PROD{det_DIST_REDUCED}\\
+                   & \PROD{det_DISTORTION_MAP}\\
+Outputs:  &  \PROD{det_DISTORTION_TABLE} \\
           & \texttt{cpl\_error\_code} \\
 General description: &  Fit optical distortion coefficients based on pinhole mask image \\
 Mathematical description: & See Section~\ref{sssec:lm_img_distortion} \\
@@ -543,15 +543,15 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 \subsubsection{Cutout Region Around Beam}\label{drl:cutout_region}
 \begin{recipedef}
-Name: & \hyperref[drl:cutout_region]{\DRL{cutout_region}} \\
+Name: & \DRL{cutout_region} \\
 Purpose: & Cutout a region around a beam in N band image  \\
-Used in recipes: & \hyperref[sssec:n_img_restoration]{\REC{metis_n_img_restore}}\\
+Used in recipes: & \REC{metis_n_img_restore}\\
 %Working remarks: & None \\
 Function Parameters: & Size of cutout region \\
-Input: &   \hyperref[dataitem:n_sci_calibrated]{\PROD{N_SCI_CALIBRATED}} \\
+Input: &   \PROD{N_SCI_CALIBRATED} \\
 QC outputs: None \\
-%Output FITS files:\hyperref[dataitem:n_sci_restored]{\PROD{N_SCI_RESTORED}} \\
-%Outputs:  &  \hyperref[dataitem:det_distortion_table]{\PROD{det_DISTORTION_TABLE}} \\
+%Output FITS files:\PROD{N_SCI_RESTORED} \\
+%Outputs:  &  \PROD{det_DISTORTION_TABLE} \\
 %          & \texttt{cpl\_error\_code} \\
 General description: & Cutout a region around the positive and negative beams in an N-band image \\
 Mathematical description: & See Section~\ref{sssec:n_img_restoration} \\

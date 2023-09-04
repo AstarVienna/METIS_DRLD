@@ -1,3 +1,4 @@
+\input{black_style}
 \input{recipe_config}
 
 \begin{tikzpicture}
@@ -18,8 +19,7 @@
   \pic (start){start};
 
   \node (input) [below=0.75cm of start-m, input, text width=5cm, minimum width=5cm]{%
-    \textsl{N}~IFU\_SCI\_REDUCED \\
-    \textsl{N}~IFU\_SCI\_REDUCED\_TAC
+    \textsl{N}~\PROD{IFU_SCI_CUBE_CALIBRATED} \\
   };
 
   \node (step1) [below=1.5cm of input, redstep]{%
@@ -37,19 +37,19 @@
   \pic (stop) [below=2.cm of step3]{stop};
 
   %% Connections
-  \draw (start-m) -- (input);
-  \draw (input) -- (step1);
-  \draw (step1) -- (step2);
-  \draw (step2) -- (step3);
-  \draw (step3) -- (stop-t);
+  \draw [connection_arrow] (start-m) -- (input);
+  \draw [connection_arrow] (input) -- (step1);
+  \draw [connection_arrow] (step1) -- (step2);
+  \draw [connection_arrow] (step2) -- (step3);
+  \draw [connection_arrow] (step3) -- (stop-t);
 
   %% Output
   \node (connect sci coadd) [connection] at
   ($(step3)!0.65!(stop-t)$) {};
   \node (sci coadd) [right=of connect sci coadd, sciproduct]{%
-    IFU\_SCI\_COADD
+    \PROD{IFU_SCI_COADD}
   };
-  \draw (connect sci coadd) -- (sci coadd);
+  \draw [connection_arrow] (connect sci coadd) -- (sci coadd);
 
   %% Frame around recipe
   \draw [frame] ($(input)!0.5!(step1) - (4,0)$)
@@ -57,6 +57,7 @@
 
   \node [framecolor, anchor=north west] at
   ($(input)!0.5!(step1) - (4, 0)$) {%
-    \textsl{metis\_ifu\_sci\_postprocess}};
+    \REC{metis_ifu_postprocess}};
 
 \end{tikzpicture}
+\input{normal_style}

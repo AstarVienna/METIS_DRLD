@@ -1,4 +1,5 @@
 import glob
+import re
 
 # noinspection PyUnresolvedReferences
 from pprint import pprint
@@ -20,6 +21,8 @@ from ..drld_parser.hacks import (
     HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING,
     HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS,
     HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA,
+    HACK_RECIPES_THAT_DO_NOT_NEED_A_FIGURE,
+    HACK_RECIPES_THAT_WERE_NOT_GOING_TO_CHECK_TIKZ_FOR,
 )
 from ..drld_parser.template_manual import METIS_TemplateManual
 
@@ -693,7 +696,7 @@ class TestParseDataItemReference:
         assert diref.name == "N_LSS_RSRF_PINH_RAW"
         assert diref.dtype == "RAW"
         assert diref.hyperref == "dataitem:nlssrsrfpinhraw"
-        assert diref.description == "$N\\times$"
+        assert diref.description == "$N times$"
 
         diref = DataItemReference.from_recipe_line(
             "Calibrated science images (\\PROD{LM_SCI_CALIBRATED})"
@@ -706,36 +709,65 @@ class TestParseDataItemReference:
 
 def test_parse_dataitem_from_paragraph():
     """Test parsing of dataitem."""
-
+    # TODO: make this old stable also work?
     stable = r"""\paragraph{\hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}}\label{dataitem:master_n_lss_rsrf}
-\begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}\\[0.3cm]
-Description: & LM-band \ac{LSS} Master \ac{RSRF}.\\[0.3cm]
-\hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_N_LSS_RSRF}\\
-OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
-\FITS{DPR.CATG}: & \FITS{HELLO}\\[0.3cm]
-\FITS{DPR.TYPE}: & \FITS{WORLD}\\[0.3cm]
-\FITS{DPR.TECH}: & \FITS{HOWRU}\\[0.3cm]
-\FITS{PRO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
-\FITS{DO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
-Created by: & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_n_lss_rsrf}}\\
-Input for recipes: & \hyperref[rec:metis_n_lss_trace]{\REC{metis_n_lss_trace}}\\
-                   & \hyperref[rec:metis_n_lss_std]{\REC{metis_n_lss_std}}\\
-                   & \hyperref[rec:metis_n_lss_sci]{\REC{metis_n_lss_sci}}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
-                       & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset} \\
-\end{recipedef}
-%\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
-\begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}})}
-    \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}"""
+    \begin{recipedef}
+    \textbf{\ac{FITS} file structure:}\\
+    Name: & \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}\\[0.3cm]
+    Description: & LM-band \ac{LSS} Master \ac{RSRF}.\\[0.3cm]
+    \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_N_LSS_RSRF}\\
+    OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
+    \FITS{DPR.CATG}: & \FITS{HELLO}\\[0.3cm]
+    \FITS{DPR.TYPE}: & \FITS{WORLD}\\[0.3cm]
+    \FITS{DPR.TECH}: & \FITS{HOWRU}\\[0.3cm]
+    \FITS{PRO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
+    \FITS{DO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
+    Created by: & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_n_lss_rsrf}}\\
+    Input for recipes: & \hyperref[rec:metis_n_lss_trace]{\REC{metis_n_lss_trace}}\\
+                       & \hyperref[rec:metis_n_lss_std]{\REC{metis_n_lss_std}}\\
+                       & \hyperref[rec:metis_n_lss_sci]{\REC{metis_n_lss_sci}}\\
+    Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+    Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
+                           & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset} \\
+    \end{recipedef}
+    %\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
+    \begin{datastructdef}
+    \textbf{Corresponding \ac{CPL} structure:}
+    \begin{enumerate}
+        \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}})}
+        \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
+        \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+    \end{enumerate}
+    \end{datastructdef}"""
+
+    stable = r"""\paragraph{\PROD{MASTER_N_LSS_RSRF}}\label{dataitem:master_n_lss_rsrf}
+    \begin{recipedef}
+    \textbf{\ac{FITS} file structure:}\\
+    Name: & \PROD{MASTER_N_LSS_RSRF}\\[0.3cm]
+    Description: & LM-band \ac{LSS} Master \ac{RSRF}.\\[0.3cm]
+    \FITS{PRO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\
+    OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}\\
+    \FITS{DPR.CATG}: & \FITS{HELLO}\\[0.3cm]
+    \FITS{DPR.TYPE}: & \FITS{WORLD}\\[0.3cm]
+    \FITS{DPR.TECH}: & \FITS{HOWRU}\\[0.3cm]
+    \FITS{PRO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
+    \FITS{DO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
+    Created by: & \REC{metis_n_lss_rsrf}\\
+    Input for recipes: & \REC{metis_n_lss_trace}\\
+                       & \REC{metis_n_lss_std}\\
+                       & \REC{metis_n_lss_sci}\\
+    Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+    Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
+                           & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset} \\
+    \end{recipedef}
+    \begin{datastructdef}
+    \textbf{Corresponding \ac{CPL} structure:}
+    \begin{enumerate}
+        \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+        \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
+        \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+    \end{enumerate}
+    \end{datastructdef}"""
     dataitem = DataItem.from_paragraph(stable)
     assert dataitem.templates == [
         "METIS_ifu_vc_obs_FixedSkyOffset".lower(),
@@ -759,22 +791,27 @@ Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
     assert dataitem.dpr_tech == "HOWRU"
     assert dataitem.dpr_type == "WORLD"
 
+    # TODO: make this old stable also work?
     stable = r"""\paragraph{\hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}}\label{dataitem:badpix_map_2rg}
-See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
-"""
+    See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
+    """
+    stable = r"""\paragraph{\PROD{BADPIX_MAP_2RG}}\label{dataitem:badpix_map_2rg}
+    See \PROD{BADPIX_MAP_det}.
+    """
     dataitem = DataItem.from_paragraph(stable)
     assert dataitem.name_header == "BADPIX_MAP_2RG"
     assert dataitem.name is None
 
 
 def test_associationmatrices():
+    """Some tests for the association matrices. This code is horrible."""
     asso_lm = AssociationMatrix(fn="tikz/IMG_LM_assomap_tikz.tex")
     asso_n = AssociationMatrix(fn="tikz/IMG_N_assomap_tikz.tex")
     asso_ifu = AssociationMatrix(fn="tikz/IFU_assomap_tikz.tex")
 
     for asso in [asso_lm, asso_n, asso_ifu]:
-        print()
-        print(asso.filename)
+        # print()
+        # print(asso.filename)
         problems = []
         for recipecolumn in asso.matrix:
             problems_recipe = []
@@ -782,6 +819,11 @@ def test_associationmatrices():
             # Get the recipe
             recipecell = recipecolumn[0]
             reciperef = recipecell.recipe
+            raw_dataitemref = recipecell.dataitems[0] if recipecell.dataitems else None
+            if reciperef is None:
+                # can happen if there is calibration data on the left
+                assert str(recipecell) == "(empty)"
+                continue
             recipe_name = reciperef.name
             recipe_name2 = "metis_" + recipe_name
             recipe = None
@@ -793,23 +835,77 @@ def test_associationmatrices():
                     recipe = METIS_DataReductionLibraryDesign.recipes[recipe_name2]
                 else:
                     problems_recipe.append(f"{recipe_name} does not exist")
+
+            if raw_dataitemref is not None:
+                assert recipe_name
+                # TODO: Support other organizations of the matrix?
+                # TODO: E.g. now the LM and N band show data products there too
+                # assert raw_dataitemref.dtype == "RAW"
+                if raw_dataitemref.name not in METIS_DataReductionLibraryDesign.dataitems:
+                    problems_recipe.append(f"{recipe_name} is triggered by {raw_dataitemref.name} which does not exist")
+
             if not recipe:
                 problems.append((recipe_name, problems_recipe))
                 continue
 
             # Get the first dataitem
-            if recipecell.dataitem is not None:
-                input_primary = recipecell.dataitem
-                input_primary_real = recipe.input_data[0]
-                # The input_primary does not have to be the first, e.g. metis_det_dark only lists the GEO one as first input
-                is_input_primary_really_input = any(
-                    input_primary.name == inp.name for inp in recipe.input_data
-                )
-                if not is_input_primary_really_input:
-                    problems_recipe.append(f"{recipe.name} should not have {input_primary.name} as primary input but {input_primary_real.name}")
+            if recipecell.dataitems is not None:
+                for input_primary in recipecell.dataitems:
+                    input_primary_real = recipe.input_data[0]
+                    # The input_primary does not have to be the first, e.g. metis_det_dark only lists the GEO one as first input
+                    is_input_primary_really_input = any(
+                        input_primary.name == inp.name for inp in recipe.input_data
+                    )
+                    if not is_input_primary_really_input:
+                        problems_recipe.append(f"{recipe.name} should not have {input_primary.name} as primary input but {input_primary_real.name}")
             else:
                 # there is not really a way to get to the primary data item because then it would be necessary to follow the lines, e.g. for IFU
                 ...
+                input_primary = None
+
+            # Try to see whether input is correct.
+            for icell, cell in enumerate(recipecolumn):
+                if cell.connection:
+                    # Find out what it is.
+                    # TODO: Use the path? But cannot always do that.
+                    # Needs to be in reverse order because occasionally there
+                    # are multiple products on one row.
+                    for cell2 in [col[icell] for col in asso.matrix][::-1]:
+                        if cell2.dataitems:
+                            # found it
+                            thedataitems = cell2.dataitems
+                            break
+                    else:
+                        raise ValueError
+                    is_input_really_input = any(
+                        thedataitem.name == inp.name
+                        for inp in recipe.input_data
+                        for thedataitem in thedataitems
+                    )
+                    if not is_input_really_input:
+                        sthedataitem = "+".join(td.name for td in thedataitems)
+                        problems_recipe.append(f"{recipe.name} has {sthedataitem} as input in the association matrix, but not in the recipe table")
+                        assert sthedataitem, ValueError("sthedataitem should never be empty")
+            # TODO: Vice-versa, check whether all input in the recipe table is
+            # also in the association matrix. This is harder, because some
+            # might be optional.
+
+            # Try to see whether the output is correct.
+            # Skip the first cell, as that is the raw data which is checked elsewhere.
+            recipe_output = [do.name for do in recipe.output_data] if recipe is not None else []
+            for icell, cell in enumerate(recipecolumn[1:], 1):
+                if cell.dataitems is None:
+                    continue
+                for diref in cell.dataitems:
+                    if diref.name in {"FLUXSTD_CATALOG", "PERSISTENCE_MAP"}:
+                        # FLUXSTD_CATALOG is an external file, and listed above another calibration file for convenience
+                        continue
+                    if diref.name not in METIS_DataReductionLibraryDesign.dataitems:
+                        problems_recipe.append(f"{recipe_name} claims to produce {diref.name}, which does not exist")
+                    elif diref.name not in recipe_output:
+                        problems_recipe.append(f"{recipe_name} listed as producing {diref.name}, but it doesn't, only {recipe_output}")
+
+
 
             if problems_recipe:
                 problems.append((recipe_name, problems_recipe))
@@ -820,10 +916,133 @@ def test_associationmatrices():
                 for problem in problems_recipe:
                     print("   " + problem)
 
-    # assert not problems
+    assert not problems
+
 
 def test_tikz():
     """Test whether the names used in the tikz figures exist."""
+    problems = {}
+    dir_tikz = METIS_DataReductionLibraryDesign.path_drld / "tikz"
+    dir_figures = METIS_DataReductionLibraryDesign.path_drld / "figures"
+    for name_recipe, recipe in METIS_DataReductionLibraryDesign.recipes.items():
+        problems_recipe = []
+        name_recipe_lower = name_recipe.lower()
+        if name_recipe == name_recipe_lower:
+            names = [name_recipe]
+        else:
+            names = [name_recipe, name_recipe_lower]
+        fns_that_exist = [
+            fn
+            for name in names
+            for fn in list(dir_tikz.glob(f"{name}*.tex")) + list(dir_figures.glob(f"{name}*.pdf")) + list(
+                dir_figures.glob(f"{name}*.png"))
+        ]
+        if len(fns_that_exist) != 1:
+            if name_recipe in HACK_RECIPES_THAT_DO_NOT_NEED_A_FIGURE:
+                continue
+            problems_recipe.append(f"There there should be exactly one figure for {name_recipe} , not {fns_that_exist}")
+
+        # If there are no figures, bail
+        if not fns_that_exist:
+            continue
+
+        fn_to_use = fns_that_exist[0]
+        # If there is no tikz figure, bail.
+        if fn_to_use.suffix != ".tex":
+            continue
+
+        # Let's skip some of the ADI for now
+        if name_recipe in HACK_RECIPES_THAT_WERE_NOT_GOING_TO_CHECK_TIKZ_FOR:
+            continue
+
+        # This is a tikz figure, lets see whether it makes sense.
+        data1 = fn_to_use.read_text(encoding="utf-8")
+        data2 = [
+            line
+            for line in data1.splitlines()
+            if not line.strip().startswith("%")
+        ]
+        data = "\n".join(data2)
+
+        if "black_style" not in data:
+            problems_recipe.append(f"The figure for {name_recipe} does not set black_style")
+        if "normal_style" not in data:
+            problems_recipe.append(f"The figure for {name_recipe} does not set normal_style back")
+
+        # pattern = r"\\(RAW|PROD|EXTCALIB|STATCALIB){(.*?)}"
+        pattern = r"\\(RAW|PROD|EXTCALIB|STATCALIB|TPL|REC){(.*?)}"
+        matches = re.findall(pattern, data)
+        names_in_figure = [
+            name.lower() if name.startswith("METIS_") else name
+            for _dtype, name in matches
+        ]
+        names_in_table = [diref.name for diref in recipe.input_data + recipe.output_data] + recipe.templates + [name_recipe]
+
+        # Check for duplicate names:]. Primarily used to fint BADPIX input,
+        # which is not necessary since all data products have a data quality
+        # layer.
+        duplicates = [name for name in names_in_figure if names_in_figure.count(name) > 1]
+        if duplicates:
+            problems_recipe.append(f"{name_recipe} mentions some names multiple times: {duplicates}")
+
+        for name_di in names_in_figure:
+            names_di_expanded = [
+                name_di.replace("det", lmn)
+                for lmn in ["LM", "N", "IFU", "2RG", "GEO", "det"]
+            ]
+            is_name_used = any(
+                name in names_in_table
+                for name in names_di_expanded
+            )
+            if not is_name_used:
+                problems_recipe.append(f"The figure for {name_recipe} has {name_di} as input/output/template/recipe, but the table doesn't!")
+
+        # Vice-versa, does the recipe use dataitems that are not in the figures?
+        for name_di in names_in_table:
+            names_di_expanded = [
+                name_di.replace(lmn, "det")
+                for lmn in ["LM", "N", "IFU", "2RG", "GEO", "det"]
+            ]
+            is_name_used = any(
+                name in names_in_figure
+                for name in names_di_expanded
+            )
+            if not is_name_used:
+                problems_recipe.append(f"The table for {name_recipe} has {name_di} as input/output/template/recipe, but it is not in the figure!")
+
+
+        if problems_recipe:
+            problems_recipe.append(f"{names_in_table=}")
+            problems_recipe.append(f"{names_in_figure=}")
+            problems[name_recipe] = problems_recipe
+
+    for name_recipe, problems_recipe in problems.items():
+        print()
+        print(name_recipe)
+        for problem in problems_recipe:
+            print("  " + problem)
+
+    assert not problems
+
+
+def test_badpixinput():
+    """The imaging and IFU pipelines do not need a bad pixel map as input.
+
+    Every calibration product has a data quality layer that is propagated
+    to the data being processed.
+    """
+    problems = []
+    for name_recipe, recipe in METIS_DataReductionLibraryDesign.recipes.items():
+        if any(toskip in name_recipe.lower() for toskip in {"lss", "adc"}):
+            continue
+        names_input = [diref.name.upper() for diref in recipe.input_data]
+        input_bp = [name for name in names_input if "BADPIX" in name]
+        if input_bp:
+            problems.append(f"{name_recipe} has {input_bp} as input, which is not necessary")
+
+    for problem in problems:
+        print(problem)
+    assert not problems
 
 
 # TODO: Order of input in recipes, primary input should go first!

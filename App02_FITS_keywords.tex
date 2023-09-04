@@ -16,29 +16,129 @@ All FITS files with raw exposures will have the same set of header keywords.
 The following header keywords are mandatory for the data processing to function:
 \begin{itemize}
     \setlength{\itemsep}{0pt}
-        \item \hyperref[fits:cdeltn]{\FITS{CDELTn}}
-    \item \hyperref[fits:crpixn]{\FITS{CRPIXn}}
-    \item \hyperref[fits:crvaln]{\FITS{CRVALn}}
-    \item \hyperref[fits:ctypen]{\FITS{CTYPEn}}
-    \item \hyperref[fits:cunitn]{\FITS{CUNITn}}
-    \item \hyperref[fits:det.dit]{\FITS{DET.DIT}}
-    \item \hyperref[fits:det.readout]{\FITS{DET.READOUT}}
-    \item \hyperref[fits:dpr.catg]{\FITS{DPR.CATG}}
-    \item \hyperref[fits:dpr.tech]{\FITS{DPR.TECH}}
-    \item \hyperref[fits:dpr.type]{\FITS{DPR.TYPE}}
-    \item \hyperref[fits:exptime]{\FITS{EXPTIME}}
-    \item \hyperref[fits:ins.filt.name]{\FITS{INS.FILTi.NAME}}
-    \item \hyperref[fits:instrume]{\FITS{INSTRUME}}
-    \item \hyperref[fits:mjd-obs]{\FITS{MJD-OBS}}
-    \item \hyperref[fits:obs.tplno]{\FITS{OBS.TPLNO}}
-    \item \hyperref[fits:ocs.pxscale]{\FITS{OCS.PXSCALE}}
-    \item \hyperref[fits:tpl.expno]{\FITS{TPL.EXPNO}}
-    \item \hyperref[fits:tpl.start]{\FITS{TPL.START}}
+        \item \FITS{CDELTn}
+    \item \FITS{CRPIXn}
+    \item \FITS{CRVALn}
+    \item \FITS{CTYPEn}
+    \item \FITS{CUNITn}
+    \item \FITS{DET.DIT}
+    \item \FITS{DET.READOUT}
+    \item \FITS{DPR.CATG}
+    \item \FITS{DPR.TECH}
+    \item \FITS{DPR.TYPE}
+    \item \FITS{EXPTIME}
+    \item \FITS{INS.FILTi.NAME}
+    \item \FITS{INSTRUME}
+    \item \FITS{MJD-OBS}
+    \item \FITS{OBS.TPLNO}
+    \item \FITS{OCS.PXSCALE}
+    \item \FITS{TPL.EXPNO}
+    \item \FITS{TPL.START}
 
 \end{itemize}
 
 %\subsection{FITS header keywords used in spectroscopic recipes}
 %\label{sec:FitsKeywordsSpectroscopy}
+
+\subsection{Alias keywords used with matched keyworlds}{}\label{sec:keywordalias}
+
+
+\subsubsection{DRS.FILTER}\label{fits:drs.filter}
+\begin{recipedef}
+Name & DRS.FILTER \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & double \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & none \tabularnewline
+Comment & Alias of combination of keywords used to identify the filter settings. \\
+        & Value of \FITS{INS.OPTI10.NAME} or \FITS{INS.OPTI13.NAME} \\
+Default & \tabularnewline
+Range &  \tabularnewline
+Description & Keyword alias for filter settings \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{DRS.SLIT}\label{fits:drs.slit}
+\begin{recipedef}
+Name & DRS.SLIT \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & double \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & none \tabularnewline
+Comment & Alias of combination of keywords used to identify the slit settings. \\
+& Value of \FITS{INS.OPTI9.NAME} or \FITS{INS.OPTI12.NAME}\\
+& and  \FITS{INS.OPTI3.NAME}\\
+Default & \tabularnewline
+Range &  \tabularnewline
+Description & Keyword alias for slit settings \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{DRS.NDFILTER}\label{fits:drs.ndfilter}
+\begin{recipedef}
+Name & DRS.NDFILTER \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & double \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & none \tabularnewline
+Comment & Alias of combination of keywords used to identify the neutral density filter settings. \\
+        & Value of \FITS{INS.OPTI11.NAME} or \FITS{INS.OPTI14.NAME} \\
+Default & \tabularnewline
+Range &  \tabularnewline
+Description & Keyword alias for ND filter settings \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{DRS.IFU}\label{fits:drs.ifu}
+\begin{recipedef}
+Name & DRS.IFU \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & double \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & none \tabularnewline
+Comment & Alias of combination of keywords used to identify the IFU settings. \\
+        & Value of \FITS{INS.OPTI6.NAME} \\
+Default & \tabularnewline
+Range &  \tabularnewline
+Description & Keyword alias for ND filter settings \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{DRS.MASK}\label{fits:drs.mask}
+\begin{recipedef}
+Name & DRS.MASK \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & double \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & none \tabularnewline
+Comment & Alias of combination of keywords used to identify the coronograph settings. \\
+& Combination of \FITS{INS.OPTI1.NAME}, \FITS{INS.OPTI3.NAME}, \\
+& \FITS{INS.OPTI5.NAME}, \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI12.NAME}\\
+Default & \tabularnewline
+Range &  \tabularnewline
+Description & Keyword alias for coronagraph settings \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{DRS.PUPIL}\label{fits:drs.pupil}
+\begin{recipedef}
+Name & DRS.PUPIL \tabularnewline
+Class & header \tabularnewline
+Context & Template \tabularnewline
+Type & double \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & none \tabularnewline
+Comment & Alias of combination of keywords used to identify the pupil settings. \\
+        & Value of \FITS{INS.OPTI15.NAME} or \FITS{INS.OPTI16.NAME} \\
+Default & \tabularnewline
+Range &  \tabularnewline
+Description & Keyword alias for pupil settings \tabularnewline
+\end{recipedef}
 
 
 
@@ -93,6 +193,20 @@ Comment & \textit{n}=1: LM IMG/LSS detector (Hawaii2RG)  \tabularnewline
 Default & 1 \tabularnewline
 Range & 1..10 \tabularnewline
 Description & Number of detector integrations \tabularnewline
+\end{recipedef}
+
+\subsubsection{DO.CATG}\label{fits:do.catg}
+\begin{recipedef}
+Name & DO CATG \tabularnewline
+Class & workflow \tabularnewline
+Context & Workflow \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Set by workflow orchestrator\tabularnewline
+Default & None \tabularnewline
+Range & None \tabularnewline
+Description & Data Organizer Category. Only a transient keyword, will not be saved to FITS files. \tabularnewline
 \end{recipedef}
 
 \subsubsection{DPR.CATG}\label{fits:dpr.catg}
@@ -154,6 +268,119 @@ Range & None \tabularnewline
 Description & The integration time for a single observation (in the infrared this corresponds to DIT. Note that this does not represent the photon statistics). \tabularnewline
 \end{recipedef}
 
+\subsection{EXTNAME}\label{fits:extname}
+\begin{recipedef}
+Name & EXTNAME \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Name of the extension \tabularnewline
+Default & None \tabularnewline
+Range &  \tabularnewline
+Comment & Name of the extension \tabularnewline
+\end{recipedef}
+
+\subsection{SCIDATA}\label{fits:scidata}
+\begin{recipedef}
+Name & SCIDATA \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Name of the corresponding data extension \tabularnewline
+Default & None \tabularnewline
+Range &  \tabularnewline
+Comment & Name of the corresponding data extension \tabularnewline
+\end{recipedef}
+
+\subsection{ERRDATA}\label{fits:errdata}
+\begin{recipedef}
+Name & ERRDATA \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Name of the corresponding uncertainty extension \tabularnewline
+Default & None \tabularnewline
+Range &  \tabularnewline
+Comment & Name of the corresponding uncertainty extension \tabularnewline
+\end{recipedef}
+
+\subsection{QUALDATA}\label{fits:qualdata}
+\begin{recipedef}
+Name & QUALDATA \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Name of the corresponding quality extension \tabularnewline
+Default & None \tabularnewline
+Range &  \tabularnewline
+Comment & Name of the corresponding quality extension \tabularnewline
+\end{recipedef}
+
+\subsection{HDUCLAS1}\label{fits:hduclas1}
+\begin{recipedef}
+Name & HDUCLAS1 \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Type of data according to~\cite{Fits-format-description} \tabularnewline
+Default & None \tabularnewline
+Range & \CODE{IMAGE} \tabularnewline
+Comment & Type of data according to~\cite{Fits-format-description} \tabularnewline
+\end{recipedef}
+
+\subsection{HDUCLAS2}\label{fits:hduclas2}
+\begin{recipedef}
+Name & HDUCLAS2 \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Type of data according to~\cite{Fits-format-description} \tabularnewline
+Default & None \tabularnewline
+Range & \CODE{DATA}, \CODE{ERROR}, \CODE{QUALITY} \tabularnewline
+Comment & Type of data according to~\cite{Fits-format-description} \tabularnewline
+\end{recipedef}
+
+\subsection{HDUCLAS3}\label{fits:hduclas3}
+\begin{recipedef}
+Name & HDUCLAS3 \tabularnewline
+Class & header \tabularnewline
+Context & FITS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & Type of data according to~\cite{Fits-format-description} \tabularnewline
+Default & None \tabularnewline
+Range & Nothing, \CODE{RMSE}, \CODE{FLAG32BIT} \tabularnewline
+Comment & Type of data according to~\cite{Fits-format-description} \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{INS.OPTI1.NAME}\label{fits:ins.opti1.name}
+\begin{recipedef}
+Name & INS OPTI1 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & CFO-PP1 mask wheel \tabularnewline
+Default & None \tabularnewline
+Range &  \tabularnewline
+Description & FO-PP1 mask wheel \tabularnewline
+\end{recipedef}
+
 \subsubsection{INS.OPTI3.NAME}\label{fits:ins.opti3.name}
 \begin{recipedef}
 Name & INS OPTI3 NAME \tabularnewline
@@ -166,6 +393,35 @@ Comment & Name of the LSS slit \tabularnewline
 Default & None \tabularnewline
 Range & A\_19 B\_29 C\_38 D\_57 E\_114 \tabularnewline
 Description & LSS slit name \tabularnewline
+\end{recipedef}
+
+
+\subsubsection{INS.OPTI5.NAME}\label{fits:ins.opti5.name}
+\begin{recipedef}
+Name & INS OPTI5 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & LMS PP1 mask wheel \tabularnewline
+Default & None \tabularnewline
+Range &  \tabularnewline
+Description & LMS PP1 mask wheel \tabularnewline
+\end{recipedef}
+
+\subsubsection{INS.OPTI6.NAME}\label{fits:ins.opti6.name}
+\begin{recipedef}
+Name & INS OPTI6 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & LMS spectral IFU mechanism \tabularnewline
+Default & None \tabularnewline
+Range &   \tabularnewline
+Description &  LMS spectral IFU mechanism \tabularnewline
 \end{recipedef}
 
 \subsubsection{INS.OPTI9.NAME}\label{fits:ins.opti9.name}
@@ -252,6 +508,34 @@ Range & OPEN ND1 ND2 ND3 ND4 \tabularnewline
 Description & ND Filter name \tabularnewline
 \end{recipedef}
 
+\subsubsection{INS.OPTI15.NAME}\label{fits:ins.opti15.name}
+\begin{recipedef}
+Name & INS OPTI15 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & IMG-LM pupil imaging lens \tabularnewline
+Default & None \tabularnewline
+Range &  \tabularnewline
+Description &  IMG-LM pupil imaging lens \tabularnewline
+\end{recipedef}
+
+\subsubsection{INS.OPTI16.NAME}\label{fits:ins.opti16.name}
+\begin{recipedef}
+Name & INS OPTI16 NAME \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & IMG-N pupil imaging lens \tabularnewline
+Default & None \tabularnewline
+Range &  \tabularnewline
+Description &  IMG-N pupil imaging lens \tabularnewline
+\end{recipedef}
+
 
 \subsubsection{INS.OPTI20.NAME}\label{fits:ins.opti20.name}
 \begin{recipedef}
@@ -266,6 +550,24 @@ Default & None \tabularnewline
 Range & LM-pinhole \tabularnewline
 Description & WCU FP2.1 mask wheel \tabularnewline
 \end{recipedef}
+
+
+
+\subsubsection{SEQ WCU LASERn}\label{fits:seq.wcu.lasern}
+\begin{recipedef}
+Name & SEQ WCU LASERn \tabularnewline
+Class & header \tabularnewline
+Context & INS \tabularnewline
+Type & string \tabularnewline
+Value & \%.50s \tabularnewline
+Unit & None \tabularnewline
+Comment & WCU Laser Source \tabularnewline
+Default & None \tabularnewline
+Range & \tabularnewline
+Description & WCU Laser Source \tabularnewline
+\end{recipedef}
+
+
 
 \subsubsection{PRO.CATG}\label{fits:pro.catg}
 \begin{recipedef}
@@ -736,21 +1038,21 @@ Description & Slit name \tabularnewline
 
   \FITS{INS.SLIT.NAME} & \FITS{INS.FILT.NAME} & Description & Spectral setup \\ [0.5ex] 
  \hline\hline
-\PAR{SHORT} & \PAR{SPEC_IJ} &short 16mas$\times$3" slit & IzJ\\
-%\PAR{HK_NARROW} & short 16mas$\times$3" slit & HK\\
-\PAR{BROAD} & \PAR{SPEC_IJ} &broad 48mas$\times$3" slit & IzJ\\
-\PAR{BROAD} & \PAR{SPEC_HK} &broad 48mas$\times$3" slit & HK\\
-\PAR{LONG} & \PAR{SPEC_J} &long 20mas$\times$15" slit & J\\
-\PAR{LONG} & \PAR{SPEC_HK} &long 20mas$\times$15" slit & HK\\
-\PAR{SHORT_SH} & \PAR{SPEC_IJ} &shifted 16mas$\times$3" slit & IzJ\\
-%\PAR{HK_NARROW_SHIFTED} & 16mas$\times$3" slit & HK\\
-\PAR{BROAD_SH} & \PAR{SPEC_IJ} &shifted 48mas$\times$3" slit & IzJ\\
-\PAR{BROAD_SH} & \PAR{SPEC_HK}  &shifted 48mas$\times$3" slit & HK\\
-\PAR{LONG_SH} & \PAR{SPEC_J} & shifted 20mas$\times$15" slit & J\\
-\PAR{LONG_SH} & \PAR{SPEC_HK} & shifted 20mas$\times$15" slit & HK\\
+\PAR*{SHORT} & \PAR*{SPEC_IJ} &short 16mas$\times$3" slit & IzJ\\
+%\PAR*{HK_NARROW} & short 16mas$\times$3" slit & HK\\
+\PAR*{BROAD} & \PAR*{SPEC_IJ} &broad 48mas$\times$3" slit & IzJ\\
+\PAR*{BROAD} & \PAR*{SPEC_HK} &broad 48mas$\times$3" slit & HK\\
+\PAR*{LONG} & \PAR*{SPEC_J} &long 20mas$\times$15" slit & J\\
+\PAR*{LONG} & \PAR*{SPEC_HK} &long 20mas$\times$15" slit & HK\\
+\PAR*{SHORT_SH} & \PAR*{SPEC_IJ} &shifted 16mas$\times$3" slit & IzJ\\
+%\PAR*{HK_NARROW_SHIFTED} & 16mas$\times$3" slit & HK\\
+\PAR*{BROAD_SH} & \PAR*{SPEC_IJ} &shifted 48mas$\times$3" slit & IzJ\\
+\PAR*{BROAD_SH} & \PAR*{SPEC_HK}  &shifted 48mas$\times$3" slit & HK\\
+\PAR*{LONG_SH} & \PAR*{SPEC_J} & shifted 20mas$\times$15" slit & J\\
+\PAR*{LONG_SH} & \PAR*{SPEC_HK} & shifted 20mas$\times$15" slit & HK\\
  \hline
-\PAR{PINH} & all & pinhole slit & all\\
-\PAR{PINH_SH} & all &shifted pinhole slit & all\\
+\PAR*{PINH} & all & pinhole slit & all\\
+\PAR*{PINH_SH} & all &shifted pinhole slit & all\\
  \hline
 \end{tabular}
 \caption[VALUES for the FITS keywords]{Values for the \ac{FITS} keywords \FITS{INS.FILT.NAME} and \FITS{INS.SLIT.NAME} representing the spectrosopic modes}.

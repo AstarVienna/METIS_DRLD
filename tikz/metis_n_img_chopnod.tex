@@ -1,3 +1,12 @@
+% % Document preamble. Comment out for final figure! Footer too!
+% \documentclass[tikz, margin=5mm, dvipsnames]{standalone}
+% \usepackage{hyperref}
+% \usepackage{listings}
+% \input{black_style}
+% \input{styles_data}
+% \begin{document}
+
+
 \input{black_style}
 \input{recipe_config}
 
@@ -12,37 +21,22 @@
 
   %% template names
   \node (template) [template] {%
-%    METIS\_img\_lm\_cal\_standard\\
-%    METIS\_img\_lm\_*\_obs\_*
-    \TPL{METIS_img_lm_cal_standard}  \\
-    \TPL{METIS_img_lm_obs_AutoJitter} \\
-    \TPL{METIS_img_lm_obs_GenericOffset} \\
-    \TPL{METIS_img_lm_obs_FixedSkyOffset} \\
-    \TPL{METIS_img_lm_app_obs_FixedOffset} \\
-    \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
-    \TPL{METIS_img_lm_cal_psf}             \\
-    % LMN combined templates:
-    \TPL{METIS_img_lmn_obs_AutoChopNod} \\
-    \TPL{METIS_img_lmn_obs_GenericChopNod} \\
-    % All IFU templates also create an LM image:
-    \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
-    \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
-    \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
-    \TPL{METIS_ifu_ext_obs_GenericOffset}                                                    \\
-    \TPL{METIS_ifu_vc_obs_FixedSkyOffset}                                                    \\
-    \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset}                                                \\
-    \TPL{METIS_ifu_app_obs_Stare}                                                            \\
-    \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
-    \TPL{METIS_ifu_cal_psf}                                                                  \\
-  };
+    \TPL{METIS_img_n_cal_standard}         \\
+    \TPL{METIS_img_n_obs_AutoChopNod}      \\
+    \TPL{METIS_img_n_obs_GenericChopNod}   \\
+    \TPL{METIS_img_n_cvc_obs_AutoChop}     \\
+    \TPL{METIS_img_n_cal_psf}              \\
+    \TPL{METIS_img_lmn_obs_AutoChopNod}    \\
+    \TPL{METIS_img_lmn_obs_GenericChopNod} };
 
   \pic (start)[below=0.75cm of template]{start};
 
 
   %% input box
   \node (input) [below=0.75cm of start-m, input] {%
-    \textsl{N} \RAW{LM_IMAGE_SCI_RAW} or\\
-    \textsl{N} \RAW{LM_IMAGE_STD_RAW}};
+    \textsl{N} \RAW{N_IMAGE_SCI_RAW} or \RAW{N_IMAGE_STD_RAW}};
+%    \textsl{M} \RAW{IFU_SKY_RAW}};
+
 
   %% algorithm steps
   \node (step_linearity) [below=2.0cm of input, redstep]{%
@@ -79,7 +73,7 @@
   \node (connect_linearity) [connection] at
   ($(input)!0.65!(step_linearity)$){};
   \node (linearity) [left=of connect_linearity, external]{%
-    \EXTCALIB{LINEARITY_det}};
+    \EXTCALIB{LINEARITY_GEO}};
   \draw [connection_arrow] (linearity) -- (connect_linearity);
 
   \node (connect_persistence) [connection] at
@@ -98,20 +92,18 @@
   \node (connect_masterdark) [connection] at
   ($(step_persistence)!0.5!(step_dark)$){};
   \node (masterdark) [left=of connect_masterdark, calproduct]{%
-    \STATCALIB{MASTER_DARK_2RG}};
+    \STATCALIB{MASTER_DARK_GEO}};
   \draw [connection_arrow] (masterdark) -- (connect_masterdark);
 
   \node (connect_masterflat) [connection] at
   ($(step_dark)!0.5!(step_flat)$){};
   \node (flatin) [left=of connect_masterflat, calproduct]{%
-    \STATCALIB{MASTER_IMG_FLAT_LAMP_LM}\\
-    or \STATCALIB{MASTER_IMG_FLAT_TWILIGHT_LM}};
+    \STATCALIB{MASTER_IMG_FLAT_LAMP_N}\\
+    or \STATCALIB{MASTER_IMG_FLAT_TWILIGHT_N}};
   \draw [connection_arrow] (flatin) -- (connect_masterflat);
 
-%  \node (connect_bpm) [connection] at
-%  ($(step_flat)!0.5!(step_masks)$){};
-%  \node (bpmin) [left=of connect_bpm, calproduct]{%
-%    \STATCALIB{BADPIX_MAP_2RG}};
+%  \node (connect_bpm) [connection] at ($(step_flat)!0.5!(step_masks)$){};
+%  \node (bpmin) [left=of connect_bpm, calproduct]{\STATCALIB{BADPIX_MAP_GEO}};
 %  \draw [connection_arrow] (bpmin) -- (connect_bpm);
 
 
@@ -119,13 +111,13 @@
   \node (connect_scired) [connection] at
     ($(step_masks)!0.3!(stop-t)$){};
   \node (scired) [right=of connect_scired, external]{%
-    \PROD{LM_SCI_BASIC_REDUCED}};
+    \PROD{N_SCI_BKG_SUBTRACTED}};
   \draw [connection_arrow] (connect_scired) -- (scired);
 
   \node (connect_stdred) [connection] at
     ($(connect_scired)!0.5!(stop-t)$){};
   \node (stdred) [right=of connect_stdred, external]{%
-    \PROD{LM_STD_BASIC_REDUCED}};
+    \PROD{N_STD_BKG_SUBTRACTED}};
   \draw [connection_arrow] (connect_stdred) -- (stdred);
 
 
@@ -134,8 +126,12 @@
   ($(step_masks)!0.75!(stop-t) + (2.85,0)$);
   \node [framecolor, anchor=north west] at
   ($(input)!0.35!(step_linearity) - (2.85,0)$){%
-    \REC{metis_lm_img_basic_reduce}};
+    \REC{metis_n_img_chopnod}};
 
     
 \end{tikzpicture}
 \input{normal_style}
+
+
+% % Document footer. Comment out for final figure! Header too!
+% \end{document}
