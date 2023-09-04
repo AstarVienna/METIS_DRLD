@@ -39,7 +39,7 @@
 
 
   %% algorithm steps
-  \node (step_linearity) [below=2.0cm of input, redstep]{%
+  \node (step_linearity) [below=3.0cm of input, redstep]{%
     Correct non-linearity};
 
   \node (step_persistence) [below of=step_linearity, redstep]{%
@@ -69,9 +69,12 @@
 
   %% External data
 
-  % External input
+  \node (connect_gain) [connection] at ($(input)!0.45!(step_linearity)$) {};
+  \node (gain) [left=of connect_gain, external] {\EXTCALIB{GAIN_MAP_GEO}};
+  \draw [connection_arrow] (gain) -- (connect_gain);
+
   \node (connect_linearity) [connection] at
-  ($(input)!0.65!(step_linearity)$){};
+  ($(input)!0.7!(step_linearity)$){};
   \node (linearity) [left=of connect_linearity, external]{%
     \EXTCALIB{LINEARITY_GEO}};
   \draw [connection_arrow] (linearity) -- (connect_linearity);
@@ -122,10 +125,10 @@
 
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.35!(step_linearity) -(2.85,0)$) rectangle
+  \draw [frame] ($(input)!0.15!(step_linearity) -(2.85,0)$) rectangle
   ($(step_masks)!0.75!(stop-t) + (2.85,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.35!(step_linearity) - (2.85,0)$){%
+  ($(input)!0.15!(step_linearity) - (2.85,0)$){%
     \REC{metis_n_img_chopnod}};
 
     

@@ -28,7 +28,7 @@
 %    subtract DIST\_OFF
 %  };
 
-  \node (step2) [below=1.cm of input, redstep]{%
+  \node (step2) [below=2.cm of input, redstep]{%
     locate images
   };
 
@@ -50,6 +50,11 @@
 %  };
 %  \draw [connection_arrow] (bpmin) -- (step2);
 
+  \node (connect_pinhole) [connection] at
+  ($(input)!0.5!(step2)$) {};
+  \node (pinhole) [left=of connect_pinhole, external] {\EXTCALIB{PINHOLE_TABLE}};
+  \draw [connection_arrow] (pinhole) -- (connect_pinhole);
+
   %% Output
   \node (connect dist table) [connection] at
   ($(step3)!0.4!(stop-t)$) {};
@@ -66,10 +71,10 @@
   \draw [connection_arrow] (connect dist reduced) -- (dist reduced);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.5!(step2) - (3.25,0)$)
+  \draw [frame] ($(input)!0.25!(step2) - (3.,0)$)
   rectangle ($(step3)!0.275!(stop-t) + (2.75,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.5!(step2) - (3.25, 0)$) {%
+  ($(input)!0.25!(step2) - (3., 0)$) {%
     \REC{metis_ifu_distortion}};
 
 \end{tikzpicture}
