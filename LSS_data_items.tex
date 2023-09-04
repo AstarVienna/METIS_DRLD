@@ -12,7 +12,7 @@ Description: & Raw exposure for determining the \ac{ADC} slitlosses.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{LSS,LM} \\
 \FITS{DPR.TYPE}: & \CODE{SLITLOSS} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_SLITLOSSES_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_lm_cal_SlitAdc}\\
 %Input for recipes: & \REC{metis_lm_lss_std}\\
@@ -25,7 +25,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -41,7 +41,7 @@ Description: & Raw exposure for determining the \ac{ADC} slitlosses.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{LSS,N} \\
 \FITS{DPR.TYPE}: & \CODE{SLITLOSS} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{N_SLITLOSSES_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_n_cal_slit}\\
 %Input for recipes: & \REC{metis_n_lss_std}\\
@@ -54,7 +54,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -71,7 +71,7 @@ Description: & Raw exposure of the \ac{WCU} flatfield lamp through the \ac{LSS} 
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{LSS,LM} \\
 \FITS{DPR.TYPE}: & \CODE{FLAT,LAMP} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_lm_cal_rsrf}\\
 Input for recipe: & \REC{metis_lm_lss_rsrf}\\
@@ -82,7 +82,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -98,7 +98,7 @@ Description: & Raw exposure of the \ac{WCU} flatfield lamp through the \ac{LSS} 
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{LSS,LM} \\
 \FITS{DPR.TYPE}: & \CODE{FLAT,LAMP,PINH} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG}, \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI20.NAME}\\
+OCA keywords: & \FITS{DPR.CATG}, \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI20.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_RSRF_PINH_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_lm_cal_rsrfpinh}\\
 Input for recipe: & \REC{metis_lm_lss_trace}\\
@@ -109,7 +109,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI20.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI20.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -124,7 +124,7 @@ Description: & Raw exposure of the \ac{WCU} laser sources through the \ac{LSS} t
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{LSS,LM} \\
 \FITS{DPR.TYPE}: & \CODE{WAVE} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_WAVE_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_lm_cal_InternalWave}\\
 Input for recipe: & \REC{metis_lm_lss_wave}\\
@@ -135,7 +135,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -151,7 +151,7 @@ Description: & LM-band long-slit spectroscopy raw exposure of a flux standard st
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{LSS,LM} \\
 \FITS{DPR.TYPE}: & \CODE{STD} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_STD_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_lm_cal_Standard}\\
           & \TPL{METIS_spec_lmn_obs_AutoChopNodOnSlit}\\
@@ -163,7 +163,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image for each nod/offset position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -179,7 +179,7 @@ Description: & LM-band long-slit spectroscopy raw exposure of a science object.\
 \FITS{DPR.CATG}: & \CODE{SCIENCE}\\
 \FITS{DPR.TECH}: & \CODE{LSS,LM} \\
 \FITS{DPR.TYPE}: & \CODE{OBJECT} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_SCI_RAW}\\[0.3cm]
 Templates:   & \TPL{METIS_spec_lm_obs_AutoNodOnSlit}\\
              & \TPL{METIS_spec_lmn_obs_AutoChopNodOnSlit}\\
@@ -192,7 +192,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image for each nodding/offset position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -208,7 +208,7 @@ Description: & Raw exposure of the \ac{WCU} flatfield lamp through the \ac{LSS} 
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{LSS,N} \\
 \FITS{DPR.TYPE}: & \CODE{FLAT,LAMP} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{N_LSS_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_n_cal_rsrf}\\
 Input for recipe: & \REC{metis_n_lss_rsrf}\\
@@ -219,7 +219,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -234,7 +234,7 @@ Description: & Raw exposure of the \ac{WCU} laser sources through the \ac{LSS} t
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{LSS,N} \\
 \FITS{DPR.TYPE}: & \CODE{WAVE} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME},  \FITS{INS.OPTI13.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME},  \FITS{INS.OPTI13.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{N_LSS_WAVE_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_n_cal_InternalWave}\\
 Input for recipe: & \REC{metis_lm_lss_wave}\\
@@ -245,7 +245,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME},  \FITS{INS.OPTI13.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME},  \FITS{INS.OPTI13.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -262,7 +262,7 @@ Description: & Raw exposure of the \ac{WCU} flatfield lamp through the \ac{LSS} 
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{LSS,N} \\
 \FITS{DPR.TYPE}: & \CODE{FLAT,LAMP,PINH} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI20.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI20.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{N_LSS_RSRF_PINH_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_n_cal_rsrfpinh}\\
 Input for recipe: & \REC{metis_n_lss_trace}\\
@@ -273,7 +273,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI20.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI20.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -287,7 +287,7 @@ Description: & N-band long-slit spectroscopy raw exposure of a flux standard sta
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{LSS,N} \\
 \FITS{DPR.TYPE}: & \CODE{STD} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI11.NAME}, \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI11.NAME}, \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{N_LSS_STD_RAW}\\[0.3cm]
 Template: & \TPL{METIS_spec_n_cal_Standard}\\
              & \TPL{METIS_spec_lmn_obs_AutoChopNodOnSlit}\\
@@ -299,7 +299,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI11.NAME}, \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI11.NAME}, \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image for each chop/nod position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -314,7 +314,7 @@ Description: & N-band long-slit spectroscopy raw exposure of a science object.\\
 \FITS{DPR.CATG}: & \CODE{SCIENCE}\\
 \FITS{DPR.TECH}: & \CODE{LSS,N} \\
 \FITS{DPR.TYPE}: & \CODE{OBJECT} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI11.NAME}, \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME} , \FITS{INS.OPTI14.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI11.NAME}, \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME} , \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{N_LSS_SCI_RAW}\\[0.3cm]
 Templates:   & \TPL{METIS_spec_n_obs_AutoChopNodOnSlit}\\
              & \TPL{METIS_spec_lmn_obs_AutoChopNodOnSlit}\\
@@ -326,7 +326,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI11.NAME}, \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME} , \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI11.NAME}, \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME} , \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image for each chop/nod position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -343,7 +343,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{MASTER_LM_LSS_RSRF}\\[0.3cm]
 Description: & LM-band \ac{LSS} Master \ac{RSRF}.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MASTER_LM_LSS_RSRF}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{MASTER_LM_LSS_RSRF}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_rsrf}\\
 Input for recipes: & \REC{metis_lm_lss_trace}\\
@@ -357,7 +357,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}), \FITS{DRS.SLIT}}
     \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -370,7 +370,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{MEDIAN_LM_LSS_RSRF_IMG}\\[0.3cm]
 Description: & LM-band \ac{LSS} Median \ac{RSRF}.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MEDIAN_LM_LSS_RSRF_IMG}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \REC{metis_lm_lss_rsrf}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -381,7 +381,7 @@ Comment: & intermediate data product used for \ac{QC} only\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -393,7 +393,7 @@ Comment: & intermediate data product used for \ac{QC} only\\
 Name: & \PROD{MEAN_LM_LSS_RSRF_IMG}\\[0.3cm]
 Description: & LM-band \ac{LSS} Mean \ac{RSRF}.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MEAN_LM_LSS_RSRF_IMG}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \REC{metis_lm_lss_rsrf}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -404,7 +404,7 @@ Comment: & intermediate data product used for \ac{QC} only\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -417,7 +417,7 @@ Comment: & intermediate data product used for \ac{QC} only\\
 Name: & \PROD{MASTER_N_LSS_RSRF}\\[0.3cm]
 Description: & LM-band \ac{LSS} Master \ac{RSRF}.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MASTER_N_LSS_RSRF}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{MASTER_N_LSS_RSRF}\\[0.3cm]
 Created by: & \REC{metis_n_lss_rsrf}\\
 Input for recipes: & \REC{metis_n_lss_trace}\\
@@ -430,7 +430,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -445,7 +445,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{MEDIAN_N_LSS_RSRF_IMG}\\[0.3cm]
 Description: & LM-band \ac{LSS} Median \ac{RSRF}.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MEDIAN_N_LSS_RSRF_IMG}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \REC{metis_n_lss_rsrf}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -456,7 +456,7 @@ Comment: & intermediate data product used for \ac{QC} only\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -469,7 +469,7 @@ Comment: & intermediate data product used for \ac{QC} only\\
 Name: & \PROD{MEAN_N_LSS_RSRF_IMG}\\[0.3cm]
 Description: & LM-band \ac{LSS} Mean \ac{RSRF}.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MEAN_N_LSS_RSRF_IMG}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \REC{metis_n_lss_rsrf}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -480,7 +480,7 @@ Comment: & intermediate data product used for \ac{QC} only\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -494,7 +494,7 @@ Comment: & intermediate data product used for \ac{QC} only\\
 Name: & \PROD{LM_LSS_TRACE}\\[0.3cm]
 Description: & Polynomial fit of the LM order edges (i.e. order location on chip)\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_TRACE}\\
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_TRACE}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_trace}\\
 Input for:    & \REC{metis_LM_lss_wave} \\
@@ -504,7 +504,7 @@ Purpose: & wavelength calibration / rectification\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.SLIT})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -518,7 +518,7 @@ Purpose: & wavelength calibration / rectification\\
 Name: & \PROD{N_LSS_TRACE}\\[0.3cm]
 Description: & Polynomial fit of the N order edges (i.e. order location on chip)\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_TRACE}\\
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{N_LSS_TRACE}\\[0.3cm]
 Created by: & \REC{metis_n_lss_trace}\\
 Input for:    & \REC{metis_N_lss_std} \\
@@ -528,7 +528,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.SLIT})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -541,7 +541,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_LSS_CURVE}\\[0.3cm]
 Description: & Slit curvature table\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_CURVE}\\
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_CURVE}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_wave}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -549,7 +549,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.SLIT})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -562,7 +562,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_LSS_DIST_SOL}\\[0.3cm]
 Description: & LM-band geometrical distortion solution\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_DIST_SOL}\\
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_DIST_SOL}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_wave}\\
 Input for:    & \REC{metis_LM_lss_std} \\
@@ -572,7 +572,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.SLIT})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -585,7 +585,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_LSS_WAVE_GUESS}\\[0.3cm]
 Description: & First guess of the N-band wavelength solution\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_WAVE_GUESS}\\
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_WAVE_GUESS}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_wave}\\
 Input for:    & \REC{metis_LM_lss_std} \\
@@ -595,7 +595,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.SLIT})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -609,7 +609,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_LSS_STD_OBJ_MAP}\\[0.3cm]
 Description: & Image with detected object pixels of the flux standard star.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_STD_OBJ_MAP}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \REC{metis_lm_lss_std}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -620,7 +620,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -633,7 +633,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 Name: & \PROD{LM_LSS_STD_SKY_MAP}\\[0.3cm]
 Description: & Image with detected sky pixels of the flux standard star observation.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_STD_SKY_MAP}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \REC{metis_lm_lss_std}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -644,7 +644,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -656,7 +656,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 Name: & \PROD{LM_LSS_STD_1D}\\[0.3cm]
 Description: & Extracted 1d flux standard star spectrum.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_STD_1D}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{LM_LSS_STD_1D}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_std}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -667,7 +667,7 @@ Comment: & intermediate data product also used for \ac{QC}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -681,7 +681,7 @@ Comment: & intermediate data product also used for \ac{QC}\\
 Name: & \PROD{N_LSS_STD_OBJ_MAP}\\[0.3cm]
 Description: & Image with detected object pixels of the flux standard star..\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_STD_OBJ_MAP}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \REC{metis_n_lss_std}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -692,7 +692,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -704,7 +704,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 Name: & \PROD{N_LSS_STD_SKY_MAP}\\[0.3cm]
 Description: & Image with detected plain sky pixels of the flux standard star observation.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_STD_SKY_MAP}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \REC{metis_n_lss_std}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -715,7 +715,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -728,7 +728,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 Name: & \PROD{N_LSS_STD_1D}\\[0.3cm]
 Description: & Extracted 1d science spectrum.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_STD_1D}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{N_LSS_STD_1D}\\[0.3cm]
 Created by: & \REC{metis_n_lss_std}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -739,7 +739,7 @@ Comment: & intermediate data product also used for \ac{QC}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -752,7 +752,7 @@ Comment: & intermediate data product also used for \ac{QC}\\
 Name: & \PROD{LM_LSS_SCI_OBJ_MAP}\\[0.3cm]
 Description: & Image with detected object pixels of the science observation.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_SCI_OBJ_MAP}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \REC{metis_lm_lss_sci}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -763,7 +763,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -775,7 +775,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 Name: & \PROD{LM_LSS_SCI_SKY_MAP}\\[0.3cm]
 Description: & Image with detected plain sky pixels of the science observation.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_SCI_SKY_MAP}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \REC{metis_lm_lss_sci}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -786,7 +786,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -798,7 +798,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 Name: & \PROD{LM_LSS_SCI_2D}\\[0.3cm]
 Description: & rectified 2d LM-band spectrum of the science object.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_SCI_2D}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{LM_LSS_SCI_2D}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_sci}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -809,7 +809,7 @@ Comment: & intermediate data product also used for \ac{QC}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_imagelist * images: Images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -822,7 +822,7 @@ Comment: & intermediate data product also used for \ac{QC}\\
 Name: & \PROD{LM_LSS_SCI_1D}\\[0.3cm]
 Description: & Extracted 1d science spectrum.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_SCI_1D}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{LM_LSS_SCI_1D}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_sci}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -833,7 +833,7 @@ Comment: & intermediate data product used for \ac{QC}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -847,7 +847,7 @@ Comment: & intermediate data product used for \ac{QC}\\
 Name: & \PROD{N_LSS_SCI_OBJ_MAP}\\[0.3cm]
 Description: & Image with detected object pixels of the science frame.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_SCI_OBJ_MAP}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \REC{metis_n_lss_sci}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -858,7 +858,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -871,7 +871,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 Name: & \PROD{N_LSS_SCI_SKY_MAP}\\[0.3cm]
 Description: & Image with detected plain sky pixels of the science frame.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_SCI_SKY_MAP}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & n/a \\[0.3cm]
 Created by: & \REC{metis_n_lss_sci}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -882,7 +882,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -894,7 +894,7 @@ Comment: & intermediate data product used for \ac{QC} and as mask\\
 Name: & \PROD{N_LSS_SCI_2D}\\[0.3cm]
 Description: & rectified 2d N-band spectrum of the science object.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_SCI_2D}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{N_LSS_SCI_2D}\\[0.3cm]
 Created by: & \REC{metis_n_lss_sci}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -905,7 +905,7 @@ Comment: & intermediate data product also used for \ac{QC}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})} 
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})} 
     \item \texttt{hdrl\_imagelist * images: Images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -917,7 +917,7 @@ Comment: & intermediate data product also used for \ac{QC}\\
 Name: & \PROD{N_LSS_SCI_1D}\\[0.3cm]
 Description: & Extracted 1d science spectrum.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_SCI_1D}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{N_LSS_SCI_1D}\\[0.3cm]
 Created by: & \REC{metis_n_lss_sci}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -928,7 +928,7 @@ Comment: & intermediate data product used for \ac{QC}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -940,7 +940,7 @@ Comment: & intermediate data product used for \ac{QC}\\
 Name: & \PROD{STD_TRANSMISSION}\\[0.3cm]
 Description: & Transmission curve derived by means of the \ac{STD} star \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{STD_TRANSMISSION} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS*{INS.SPEC.SETUP}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS*{INS.SPEC.SETUP}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{STD_TRANSMISSION} \\[0.3cm]
 Produced by recipe: & \REC{metis_LM_lss_std} \\
                     & \REC{metis_N_lss_std} \\
@@ -965,7 +965,7 @@ Data structure:
 Name: & \PROD{MASTER_LM_RESPONSE}\\[0.3cm]
 Description: & Master LM-band response function for absolute flux calibration \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MASTER_LM_RESPONSE} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS*{INS.SPEC.SETUP}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS*{INS.SPEC.SETUP}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{MASTER_LM_RESPONSE} \\[0.3cm]
 Produced by recipe: & \REC{metis_LM_lss_std} \\
 Input for recipe(s): & \REC{metis_LM_LSS_sci}\\
@@ -988,7 +988,7 @@ Data structure:
 Name: & \PROD{MASTER_N_RESPONSE}\\[0.3cm]
 Description: & Master N-band response function for absolute flux calibration \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MASTER_N_RESPONSE} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS*{INS.SPEC.SETUP}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS*{INS.SPEC.SETUP}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{MASTER_N_RESPONSE} \\[0.3cm]
 Produced by recipe: & \REC{metis_N_lss_std} \\
 Input for recipe(s): & \REC{metis_N_LSS_sci}\\
@@ -1035,7 +1035,7 @@ Purpose: & wavelength calibration / rectification\\
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{LM_LSS_SYNTH_TRANS}\\[0.3cm]
 Description: & Synthetic transmission curve to be used for telluric correction of flux standard stars\\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{LM_LSS_SYNTH_TRANS}\\
+\FITS{PRO.CATG}: & \CODE{LM_LSS_SYNTH_TRANS}, \FITS{DRS.SLIT}\\
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_SYNTH_TRANS}\\[0.3cm]
 Created by: & \REC{metis_LM_lss_mf_calctrans}\\
@@ -1045,7 +1045,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1057,7 +1057,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{N_LSS_SYNTH_TRANS}\\[0.3cm]
 Description: & Synthetic transmission curve to be used for telluric correction of flux standard stars\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_SYNTH_TRANS}\\
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{N_LSS_SYNTH_TRANS}\\[0.3cm]
 Created by: & \REC{metis_N_lss_mf_calctrans}\\
 Input for:    & \REC{metis_N_lss_mf_correct} \\
@@ -1066,7 +1066,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1091,7 +1091,7 @@ The pipeline aims for final data products following the data format described in
 Name: & \PROD{LM_LSS_SCI_FLUX_2D}\\[0.3cm]
 Description: & rectified flux-calibrated 2d LM-band spectrum of the science object.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_SCI_FLUX_2D}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{LM_LSS_SCI_FLUX_2D}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_sci}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -1102,7 +1102,7 @@ Comment: & intermediate data product also used for \ac{QC}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_imagelist * images: Images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1115,7 +1115,7 @@ Comment: & intermediate data product also used for \ac{QC}\\
 Name: & \PROD{N_LSS_SCI_FLUX_2D}\\[0.3cm]
 Description: & rectified flux-calibrated 2d N-band spectrum of the science object.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_SCI_FLUX_2D}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{N_LSS_SCI_FLUX_2D}\\[0.3cm]
 Created by: & \REC{metis_n_lss_sci}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -1126,7 +1126,7 @@ Comment: & intermediate data product also used for \ac{QC}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_imagelist * images: Images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1139,7 +1139,7 @@ Comment: & intermediate data product also used for \ac{QC}\\
 Name: & \PROD{LM_LSS_SCI_FLUX_1D}\\[0.3cm]
 Description: & Extracted, flux-calibrated 1d science spectrum.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_SCI_FLUX_1D}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{LM_LSS_SCI_FLUX_1D}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_sci}\\
 Input for:    & \REC{metis_LM_lss_mf_model} \\
@@ -1152,7 +1152,7 @@ Comment: & intermediate data product used for \ac{QC}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1165,7 +1165,7 @@ Comment: & intermediate data product used for \ac{QC}\\
 Name: & \PROD{N_LSS_SCI_FLUX_1D}\\[0.3cm]
 Description: & Extracted, flux-calibrated 1d science spectrum.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_SCI_FLUX_1D}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{N_LSS_SCI_FLUX_1D}\\[0.3cm]
 Created by: & \REC{metis_n_lss_sci}\\
 Input for:    & \REC{metis_N_lss_mf_model} \\
@@ -1178,7 +1178,7 @@ Comment: & intermediate data product used for \ac{QC}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1191,7 +1191,7 @@ Comment: & intermediate data product used for \ac{QC}\\
 Name: & \PROD{LM_LSS_STD_WAVE}\\[0.3cm]
 Description: & Wavelength solution based on STD star\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_STD_WAVE}\\
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_STD_WAVE}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_std}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -1199,7 +1199,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.SLIT})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1213,7 +1213,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_LSS_SCI_FLUX_TELLCORR_1D}\\[0.3cm]
 Description: & Extracted, flux-calibrated 1d science spectrum.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_SCI_FLUX_TELLCORR_1D}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{LM_LSS_SCI_FLUX_TELLCORR_1D}\\[0.3cm]
 Created by: & \REC{metis_LM_lss_mf_correct}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -1224,7 +1224,7 @@ Comment: & intermediate data product used for \ac{QC}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1236,7 +1236,7 @@ Comment: & intermediate data product used for \ac{QC}\\
 Name: & \PROD{N_LSS_SCI_FLUX_TELLCORR_1D}\\[0.3cm]
 Description: & Extracted, flux-calibrated, telluric corrected 1d science spectrum.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_SCI_FLUX_TELLCORR_1D}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME} \\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{N_LSS_SCI_FLUX_TELLCORR_1D}\\[0.3cm]
 Created by: & \REC{metis_N_lss_mf_correct}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -1247,7 +1247,7 @@ Comment: & intermediate data product used for \ac{QC}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}

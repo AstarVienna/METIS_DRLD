@@ -12,7 +12,7 @@ Description: & Raw off axis PSF image \\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,LM}\\
 \FITS{DPR.TYPE}: & \CODE{PSF,OFFAXIS}\\
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE} \\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Templates:             & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
 Input for:    & \REC{metis_img_adi_cgrph} \\
@@ -23,7 +23,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -37,7 +37,7 @@ Description: & Raw off axis PSF image \\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,N}\\
 \FITS{DPR.TYPE}: & \CODE{PSF,OFFAXIS}\\
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE} \\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{N_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Templates:             & \TPL{METIS_img_n_cvc_obs_AutoChop} \\
 Input for recipe: & \REC{metis_img_adi_cgrph}\\
@@ -47,7 +47,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -61,7 +61,7 @@ Description: & Raw off axis PSF image \\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IFU}\\
 \FITS{DPR.TYPE}: & \CODE{PSF,OFFAXIS}\\
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE} \\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DRS.IFU}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{IFU_OFF_AXIS_PSF_RAW}\\[0.3cm]
 Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
                        & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset} \\
@@ -72,7 +72,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image ** image: Four Images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -89,7 +89,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_cgrph_SCI_THROUGHPUT}\\[0.3cm]
 Description: & ADI throughput curve \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_cgrph_SCI_THROUGHPUT}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_cgrph_SCI_THROUGHPUT}\\[0.3cm]
 Created by recipe: & \REC{metis_img_adi_cgrph}\\
 Input for:    & \REC{metis_img_adi_cgrph} \\
@@ -99,7 +99,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -111,7 +111,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{N_cgrph_SCI_THROUGHPUT}\\[0.3cm]
 Description: & ADI throughput curve \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_cgrph_SCI_THROUGHPUT}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{N_cgrph_SCI_THROUGHPUT}\\[0.3cm]
 Created by recipe: & \REC{metis_img_adi_cgrph}\\
 Input for:    & \REC{metis_img_adi_cgrph} \\
@@ -121,7 +121,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG} \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -133,7 +133,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_cgrph_SCI_THROUGHPUT}\\[0.3cm]
 Description: & ADI throughput curve \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_cgrph_SCI_THROUGHPUT}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_cgrph_SCI_THROUGHPUT}\\[0.3cm]
 % TODO: this is created by and input to the same recipe
 Created by: & \REC{metis_ifu_adi_cgrph}\\
@@ -144,7 +144,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image * image: IFU Datacube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -157,7 +157,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_DISTORTION_TABLE}\\[0.3cm]
 Description: & Table of distortion coefficients for an IFU data set \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_DISTORTION_TABLE}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_DISTORTION_TABLE}\\[0.3cm]
 Created by:   & \REC{metis_ifu_distortion} \\
 Input for:    & \REC{metis_ifu_wavecal} \\
@@ -169,7 +169,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU} )}
     \item \texttt{cpl\_table * table: table of distortion coefficients}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -191,7 +191,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_APP_SCI_CALIBRATED}\\[0.3cm]
 Description: & Coronagraphic image after distortion correction \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_APP_SCI_CALIBRATED}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_APP_SCI_CALIBRATED}\\[0.3cm]
 Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -200,7 +200,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -215,7 +215,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_APP_SCI_CENTRED}\\[0.3cm]
 Description: & Coronagraphic image after centering on the PSF and subpixel realignment \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_APP_SCI_CENTRED}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_APP_SCI_CENTRED}\\[0.3cm]
 Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -224,7 +224,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Image Cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -239,7 +239,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_APP_SCI_SPECKLE}\\[0.3cm]
 Description: & PSFZZZSpeckle image from coronagraphic data \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_APP_SCI_SPECKLE}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_APP_SCI_SPECKLE}\\[0.3cm]
 Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -248,7 +248,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -263,7 +263,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_APP_SCI_DEROTATED_PSFSUB}\\[0.3cm]
 Description: & Coronagraphic image after PSF subtraction, derotation and coaddition  \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_APP_SCI_DEROTATED_PSFSUB}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_APP_SCI_DEROTATED_PSFSUB}\\[0.3cm]
 Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -272,7 +272,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Image Cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -287,7 +287,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_APP_SCI_DEROTATED}\\[0.3cm]
 Description: & Coronagraphic image after derotation and coaddition \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_APP_SCI_DEROTATED}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_APP_SCI_DEROTATED}\\[0.3cm]
 Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -296,7 +296,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -311,7 +311,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_APP_SCI_COVERAGE}\\[0.3cm]
 Description: & Map of effective number of frames contributing to the final coronographic image \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_APP_SCI_COVERAGE}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_APP_SCI_COVERAGE}\\[0.3cm]
 Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -320,7 +320,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -335,7 +335,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_APP_SCI_SNR}\\[0.3cm]
 Description: & ADI SNR Map \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_APP_SCI_SNR}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_APP_SCI_SNR}\\[0.3cm]
 Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -344,7 +344,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -359,7 +359,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_APP_SCI_CONTRAST_RADPROF}\\[0.3cm]
 Description: & Raw contrast curve for ADI observations; a radial light intensity profile normalized to the brightness of the star if it were not obscured by the coronagraph. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_APP_SCI_CONTRAST_RADPROF}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_APP_SCI_CONTRAST_RADPROF}\\[0.3cm]
 Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -368,7 +368,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: 1D Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -383,7 +383,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_APP_SCI_CONTRAST_ADI}\\[0.3cm]
 Description: & Post-ADI contrast curve for ADI observations  \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_APP_SCI_CONTRAST_ADI}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_APP_SCI_CONTRAST_ADI}\\[0.3cm]
 Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -392,7 +392,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: 1D Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -407,7 +407,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_APP_SCI_THROUGHPUT}\\[0.3cm]
 Description: & ADI throughput curve \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_APP_SCI_THROUGHPUT}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_APP_SCI_THROUGHPUT}\\[0.3cm]
 Created by: & \REC{metis_lm_adi_app}\\
 Input for:    & None \\
@@ -417,7 +417,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -432,7 +432,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_APP_CENTROID_TAB}\\[0.3cm]
 Description: & Table of source centroid positions for a sequence of ADI images \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_APP_CENTROID_TAB}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_APP_CENTROID_TAB}\\[0.3cm]
 Created by: & \REC{metis_lm_adi_app}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -441,7 +441,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{cpl\_table * table: table of centroid positions}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -494,7 +494,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{det_cgrph_SCI_CALIBRATED}\\[0.3cm]
 Description: & Coronagraphic image after distortion correction \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{det_cgrph_SCI_CALIBRATED}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{det_cgrph_SCI_CALIBRATED}\\[0.3cm]
 Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -503,7 +503,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -519,7 +519,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{det_cgrph_SCI_CENTRED}\\[0.3cm]
 Description: & Coronagraphic image after centering on the PSF and subpixel realignment \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{det_cgrph_SCI_CENTRED}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{det_cgrph_SCI_CENTRED}\\[0.3cm]
 Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -528,7 +528,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Image Cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -544,7 +544,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{det_cgrph_SCI_SPECKLE}\\[0.3cm]
 Description: & PSFZZZSpeckle image from coronagraphic data \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{det_cgrph_SCI_SPECKLE}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{det_cgrph_SCI_SPECKLE}\\[0.3cm]
 Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -553,7 +553,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -569,7 +569,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{det_cgrph_SCI_DEROTATED_PSFSUB}\\[0.3cm]
 Description: & Coronagraphic image after PSF subtraction, derotation and coaddition  \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{det_cgrph_SCI_DEROTATED_PSFSUB}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{det_cgrph_SCI_DEROTATED_PSFSUB}\\[0.3cm]
 Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -578,7 +578,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Image Cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -594,7 +594,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{det_cgrph_SCI_DEROTATED}\\[0.3cm]
 Description: & Coronagraphic image after derotation and coaddition \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{det_cgrph_SCI_DEROTATED}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{det_cgrph_SCI_DEROTATED}\\[0.3cm]
 Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -603,7 +603,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -619,7 +619,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{det_cgrph_SCI_COVERAGE}\\[0.3cm]
 Description: & Map of effective number of frames contributing to the final coronographic image \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{det_cgrph_SCI_COVERAGE}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{det_cgrph_SCI_COVERAGE}\\[0.3cm]
 Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -628,7 +628,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -644,7 +644,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{det_cgrph_SCI_SNR}\\[0.3cm]
 Description: & ADI SNR Map \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{det_cgrph_SCI_SNR}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{det_cgrph_SCI_SNR}\\[0.3cm]
 Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -653,7 +653,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -669,7 +669,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{det_cgrph_SCI_CONTRAST_RADPROF}\\[0.3cm]
 Description: & Raw contrast curve for ADI observations; a radial light intensity profile normalized to the brightness of the star if it were not obscured by the coronagraph. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{det_cgrph_SCI_CONTRAST_RADPROF}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{det_cgrph_SCI_CONTRAST_RADPROF}\\[0.3cm]
 Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -678,7 +678,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: 1D Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -694,7 +694,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{det_cgrph_SCI_CONTRAST_ADI}\\[0.3cm]
 Description: & Post-ADI contrast curve for ADI observations  \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{det_cgrph_SCI_CONTRAST_ADI}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{det_cgrph_SCI_CONTRAST_ADI}\\[0.3cm]
 Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -703,7 +703,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: 1D Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -720,7 +720,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{det_cgrph_CENTROID_TAB}\\[0.3cm]
 Description: & Table of source centroid positions for a sequence of ADI images \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{det_cgrph_CENTROID_TAB}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{det_cgrph_CENTROID_TAB}\\[0.3cm]
 Created by: & \REC{metis_img_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -729,7 +729,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
     \item \texttt{cpl\_table * table: table of centroid positions}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -747,7 +747,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_cgrph_SCI_CALIBRATED}\\[0.3cm]
 Description: & Coronagraphic image after distortion correction \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_cgrph_SCI_CALIBRATED}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_cgrph_SCI_CALIBRATED}\\[0.3cm]
 Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -756,7 +756,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image * image: IFU Datacube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -771,7 +771,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_cgrph_SCI_CENTRED}\\[0.3cm]
 Description: & Coronagraphic image after centering on the PSF and subpixel realignment \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_cgrph_SCI_CENTRED}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_cgrph_SCI_CENTRED}\\[0.3cm]
 Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -780,7 +780,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image * image: IFU Datacube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -795,7 +795,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_cgrph_SCI_SPECKLE}\\[0.3cm]
 Description: & PSFZZZSpeckle image from coronagraphic data \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_cgrph_SCI_SPECKLE}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_cgrph_SCI_SPECKLE}\\[0.3cm]
 Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -804,7 +804,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image * image: IFU Datacube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -819,7 +819,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_cgrph_SCI_DEROTATED_PSFSUB}\\[0.3cm]
 Description: & Coronagraphic image after PSF subtraction, derotation and coaddition  \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_cgrph_SCI_DEROTATED_PSFSUB}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_cgrph_SCI_DEROTATED_PSFSUB}\\[0.3cm]
 Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -828,7 +828,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: 4D IFU Cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -843,7 +843,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_cgrph_SCI_DEROTATED}\\[0.3cm]
 Description: & Coronagraphic image after derotation and coaddition \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_cgrph_SCI_DEROTATED}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_cgrph_SCI_DEROTATED}\\[0.3cm]
 Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -852,7 +852,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image * image: IFU Datacube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -867,7 +867,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_cgrph_SCI_COVERAGE}\\[0.3cm]
 Description: & Map of effective number of frames contributing to the final coronographic image \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_cgrph_SCI_COVERAGE}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_cgrph_SCI_COVERAGE}\\[0.3cm]
 Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -876,7 +876,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: IFU Datacube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -891,7 +891,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_cgrph_SCI_SNR}\\[0.3cm]
 Description: & ADI SNR Map \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_cgrph_SCI_SNR}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_cgrph_SCI_SNR}\\[0.3cm]
 Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -900,7 +900,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: IFU Datacube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -915,7 +915,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_cgrph_SCI_CONTRAST_RADPROF}\\[0.3cm]
 Description: & Raw contrast curve for ADI observations; a radial light intensity profile normalized to the brightness of the star if it were not obscured by the coronagraph. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_cgrph_SCI_CONTRAST_RADPROF}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_cgrph_SCI_CONTRAST_RADPROF}\\[0.3cm]
 Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -924,7 +924,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: 2D Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -939,7 +939,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_cgrph_SCI_CONTRAST_ADI}\\[0.3cm]
 Description: & Post-ADI contrast curve for ADI observations  \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_cgrph_SCI_CONTRAST_ADI}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_cgrph_SCI_CONTRAST_ADI}\\[0.3cm]
 Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -948,7 +948,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: 2D Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -995,7 +995,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_cgrph_CENTROID_TAB}\\[0.3cm]
 Description: & Table of central source centroids for an IFU cube  \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_cgrph_CENTROID_TAB}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_cgrph_CENTROID_TAB}\\[0.3cm]
 Created by: & \REC{metis_ifu_adi_cgrph}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -1004,7 +1004,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK}, \FITS{DRS.IFU})}
     \item \texttt{cpl\_table * table: table of centroid positions}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1022,7 +1022,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{det_cgrph_PSF_MEDIAN}\\[0.3cm]
 Description: & Median PSF \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{det_cgrph_PSF_MEDIAN}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{det_cgrph_PSF_MEDIAN}\\[0.3cm]
 Created by recipe: & \REC{metis_img_adi_cgrph}\\
 Input for recipe: & None\\
@@ -1031,7 +1031,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1043,7 +1043,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_APP_PSF_MEDIAN}\\[0.3cm]
 Description: & Median PSF \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_APP_PSF_MEDIAN}\\
-OCA keywords: & \FITS{PRO.CATG} \\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
 \FITS{DO.CATG}: & \CODE{LM_APP_PSF_MEDIAN}\\[0.3cm]
 Created by recipe: & \REC{metis_lm_adi_app}\\
 Input for recipe: & None\\
@@ -1052,7 +1052,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
- \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.MASK})}
     \item \texttt{hdrl\_image * image: Single Image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}

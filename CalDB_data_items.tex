@@ -140,7 +140,7 @@ Depending on context, a \PROD{MASTER_DARK_det} can refer to either a
 Name: & \PROD{MASTER_DARK_2RG}\\[0.3cm]
 Description: & Master dark frame for LM detector data \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MASTER_DARK_2RG} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{MASTER_DARK_2RG}\\[0.3cm]
 %Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by: & \REC{metis_det_dark} \\
@@ -160,7 +160,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -175,7 +175,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{MASTER_DARK_GEO}\\[0.3cm]
 Description: & Master dark frame for N detector data \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MASTER_DARK_GEO} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{MASTER_DARK_GEO}\\[0.3cm]
 %Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by: & \REC{metis_det_dark} \\
@@ -196,7 +196,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -213,7 +213,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{RSRF_IFU}\\[0.3cm]
 Description: & 2D relative spectral response function \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{RSRF_IFU}\\
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{RSRF_IFU}\\[0.3cm]
 Created by: & \REC{metis_ifu_rsrf}\\
 Input for:    & \REC{metis_ifu_reduce} \\
@@ -223,7 +223,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images with spectral response of each pixel}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
@@ -249,7 +249,7 @@ Depending on context, a \PROD{det_DISTORTION_TABLE} can refer to either a
 Name: & \PROD{LM_DISTORTION_TABLE}\\[0.3cm]
 Description: & Table of distortion information\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_DISTORTION_TABLE} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_DISTORTION_TABLE}\\[0.3cm]
 Created by: & \REC{metis_lm_img_distortion} \\
 Input for:    & \REC{metis_lm_img_calibrate} \\
@@ -262,7 +262,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{cpl\_table * table}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -275,7 +275,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{N_DISTORTION_TABLE}\\[0.3cm]
 Description: & Table of distortion information\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_DISTORTION_TABLE} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{N_DISTORTION_TABLE}\\[0.3cm]
 Created by: & \REC{metis_n_img_distortion} \\
 Input for:    & \REC{metis_n_img_calibrate} \\
@@ -287,7 +287,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -309,7 +309,7 @@ Depending on context, a \PROD{det_DISTORTION_MAP} can refer to either a
 Name: & \PROD{LM_DISTORTION_MAP}\\[0.3cm]
 Description: & Map of pixel scale across the detector\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_DISTORTION_MAP} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_DISTORTION_MAP}\\[0.3cm]
 %Template: & \TPL{METIS_img_lm_cal_distortion}\\
 Created by: & \REC{metis_lm_img_distortion} \\
@@ -320,7 +320,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{cpl\_image * map}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -334,7 +334,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{N_DISTORTION_MAP}\\[0.3cm]
 Description: & Map of pixel scale across the detector\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_DISTORTION_MAP} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{N_DISTORTION_MAP}\\[0.3cm]
 %Template: & \TPL{METIS_img_n_cal_distortion}\\
 Created by: & \REC{metis_n_img_distortion}\\
@@ -345,7 +345,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{cpl\_image * map}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
