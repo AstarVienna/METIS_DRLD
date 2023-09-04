@@ -11,7 +11,7 @@ Description: & Raw exposure of the \ac{WCU} laser sources through the \ac{IFU} t
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IFU} \\
 \FITS{DPR.TYPE}: & \CODE{WAVE} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{IFU}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_WAVE_RAW}\\[0.3cm]
 Template: & \TPL{METIS_ifu_cal_InternalWave}\\
 Input for:    & \REC{metis_ifu_wavecal} \\
@@ -22,7 +22,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -38,7 +38,7 @@ Description: & Raw flats taken with black-body calibration lamp.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IFU} \\
 \FITS{DPR.TYPE}: & \CODE{RSRF} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{IFU}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_RSRF_RAW}\\[0.3cm]
 Template: & \TPL{METIS_ifu_cal_rsrf}\\
 Input for recipe: & \REC{metis_ifu_rsrf}\\
@@ -49,7 +49,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -65,7 +65,7 @@ Description: & Images of multi-pinhole mask.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IFU} \\
 \FITS{DPR.TYPE}: & \CODE{DISTORTION} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{IFU}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_DISTORTION_RAW}\\[0.3cm]
 Template: & \TPL{METIS_ifu_cal_distortion}\\
 Input for recipe: & \REC{metis_ifu_distortion}\\
@@ -76,7 +76,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -92,7 +92,7 @@ Description: & Raw spectra of flux standard star.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IFU} \\
 \FITS{DPR.TYPE}: & \CODE{STD} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{IFU}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_STD_RAW}\\[0.3cm]
 Template: & \TPL{METIS_ifu_cal_standard}\\
 Input for recipe: & \REC{metis_ifu_reduce}\\
@@ -103,7 +103,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images for each nod/offset position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -119,7 +119,7 @@ Description: & IFU raw exposure of a science object.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{SCIENCE}\\
 \FITS{DPR.TECH}: & \CODE{IFU} \\
 \FITS{DPR.TYPE}: & \CODE{OBJECT} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{IFU}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
                      & \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
@@ -138,7 +138,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images for each nodding/offset position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -154,7 +154,7 @@ Description: & Blank sky exposure, optional. \\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IFU} \\
 \FITS{DPR.TYPE}: & \CODE{SKY} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{IFU}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_SKY_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
                      & \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
@@ -173,7 +173,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images for each nodding/offset position}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -193,7 +193,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{MASTER_DARK_IFU}\\[0.3cm]
 Description: & Master dark frame for IFU detector data \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MASTER_DARK_IFU} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{MASTER_DARK_IFU}\\[0.3cm]
 %Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by: & \REC{metis_det_dark} \\
@@ -206,7 +206,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** images: Four images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -220,7 +220,7 @@ Name: & \PROD{MASTER_FLAT_IFU}\\[0.3cm]
 Description: & Master flat frame for IFU image data \\[0.3cm]
 \FITS{DO.CATG}: & \CODE{MASTER_FLAT_IFU}\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MASTER_FLAT_IFU}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 Created by: & \REC{metis_ifu_rsrf} \\
 Input for recipes: & None\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -228,7 +228,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image * image: Four images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -241,7 +241,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_WAVECAL}\\[0.3cm]
 Description: & Image with wavelength at each pixel. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_WAVECAL}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_WAVECAL}\\[0.3cm]
 Created by: & \REC{metis_ifu_wavecal}\\
 Input for:    & \REC{metis_ifu_rsrf} \\
@@ -252,7 +252,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images with wavelength of each pixel}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
@@ -289,7 +289,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_STD_BACKGROUND}\\[0.3cm]
 Description: & Reduced 2D detector image of background. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_STD_BACKGROUND}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_STD_BACKGROUND}\\[0.3cm]
 Created by: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -298,7 +298,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
@@ -314,7 +314,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_STD_REDUCED}\\[0.3cm]
 Description: & Reduced 2D detector image of standard star. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_STD_REDUCED}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_STD_REDUCED}\\[0.3cm]
 Created by: & \REC{metis_ifu_reduce}\\
 Input for:    & None \\
@@ -324,7 +324,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
@@ -337,7 +337,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_STD_REDUCED_CUBE}\\[0.3cm]
 Description: & Reduced 2D detector image of spectroscopic flux standard star. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_STD_REDUCED_CUBE}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_STD_REDUCED_CUBE}\\[0.3cm]
 Created by: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -346,7 +346,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
@@ -381,7 +381,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_STD_REDUCED_1D}\\[0.3cm]
 Description: & Spectrum of a reduced telluric standard star. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_STD_REDUCED_1D}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_STD_REDUCED_1D}\\[0.3cm]
 Created by: & \REC{metis_ifu_telluric}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -390,7 +390,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{cpl\_table * image: table}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -405,7 +405,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_TELLURIC}\\[0.3cm]
 Description: & Telluric absorption correction. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_TELLURIC}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_TELLURIC}\\[0.3cm]
 Created by: & \REC{metis_ifu_telluric}\\
 Input for:    & \REC{metis_ifu_calibrate} \\
@@ -415,7 +415,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{cpl\_table * image: table}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -441,7 +441,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_SCI_REDUCED}\\[0.3cm]
 Description: & Reduced 2D detector image of science object. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED}\\[0.3cm]
 Created by: & \REC{metis_ifu_reduce}\\
 Input for:    & \REC{metis_ifu_calibrate} \\
@@ -452,7 +452,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
@@ -466,7 +466,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_SCI_BACKGROUND}\\[0.3cm]
 Description: & Reduced 2D detector image of background. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_SCI_BACKGROUND}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_BACKGROUND}\\[0.3cm]
 Created by: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -475,7 +475,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image ** image: Four images}
     \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
 \end{enumerate}
@@ -516,7 +516,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_SCI_REDUCED_CUBE}\\[0.3cm]
 Description: &  A rectified spectral cube with a linear wavelength grid. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED_CUBE}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED_CUBE}\\[0.3cm]
 Created by: & \REC{metis_ifu_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -525,7 +525,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_imagelist * image: Spectral cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -542,7 +542,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_SCI_CUBE_CALIBRATED}\\[0.3cm]
 Description: &  A telluric absorption corrected rectified spectral cube with a linear wavelength grid. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_SCI_CUBE_CALIBRATED}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_CUBE_CALIBRATED}\\[0.3cm]
 Created by: & \REC{metis_ifu_calibrate}\\
 Input for:    & \REC{metis_ifu_postprocess} \\
@@ -552,7 +552,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_imagelist * image: Spectral cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -566,7 +566,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_SCI_COMBINED}\\[0.3cm]
 Description: & Spectral cube of science object, combining multiple exposures. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_SCI_COMBINED}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_COMBINED}\\[0.3cm]
 Created by: & \REC{metis_ifu_reduce}\\
 Input for:    & \REC{metis_ifu_telluric} \\
@@ -576,7 +576,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_imagelist * image: Spectral cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -588,7 +588,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_STD_COMBINED}\\[0.3cm]
 Description: & Spectral cube of standard star, combining multiple exposures. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_STD_COMBINED}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_STD_COMBINED}\\[0.3cm]
 Created by: & \REC{metis_ifu_reduce}\\
 Input for:    & \REC{metis_ifu_telluric} \\
@@ -598,7 +598,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_imagelist * image: Spectral cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -639,7 +639,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_SCI_REDUCED_1D}\\[0.3cm]
 Description: & Spectrum of science object. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_SCI_REDUCED_1D}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_REDUCED_1D}\\[0.3cm]
 Created by: & \REC{metis_ifu_telluric}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -648,7 +648,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{cpl\_table * image: table}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -694,7 +694,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_SCI_COADD}\\[0.3cm]
 Description: &  Spectral cube of science object, a coadd of a number of reduced IFU exposures covering a different spatial and wavelength ranges. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_SCI_COADD}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_SCI_COADD}\\[0.3cm]
 Created by:   & \REC{metis_ifu_postprocess} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -703,7 +703,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_imagelist * image: Spectral cube}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -741,7 +741,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{IFU_DIST_REDUCED}\\[0.3cm]
 Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{IFU_DIST_REDUCED}\\
-OCA keywords: & \FITS{PRO.CATG}, \FITS{IFU}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{IFU_DIST_REDUCED}\\[0.3cm]
 Created by: & \REC{metis_ifu_distortion}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -750,7 +750,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{IFU})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
     \item \texttt{cpl\_table * table: Distortion table}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
