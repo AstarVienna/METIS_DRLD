@@ -15,7 +15,11 @@ Description: & Gain map\\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{GAIN_MAP_det}\\[0.3cm]
 Created by recipe: & \REC{metis_det_lingain} \\
-Input for:    & \REC{metis_LM_lss_rsrf} \\
+Input for:    & \REC{metis_ifu_wavecal} \\
+              & \REC{metis_ifu_reduce} \\
+              & \REC{metis_lm_img_basic_reduce} \\
+              & \REC{metis_n_img_chopnod} \\
+              & \REC{metis_LM_lss_rsrf} \\
               & \REC{metis_LM_lss_trace} \\
               & \REC{metis_LM_lss_wave} \\
               & \REC{metis_LM_lss_std} \\
@@ -24,6 +28,7 @@ Input for:    & \REC{metis_LM_lss_rsrf} \\
               & \REC{metis_N_lss_trace} \\
               & \REC{metis_N_lss_std} \\
               & \REC{metis_N_lss_sci} \\
+              & \REC{metis_pupil_imaging} \\
               & \REC{metis_img_chophome} \\
               & \REC{metis_lm_adc_slitloss} \\
               & \REC{metis_n_adc_slitloss} \\
@@ -407,8 +412,9 @@ Description: & Table of pinhole locations. \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{PINHOLE_TABLE}\\[0.3cm]
 % TODO: Source
-Used in recipes: & \REC{metis_lm_img_distortion}\\
-                 & \REC{metis_n_img_distortion}\\
+Input for:    & \REC{metis_ifu_distortion} \\
+              & \REC{metis_lm_img_distortion} \\
+              & \REC{metis_n_img_distortion} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
