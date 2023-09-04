@@ -64,10 +64,7 @@ compensation of any neutral density transmission).
 %                        & Coronagraphic throughput map and profile         \\
                        & \PROD{LM_cgrph_SCI_THROUGHPUT} or \PROD{N_cgrph_SCI_THROUGHPUT} \\
                        & \RAW{LM_OFF_AXIS_PSF_RAW} or \RAW{N_OFF_AXIS_PSF_RAW}\\
-   Matched keywords:   & Detector ID             \\
-                       & Filter ID               \\
-                       & Object ID               \\
-                       & coronagraphic mask      \\
+   Matched keywords:   & \FITS{DRS.MASK} \\
   Parameters:          & combination method (median, mean, sigclip, \dots) \\
                        & parameters for combination method         \\
                        & resampling method \\
@@ -162,10 +159,7 @@ the effective number of included frames.
   Input data:          & \PROD{LM_SCI_BASIC_REDUCED}                            \\
                        & \PROD{LM_DISTORTION_TABLE} \\
                        & \RAW{LM_OFF_AXIS_PSF_RAW}                                                  \\
-   Matched keywords:   & Detector ID             \\
-                       & Filter ID               \\
-                       & Object ID               \\
-                       & coronagraphic mask      \\
+   Matched keywords:   & \FITS{DRS.MASK} \\
    Parameters:         & combination method (median, mean, sigclip, \dots) \\
                        & parameters for combination method         \\
                        & resampling method \\
@@ -283,9 +277,7 @@ PSFs. In addition coverage maps are produced.
 %                        & Coronagraphic throughput map and profile                                                  \\
                        & \PROD{IFU_cgrph_SCI_THROUGHPUT} \\
                        & \RAW{IFU_OFF_AXIS_PSF_RAW} \\
-   Matched keywords:   & Detector ID             \\
-                       & Filter ID               \\
-                       & Object ID               \\
+   Matched keywords:   & \FITS{DRS.MASK} \\
   Parameters:          & combination method (median, mean, sigclip, \dots)\\
                        & parameters for combination method        \\
                        & resampling method \\

@@ -94,7 +94,10 @@ A table extension holds the polynomial coefficients.
                        & \PROD{MASTER_DARK_IFU}             \\
 %                       & \PROD{BADPIX_MAP_IFU}               \\
                        & \PROD{IFU_DISTORTION_TABLE}   \\
-  Parameters:          & None                                                                    \\
+Matched Keywords: & \FITS{DET.DIT}\\
+                  & \FITS{DET.NDIT}\\
+                  & \FITS{DRS.IFU}\\
+Parameters:          & None                                                                    \\
   Algorithm:           & Measure line locations (left and right edges, centroid by Gaussian fit).\\
                        & Compute deviation from optical models.                                  \\
                        & Compute wavelength solution $\xi(x, y, i)$, $\lambda(x, y, i)$.         \\
@@ -146,6 +149,9 @@ Input data:          & \RAW{IFU_RSRF_RAW} (Raw flats taken with black-body calib
                      & \PROD{MASTER_DARK_IFU}              \\
 %                     & \PROD{BADPIX_MAP_IFU}                                                    \\
                      & \PROD{IFU_WAVECAL}: image with wavelength at each pixel.                 \\
+Matched Keywords: & \FITS{DET.DIT}\\
+                  & \FITS{DET.NDIT}\\
+                  & \FITS{DRS.IFU}\\
 Parameters:          & None                                                                     \\
 Algorithm:           & Create continuum image by mapping Planck spectrum at $T_{\mathrm{lamp}}$ to
                        wavelength image.                                                        \\
@@ -351,6 +357,9 @@ Input data:          & \RAW{IFU_SCI_RAW} or \RAW{IFU_STD_RAW}                   
                      & \PROD{RSRF_IFU} (2D relative spectral response function)                                 \\
 %                     & \PROD{BADPIX_MAP_IFU}                                                                    \\
                      & \PROD{IFU_WAVECAL}                                                                       \\
+Matched Keywords: & \FITS{DET.DIT}\\
+                  & \FITS{DET.NDIT}\\
+                  & \FITS{DRS.IFU}\\
 % TODO: I believe this should not be just FLUXCAL_TAB as it is not a table but an image
 %                     & \PROD{FLUXCAL_TAB} (Flux calibration table) \\
                      & \PROD{IFU_DISTORTION_TABLE} \\
@@ -441,6 +450,9 @@ science data if both are available and of sufficient quality.
                        & \EXTCALIB{FLUXSTD_CATALOG} (photometric standard catalogue)                     \\
                        & \STATCALIB{LSF_KERNEL} -- Line spread kernel to be used with \CODE{molecfit}    \\
                        & \EXTCALIB{ATM_PROFILE} -- Atmospheric input profile to be used with \CODE{molecfit} \\
+Matched Keywords: & \FITS{DET.DIT}\\
+                  & \FITS{DET.NDIT}\\
+                  & \FITS{DRS.IFU}\\
   Parameters:          & extraction aperture parameters                                                  \\
                        & \CODE{molecfit} parameters                                                      \\
                        & atmospheric profile incl.\ radiometer data                                      \\
@@ -492,6 +504,7 @@ calibration data to use; this recipe simply performs the calibration.
   Input data:          & \PROD{IFU_SCI_REDUCED} -- reduced IFU cube                                      \\
                        & \PROD{FLUXCAL_TAB}                                                              \\
                        & \STATCALIB{IFU_TELLURIC}                                                        \\
+Matched Keywords: & \FITS{DRS.IFU}\\
   Algorithm:           & Correct for telluric absorption.                                                \\
                        & Apply flux calibration.                                                         \\
   Output data:         & \PROD{IFU_SCI_CUBE_CALIBRATED}                                                  \\
@@ -556,6 +569,7 @@ observatory.
   Type:           & Science                                                                    \\
   Templates:      & None                                                                       \\
   Input data:     & \PROD{IFU_SCI_CUBE_CALIBRATED}                                             \\
+Matched Keywords: & \FITS{DRS.IFU}\\
 %  or \PROD{IFU_SCI_REDUCED_TAC}
   Parameters:     & None                                                                       \\
   Algorithm:      & Call \DRL{ifu_grid_output} to find the output grid encompassing all input cubes \\
@@ -598,6 +612,7 @@ indication of the variation of spectral resolution across the field of view.
   Type:                & Calibration                                                                 \\
   Templates:           & \TPL{METIS_ifu_cal_distortion}                                              \\
   Input data:          & \RAW{IFU_DISTORTION_RAW} (Images of multi-pinhole mask.) \\
+Matched Keywords: & \FITS{DRS.IFU}\\
   Parameters:          & None                                                                        \\
   Algorithm:           & Calculate table mapping pixel position to position on sky.                  \\
   Output data:         & \PROD{IFU_DISTORTION_TABLE}                                                 \\

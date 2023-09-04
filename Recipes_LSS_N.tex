@@ -38,6 +38,9 @@ Input data:     & $N\times$ \RAW{N_LSS_RSRF_RAW} \\
                 & \PROD{GAIN_MAP_GEO}  \\
                 & \PROD{BADPIX_MAP_GEO}   \\
                 & \PROD{MASTER_DARK_GEO}  \\
+Matched Keywords & \FITS{DET.DIT} \\
+                 & \FITS{DET.NDIT}\\
+                 & \FITS{DRS.SLIT}\\
 Parameters: 	& exposure time\\
 Algorithm:      & subtract master \ac{WCU} "OFF" frame from illumination frame (done on individual images)\\
                 & median/mean filtering of subtracted images\\
@@ -81,6 +84,9 @@ Input data:     & $N\times$ \RAW{N_LSS_RSRF_PINH_RAW} \\
                 & \PROD{BADPIX_MAP_GEO}   \\
                 & \PROD{MASTER_DARK_GEO}  \\
                 &  \PROD{MASTER_N_LSS_RSRF} \\
+Matched Keywords & \FITS{DET.DIT} \\
+                 & \FITS{DET.NDIT}\\
+                 & \FITS{DRS.SLIT}\\
 Parameters: 	& exposure time\\
 Algorithm:      & Detection of the order edges\\
                 & Polynomial fitting\\
@@ -136,6 +142,9 @@ Input data: 	& \RAW{N_LSS_STD_RAW}\\
                 & \EXTCALIB{ATM_LINE_CAT} \\
                 & \STATCALIB{N_ADC_SLITLOSS}\\
                 & \STATCALIB{REF_STD_CAT} \\                
+Matched Keywords & \FITS{DET.DIT} \\
+                 & \FITS{DET.NDIT}\\
+                 & \FITS{DRS.SLIT}\\
 Parameters: 	& exposure time, target information, nodding(/chopping parameters\\
 Algorithm:      & Application of master calibration files\\
                 & Determination and application of the wavelength solution\\
@@ -218,6 +227,9 @@ Input data: 	& \RAW{N_LSS_SCI_RAW}\\
                 %& \EXTCALIB{AO_PSF_MODEL} \\
                 & \STATCALIB{N_ADC_SLITLOSS}\\
                 & \PROD{MASTER_N_RESPONSE} \\
+Matched Keywords & \FITS{DET.DIT} \\
+                 & \FITS{DET.NDIT}\\
+                 & \FITS{DRS.SLIT}\\
 Parameters: 	& exposure time, target information, nodding(/chopping parameters\\
 Algorithm:      & Application of the detector master calib files\\
                 & wavelength calibration \\
@@ -282,6 +294,7 @@ Input data: 	& \PROD{N_LSS_SCI_FLUX_1D}\\
                 & \STATCALIB{LSF_KERNEL} \\
                 & \EXTCALIB{ATM_PROFILE} \\
                 & \EXTCALIB{ATM_LINE_CAT} \\
+Matched Keywords & \FITS{DRS.SLIT}\\
 Parameters: 	& \texttt{molecfit} parameters (c.f. \cite{molecfit})\\
 Algorithm:      & Fit of telluric features visible in the science input spectrum\\
                 & Determination of best-fit parameter set\\
@@ -312,6 +325,7 @@ Input data: 	& \PROD{MF_BEST_FIT_TAB}\\
                 & \STATCALIB{LSF_KERNEL} \\
                 & \EXTCALIB{ATM_PROFILE} \\
                 & \EXTCALIB{ATM_LINE_CAT} \\
+Matched Keywords & \FITS{DRS.SLIT}\\
 Parameters: 	& \texttt{molecfit} parameters (c.f.  \cite{molecfit})\\
 Algorithm:      & Calculate the entire transmission curve by means of the best-fit parameters\\
 Output data:	& \PROD{N_LSS_SYNTH_TRANS}\\
@@ -340,6 +354,7 @@ Requirements: & METIS-4051, METIS-6091 \\
 Templates:           & None\\
 Input data: 	& \PROD{N_LSS_SCI_FLUX_1D}\\
                 & \PROD{N_LSS_SYNTH_TRANS}\\
+Matched Keywords & \FITS{DRS.SLIT}\\
 Parameters: 	& None\\
 Algorithm:      & Apply telluric correction, i.e. divide the input science spectrum\\
                 & by the synthetic transmission\\
