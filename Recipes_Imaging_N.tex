@@ -56,6 +56,7 @@ otherwise a new one is created.
                        & \TPL{METIS_img_n_cal_TwilightFlat}                               \\
   Input data:          & \RAW{N_FLAT_LAMP_RAW} or \RAW{N_FLAT_TWILIGHT_RAW} \\
                        & \PROD{MASTER_DARK_GEO} (for twilight flats)                               \\
+                       & \PROD{GAIN_MAP_GEO}\\
 %                       & \PROD{BADPIX_MAP_GEO}                                                  \\
   Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                   \\
@@ -137,7 +138,8 @@ The edges of the N-band detector will be behind a cold mask on all four sides.
                      & \STATCALIB{LINEARITY_GEO} \\
                      & \EXTCALIB{PERSISTENCE_MAP} \\
                      & \PROD{MASTER_IMG_FLAT_LAMP_N} \\
-                     & or \PROD{MASTER_IMG_FLAT_TWILIGHT_N} \\
+                        & \PROD{GAIN_MAP_GEO}\\
+                    & or \PROD{MASTER_IMG_FLAT_TWILIGHT_N} \\
   Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                   \\
                        & \FITS{DRS.FILTER}                                                     \\
@@ -191,6 +193,7 @@ following~\cite{visir_manual}.
 %  Templates:           & \TPL{METIS_img_n_cal_standard}                                                \\
   Input data:          & \PROD{N_STD_BKG_SUBTRACTED}                                                   \\
                        & \EXTCALIB{FLUXSTD_CATALOG} \\
+                       & \PROD{GAIN_MAP_GEO}\\
   Matched keywords:    & \FITS{DRS.FILTER} \\
   Parameters:          & None                                                                          \\
   Algorithm:           & call \DRL{n_calculate_std_flux} to measure the flux in all beams\\

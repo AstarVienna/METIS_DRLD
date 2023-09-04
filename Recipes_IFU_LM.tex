@@ -94,6 +94,7 @@ A table extension holds the polynomial coefficients.
                        & \PROD{MASTER_DARK_IFU}             \\
 %                       & \PROD{BADPIX_MAP_IFU}               \\
                        & \PROD{IFU_DISTORTION_TABLE}   \\
+                       & \PROD{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DET.DIT}\\
                   & \FITS{DET.NDIT}\\
                   & \FITS{DRS.IFU}\\
@@ -149,6 +150,7 @@ Input data:          & \RAW{IFU_RSRF_RAW} (Raw flats taken with black-body calib
                      & \PROD{MASTER_DARK_IFU}              \\
 %                     & \PROD{BADPIX_MAP_IFU}                                                    \\
                      & \PROD{IFU_WAVECAL}: image with wavelength at each pixel.                 \\
+                       & \PROD{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DET.DIT}\\
                   & \FITS{DET.NDIT}\\
                   & \FITS{DRS.IFU}\\
@@ -357,6 +359,7 @@ Input data:          & \RAW{IFU_SCI_RAW} or \RAW{IFU_STD_RAW}                   
                      & \PROD{RSRF_IFU} (2D relative spectral response function)                                 \\
 %                     & \PROD{BADPIX_MAP_IFU}                                                                    \\
                      & \PROD{IFU_WAVECAL}                                                                       \\
+                       & \PROD{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DET.DIT}\\
                   & \FITS{DET.NDIT}\\
                   & \FITS{DRS.IFU}\\
@@ -612,6 +615,8 @@ indication of the variation of spectral resolution across the field of view.
   Type:                & Calibration                                                                 \\
   Templates:           & \TPL{METIS_ifu_cal_distortion}                                              \\
   Input data:          & \RAW{IFU_DISTORTION_RAW} (Images of multi-pinhole mask.) \\
+                       & \CODE{PINHOLE_TABLE} \\
+                       & \PROD{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DRS.IFU}\\
   Parameters:          & None                                                                        \\
   Algorithm:           & Calculate table mapping pixel position to position on sky.                  \\

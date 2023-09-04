@@ -46,7 +46,8 @@ otherwise a new one is created.
   Input data:          & \RAW{LM_FLAT_LAMP_RAW} \\
                        & or \RAW{LM_FLAT_TWILIGHT_RAW} \\
                        & \PROD{MASTER_DARK_2RG} (for twilight flats) \\
-%                       & \PROD{BADPIX_MAP_2RG} \\
+  %                       & \PROD{BADPIX_MAP_2RG} \\
+                       & \PROD{GAIN_MAP_2RG}\\
   Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                  \\
                        & \FITS{DRS.FILTER}                                                     \\
@@ -142,7 +143,8 @@ Basic statistics of the images can be used to screen for saturation.
                     & \EXTCALIB{PERSISTENCE_MAP} \\
                     & \PROD{MASTER_DARK_2RG} \\
                     & \PROD{MASTER_IMG_FLAT_LAMP_LM} \\
-                    & or \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
+                        & \PROD{GAIN_MAP_2RG}\\
+                   & or \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
     Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                   \\
                        & \FITS{DRS.FILTER}                                                     \\
