@@ -900,8 +900,6 @@ Description: & Science grade detrended exposure of the LM image mode.\\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_SCI_BASIC_REDUCED}\\[0.3cm]
 Input for:    & \REC{metis_lm_img_background} \\
-              & \REC{metis_img_adi_cgrph} \\
-              & \REC{metis_lm_adi_app} \\
 Produced by recipe: & \REC{metis_lm_img_basic_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
@@ -927,7 +925,6 @@ OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},
 %             & \TPL{METIS_img_n_*_obs_*}       \\
 Produced by recipe: & \REC{metis_n_img_chopnod} \\
 Input for:    & \REC{metis_n_img_calibrate} \\
-              & \REC{metis_img_adi_cgrph} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -978,7 +975,9 @@ OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 % Template: & \TPL{METIS_img_lm_cal_standard}\\
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
 Created by:   & \REC{metis_lm_img_calibrate} \\
-Input for:    & \REC{metis_lm_img_sci_postprocess} \\
+Input for:    & \REC{metis_img_adi_cgrph} \\
+              & \REC{metis_lm_adi_app} \\
+              & \REC{metis_lm_img_sci_postprocess} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -1004,7 +1003,8 @@ OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 % Template: & \TPL{METIS_img_n_cal_standard}\\
 %             & \TPL{METIS_img_n_*_obs_*}       \\
 Created by:   & \REC{metis_n_img_calibrate} \\
-Input for:    & \REC{metis_n_img_restore} \\
+Input for:    & \REC{metis_img_adi_cgrph} \\
+              & \REC{metis_n_img_restore} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
