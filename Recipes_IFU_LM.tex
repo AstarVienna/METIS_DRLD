@@ -359,14 +359,14 @@ Input data:          & \RAW{IFU_SCI_RAW} or \RAW{IFU_STD_RAW}                   
                      & \PROD{RSRF_IFU} (2D relative spectral response function)                                 \\
 %                     & \PROD{BADPIX_MAP_IFU}                                                                    \\
                      & \PROD{IFU_WAVECAL}                                                                       \\
-                       & \PROD{GAIN_MAP_IFU}\\
-Matched Keywords: & \FITS{DET.DIT}\\
-                  & \FITS{DET.NDIT}\\
-                  & \FITS{DRS.IFU}\\
 % TODO: I believe this should not be just FLUXCAL_TAB as it is not a table but an image
 %                     & \PROD{FLUXCAL_TAB} (Flux calibration table) \\
                      & \PROD{IFU_DISTORTION_TABLE} \\
 %                     & \STATCALIB{LSF_KERNEL} (Line spread kernel to be used with \CODE{molecfit}) \\
+                     & \PROD{GAIN_MAP_IFU}                                                                      \\
+Matched Keywords: & \FITS{DET.DIT}\\
+                  & \FITS{DET.NDIT}\\
+                  & \FITS{DRS.IFU}\\
 Parameters:          & telluric correction (yes/no)                                                             \\
 %                     & more TBD                                                                                 \\
 Algorithm:           & Subtract dark, divide by master flat                                                     \\
