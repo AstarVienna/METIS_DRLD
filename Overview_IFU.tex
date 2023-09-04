@@ -23,29 +23,6 @@ these directions are swapped.
 
 The association map is shown in Fig.~\ref{Fig:IfuAssomap}.
 
-% Discussion moved to https://github.com/AstarVienna/METIS_DRLD/issues/100
-% \TODO{
-% We will consider rearranging the recipes to be in line with the
-% imaging pipelines. This would entail handling basic reduction and
-% background subtraction for of both science and standard exposures in
-% common recipes (\CODE{metis_ifu_basic}, \CODE{metis_ifu_background}),
-% then having a recipe to analyse the standard observations
-% (\CODE{metis_ifu_std_process}). The science exposures are then fully
-% calibrated (\CODE{metis_ifu_calibrate}). A full set of exposures would
-% then be assembled and restored with a fully sampled PSF in a
-% post-processing recipe (\CODE{metis_ifu_combine}).
-% }
-
-Two more changes are foreseen in the IFU recipe cascade:
-\begin{itemize}
-    % https://github.com/AstarVienna/METIS_DRLD/issues/110
-    \item Allow telluric standard stars to be used, similarly to the LSS workflow, and
-
-    % https://github.com/AstarVienna/METIS_DRLD/issues/100
-    \item Refactor the recipes such that the common processing steps are in a shared recipe, similarly to the imaging workflows.
-\end{itemize}
-
-
 \newgeometry{bottom=0.5cm, right=0.1cm, left=0.1cm}
 % This geometry makes the tables/figures fit, but messes up the header a bit.
 \begin{landscape}
@@ -58,8 +35,7 @@ Two more changes are foreseen in the IFU recipe cascade:
     a full list of products refer to the recipe descriptions in
     Sect.~\ref{ssec:IFU_recipes}. The dashed line separates
     calibration tasks that are done at AIT or infrequently during
-    operations from tasks done daily. The prefix ``\texttt{metis\_}'' has been
-    omitted from the recipe names to improve clarity.}
+    operations from tasks done daily.}
   \label{Fig:IfuAssomap}
 \end{figure}
 \end{landscape}
