@@ -92,6 +92,7 @@ The following additional critical algorithms were identified in the period betwe
 Persistence is a major issue in modern IR detectors, in particular in the Hawaii2RG devices (HgCdTe based, see Fig.~\ref{fig:h2rg_persistence} [taken from LBT website\footnote{\url{https://sites.google.com/a/lbto.org/luci/instrument-characteristics/detector\#TOC-Persistence}\label{fn:persistence}}]).
 This detector type also shows significant differences between the individual chips.
 Fortunately, this pattern can be corrected via simple subtraction as a very first step.
+The calculation of the peristence correction is implemented in \REC{metis_det_persistence}.
 The GeoSnap detector is expected to not suffer from persistence (see~\cite{Leisenring_2023}).
 %due to the CTIA circuitry.
 % [Roy] recalls also Derek mentioning that he could not see any signs of persistence in the date he investigated. "
@@ -228,7 +229,7 @@ ruled out since \ac{PDR}.
 %     N-band: Standard chop and nod using telescope chopper and internal nodder. See VISIR pipeline.
 % }
 
-\subsubsection{LM bands}
+\subsubsection{LM bands}\label{sssec:lmbandsbackgroundsubtracion}
 Small ($< 5 \arcsec$) and slow (1 min timescale) dithered offsets of the field with respect to the LM IMG or \ac{IFU} detector are expected to be performed by the METIS-internal chopper mirror.
 The pipeline will determine the sky background from the dithered images and produce background maps without the sources and background-subtracted versions of the maps with the sources.
 For In-field-dithering, this is done by determining a flux scaling factor for each ``dither'' position, aligning the exposures (by either using a 2d cross-correlation routine on bright sources or by using the offset values applied to the chopper), scaling the frames to a common median and removing objects by rejecting the highest and lowest pixels.
@@ -237,6 +238,7 @@ The sky subtraction is further improved by following the previous steps to produ
 Then the background frames are combined again while excluding the sources positions.
 The best approach to determine the flux scaling factor of each dither exposure is yet to be determined (e.g.\ by median scaling or by a 2D/PCA approach based on~\cite{Hunziker2018}).
 The pipeline would also support sky subtraction using separate sky images for out-of-field dithering modes, i.e.\ when the observed field is crowded or full of extended emission.
+The background determination is implemented in \REC{metis_lm_img_background}.
 
 \subsubsection{N bands}\label{sssec:nbandsbackgroundsubtracion}
 To ensure proper background sampling at the longer wavelengths, small ($< 5 \arcsec$) and fast ($\approx 10 \mathrm{Hz}$) chopping offsets of the field with respect to the N IMG detector are expected to be performed by the METIS-internal chopper mirror.
@@ -254,6 +256,8 @@ There might be extensive spatial modulation (dithering) within a nod half cycle.
 That is, the 3-point chop pattern is repeated a few times, then the slightly move the central position is moved slightly after which the 3-point chop pattern is repeated.
 This is done several times in a nod-half cycle, and then repeated in the same pattern in the other nod position after the nod is performed.
 This is to mitigate the (many) bad/hot pixels in the GeoSnap array, therefore chop-cycle frames will be subtracted such that the bad pixels can be worked around.
+
+The algorithm is implemented in \REC{metis_n_img_chopnod}.
 
 \subsection{Wavelength calibration and distortion correction}\label{ssec:criticalwavelengthanddistortion}
 The wavelength calibration and distortion correction critical algorithm is split in a LSS part (Section~\ref{ssec:criticalwavelengthanddistortionlss}) and an IFU part (Section~\ref{ssec:criticalwavelengthanddistortionifu}).
@@ -420,6 +424,7 @@ chop throw will be supported.
 Large sources can be accomodated with a larger chop-offset to benefit the
 background subtraction.
 
+The algorithm is implemented in \REC{metis_n_img_restore}.
 
 % We will
 % investigate these algorithms until FDR, taking into account the
@@ -447,6 +452,8 @@ width (i.e.~7\,mas) in both spatial directions, which would be
 sufficient for a full sampling of the PSF. How to implement this
 reconstruction and to what extent the information can be recovered
 from real data needs to be investigated.
+
+The algorithm is implemented in \REC{metis_ifu_reduce}.
 
 \begin{figure}[hb]
   \centering

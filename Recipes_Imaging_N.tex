@@ -108,13 +108,15 @@ This recipe combines a set of exposures taken at all positions of a
 defined chop-nod pattern and adds/subtracts them into a single
 chop/nod difference image. Depending on the actual chop-nod pattern,
 this image will contain one or more positive and negative beams.
+See Section~\ref{sssec:nbandsbackgroundsubtracion} for more information
+on the background subtraction.
 
 The GeoSnap detectors will have a substantial number of bad pixels.
 The N-band observations therefore require extensive dithering to mitigated bad pixels.
 The master flat will have to be divided into the chop half-cycle images before the dither correction is applied.
 
 % https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-3091
-This recipe analyses the masked detector regions for channel offset correction, crosstalk (see~\cite{matisse_minutes}) and removal of detector artefacts (electronic ghosts).
+This recipe analyses the masked detector regions for channel offset correction, crosstalk (see Section~\ref{ssec:criticaldetetctormasks}) and removal of detector artefacts (electronic ghosts).
 The edges of the N-band detector will be behind a cold mask on all four sides.
 %The width of the mask will be at least 26 pixels and no larger than 32 pixels.
 
@@ -291,7 +293,9 @@ chop-nod difference image into a single positive image of the
 source. For compact sources with a size smaller than half the distance
 between the beams, it suffices to cut out small regions around the
 source images and add the with the appropriate signs to obtain a
-single image. Extended sources are beyond the scope of the pipeline.
+single image. Extended sources, that is, sources larger than the chop offset,
+are beyond the scope of the pipeline.
+For more information see Section~\ref{ssec:criticalnbandimagerestoration}.
 
 \begin{recipedef}
   Name:              & \REC{metis_n_img_restore}                                     \\
