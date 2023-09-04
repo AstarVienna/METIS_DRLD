@@ -168,28 +168,36 @@ level aliases used for convenience when there are several combinations
 of instrumental keywords which are needed to match with the correct
 calibration files.
 
-  {\footnotesize
-\begin{longtable}    [c]{|p{3cm}|p{4cm}|p{4cm}|}
-      \caption{FITS keyword aliases}
-  	\endfirsthead
-     \hline
-DRS.FILTER	& Filter Information (LM or N)	& value of INS.OPTI10.NAME or INS.OPTI13.NAME\\
-DRS.NDFILTER	& ND Filter information	        & value of INS.OPTI11.NAME or INS.OPTI13.NAME\\
-DRS.SLIT	& Slit Information (LM or N)	& value of INS.OPTI3.NAME and INS.OPTI12.NAME or  INS.OPTI9.NAME\\
-DRS.MASK	& Mask information for Coronagraphy	& value of INS.OPTI1.NAME, INS.OPTI3.NAME, INS.OPTI5.NAME, INS.OPTI9.NAME, INS.OPTI12.NAME \\
-DRS.PUPIL	& Pupil information	& value of INS.OPTI15.NAME or INS.OPTI16.NAME\\
+\begin{table}
+    \caption{FITS keyword aliases}
+  \begin{tabular}[c]{|p{3cm}|p{5cm}|p{5cm}|}
+      \hline
+      \textbf{Alias} & \textbf{Description} & \textbf{FITS keywords} \\
+      \hline
+\FITS{DRS.FILTER}   & Filter Information (LM or N)  & value of \FITS{INS.OPTI10.NAME} or \FITS{INS.OPTI13.NAME} \\
+\FITS{DRS.NDFILTER} & ND Filter information	        & value of \FITS{INS.OPTI11.NAME} or \FITS{INS.OPTI13.NAME} \\
+\FITS{DRS.SLIT}     & Slit Information (LM or N)    & value of \FITS{INS.OPTI3.NAME} and \FITS{INS.OPTI12.NAME} or  \FITS{INS.OPTI9.NAME} \\
+\FITS{DRS.MASK}     & Mask information for Coronagraphy	& value of \FITS{INS.OPTI1.NAME}, \FITS{INS.OPTI3.NAME}, \FITS{INS.OPTI5.NAME}, \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI12.NAME} \\
+\FITS{DRS.PUPIL}    & Pupil information             & value of \FITS{INS.OPTI15.NAME} or \FITS{INS.OPTI16.NAME}\\
 \hline
-    \end{longtable}
-  }
+    \end{tabular}
+\end{table}
 
 
 \newgeometry{bottom=0.1cm, right=0.1cm, left=0.1cm, top=0.1cm}
 \begin{landscape}
-{\scriptsize
-  \begin{longtable}[c]{|p{4.2cm}|p{3.6cm}|p{3.6cm}|p{2.5cm}|p{2.5cm}|}
+{
+  \begin{longtable}[c]{|p{4.2cm}|p{4.6cm}|p{5.6cm}|p{3.5cm}|p{3.5cm}|}
+%  \begin{longtable}[c]{|l|l|l|l|l|}
  \caption{FITS matched keywords summary}
-\endfirsthead
-\hline
+ \endfirsthead
+ \hline
+ \textbf{Recipe} & \textbf{Main Input} & \textbf{Calibration Data} & \textbf{FITS keywords} & \textbf{Aliases} \\
+ \hline
+    \endhead
+ \hline
+ \textbf{Recipe} & \textbf{Main Input} & \textbf{Calibration Data} & \textbf{FITS keywords} & \textbf{Aliases} \\
+ \hline
 \REC{metis_det_lingain} & \RAW{DETLIN_det_RAW}, \RAW{det_WCU_OFF_RAW} &  &  &  \\
 \REC{metis_det_dark} & \RAW{DARK_det_RAW} & \PROD{LINEARITY_det}, \PROD{PERSISTENCE_MAP} &  &  \\
 \REC{metis_det_persistence} &  &  &  &  \\
