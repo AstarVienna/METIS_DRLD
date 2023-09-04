@@ -40,7 +40,7 @@ Purpose: & Correcting for differences in gain.\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{PRO.TECH},  \FITS{DET.ID})}
-    \item \texttt{hdrl\_image ** image: Images image}
+    \item \texttt{hdrl\_image * images[]: Images image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
@@ -77,7 +77,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}}
-    \item \texttt{cpl\_image ** image: one image per detector with only the data quality layer in use}
+    \item \texttt{cpl\_image * images[]: one image per detector with only the data quality layer in use}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
@@ -124,8 +124,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}}
-    \item \texttt{hdrl\_image ** image: list of images with coefficients for the non-linearity correction}
-    \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
+    \item \texttt{hdrl\_image * images[]: list of images with coefficients for the non-linearity correction}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
 
@@ -229,8 +229,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
-    \item \texttt{hdrl\_image ** image: Four images with spectral response of each pixel}
-    \item \texttt{cpl\_propertylist ** plistarray[]: Extension keywords}
+    \item \texttt{hdrl\_image * images[]: Four images with spectral response of each pixel}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
 
