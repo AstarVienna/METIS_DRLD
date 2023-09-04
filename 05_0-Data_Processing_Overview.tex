@@ -155,13 +155,23 @@ Any interactivity in the workflows is described with the individual recipes.
 
 \subsection{Matched FITS keywords}
 
+The workflow management system (e.g. \ac{EDPS}) uses the `matched keywords'
+to find calibration data when processing data.
+That is, the system will compare the FITS keywords of the primary input, to
+the FITS headers of the pool of possible calibration files to use, in order
+to decide what data to use.
+For example, most calibration data has to be taken with the same \FITS{DET.DIT}
+and \FITS{DET.NDIT} combination as the science data, and some, but not all,
+need to use the same filter, or the same mask, or the same grism.
+
 The following two tables provide an overview of the matched FITS
-keywords. The first table defines several high level keyword
-aliases used for convenience when  when there are several combinations
+keywords. Table~\ref{tab:fitskeywordaliasses} defines several high level keyword
+aliases used for convenience when there are several combinations
 of instrumental keywords (INS.) which are needed to match with the correct
 calibration files. These keywords are used in the Matched Keyword
-descriptions in the recipes in Chapter~\ref{sec:pipeline_recipes}. The
-second table summaries the input data, calibration files, and the FITS
+descriptions in the recipes in Chapter~\ref{sec:pipeline_recipes}.
+Table~\cite{tab:fitsmatchedkeywordssummary}
+summaries the input data, calibration files, and the FITS
 keyworlds needed to match them for all the recipes listed in
 Chapter~\ref{sec:pipeline_recipes}. The second defines various high
 level aliases used for convenience when there are several combinations
@@ -170,6 +180,7 @@ calibration files.
 
 \begin{table}
     \caption{FITS keyword aliases}
+    \label{tab:fitskeywordaliasses}
   \begin{tabular}[c]{|p{3cm}|p{5cm}|p{5cm}|}
       \hline
       \textbf{Alias} & \textbf{Description} & \textbf{FITS keywords} \\
@@ -190,6 +201,7 @@ calibration files.
   \begin{longtable}[c]{|p{4.2cm}|p{4.6cm}|p{5.6cm}|p{3.5cm}|p{3.5cm}|}
 %  \begin{longtable}[c]{|l|l|l|l|l|}
  \caption{FITS matched keywords summary}
+ \label{tab:fitsmatchedkeywordssummary}
  \endfirsthead
  \hline
  \textbf{Recipe} & \textbf{Main Input} & \textbf{Calibration Data} & \textbf{FITS keywords} & \textbf{Aliases} \\
