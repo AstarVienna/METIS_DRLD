@@ -118,19 +118,24 @@ In case a persistence correction is required, a subtraction of a persistence map
 %Is there an API endpoint for this?}
 
 
-\subsection{Detector Masks}\label{ssec:criticaldetetctormasks}
+\subsection{Crosstalk Correction via Detector Masks}\label{ssec:criticaldetetctormasks}
 
-In MATISSE the engineers created specific masks covering 32 pixels at the edge of the Aquarius detector, which was prone to crosstalk.
-Crosstalk probably arises from the shared series buses in the detector readout electronics (see Figure on page 8 in~\cite{matisse_minutes}).
-For the METIS detectors similar masks as in MATISSE are forseen in order to correct for crosstalk (cf. Polarion METIS-3093).
+In METIS, H2RG detectors are used as system detectors.  However, H2RG systems are known to produce crosstalk (or ghost signal) 
+in a readout image.  In MATISSE, a physical 32-pixel wide mask was installed at the edge of its Aquarius detector 
+(see Figure on page 8 in~\cite{matisse_minutes}).  For the METIS detectors similar masks (Fig.~\ref{fig:detmasks}) as in 
+MATISSE are foreseen in order to correct for crosstalk (cf. Polarion \REQ{METIS-3093}).
+
+Crosstalk arises from the shared series buses in the detector readout electronics (see Fig.~\ref{fig:crosstalk2} and 
+Figure on page 8 in~\cite{matisse_minutes}).
+
 In~\cite{matisse_minutes}, the correction is described as follows:
 
 \begin{displayquote}
     Cross-talk correction is done in two steps using the masked pixels in the vertical direction, which are equivalent to two masked outputs.
     \begin{itemize}
-        \item Step 1 : The whole line is corrected by an offset.
-        \item Step 2 : Each pixel is corrected using the corresponding masked pixel in terms of raw
-            number in the two vertical masked outputs.
+        \item Step 1 : Use the masked pixels to correct bias offsets between series buses.
+        \item Step 2 : Pixels are corrected using the corresponding masked pixels in terms of raw
+            number in the two vertical masked outputs.  
     \end{itemize}
 \end{displayquote}
 
