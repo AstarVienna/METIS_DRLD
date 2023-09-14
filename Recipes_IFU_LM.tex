@@ -94,6 +94,7 @@ A table extension holds the polynomial coefficients.
                        & \PROD{MASTER_DARK_IFU}             \\
 %                       & \PROD{BADPIX_MAP_IFU}               \\
                        & \PROD{IFU_DISTORTION_TABLE}   \\
+                       & \PROD{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DET.DIT}\\
                   & \FITS{DET.NDIT}\\
                   & \FITS{DRS.IFU}\\
@@ -149,6 +150,7 @@ Input data:          & \RAW{IFU_RSRF_RAW} (Raw flats taken with black-body calib
                      & \PROD{MASTER_DARK_IFU}              \\
 %                     & \PROD{BADPIX_MAP_IFU}                                                    \\
                      & \PROD{IFU_WAVECAL}: image with wavelength at each pixel.                 \\
+%                       & \PROD{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DET.DIT}\\
                   & \FITS{DET.NDIT}\\
                   & \FITS{DRS.IFU}\\
@@ -303,7 +305,7 @@ The recipe produces the following (intermediate) data products:
   width.
 \item A spectral cube obtained by combining all exposures taken within
   a template. This step involves the image reconstruction discussed in
-  Sect.~8.9 of~\cite{DRLS}.
+  Section~\ref{ssec:image_reconstruction}.
 % TODO: Decide on the below.
 %  Whether this step is included
 %  in the present recipe \REC{metis_ifu_sci_process} or is postponed to
@@ -357,13 +359,14 @@ Input data:          & \RAW{IFU_SCI_RAW} or \RAW{IFU_STD_RAW}                   
                      & \PROD{RSRF_IFU} (2D relative spectral response function)                                 \\
 %                     & \PROD{BADPIX_MAP_IFU}                                                                    \\
                      & \PROD{IFU_WAVECAL}                                                                       \\
-Matched Keywords: & \FITS{DET.DIT}\\
-                  & \FITS{DET.NDIT}\\
-                  & \FITS{DRS.IFU}\\
 % TODO: I believe this should not be just FLUXCAL_TAB as it is not a table but an image
 %                     & \PROD{FLUXCAL_TAB} (Flux calibration table) \\
                      & \PROD{IFU_DISTORTION_TABLE} \\
 %                     & \STATCALIB{LSF_KERNEL} (Line spread kernel to be used with \CODE{molecfit}) \\
+                     & \PROD{GAIN_MAP_IFU}                                                                      \\
+Matched Keywords: & \FITS{DET.DIT}\\
+                  & \FITS{DET.NDIT}\\
+                  & \FITS{DRS.IFU}\\
 Parameters:          & telluric correction (yes/no)                                                             \\
 %                     & more TBD                                                                                 \\
 Algorithm:           & Subtract dark, divide by master flat                                                     \\
@@ -530,7 +533,6 @@ Matched Keywords: & \FITS{DRS.IFU}\\
 \clearpage
 \subsubsection{\REC*{metis_ifu_postprocess}: IFU science postprocessing}
 \label{sssec:ifu_sci_postprocess}\label{sssec:ifu_postprocess}
-\label{rec:metis_ifu_sci_postprocess}
 \label{rec:metis_ifu_postprocess}
 
 This recipe combines a number of reduced IFU exposures covering a
@@ -612,6 +614,8 @@ indication of the variation of spectral resolution across the field of view.
   Type:                & Calibration                                                                 \\
   Templates:           & \TPL{METIS_ifu_cal_distortion}                                              \\
   Input data:          & \RAW{IFU_DISTORTION_RAW} (Images of multi-pinhole mask.) \\
+                       & \EXTCALIB{PINHOLE_TABLE} \\
+%                       & \PROD{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DRS.IFU}\\
   Parameters:          & None                                                                        \\
   Algorithm:           & Calculate table mapping pixel position to position on sky.                  \\

@@ -10,7 +10,7 @@ Description: & Raw exposure of the LM image mode.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{SCIENCE}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,LM} \\
 \FITS{DPR.TYPE}: & \CODE{OBJECT} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_IMAGE_SCI_RAW}\\[0.3cm]
 % TODO: Some of the offset templates also produce a SKY or PSF observation that should also be processed
 Template: & \TPL{METIS_img_lm_obs_AutoJitter} \\
@@ -38,7 +38,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -52,7 +52,7 @@ Description: & Raw exposure of a standard star in the LM image mode.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,LM} \\
 \FITS{DPR.TYPE}: & \CODE{STD} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_IMAGE_STD_RAW}\\[0.3cm]
 Template:  & \TPL{METIS_img_lm_cal_standard} \\
            & \TPL{METIS_ifu_cal_standard}\\
@@ -62,7 +62,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -78,7 +78,7 @@ Description: & Raw exposure of the N image mode.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{SCIENCE}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,N} \\
 \FITS{DPR.TYPE}: & \CODE{OBJECT} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{N_IMAGE_SCI_RAW}\\[0.3cm]
 Template:            & \TPL{METIS_img_n_obs_AutoChopNod}                            \\
                      & \TPL{METIS_img_n_obs_GenericChopNod}                         \\
@@ -94,7 +94,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -108,7 +108,7 @@ Description: & Raw exposure of the N image mode.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,N} \\
 \FITS{DPR.TYPE}: & \CODE{OBJECT} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{N_IMAGE_STD_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_standard}\\
 Input for recipe: & \REC{metis_n_img_chopnod} \\
@@ -117,7 +117,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -131,7 +131,7 @@ Description: & Raw exposure of the LM image mode.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,LM} \\
 \FITS{DPR.TYPE}: & \CODE{CHOPHOME} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_CHOPPERHOME_RAW}\\[0.3cm]
 % TODO: Some of the offset templates also produce a SKY or PSF observation that should also be processed
 Template: & \TPL{METIS_img_lm_cal_ChopperHome} \\
@@ -143,7 +143,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -165,7 +165,7 @@ Description: & Raw data for non-linearity determination for LM observations.\\[0
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,LM}\\
 \FITS{DPR.TYPE}: & \CODE{DETLIN}\\
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE} \\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DRS.FILTER} \\
 \FITS{DO.CATG}: & \CODE{DETLIN_2RG_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_img_lm_cal_DetLin} \\
 Input for recipe: & \REC{metis_det_lingain}\\
@@ -174,7 +174,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -188,7 +188,7 @@ Description: & Raw data for non-linearity determination.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,N}\\
 \FITS{DPR.TYPE}: & \CODE{DETLIN}\\
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE} \\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DRS.FILTER} \\
 \FITS{DO.CATG}: & \CODE{DETLIN_GEO_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_img_n_cal_DetLin} \\
 Input for recipe: & \REC{metis_det_lingain}\\
@@ -197,7 +197,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -211,7 +211,7 @@ Description: & Raw data for non-linearity determination.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IFU}\\
 \FITS{DPR.TYPE}: & \CODE{DETLIN}\\
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE} \\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{DETLIN_IFU_RAW}\\[0.3cm]
 Templates: & \TPL{METIS_ifu_cal_DetLin} \\
 Input for recipe: & \REC{metis_det_lingain}\\
@@ -220,7 +220,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -244,7 +244,7 @@ Description: & Raw data for creating a master dark.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,LM}\\
 \FITS{DPR.TYPE}: & \CODE{DARK}\\
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DET.ID}, \FITS{DET.DIT}  \\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DET.ID}, \FITS{DET.DIT}, \FITS{DRS.FILTER}  \\
 \FITS{DO.CATG}: & \CODE{DARK_2RG_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_gen_cal_dark}                                                       \\
                      & \TPL{METIS_gen_cal_InsDark} \\
@@ -254,7 +254,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -268,7 +268,7 @@ Description: & Raw data for creating a master dark.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,N}\\
 \FITS{DPR.TYPE}: & \CODE{DARK}\\
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DET.ID}, \FITS{DET.DIT}  \\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DET.ID}, \FITS{DET.DIT}, \FITS{DRS.FILTER}  \\
 \FITS{DO.CATG}: & \CODE{DARK_GEO_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_gen_cal_dark}                                                       \\
                      & \TPL{METIS_gen_cal_InsDark} \\
@@ -278,7 +278,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -292,7 +292,7 @@ Description: & Raw data for creating a master dark.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IFU}\\
 \FITS{DPR.TYPE}: & \CODE{DARK}\\
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DET.ID}, \FITS{DET.DIT}  \\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DET.ID}, \FITS{DET.DIT}, \FITS{DRS.IFU}  \\
 \FITS{DO.CATG}: & \CODE{DARK_IFU_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_gen_cal_dark}                                                       \\
                      & \TPL{METIS_gen_cal_InsDark} \\
@@ -302,7 +302,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -366,7 +366,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -380,7 +380,7 @@ Description: & Raw data for dark subtraction in other recipes.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IFU}\\
 \FITS{DPR.TYPE}: & \CODE{DARK,WCUOFF}\\
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE} \\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE}, \FITS{DRS.IFU} \\
 \FITS{DO.CATG}: & \CODE{IFU_WCU_OFF_RAW}\\[0.3cm]
 Templates:             & \TPL{METIS_ifu_cal_DetLin}                                                          \\
 Input for:    & \REC{metis_det_lingain} \\
@@ -389,7 +389,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.IFU})}
     \item \texttt{hdrl\_image * image: image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -405,7 +405,7 @@ Description: & Flat field image taken with lamp or sky. \\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,LM} \\
 \FITS{DPR.TYPE}: & \CODE{FLAT,LAMP} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_FLAT_LAMP_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_InternalFlat}\\
 Input for recipe: & \REC{metis_lm_img_flat}\\
@@ -414,8 +414,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME})}
-    \item \texttt{hdrl\_image ** image: Four images}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.FILTER})}
+    \item \texttt{hdrl\_image * images[]: Four images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
@@ -428,7 +428,7 @@ Description: & Flat field image taken with lamp or sky. \\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,LM} \\
 \FITS{DPR.TYPE}: & \CODE{FLAT,TWILIGHT} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_FLAT_TWILIGHT_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_TwilightFlat}                               \\
 Input for recipe: & \REC{metis_lm_img_flat}\\
@@ -437,8 +437,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME})}
-    \item \texttt{hdrl\_image ** image: Four images}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.FILTER})}
+    \item \texttt{hdrl\_image * images[]: Four images}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
@@ -451,7 +451,7 @@ Description: & Flat field image taken with lamp. \\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,N} \\
 \FITS{DPR.TYPE}: & \CODE{FLAT,LAMP} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{N_FLAT_LAMP_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_InternalFlat}\\
 Input for recipe: & \REC{metis_n_img_flat}\\
@@ -460,7 +460,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Singe image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -474,7 +474,7 @@ Description: & Flat field image taken with sky. \\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,N} \\
 \FITS{DPR.TYPE}: & \CODE{FLAT,TWILIGHT} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{N_FLAT_TWILIGHT_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_TwilightFlat}                               \\
 Input for recipe: & \REC{metis_n_img_flat}\\
@@ -483,7 +483,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Singe image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -498,7 +498,7 @@ Description: & Images of grid mask in WCU-FP2 or CFO-FP2.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,LM} \\
 \FITS{DPR.TYPE}: & \CODE{DISTORTION} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_DISTORTION_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_lm_cal_distortion}\\
 Input for recipe: & \REC{metis_lm_img_distortion}\\
@@ -509,7 +509,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -524,7 +524,7 @@ Description: & Images of grid mask in WCU-FP2 or CFO-FP2.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,N} \\
 \FITS{DPR.TYPE}: & \CODE{DISTORTION} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{N_DISTORTION_RAW}\\[0.3cm]
 Template: & \TPL{METIS_img_n_cal_distortion}\\
 Input for recipe: & \REC{metis_n_img_distortion}\\
@@ -535,7 +535,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -550,7 +550,7 @@ Description: & Raw exposure of the pupil in LM image mode.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{TECHNICAL}\\
 \FITS{DPR.TECH}: & \CODE{PUP,M} \\
 \FITS{DPR.TYPE}: & \CODE{PUPIL} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.PUPIL}\\
 \FITS{DO.CATG}: & \CODE{LM_PUPIL_RAW}\\[0.3cm]
 Template: & \TPL{METIS_pup_lm}\\
 Input for recipe: & \REC{metis_pupil_imaging}\\
@@ -561,7 +561,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.PUPIL})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -577,7 +577,7 @@ Description: & Raw exposure of the the pupil in N image mode.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{TECHNICAL}\\
 \FITS{DPR.TECH}: & \CODE{PUP,N} \\
 \FITS{DPR.TYPE}: & \CODE{PUPIL} \\[0.3cm]
-OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.PUPIL}\\
 \FITS{DO.CATG}: & \CODE{N_PUPIL_RAW}\\[0.3cm]
 Template: & \TPL{METIS_pup_n}\\
 Input for recipe: & \REC{metis_pupil_imaging} \\
@@ -588,7 +588,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.PUPIL})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -616,7 +616,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{MASTER_IMG_FLAT_LAMP_LM}\\[0.3cm]
 Description: & Master flat frame for LM image data \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MASTER_IMG_FLAT_LAMP_LM} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{MASTER_IMG_FLAT_LAMP_LM}\\[0.3cm]
 %Template: & \TPL{METIS_lm_img_flat}\\
 Created by: & \REC{metis_lm_img_flat} \\
@@ -629,7 +629,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -641,7 +641,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{MASTER_IMG_FLAT_TWILIGHT_LM}\\[0.3cm]
 Description: & Master flat frame for LM image data \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MASTER_IMG_FLAT_TWILIGHT_LM} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{MASTER_IMG_FLAT_TWILIGHT_LM}\\[0.3cm]
 %Template: & \TPL{METIS_lm_img_flat}\\
 Created by: & \REC{metis_lm_img_flat} \\
@@ -652,7 +652,7 @@ Input for:    & \REC{metis_lm_img_basic_reduce} \\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -664,7 +664,7 @@ Input for:    & \REC{metis_lm_img_basic_reduce} \\
 Name: & \PROD{MASTER_IMG_FLAT_LAMP_N}\\[0.3cm]
 Description: & Master flat frame for N image data \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MASTER_IMG_FLAT_LAMP_N} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{MASTER_IMG_FLAT_LAMP_N}\\[0.3cm]
 %Template: & \TPL{METIS_n_img_flat}\\
 Created by: & \REC{metis_n_img_flat} \\
@@ -677,7 +677,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -689,7 +689,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{MASTER_IMG_FLAT_TWILIGHT_N}\\[0.3cm]
 Description: & Master flat frame for N image data \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MASTER_IMG_FLAT_TWILIGHT_N} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{MASTER_IMG_FLAT_TWILIGHT_N}\\[0.3cm]
 %Template: & \TPL{METIS_n_img_flat}\\
 Created by: & \REC{metis_n_img_flat} \\
@@ -701,7 +701,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -716,7 +716,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_STD_BASIC_REDUCED}\\[0.3cm]
 Description: & Standard detrended exposure of the LM image mode.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_STD_BASIC_REDUCED}\\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_STD_BASIC_REDUCED}\\[0.3cm]
 Produced by recipe: & \REC{metis_lm_img_basic_reduce}\\
 Input for recipe: & \REC{metis_lm_img_background} \\
@@ -725,7 +725,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -738,7 +738,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_SCI_BKG}\\[0.3cm]
 Description: & Thermal background of science LM exposures.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_SCI_BKG}\\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_SCI_BKG}\\[0.3cm]
 Produced by recipe: & \REC{metis_lm_img_background}\\
 %Input for recipe: & \REC{metis_lm_img_calibrate} \\
@@ -771,7 +771,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -784,7 +784,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_SCI_BKG_SUBTRACTED}\\[0.3cm]
 Description: & Thermal background subtracted images of science LM exposures.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_SCI_BKG_SUBTRACTED}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_SCI_BKG_SUBTRACTED}\\[0.3cm]
 % Template: & \TPL{METIS_img_lm_cal_standard}\\
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
@@ -797,7 +797,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -810,7 +810,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_STD_BKG_SUBTRACTED}\\[0.3cm]
 Description: & Thermal background subtracted images of standard LM exposures.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_STD_BKG_SUBTRACTED}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_STD_BKG_SUBTRACTED}\\[0.3cm]
 % Template: & \TPL{METIS_img_lm_cal_standard}\\
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
@@ -823,7 +823,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -839,7 +839,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{N_STD_BKG_SUBTRACTED}\\[0.3cm]
 Description: & Thermal background subtracted images of standard N exposures.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_STD_BKG_SUBTRACTED}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{N_STD_BKG_SUBTRACTED}\\[0.3cm]
 % Template: & \TPL{METIS_img_n_cal_standard}\\
 %             & \TPL{METIS_img_n_*_obs_*}       \\
@@ -852,7 +852,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -866,7 +866,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_STD_OBJECT_CAT}\\[0.3cm]
 Description: & Catalog of masked objects in standard LM exposures.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_STD_OBJECT_CAT} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_STD_OBJECT_CAT}\\[0.3cm]
 % Template: & \TPL{METIS_img_lm_cal_standard}\\_*_
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
@@ -878,7 +878,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -897,18 +897,16 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_SCI_BASIC_REDUCED}\\[0.3cm]
 Description: & Science grade detrended exposure of the LM image mode.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_SCI_BASIC_REDUCED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_SCI_BASIC_REDUCED}\\[0.3cm]
 Input for:    & \REC{metis_lm_img_background} \\
-              & \REC{metis_img_adi_cgrph} \\
-              & \REC{metis_lm_adi_app} \\
 Produced by recipe: & \REC{metis_lm_img_basic_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -921,13 +919,12 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{N_SCI_BKG_SUBTRACTED}\\[0.3cm]
 Description: & Thermal background subtracted images of science N exposures.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_SCI_BKG_SUBTRACTED}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{N_SCI_BKG_SUBTRACTED}\\[0.3cm]
 % Template: & \TPL{METIS_img_n_cal_standard}\\
 %             & \TPL{METIS_img_n_*_obs_*}       \\
 Produced by recipe: & \REC{metis_n_img_chopnod} \\
 Input for:    & \REC{metis_n_img_calibrate} \\
-              & \REC{metis_img_adi_cgrph} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -935,7 +932,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -948,7 +945,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_SCI_OBJECT_CAT}\\[0.3cm]
 Description: & Catalog of masked objects in science LM exposures.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_SCI_OBJECT_CAT} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_SCI_OBJECT_CAT}\\[0.3cm]
 % Template: & \TPL{METIS_img_lm_cal_standard}\\
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
@@ -960,7 +957,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -973,12 +970,14 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_SCI_CALIBRATED}\\[0.3cm]
 Description: & LM band image with flux calibration, WC coordinate system and distorion information\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_SCI_CALIBRATED}\\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_SCI_CALIBRATED}\\[0.3cm]
 % Template: & \TPL{METIS_img_lm_cal_standard}\\
 %             & \TPL{METIS_img_lm_*_obs_*}       \\
 Created by:   & \REC{metis_lm_img_calibrate} \\
-Input for:    & \REC{metis_lm_img_sci_postprocess} \\
+Input for:    & \REC{metis_img_adi_cgrph} \\
+              & \REC{metis_lm_adi_app} \\
+              & \REC{metis_lm_img_sci_postprocess} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -986,7 +985,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -999,12 +998,13 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{N_SCI_CALIBRATED}\\[0.3cm]
 Description: & N band image with flux calibration and distorion information\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_SCI_CALIBRATED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{N_SCI_CALIBRATED}\\[0.3cm]
 % Template: & \TPL{METIS_img_n_cal_standard}\\
 %             & \TPL{METIS_img_n_*_obs_*}       \\
 Created by:   & \REC{metis_n_img_calibrate} \\
-Input for:    & \REC{metis_n_img_restore} \\
+Input for:    & \REC{metis_img_adi_cgrph} \\
+              & \REC{metis_n_img_restore} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
@@ -1012,7 +1012,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1025,7 +1025,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_SCI_COADD}\\[0.3cm]
 Description: & Coadded, mosaiced LM image. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_SCI_COADD} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_SCI_COADD}\\[0.3cm]
 Input for recipe: & None \\
 Produced by recipe: & \REC{metis_lm_img_sci_postprocess}\\
@@ -1034,7 +1034,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1046,7 +1046,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{N_SCI_RESTORED}\\[0.3cm]
 Description: & N band image with a single positive beam restored from chop-nod image\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_SCI_RESTORED}\\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{N_SCI_RESTORED}\\[0.3cm]
 % Template: & \TPL{METIS_img_n_cal_standard}\\
 %             & \TPL{METIS_img_n_*_obs_*}       \\
@@ -1058,7 +1058,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1082,7 +1082,7 @@ Depending on context, a \PROD{det_DIST_REDUCED} can refer to either a
 Name: & \PROD{LM_DIST_REDUCED}\\[0.3cm]
 Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_DIST_REDUCED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_DIST_REDUCED}\\[0.3cm]
 %Template: & \TPL{METIS_img_lm_cal_distortion}\\
 Created by: & \REC{metis_lm_img_distortion}\\
@@ -1093,7 +1093,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{cpl\_table * table}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1109,7 +1109,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{N_DIST_REDUCED}\\[0.3cm]
 Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_DIST_REDUCED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{N_DIST_REDUCED}\\[0.3cm]
 %Template: & \TPL{METIS_img_n_cal_distortion}\\
 Created by: & \REC{metis_n_img_distortion}\\
@@ -1120,7 +1120,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
     \item \texttt{cpl\_table * table}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1135,7 +1135,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_PUPIL_REDUCED}\\[0.3cm]
 Description: & Reduced pupil image in LM mode. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_PUPIL_REDUCED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.PUPIL}\\
 \FITS{DO.CATG}: & \CODE{LM_PUPIL_REDUCED}\\[0.3cm]
 Input for recipe: & None \\
 Produced by recipe: & \REC{metis_pupil_imaging}\\
@@ -1144,7 +1144,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.PUPIL})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1157,7 +1157,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{N_PUPIL_REDUCED}\\[0.3cm]
 Description: & Reduced pupil image in N mode. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_PUPIL_REDUCED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}\\
+OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.PUPIL}\\
 \FITS{DO.CATG}: & \CODE{N_PUPIL_REDUCED}\\[0.3cm]
 Input for recipe: & None \\
 Produced by recipe: & \REC{metis_pupil_imaging}\\
@@ -1168,7 +1168,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.PUPIL})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
@@ -1183,7 +1183,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Name: & \PROD{LM_STD_COMBINED}\\[0.3cm]
 Description: & Stacked LM band exposures. \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_STD_COMBINED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{LM_STD_COMBINED}\\[0.3cm]
 Input for recipe: & None \\
 Produced by recipe: & \REC{metis_lm_img_std_process}\\
@@ -1192,7 +1192,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{datastructdef}
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG})}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.FILTER})}
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}

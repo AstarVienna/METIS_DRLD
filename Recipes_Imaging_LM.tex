@@ -46,7 +46,8 @@ otherwise a new one is created.
   Input data:          & \RAW{LM_FLAT_LAMP_RAW} \\
                        & or \RAW{LM_FLAT_TWILIGHT_RAW} \\
                        & \PROD{MASTER_DARK_2RG} (for twilight flats) \\
-%                       & \PROD{BADPIX_MAP_2RG} \\
+  %                       & \PROD{BADPIX_MAP_2RG} \\
+%                       & \PROD{GAIN_MAP_2RG}\\
   Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                  \\
                        & \FITS{DRS.FILTER}                                                     \\
@@ -101,7 +102,7 @@ This recipe performs the basic reduction of raw exposures from the
 LM-band imager, i.e.\ dark subtraction, flat fielding and other removing
 instrumental signals. It is used for both standard and science exposures.
 
-This recipe analyses the masked detector regions for channel offset correction, crosstalk (see~\cite{matisse_minutes}) and removal of detector artefacts (electronic ghosts).
+This recipe analyses the masked detector regions for channel offset correction, crosstalk (Section~\ref{ssec:criticaldetetctormasks}) and removal of detector artefacts (electronic ghosts).
 In the horizontal dimension, the masked pixels are used to correct for each channel offset.
 In the vertical dimension, the masked pixels are used to correct for cross-talk.
 % From Rof https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-6089
@@ -142,7 +143,8 @@ Basic statistics of the images can be used to screen for saturation.
                     & \EXTCALIB{PERSISTENCE_MAP} \\
                     & \PROD{MASTER_DARK_2RG} \\
                     & \PROD{MASTER_IMG_FLAT_LAMP_LM} \\
-                    & or \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
+                        & \PROD{GAIN_MAP_2RG}\\
+                   & or \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
     Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                   \\
                        & \FITS{DRS.FILTER}                                                     \\
@@ -204,6 +206,8 @@ robust estimator of the mean (e.g.\ median).
 
 For extended objects, all out-of-field exposures will be averaged
 (with object rejection) and subtracted off the in-field exposures.
+
+For more information see Section~\ref{sssec:lmbandsbackgroundsubtracion}.
 
 % Moved to https://github.com/AstarVienna/METIS_DRLD/issues/99
 % \TODO{Object catalogues of the target exposures could be created within this

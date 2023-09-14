@@ -5,13 +5,14 @@
 %% 2020-05-27: initialised from specification document (OC)
 %% 2020-09-07: MTR release (OC)
 %% 2202-07-01: v0.4 Internal Review (HB)
+\RequirePackage[l2tabu, orthodox]{nag}
 
 \newcommand{\doctitle}{%
   \parbox[t]{\textwidth}{Data Reduction Library\\Design}}
 \newcommand{\docnumber}	{E-REP-AST-MET-1006}     % Document number
 %% Email from Sander: "... set them all to issue 1-0 and only include update dates in the changelog.
-\newcommand{\issuenumber}{1-0}                % Version
-\newcommand{\issuedate}{2023-08-08}              % Date
+\newcommand{\issuenumber}{1.0}                % Version
+\newcommand{\issuedate}{2023-09-05}              % Date
 \newcommand{\workpackage}{8.2}      % Workpackage
 
 % The purpose of texorpdfstring is to provide different
@@ -19,33 +20,27 @@
 % (via hyperref, no tex formatting allowed).
 % The two versions need to be kept in sync.
 \newcommand{\authorname}{\texorpdfstring{%  % Authors
-  H.~Buddelmeijer,\\                        % tex string
-  W.~Kausch,\\
-  O.~Czoske,\\
-  N.~Sabha,\\
-  J.~Karr,\\
-  C.-H.~Yan,\\
-  T.~Marquart,\\
-  G.~Otten,\\
-  M.~Baláž,\\
-  K.~Leschinski,\\
-  W.~Zeilinger}
+  H.~Buddelmeijer, W.~Kausch, O.~Czoske,
+  N.~Sabha, J.~Karr, C.-H.~Yan, T.~Marquart,
+  G.~Otten, M.~Baláž, K.~Leschinski, W.~Zeilinger}
   {Buddelmeijer, Kausch, Czoske, Sabha, Karr, Yan, Marquart, Otten, Baláž, Leschinski, Zeilinger}  % pdf string
   }
 
-\newcommand{\authorsigndate}  {} % date of signature of author
+\newcommand{\authorsigndate}  {05-09-2023} % date of signature of author
 
 \newcommand{\reviewername}     {%
-}       % checked by name
-\newcommand{\reviewersigndate} {} % date of signature of checker
+W.~De~Meester, K.~Missiaen, R.~van~Boekel,
+B.~Brandl, W.~Brandner, R.~Stuik,
+C.~Salo, T.~Bertram, O.~Absil}       % checked by name
+\newcommand{\reviewersigndate} {In Polarion} % date of signature of checker
 
 \newcommand{\approvername}    {%
-}       % name of the approver
-\newcommand{\approvalsigndate}{} % date of signature of approver
+Adrian Glauser}       % name of the approver
+\newcommand{\approvalsigndate}{In Polarion} % date of signature of approver
 
 \newcommand{\releasername}{%
-}
-\newcommand{\releasesigndate}{}  % date of release
+Felix Bettonvil}
+\newcommand{\releasesigndate}{In Polarion}  % date of release
 
 % Title displayed in the header
 \newcommand{\shorttitle}{Data Reduction Library Design}
@@ -376,7 +371,7 @@
 
 
 \input{00-Titlepage}
-
+%\end{document}
 % === MAIN TEXT================================================================
 
 \clearpage
@@ -398,7 +393,7 @@
   0.3            & 2022-09-07    & all  & LSS Sections \\
   0.35           & 2023-05-26    & all   & Telluric correction revision \\
   0.4            & 2023-07-01    & all   & Internal review release \\
-  1-0            & 2023-08-08    & all   & Internal FDR release for Project Office \\
+  1.0            & 2023-09-05    & all   & PIP-FDR release \\
   \hline
 \end{tabularx}
 

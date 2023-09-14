@@ -67,6 +67,10 @@
 %  \node (bpmin) [left=of connect_bp, calproduct]{\STATCALIB{BADPIX_MAP_IFU}};
 %  \draw [connection_arrow] (bpmin.east) -- (connect_bp);
 
+  \node (connect_gain) [connection] at ($(input)!0.65!(step_detrend)$) {};
+  \node (gain) [left=of connect_gain, external] {\EXTCALIB{GAIN_MAP_IFU}};
+  \draw [connection_arrow] (gain) -- (connect_gain);
+
   \node (connect_distortion) [connection] at
     ($(step_detrend)!0.5!(step_locatelines)$) {};
   \node (distortion) [left=of connect_distortion, calproduct]{%

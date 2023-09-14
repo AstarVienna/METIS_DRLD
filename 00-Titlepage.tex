@@ -2,7 +2,7 @@
 \thispagestyle{empty}
 
 % Logo
-\vspace*{0cm}
+\vspace*{-1em}
 \includegraphics[width=6.69cm]{metis_logo.pdf}
 
 \vspace*{\fill}
@@ -14,13 +14,8 @@
 
 % Document info
 {\Large\textsf{\docnumber}}  \\ [1ex]
-\ifshowgit
-{\Large\textsf{Git revision: \ \gitVer}} \\ [1ex]
-{\Large\textsf{\gitdate}} \\[1ex]
-\else
 {\Large\textsf{Issue \issuenumber}} \\ [1ex]
 {\Large\textsf{\issuedate}}  \\ [1ex]
-\fi
 {\Large\textsf{Work package: \workpackage}}  \\[1ex]
 
 \vspace*{\fill}
@@ -29,7 +24,7 @@
 \begin{center}
   \renewcommand{\arraystretch}{0.75}
 %  \begin{tabularx}{\textwidth}{XXXX}
-  \begin{tabular}{p{0.25\textwidth}p{0.25\textwidth}p{0.25\textwidth}p{0.25\textwidth}}
+  \begin{tabular}{p{0.2\textwidth}p{0.4\textwidth}p{0.2\textwidth}p{0.2\textwidth}}
     \arrayrulecolor{brn}
     \toprule
     & \multicolumn{3}{l}{\scriptsize\textsf{Signature and Approval}} \\
@@ -37,22 +32,14 @@
     & {\scriptsize\textsf Name}
     & {\scriptsize\textsf Date}
     & {\scriptsize\textsf Signature} \\
-    \cline{2-4}
-    \\
+      \cline{2-4} \\[-1mm]
     \textsf{Prepared} & \parbox[c]{\hsize}{\raggedright \authorname} & \authorsigndate & \\
-    \\
     \midrule
-    \\
     \textsf{Reviewed} & \parbox[c]{\hsize}{\raggedright \reviewername} & \reviewersigndate & \\
-    \\
     \midrule
-    \\
     \textsf{Approved} & \parbox[c]{\hsize}{\raggedright \approvername} & \approvalsigndate & \\
-    \\
     \midrule
-    \\
     \textsf{Released} & \parbox[c]{\hsize}{\raggedright \releasername} & \releasesigndate & \\
-    \\
     \bottomrule
      %    \end{tabularx}
   \end{tabular}

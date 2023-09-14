@@ -94,6 +94,11 @@
 %  \node (bpmin) [left=of connectbpm, calproduct]{\PROD{BADPIX_MAP_IFU}};
 %  \draw [-](bpmin) -- (connectbpm);
 
+  \node (connect_gain) [connection] at ($(input)!0.55!(step_signature)$) {};
+  \node (gain) [left=of connect_gain, external] {\EXTCALIB{GAIN_MAP_IFU}};
+  \draw [connection_arrow] (gain) -- (connect_gain);
+
+
   \node (connectdark) [connection] at ($(input)!0.70!(step_signature)$) {};
   \node (darkin) [left=of connectdark, calproduct] {\PROD{MASTER_DARK_IFU}};
   \draw [connection_arrow] (darkin) -- (connectdark);

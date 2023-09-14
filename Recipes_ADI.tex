@@ -56,10 +56,7 @@ compensation of any neutral density transmission).
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & None                               \\
   Type:                & Science                                                    \\
-  Input data:          & \PROD{LM_SCI_BASIC_REDUCED} or \PROD{N_SCI_BKG_SUBTRACTED} \\
-% TODO: There used to be a reference to N_SCI_BASIC_REDUCED here, but that is not defined, should it be added?
-% or   \PROD{N_SCI_BASIC_REDUCED}                         \\
-% now replaced with N_SCI_BKG_SUBTRACTE
+  Input data:          & \PROD{LM_SCI_CALIBRATED} or \PROD{N_SCI_CALIBRATED} \\
                        & \PROD{LM_DISTORTION_TABLE} or \PROD{N_DISTORTION_TABLE} \\
 %                        & Coronagraphic throughput map and profile         \\
                        & \PROD{LM_cgrph_SCI_THROUGHPUT} or \PROD{N_cgrph_SCI_THROUGHPUT} \\
@@ -156,7 +153,7 @@ the effective number of included frames.
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & None                               \\
   Type:                & Science                                                    \\
-  Input data:          & \PROD{LM_SCI_BASIC_REDUCED}                            \\
+  Input data:          & \PROD{LM_SCI_CALIBRATED}                            \\
                        & \PROD{LM_DISTORTION_TABLE} \\
                        & \RAW{LM_OFF_AXIS_PSF_RAW}                                                  \\
    Matched keywords:   & \FITS{DRS.MASK} \\
@@ -268,11 +265,7 @@ PSFs. In addition coverage maps are produced.
   Requirements:        & \REQ{METIS-5989}                                               \\
   Templates:           & None                               \\
   Type:                & Science                                                    \\
-% HB 20230626: The IFU_cgrph_SCI_REDUCED is currently not produced by any
-%    recipe. It is probably a subclass of IFU_SCI_REDUCED, so for
-%    now I'm just listing IFU_SCI_REDUCED here.
-%   Input data:          & \PROD{IFU_cgrph_SCI_REDUCED}                            \\
-  Input data:          & \PROD{IFU_SCI_REDUCED}                            \\
+  Input data:          & \PROD{IFU_SCI_CUBE_CALIBRATED}                            \\
                        & \PROD{IFU_DISTORTION_TABLE}\\
 %                        & Coronagraphic throughput map and profile                                                  \\
                        & \PROD{IFU_cgrph_SCI_THROUGHPUT} \\
