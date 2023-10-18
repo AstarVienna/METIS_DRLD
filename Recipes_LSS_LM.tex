@@ -252,7 +252,7 @@ QC1 parameters: & \QC{QC LM LSS STD BACKGD MEAN}: Mean value of background\\
 %------------------------------------------------------------------------------------------------------------------
 \clearpage
 \subsubsection{\REC*{metis_LM_lss_sci}:  Science reduction}\label{rec:metis_lm_lss_sci}
-The science calibration recipe comprises the extraction of the object (i.e. separation of object/sky pixels), removing the sky lines, the application of the response curve previously defined, the 2D to 1D collapse and the co-addition. It also applies an absolute flux calibration (optionally with the telluric correction in one step, cf. Section~\ref{ssec:tellcorr}).
+The science calibration recipe comprises the extraction of the object (i.e. separation of object/sky pixels), removing the sky lines, the application of the response curve previously defined. In case of a point/compact source, the 2D to 1D collapse is also done, otherwise 2D products are delivered. Finally, the spectra are coadded. It also applies an absolute flux calibration (optionally with the telluric correction in one step, cf. Section~\ref{ssec:tellcorr}).
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.36\textheight]{figures/metis_lm_lss_sci_v0.83.pdf}
