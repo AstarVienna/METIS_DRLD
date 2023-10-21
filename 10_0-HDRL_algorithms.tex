@@ -3,13 +3,24 @@
 
 The METIS \ac{DRS} will make good use of \ac{HDRL} functions and data structures, not
 the least by relying on its built-in error-propagation. The recipe descriptions
-(Ch.~\ref{sec:pipeline_recipes}) list the functions that will be used, so this
-information is not repeated here.
+(Ch.~\ref{sec:pipeline_recipes}) also list the functions that will be used.
 
 %-----------------------------------------------------------------------------------------------------------
 \subsection{HDRL for IMG}\label{ssec:hdrlimg}
+We will use the following \ac{HDRL} functions for the imaging pipeline:
+\begin{itemize}
+    \item \CODE{hdrl_bpm_3d_compute}
+    \item \CODE{hdrl_bpm_fit_compute}
+    \item \CODE{hdrl_catalogue_create}
+    \item \CODE{hdrl_imagelist_collapse}
+    \item \CODE{hdrl_imagelist_mult_scalar}
+    \item \CODE{hdrl_imagelist_sub_image}
+    \item \CODE{hdrl_persistence_compute}
+    \item \CODE{hdrl_strehl_compute}
+\end{itemize}
 
 We do not foresee a need for new \ac{HDRL} algorithms for imaging parts of the \ac{DRS}.
+
 % Moved to https://github.com/AstarVienna/METIS_DRLD/issues/102 for discussion
 % \TODO{Is this true? Should we argue for ADI or anything else?}
 
@@ -40,6 +51,11 @@ be possible.
 \subsection{HDRL for IFU}
 \label{ssec:hdrllms}
 
+We will use the following HDRL functions for ADI processing:
+\begin{itemize}
+    \item \CODE{hdrl_imagelist_collapse}
+\end{itemize}
+
 Similar to the LSS above, the reduction of the IFU will rely on the algorithms
 from the \ac{CRIRES} pipeline, as shown for the distortion correction algorithm
 in Ch.~\ref{ssec:criticalwavelengthanddistortionifu} where this pipeline
@@ -47,4 +63,5 @@ directly gets applied to METIS simulations.
 
 The METIS \ac{DRS} will benefit from the availability of these routines in ESO-CPL
 form in any case, either by adapting and maintaining its own version of the
-functionality, or preferably by using their integration into the HDRL. 
+functionality, or preferably by using their integration into the HDRL.
+
