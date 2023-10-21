@@ -55,7 +55,7 @@ otherwise a new one is created.
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
                          & Threshold(s) for deviant-pixel identification                  \\
- Algorithm:            & Call \DRL{metis_apply_persistence_correction} to apply the persistence correction \\
+ Algorithm:          %  & Call \DRL{metis_apply_persistence_correction} to apply the persistence correction \\
                          & For internal flats: call \REC{metis_det_dark} with \CODE{LAMP OFF} images to create dark frame. \\
  & Subtract internal dark or master dark from flat exposures.     \\
   & call \REC{metis_lm_img_flat} to fit slope of pixel values against illumination level. Frames
