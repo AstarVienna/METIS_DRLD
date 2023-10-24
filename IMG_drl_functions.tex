@@ -297,11 +297,11 @@ Used in recipes: & \REC{metis_lm_img_std_process}\\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & photometric standard catalogue \\
-QC outputs: & \QC*{QC LM IMG STD BACKGD RMS}\\
-            & \QC*{QC LM STD PEAK CNTS}\\
-            & \QC*{QC LM STD APERTURE CNTS}\\
-            & \QC*{QC LM STD STREHL}\\
-            & \QC*{QC LM STD AIRMASS}                                                       \\
+QC outputs: & \QC{QC LM IMG STD BACKGD RMS}\\
+            & \QC{QC LM STD PEAK CNTS}\\
+            & \QC{QC LM STD APERTURE CNTS}\\
+            & \QC{QC LM STD STREHL}\\
+            & \QC{QC LM STD AIRMASS}                                                       \\
 %Output FITS files: & \PROD{LM_STD_COMBINED} \\
 Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result structure)  \\
                & \texttt{cpl\_error\_code} \\
@@ -322,11 +322,11 @@ Used in recipes: & \REC{metis_n_img_std_process}\\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
 %Other inputs: & photometric standard catalogue \\
-QC outputs: & \QC*{QC N IMG STD BACKGD RMS}\\
-            & \QC*{QC N STD PEAK CNTS}\\
-            & \QC*{QC N STD APERTURE CNTS}\\
-            & \QC*{QC N STD STREHL}\\
-            & \QC*{QC N STD AIRMASS}                                                       \\
+QC outputs: & \QC{QC N IMG STD BACKGD RMS}\\
+            & \QC{QC N STD PEAK CNTS}\\
+            & \QC{QC N STD APERTURE CNTS}\\
+            & \QC{QC N STD STREHL}\\
+            & \QC{QC N STD AIRMASS}                                                       \\
 %Output FITS files: & \PROD{LM_STD_COMBINED} \\
 Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result structure)  \\
                & \texttt{cpl\_error\_code} \\
@@ -527,8 +527,8 @@ Used in recipes: & \REC{metis_lm_img_distortion}\\
 Function Parameters: & parameters for fitting routine \\
 Input: &   Catalogue of detected sources \\
        &   \EXTCALIB{PINHOLE_TABLE}\\
-QC outputs: & \QC*{QC det DISTORT RMS}  \\
-            & \QC*{QC det DISTORT NSOURCE}  \\
+QC outputs: & \QC{QC LM DISTORT RMS} or \QC{QC N DISTORT RMS}  \\
+            & \QC{QC LM DISTORT NSOURCE} or \QC{QC N DISTORT NSOURCE} \\
 Output FITS files: & \PROD{det_DIST_REDUCED}\\
                    & \PROD{det_DISTORTION_MAP}\\
 Outputs:  &  \PROD{det_DISTORTION_TABLE} \\

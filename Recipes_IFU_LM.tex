@@ -105,10 +105,10 @@ Parameters:          & None                                                     
                        & Compute wavelength map.                                                 \\
   Output data:         & \PROD{IFU_WAVECAL}                     \\
 Expected accuracies:   & 1/5th of a pixel after post-processing (cf.~\cite{METIS-calibration_plan}, \REQ{METIS-6074}) \\
-  QC1 parameters:      & \QC*{QC IFU WAVECAL RMS}                                                 \\
-                       & \QC*{QC IFU WAVECAL NLINES}                                              \\
-                       & \QC*{QC IFU WAVECAL PEAK CNTS}                                           \\
-                       & \QC*{QC IFU WAVECAL LINE WIDTH}                                          \\
+  QC1 parameters:      & \QC{QC IFU WAVECAL RMS}                                                 \\
+                       & \QC{QC IFU WAVECAL NLINES}                                              \\
+                       & \QC{QC IFU WAVECAL PEAK CNTS}                                           \\
+                       & \QC{QC IFU WAVECAL LINE WIDTH}                                          \\
   \end{recipedef}
 
 \begin{figure}[hb]
@@ -164,7 +164,7 @@ Output data:         & \PROD{MASTER_FLAT_IFU}                                   
                      & \PROD{RSRF_IFU}                                                          \\
                      & \PROD{BADPIX_MAP_IFU}                                                    \\
 Expected accuracies: & 3\% (\REQ{METIS-6698})                                                   \\
-QC1 parameters:      & \QC*{QC IFU RSRF NBADPIX}                                                    \\
+QC1 parameters:      & \QC{QC IFU RSRF NBADPIX}                                                    \\
 %                     & (more TBD)                                                               \\
 \end{recipedef}
 
@@ -221,7 +221,7 @@ QC1 parameters:      & \QC*{QC IFU RSRF NBADPIX}                                
 %                       & \PROD{IFU_STD_TELLURIC_1D}                                             \\
 %                       & \PROD{FLUXCAL_TAB}                                                     \\
 %  Expected accuracies: & $<5$\% absolute flux calibration \\
-%  QC1 parameters:      & \QC*{QC IFU STD STRAYLIGHT MEAN}                                        \\
+%  QC1 parameters:      & \QC{QC IFU STD STRAYLIGHT MEAN}                                        \\
 %\end{recipedef}
 %
 %\begin{figure}[hb]
@@ -622,9 +622,9 @@ Matched Keywords: & \FITS{DRS.IFU}\\
                        & \PROD{IFU_DIST_REDUCED}                                                     \\
 Expected accuracies: & 1/10th of a pixel after post-processing\\
                & (cf.~\cite{METIS-calibration_plan}, R-MET-106, \REQ{METIS-167}, \REQ{METIS-1371})\\
-  QC1 parameters:      & \QC*{QC IFU DISTORT RMS}: RMS deviation between measured position and model \\
-                       & \QC*{QC IFU DISTORT FWHM}:   Measured FWHM of spots                            \\
-                       & \QC*{QC IFU DISTORT NSPOTS}: Number of identified spots                        \\
+  QC1 parameters:      & \QC{QC IFU DISTORT RMS}: RMS deviation between measured position and model \\
+                       & \QC{QC IFU DISTORT FWHM}:   Measured FWHM of spots                            \\
+                       & \QC{QC IFU DISTORT NSPOTS}: Number of identified spots                        \\
 \end{recipedef}
 
 \begin{figure}[hb]

@@ -14,7 +14,7 @@ Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: & \QC*{QC LM cgrph FWHM nn}\\
+QC outputs: & \QC{QC LM cgrph SCI FWHM nn}\\
 %Output FITS files: & None \\
 Outputs: & \PROD{lm_cgrph_CENTROID_TAB}\\
                 & \texttt{cpl\_error\_code} \\
@@ -36,7 +36,7 @@ Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: & \QC*{QC N cgrph FWHM nn}\\
+QC outputs: & \QC{QC N cgrph SCI FWHM nn}\\
 %Output FITS files: & None \\
 Outputs: & \PROD{n_cgrph_CENTROID_TAB}\\
                 & \texttt{cpl\_error\_code} \\
@@ -59,7 +59,7 @@ Used in recipes: & \REC{metis_lm_adi_app}\\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: & \QC*{QC LM APP FWHM nn}\\
+QC outputs: & \QC{QC LM APP SCI FWHM nn}\\
 %Output FITS files: & None \\
 Outputs: & \PROD{lm_app_CENTROID_TAB}\\
                 & \texttt{cpl\_error\_code} \\
@@ -107,7 +107,7 @@ Function Parameters: & combination method (median, mean, sigma clipped...)\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
        &  \PROD{lm_cgrph_CENTROID_TAB}\\
 %Other inputs: & None \\
-QC outputs: & \QC*{QC det cgrph SCI FWHM nn}\\
+QC outputs: & \QC{QC det cgrph SCI FWHM nn}\\
 %Output FITS files: & None \\
 Outputs: & \PROD{lm_cgrph_PSF_MEDIAN}\\
 Outputs: & \texttt{hdrl\_image * psf\_median}\\
@@ -133,7 +133,7 @@ Function Parameters: & combination method (median, mean, sigma clipped...)\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
        &  \PROD{N_cgrph_CENTROID_TAB}\\
 %Other inputs: & None \\
-QC outputs: & \QC*{QC det cgrph SCI FWHM nn}\\
+QC outputs: & \QC{QC det cgrph SCI FWHM nn}\\
 %Output FITS files: & None \\
 Outputs: & \PROD{N_cgrph_PSF_MEDIAN}\\
 Outputs: & \texttt{hdrl\_image * psf\_median}\\
@@ -159,7 +159,7 @@ Function Parameters: & combination method (median, mean, sigma clipped...)\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
        &  \PROD{LM_app_CENTROID_TAB}\\
 %Other inputs: & None \\
-QC outputs: & \QC*{QC det APP SCI FWHM nn}\\
+QC outputs: & \QC{QC det APP SCI FWHM nn}\\
 %Output FITS files: & None \\
 Outputs: & \PROD{LM_APP_PSF_MEDIAN}\\
 Outputs: & \texttt{hdrl\_image * psf\_median}\\
@@ -300,8 +300,8 @@ Used in recipes: & \REC{metis_img_adi_cgrph}\\
 Function Parameters: method for resampling\\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & None \\
-QC outputs: & \QC*{QC det cgrph SCI SNR MEAN} \\
-            & \QC*{QC det cgrph SCI SNR PEAK} \\
+QC outputs: & \QC{QC det cgrph SCI SNR MEAN} \\
+            & \QC{QC det cgrph SCI SNR PEAK} \\
 Output FITS files: & \PROD{det_cgrph_SCI_DEROTATED_PSFSUB} \\
                    & \PROD{det_cgrph_SCI_DEROTATED} \\
 Outputs: & \PROD{det_cgrph_PSF_MEDIAN}\\
@@ -324,8 +324,8 @@ Used in recipes: & \REC{metis_img_adi_cgrph}\\
 Function Parameters: None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
-QC outputs: & \QC*{QC LM cgrph SCI CONTRAST RAW LAMD}\\
-            & \QC*{QC LM cgrph SCI CONTRAST ADI LAMD}\\
+QC outputs: & \QC{QC LM cgrph SCI CONTRAST RAW LAMD}\\
+            & \QC{QC LM cgrph SCI CONTRAST ADI LAMD}\\
   Output FITS files: & \PROD{LM_cgrph_SCI_CONTRAST_RADPROF} \\
                      & \PROD{LM_cgrph_SCI_CONTRAST_ADI} \\
                      & \PROD{LM_cgrph_SCI_THROUGHPUT} \\
@@ -349,8 +349,8 @@ Used in recipes: & \REC{metis_img_adi_cgrph}\\
 Function Parameters: None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
-QC outputs: & \QC*{QC N cgrph SCI CONTRAST RAW LAMD}\\
-            & \QC*{QC N cgrph SCI CONTRAST ADI LAMD}\\
+QC outputs: & \QC{QC N cgrph SCI CONTRAST RAW LAMD}\\
+            & \QC{QC N cgrph SCI CONTRAST ADI LAMD}\\
   Output FITS files: & \PROD{N_cgrph_SCI_CONTRAST_RADPROF} \\
                      & \PROD{N_cgrph_SCI_CONTRAST_ADI} \\
                      & \PROD{N_cgrph_SCI_THROUGHPUT} \\
@@ -374,8 +374,8 @@ Used in recipes: & \REC{metis_lm_adi_app}\\
 Function Parameters: None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 Other inputs: & Off-axis PSF reference \\
-QC outputs: & \QC*{QC det APP SCI CONTRAST RAW LAMD}\\
-            & \QC*{QC det APP SCI CONTRAST ADI LAMD}\\
+QC outputs: & \QC{QC det APP SCI CONTRAST RAW LAMD}\\
+            & \QC{QC det APP SCI CONTRAST ADI LAMD}\\
   Output FITS files: & \PROD{LM_APP_SCI_CONTRAST_RADPROF} \\
                      & \PROD{LM_APP_SCI_CONTRAST_ADI} \\
                      & \PROD{LM_APP_SCI_THROUGHPUT} \\
