@@ -228,7 +228,7 @@ a dedicated research project has been started to better understand the origin of
 % More details on dedicated research project and the proposed strategies are given in the Calibration Plan~\cite{METIS-calibration_plan} which serves as the base for the following.
 
 Nevertheless, standard subtraction techniques (dithering, chopping and nodding)
-will be used, which not require prototying. More complex algorithms that would
+will be used, which do not require prototying. More complex algorithms that would
 have required prototyping, e.g. involving principal component analysis, have been
 ruled out since \ac{PDR}.
 
@@ -260,7 +260,7 @@ The mean of all nod-difference frames is the final background-subtracted image.
 Additionally, the optimal extraction (PSF-weighting) will be used to subtract the positive/negative source images from the final background-subtract image (2/3/4 depending on the relative chopping/nodding directions) to produce a single stacked image of the sources of interest.
 
 There might be extensive spatial modulation (dithering) within a nod half cycle.
-That is, the 3-point chop pattern is repeated a few times, then the slightly move the central position is moved slightly after which the 3-point chop pattern is repeated.
+That is, the 3-point chop pattern is repeated a few times, then the central position is moved slightly after which the 3-point chop pattern is repeated.
 This is done several times in a nod-half cycle, and then repeated in the same pattern in the other nod position after the nod is performed.
 This is to mitigate the (many) bad/hot pixels in the GeoSnap array, therefore chop-cycle frames will be subtracted such that the bad pixels can be worked around.
 
@@ -466,7 +466,7 @@ The algorithm is implemented in \REC{metis_ifu_reduce}.
   \centering
   \resizebox{0.8\textwidth}{!}{\includegraphics{PSF_IFU_slices}}
   \caption[IFU dithering and rotation pattern]{%
-    IFU observation pattern overlaid on a METIS SCAO PSF (by Marcus
+    IFU observation pattern overlaid on a METIS SCAO PSF (by Markus
     Feldt, MPIA). Red horizontal lines mark the IFU slices of a first
     exposure. The following exposures are spatially offset by a third
     of the slice width up and down, indicated by the green and cyan
