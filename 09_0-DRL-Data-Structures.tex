@@ -16,13 +16,13 @@ Clarification of the terms used (see also~\cite{hdrl-manual}):
           The \texttt{hdrl\_image} will be used as primary structures to contain image data, because the three pixel arrays map very well to the imaging file formats.
     \item \texttt{hdrl\_imagelist}: List of \texttt{hdrl\_image}s.
     \item \texttt{*}: Pointer to a single instance of a type.
-    \item \texttt{**}: Pointer to a list of instances of a type (actually, a pointer to a list of pointers each pointing to a single instance).
+    \item \texttt{**} or \texttt{* some_type[]}: Pointer to a list of instances of a type.
 \end{itemize}
 
 E.g.
 \begin{itemize}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords}: a pointer to the \texttt{cpl\_propertylist} that holds the \ac{FITS} headers of the primary extension,
-    \item \texttt{cpl\_propertylist ** extkeywords: Extension keywords}: a pointer to a list of pointers to \texttt{cpl\_propertylist} instances that hold the \ac{FITS} headers for each extension,
+    \item \texttt{cpl\_propertylist * extkeywords[]: Extension keywords}: a pointer to a list of pointers to \texttt{cpl\_propertylist} instances that hold the \ac{FITS} headers for each extension,
     \item \texttt{hdrl\_image * image: Image}: a pointer to a \texttt{hdrl\_image} instance holding the one image (for the single detector in N and LM, or spanning all detectors for the IFU) of this structure,
     \item \texttt{hdrl\_imagelist * images: Images}: a pointer to a \texttt{hdrl\_imagelist} instance holding all the images (one for each detector) of this structure.
 \end{itemize}
