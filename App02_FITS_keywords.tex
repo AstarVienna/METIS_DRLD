@@ -146,7 +146,7 @@ Description & Keyword alias for pupil settings \tabularnewline
 
 \subsubsection{DET\textit{n}.ID}\label{fits:det.id}
 \begin{recipedef}
-Name & DET\textit{n}.ID \tabularnewline
+Name & DET.ID \tabularnewline
 Class & header \tabularnewline
 Context & Template \tabularnewline
 Type & double \tabularnewline
@@ -162,34 +162,28 @@ Description & Detector integration time (average when NDIT $>$ 1) \tabularnewlin
 \end{recipedef}
 
 
-\subsubsection{DET\textit{n}.DIT}\label{fits:det.dit}
+\subsubsection{DET.DIT}\label{fits:det.dit}
 \begin{recipedef}
-Name & DET\textit{n}.DIT \tabularnewline
+Name & DET.DIT \tabularnewline
 Class & header \tabularnewline
 Context & Template \tabularnewline
 Type & double \tabularnewline
 Value & \%.3f \tabularnewline
 Unit & s \tabularnewline
-Comment & \textit{n}=1: LM IMG/LSS detector (Hawaii2RG)  \tabularnewline
-        & \textit{n}=2: N IMG/LSS detector (Geosnap)  \tabularnewline
-        & \textit{n}=3: IFU detectors \tabularnewline
 Default & 1.0 \tabularnewline
 Range & 0.0..3600.0 \tabularnewline
 Description & Detector integration time (average when NDIT $>$ 1) \tabularnewline
 \end{recipedef}
 
 
-\subsubsection{DET\textit{n}.NDIT}\label{fits:det.ndit}
+\subsubsection{DET.NDIT}\label{fits:det.ndit}
 \begin{recipedef}
-Name & DET\textit{n} NDIT \tabularnewline
+Name & DET.NDIT \tabularnewline
 Class & header \tabularnewline
 Context & Template \tabularnewline
 Type & integer \tabularnewline
 Value & \%i \tabularnewline
 Unit & None \tabularnewline
-Comment & \textit{n}=1: LM IMG/LSS detector (Hawaii2RG)  \tabularnewline
-        & \textit{n}=2: N IMG/LSS detector (Geosnap)  \tabularnewline
-        & \textit{n}=3: IFU detectors \tabularnewline
 Default & 1 \tabularnewline
 Range & 1..10 \tabularnewline
 Description & Number of detector integrations \tabularnewline
