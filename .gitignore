@@ -24,6 +24,7 @@ svg/*.pdf
 
 # our own pdf file
 METIS_DRLD.pdf
+/Releases
 
 # emacs directory
 auto/
