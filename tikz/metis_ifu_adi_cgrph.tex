@@ -108,7 +108,7 @@
   \node (molecparams) [left=3.95cm of connectpers,yshift=0cm, params]{%
     Recipe parameters
   };
-  \draw [connection_arrow] (molecparams.east) -- (connectpers);%-- ++(0.25, 0) -- ++(0., -0.8) -- ++(3.75, 0);;
+  \draw [connection_arrow] (molecparams.east) -- (connectpers);%-- ++(0.25, 0) -- ++(0., -0.8) -- ++(3.75, 0);
 
   %\node (stdcat) [left=2cm of step5, external] {%
    % FLUXSTD\_CATALOG
@@ -122,17 +122,17 @@
 \node (incont1) [left=2cm of step6, yshift=0.8cm,calib]{%
     Coronagraphic throughput\\map/profile
   };
-\draw [connection_arrow] (incont1.east) -- ++(1, 0) -- ++(0., 0.8) -- ++(1, 0);;
+\draw [connection_arrow] (incont1.east) -- ++(1, 0) -- ++(0., 0.8) -- ++(1, 0);
 
 \node (incont2) [left=2cm of step6, yshift=-0.8cm,calproduct]{%
     Off-axis PSF reference cube
   };
-\draw [connection_arrow] (incont2.east) -- ++(1, 0) -- ++(0., -0.8) -- ++(1, 0);;
+\draw [connection_arrow] (incont2.east) -- ++(1, 0) -- ++(0., -0.8) -- ++(1, 0);
 
 \node (outcont1) [right=1.cm of step6, yshift=1cm,sciproduct]{%
     IFU\_cgrph\_SCI\_DEROTATED\_PSFSUB\_COADD
   };
-\draw [connection_arrow] (step6.east) -- ++(0.5, 0) -- ++(0., -1) -- ++(0.5, 0);;
+\draw [connection_arrow] (step6.east) -- ++(0.5, 0) -- ++(0., -1) -- ++(0.5, 0);
 
 \node (outcont2) [right=1.cm of step6, yshift=0cm,sciproduct]{%
     IFU\_cgrph\_SCI\_DEROTATED\_COADD
@@ -142,27 +142,27 @@
 \node (outcont3) [right=1.cm of step6, yshift=-1cm,sciproduct]{%
     IFU\_cgrph\_SCI\_COVERAGE
   };
-\draw [connection_arrow] (step6.east) -- ++(0.5, 0) -- ++(0., 1) -- ++(0.5, 0);;
+\draw [connection_arrow] (step6.east) -- ++(0.5, 0) -- ++(0., 1) -- ++(0.5, 0);
 
 \node (outcont4) [right=1.cm of step7, yshift=-1cm,sciproduct]{%
     IFU\_cgrph\_SCI\_CONTRAST\_RADPROF
   };
-\draw [connection_arrow] (step7.east) -- ++(0.5, 0) -- ++(0., 1) -- ++(0.5, 0);;
+\draw [connection_arrow] (step7.east) -- ++(0.5, 0) -- ++(0., 1) -- ++(0.5, 0);
 
 \node (outcont5) [right=1.cm of step7, yshift=-2cm,sciproduct]{%
     IFU\_cgrph\_SCI\_CONTRAST\_ADI
   };
-\draw [connection_arrow] (step7.east) -- ++(0.5, 0) -- ++(0., 2) -- ++(0.5, 0);;
+\draw [connection_arrow] (step7.east) -- ++(0.5, 0) -- ++(0., 2) -- ++(0.5, 0);
 
 \node (outcont6) [right=1.cm of step7, yshift=-3cm,sciproduct]{%
     IFU\_cgrph\_SCI\_THROUGHPUT
   };
-\draw [connection_arrow] (step7.east) -- ++(0.5, 0) -- ++(0., 3) -- ++(0.5, 0);;
+\draw [connection_arrow] (step7.east) -- ++(0.5, 0) -- ++(0., 3) -- ++(0.5, 0);
 
 \node (outcont7) [right=1.cm of step7, yshift=-4cm,sciproduct]{%
     IFU\_cgrph\_SCI\_SNR
   };
-\draw [connection_arrow] (step7.east) -- ++(0.5, 0) -- ++(0., 4) -- ++(0.5, 0);;
+\draw [connection_arrow] (step7.east) -- ++(0.5, 0) -- ++(0., 4) -- ++(0.5, 0);
 
 \node (reduced2) [right=1.5cm of step1, sciproduct]{%
     IFU\_cgrph\_CENTROID\_TAB

@@ -268,7 +268,7 @@ Range & None \tabularnewline
 Description & The integration time for a single observation (in the infrared this corresponds to DIT. Note that this does not represent the photon statistics). \tabularnewline
 \end{recipedef}
 
-\subsection{EXTNAME}\label{fits:extname}
+\subsubsection{EXTNAME}\label{fits:extname}
 \begin{recipedef}
 Name & EXTNAME \tabularnewline
 Class & header \tabularnewline
@@ -282,7 +282,7 @@ Range &  \tabularnewline
 Comment & Name of the extension \tabularnewline
 \end{recipedef}
 
-\subsection{SCIDATA}\label{fits:scidata}
+\subsubsection{SCIDATA}\label{fits:scidata}
 \begin{recipedef}
 Name & SCIDATA \tabularnewline
 Class & header \tabularnewline
@@ -296,7 +296,7 @@ Range &  \tabularnewline
 Comment & Name of the corresponding data extension \tabularnewline
 \end{recipedef}
 
-\subsection{ERRDATA}\label{fits:errdata}
+\subsubsection{ERRDATA}\label{fits:errdata}
 \begin{recipedef}
 Name & ERRDATA \tabularnewline
 Class & header \tabularnewline
@@ -310,7 +310,7 @@ Range &  \tabularnewline
 Comment & Name of the corresponding uncertainty extension \tabularnewline
 \end{recipedef}
 
-\subsection{QUALDATA}\label{fits:qualdata}
+\subsubsection{QUALDATA}\label{fits:qualdata}
 \begin{recipedef}
 Name & QUALDATA \tabularnewline
 Class & header \tabularnewline
@@ -324,7 +324,7 @@ Range &  \tabularnewline
 Comment & Name of the corresponding quality extension \tabularnewline
 \end{recipedef}
 
-\subsection{HDUCLAS1}\label{fits:hduclas1}
+\subsubsection{HDUCLAS1}\label{fits:hduclas1}
 \begin{recipedef}
 Name & HDUCLAS1 \tabularnewline
 Class & header \tabularnewline
@@ -338,7 +338,7 @@ Range & \CODE{IMAGE} \tabularnewline
 Comment & Type of data according to~\cite{Fits-format-description} \tabularnewline
 \end{recipedef}
 
-\subsection{HDUCLAS2}\label{fits:hduclas2}
+\subsubsection{HDUCLAS2}\label{fits:hduclas2}
 \begin{recipedef}
 Name & HDUCLAS2 \tabularnewline
 Class & header \tabularnewline
@@ -352,7 +352,7 @@ Range & \CODE{DATA}, \CODE{ERROR}, \CODE{QUALITY} \tabularnewline
 Comment & Type of data according to~\cite{Fits-format-description} \tabularnewline
 \end{recipedef}
 
-\subsection{HDUCLAS3}\label{fits:hduclas3}
+\subsubsection{HDUCLAS3}\label{fits:hduclas3}
 \begin{recipedef}
 Name & HDUCLAS3 \tabularnewline
 Class & header \tabularnewline
@@ -807,11 +807,10 @@ Value & \%.50s \tabularnewline
 Unit & None \tabularnewline
 Comment & Instrument Mode \tabularnewline
 Default & NODEFAULT \tabularnewline
-Range & IMAGING SPEC PUP \tabularnewline
+Range & See Table 2 \tabularnewline
+% Range & IMAGING SPEC PUP \tabularnewline
 Description & Instrument Mode \tabularnewline
 \end{recipedef}
-
-
 
 
 
@@ -1029,32 +1028,32 @@ Description & Slit name \tabularnewline
 %\input{generated/keywords_list_dataitems_imaging}
 
 
-\subsection{Spectroscopic FITS header keyword values}{}\label{sec:specheaderkeywordvalues}
+% \subsection{Spectroscopic FITS header keyword values}{}\label{sec:specheaderkeywordvalues}
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{|c | c| c| c|} 
- \hline
+% \begin{table}[ht]
+% \centering
+% \begin{tabular}{|c | c| c| c|} 
+%  \hline
 
-  \FITS{INS.SLIT.NAME} & \FITS{INS.FILT.NAME} & Description & Spectral setup \\ [0.5ex] 
- \hline\hline
-\PAR*{SHORT} & \PAR*{SPEC_IJ} &short 16mas$\times$3" slit & IzJ\\
-%\PAR*{HK_NARROW} & short 16mas$\times$3" slit & HK\\
-\PAR*{BROAD} & \PAR*{SPEC_IJ} &broad 48mas$\times$3" slit & IzJ\\
-\PAR*{BROAD} & \PAR*{SPEC_HK} &broad 48mas$\times$3" slit & HK\\
-\PAR*{LONG} & \PAR*{SPEC_J} &long 20mas$\times$15" slit & J\\
-\PAR*{LONG} & \PAR*{SPEC_HK} &long 20mas$\times$15" slit & HK\\
-\PAR*{SHORT_SH} & \PAR*{SPEC_IJ} &shifted 16mas$\times$3" slit & IzJ\\
-%\PAR*{HK_NARROW_SHIFTED} & 16mas$\times$3" slit & HK\\
-\PAR*{BROAD_SH} & \PAR*{SPEC_IJ} &shifted 48mas$\times$3" slit & IzJ\\
-\PAR*{BROAD_SH} & \PAR*{SPEC_HK}  &shifted 48mas$\times$3" slit & HK\\
-\PAR*{LONG_SH} & \PAR*{SPEC_J} & shifted 20mas$\times$15" slit & J\\
-\PAR*{LONG_SH} & \PAR*{SPEC_HK} & shifted 20mas$\times$15" slit & HK\\
- \hline
-\PAR*{PINH} & all & pinhole slit & all\\
-\PAR*{PINH_SH} & all &shifted pinhole slit & all\\
- \hline
-\end{tabular}
-\caption[VALUES for the FITS keywords]{Values for the \ac{FITS} keywords \FITS{INS.FILT.NAME} and \FITS{INS.SLIT.NAME} representing the spectrosopic modes}.
-\label{tab:insspecsetup_keyw}
-\end{table}
+%   \FITS{INS.SLIT.NAME} & \FITS{INS.FILT.NAME} & Description & Spectral setup \\ [0.5ex] 
+%  \hline\hline
+% \PAR*{SHORT} & \PAR*{SPEC_IJ} &short 16mas$\times$3" slit & IzJ\\
+% %\PAR*{HK_NARROW} & short 16mas$\times$3" slit & HK\\
+% \PAR*{BROAD} & \PAR*{SPEC_IJ} &broad 48mas$\times$3" slit & IzJ\\
+% \PAR*{BROAD} & \PAR*{SPEC_HK} &broad 48mas$\times$3" slit & HK\\
+% \PAR*{LONG} & \PAR*{SPEC_J} &long 20mas$\times$15" slit & J\\
+% \PAR*{LONG} & \PAR*{SPEC_HK} &long 20mas$\times$15" slit & HK\\
+% \PAR*{SHORT_SH} & \PAR*{SPEC_IJ} &shifted 16mas$\times$3" slit & IzJ\\
+% %\PAR*{HK_NARROW_SHIFTED} & 16mas$\times$3" slit & HK\\
+% \PAR*{BROAD_SH} & \PAR*{SPEC_IJ} &shifted 48mas$\times$3" slit & IzJ\\
+% \PAR*{BROAD_SH} & \PAR*{SPEC_HK}  &shifted 48mas$\times$3" slit & HK\\
+% \PAR*{LONG_SH} & \PAR*{SPEC_J} & shifted 20mas$\times$15" slit & J\\
+% \PAR*{LONG_SH} & \PAR*{SPEC_HK} & shifted 20mas$\times$15" slit & HK\\
+%  \hline
+% \PAR*{PINH} & all & pinhole slit & all\\
+% \PAR*{PINH_SH} & all &shifted pinhole slit & all\\
+%  \hline
+% \end{tabular}
+% \caption[VALUES for the FITS keywords]{Values for the \ac{FITS} keywords \FITS{INS.FILT.NAME} and \FITS{INS.SLIT.NAME} representing the spectrosopic modes}.
+% \label{tab:insspecsetup_keyw}
+% \end{table}

@@ -154,7 +154,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 %\end{recipedef}
 
 
-\subsubsection{Create Master LM Flat}\label{drl:lm_img_flat}\label{drl:metis_lm_img_flat}
+\subsubsection{Create master LM flat}\label{drl:lm_img_flat}\label{drl:metis_lm_img_flat}
 \begin{recipedef}
 Name: & \DRL{metis_lm_img_flat} \\
 Purpose: & Create master flat field for the LM-band imaging detector\\
@@ -176,7 +176,7 @@ Error conditions: & See~\cite{DRLVT}. \\
 Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
-\subsubsection{Create N Master Flat}\label{drl:n_img_flat}\label{drl:metis_n_img_flat}
+\subsubsection{Create master N flat}\label{drl:n_img_flat}\label{drl:metis_n_img_flat}
 \begin{recipedef}
 Name: & \DRL{metis_n_img_flat} \\
 Purpose: & Create master flat field for the N-band imaging detector\\
@@ -199,7 +199,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
-\subsubsection{Flag Deviant Pixels in LM Flat Field}\label{drl:update_lm_flat_mask}\label{drl:metis_update_lm_flat_mask}
+\subsubsection{Flag deviant pixels in LM flat field}\label{drl:update_lm_flat_mask}\label{drl:metis_update_lm_flat_mask}
 \begin{recipedef}
 Name: & \DRL{metis_update_lm_flat_mask} \\
 Purpose: & Flag deviant pixels in the LM master flat and update the image mask\\
@@ -222,7 +222,7 @@ Error conditions: & See~\cite{DRLVT}. \\
 Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
-\subsubsection{Flag Deviant Pixels in N Flat Field}\label{drl:update_n_flat_mask}\label{drl:metis_update_n_flat_mask}
+\subsubsection{Flag deviant pixels in N flat field}\label{drl:update_n_flat_mask}\label{drl:metis_update_n_flat_mask}
 \begin{recipedef}
 Name: & \DRL{metis_update_n_flat_mask} \\
 Purpose: & Flag deviant pixels in the N master flat and update the image mask\\
@@ -288,7 +288,7 @@ Error conditions: & None. \\
 %Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
-\subsubsection{Measure LM Band Flux of Standard Star}\label{drl:lm_calculate_std_flux}
+\subsubsection{Measure LM band flux of standard star}\label{drl:lm_calculate_std_flux}
 \begin{recipedef}
 Name: & \DRL{lm_calculate_std_flux} \\
 Purpose: & Calculate LM band flux and position of standard star in detector units \\
@@ -297,11 +297,11 @@ Used in recipes: & \REC{metis_lm_img_std_process}\\
 %Function Parameters: & None \\
 Input: & $n\times$ \texttt{const hdrl\_image * input} \\
 %Other inputs: & photometric standard catalogue \\
-QC outputs: & \QC*{QC LM IMG STD BACKGD RMS}\\
-            & \QC*{QC LM STD PEAK CNTS}\\
-            & \QC*{QC LM STD APERTURE CNTS}\\
-            & \QC*{QC LM STD STREHL}\\
-            & \QC*{QC LM STD AIRMASS}                                                       \\
+QC outputs: & \QC{QC LM IMG STD BACKGD RMS}\\
+            & \QC{QC LM STD PEAK CNTS}\\
+            & \QC{QC LM STD APERTURE CNTS}\\
+            & \QC{QC LM STD STREHL}\\
+            & \QC{QC LM STD AIRMASS}                                                       \\
 %Output FITS files: & \PROD{LM_STD_COMBINED} \\
 Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result structure)  \\
                & \texttt{cpl\_error\_code} \\
@@ -313,7 +313,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
-\subsubsection{Measure N band Flux of Standard Star}\label{drl:n_std_flux}\label{drl:n_calculate_std_flux}
+\subsubsection{Measure N band flux of standard star}\label{drl:n_std_flux}\label{drl:n_calculate_std_flux}
 \begin{recipedef}
 Name: & \DRL{n_calculate_std_flux} \\
 Purpose: & Calculate N band flux and position of standard star in detector units \\
@@ -322,11 +322,11 @@ Used in recipes: & \REC{metis_n_img_std_process}\\
 %Function Parameters: & None \\
 Input: & \texttt{const hdrl\_image * input} \\
 %Other inputs: & photometric standard catalogue \\
-QC outputs: & \QC*{QC N IMG STD BACKGD RMS}\\
-            & \QC*{QC N STD PEAK CNTS}\\
-            & \QC*{QC N STD APERTURE CNTS}\\
-            & \QC*{QC N STD STREHL}\\
-            & \QC*{QC N STD AIRMASS}                                                       \\
+QC outputs: & \QC{QC N IMG STD BACKGD RMS}\\
+            & \QC{QC N STD PEAK CNTS}\\
+            & \QC{QC N STD APERTURE CNTS}\\
+            & \QC{QC N STD STREHL}\\
+            & \QC{QC N STD AIRMASS}                                                       \\
 %Output FITS files: & \PROD{LM_STD_COMBINED} \\
 Outputs: & position and flux of stars in detector units (hdrl\_catalogue\_result structure)  \\
                & \texttt{cpl\_error\_code} \\
@@ -363,7 +363,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 %Unit tests: & See~\cite{DRLVT}. \\
 %\end{recipedef}
 
-\subsubsection{Calculate Flux Calibration}\label{drl:calculate_std_fluxcal}
+\subsubsection{Calculate flux calibration}\label{drl:calculate_std_fluxcal}
 \begin{recipedef}
 Name: & \DRL{calculate_std_fluxcal} \\
 Purpose: & Calculate the conversion between instrumental and physical flux units \\
@@ -386,7 +386,7 @@ Error conditions: & See~\cite{DRLVT}. \\
 Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
-\subsubsection{Calculate Detection Limits}\label{drl:calculate_detection_limits}
+\subsubsection{Calculate detection limits}\label{drl:calculate_detection_limits}
 \begin{recipedef}
 Name: & \DRL{calculate_detection_limits} \\
 Purpose: & Calculate Detection Limits \\
@@ -432,7 +432,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
-\subsubsection{Convert LM Image to Physical Flux}\label{drl:lm_scale_image_flux}
+\subsubsection{Convert LM image to physical flux}\label{drl:lm_scale_image_flux}
 \begin{recipedef}
 Name: & \DRL{lm_scale_image_flux} \\
 Purpose: & Calculate the conversion between instrumental and physical flux units \\
@@ -454,7 +454,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 
 
-\subsubsection{Add LM Calibration Information to Header}\label{drl:lm_update_header_distortion}
+\subsubsection{Add LM calibration information to header}\label{drl:lm_update_header_distortion}
 \begin{recipedef}
 Name: & \DRL{lm_update_header_distortion} \\
 Purpose: & Update the FITS header with calibration data (WCS, distortion, units)  \\
@@ -474,7 +474,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
-\subsubsection{Convert N Image to Physical Flux}\label{drl:n_scale_image_flux}
+\subsubsection{Convert N image to physical flux}\label{drl:n_scale_image_flux}
 \begin{recipedef}
 Name: & \DRL{n_scale_image_flux} \\
 Purpose: & Calculate the conversion between instrumental and physical flux units \\
@@ -496,7 +496,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 
 
-\subsubsection{Add N Calibration Information to Header}\label{drl:n_update_header_distortion}
+\subsubsection{Add N calibration information to header}\label{drl:n_update_header_distortion}
 \begin{recipedef}
 Name: & \DRL{n_update_header_distortion} \\
 Purpose: & Update the FITS header with calibration data (WCS, distortion, units)  \\
@@ -517,7 +517,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 
 
-\subsubsection{Fit Distortion Parameters}\label{drl:fit_distortion}
+\subsubsection{Fit distortion parameters}\label{drl:fit_distortion}
 \begin{recipedef}
 Name: & \DRL{fit_distortion} \\
 Purpose: & Fit optical distortion coefficients based on pinhole mask image  \\
@@ -527,8 +527,8 @@ Used in recipes: & \REC{metis_lm_img_distortion}\\
 Function Parameters: & parameters for fitting routine \\
 Input: &   Catalogue of detected sources \\
        &   \EXTCALIB{PINHOLE_TABLE}\\
-QC outputs: & \QC*{QC det DISTORT RMS}  \\
-            & \QC*{QC det DISTORT NSOURCE}  \\
+QC outputs: & \QC{QC LM DISTORT RMS} or \QC{QC N DISTORT RMS}  \\
+            & \QC{QC LM DISTORT NSOURCE} or \QC{QC N DISTORT NSOURCE} \\
 Output FITS files: & \PROD{det_DIST_REDUCED}\\
                    & \PROD{det_DISTORTION_MAP}\\
 Outputs:  &  \PROD{det_DISTORTION_TABLE} \\
@@ -541,7 +541,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
-\subsubsection{Cutout Region Around Beam}\label{drl:cutout_region}
+\subsubsection{Cutout region around beam}\label{drl:cutout_region}
 \begin{recipedef}
 Name: & \DRL{cutout_region} \\
 Purpose: & Cutout a region around a beam in N band image  \\

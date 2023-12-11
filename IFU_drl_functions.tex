@@ -23,7 +23,7 @@
 \subsubsection{IFU output grid determination}\label{drl:ifu_grid_output}
     \begin{recipedef}
         Name: & \DRL{ifu_grid_output} \\
-        Purpose: & Obtain maximal useful resolution from a set of dithered exposures \\
+        Purpose: & Determine the exact positions of exposures before co-adding \\
         Used in recipes: & \REC{metis_ifu_postprocess}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
@@ -33,7 +33,7 @@
         %Output FITS files: & None \\
         Outputs:    & \PROD{IFU_SCI_COMBINED} \\
                     & \texttt{cpl\_error\_code} \\
-        General description: & Dither and co-add the individual exposures \\
+        General description: & Determine the position of the output grids for dithering of multiple exposures \\
         Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
         Quality assessment: & Through QC parameters \\
         Error conditions: & See~\cite{DRLVT}. \\
@@ -43,7 +43,7 @@
 \subsubsection{IFU multi-exposure resampling}\label{drl:ifu_resampling}
     \begin{recipedef}
         Name: & \DRL{ifu_resampling} \\
-        Purpose: & Obtain maximal useful resolution from a set of dithered exposures \\
+        Purpose: & Obtain maximal useful resolution from a set of subpixel-shifted exposures \\
         Used in recipes: & \REC{metis_ifu_postprocess}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
@@ -63,7 +63,7 @@
 \subsubsection{IFU multi-exposure co-add}\label{drl:ifu_coadd}
     \begin{recipedef}
         Name: & \DRL{ifu_coadd} \\
-        Purpose: & Obtain maximal useful resolution from a set of dithered exposures \\
+        Purpose: & Co-add and dither individual subpixel-shifted exposures \\
         Used in recipes: & \REC{metis_ifu_postprocess}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
@@ -74,7 +74,7 @@
         Outputs:    & \PROD{IFU_SCI_COADD} \\
 %                    & \PROD{IFU_SCI_COADD_ERROR} \\
                     & \texttt{cpl\_error\_code} \\
-        General description: & Co-add the properly aligned exposures \\
+        General description: & Co-add the properly aligned IFU exposures \\
         Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
         Quality assessment: & Through QC parameters \\
         Error conditions: & See~\cite{DRLVT}. \\

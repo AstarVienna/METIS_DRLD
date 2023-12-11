@@ -160,9 +160,13 @@ to find calibration data when processing data.
 That is, the system will compare the FITS keywords of the primary input, to
 the FITS headers of the pool of possible calibration files to use, in order
 to decide what data to use.
+
 For example, most calibration data has to be taken with the same \FITS{DET.DIT}
-and \FITS{DET.NDIT} combination as the science data, and some, but not all,
-need to use the same filter, or the same mask, or the same grism.
+and \FITS{DET.NDIT} combination as the science data.
+Several calibration products also need to use the same filter, or the same mask, or the same grism as the science data.
+
+All selections are done on equality.
+That is, no interpolation between, e.g., \FITS{DET.DIT}, will be done if only an approximate matching data product is found.
 
 The following two tables provide an overview of the matched FITS
 keywords. Table~\ref{tab:fitskeywordaliasses} defines several high level keyword

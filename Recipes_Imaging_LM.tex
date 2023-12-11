@@ -55,7 +55,7 @@ otherwise a new one is created.
                          \texttt{sigclip}, \dots)                                       \\
                        & Parameters for combination methods                             \\
                          & Threshold(s) for deviant-pixel identification                  \\
- Algorithm:            & Call \DRL{metis_apply_persistence_correction} to apply the persistence correction \\
+ Algorithm:          %  & Call \DRL{metis_apply_persistence_correction} to apply the persistence correction \\
                          & For internal flats: call \REC{metis_det_dark} with \CODE{LAMP OFF} images to create dark frame. \\
  & Subtract internal dark or master dark from flat exposures.     \\
   & call \REC{metis_lm_img_flat} to fit slope of pixel values against illumination level. Frames
@@ -66,10 +66,10 @@ otherwise a new one is created.
                        & or \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
                        & \PROD{BADPIX_MAP_2RG}                                           \\
   Expected accuracies: & 0.5\% (cf.~\cite{METIS_calerrbudget})                                                           \\
-  QC1 parameters:      & \QC*{QC LM MASTERFLAT RMS}                                      \\
-                       & \QC*{QC LM MASTERFLAT NBADPIX}                                        \\
-                       & \QC*{QC LM FLAT MEAN}                                           \\
-                       & \QC*{QC LM FLAT RMS}                                            \\
+  QC1 parameters:      & \QC{QC LM MASTERFLAT RMS}                                      \\
+                       & \QC{QC LM MASTERFLAT NBADPIX}                                        \\
+                       & \QC{QC LM FLAT MEAN}                                           \\
+                       & \QC{QC LM FLAT RMS}                                            \\
   hdrl functions:      & \CODE{hdrl_bpm_fit_compute}                                    \\
                        & \CODE{hdrl_imagelist_collapse}                                 \\
                        & \CODE{hdrl_imagelist_sub_image}                                \\
@@ -154,9 +154,9 @@ Basic statistics of the images can be used to screen for saturation.
                     & Remove blank sky pattern                \\
   Output data:      & \PROD{LM_SCI_BASIC_REDUCED}       \\
                     & \PROD{LM_STD_BASIC_REDUCED}       \\
-  QC1 parameters:   & \QC*{QC LM IMG MEDIAN}             \\
-                    & \QC*{QC LM IMG STANDARD DEVIATION} \\
-                    & \QC*{QC LM IMG PEAK}               \\
+  QC1 parameters:   & \QC{QC LM IMG MEDIAN}             \\
+                    & \QC{QC LM IMG STANDARD DEVIATION} \\
+                    & \QC{QC LM IMG PEAK}               \\
   hdrl functions:   & \CODE{hdrl_imagelist_sub_image}   \\
                     & \CODE{hdrl_imagelist_div_image}   \\
 \end{recipedef}
@@ -192,7 +192,7 @@ usable.
 
 A set of observations will consist of a number of exposures
 of the field, where the offsets are achieved by either using the internal
-chopper of METIS or by nodding the with the telescope. For extended objects, the
+chopper of METIS or by telescope nodding. For extended objects, the
 telescope will be used to perform ``out-of-field nodding'', i.e.\
 observe nearby blank patches of sky interlaced with the target
 observations. Imaging observations are performed in pupil-tracking
@@ -244,8 +244,8 @@ For more information see Section~\ref{sssec:lmbandsbackgroundsubtracion}.
                     & \PROD{LM_STD_BKG_SUBTRACTED}                              \\
                     & \PROD{LM_SCI_OBJECT_CAT}                                  \\
                     & \PROD{LM_STD_OBJECT_CAT}                                  \\
-  QC1 parameters:   & \QC*{QC LM IMG BKG MEDIAN}                                 \\
-                    & \QC*{QC LM IMG BKG MEDIAN DEVIATION}                       \\
+  QC1 parameters:   & \QC{QC LM IMG BKG MEDIAN}                                 \\
+                    & \QC{QC LM IMG BKG MEDIAN DEVIATION}                       \\
   hdrl functions:   & \CODE{hdrl_imagelist_sub_image}                           \\
                     & \CODE{hdrl_imagelist_div_image}                           \\
                     & \CODE{hdrl_catalogue_compute}                             \\
@@ -314,10 +314,10 @@ For more information see Section~\ref{sssec:lmbandsbackgroundsubtracion}.
 %   Output data:         & \PROD{LM_STD_AST_CALIB}                                                      \\
 %                        & \PROD{ASTROMETRY_TAB}                                                        \\
 %   Expected accuracies: &  $>$0.1$\arcsec$                                                                    \\
-%   QC1 parameters:      & \QC*{QC LM AST X POS ERR}                                                     \\
-%                        & \QC*{QC LM AST Y POS ERR}                                                     \\
-%                        & \QC*{QC LM AST RA POS ERR}                                                    \\
-%                        & \QC*{QC LM AST DEC POS ERR}                                                    \\
+%   QC1 parameters:      & \QC{QC LM AST X POS ERR}                                                     \\
+%                        & \QC{QC LM AST Y POS ERR}                                                     \\
+%                        & \QC{QC LM AST RA POS ERR}                                                    \\
+%                        & \QC{QC LM AST DEC POS ERR}                                                    \\
 %   hdrl function:       & \CODE{hdrl_strehl_compute}                                                   \\
 %                        & \CODE{hdrl_catalogue_compute}                                                \\
 %                        & \CODE{hdrl_efficiency_compute}                                               \\
@@ -376,14 +376,14 @@ following~\cite{visir_manual}.
   Output data:         & \PROD{LM_STD_COMBINED}                                                       \\
                        & \PROD{FLUXCAL_TAB}                                                           \\
   Expected accuracies: & 3\% (cf.~\cite{METIS_calerrbudget})                                          \\
-  QC1 parameters:      & \QC*{QC LM IMG STD BACKGD RMS}                                                \\
-                       & \QC*{QC LM STD PEAK CNTS}                                                     \\
-                       & \QC*{QC LM STD APERTURE CNTS}                                                 \\
-                       & \QC*{QC LM STD STREHL}                                                        \\
-                       & \QC*{QC LM STD FLUXCONV}                                                      \\
-                       & \QC*{QC LM STD AIRMASS}                                                       \\
-                       & \QC*{QC LM SENSITIVITY}                                                       \\
-                       & \QC*{QC LM AREA SENSITIVIY}                                                   \\
+  QC1 parameters:      & \QC{QC LM IMG STD BACKGD RMS}                                                \\
+                       & \QC{QC LM STD PEAK CNTS}                                                     \\
+                       & \QC{QC LM STD APERTURE CNTS}                                                 \\
+                       & \QC{QC LM STD STREHL}                                                        \\
+                       & \QC{QC LM STD FLUXCONV}                                                      \\
+                       & \QC{QC LM STD AIRMASS}                                                       \\
+                       & \QC{QC LM SENSITIVITY}                                                       \\
+                       & \QC{QC LM AREA SENSITIVITY}                                                  \\
   hdrl functions:      & \CODE{hdrl_strehl_compute}                                                   \\
                        & \CODE{hdrl_catalogue_compute}                                                \\
                        & \CODE{hdrl_efficiency_compute}                                               \\
@@ -487,8 +487,7 @@ images contributing to any pixel in the output image (variable due to
 offsets and bad pixels) will be documented in a contribution
 map.
 
-This recipe will only be used in the science-grade pipelines, not at
-the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant with \REQ{METIS-6104}.
+The output files fulfill the \ac{SDP} criteria and are compliant with \REQ{METIS-6104}.
 
 \begin{recipedef}
   Name:                & \REC{metis_lm_img_sci_postprocess}                         \\
@@ -509,7 +508,7 @@ the observatory. The output fulfills the criteria for \ac{SDP}s and is compliant
 %                        & \PROD{LM_SCI_COADD_ERROR} (coadded, mosaiced error image)  \\
 %                        & \PROD{LM_SCI_COADD_CONTRIB} (contribution map)             \\
   Expected accuracies: & n/a                                                       \\
-  QC1 parameters:      & \QC*{QC LM SCI NEXPOSURE}                                   \\
+  QC1 parameters:      & \QC{QC LM SCI NEXPOSURE}                                   \\
 \end{recipedef}
 
 \begin{figure}[hb]
