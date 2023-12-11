@@ -1090,7 +1090,7 @@ class DataReductionLibraryDesign:
         recipe_names_u = [
             recname.replace("\\", "")
             for fn in self.filenames_tex
-            for recname in re.findall("\\\\REC\*?{(.*?)}", "\n".join(all_lines))
+            for recname in re.findall(r"\\REC\*?{(.*?)}", "\n".join(all_lines))
             if recname not in not_recipes
         ]
         return sorted(set(recipe_names_u))
