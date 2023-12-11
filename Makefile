@@ -31,7 +31,7 @@ METIS_DRLD.pdf: \
 	$$(wildcard tikz/*.tex) \
 	$$(wildcard figures/*.*)
 	$(call pdflatex,primary,${TEXFOT_ARGS_FIRST})
-	@echo -r '$(c_action)[biber] Processing bibliography files$(c_default)'
+	@echo '$(c_action)[biber] Processing bibliography files$(c_default)'
 	biber METIS_DRLD
 	$(call pdflatex,secondary,${TEXFOT_ARGS})
 	$(call pdflatex,tertiary,${TEXFOT_ARGS})
