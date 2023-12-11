@@ -45,15 +45,15 @@
 %  };
 %  \draw [connection_arrow] (bpmin) -- (step2);
 
+  \node (connect_dark) [connection] at
+    ($(input)!0.45!(step2)$) {};
+  \node (master_dark) [left=of connect_dark, calproduct]{\STATCALIB{MASTER_DARK_IFU}};
+  \draw[connection_arrow](master_dark)--(connect_dark);
+
   \node (connect_pinhole) [connection] at
   ($(input)!0.7!(step2)$) {};
   \node (pinhole) [left=of connect_pinhole, external]{\EXTCALIB{PINHOLE_TABLE}};
   \draw [connection_arrow] (pinhole) -- (connect_pinhole);
-
-  \node (connect_dark) [connection] at
-    ($(input)!0.35!(step2)$) {};
-  \node (master_dark) [left=of connect_dark, calproduct]{\STATCALIB{MASTER_DARK_IFU}};
-  \draw [connection_arrow] (master_dark) -- (connect_dark);
 
   %% Output
   \node (connect dist table) [connection] at
