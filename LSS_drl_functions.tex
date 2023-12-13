@@ -5,20 +5,21 @@
 \begin{recipedef}
 Name: & \DRL{correct_order_bg} \\
 Purpose: & Removal of order background contamination (e.g. stray light)\\
-Used in recipes: & \REC{metis_LM_lss_rsrf} \newline
-                  \REC{metis_N_lss_rsrf} \newline
-                  \REC{metis_LM_lss_wave} \newline
-                  \REC{metis_LM_lss_std} \newline
-                  \REC{metis_N_lss_std} \newline
-                  \REC{metis_LM_lss_sci}\newline
-                  \REC{metis_N_lss_sci}\\
+Used in recipes: & \REC{metis_LM_lss_rsrf}\\
+                 & \REC{metis_N_lss_rsrf} \\
+                 & \REC{metis_LM_lss_wave}\\
+                 & \REC{metis_LM_lss_std} \\
+                 & \REC{metis_N_lss_std}  \\
+                 & \REC{metis_LM_lss_sci} \\
+                 & \REC{metis_N_lss_sci}  \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+Input: & \texttt{hdrl\_imagelist *input} \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Output: &  \texttt{hdrl\_imagelist *input} (images corrected for order background contamination) \\
+        & \texttt{cpl\_error\_code} \\
 General description: & Removal of stray light by a 2D-polynomial fits of the order background \\
 Mathematical description: & see Section~\ref{ssec:orderbg} \\
 Quality assessment: & Through QC parameters \\
@@ -38,11 +39,12 @@ Used in recipes: & \REC{metis_LM_lss_rsrf} \\
 & \REC{metis_n_adc_slitloss} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input} \\
+Input: & \texttt{const hdrl\_image *input} \\
 Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Output:  & \texttt{const hdrl\_image *input} (images wiht WCU off frame subtracted) \\
+         & \texttt{cpl\_error\_code} \\
 General description: & Subtracts a WCU-OFF frame from an WCU image \\
 Mathematical description: &  see~\cite{pis02} and~\cite{pis21}\\
 Quality assessment: & Through QC parameters \\
@@ -58,12 +60,12 @@ Used in recipes: & \REC{metis_LM_lss_rsrf} \\
 & \REC{metis_N_lss_rsrf} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & temperature parameter \\
-Other inputs: & None\\
+Input: & \texttt{double *temp} (temperature parameter) \\
+%Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
-            & \texttt{const hdrl\_spectrum1D * output}\\
+ Outputs:            & \texttt{hdrl\_spectrum1D *bb}\\
+                     & \texttt{cpl\_error\_code} \\
 General description: & Calculates a blackbody spectrum for the \ac{RSRF} normalisation\\
 Mathematical description: &  usual Planck formula\\
 Quality assessment: & Through QC parameters \\
@@ -80,11 +82,13 @@ Used in recipes: & \REC{metis_LM_lss_rsrf} \\
 & \REC{metis_N_lss_rsrf} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input} \\
+Input: & \texttt{const hdrl\_image *input} \\
+       & \texttt{const hdrl\_image *rsrf} (\PROD{LM_LSS_RSRF_RAW} , \PROD{N_LSS_RSRF_RAW})\\
 %Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Output:  & \texttt{const hdrl\_image *input} (normalized flat field)\\
+         & \texttt{cpl\_error\_code} \\
 General description: & Creates normalised \ac{RSRF} \\
 Mathematical description: &  see~\cite{pis02} and~\cite{pis21}\\
 Quality assessment: & Through QC parameters \\
@@ -101,11 +105,12 @@ Used in recipes: & \REC{metis_LM_lss_std} \\
 & \REC{metis_N_lss_std} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input} \\
+Input: &  \texttt{hdrl\_spectrum1D *input}\\
 %Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Output:  &  \texttt{hdrl\_spectrum1D *input}\\
+         & \texttt{cpl\_error\_code} \\
 General description: & Creates normalised version of a \ac{STD} input spectrum  by fitting the continuum and subsequent division of the fit\\
 Mathematical description: &  Polynomial fit on regions known to contain continuum only; these regions will be defined in Table \STATCALIB{REF_STD_CAT}\\
 Quality assessment: & Through QC parameters \\
@@ -126,24 +131,25 @@ Unit tests: & See~\cite{DRLVT}. \\
 \subsubsection{Apply RSRF}\label{drl:applyrsrf}\label{drl:apply_rsrf}
 \begin{recipedef}
 Name: & \DRL{apply_rsrf}\\
-Purpose: & applies \PROD{MASTER_LM_LSS_RSRF} to LM-frames\newline
-           applies \PROD{MASTER_N_LSS_RSRF} to N-frames\\
-Used in recipes: & \REC{metis_LM_lss_trace} \newline
-                 \REC{metis_N_lss_trace} \newline
-                 \REC{metis_LM_lss_wave} \newline
-                 \REC{metis_LM_lss_std} \newline
-                 \REC{metis_N_lss_std} \newline
-                 \REC{metis_LM_lss_sci} \newline
-                 \REC{metis_N_lss_sci} \newline 
-                 \REC{metis_lm_adc_slitloss} \newline
-                \REC{metis_n_adc_slitloss}\\
+Purpose: & applies \PROD{MASTER_LM_LSS_RSRF} to LM-frames\\
+         &  applies \PROD{MASTER_N_LSS_RSRF} to N-frames\\
+Used in recipes: & \REC{metis_LM_lss_trace} \\
+                & \REC{metis_N_lss_trace}  \\
+                & \REC{metis_LM_lss_wave}  \\
+                & \REC{metis_LM_lss_std}  \\
+                & \REC{metis_N_lss_std}  \\
+                & \REC{metis_LM_lss_sci} \\
+                & \REC{metis_N_lss_sci} \\
+                & \REC{metis_lm_adc_slitloss} \\
+                &\REC{metis_n_adc_slitloss}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\
-Inputs: & \texttt{const hdrl\_image * input}\\
+Inputs: & \texttt{const hdrl\_image *input}\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Output:  & \texttt{const hdrl\_image *input} (flat-fielded image) \\
+         & \texttt{cpl\_error\_code} \\
 General description: & Normal flatfield process for correcting pixel-to-pixel sensitivities \\
 Mathematical description: & Division by \PROD{MASTER_LM_LSS_RSRF} or  \PROD{MASTER_N_LSS_RSRF}, respectively \\
 Quality assessment: & Through QC parameters \\
@@ -159,7 +165,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 %Used in recipes: & \REC{metis_LM_lss_wave} \\
 %%Working remarks: & None \\
 %%Function Parameters: & None \\
-%Input: & \texttt{const hdrl\_image * input} \\https://www.overleaf.com/project/5f1abb4137d7690001f8aeb1
+%Input: & \texttt{const hdrl\_image *input} \\https://www.overleaf.com/project/5f1abb4137d7690001f8aeb1
 %%Other inputs: & None\\
 %%QC outputs: & None \\
 %%Output FITS files: & None \\
@@ -188,15 +194,16 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}
 Name: & \DRL{determine_response}\\
 Purpose: & Determination of the spectral response function\\
-Used in recipes: &  \REC{metis_LM_lss_std} \newline
-                 \REC{metis_N_lss_std} \\
+Used in recipes: &  \REC{metis_LM_lss_std} \\
+                 &  \REC{metis_N_lss_std} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_spectrum1D * input} \\
-Other inputs: & \texttt{const hdrl\_spectrum1D * input}\\
+Input:        & \texttt{const hdrl\_spectrum1D *input} \\
+Other inputs: & \texttt{const hdrl\_spectrum1D *standard}\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Outputs:  & \texttt{hdrl\_spectrum1D *output} (spectral response function) \\
+          & \texttt{cpl\_error\_code} \\
 General description: & Determination of the instrumental response function to be used for the absolute flux calibration \\
 Mathematical description: & see HDRL manual \\
 Quality assessment: & Through QC parameters \\
@@ -214,11 +221,12 @@ Used in recipes: & \REC{metis_LM_lss_std} \\
 & \REC{metis_N_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input} \\
-Other inputs: & None\\
+Input: & \texttt{hdrl\_image *input} \\
+%Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Outputs: &  \texttt{hdrl\_image *output} (background subtracted image) \\
+         &  \texttt{cpl\_error\_code} \\
 General description: & Removes the sky emission background (nodding/chop-nodding technique) \\
 Mathematical description: &  see~\cite{METIS-operational_concept}, Section 1.4\\
 Quality assessment: & Through QC parameters \\
@@ -238,11 +246,12 @@ Used in recipes: & \REC{metis_LM_lss_wave} \\
 & \REC{metis_N_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input} \\
-Other inputs: & None\\
+Input: & \texttt{const hdrl\_image *input} \\
+%Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Outputs: & \texttt{double *curvature} (curvature parameters) \\
+         & \texttt{cpl\_error\_code} \\
 General description: & Determines the tilt and shear of the orders using the sky emission lines \\
 Mathematical description: &  see~\cite{pis02} and~\cite{pis21}\\
 Quality assessment: & Through QC parameters \\
@@ -262,11 +271,12 @@ Used in recipes: & \REC{metis_LM_lss_wave} \\
 & \REC{metis_N_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input} \\
-Other inputs: & None\\
+Input: & \texttt{const hdrl\_image *input} \\
+%Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Outputs: & ??\\
+         & \texttt{cpl\_error\_code} \\
 General description: & Determines the order locations on the detectors \\
 Mathematical description: &  see~\cite{pis02} and~\cite{pis21}\\
 Quality assessment: & Through QC parameters \\
@@ -279,17 +289,19 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}
 Name: & \DRL{extract_object}\\
 Purpose: & Extract object spectrum from 2D-spectrum\\
-Used in recipes: & \REC{metis_LM_lss_std} \newline
-                 \REC{metis_N_lss_std} \newline
-                 \REC{metis_LM_lss_sci} \newline
-                 \REC{metis_N_lss_sci} \\
+Used in recipes: & \REC{metis_LM_lss_std} \\
+                 & \REC{metis_N_lss_std}\\
+                 & \REC{metis_LM_lss_sci}\\
+                 & \REC{metis_N_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image * input\newline const hdrl\_image * background\newline hdrl\_image * output}  \\
+Input: &  \texttt{const hdrl\_image *input} \\
+       &  \texttt{const hdrl\_image *background}\\
 %Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Outputs: &  \texttt{hdrl\_spectrum1D *spectrum} (extracted spectrum) \\
+         & \texttt{cpl\_error\_code} \\
 General description: & Routine to extract a 1D spectrum of the target from the 2D spectrum\\
 Mathematical description: & See optimal extraction algorithm~\cite{pis02} and~\cite{pis21} \\
 Quality assessment: & Through QC parameters \\
@@ -302,15 +314,16 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}
 Name: & \DRL{apply_wavecal}\\
 Purpose: & applies \PROD{LM_LSS_WAVE_GUESS}\\
-Used in recipes: & \REC{metis_LM_lss_std} \newline
-                 \REC{metis_LM_lss_sci} \\
+Used in recipes: & \REC{metis_LM_lss_std} \\
+                 & \REC{metis_LM_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\
-Inputs: & \texttt{const hdrl\_spectrum1D * input}\\
+Inputs: & \texttt{hdrl\_spectrum1D *input}\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Outputs: &  \texttt{hdrl\_spectrum1D *output} (wavelength calibrated spectrum) \\
+         & \texttt{cpl\_error\_code} \\
 General description: & Applies the first guess wavelength calibration to LM LSS data \\
 %Mathematical description: & Applies projection from detector space to $(y, \lambda)$-space\\
 Quality assessment: & Through QC parameters \\
@@ -323,15 +336,16 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}
 Name: & \DRL{apply_fluxcal}\\
 Purpose: & applies \PROD{MASTER_LM_RESPONSE} or \PROD{MASTER_N_RESPONSE} to science frames\\
-Used in recipes: & \REC{metis_LM_lss_sci} \newline
-                 \REC{metis_N_lss_sci} \\
+Used in recipes: & \REC{metis_LM_lss_sci} \\
+                 & \REC{metis_N_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\
-Inputs: & \texttt{const hdrl\_spectrum1D * input}\\
+Inputs: & \texttt{hdrl\_spectrum1D *input}\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Outputs: &  \texttt{hdrl\_spectrum1D *output} (flux calibrated spectrum) \\
+         & \texttt{cpl\_error\_code} \\
 General description: & Applies the absolute flux calibration to science frames \\
 %Mathematical description: & Applies projection from detector space to $(y, \lambda)$-space\\
 Quality assessment: & Through QC parameters \\
@@ -349,10 +363,11 @@ Used in recipes: & \REC{metis_LM_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\
-Inputs: & \texttt{const hdrl\_spectrum1D * input}\\
+Inputs: & \texttt{const hdrl\_spectrum1D *input}\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Other outputs: & \texttt{cpl\_error\_code} \\
+Outputs: &  \texttt{hdrl\_spectrum1D *output} (telluric corrected spectrum) \\
+         & \texttt{cpl\_error\_code} \\
 General description: & Applies a simple transmission to \ac{STD} spectra better determine the response curve \\
 %Mathematical description: & Applies projection from detector space to $(y, \lambda)$-space\\
 Quality assessment: & Through QC parameters \\
