@@ -7,11 +7,11 @@
         Used in recipes: & \REC{metis_ifu_reduce}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
-        Input: & \texttt{const hdrl\_image * input} \\
+        Input: & \texttt{const hdrl\_image *wavecal} \\
         %Other inputs: &  \\
         %QC outputs: & None\\
         %Output FITS files: & None \\
-        Outputs: & \PROD{IFU_WAVECAL}\\
+        Outputs: &  \texttt{hdrl\_image *input} (\PROD{IFU_WAVECAL})\\
                  & \texttt{cpl\_error\_code} \\
         General description: &  \\
         Mathematical description: & See section \ref{sssec:ifu_wavecal} \\
@@ -27,11 +27,11 @@
         Used in recipes: & \REC{metis_ifu_postprocess}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
-        Input: & $6\times$ \texttt{const hdrl\_image * input} \\
+        Input: & \texttt{const hdrl\_imagelist *input} \\
         Other inputs: & precise position and orientation of individual exposures \\
         %QC outputs: & None\\
         %Output FITS files: & None \\
-        Outputs:    & \PROD{IFU_SCI_COMBINED} \\
+        Outputs:    &  \texttt{hdrl\_image *grid} \\
                     & \texttt{cpl\_error\_code} \\
         General description: & Determine the position of the output grids for dithering of multiple exposures \\
         Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
@@ -47,11 +47,11 @@
         Used in recipes: & \REC{metis_ifu_postprocess}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
-        Input: & $6\times$ \texttt{const hdrl\_image * input} \\
-        Other inputs: & precise position and orientation of individual exposures \\
+        Input: & \texttt{const hdrl\_imagelist *input} \\
+        Other inputs: & \texttt{cpl\_table *input} (precise position and orientation of individual exposures) \\
         %QC outputs: & None\\
         %Output FITS files: & None \\
-        Outputs:    & \PROD{IFU_SCI_COMBINED} \\
+        Outputs:    & \texttt{hdrl\_image *output} (\PROD{IFU_SCI_COMBINED}) \\
                     & \texttt{cpl\_error\_code} \\
         General description: & Resample the IFU exposures with rectangular pixels onto a square grid \\
         Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\
@@ -67,12 +67,12 @@
         Used in recipes: & \REC{metis_ifu_postprocess}\\
         %Working remarks: & None \\
         %Function Parameters: & None \\
-        Input: & $6\times$ \texttt{const hdrl\_image * input} \\
+        Input: & \texttt{const hdrl\_imagelist *input} \\
         %Other inputs: & precise position and orientation of individual exposures \\
         %QC outputs: & None\\
         %Output FITS files: & None \\
-        Outputs:    & \PROD{IFU_SCI_COADD} \\
-%                    & \PROD{IFU_SCI_COADD_ERROR} \\
+        Outputs:    & \texttt{hdrl\_image *output} (\PROD{IFU_SCI_COADD}) \\
+%                   & \texttt{hdrl\_image *output} (\PROD{IFU_SCI_COADD_ERROR}) \\
                     & \texttt{cpl\_error\_code} \\
         General description: & Co-add the properly aligned IFU exposures \\
         Mathematical description: & See section \ref{sssec:ifu_sci_postprocess} \\

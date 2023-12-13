@@ -12,12 +12,12 @@ Purpose: & Detect the centroid in a sequence of LM band CVC/RAVC coronographic i
 Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+Input: &\texttt{hdrl\_imagelist *input} \\
 %Other inputs: & None \\
 QC outputs: & \QC{QC LM cgrph SCI FWHM nn}\\
 %Output FITS files: & None \\
-Outputs: & \PROD{lm_cgrph_CENTROID_TAB}\\
-                & \texttt{cpl\_error\_code} \\
+Outputs: & \texttt{cpl\_table *centroid} (\PROD{lm_cgrph_CENTROID_TAB})\\
+         & \texttt{cpl\_error\_code} \\
 General description: & Centroiding of source in LM band coronagraphic images \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging}  \\
 Quality assessment: & Through QC parameters \\
@@ -34,12 +34,12 @@ Purpose: & Detect the centroids in a sequence of N band CVC/RAVC coronographic i
 Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+Input: &\texttt{hdrl\_imagelist *input} \\
 %Other inputs: & None \\
 QC outputs: & \QC{QC N cgrph SCI FWHM nn}\\
 %Output FITS files: & None \\
-Outputs: & \PROD{n_cgrph_CENTROID_TAB}\\
-                & \texttt{cpl\_error\_code} \\
+Outputs: & \texttt{cpl\_table *centroid} (\PROD{n_cgrph_CENTROID_TAB})\\
+         & \texttt{cpl\_error\_code} \\
 General description: & Centroiding of source in N band coronagraphic images \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging}  \\
 Quality assessment: & Through QC parameters \\
@@ -57,12 +57,12 @@ Purpose: & Determine the centroid in a sequence of LM band APP coronographic ima
 Used in recipes: & \REC{metis_lm_adi_app}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+Input: &\texttt{hdrl\_imagelist *input} \\
 %Other inputs: & None \\
 QC outputs: & \QC{QC LM APP SCI FWHM nn}\\
 %Output FITS files: & None \\
-Outputs: & \PROD{lm_app_CENTROID_TAB}\\
-                & \texttt{cpl\_error\_code} \\
+Outputs: & \texttt{cpl\_table *centroid} (\PROD{lm_app_CENTROID_TAB})\\
+         & \texttt{cpl\_error\_code} \\
 General description: & Determine source location in LM band APP coronagraphic images, through the \ac{WFS-FS} position and by centroiding \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging}  \\
 Quality assessment: & Through QC parameters \\
@@ -79,7 +79,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 % Used in recipes: & \REC{metis_lm_adi_app}\\
 % %Working remarks: & None \\
 % %Function Parameters: & None \\
-% Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+% Input: &\texttt{hdrl\_imagelist *input} \\
 % %Other inputs: & None \\
 % QC outputs: & QC N APP FWHM nn\\
 % %Output FITS files: & None \\
@@ -104,14 +104,13 @@ Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      & parameters for combination method\\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       &  \PROD{lm_cgrph_CENTROID_TAB}\\
+Input: &\texttt{hdrl\_imagelist *input} \\
+       & \texttt{cpl\_table *centroid} (\PROD{lm_cgrph_CENTROID_TAB})\\
 %Other inputs: & None \\
 QC outputs: & \QC{QC det cgrph SCI FWHM nn}\\
 %Output FITS files: & None \\
-Outputs: & \PROD{lm_cgrph_PSF_MEDIAN}\\
-Outputs: & \texttt{hdrl\_image * psf\_median}\\
-                & \texttt{cpl\_error\_code} \\
+Outputs: & \texttt{hdrl\_image *psf\_median} (\PROD{lm_cgrph_PSF_MEDIAN})\\
+         & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images\ \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
 Quality assessment: & Through QC parameters \\
@@ -130,14 +129,13 @@ Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      & parameters for combination method\\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       &  \PROD{N_cgrph_CENTROID_TAB}\\
+Input: &\texttt{hdrl\_imagelist *input} \\
+       & \texttt{cpl\_table *centroid} (\PROD{n_cgrph_CENTROID_TAB})\\
 %Other inputs: & None \\
 QC outputs: & \QC{QC det cgrph SCI FWHM nn}\\
 %Output FITS files: & None \\
-Outputs: & \PROD{N_cgrph_PSF_MEDIAN}\\
-Outputs: & \texttt{hdrl\_image * psf\_median}\\
-                & \texttt{cpl\_error\_code} \\
+Outputs: & \texttt{hdrl\_image *psf\_median} (\PROD{n_cgrph_PSF_MEDIAN})\\
+         & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images\ \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
 Quality assessment: & Through QC parameters \\
@@ -156,14 +154,13 @@ Used in recipes: & \REC{metis_lm_adi_app}\\
 %Working remarks: & None \\
 Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      & parameters for combination method\\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       &  \PROD{LM_app_CENTROID_TAB}\\
+Input: &\texttt{hdrl\_imagelist *input} \\
+       & \texttt{cpl\_table *centroid} (\PROD{LM_app_CENTROID_TAB})\\
 %Other inputs: & None \\
 QC outputs: & \QC{QC det APP SCI FWHM nn}\\
 %Output FITS files: & None \\
-Outputs: & \PROD{LM_APP_PSF_MEDIAN}\\
-Outputs: & \texttt{hdrl\_image * psf\_median}\\
-                & \texttt{cpl\_error\_code} \\
+Outputs: & \texttt{hdrl\_image *psf\_median} (\PROD{lm_app_PSF_MEDIAN})\\
+         & \texttt{cpl\_error\_code} \\
 General description: & Calculation of median PSF for sequence of ADI images\ \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
 Quality assessment: & Through QC parameters \\
@@ -182,12 +179,12 @@ Unit tests: & See~\cite{DRLVT}. \\
 % %Working remarks: & None \\
 % Function Parameters: & combination method (median, mean, sigma clipped...)\\
 %                      & parameters for combination method\\
-% Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+% Input: &\texttt{hdrl\_imagelist *input} \\
 %        &  \PROD{n_app_CENTROID_TAB}\\
 % %Other inputs: & None \\
 % QC outputs: & QC det APP SCI FWHM nn\\
 % %Output FITS files: & None \\
-% Outputs: & \PROD{n_app_PSF_MEDIAN}\\
+% Outputs: & \PROD{n_app_PSF\_MEDIAN}\\
 %                 & \texttt{cpl\_error\_code} \\
 % General description: & Calculation of median PSF for sequence of ADI images  for the APP coronograph \\
 % Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
@@ -206,11 +203,12 @@ Used in recipes: & \REC{metis_lm_adi_app}\\
 %Working remarks: & None \\
 Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      & parameters for combination method\\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+Input: &\texttt{hdrl\_imagelist *input} \\
 %Other inputs: & None \\
 QC outputs: & None\\
 %Output FITS files: & None \\
-Outputs: & \texttt{cpl\_error\_code} \\
+Outputs: & \texttt{hdrl\_image *output} (merged PSF) \\
+         & \texttt{cpl\_error\_code} \\
 General description: & Merge the components of the PSF for an LM band APP coronagraph image \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
 Quality assessment: & Through QC parameters \\
@@ -227,7 +225,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 %Working remarks: & None \\
 %Function Parameters: & combination method (median, mean, sigma clipped...)\\
                      %& parameters for combination method\\
-%Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+%Input: &\texttt{hdrl\_imagelist *input} \\
 %Other inputs: & None \\
 %QC outputs: & None \\
 %Output FITS files: & None \\
@@ -249,13 +247,13 @@ Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: & Resampling method\\
                      & parameters for resampling method\\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       & \PROD{det_cgrph_CENTROID_TAB}\\
-       & \PROD{det_DISTORTION_TABLE}\\
+Input: &\texttt{hdrl\_imagelist *input} \\
+       & \texttt{cpl\_table *centroid} (\PROD{det_cgrph_CENTROID_TAB})\\
+       & \texttt{cpl\_table *disttab} (\PROD{det_DISTORTION_TAB})\\
 %Other inputs: & Parameters for regridding \\
 QC outputs: & None\\
-Output FITS files: & \PROD{det_cgrph_SCI_CENTRED} \\
-Outputs: &   \texttt{cpl\_error\_code} \\
+Outputs: & \texttt{hdrl\_image *output} (\PROD{det_cgrph_SCI_CENTRED}) \\
+         & \texttt{cpl\_error\_code} \\
 General description: & Apply the distortion correction and align images on a subpixel scale \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
 Quality assessment: & Through QC parameters \\
@@ -274,13 +272,13 @@ Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: & Resampling method\\
                      & parameters for resampling method\\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-       & \PROD{det_cgrph_CENTROID_TAB}\\
-       & \PROD{det_DISTORTION_TABLE}]]\\
+Input: & \texttt{hdrl\_imagelist *input} \\
+       & \texttt{cpl\_table *centroid} (\PROD{det_cgrph_CENTROID_TAB})\\
+       & \texttt{cpl\_table *disttab} (\PROD{det_DISTORTION_TAB})\\
 %Other inputs: & Parameters for regridding \\
 QC outputs: & None\\
-Output FITS files: & \PROD{det_cgrph_SCI_CENTRED} \\
-Outputs: &   \texttt{cpl\_error\_code} \\
+Outputs: & \texttt{hdrl\_image *output} \PROD{det_cgrph_SCI_CENTRED} \\
+         &   \texttt{cpl\_error\_code} \\
 General description: & Apply the distortion correction, perform square pixel reconstruction, and align images on a subpixel scale \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
 Quality assessment: & Through QC parameters \\
@@ -298,14 +296,14 @@ Purpose: & Derotate a sequence of coronagraphic images\\
 Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: method for resampling\\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+Input: &\texttt{hdrl\_imagelist *input} \\
 %Other inputs: & None \\
 QC outputs: & \QC{QC det cgrph SCI SNR MEAN} \\
             & \QC{QC det cgrph SCI SNR PEAK} \\
-Output FITS files: & \PROD{det_cgrph_SCI_DEROTATED_PSFSUB} \\
-                   & \PROD{det_cgrph_SCI_DEROTATED} \\
-Outputs: & \PROD{det_cgrph_PSF_MEDIAN}\\
-%                & \texttt{cpl\_error\_code} \\
+Outputs: & \texttt{hdrl\_image *output} (\PROD{det_cgrph_SCI_DEROTATED_PSFSUB}) \\
+         & \texttt{hdrl\_image *output}  \PROD{det_cgrph_SCI_DEROTATED} \\
+         & \texttt{hdrl\_image *psf\_median} (\PROD{det_cgrph_PSF_MEDIAN})\\
+         & \texttt{cpl\_error\_code} \\
 General description: & derotate a sequence of ADI images \\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
 Quality assessment: & Through QC parameters \\
@@ -322,14 +320,14 @@ Purpose: & Calculate contrast curves for a sequence of LM band coronagraphic ima
 Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-Other inputs: & Off-axis PSF reference \\
+Input: &\texttt{hdrl\_imagelist *input} \\
+       & \texttt{hdrl\_image *input} (Off-axis PSF reference) \\
 QC outputs: & \QC{QC LM cgrph SCI CONTRAST RAW LAMD}\\
             & \QC{QC LM cgrph SCI CONTRAST ADI LAMD}\\
-  Output FITS files: & \PROD{LM_cgrph_SCI_CONTRAST_RADPROF} \\
-                     & \PROD{LM_cgrph_SCI_CONTRAST_ADI} \\
-                     & \PROD{LM_cgrph_SCI_THROUGHPUT} \\
-Outputs: & \texttt{cpl\_error\_code} \\
+  Outputs: & \texttt{hdrl\_spectrum1D *output} (\PROD{LM_cgrph_SCI_CONTRAST_RADPROF}) \\
+           & \texttt{hdrl\_spectrum1D *output} (\PROD{LM_cgrph_SCI_CONTRAST_ADI}) \\
+           & \texttt{hdrl\_spectrum1D *throughput} (\PROD{LM_cgrph_SCI_THROUGHPUT})\\
+           & \texttt{cpl\_error\_code} \\
 General description: &  Calculate contrast curves for a sequence of LM band coronagraphic images, for the  RAVC/CVC coronagraph\\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
 Quality assessment: & Through QC parameters \\
@@ -347,14 +345,14 @@ Purpose: & Calculate contrast curves for a sequence of N band coronagraphic imag
 Used in recipes: & \REC{metis_img_adi_cgrph}\\
 %Working remarks: & None \\
 Function Parameters: None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-Other inputs: & Off-axis PSF reference \\
+Input: &\texttt{hdrl\_imagelist *input} \\
+       & \texttt{hdrl\_image *input} (Off-axis PSF reference) \\
 QC outputs: & \QC{QC N cgrph SCI CONTRAST RAW LAMD}\\
             & \QC{QC N cgrph SCI CONTRAST ADI LAMD}\\
-  Output FITS files: & \PROD{N_cgrph_SCI_CONTRAST_RADPROF} \\
-                     & \PROD{N_cgrph_SCI_CONTRAST_ADI} \\
-                     & \PROD{N_cgrph_SCI_THROUGHPUT} \\
-Outputs: & \texttt{cpl\_error\_code} \\
+  Outputs: & \texttt{hdrl\_spectrum1D *output} (\PROD{N_cgrph_SCI_CONTRAST_RADPROF}) \\
+           & \texttt{hdrl\_spectrum1D *output} (\PROD{N_cgrph_SCI_CONTRAST_ADI}) \\
+           & \texttt{hdrl\_spectrum1D *throughput} (\PROD{N_cgrph_SCI_THROUGHPUT}) \\
+           & \texttt{cpl\_error\_code} \\
 General description: &  Calculate contrast curves for a sequence of N band coronagraphic images, for the  RAVC/CVC coronagraph\\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
 Quality assessment: & Through QC parameters \\
@@ -372,14 +370,14 @@ Purpose: & Calculate contrast curves for a sequence of LM band coronagraphic ima
 Used in recipes: & \REC{metis_lm_adi_app}\\
 %Working remarks: & None \\
 Function Parameters: None \\
-Input: & $n\times$ \texttt{const hdrl\_image * input} \\
-Other inputs: & Off-axis PSF reference \\
+Input: &\texttt{hdrl\_imagelist *input} \\
+       & \texttt{hdrl\_image *psf} (Off-axis PSF reference) \\
 QC outputs: & \QC{QC det APP SCI CONTRAST RAW LAMD}\\
-            & \QC{QC det APP SCI CONTRAST ADI LAMD}\\
-  Output FITS files: & \PROD{LM_APP_SCI_CONTRAST_RADPROF} \\
-                     & \PROD{LM_APP_SCI_CONTRAST_ADI} \\
-                     & \PROD{LM_APP_SCI_THROUGHPUT} \\
-Outputs: & \texttt{cpl\_error\_code} \\
+& \QC{QC det APP SCI CONTRAST ADI LAMD}\\
+  Outputs: & \texttt{hdrl\_spectrum1D *output} (\PROD{LM_APP_SCI_CONTRAST_RADPROF}) \\
+           & \texttt{hdrl\_spectrum1D *output} (\PROD{LM_APP_SCI_CONTRAST_ADI}) \\
+           & \texttt{hdrl\_spectrum1D *throughput} (\PROD{LM_APP_SCI_THROUGHPUT}) \\
+           & \texttt{cpl\_error\_code} \\
 General description: &  Calculate contrast curves for a sequence of LM band coronagraphic images, for the  APP coronagraph\\
 Mathematical description: & see Section~\ref{ssec:algo_app_imaging} \\
 Quality assessment: & Through QC parameters \\
@@ -397,7 +395,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 %Used in recipes: & \REC{metis_lm_adi_app}\\
 %Working remarks: & None \\
 %Function Parameters: None \\
-%Input: & $n\times$ \texttt{const hdrl\_image * input} \\
+%Input: &\texttt{hdrl\_imagelist *input} \\
 %Other inputs: & Off-axis PSF reference \\
 %QC outputs: & QC det APP SCI CONTRAST RAW LAMD\\
             %& QC det APP SCI CONTRAST ADI LAMD\\
