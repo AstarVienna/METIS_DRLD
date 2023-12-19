@@ -35,7 +35,7 @@ class TestDataReductionLibraryDesign:
         assert len(METIS_DataReductionLibraryDesign.dataitems) > 0
 
     def test_dataitem_extraction(self):
-        """Another way to find the datatimes."""
+        """Another way to find the dataitems."""
         sglob = str(METIS_DataReductionLibraryDesign.path_drld / "*.tex")
         paths_tex = glob.glob(sglob)
         lines_single = [
@@ -288,7 +288,8 @@ class TestDataReductionLibraryDesign:
         assert not problems
 
     @pytest.mark.xfail(
-        rason="['METIS_spec_lmn_obs_AutoChopNodOnSlit', 'METIS_img_lm_cal_platescale', 'METIS_img_n_cal_platescale', 'METIS_ifu_cal_platescale']"
+        rason="['METIS_spec_lmn_obs_AutoChopNodOnSlit', 'METIS_img_lm_cal_platescale', 'METIS_img_n_cal_platescale', "
+              "'METIS_ifu_cal_platescale']"
     )
     def test_template_manual_templates_are_used(self):
         """Go through the template manual and check whether we use those templates."""
@@ -703,7 +704,8 @@ class TestDataReductionLibraryDesign:
             + "━┓"
         )
         print(
-            f"┃ {'DPR.CATG':<{lencatg}} │ {'DPR.TECH':<{lentech}} │ {'DPR.TYPE':<{lentype}} │ {'DO.CATG':<{lendocatg}} │ {'recipes':<{lenrecipes}} ┃"
+            f"┃ {'DPR.CATG':<{lencatg}} │ {'DPR.TECH':<{lentech}} │ {'DPR.TYPE':<{lentype}} │"
+            f" {'DO.CATG':<{lendocatg}} │ {'recipes':<{lenrecipes}} ┃"
         )
         print(
             "┣━"
@@ -722,11 +724,13 @@ class TestDataReductionLibraryDesign:
             for ri, recipe in enumerate(recipes_from_docatg[docatg]):
                 if ri == 0:
                     print(
-                        f"┃ {catg:<{lencatg}} │ {tech:<{lentech}} │ {typp:<{lentype}} │ {docatg:<{lendocatg}} │ {recipe:<{lenrecipes}} ┃"
+                        f"┃ {catg:<{lencatg}} │ {tech:<{lentech}} │ {typp:<{lentype}} │"
+                        f" {docatg:<{lendocatg}} │ {recipe:<{lenrecipes}} ┃"
                     )
                 else:
                     print(
-                        f"┃ {idem:<{lencatg}} │ {idem:<{lentech}} │ {idem:<{lentype}} │ {idem:<{lendocatg}} │ {recipe:<{lenrecipes}} ┃"
+                        f"┃ {idem:<{lencatg}} │ {idem:<{lentech}} │ {idem:<{lentype}} │"
+                        f" {idem:<{lendocatg}} │ {recipe:<{lenrecipes}} ┃"
                     )
         print(
             "┗━"
@@ -821,37 +825,6 @@ class TestParseDataItemReference:
 
 def test_parse_dataitem_from_paragraph():
     """Test parsing of dataitem."""
-    # TODO: make this old stable also work?
-    stable = r"""\paragraph{\hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}}\label{dataitem:master_n_lss_rsrf}
-    \begin{recipedef}
-    \textbf{\ac{FITS} file structure:}\\
-    Name: & \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}\\[0.3cm]
-    Description: & LM-band \ac{LSS} Master \ac{RSRF}.\\[0.3cm]
-    \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_N_LSS_RSRF}\\
-    OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
-    \FITS{DPR.CATG}: & \FITS{HELLO}\\[0.3cm]
-    \FITS{DPR.TYPE}: & \FITS{WORLD}\\[0.3cm]
-    \FITS{DPR.TECH}: & \FITS{HOWRU}\\[0.3cm]
-    \FITS{PRO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
-    \FITS{DO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
-    Created by: & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_n_lss_rsrf}}\\
-    Input for recipes: & \hyperref[rec:metis_n_lss_trace]{\REC{metis_n_lss_trace}}\\
-                       & \hyperref[rec:metis_n_lss_std]{\REC{metis_n_lss_std}}\\
-                       & \hyperref[rec:metis_n_lss_sci]{\REC{metis_n_lss_sci}}\\
-    Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-    Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
-                           & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset} \\
-    \end{recipedef}
-    %\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
-    \begin{datastructdef}
-    \textbf{Corresponding \ac{CPL} structure:}
-    \begin{enumerate}
-        \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}})}
-        \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
-        \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-    \end{enumerate}
-    \end{datastructdef}"""
-
     stable = r"""\paragraph{\PROD{MASTER_N_LSS_RSRF}}\label{dataitem:master_n_lss_rsrf}
     \begin{recipedef}
     \textbf{\ac{FITS} file structure:}\\
@@ -875,7 +848,8 @@ def test_parse_dataitem_from_paragraph():
     \begin{datastructdef}
     \textbf{Corresponding \ac{CPL} structure:}
     \begin{enumerate}
-        \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+        \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME},"""
+    r"""\FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
         \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
         \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
     \end{enumerate}
@@ -903,10 +877,6 @@ def test_parse_dataitem_from_paragraph():
     assert dataitem.dpr_tech == "HOWRU"
     assert dataitem.dpr_type == "WORLD"
 
-    # TODO: make this old stable also work?
-    stable = r"""\paragraph{\hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}}\label{dataitem:badpix_map_2rg}
-    See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
-    """
     stable = r"""\paragraph{\PROD{BADPIX_MAP_2RG}}\label{dataitem:badpix_map_2rg}
     See \PROD{BADPIX_MAP_det}.
     """
@@ -970,18 +940,21 @@ def test_associationmatrices():
             if recipecell.dataitems is not None:
                 for input_primary in recipecell.dataitems:
                     input_primary_real = recipe.input_data[0]
-                    # The input_primary does not have to be the first, e.g. metis_det_dark only lists the GEO one as first input
+                    # The input_primary does not have to be the first,
+                    # e.g. metis_det_dark only lists the GEO one as first input.
                     is_input_primary_really_input = any(
                         input_primary.name == inp.name for inp in recipe.input_data
                     )
                     if not is_input_primary_really_input:
                         problems_recipe.append(
-                            f"{recipe.name} should not have {input_primary.name} as primary input but {input_primary_real.name}"
+                            f"{recipe.name} should not have {input_primary.name}"
+                            f" as primary input but {input_primary_real.name}"
                         )
             else:
-                # there is not really a way to get to the primary data item because then it would be necessary to follow the lines, e.g. for IFU
+                # There is not really a way to get to the primary data item
+                # because then it would be necessary to follow the lines, e.g. for IFU.
+                # TODO: Perhaps follow those lines anyway?
                 ...
-                input_primary = None
 
             # Try to see whether input is correct.
             for icell, cell in enumerate(recipecolumn):
@@ -1005,7 +978,8 @@ def test_associationmatrices():
                     if not is_input_really_input:
                         sthedataitem = "+".join(td.name for td in thedataitems)
                         problems_recipe.append(
-                            f"{recipe.name} has {sthedataitem} as input in the association matrix, but not in the recipe table"
+                            f"{recipe.name} has {sthedataitem} as input in the"
+                            f" association matrix, but not in the recipe table"
                         )
                         assert sthedataitem, ValueError(
                             "sthedataitem should never be empty"
@@ -1115,7 +1089,7 @@ def test_tikz():
             + [name_recipe]
         )
 
-        # Check for duplicate names:]. Primarily used to fint BADPIX input,
+        # Check for duplicate names. Primarily used to find BADPIX input,
         # which is not necessary since all data products have a data quality
         # layer.
         duplicates = [
@@ -1134,7 +1108,8 @@ def test_tikz():
             is_name_used = any(name in names_in_table for name in names_di_expanded)
             if not is_name_used:
                 problems_recipe.append(
-                    f"The figure for {name_recipe} has {name_di} as input/output/template/recipe, but the table doesn't!"
+                    f"The figure for {name_recipe} has {name_di} as"
+                    f" input/output/template/recipe, but the table doesn't!"
                 )
 
         # Vice-versa, does the recipe use dataitems that are not in the figures?
@@ -1146,7 +1121,8 @@ def test_tikz():
             is_name_used = any(name in names_in_figure for name in names_di_expanded)
             if not is_name_used:
                 problems_recipe.append(
-                    f"The table for {name_recipe} has {name_di} as input/output/template/recipe, but it is not in the figure!"
+                    f"The table for {name_recipe} has {name_di} as"
+                    f" input/output/template/recipe, but it is not in the figure!"
                 )
 
         if problems_recipe:
