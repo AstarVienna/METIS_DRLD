@@ -35,7 +35,7 @@ class TestDataReductionLibraryDesign:
         assert len(METIS_DataReductionLibraryDesign.dataitems) > 0
 
     def test_dataitem_extraction(self):
-        """Another way to find the datatimes."""
+        """Another way to find the dataitems."""
         sglob = str(METIS_DataReductionLibraryDesign.path_drld / "*.tex")
         paths_tex = glob.glob(sglob)
         lines_single = [
@@ -70,7 +70,9 @@ class TestDataReductionLibraryDesign:
 
         # Are all dataitems in the DRLD also in the lines above?
         for di in METIS_DataReductionLibraryDesign.dataitems:
-            found = numpy.array([any(di in line for line in lmulti) for lmulti in lines_full])
+            found = numpy.array(
+                [any(di in line for line in lmulti) for lmulti in lines_full]
+            )
             foundsingle = numpy.array(
                 [
                     # IFU_SCI_COMBINED is there, but also IFU_SCI_COMBINED_TAC,
@@ -104,8 +106,12 @@ class TestDataReductionLibraryDesign:
         # )
 
     def test_template_and_recipe_names_do_not_overlap(self):
-        names_recipes = {name.lower() for name in METIS_DataReductionLibraryDesign.recipes.keys()}
-        names_templates = {name.lower() for name in METIS_TemplateManual.templates.keys()}
+        names_recipes = {
+            name.lower() for name in METIS_DataReductionLibraryDesign.recipes.keys()
+        }
+        names_templates = {
+            name.lower() for name in METIS_TemplateManual.templates.keys()
+        }
         assert not (names_recipes & names_templates)
 
     def test_all_recipe_names_used_also_exist(self):
@@ -120,7 +126,9 @@ class TestDataReductionLibraryDesign:
             and name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING
         ]
 
-        assert not names_not_existing, f"Non existing recipe names: {names_not_existing}"
+        assert (
+            not names_not_existing
+        ), f"Non existing recipe names: {names_not_existing}"
 
     @pytest.mark.xfail(
         reason="There are references to recipes with incorrect capitalization, e.g. in LSS_data_items.tex."
@@ -148,13 +156,16 @@ class TestDataReductionLibraryDesign:
     def test_all_templates_used_also_exist_soft(self):
         self.all_templates_used_also_exist(hard=False)
 
-    def all_templates_used_also_exist(self, hard=True):
+    @staticmethod
+    def all_templates_used_also_exist(hard=True):
         # TODO: hack_rename_template_names_drld and
         #  TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI are currently not
         #  used anymore.
         names_existing = set(METIS_TemplateManual.templates.keys())
         if not hard:
-            names_existing = names_existing.union(set(TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI))
+            names_existing = names_existing.union(
+                set(TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI)
+            )
         names_used = METIS_DataReductionLibraryDesign.template_names_used
         names_existing_lower = [name.lower() for name in names_existing]
         names_not_existing = [
@@ -165,7 +176,9 @@ class TestDataReductionLibraryDesign:
             and "*" not in name
         ]
 
-        assert not names_not_existing, f"Non existing template names: {names_not_existing}"
+        assert (
+            not names_not_existing
+        ), f"Non existing template names: {names_not_existing}"
 
     def test_all_recipe_data_has_a_name(self):
         bad_input_data = [
@@ -178,7 +191,8 @@ class TestDataReductionLibraryDesign:
             (recipe.name, diref)
             for recipe in METIS_DataReductionLibraryDesign.recipes.values()
             for diref in recipe.output_data
-            if diref.name is None and recipe.name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT
+            if diref.name is None
+            and recipe.name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT
         ]
         if bad_input_data:
             pprint(bad_input_data)
@@ -192,13 +206,15 @@ class TestDataReductionLibraryDesign:
             (recipe.name, diref)
             for recipe in METIS_DataReductionLibraryDesign.recipes.values()
             for diref in recipe.input_data
-            if diref.name is not None and diref.name not in METIS_DataReductionLibraryDesign.dataitems
+            if diref.name is not None
+            and diref.name not in METIS_DataReductionLibraryDesign.dataitems
         ]
         bad_output_data = [
             (recipe.name, diref)
             for recipe in METIS_DataReductionLibraryDesign.recipes.values()
             for diref in recipe.output_data
-            if diref.name is not None and diref.name not in METIS_DataReductionLibraryDesign.dataitems
+            if diref.name is not None
+            and diref.name not in METIS_DataReductionLibraryDesign.dataitems
         ]
         assert not bad_input_data
         assert not bad_output_data
@@ -217,7 +233,9 @@ class TestDataReductionLibraryDesign:
             (recipe.name, diref)
             for recipe in METIS_DataReductionLibraryDesign.recipes.values()
             for diref in recipe.input_data
-            if diref.name is not None and diref.dtype == "PROD" and diref.name not in all_output_names
+            if diref.name is not None
+            and diref.dtype == "PROD"
+            and diref.name not in all_output_names
         ]
         assert not bad_input_data
 
@@ -250,11 +268,14 @@ class TestDataReductionLibraryDesign:
                 assert (
                     template is None
                     or template.ttype in ["Calibration", "Observing", "Engineering"]
-                    or template.name in METIS_DataReductionLibraryDesign.templates_acquisition_used
+                    or template.name
+                    in METIS_DataReductionLibraryDesign.templates_acquisition_used
                 )
 
     def test_whether_templates_are_understood(self):
-        template_not_in_manual = [tn.lower() for tn in TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI]
+        template_not_in_manual = [
+            tn.lower() for tn in TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI
+        ]
         problems = []
         for recipe in METIS_DataReductionLibraryDesign.recipes.values():
             for template in recipe.templates:
@@ -267,7 +288,8 @@ class TestDataReductionLibraryDesign:
         assert not problems
 
     @pytest.mark.xfail(
-        rason="['METIS_spec_lmn_obs_AutoChopNodOnSlit', 'METIS_img_lm_cal_platescale', 'METIS_img_n_cal_platescale', 'METIS_ifu_cal_platescale']"
+        rason="['METIS_spec_lmn_obs_AutoChopNodOnSlit', 'METIS_img_lm_cal_platescale', 'METIS_img_n_cal_platescale', "
+              "'METIS_ifu_cal_platescale']"
     )
     def test_template_manual_templates_are_used(self):
         """Go through the template manual and check whether we use those templates."""
@@ -303,7 +325,10 @@ class TestDataReductionLibraryDesign:
             if created_by:
                 s_created_by = "\n".join(
                     [f"Created by:   & \\REC{{{created_by[0].name}}} \\\\"]
-                    + [f"              & \\REC{{{rec.name}}} \\\\" for rec in created_by[1:]]
+                    + [
+                        f"              & \\REC{{{rec.name}}} \\\\"
+                        for rec in created_by[1:]
+                    ]
                 )
             else:
                 s_created_by = ""
@@ -314,14 +339,19 @@ class TestDataReductionLibraryDesign:
                 if recref.name is not None
                 and recref.name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING
                 and recref.name.lower()
-                not in HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS.get(dataitem.name, {})
+                not in HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS.get(
+                    dataitem.name, {}
+                )
             ]
             input_for = METIS_DataReductionLibraryDesign.get_input_for(dataitem.name)
             names_input_for = [recipe.name.lower() for recipe in input_for]
             if input_for:
                 s_input_for = "\n".join(
                     [f"Input for:    & \\REC{{{input_for[0].name}}} \\\\"]
-                    + [f"              & \\REC{{{rec.name}}} \\\\" for rec in input_for[1:]]
+                    + [
+                        f"              & \\REC{{{rec.name}}} \\\\"
+                        for rec in input_for[1:]
+                    ]
                 )
             else:
                 s_input_for = ""
@@ -362,7 +392,9 @@ class TestDataReductionLibraryDesign:
                 (
                     not (
                         dataitem.pro_catg
-                        and (dataitem.dpr_catg or dataitem.dpr_type or dataitem.dpr_tech)
+                        and (
+                            dataitem.dpr_catg or dataitem.dpr_type or dataitem.dpr_tech
+                        )
                     ),
                     f"{dataitem.name} has PRO.CATG {dataitem.pro_catg} and also some of the DPR keywords",
                 ),
@@ -417,7 +449,9 @@ class TestDataReductionLibraryDesign:
             # TODO: Check created_by and input_for RecipeRefs actually have a name, or are HITRAN
             # TODO: Check OCA keywords
             # TODO: Check HDU headers
-            all_errors += [errorstring for is_ok, errorstring in possible_errors if not is_ok]
+            all_errors += [
+                errorstring for is_ok, errorstring in possible_errors if not is_ok
+            ]
 
         if all_errors:
             print()
@@ -441,7 +475,8 @@ class TestDataReductionLibraryDesign:
                         for name in METIS_DataReductionLibraryDesign.recipes
                         if name is not None
                     ]
-                    and reciperef.name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING
+                    and reciperef.name
+                    not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING
                 ],
                 "bad_input_for": [
                     reciperef.name
@@ -453,13 +488,14 @@ class TestDataReductionLibraryDesign:
                         for name in METIS_DataReductionLibraryDesign.recipes
                         if name is not None
                     ]
-                    and reciperef.name not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING
+                    and reciperef.name
+                    not in HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING
                 ],
             }
             for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
         }
         errors = False
-        for (name, theerrors) in allerrors.items():
+        for name, theerrors in allerrors.items():
             if theerrors["bad_created_by"]:
                 errors = True
                 print(
@@ -479,7 +515,9 @@ class TestDataReductionLibraryDesign:
             if template in HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA:
                 continue
             dataitems = METIS_DataReductionLibraryDesign.get_raws_for_template(template)
-            recipes = METIS_DataReductionLibraryDesign.get_recipes_for_template(template)
+            recipes = METIS_DataReductionLibraryDesign.get_recipes_for_template(
+                template
+            )
             if not dataitems:
                 errors.append(f"{template} produces no raw data but triggers {recipes}")
         if errors:
@@ -497,19 +535,26 @@ class TestDataReductionLibraryDesign:
             templates_unaccounted_for = set(recipe.templates)
             for dataitemref in recipe.input_data:
                 dataitem = METIS_DataReductionLibraryDesign.dataitems[dataitemref.name]
-                if dataitem.templates is None:
+                if not dataitem.templates:
                     continue
                 if not set(dataitem.templates).union(set(recipe.templates)):
                     # There is no overlap between templates, so this dataitem cannot be used as input
                     raws_unaccounted_for.append(dataitem)
                 templates_unaccounted_for -= set(dataitem.templates)
-            # if raws_unaccounted_for:
-            #     errors.append(f"{recipe.name} has {dataitem.name} as input, but none of its templates {dataitem.templates}")
+                if raws_unaccounted_for:
+                    errors.append(
+                        f"{recipe.name} has {dataitem.name} as input, but none of its templates {dataitem.templates}"
+                    )
             if templates_unaccounted_for:
                 for template in templates_unaccounted_for:
-                    if template in HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA:
+                    if (
+                        template
+                        in HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA
+                    ):
                         continue
-                    data = METIS_DataReductionLibraryDesign.get_raws_for_template(template)
+                    data = METIS_DataReductionLibraryDesign.get_raws_for_template(
+                        template
+                    )
                     errors.append(
                         f"{recipe.name} is triggered by {template}, but none of its data {data} is used as input"
                     )
@@ -517,12 +562,15 @@ class TestDataReductionLibraryDesign:
             print()
             for error in errors:
                 print(error)
-        assert not errors, f"The input_data and templates of {len(errors)} recipes is inconsistent."
+        assert (
+            not errors
+        ), f"The input_data and templates of {len(errors)} recipes is inconsistent."
 
     def test_recipes_first_input_is_from_template(self):
         """The first input of the recipes should be from the templates."""
         recipes_with_raw_data = [
-            recipe for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            recipe
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
             if recipe.templates
         ]
         problems = []
@@ -530,14 +578,18 @@ class TestDataReductionLibraryDesign:
             dataitemref = recipe.input_data[0]
             input_first = METIS_DataReductionLibraryDesign.dataitems[dataitemref.name]
             if input_first.dtype != "RAW":
-                problems.append(f"{recipe} has {input_first.name} as input, but this is {input_first.dtype} instead of RAW")
+                problems.append(
+                    f"{recipe} has {input_first.name} as input, but this is {input_first.dtype} instead of RAW"
+                )
 
         if problems:
             print()
             for problem in problems:
                 print(problem)
 
-        assert not problems, f"There are {len(problems)} recipe where the the first input is not RAW"
+        assert (
+            not problems
+        ), f"There are {len(problems)} recipe where the the first input is not RAW"
 
     def test_recipes_input_different_templates(self):
         """Check whether we can make DPR keywords easily.
@@ -547,7 +599,8 @@ class TestDataReductionLibraryDesign:
         then it should be exactly the same.
         """
         recipes_with_raw_data = [
-            recipe for recipe in METIS_DataReductionLibraryDesign.recipes.values()
+            recipe
+            for recipe in METIS_DataReductionLibraryDesign.recipes.values()
             if recipe.templates
         ]
         problem = 0
@@ -564,7 +617,9 @@ class TestDataReductionLibraryDesign:
                 if templates1 == templates2 or union == {}:
                     continue
                 problem += 1
-                print(f"{recipe1.name} and {recipe2.name} share templates, but not exactly")
+                print(
+                    f"{recipe1.name} and {recipe2.name} share templates, but not exactly"
+                )
                 print(f"{templates1=}")
                 print(f"{templates2=}")
                 print(f"{union=}")
@@ -573,24 +628,32 @@ class TestDataReductionLibraryDesign:
 
         assert not problem, f"{problem} recipes have partially overlapping templates"
 
-
     def test_dpr_keywords(self):
         """Check whether DPR keywords are uniq."""
         dataitems_with_dpr = [
-            dataitem for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
+            dataitem
+            for dataitem in METIS_DataReductionLibraryDesign.dataitems.values()
             if dataitem.templates
         ]
         problems = []
         dprs = {}
         for dataitem in dataitems_with_dpr:
             if "IFU" in dataitem.name and "IFU" not in dataitem.dpr_tech:
-                problems.append(f"{dataitem.name} has {dataitem.dpr_tech} as DPR.TECH instead of IFU")
+                problems.append(
+                    f"{dataitem.name} has {dataitem.dpr_tech} as DPR.TECH instead of IFU"
+                )
             if "IFU" in dataitem.dpr_tech and "IFU" not in dataitem.name:
-                problems.append(f"{dataitem.name} has {dataitem.dpr_tech} as DPR.TECH but is not IFU")
+                problems.append(
+                    f"{dataitem.name} has {dataitem.dpr_tech} as DPR.TECH but is not IFU"
+                )
             if "SCI" in dataitem.name and "SCIENCE" not in dataitem.dpr_catg:
-                problems.append(f"{dataitem.name} has {dataitem.dpr_catg} as DPR.CATG instead of SCIENCE")
+                problems.append(
+                    f"{dataitem.name} has {dataitem.dpr_catg} as DPR.CATG instead of SCIENCE"
+                )
             if "SCI" not in dataitem.name and "SCIENCE" in dataitem.dpr_catg:
-                problems.append(f"{dataitem.name} has {dataitem.dpr_catg} as DPR.CATG but is not SCIENCE")
+                problems.append(
+                    f"{dataitem.name} has {dataitem.dpr_catg} as DPR.CATG but is not SCIENCE"
+                )
 
             dpr_key = (dataitem.dpr_catg, dataitem.dpr_tech, dataitem.dpr_type)
             if dpr_key not in dprs:
@@ -599,7 +662,9 @@ class TestDataReductionLibraryDesign:
 
         for dpr_key, dataitems in dprs.items():
             if len(dataitems) > 1:
-                problems.append(f"{len(dataitems)} have DPR keys {dpr_key}: {dataitems}")
+                problems.append(
+                    f"{len(dataitems)} have DPR keys {dpr_key}: {dataitems}"
+                )
 
         pprint(sorted(dprs.items()))
 
@@ -612,7 +677,7 @@ class TestDataReductionLibraryDesign:
 
         recipes_from_docatg = {
             docatg: METIS_DataReductionLibraryDesign.get_recipes_for_dataitem(docatg)
-            for (docatg, ) in dprs.values()
+            for (docatg,) in dprs.values()
         }
         lenrecipes = max(
             len(recipe)
@@ -623,18 +688,63 @@ class TestDataReductionLibraryDesign:
         lencatg = max(len(catg) for catg, _, _ in dprs)
         lentech = max(len(tech) for _, tech, _ in dprs)
         lentype = max(len(typp) for _, _, typp in dprs)
-        lendocatg = max(len(docatg) for (docatg, ) in dprs.values())
+        lendocatg = max(len(docatg) for (docatg,) in dprs.values())
         idem = '"'
-        print("┏━" + "━" * lencatg + "━┯━" + "━" * lentech + "━┯━" + "━" * lentype + "━┯━" + "━" * lendocatg + "━┯━" + "━" * lenrecipes + "━┓")
-        print(f"┃ {'DPR.CATG':<{lencatg}} │ {'DPR.TECH':<{lentech}} │ {'DPR.TYPE':<{lentype}} │ {'DO.CATG':<{lendocatg}} │ {'recipes':<{lenrecipes}} ┃")
-        print("┣━" + "━" * lencatg + "━┿━" + "━" * lentech + "━┿━" + "━" * lentype + "━┿━" + "━" * lendocatg + "━┿━" + "━" * lenrecipes + "━┫")
+        print(
+            "┏━"
+            + "━" * lencatg
+            + "━┯━"
+            + "━" * lentech
+            + "━┯━"
+            + "━" * lentype
+            + "━┯━"
+            + "━" * lendocatg
+            + "━┯━"
+            + "━" * lenrecipes
+            + "━┓"
+        )
+        print(
+            f"┃ {'DPR.CATG':<{lencatg}} │ {'DPR.TECH':<{lentech}} │ {'DPR.TYPE':<{lentype}} │"
+            f" {'DO.CATG':<{lendocatg}} │ {'recipes':<{lenrecipes}} ┃"
+        )
+        print(
+            "┣━"
+            + "━" * lencatg
+            + "━┿━"
+            + "━" * lentech
+            + "━┿━"
+            + "━" * lentype
+            + "━┿━"
+            + "━" * lendocatg
+            + "━┿━"
+            + "━" * lenrecipes
+            + "━┫"
+        )
         for (catg, tech, typp), (docatg,) in sorted(dprs.items()):
             for ri, recipe in enumerate(recipes_from_docatg[docatg]):
                 if ri == 0:
-                    print(f"┃ {catg:<{lencatg}} │ {tech:<{lentech}} │ {typp:<{lentype}} │ {docatg:<{lendocatg}} │ {recipe:<{lenrecipes}} ┃")
+                    print(
+                        f"┃ {catg:<{lencatg}} │ {tech:<{lentech}} │ {typp:<{lentype}} │"
+                        f" {docatg:<{lendocatg}} │ {recipe:<{lenrecipes}} ┃"
+                    )
                 else:
-                    print(f"┃ {idem:<{lencatg}} │ {idem:<{lentech}} │ {idem:<{lentype}} │ {idem:<{lendocatg}} │ {recipe:<{lenrecipes}} ┃")
-        print("┗━" + "━" * lencatg + "━┷━" + "━" * lentech + "━┷━" + "━" * lentype + "━┷━" + "━" * lendocatg + "━┷━" + "━" * lenrecipes + "━┛")
+                    print(
+                        f"┃ {idem:<{lencatg}} │ {idem:<{lentech}} │ {idem:<{lentype}} │"
+                        f" {idem:<{lendocatg}} │ {recipe:<{lenrecipes}} ┃"
+                    )
+        print(
+            "┗━"
+            + "━" * lencatg
+            + "━┷━"
+            + "━" * lentech
+            + "━┷━"
+            + "━" * lentype
+            + "━┷━"
+            + "━" * lendocatg
+            + "━┷━"
+            + "━" * lenrecipes
+            + "━┛"
+        )
 
 
 class TestFindLatexInputs:
@@ -646,7 +756,9 @@ class TestFindLatexInputs:
             "LSS_data_items.tex",
             "ADI_data_items.tex",
         }
-        path = METIS_DataReductionLibraryDesign.path_drld / "09_0-DRL-Data-Structures.tex"
+        path = (
+            METIS_DataReductionLibraryDesign.path_drld / "09_0-DRL-Data-Structures.tex"
+        )
         paths_input = find_latex_inputs(path)
         filenames_input = {pp.name for pp in paths_input}
         assert (
@@ -678,13 +790,17 @@ class TestParseDataItemReference:
         assert diref.hyperref is None
         assert diref.description is None
 
-        diref = DataItemReference.from_recipe_line(r"\PROD{N_DIST_REDUCED} (reduced grid mask images)")
+        diref = DataItemReference.from_recipe_line(
+            r"\PROD{N_DIST_REDUCED} (reduced grid mask images)"
+        )
         assert diref.name == "N_DIST_REDUCED"
         assert diref.dtype == "PROD"
         assert diref.hyperref is None
         assert diref.description == "reduced grid mask images"
 
-        diref = DataItemReference.from_recipe_line("Chopped/nodded science or standard images")
+        diref = DataItemReference.from_recipe_line(
+            "Chopped/nodded science or standard images"
+        )
         assert diref.name is None
         assert diref.dtype == "PROD"
         assert diref.hyperref is None
@@ -709,37 +825,6 @@ class TestParseDataItemReference:
 
 def test_parse_dataitem_from_paragraph():
     """Test parsing of dataitem."""
-    # TODO: make this old stable also work?
-    stable = r"""\paragraph{\hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}}\label{dataitem:master_n_lss_rsrf}
-    \begin{recipedef}
-    \textbf{\ac{FITS} file structure:}\\
-    Name: & \hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}\\[0.3cm]
-    Description: & LM-band \ac{LSS} Master \ac{RSRF}.\\[0.3cm]
-    \hyperref[fits:pro.catg]{\FITS{PRO.CATG}}: & \FITS{MASTER_N_LSS_RSRF}\\
-    OCA keywords: & \hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}}\\
-    \FITS{DPR.CATG}: & \FITS{HELLO}\\[0.3cm]
-    \FITS{DPR.TYPE}: & \FITS{WORLD}\\[0.3cm]
-    \FITS{DPR.TECH}: & \FITS{HOWRU}\\[0.3cm]
-    \FITS{PRO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
-    \FITS{DO.CATG}: & \FITS{MASTER_N_LSS_RSRF}\\[0.3cm]
-    Created by: & \hyperref[rec:metis_n_lss_rsrf]{\REC{metis_n_lss_rsrf}}\\
-    Input for recipes: & \hyperref[rec:metis_n_lss_trace]{\REC{metis_n_lss_trace}}\\
-                       & \hyperref[rec:metis_n_lss_std]{\REC{metis_n_lss_std}}\\
-                       & \hyperref[rec:metis_n_lss_sci]{\REC{metis_n_lss_sci}}\\
-    Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-    Templates:             & \TPL{METIS_ifu_vc_obs_FixedSkyOffset} \\
-                           & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset} \\
-    \end{recipedef}
-    %\paragraph{\hyperref[dataitem:lm_rsrf_raw]{\PROD{LM_RSRF_RAW}}}\label{drsstructure:LM_RSRF_RAW}
-    \begin{datastructdef}
-    \textbf{Corresponding \ac{CPL} structure:}
-    \begin{enumerate}
-        \item \texttt{cpl\_propertylist * keywords: Primary keywords (\hyperref[fits:pro.catg]{\FITS{PRO.CATG}},  \hyperref[fits:ins.opti12.name]{\FITS{INS.OPTI12.NAME}}, \hyperref[fits:ins.opti13.name]{\FITS{INS.OPTI13.NAME}}, \hyperref[fits:ins.opti14.name]{\FITS{INS.OPTI14.NAME}})}
-        \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
-        \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-    \end{enumerate}
-    \end{datastructdef}"""
-
     stable = r"""\paragraph{\PROD{MASTER_N_LSS_RSRF}}\label{dataitem:master_n_lss_rsrf}
     \begin{recipedef}
     \textbf{\ac{FITS} file structure:}\\
@@ -763,7 +848,8 @@ def test_parse_dataitem_from_paragraph():
     \begin{datastructdef}
     \textbf{Corresponding \ac{CPL} structure:}
     \begin{enumerate}
-        \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
+        \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME},"""
+    r"""\FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME})}
         \item \texttt{hdrl\_imagelist * image: Three image layers (data, error, mask)}
         \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
     \end{enumerate}
@@ -791,10 +877,6 @@ def test_parse_dataitem_from_paragraph():
     assert dataitem.dpr_tech == "HOWRU"
     assert dataitem.dpr_type == "WORLD"
 
-    # TODO: make this old stable also work?
-    stable = r"""\paragraph{\hyperref[dataitem:badpix_map_2rg]{\PROD{BADPIX_MAP_2RG}}}\label{dataitem:badpix_map_2rg}
-    See \hyperref[dataitem:badpix_map_det]{\PROD{BADPIX_MAP_det}}.
-    """
     stable = r"""\paragraph{\PROD{BADPIX_MAP_2RG}}\label{dataitem:badpix_map_2rg}
     See \PROD{BADPIX_MAP_det}.
     """
@@ -829,20 +911,26 @@ def test_associationmatrices():
             recipe = None
             if recipe_name in METIS_DataReductionLibraryDesign.recipes:
                 recipe = METIS_DataReductionLibraryDesign.recipes[recipe_name]
+            elif recipe_name2 in METIS_DataReductionLibraryDesign.recipes:
+                problems_recipe.append(
+                    f"{recipe_name} does not exist but {recipe_name2} does"
+                )
+                recipe = METIS_DataReductionLibraryDesign.recipes[recipe_name2]
             else:
-                if recipe_name2 in METIS_DataReductionLibraryDesign.recipes:
-                    problems_recipe.append(f"{recipe_name} does not exist but {recipe_name2} does")
-                    recipe = METIS_DataReductionLibraryDesign.recipes[recipe_name2]
-                else:
-                    problems_recipe.append(f"{recipe_name} does not exist")
+                problems_recipe.append(f"{recipe_name} does not exist")
 
             if raw_dataitemref is not None:
                 assert recipe_name
                 # TODO: Support other organizations of the matrix?
                 # TODO: E.g. now the LM and N band show data products there too
                 # assert raw_dataitemref.dtype == "RAW"
-                if raw_dataitemref.name not in METIS_DataReductionLibraryDesign.dataitems:
-                    problems_recipe.append(f"{recipe_name} is triggered by {raw_dataitemref.name} which does not exist")
+                if (
+                    raw_dataitemref.name
+                    not in METIS_DataReductionLibraryDesign.dataitems
+                ):
+                    problems_recipe.append(
+                        f"{recipe_name} is triggered by {raw_dataitemref.name} which does not exist"
+                    )
 
             if not recipe:
                 problems.append((recipe_name, problems_recipe))
@@ -852,16 +940,21 @@ def test_associationmatrices():
             if recipecell.dataitems is not None:
                 for input_primary in recipecell.dataitems:
                     input_primary_real = recipe.input_data[0]
-                    # The input_primary does not have to be the first, e.g. metis_det_dark only lists the GEO one as first input
+                    # The input_primary does not have to be the first,
+                    # e.g. metis_det_dark only lists the GEO one as first input.
                     is_input_primary_really_input = any(
                         input_primary.name == inp.name for inp in recipe.input_data
                     )
                     if not is_input_primary_really_input:
-                        problems_recipe.append(f"{recipe.name} should not have {input_primary.name} as primary input but {input_primary_real.name}")
+                        problems_recipe.append(
+                            f"{recipe.name} should not have {input_primary.name}"
+                            f" as primary input but {input_primary_real.name}"
+                        )
             else:
-                # there is not really a way to get to the primary data item because then it would be necessary to follow the lines, e.g. for IFU
+                # There is not really a way to get to the primary data item
+                # because then it would be necessary to follow the lines, e.g. for IFU.
+                # TODO: Perhaps follow those lines anyway?
                 ...
-                input_primary = None
 
             # Try to see whether input is correct.
             for icell, cell in enumerate(recipecolumn):
@@ -884,15 +977,22 @@ def test_associationmatrices():
                     )
                     if not is_input_really_input:
                         sthedataitem = "+".join(td.name for td in thedataitems)
-                        problems_recipe.append(f"{recipe.name} has {sthedataitem} as input in the association matrix, but not in the recipe table")
-                        assert sthedataitem, ValueError("sthedataitem should never be empty")
+                        problems_recipe.append(
+                            f"{recipe.name} has {sthedataitem} as input in the"
+                            f" association matrix, but not in the recipe table"
+                        )
+                        assert sthedataitem, ValueError(
+                            "sthedataitem should never be empty"
+                        )
             # TODO: Vice-versa, check whether all input in the recipe table is
             # also in the association matrix. This is harder, because some
             # might be optional.
 
             # Try to see whether the output is correct.
             # Skip the first cell, as that is the raw data which is checked elsewhere.
-            recipe_output = [do.name for do in recipe.output_data] if recipe is not None else []
+            recipe_output = (
+                [do.name for do in recipe.output_data] if recipe is not None else []
+            )
             for icell, cell in enumerate(recipecolumn[1:], 1):
                 if cell.dataitems is None:
                     continue
@@ -901,11 +1001,13 @@ def test_associationmatrices():
                         # FLUXSTD_CATALOG is an external file, and listed above another calibration file for convenience
                         continue
                     if diref.name not in METIS_DataReductionLibraryDesign.dataitems:
-                        problems_recipe.append(f"{recipe_name} claims to produce {diref.name}, which does not exist")
+                        problems_recipe.append(
+                            f"{recipe_name} claims to produce {diref.name}, which does not exist"
+                        )
                     elif diref.name not in recipe_output:
-                        problems_recipe.append(f"{recipe_name} listed as producing {diref.name}, but it doesn't, only {recipe_output}")
-
-
+                        problems_recipe.append(
+                            f"{recipe_name} listed as producing {diref.name}, but it doesn't, only {recipe_output}"
+                        )
 
             if problems_recipe:
                 problems.append((recipe_name, problems_recipe))
@@ -934,13 +1036,16 @@ def test_tikz():
         fns_that_exist = [
             fn
             for name in names
-            for fn in list(dir_tikz.glob(f"{name}*.tex")) + list(dir_figures.glob(f"{name}*.pdf")) + list(
-                dir_figures.glob(f"{name}*.png"))
+            for fn in list(dir_tikz.glob(f"{name}*.tex"))
+            + list(dir_figures.glob(f"{name}*.pdf"))
+            + list(dir_figures.glob(f"{name}*.png"))
         ]
         if len(fns_that_exist) != 1:
             if name_recipe in HACK_RECIPES_THAT_DO_NOT_NEED_A_FIGURE:
                 continue
-            problems_recipe.append(f"There there should be exactly one figure for {name_recipe} , not {fns_that_exist}")
+            problems_recipe.append(
+                f"There there should be exactly one figure for {name_recipe} , not {fns_that_exist}"
+            )
 
         # If there are no figures, bail
         if not fns_that_exist:
@@ -958,16 +1063,18 @@ def test_tikz():
         # This is a tikz figure, lets see whether it makes sense.
         data1 = fn_to_use.read_text(encoding="utf-8")
         data2 = [
-            line
-            for line in data1.splitlines()
-            if not line.strip().startswith("%")
+            line for line in data1.splitlines() if not line.strip().startswith("%")
         ]
         data = "\n".join(data2)
 
         if "black_style" not in data:
-            problems_recipe.append(f"The figure for {name_recipe} does not set black_style")
+            problems_recipe.append(
+                f"The figure for {name_recipe} does not set black_style"
+            )
         if "normal_style" not in data:
-            problems_recipe.append(f"The figure for {name_recipe} does not set normal_style back")
+            problems_recipe.append(
+                f"The figure for {name_recipe} does not set normal_style back"
+            )
 
         # pattern = r"\\(RAW|PROD|EXTCALIB|STATCALIB){(.*?)}"
         pattern = r"\\(RAW|PROD|EXTCALIB|STATCALIB|TPL|REC){(.*?)}"
@@ -976,26 +1083,34 @@ def test_tikz():
             name.lower() if name.startswith("METIS_") else name
             for _dtype, name in matches
         ]
-        names_in_table = [diref.name for diref in recipe.input_data + recipe.output_data] + recipe.templates + [name_recipe]
+        names_in_table = (
+            [diref.name for diref in recipe.input_data + recipe.output_data]
+            + recipe.templates
+            + [name_recipe]
+        )
 
-        # Check for duplicate names:]. Primarily used to fint BADPIX input,
+        # Check for duplicate names. Primarily used to find BADPIX input,
         # which is not necessary since all data products have a data quality
         # layer.
-        duplicates = [name for name in names_in_figure if names_in_figure.count(name) > 1]
+        duplicates = [
+            name for name in names_in_figure if names_in_figure.count(name) > 1
+        ]
         if duplicates:
-            problems_recipe.append(f"{name_recipe} mentions some names multiple times: {duplicates}")
+            problems_recipe.append(
+                f"{name_recipe} mentions some names multiple times: {duplicates}"
+            )
 
         for name_di in names_in_figure:
             names_di_expanded = [
                 name_di.replace("det", lmn)
                 for lmn in ["LM", "N", "IFU", "2RG", "GEO", "det"]
             ]
-            is_name_used = any(
-                name in names_in_table
-                for name in names_di_expanded
-            )
+            is_name_used = any(name in names_in_table for name in names_di_expanded)
             if not is_name_used:
-                problems_recipe.append(f"The figure for {name_recipe} has {name_di} as input/output/template/recipe, but the table doesn't!")
+                problems_recipe.append(
+                    f"The figure for {name_recipe} has {name_di} as"
+                    f" input/output/template/recipe, but the table doesn't!"
+                )
 
         # Vice-versa, does the recipe use dataitems that are not in the figures?
         for name_di in names_in_table:
@@ -1003,13 +1118,12 @@ def test_tikz():
                 name_di.replace(lmn, "det")
                 for lmn in ["LM", "N", "IFU", "2RG", "GEO", "det"]
             ]
-            is_name_used = any(
-                name in names_in_figure
-                for name in names_di_expanded
-            )
+            is_name_used = any(name in names_in_figure for name in names_di_expanded)
             if not is_name_used:
-                problems_recipe.append(f"The table for {name_recipe} has {name_di} as input/output/template/recipe, but it is not in the figure!")
-
+                problems_recipe.append(
+                    f"The table for {name_recipe} has {name_di} as"
+                    f" input/output/template/recipe, but it is not in the figure!"
+                )
 
         if problems_recipe:
             problems_recipe.append(f"{names_in_table=}")
@@ -1038,7 +1152,9 @@ def test_badpixinput():
         names_input = [diref.name.upper() for diref in recipe.input_data]
         input_bp = [name for name in names_input if "BADPIX" in name]
         if input_bp:
-            problems.append(f"{name_recipe} has {input_bp} as input, which is not necessary")
+            problems.append(
+                f"{name_recipe} has {input_bp} as input, which is not necessary"
+            )
 
     for problem in problems:
         print(problem)
