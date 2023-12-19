@@ -1019,8 +1019,8 @@ def check_associationmatrices(check_input=False):
                 if input_names_missing_from_matrix:
                     problems_recipe.append(
                         f"{recipe.name} has {input_names_missing_from_matrix} as"
-                        f"input in the recipe, but they are missing in the"
-                        f"association matrix."
+                        f" input in the recipe, but they are missing in the"
+                        f" association matrix."
                     )
 
             # Try to see whether the output is correct.
