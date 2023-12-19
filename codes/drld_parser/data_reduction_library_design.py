@@ -567,10 +567,10 @@ class Recipe:
                             val_left, val_right = val.split(" or ")
                             # assert "hyperref" in val_left, f"Can't understand {val}"
                             # assert "hyperref" in val_right, f"Can't understand {val}"
-                            value1.append(DataItemReference.from_recipe_line(val_left.strip()))
-                            value1.append(DataItemReference.from_recipe_line(val_right.strip()))
+                            value1.append((DataItemReference.from_recipe_line(val_left.strip()), True))
+                            value1.append((DataItemReference.from_recipe_line(val_right.strip()), True))
                         else:
-                            value1.append(DataItemReference.from_recipe_line(val))
+                            value1.append((DataItemReference.from_recipe_line(val), False))
 
                     # First, from the DRLD:
                     #   Where _det appears in FITS keywords of input or product files,
@@ -581,7 +581,7 @@ class Recipe:
                     # Second, split these:
                     #         Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \PROD{IFU_SCI_REDUCED_TAC})
                     value = []
-                    for val in value1:
+                    for val, is_or in value1:
                         if val.name and "det" in val.name:
                             #  det_APP_SCI_CALIBRATED or DETLIN_det_RAW
                             msg = f"There are too many or wrong 'det's in f{val.name}."
@@ -621,9 +621,8 @@ class Recipe:
 
                         # For the first input line, add the data to input_primary.
                         if field_old == "input_data":
-                            if not thedata["input_primary"]:
-                                # Should happen only once, but += to copy.
-                                thedata["input_primary"] += value
+                            if is_or or not thedata["input_primary"]:
+                                thedata["input_primary"] = [v for v in value]
 
                 thedata[field_old] = value
 
