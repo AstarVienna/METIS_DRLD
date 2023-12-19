@@ -540,10 +540,10 @@ class TestDataReductionLibraryDesign:
                     # There is no overlap between templates, so this dataitem cannot be used as input
                     raws_unaccounted_for.append(dataitem)
                 templates_unaccounted_for -= set(dataitem.templates)
-            if raws_unaccounted_for:
-                errors.append(
-                    f"{recipe.name} has {dataitem.name} as input, but none of its templates {dataitem.templates}"
-                )
+                if raws_unaccounted_for:
+                    errors.append(
+                        f"{recipe.name} has {dataitem.name} as input, but none of its templates {dataitem.templates}"
+                    )
             if templates_unaccounted_for:
                 for template in templates_unaccounted_for:
                     if (
