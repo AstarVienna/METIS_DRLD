@@ -463,6 +463,8 @@ class Recipe:
     type: str = None
     templates: List[str] = dataclasses.field(default_factory=list)
     input_data: List[DataItemReference] = dataclasses.field(default_factory=list)
+    input_primary: List[DataItemReference] = dataclasses.field(default_factory=list)
+    input_secondary: List[DataItemReference] = dataclasses.field(default_factory=list)
     parameters: List[str] = dataclasses.field(default_factory=list)
     algorithm: str = None
     output_data: List[DataItemReference] = dataclasses.field(default_factory=list)
@@ -520,7 +522,10 @@ class Recipe:
 
         value = ""
         field_old = ""
-        thedata = {}
+        thedata = {
+            "input_primary": [],
+            "input_secondary": [],
+        }
         for row in rows4:
             field1 = row[0].lower().replace(" ", "_")
             field1 = re.sub("label{.*?}", "", field1)
@@ -614,7 +619,22 @@ class Recipe:
                         else:
                             value.append(val)
 
+                        # For the first input line, add the data to input_primary.
+                        if field_old == "input_data":
+                            if not thedata["input_primary"]:
+                                # Should happen only once, but += to copy.
+                                thedata["input_primary"] += value
+
                 thedata[field_old] = value
+
+                # Hack to get the input_secondary correct.
+                if field_old == "input_data":
+                    thedata["input_secondary"] = [
+                        diref for diref in value
+                        if diref not in thedata["input_primary"]
+                    ]
+
+
 
             field = HACK_BAD_NAMES.get(field1, field1)
             if field1 in HACK_BAD_NAMES:
