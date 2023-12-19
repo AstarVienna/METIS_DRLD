@@ -148,7 +148,8 @@ class TestDataReductionLibraryDesign:
     def test_all_templates_used_also_exist_soft(self):
         self.all_templates_used_also_exist(hard=False)
 
-    def all_templates_used_also_exist(self, hard=True):
+    @staticmethod
+    def all_templates_used_also_exist(hard=True):
         # TODO: hack_rename_template_names_drld and
         #  TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI are currently not
         #  used anymore.
@@ -497,14 +498,14 @@ class TestDataReductionLibraryDesign:
             templates_unaccounted_for = set(recipe.templates)
             for dataitemref in recipe.input_data:
                 dataitem = METIS_DataReductionLibraryDesign.dataitems[dataitemref.name]
-                if dataitem.templates is None:
+                if not dataitem.templates:
                     continue
                 if not set(dataitem.templates).union(set(recipe.templates)):
                     # There is no overlap between templates, so this dataitem cannot be used as input
                     raws_unaccounted_for.append(dataitem)
                 templates_unaccounted_for -= set(dataitem.templates)
-            # if raws_unaccounted_for:
-            #     errors.append(f"{recipe.name} has {dataitem.name} as input, but none of its templates {dataitem.templates}")
+            if raws_unaccounted_for:
+                errors.append(f"{recipe.name} has {dataitem.name} as input, but none of its templates {dataitem.templates}")
             if templates_unaccounted_for:
                 for template in templates_unaccounted_for:
                     if template in HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA:
@@ -829,12 +830,11 @@ def test_associationmatrices():
             recipe = None
             if recipe_name in METIS_DataReductionLibraryDesign.recipes:
                 recipe = METIS_DataReductionLibraryDesign.recipes[recipe_name]
+            elif recipe_name2 in METIS_DataReductionLibraryDesign.recipes:
+                problems_recipe.append(f"{recipe_name} does not exist but {recipe_name2} does")
+                recipe = METIS_DataReductionLibraryDesign.recipes[recipe_name2]
             else:
-                if recipe_name2 in METIS_DataReductionLibraryDesign.recipes:
-                    problems_recipe.append(f"{recipe_name} does not exist but {recipe_name2} does")
-                    recipe = METIS_DataReductionLibraryDesign.recipes[recipe_name2]
-                else:
-                    problems_recipe.append(f"{recipe_name} does not exist")
+                problems_recipe.append(f"{recipe_name} does not exist")
 
             if raw_dataitemref is not None:
                 assert recipe_name
