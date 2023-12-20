@@ -463,6 +463,8 @@ class Recipe:
     type: str = None
     templates: List[str] = dataclasses.field(default_factory=list)
     input_data: List[DataItemReference] = dataclasses.field(default_factory=list)
+    input_primary: List[DataItemReference] = dataclasses.field(default_factory=list)
+    input_secondary: List[DataItemReference] = dataclasses.field(default_factory=list)
     parameters: List[str] = dataclasses.field(default_factory=list)
     algorithm: str = None
     output_data: List[DataItemReference] = dataclasses.field(default_factory=list)
@@ -520,7 +522,10 @@ class Recipe:
 
         value = ""
         field_old = ""
-        thedata = {}
+        thedata = {
+            "input_primary": [],
+            "input_secondary": [],
+        }
         for row in rows4:
             field1 = row[0].lower().replace(" ", "_")
             field1 = re.sub("label{.*?}", "", field1)
@@ -562,10 +567,10 @@ class Recipe:
                             val_left, val_right = val.split(" or ")
                             # assert "hyperref" in val_left, f"Can't understand {val}"
                             # assert "hyperref" in val_right, f"Can't understand {val}"
-                            value1.append(DataItemReference.from_recipe_line(val_left.strip()))
-                            value1.append(DataItemReference.from_recipe_line(val_right.strip()))
+                            value1.append((DataItemReference.from_recipe_line(val_left.strip()), True))
+                            value1.append((DataItemReference.from_recipe_line(val_right.strip()), True))
                         else:
-                            value1.append(DataItemReference.from_recipe_line(val))
+                            value1.append((DataItemReference.from_recipe_line(val), False))
 
                     # First, from the DRLD:
                     #   Where _det appears in FITS keywords of input or product files,
@@ -576,7 +581,7 @@ class Recipe:
                     # Second, split these:
                     #         Reduced science cubes (\PROD{IFU_SCI_REDUCED}, \PROD{IFU_SCI_REDUCED_TAC})
                     value = []
-                    for val in value1:
+                    for val, is_or in value1:
                         if val.name and "det" in val.name:
                             #  det_APP_SCI_CALIBRATED or DETLIN_det_RAW
                             msg = f"There are too many or wrong 'det's in f{val.name}."
@@ -614,7 +619,21 @@ class Recipe:
                         else:
                             value.append(val)
 
+                        # For the first input line, add the data to input_primary.
+                        if field_old == "input_data":
+                            if is_or or not thedata["input_primary"]:
+                                thedata["input_primary"] = [v for v in value]
+
                 thedata[field_old] = value
+
+                # Hack to get the input_secondary correct.
+                if field_old == "input_data":
+                    thedata["input_secondary"] = [
+                        diref for diref in value
+                        if diref not in thedata["input_primary"]
+                    ]
+
+
 
             field = HACK_BAD_NAMES.get(field1, field1)
             if field1 in HACK_BAD_NAMES:

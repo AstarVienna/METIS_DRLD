@@ -886,7 +886,22 @@ def test_parse_dataitem_from_paragraph():
 
 
 def test_associationmatrices():
-    """Some tests for the association matrices. This code is horrible."""
+    """Regular association matrix test."""
+    check_associationmatrices(check_input=False)
+
+
+@pytest.mark.xfail(reason="Many input is still missing from association matrices.")
+def test_associationmatrices_input():
+    """Test to also check whether all the recipe input is present in the matrix"""
+    check_associationmatrices(check_input=True)
+
+
+def check_associationmatrices(check_input=False):
+    """Some tests for the association matrices. This code is horrible.
+
+    With check_input=True, it is checked whether all input that is listed in
+    the recipe is also included in the association matrix.
+    """
     asso_lm = AssociationMatrix(fn="tikz/IMG_LM_assomap_tikz.tex")
     asso_n = AssociationMatrix(fn="tikz/IMG_N_assomap_tikz.tex")
     asso_ifu = AssociationMatrix(fn="tikz/IFU_assomap_tikz.tex")
@@ -956,7 +971,9 @@ def test_associationmatrices():
                 # TODO: Perhaps follow those lines anyway?
                 ...
 
-            # Try to see whether input is correct.
+            # Try to see whether input listed in the matrix is also listed
+            # as input in the recipe table itself.
+            dataitems_found = []
             for icell, cell in enumerate(recipecolumn):
                 if cell.connection:
                     # Find out what it is.
@@ -970,6 +987,7 @@ def test_associationmatrices():
                             break
                     else:
                         raise ValueError
+                    dataitems_found += thedataitems
                     is_input_really_input = any(
                         thedataitem.name == inp.name
                         for inp in recipe.input_data
@@ -984,9 +1002,26 @@ def test_associationmatrices():
                         assert sthedataitem, ValueError(
                             "sthedataitem should never be empty"
                         )
-            # TODO: Vice-versa, check whether all input in the recipe table is
-            # also in the association matrix. This is harder, because some
-            # might be optional.
+
+            if check_input:
+                # Vice-versa, check whether all input in the recipe table is
+                # also in the association matrix. This is harder, because some
+                # might be optional.
+                input_names_according_to_matrix = [di.name for di in dataitems_found]
+                # Skip the first input according to the recipe, because that should
+                # always be the primary input, which is checked above.
+                input_names_according_to_recipe = [diref.name for diref in recipe.input_secondary]
+                input_names_missing_from_matrix = [
+                    name
+                    for name in input_names_according_to_recipe
+                    if name not in input_names_according_to_matrix
+                ]
+                if input_names_missing_from_matrix:
+                    problems_recipe.append(
+                        f"{recipe.name} has {input_names_missing_from_matrix} as"
+                        f" input in the recipe, but they are missing in the"
+                        f" association matrix."
+                    )
 
             # Try to see whether the output is correct.
             # Skip the first cell, as that is the raw data which is checked elsewhere.
