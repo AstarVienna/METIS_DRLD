@@ -20,7 +20,7 @@ TEXFOT_ARGS_FIRST=${TEXFOT_ARGS} \
 # TODO: Perhaps set SOURCE_DATE_EPOCH to the date of the last commit for reproducibility?
 define pdflatex
 	@echo -e '$(c_action)[pdflatex] Compiling PDF file $(c_filename)$@$(c_action): $(1) run$(c_default)'
-	@texfot $(2) pdflatex $< -file-line-error -shell-escape -jobname=$(subst .pdf,,$@) -halt-on-error -synctex=1 -interaction=nonstopmode $@
+	@texfot $(2) pdflatex -file-line-error -shell-escape -jobname=$(subst .pdf,,$@) -halt-on-error -synctex=1 -interaction=nonstopmode $< $@
 endef
 
 # The main document file
