@@ -323,9 +323,9 @@ PSFs. In addition coverage maps are produced.
 
 \subsubsection{Centering}
 
-To determine the derotation center of the focal plane coronagraphs (CVC/RAVC) we use the position given by the QACITS telemetry which should be precise to less than 1/100 $\lambda/D$.
+To determine the derotation center of the focal plane coronagraphs (CVC/RAVC) we use the position given by the QACITS telemetry which should be precise to less than 1/100 $\lambda/D$. As a backup we resort to cross-correlation with a template PSF.
 
-For the pupil plane coronagraph (APP) we cross-correlate the unsaturated parts of the PSF with a template PSF. 
+For the pupil plane coronagraph (APP) we cross-correlate the unsaturated parts of the PSF with a template PSF. A Gaussian centroid might not deliver an accurate derotation center because the APP PSF is not symmetric but a PSF template will correct for this.
 
 %%% Local Variables:
 %%% TeX-master: "METIS_DRLD"
