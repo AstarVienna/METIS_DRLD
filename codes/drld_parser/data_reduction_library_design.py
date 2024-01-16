@@ -233,7 +233,7 @@ class DataItem:
             # Previous one must be finished
             if field_old:
                 if field_old == "templates":
-                    value = re.sub("\\\\TPL{(.*?)}", " \\1 ", value)
+                    value = re.sub(r"\\TPL{(.*?)}", " \\1 ", value)
                     value = value.replace(",", " ")
                     if "tbd" in value.lower():
                         value = ["TBD"]
@@ -250,7 +250,7 @@ class DataItem:
                     # to expand those here, because there is no knowledge
                     # about which templates exist at this stage.
                 elif field_old in ["pro_catg", "do_catg", "dpr_catg", "dpr_tech", "dpr_type"]:
-                    value = re.sub("\\\\(FITS|CODE){(.*?)}", " \\2 ", value)
+                    value = re.sub(r"\\(FITS|CODE){(.*?)}", r" \2 ", value)
                     value = value.strip()
                 elif field_old in ["created_by", "input_for"]:
                     # These should all be \REC{something}
@@ -528,7 +528,7 @@ class Recipe:
         }
         for row in rows4:
             field1 = row[0].lower().replace(" ", "_")
-            field1 = re.sub("label{.*?}", "", field1)
+            field1 = re.sub(r"label{.*?}", "", field1)
             if field1 == "":
                 value += "\n" + row[1]
                 continue
@@ -536,7 +536,7 @@ class Recipe:
             # Previous one must be finished
             if field_old:
                 if field_old == "templates":
-                    value = re.sub("\\\\TPL{(.*?)}", " \\1 ", value)
+                    value = re.sub(r"\\TPL{(.*?)}", r" \1 ", value)
                     value = value.replace(",", " ")
                     if "tbd" in value.lower():
                         value = ["TBD"]
@@ -1054,7 +1054,7 @@ class DataReductionLibraryDesign:
             datat1 = open(filename, encoding="utf8").readlines()
             datat = "\n".join(line for line in datat1 if not line.strip().startswith("%"))
             tpls_macro = [
-                tsii.replace("\\", "") for tsii in re.findall("\\\\TPL{(M.*?)}", datat, re.IGNORECASE)
+                tsii.replace("\\", "") for tsii in re.findall(r"\\TPL{(M.*?)}", datat, re.IGNORECASE)
             ]
             # Normal LaTeX, does not work for tikz?
             tpls_latex = [
@@ -1065,7 +1065,7 @@ class DataReductionLibraryDesign:
                 # template name that has a : or { before it, because it is probably
                 # e.g. drl:metis_derive_gain, or \DRL{metis_derive_gain}.
                 # Any \TPL{metis_derive_gain} is caught in tpls_macro above
-                re.findall("(?<![:{])metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
+                re.findall(r"(?<![:{])metis\\_[a-z_*\\ast$]*", datat, re.IGNORECASE)
             ]
             template_names_normal += [
                 tsi for tsi in tpls_macro + tpls_latex if tsi.lower() not in not_templates
@@ -1079,7 +1079,7 @@ class DataReductionLibraryDesign:
                 tsii.replace("\\", "").replace("$ast$", "*")
                 for tsii in
                 # No negative lookbehind for tikz
-                re.findall("metis\\\\_[a-z_*\\\\ast$]*", datat, re.IGNORECASE)
+                re.findall(r"metis\\_[a-z_*\\ast$]*", datat, re.IGNORECASE)
             ]
             template_names_tikz += [tsi for tsi in tpls_latex if tsi.lower() not in not_templates]
 
@@ -1109,7 +1109,7 @@ class DataReductionLibraryDesign:
         recipe_names_u = [
             recname.replace("\\", "")
             for fn in self.filenames_tex
-            for recname in re.findall("\\\\REC\*?{(.*?)}", "\n".join(all_lines))
+            for recname in re.findall(r"\\REC\*?{(.*?)}", "\n".join(all_lines))
             if recname not in not_recipes
         ]
         return sorted(set(recipe_names_u))
