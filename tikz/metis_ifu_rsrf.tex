@@ -73,6 +73,12 @@
   };
   \draw [connection_arrow] (darkin.east) -- (connect_dark);
 
+  \node (connect_dark) [connection] at
+    ($(input)!0.65!(step_detrend)$) {};
+  \node (darkin) [left=of connect_dark, calproduct]{%
+    \STATCALIB{IFU_DISTORTION_TABLE}
+  };
+  \draw [connection_arrow] (darkin.east) -- (connect_dark);
 %  \node (connect_bp) [connection] at ($(input)!0.65!(step_detrend)$) {};
 %  \node (bpmin) [left=of connect_bp, calproduct]{\STATCALIB{BADPIX_MAP_IFU}};
 %  \draw [connection_arrow] (bpmin.east) -- (connect_bp);
