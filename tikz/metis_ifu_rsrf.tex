@@ -67,7 +67,7 @@
 %  \draw [connection_arrow] (persistence) -- (connectpersistence);
 
   \node (connect_persistence) [connection] at ($(input)!0.35!(step_detrend)$) {};
-  \node (persistence) [left=of connect_persistence, calproduct]{\EXTCALIB{PERSISTENCE_MAP}};
+  \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
   \draw [connection_arrow] (persistence.east) -- (connect_persistence);
 
   \node (connect_dark) [connection] at ($(input)!0.55!(step_detrend)$) {};
