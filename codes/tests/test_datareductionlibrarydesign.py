@@ -890,13 +890,27 @@ def test_associationmatrices():
     check_associationmatrices(check_input=False)
 
 
-@pytest.mark.xfail(reason="Many input is still missing from association matrices.")
+@pytest.mark.xfail(reason="Many input is still missing from association matrices."
+                          "This test also complains about non-linearity and gain"
+                          "which we are still considering to combine."
+                          "So test_associationmatrices_input_ignore_nonlin should"
+                          "probably be fixed first, as that is simpler.")
 def test_associationmatrices_input():
     """Test to also check whether all the recipe input is present in the matrix"""
-    check_associationmatrices(check_input=True)
+    check_associationmatrices(check_input=True, ignore_nonlinearity=False)
 
 
-def check_associationmatrices(check_input=False):
+@pytest.mark.xfail(reason="Some input is still missing from association matrices.")
+def test_associationmatrices_input_ignore_nonlin():
+    """Test to also check whether all the recipe input is present in the matrix
+
+    But ignore the non-linearity, gain, flat, rsrf, as we are still discussing
+    whether to combine them.
+    """
+    check_associationmatrices(check_input=True, ignore_nonlinearity=True)
+
+
+def check_associationmatrices(check_input=False, ignore_nonlinearity=True):
     """Some tests for the association matrices. This code is horrible.
 
     With check_input=True, it is checked whether all input that is listed in
@@ -906,6 +920,7 @@ def check_associationmatrices(check_input=False):
     asso_n = AssociationMatrix(fn="tikz/IMG_N_assomap_tikz.tex")
     asso_ifu = AssociationMatrix(fn="tikz/IFU_assomap_tikz.tex")
 
+    problems_all = []
     for asso in [asso_lm, asso_n, asso_ifu]:
         # print()
         # print(asso.filename)
@@ -951,7 +966,7 @@ def check_associationmatrices(check_input=False):
                 problems.append((recipe_name, problems_recipe))
                 continue
 
-            # Get the first dataitem
+            # Get the first dataitem(s)
             if recipecell.dataitems is not None:
                 for input_primary in recipecell.dataitems:
                     input_primary_real = recipe.input_data[0]
@@ -1003,6 +1018,10 @@ def check_associationmatrices(check_input=False):
                             "sthedataitem should never be empty"
                         )
 
+            primary_input_names_according_to_matrix = [
+                input_primary.name
+                for input_primary in recipecell.dataitems
+            ]
             if check_input:
                 # Vice-versa, check whether all input in the recipe table is
                 # also in the association matrix. This is harder, because some
@@ -1015,6 +1034,21 @@ def check_associationmatrices(check_input=False):
                     name
                     for name in input_names_according_to_recipe
                     if name not in input_names_according_to_matrix
+                    and name not in primary_input_names_according_to_matrix
+                    and name not in [
+                        # These are part of the input raw data:
+                        "LM_WCU_OFF_RAW",
+                        "N_WCU_OFF_RAW",
+                        "IFU_WCU_OFF_RAW",
+                        "IFU_SKY_RAW",
+                    ] + ([
+                        "GAIN_MAP_2RG",
+                        "GAIN_MAP_GEO",
+                        "GAIN_MAP_IFU",
+                        "LINEARITY_2RG",
+                        "LINEARITY_GEO",
+                        "LINEARITY_IFU",
+                    ] if ignore_nonlinearity else [])
                 ]
                 if input_names_missing_from_matrix:
                     problems_recipe.append(
@@ -1048,12 +1082,13 @@ def check_associationmatrices(check_input=False):
                 problems.append((recipe_name, problems_recipe))
 
         if problems:
+            problems_all.append(problems)
             for recipe_name, problems_recipe in problems:
                 print(" " + recipe_name)
                 for problem in problems_recipe:
                     print("   " + problem)
 
-    assert not problems
+    assert not problems_all
 
 
 def test_tikz():
