@@ -20,21 +20,14 @@
 
   \pic (start) [below=0.75cm of template] {start};
 
-  \node (input) [below=0.75cm of start-m, input]{%
-    \RAW{IFU_DISTORTION_RAW}
-  };
+  \node (input) [below=0.75cm of start-m, input]{\RAW{IFU_DISTORTION_RAW}};
 
 %  \node (step1) [below=1.5cm of input, redstep]{%
 %    subtract DIST\_OFF
 %  };
 
-  \node (step2) [below=2.cm of input, redstep]{%
-    locate images
-  };
-
-  \node (step3) [below=1.cm of step2, redstep]{%
-    fit polynomial
-  };
+  \node (step2) [below=3.cm of input, redstep]{locate images};
+  \node (step3) [below=1.cm of step2, redstep]{fit polynomial};
 
   \pic (stop) [below=2.5cm of step3]{stop};
 
@@ -50,17 +43,17 @@
 %  };
 %  \draw [connection_arrow] (bpmin) -- (step2);
 
-  \node (connect_pinhole) [connection] at
-  ($(input)!0.5!(step2)$) {};
+  \node (connect_pinhole) [connection] at ($(input)!0.4!(step2)$) {};
   \node (pinhole) [left=of connect_pinhole, external] {\EXTCALIB{PINHOLE_TABLE}};
   \draw [connection_arrow] (pinhole) -- (connect_pinhole);
+  \node (connect_dark) [connection] at ($(input)!0.7!(step2)$) {};
+  \node (dark) [left=of connect_dark, calproduct] {\PROD{MASTER_DARK_IFU}};
+  \draw [connection_arrow] (dark) -- (connect_dark);
 
   %% Output
   \node (connect dist table) [connection] at
   ($(step3)!0.4!(stop-t)$) {};
-  \node (dist table) [right=of connect dist table, calproduct]{%
-    \PROD{IFU_DISTORTION_TABLE}
-  };
+  \node (dist table) [right=of connect dist table, calproduct]{\PROD{IFU_DISTORTION_TABLE}};
   \draw [connection_arrow] (connect dist table) -- (dist table);
 
   \node (connect dist reduced) [connection] at

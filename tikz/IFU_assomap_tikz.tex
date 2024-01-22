@@ -15,8 +15,8 @@
 % TODO: Put back in once we actually include the persistence recipe in the DRLD
 %    \node[above] (RECpers_raw){\recipebox{\RAW{PERSISTENCE}}{\REC{metis_det_persistence}}}; &
     \node[above] (RECpers_raw)[empty]{}; &
-    \node[above] (RECgeom_raw){\recipebox{\RAW{IFU_DISTORTION_RAW}}{\REC{metis_ifu_distortion}}}; &
     \node[above] (RECdark_raw){\recipebox{\RAW{DARK_IFU_RAW}}{\REC{metis_det_dark}}}; &
+    \node[above] (RECgeom_raw){\recipebox{\RAW{IFU_DISTORTION_RAW}}{\REC{metis_ifu_distortion}}}; &
     \node[above] (RECwcal_raw){\recipebox{\RAW{IFU_WAVE_RAW}}{\REC{metis_ifu_wavecal}}}; &
     \node[above] (RECrsrf_raw){\recipebox{\RAW{IFU_RSRF_RAW}}{\REC{metis_ifu_rsrf}}}; &
     \node[above] (RECstdreduce_raw){\recipebox{\RAW{IFU_STD_RAW}}{\REC{metis_ifu_reduce}}}; &
@@ -36,8 +36,8 @@
 %    };
     \node (REClin_DIlin)[statcalfile]{\STATCALIB{LINEARITY_IFU}}; &
     \node (RECpers_DIlin)[empty]{}; &
-    \node (RECgeom_DIlin)[empty]{}; &
     \node (RECdark_DIlin)[connection]{}; &
+    \node (RECgeom_DIlin)[empty]{}; &
     \node (RECwcal_DIlin)[empty]{}; &
     \node (RECrsrf_DIlin)[empty]{}; &
     \node (RECstdreduce_DIlin)[connection]{}; &
@@ -47,39 +47,10 @@
     \node (RECsci1_DIlin)[empty]{}; &
     \node (RECsci2_DIlin)[empty]{}; \\
 
-    \node (REClin_DIpinh)[empty]{}; &
-    \node (RECpers_DIpinh)[extcalfile]{\PROD{PINHOLE_TABLE}}; &
-    \node (RECgeom_DIpinh)[connection]{}; &
-    \node (RECdark_DIpinh)[empty]{}; &
-    \node (RECwcal_DIpinh)[empty]{}; &
-    \node (RECrsrf_DIpinh)[empty]{}; &
-    \node (RECstdrecude_DIpinh)[empty]{}; &
-    \node (RECscireduce_DIpinh)[empty]{}; &
-    \node (RECtac_DIpinh)[empty]{}; &
-    \node (RECstd_DIpinh)[empty]{}; &
-    \node (RECsci1_DIpinh)[empty]{}; &
-    \node (RECsci2_DIpinh)[empty]{}; \\
-
-    % Row *_geom
-    \node (REClin_DIgeom)[empty]{}; &
-    \node (RECpers_DIgeom)[empty]{}; &
-    \node (RECgeom_DIgeom)[statcalfile]{\PROD{IFU_DISTORTION_TABLE}}; &
-    \node (RECdark_DIgeom)[empty]{}; &
-    \node (RECwcal_DIgeom)[connection]{}; &
-    \node (RECrsrf_DIgeom)[connection]{}; &
-    \node (RECstdreduce_DIgeom)[connection]{}; &
-    \node (RECscireduce_DIgeom)[connection]{}; &
-    \node (RECstd_DIgeom)[empty]{}; &
-    \node (RECtac_DIgeom)[empty]{}; &
-    \node (RECsci1_DIgeom)[empty]{}; &
-    \node (RECsci2_DIgeom)[empty]{}; \\
-%    &
-%    \node (adi_DIgeom)[empty]{};
-
     \node (REClin_DIpers)[empty]{}; &
     \node (RECpers_DIpers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}}; &
-    \node (RECgeom_DIpers)[empty]{}; &
     \node (RECdark_DIpers)[connection]{}; &
+    \node (RECgeom_DIpers)[empty]{}; &
     \node (RECwcal_DIpers)[connection]{}; &
     \node (RECrsrf_DIpers)[connection]{}; &
     \node (RECstdreduce_DIpers)[connection]{}; &
@@ -89,11 +60,24 @@
     \node (RECsci1_DIpers)[empty]{}; &
     \node (RECsci2_DIpers)[empty]{}; \\
 
+    \node (REClin_DIpinh)[empty]{}; &
+    \node (RECpers_DIpinh)[extcalfile]{\PROD{PINHOLE_TABLE}}; &
+    \node (RECdark_DIpinh)[empty]{}; &
+    \node (RECgeom_DIpinh)[connection]{}; &
+    \node (RECwcal_DIpinh)[empty]{}; &
+    \node (RECrsrf_DIpinh)[empty]{}; &
+    \node (RECstdrecude_DIpinh)[empty]{}; &
+    \node (RECscireduce_DIpinh)[empty]{}; &
+    \node (RECtac_DIpinh)[empty]{}; &
+    \node (RECstd_DIpinh)[empty]{}; &
+    \node (RECsci1_DIpinh)[empty]{}; &
+    \node (RECsci2_DIpinh)[empty]{}; \\
+
     % Row *_dark
     \node (REClin_DIdark)[empty]{}; &
     \node (RECpers_DIdark)[empty]{}; &
-    \node (RECgeom_DIdark)[empty]{}; &
     \node (RECdark_DIdark)[calibproduct]{\PROD{MASTER_DARK_IFU}}; &
+    \node (RECgeom_DIdark)[connection]{}; &
     \node (RECwcal_DIdark)[connection]{}; &
     \node (RECrsrf_DIdark)[connection]{}; &
     \node (RECstdreduce_DIdark)[connection]{}; &
@@ -105,12 +89,27 @@
 
 %    &
 %    \node (adi_DIdark)[empty]{};
+    % Row *_geom
+    \node (REClin_DIgeom)[empty]{}; &
+    \node (RECpers_DIgeom)[empty]{}; &
+    \node (RECdark_DIgeom)[empty]{}; &
+    \node (RECgeom_DIgeom)[statcalfile]{\PROD{IFU_DISTORTION_TABLE}}; &
+    \node (RECwcal_DIgeom)[connection]{}; &
+    \node (RECrsrf_DIgeom)[connection]{}; &
+    \node (RECstdreduce_DIgeom)[connection]{}; &
+    \node (RECscireduce_DIgeom)[connection]{}; &
+    \node (RECstd_DIgeom)[empty]{}; &
+    \node (RECtac_DIgeom)[empty]{}; &
+    \node (RECsci1_DIgeom)[empty]{}; &
+    \node (RECsci2_DIgeom)[empty]{}; \\
+%    &
+%    \node (adi_DIgeom)[empty]{};
 
     % Row *_wcal
     \node (REClin_DIwcal)[empty]{}; &
     \node (RECpers_DIwcal)[empty]{}; &
-    \node (RECgeom_DIwcal)[empty]{}; &
     \node (RECdark_DIwcal)[empty]{}; &
+    \node (RECgeom_DIwcal)[empty]{}; &
     \node (RECwcal_DIwcal) [calibproduct]{\PROD{IFU_WAVECAL}}; &
     \node (RECrsrf_DIwcal)[connection]{}; &
     \node (RECstdreduce_DIwcal)[connection]{}; &
@@ -124,8 +123,8 @@
     % Row *_rsrf
     \node (REClin_DIrsrf)[empty]{}; &
     \node (RECpers_DIrsrf)[empty]{}; &
-    \node (RECgeom_DIrsrf)[empty]{}; &
     \node (RECdark_DIrsrf)[empty]{}; &
+    \node (RECgeom_DIrsrf)[empty]{}; &
     \node (RECwcal_DIrsrf)[empty]{}; &
     \node (RECrsrf_DIrsrf)[statcalfile]{\PROD{RSRF_IFU}}; &
     \node (RECstdreduce_DIrsrf)[connection]{}; &
@@ -140,8 +139,8 @@
     % Row *_scireduced
     \node (REClin_DIscireduced)[empty]{}; &
     \node (RECpers_DIscireduced)[empty]{}; &
-    \node (RECgeom_DIscireduced)[empty]{}; &
     \node (RECdark_DIstdreduced)[empty]{}; &
+    \node (RECgeom_DIscireduced)[empty]{}; &
     \node (RECwcal_DIscireduced)[empty]{}; &
     \node (RECrsrf_DIscireduced)[empty]{}; &
     \node (RECstdreduce_DIscireduced)[empty]{}; &
@@ -159,8 +158,8 @@
     % Row *_stdreduced
     \node (REClin_DIstdreduced)[empty]{}; &
     \node (RECpers_DIstdreduced)[empty]{}; &
-    \node (RECgeom_DIstdreduced)[empty]{}; &
     \node (RECdark_DIstdreduced)[empty]{}; &
+    \node (RECgeom_DIstdreduced)[empty]{}; &
     \node (RECwcal_DIstdreduced)[empty]{}; &
     \node (RECrsrf_DIstdreduced)[empty]{}; &
     \node (RECstdreduce_DIstdreduced)[scienceproduct]{\PROD{IFU_STD_REDUCED}};
@@ -179,8 +178,8 @@
     % Row *_basicstd
     \node (REClin_DIfluxstd)[empty]{}; &
     \node (RECpers_DIfluxstd)[extcalfile]{\EXTCALIB{FLUXSTD_CATALOG}}; &
-    \node (RECgeom_DIfluxstd)[empty]{}; &
     \node (RECdark_DIfluxstd)[empty]{}; &
+    \node (RECgeom_DIfluxstd)[empty]{}; &
     \node (RECwcal_DIfluxstd)[empty]{}; &
     \node (RECrsrf_DIfluxstd)[empty]{}; &
     \node (RECstdreduce_DIfluxstd)[empty]{}; &
@@ -193,8 +192,8 @@
     % Row *_lsf
     \node (REClin_DIlsf)[empty]{}; &
     \node (RECpers_DIlsf)[extcalfile]{\EXTCALIB{LSF_KERNEL}}; &
-    \node (RECgeom_DIlsf)[empty]{}; &
     \node (RECdark_DIlsf)[empty]{}; &
+    \node (RECgeom_DIlsf)[empty]{}; &
     \node (RECwcal_DIlsf)[empty]{}; &
     \node (RECrsrf_DIlsf)[empty]{}; &
     \node (RECstdreduce_DIlsf)[empty]{}; &
@@ -207,8 +206,8 @@
     % Row *_atm
     \node (REClin_DIatm)[empty]{}; &
     \node (RECpers_DIatm)[extcalfile]{\EXTCALIB{ATM_PROFILE}}; &
-    \node (RECgeom_DIatm)[empty]{}; &
     \node (RECdark_DIatm)[empty]{}; &
+    \node (RECgeom_DIatm)[empty]{}; &
     \node (RECwcal_DIatm)[empty]{}; &
     \node (RECrsrf_DIatm)[empty]{}; &
     \node (RECstdreduce_DIatm)[empty]{}; &
@@ -223,8 +222,8 @@
     % Row *_tac
     \node (REClin_DItac)[empty]{}; &
     \node (RECpers_DItac)[empty]{}; &
-    \node (RECgeom_DItac)[empty]{}; &
     \node (RECdark_DItac)[empty]{}; &
+    \node (RECgeom_DItac)[empty]{}; &
     \node (RECwcal_DItac)[empty]{}; &
     \node (RECrsrf_DItac)[empty]{}; &
     \node (RECstdreduce_DItac)[empty]{}; &
@@ -239,8 +238,8 @@
     % Row *_fcal
     \node (REClin_DIfcal)[empty]{}; &
     \node (RECpers_DIfcal)[empty]{}; &
-    \node (RECgeom_DIfcal)[empty]{}; &
     \node (RECdark_DIfcal)[empty]{}; &
+    \node (RECgeom_DIfcal)[empty]{}; &
     \node (RECwcal_DIfcal)[empty]{}; &
     \node (RECrsrf_DIfcal)[empty]{}; &
     \node (RECstdreduce_DIfcal)[empty]{}; &
@@ -259,8 +258,8 @@
     % Row *_sci1
     \node (REClin_DIsci1)[empty]{}; &
     \node (RECpers_DIsci1)[empty]{}; &
-    \node (RECgeom_DIsci1)[empty]{}; &
     \node (RECdark_DIsci1)[empty]{}; &
+    \node (RECgeom_DIsci1)[empty]{}; &
     \node (RECwcal_DIsci1)[empty]{}; &
     \node (RECrsrf_DIsci1)[empty]{}; &
     \node (RECstdreduce_DIsci1)[empty]{}; &
@@ -276,8 +275,8 @@
     % Row *_sci2
     \node (REClin_DIsci2)[empty]{}; &
     \node (RECpers_DIsci2)[empty]{}; &
-    \node (RECgeom_DIsci2)[empty]{}; &
     \node (RECdark_DIsci2)[empty]{}; &
+    \node (RECgeom_DIsci2)[empty]{}; &
     \node (RECwcal_DIsci2)[empty]{}; &
     \node (RECrsrf_DIsci2)[empty]{}; &
     \node (RECstdreduce_DIsci2)[empty]{}; &
@@ -294,8 +293,8 @@
     % Row *_adi
     \node (REClin_adi)[empty]{}; &
     \node (RECpers_adi)[empty]{}; &
-    \node (RECgeom_adi)[empty]{}; &
     \node (RECdark_adi)[empty]{}; &
+    \node (RECgeom_adi)[empty]{}; &
     \node (RECwcal_adi)[empty]{}; &
     \node (RECrsrf_adi)[empty]{}; &
     \node (RECstdreduce_adi)[empty]{}; &
@@ -333,17 +332,19 @@
         (RECwcal_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
         (RECrsrf_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
         (RECscireduce_DIlin);
-  \draw [match] (RECpers_DIpers) -- (RECscireduce_DIpers);
+  \draw [match] (RECpers_DIpers) --
+        (RECgeom_DIpers) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+        (RECscireduce_DIpers);
   \draw [match] (RECdark_DIdark) -- (RECscireduce_DIdark);
-  \draw [match] (RECpers_DIpinh) -- (RECgeom_DIpinh);
-  \draw [match] (RECgeom_DIgeom) --
-        (RECdark_DIgeom) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
-        (RECscireduce_DIgeom);
+  \draw [match] (RECpers_DIpinh) --
+        (RECdark_DIpinh) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+        (RECgeom_DIpinh);
+  \draw [match] (RECgeom_DIgeom) -- (RECscireduce_DIgeom);
   \draw [match] (RECwcal_DIwcal) -- (RECscireduce_DIwcal);
   \draw [match] (RECrsrf_DIrsrf) -- (RECscireduce_DIrsrf);
   \draw [match] (RECpers_DIfluxstd) -- (RECtac_DIfluxstd);   % Line from FLUXSTD_CATALOG to further
-  \draw [match] (RECpers_DIlsf) -- (RECtac_DIlsf);   % Line from FLUXSTD_CATALOG to further
-  \draw [match] (RECpers_DIatm) -- (RECtac_DIatm);   % Line from FLUXSTD_CATALOG to further
+  \draw [match] (RECpers_DIlsf) -- (RECtac_DIlsf);
+  \draw [match] (RECpers_DIatm) -- (RECtac_DIatm);
   \draw [match] (RECstd_DIfcal) -- (RECsci1_DIfcal);
   \draw [match, dashed] (RECstd_DItelluricstd)  -- (RECsci1_DItelluricstd);
   \draw [match] (RECtac_DItac) -- (RECsci1_DItac);
