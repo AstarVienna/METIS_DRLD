@@ -60,6 +60,19 @@
     \node (RECsci1_DIpers)[empty]{}; &
     \node (RECsci2_DIpers)[empty]{}; \\
 
+    \node (REClin_DIpinh)[empty]{}; &
+    \node (RECpers_DIpinh)[extcalfile]{\PROD{PINHOLE_TABLE}}; &
+    \node (RECgeom_DIpinh)[connection]{}; &
+    \node (RECdark_DIpinh)[empty]{}; &
+    \node (RECwcal_DIpinh)[empty]{}; &
+    \node (RECrsrf_DIpinh)[empty]{}; &
+    \node (RECstdrecude_DIpinh)[empty]{}; &
+    \node (RECscireduce_DIpinh)[empty]{}; &
+    \node (RECtac_DIpinh)[empty]{}; &
+    \node (RECstd_DIpinh)[empty]{}; &
+    \node (RECsci1_DIpinh)[empty]{}; &
+    \node (RECsci2_DIpinh)[empty]{}; \\
+
     % Row *_dark
     \node (REClin_DIdark)[empty]{}; &
     \node (RECpers_DIdark)[empty]{}; &
@@ -73,6 +86,7 @@
     \node (RECstd_DIdark)[empty]{}; &
     \node (RECsci1_DIdark)[empty]{}; &
     \node (RECsci2_DIdark)[empty]{}; \\
+
 %    &
 %    \node (adi_DIdark)[empty]{};
 
@@ -293,9 +307,9 @@
         (RECscireduce_DIlin);
   \draw [match] (RECpers_DIpers) --
         (RECgeom_DIpers) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
-        (RECrsrf_DIpers) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
         (RECscireduce_DIpers);
   \draw [match] (RECdark_DIdark) -- (RECscireduce_DIdark);
+  \draw [match] (RECpers_DIpinh) -- (RECgeom_DIpinh);
   \draw [match] (RECgeom_DIgeom) -- (RECscireduce_DIgeom);
   \draw [match] (RECwcal_DIwcal) -- (RECscireduce_DIwcal);
   \draw [match] (RECrsrf_DIrsrf) -- (RECscireduce_DIrsrf);
