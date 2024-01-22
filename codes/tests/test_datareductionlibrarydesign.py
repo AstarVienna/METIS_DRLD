@@ -890,7 +890,7 @@ def test_associationmatrices():
     check_associationmatrices(check_input=False)
 
 
-@pytest.mark.xfail(reason="Many input is still missing from association matrices.")
+#@pytest.mark.xfail(reason="Many input is still missing from association matrices.")
 def test_associationmatrices_input():
     """Test to also check whether all the recipe input is present in the matrix"""
     check_associationmatrices(check_input=True)
