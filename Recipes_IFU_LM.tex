@@ -390,7 +390,9 @@ Output data:         & \PROD{IFU_SCI_REDUCED} or \PROD{IFU_STD_REDUCED} (2D, per
 Expected accuracies: & for wavelength: 1/5th of a pixel after post-processing\\
             & (cf.~\cite{METIS-calibration_plan}, \REQ{METIS-6074} \\
             & for flux: 10\% over an atmospheric band \\
-QC1 parameters:      & None                                                                                     \\
+QC1 parameters:      &  \QC{QC IFU REDUCE NBADPIX}     \\
+                     &  \QC{QC IFU REDUCE MEANBKG}     \\
+                     &  \QC{QC IFU REDUCE MEANSTRAY}     \\
 \end{recipedef}
 
 \newgeometry{bottom=0.1cm, right=0.1cm, left=0.1cm, top=0.1cm}
@@ -469,7 +471,9 @@ Matched Keywords: & \FITS{DET.DIT}\\
                        & \PROD{FLUXCAL_TAB} (for standard stars)                                         \\
                        & \PROD{IFU_SCI_REDUCED_1D} or \PROD{IFU_STD_REDUCED_1D} (1D)                     \\
   Expected accuracies: & 2\%~\cite{METIS_calerrbudget}                                                   \\
-  QC1 parameters:      & None                                                                            \\
+  QC1 parameters:      &  \QC{QC IFU TELLURIC CHI2}     \\
+                       &  \QC{QC IFU TELLURIC NPIXTHRESH}     \\
+                       &  \QC{QC IFU TELLURIC CONVERSION}     \\
 \end{recipedef}
 
 \begin{figure}[hb]
@@ -517,7 +521,8 @@ Matched Keywords: & \FITS{DRS.IFU}\\
                        & $<30$\% absolute line flux accuracy                                             \\
                        & $<5$\% absolute flux calibration                                                \\
                        & (cf.~\cite{METIS-calibration_plan}, R-MET-107, R-MET-82)                        \\
-  QC1 parameters:      & None                                                                            \\
+  QC1 parameters:      &  \QC{QC IFU CALIBRATE MAXFLUX}     \\
+                       &  \QC{QC IFU TELLURIC MINFLUX}     \\
 \end{recipedef}
 
 \begin{figure}[hb]
@@ -581,7 +586,12 @@ Matched Keywords: & \FITS{DRS.IFU}\\
                   & Call \DRL{ifu_coadd} to stack the images                    \\
   Output data:    & \PROD{IFU_SCI_COADD}                    \\
 %                  & \PROD{IFU_SCI_COADD_ERROR}        \\
-  QC1 parameters: & ---                                                                        \\
+  QC1 parameters: &  \QC{QC IFU POSTPROCESS GRIDRANGE}     \\
+                  &  \QC{QC IFU POSTPROCESS MEDIANMEAN}     \\
+                  &  \QC{QC IFU POSTPROCESS MEDIANRMS}     \\
+                  &  \QC{QC IFU POSTPROCESS MEDIANMEDIAN}     \\
+                  &  \QC{QC IFU POSTPROCESS DELTAC}     \\
+
 \end{recipedef}
 
 \begin{figure}[hb]

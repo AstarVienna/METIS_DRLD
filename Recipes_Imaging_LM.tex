@@ -70,6 +70,10 @@ otherwise a new one is created.
                        & \QC{QC LM MASTERFLAT NBADPIX}                                        \\
                        & \QC{QC LM FLAT MEAN}                                           \\
                        & \QC{QC LM FLAT RMS}                                            \\
+                       & \QC{QC LM FLAT MEDIAN MIN}                                             \\
+                       & \QC{QC LM FLAT MEDIAN MAX}                                             \\
+                       & \QC{QC LM FLAT MEDIAN RMS}                                             \\
+
   hdrl functions:      & \CODE{hdrl_bpm_fit_compute}                                    \\
                        & \CODE{hdrl_imagelist_collapse}                                 \\
                        & \CODE{hdrl_imagelist_sub_image}                                \\
@@ -509,6 +513,11 @@ The output files fulfill the \ac{SDP} criteria and are compliant with \REQ{METIS
 %                        & \PROD{LM_SCI_COADD_CONTRIB} (contribution map)             \\
   Expected accuracies: & n/a                                                       \\
   QC1 parameters:      & \QC{QC LM SCI NEXPOSURE}                                   \\
+                       &  \QC{QC LM SCI POSTPROCESS GRIDRANGE}     \\
+                       &  \QC{QC LM SCI POSTPROCESS MEDIANMEAN}     \\
+                       &  \QC{QC LM SCI POSTPROCESS MEDIANRMS}     \\
+                       &  \QC{QC LM SCI POSTPROCESS MEDIANMEDIAN}     \\
+                       & \QC{QC LM SCI DELTAC}                                   \\
 \end{recipedef}
 
 \begin{figure}[hb]
