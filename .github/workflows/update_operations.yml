@@ -5,7 +5,9 @@ name: update_operations
 on:
   schedule:
     # Run every 5 minutes past the hour, because the export is created on the hour.
-    - cron: "5 * * * *"
+    #- cron: "5 * * * *"
+    # Instead run it only once each night, since it seems that the wiki export is broken.
+    - cron: "5 3 * * *"
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
