@@ -1,0 +1,183 @@
+\subsection{Instrument Health Monitoring}\label{sec:instrumenthealthmonitoring}
+
+This section describes the quality control parameters used for instrument
+health monitoring.
+That is, these parameters are not (only) used to assess the quality of the
+data, but also to determine whether the instrument is operating correctly.
+
+The information is given in tabular form as prescribed by ESO,
+see example Table~\ref{tab:qchealthmonitoringexample}.
+Legend:
+
+\begin{itemize}
+    \item Name: brief description of the name of the quality control parameter
+    \item QC name: keyword name as it appears in the FITS header
+    \item Parameter name in HC plots: name as it appear in the health check plot or QC database
+    \item KPI: is the parameter a key performance indicator or not? Put KPI if it is a KPI, nothing otherwise
+    \item Execution conditions external to the instrument: conditions that are required for a valid measurements. E.g.: no light in the dome for a flat-field; photometric conditions for a zero point.
+    \item Performance (or operational)  range: for this parameter, the instrument is considered to be working nominally if its value lies between the given minimum and the maximum values. A nominal value can be defined also. In some cases, only a minimum or maximum value is relevant.
+    \begin{itemize}
+        \item The definition of the maximum and minimum values describes the explanation of why the thresholds must be set to these values. Ideally, they are directly derived from top level requirements. The definitions can describe a scientific and/or a technical reason. A technical reason may be coming from the HW, SW, or pipeline recipe. The minimum value can be scientific and the maximum one technical, or inversely; or both scientific, or both technical. If a pragmatic definition must be used (i.e., one which does not derive from TLR), the reason why this is needed should be given. If the thresholds are purely based on dispersion (e.g., the dispersion of the spectral resolution is entirely caused by photon noise), thresholds should be set so that the value falls out of the range in less than 1\% of the times based on  noise alone (e.g., 3 sigma if the distribution is gaussian).
+        \item The corresponding numerical values can be absolute and/or relative.
+    \end{itemize}
+    \item Calibration quality: These fields may likely not be used very often. They may be needed because a parameter may have a large range to consider the instrument operational, but calibrations require a much stricter range. An example is a bias value which can be set arbitrarily within a wide range and the instrument would still be operational; however, its stability between science and calibration is very important. In some cases, only a minimum or maximum value is relevant.
+    \item Measurement method:
+    \begin{itemize}
+        \item Algorithm: describes the instrument setup, what kind of data is taken, how the data are processed by the pipeline recipe, the mathematical quantity provided by the pipeline.
+        \item Template name: the name of the template used to take the data.
+    \end{itemize}
+    \end{itemize}
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\qchealthtable}{m}{
+    \begin{table}[htp!]
+    \centering
+    \keys_set:nn { qchealth/table } { #1 }
+    \begin{tabular}{|p{0.195\linewidth}|p{0.14\linewidth}|p{0.14\linewidth}|p{0.4\linewidth}|}
+    \hline
+
+    \multicolumn{3}{|l|}{Name:} &
+        \l_qchealth_table_name_tl \\
+        \hline
+    \multicolumn{3}{|l|}{QC~name:} &
+        \l_qchealth_table_qcname_tl \\
+        \hline
+    \multicolumn{3}{|l|}{Parameter~name~in~HC~plots:} &
+        \l_qchealth_table_paramname_tl \\
+        \hline
+    \multicolumn{3}{|l|}{KPI?} &
+        \l_qchealth_table_kpi_tl \\
+        \hline
+    \multicolumn{3}{|p{0.5\linewidth}|}{Execution~conditions~external~to~the~instrument:} &
+        \l_qchealth_table_conditions_tl \\
+        \hline
+    \multirow{6}{\linewidth}{Performance:~nominal~and~threshold~values} &
+        \multirow{3}{\linewidth}{Definition:} &
+        Maximum: & \l_qchealth_table_perform_def_max_tl \\
+        \cline{3-4}
+    & & Nominal: & \l_qchealth_table_perform_def_nom_tl \\
+        \cline{3-4}
+    & & Minimal: & \l_qchealth_table_perform_def_min_tl \\
+        \cline{2-4}
+    & \multirow{3}{\linewidth}{Numerical~value:} &
+        Maximum: & \l_qchealth_table_perform_num_max_tl \\
+        \cline{3-4}
+    & & Nominal: & \l_qchealth_table_perform_num_nom_tl \\
+        \cline{3-4}
+    & & Minimal: & \l_qchealth_table_perform_num_min_tl \\
+        \hline
+    % Full text flows over to row below if no definition is provided.
+    % \multirow{4}{\linewidth}{Calibration~quality:~nominal~and~threshold~values} &
+    \multirow{4}{\linewidth}{Calibration~quality:~nominal~and~thresholds} &
+        \multicolumn{2}{p{0.145\linewidth}|}{Definition:} & \l_qchealth_table_calib_def_tl \\
+        \cline{2-4}
+    & \multirow{3}{\linewidth}{Numerical~value:} &
+        Maximum: & \l_qchealth_table_calib_def_max_tl \\
+        \cline{3-4}
+    & & Nominal: & \l_qchealth_table_calib_def_nom_tl \\
+        \cline{3-4}
+        & & Minimal: & \l_qchealth_table_calib_def_min_tl \\
+        \hline
+    \multirow{3}{\linewidth}{Measurement~method} &
+        \multicolumn{2}{l|}{Algorithm:} &
+    \l_qchealth_table_alrogithm_tl \\
+        \cline{2-4}
+    & \multicolumn{2}{l|}{Template~name:} &
+        \l_qchealth_table_template_tl \\
+        \cline{2-4}
+    & \multicolumn{2}{l|}{Pipeline~recipe:} &
+        \l_qchealth_table_recipe_tl \\
+        \hline
+    \multicolumn{3}{|p{0.5\linewidth}|}{Operationally~relevant~components~using~the~parameter:} &
+        \l_qchealth_table__tl \\
+        \hline
+    \multicolumn{3}{|l|}{Date~of~last~update:} &
+        \l_qchealth_table_date_tl \\
+        \hline
+
+    \end{tabular}
+    \caption{Instrument~health~monitoring~through~\l_qchealth_table_qcname_tl.}
+    \label{tab:\l_qchealth_table_label_tl}
+    \end{table}
+}
+
+
+
+\keys_define:nn { qchealth/table } {
+  name .tl_set:N = \l_qchealth_table_name_tl,
+  qcname .tl_set:N = \l_qchealth_table_qcname_tl,
+  paramname .tl_set:N = \l_qchealth_table_paramname_tl,
+  kpi .tl_set:N = \l_qchealth_table_kpi_tl,
+  conditions .tl_set:N = \l_qchealth_table_conditions_tl,
+  perform_def_max .tl_set:N = \l_qchealth_table_perform_def_max_tl,
+  perform_def_nom .tl_set:N = \l_qchealth_table_perform_def_nom_tl,
+  perform_def_min .tl_set:N = \l_qchealth_table_perform_def_min_tl,
+  perform_num_max .tl_set:N = \l_qchealth_table_perform_num_max_tl,
+  perform_num_nom .tl_set:N = \l_qchealth_table_perform_num_nom_tl,
+  perform_num_min .tl_set:N = \l_qchealth_table_perform_num_min_tl,
+  calib_def .tl_set:N = \l_qchealth_table_calib_def_tl,
+  calib_def_max .tl_set:N = \l_qchealth_table_calib_def_max_tl,
+  calib_def_nom .tl_set:N = \l_qchealth_table_calib_def_nom_tl,
+  calib_def_min .tl_set:N = \l_qchealth_table_calib_def_min_tl,
+  alrogithm .tl_set:N = \l_qchealth_table_alrogithm_tl,
+  template .tl_set:N = \l_qchealth_table_template_tl,
+  recipe .tl_set:N = \l_qchealth_table_recipe_tl,
+  components .tl_set:N = \l_qchealth_table__tl,
+  date .tl_set:N = \l_qchealth_table_date_tl,
+  label .tl_set:N = \l_qchealth_table_label_tl,
+}
+
+\ExplSyntaxOff
+
+
+
+
+\qchealthtable{
+    name = ,
+    qcname = Example,
+    paramname = ,
+    kpi = ,
+    conditions = ,
+    perform_def_max = ,
+    perform_def_nom = ,
+    perform_def_min = ,
+    perform_num_max = ,
+    perform_num_nom = ,
+    perform_num_min = ,
+    calib_def = ,
+    calib_def_max = ,
+    calib_def_nom = ,
+    calib_def_min = ,
+    alrogithm = ,
+    template = ,
+    recipe = ,
+    components = ,
+    date = ,
+    label = qchealthmonitoringexample,
+}
+
+
+\subsubsection{QC NCPA PEAK2VAL}\label{qc:qcncpapeak2val}
+\qchealthtable{
+    name = Peak to valley value of static NCPA between SCAO and IMG,
+    qcname = \QC{QC NCPA PEAK2VAL},
+    paramname = \CODE{ncpa_peak2val},
+    kpi = KPI,
+    conditions = Stationary telescope\, sidereal tracking at most,
+    perform_def_max = A large drift of this quantity may lead to SCAO not working any more due to too large slope offsets sent by the NCPA control algorithms.,
+    perform_def_nom = Expected value that the optics can be aligned to.,
+    perform_def_min = 0.0,
+    perform_num_max = TBD during commissioning,
+    perform_num_nom = TBD during AIV,
+    perform_num_min = 0.0,
+    calib_def = N/A,
+    calib_def_max = ,
+    calib_def_nom = ,
+    calib_def_min = ,
+    alrogithm = Estimated by the NCPA control algorithms part of the SCAO system.,
+    template = All on-sky templates,
+    recipe = None/all\, propagated from raw data,
+    components = Raw FITS header and Processed FITS header,
+    date = 2024/02/07,
+}
