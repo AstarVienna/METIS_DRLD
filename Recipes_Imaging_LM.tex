@@ -66,8 +66,8 @@ otherwise a new one is created.
                        & or \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
                        & \PROD{BADPIX_MAP_2RG}                                           \\
   Expected accuracies: & 0.5\% (cf.~\cite{METIS_calerrbudget})                                                           \\
-  QC1 parameters:      & \QC{QC LM MASTERFLAT RMS}                                      \\
-                       & \QC{QC LM MASTERFLAT NBADPIX}                                        \\
+  QC1 parameters:      & \QC{QC LM MFLAT RMS}                                      \\
+                       & \QC{QC LM MFLAT NBADPIX}                                        \\
                        & \QC{QC LM FLAT MEAN}                                           \\
                        & \QC{QC LM FLAT RMS}                                            \\
                        & \QC{QC LM FLAT MEDIAN MIN}                                             \\
@@ -386,8 +386,8 @@ following~\cite{visir_manual}.
                        & \QC{QC LM STD STREHL}                                                        \\
                        & \QC{QC LM STD FLUXCONV}                                                      \\
                        & \QC{QC LM STD AIRMASS}                                                       \\
-                       & \QC{QC LM SENSITIVITY}                                                       \\
-                       & \QC{QC LM AREA SENSITIVITY}                                                  \\
+                       & \QC{QC LM SENS}                                                       \\
+                       & \QC{QC LM AREA SENS}                                                  \\
   hdrl functions:      & \CODE{hdrl_strehl_compute}                                                   \\
                        & \CODE{hdrl_catalogue_compute}                                                \\
                        & \CODE{hdrl_efficiency_compute}                                               \\
@@ -512,12 +512,12 @@ The output files fulfill the \ac{SDP} criteria and are compliant with \REQ{METIS
 %                        & \PROD{LM_SCI_COADD_ERROR} (coadded, mosaiced error image)  \\
 %                        & \PROD{LM_SCI_COADD_CONTRIB} (contribution map)             \\
   Expected accuracies: & n/a                                                       \\
-  QC1 parameters:      & \QC{QC LM SCI NEXPOSURE}                                   \\
-                       &  \QC{QC LM SCI POSTPROCESS GRIDRANGE}     \\
-                       &  \QC{QC LM SCI POSTPROCESS MEDIANMEAN}     \\
-                       &  \QC{QC LM SCI POSTPROCESS MEDIANRMS}     \\
-                       &  \QC{QC LM SCI POSTPROCESS MEDIANMEDIAN}     \\
-                       & \QC{QC LM SCI POSTPROCESS DELTAC}            \\
+  QC1 parameters:      & \QC{QC LM SCI NEXP}                                   \\
+                       &  \QC{QC LM SCI POSTPROC GRIDRNG}     \\
+                       &  \QC{QC LM SCI POSTPROC MEDMEAN}     \\
+                       &  \QC{QC LM SCI POSTPROC MEDRMS}     \\
+                       &  \QC{QC LM SCI POSTPROC MEDMED}     \\
+                       & \QC{QC LM SCI POSTPROC DELTAC}            \\
 \end{recipedef}
 
 \begin{figure}[hb]

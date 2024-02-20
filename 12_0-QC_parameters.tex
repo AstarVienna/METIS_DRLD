@@ -547,6 +547,66 @@ Description & Root mean square of the gain values\tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
+\subsubsection{QC LIN MIN FLUX}\label{qc:qc_lin_min_flux}
+\begin{recipedef}
+Name & \QC{QC LIN MIN FLUX} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & e/adu \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \REC{metis_det_lingain}\\
+Description & Minimum flux in images\tabularnewline
+Comment & None \tabularnewline
+\end{recipedef}
+
+\subsubsection{QC LIN MAX FLUX}\label{qc:qc_lin_max_flux}
+\begin{recipedef}
+Name & \QC{QC LIN MIN FLUX} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & e/adu \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \REC{metis_det_lingain}\\
+Description & Maximum flux in images\tabularnewline
+Comment & None \tabularnewline
+\end{recipedef}
+
+\subsubsection{QC GAIN LIN}\label{qc:qc_gain_lin}
+\begin{recipedef}
+Name & \QC{QC GAIN LIN} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & e/adu \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \REC{metis_det_lingain}\\
+Description & Effective Linearity\tabularnewline
+Comment & None \tabularnewline
+\end{recipedef}
+
+\subsubsection{QC GAIN COEFF}\label{qc:qc_gain_coeff}
+\begin{recipedef}
+Name & \QC{QC GAIN COEFF} \tabularnewline
+Class & header \tabularnewline
+Context & QC \tabularnewline
+Type & double \tabularnewline
+Value & \%.3f \tabularnewline
+Unit & e/adu \tabularnewline
+Default & None  \tabularnewline
+Range & None \tabularnewline
+Created by & \REC{metis_det_lingain}\\
+Description & Linearity Coefficients\tabularnewline
+Comment & None \tabularnewline
+\end{recipedef}
+
 \subsubsection{QC LM IMG STD BACKGD RMS}\label{qc:qc_lm_img_std_backgd_rms}
 \begin{recipedef}
 Name & \QC{QC LM IMG STD BACKGD RMS} \tabularnewline
@@ -577,9 +637,9 @@ Description & Number of images that went into a \PROD{LM_SCI_COADD} \tabularnewl
 Comment & \tabularnewline
 \end{recipedef}
 
-\subsubsection{QC LM SCI POSTPROCESS GRIDRANGE}\label{qc:qc_lm_sci_postprocess_gridrange}
+\subsubsection{QC LM SCI POSTPROC GRIDRNG}\label{qc:qc_lm_sci_postproc_gridrng}
 \begin{recipedef}
-Name & \QC{QC LM SCI POSTPROCESS GRIDRANGE} \tabularnewline
+Name & \QC{QC LM SCI POSTPROC GRIDRNG} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -592,9 +652,9 @@ Description & Maximum - minimum values of the interpolated grids \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
-\subsubsection{QC LM SCI POSTPROCESS MEDIANMEAN}\label{qc:qc_lm_sci_postprocess_medianmean}
+\subsubsection{QC LM SCI POSTPROC MEDMEAN}\label{qc:qc_lm_sci_postproc_medmean}
 \begin{recipedef}
-Name & \QC{QC LM SCI POSTPROCESS MEDIANMEAN} \tabularnewline
+Name & \QC{QC LM SCI POSTPROC MEDMEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -607,9 +667,9 @@ Description &  Mean of the medians of regridded images\tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
-\subsubsection{QC LM SCI POSTPROCESS MEDIANRMS}\label{qc:qc_lm_sci_postprocess_medianrms}
+\subsubsection{QC LM SCI POSTPROC MEDRMS}\label{qc:qc_lm_sci_postproc_medrms}
 \begin{recipedef}
-Name & \QC{QC LM SCI POSTPROCESS MEDIANRMS} \tabularnewline
+Name & \QC{QC LM SCI POSTPROC MEDRMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -622,9 +682,9 @@ Description &  RMS of the medians of the regridded images\tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
-\subsubsection{QC LM SCI POSTPROCESS MEDIANMEDIAN}\label{qc:qc_lm_sci_postprocess_medianmedian}
+\subsubsection{QC LM SCI POSTPROC MEDMED}\label{qc:qc_lm_sci_postproc_medmed}
 \begin{recipedef}
-Name & \QC{QC LM SCI POSTPROCESS MEDIANMEDIAN} \tabularnewline
+Name & \QC{QC LM SCI POSTPROC MEDMED} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -637,9 +697,9 @@ Description & Median of the medians of the regridded images  \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
-\subsubsection{QC LM SCI POSTPROCESS DELTAC}\label{qc:qc_lm_sci_postprocess_deltac}
+\subsubsection{QC LM SCI POSTPROC DELTAC}\label{qc:qc_lm_sci_postproc_deltac}
 \begin{recipedef}
-Name & \QC{QC LM SCI POSTPROCESS DELTAC} \tabularnewline
+Name & \QC{QC LM SCI POSTPROC DELTAC} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -770,9 +830,9 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{QC LM SENSITIVITY}\label{qc:qc_lm_sensitivity}
+\subsubsection{QC LM SENS}\label{qc:qc_lm_sens}
 \begin{recipedef}
-Name & \QC{QC LM SENSITIVITY} \tabularnewline
+Name & \QC{QC LM sens} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -788,9 +848,9 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{QC LM AREA SENSITIVITY}\label{qc:qc_lm_area_sensitivity}
+\subsubsection{QC LM AREA SENS}\label{qc:qc_lm_area_sens}
 \begin{recipedef}
-Name & \QC{QC LM AREA SENSITIVITY} \tabularnewline
+Name & \QC{QC LM AREA SENS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -954,9 +1014,9 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{QC N SENSITIVITY}\label{qc:qc_n_sensitivity}
+\subsubsection{QC N SENS}\label{qc:qc_n_sens}
 \begin{recipedef}
-Name & \QC{QC N SENSITIVITY} \tabularnewline
+Name & \QC{QC N SENS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -972,9 +1032,9 @@ Comment & \tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{QC N AREA SENSITIVITY}\label{qc:qc_n_area_sensitivity}
+\subsubsection{QC N AREA SENS}\label{qc:qc_n_area_sens}
 \begin{recipedef}
-Name & \QC{QC N AREA SENSITIVITY} \tabularnewline
+Name & \QC{QC N AREA SENS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1278,9 +1338,9 @@ Comment & None \tabularnewline
 \end{recipedef}
 
 
-\subsubsection{QC IFU REDUCE MEANSTRAY}\label{qc:qc_ifu_reduce_meanstray}
+\subsubsection{QC IFU REDUCE MEANSTRY}\label{qc:qc_ifu_reduce_meanstry}
 \begin{recipedef}
-Name & \QC{QC IFU REDUCE MEANSTRAY} \tabularnewline
+Name & \QC{QC IFU REDUCE MEANSTRY} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -1310,9 +1370,9 @@ Comment & None \tabularnewline
 \end{recipedef}
 
 
-\subsubsection{QC IFU TELLURIC NPIXTHRESH}\label{qc:qc_ifu_telluric_npixthresh}
+\subsubsection{QC IFU TELLURIC NPTHRESH}\label{qc:qc_ifu_telluric_npthresh}
 \begin{recipedef}
-Name & \QC{QC IFU TELLURIC NPIXTHRESH} \tabularnewline
+Name & \QC{QC IFU TELLURIC NPTHRESH} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -1326,9 +1386,9 @@ Comment & None \tabularnewline
 \end{recipedef}
 
 
-\subsubsection{QC IFU TELLURIC CONVERSION}\label{qc:qc_ifu_telluric_conversion}
+\subsubsection{QC IFU TELLURIC CONV}\label{qc:qc_ifu_telluric_conv}
 \begin{recipedef}
-Name & \QC{QC IFU TELLURIC CONVERSION} \tabularnewline
+Name & \QC{QC IFU TELLURIC CONV} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -1342,9 +1402,9 @@ Comment & None \tabularnewline
 \end{recipedef}
 
 
-\subsubsection{QC IFU CALIBRATE MINFLUX}\label{qc:qc_ifu_calibrate_minflux}
+\subsubsection{QC IFU CALIB MINFLUX}\label{qc:qc_ifu_calib_minflux}
 \begin{recipedef}
-Name & \QC{QC IFU CALIBRATE MINFLUX} \tabularnewline
+Name & \QC{QC IFU CALIB MINFLUX} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -1358,9 +1418,9 @@ Comment & None \tabularnewline
 \end{recipedef}
 
 
-\subsubsection{QC IFU CALIBRATE MAXFLUX}\label{qc:qc_ifu_calibrate_maxflux}
+\subsubsection{QC IFU CALIB MAXFLUX}\label{qc:qc_ifu_calib_maxflux}
 \begin{recipedef}
-Name & \QC{QC IFU CALIBRATE MAXFLUX} \tabularnewline
+Name & \QC{QC IFU CALIB MAXFLUX} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -1374,9 +1434,9 @@ Comment & None \tabularnewline
 \end{recipedef}
 
 
-\subsubsection{QC IFU POSTPROCESS GRIDRANGE}\label{qc:qc_ifu_postprocess_gridrange}
+\subsubsection{QC IFU POSTPROC GRIDRNG}\label{qc:qc_ifu_postproc_gridrng}
 \begin{recipedef}
-Name & \QC{QC IFU POSTPROCESS GRIDRANGE} \tabularnewline
+Name & \QC{QC IFU POSTPROC GRIDRNG} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -1389,9 +1449,9 @@ Description & Maximum - minimum values of the interpolated grids \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
-\subsubsection{QC IFU POSTPROCESS MEDIANMEAN}\label{qc:qc_ifu_postprocess_medianmean}
+\subsubsection{QC IFU POSTPROC MEDMEAN}\label{qc:qc_ifu_postproc_medmean}
 \begin{recipedef}
-Name & \QC{QC IFU POSTPROCESS MEDIANMEAN} \tabularnewline
+Name & \QC{QC IFU POSTPROC MEDMEAN} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -1404,9 +1464,9 @@ Description &  Mean of the medians of regridded images\tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
-\subsubsection{QC IFU POSTPROCESS MEDIANRMS}\label{qc:qc_ifu_postprocess_medianrms}
+\subsubsection{QC IFU POSTPROC MEDRMS}\label{qc:qc_ifu_postproc_medrms}
 \begin{recipedef}
-Name & \QC{QC IFU POSTPROCESS MEDIANRMS} \tabularnewline
+Name & \QC{QC IFU POSTPROC MEDRMS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -1419,9 +1479,9 @@ Description &  RMS of the medians of the regridded images\tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
-\subsubsection{QC IFU POSTPROCESS MEDIANMEDIAN}\label{qc:qc_ifu_postprocess_medianmedian}
+\subsubsection{QC IFU POSTPROC MEDMED}\label{qc:qc_ifu_postproc_medmed}
 \begin{recipedef}
-Name & \QC{QC IFU POSTPROCESS MEDIANMEDIAN} \tabularnewline
+Name & \QC{QC IFU POSTPROC MEDMED} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
@@ -1434,9 +1494,9 @@ Description & Median of the medians of the regridded images  \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
-\subsubsection{QC IFU POSTPROCESS DELTAC}\label{qc:qc_ifu_postprocess_deltac}
+\subsubsection{QC IFU POSTPROC DELTAC}\label{qc:qc_ifu_postproc_deltac}
 \begin{recipedef}
-Name & \QC{QC IFU POSTPROCESS DELTAC} \tabularnewline
+Name & \QC{QC IFU POSTPROC DELTAC} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
