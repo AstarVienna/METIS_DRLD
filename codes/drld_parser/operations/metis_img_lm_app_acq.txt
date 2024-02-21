@@ -7,6 +7,20 @@ __Note:__ For all modes that use pupil tracking it needs to be investigated how 
 === Procedure for METIS_img_lm_app_acq ===
 
 ++++
+Initialize OB|
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+++++
+++++
 Preset telescope|
   * send target coordinates to TCS
   * initiate guiding/tracking. Guide star may be chosen by operator (if no coordinates supplied), or use the one specified in the template.

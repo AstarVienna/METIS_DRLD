@@ -1,7 +1,20 @@
 ==== Acquisition Template METIS_ifu_acq ====
 
 === Procedure for METIS_ifu_acq ===
-
+++++
+Initialize OB|
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+++++
 ++++
 Preset telescope|
   * send target coordinates to TCS
@@ -63,7 +76,7 @@ Acquire target on IFU|
   * insert LMS pick-off, transmitting about 10% of light to the ''IMG-LM''
   * insert ''LMS PP1'' cold stop
   * ''LMS PP4'' Select pre-dispersed range (spectral order)
-  * ''LMS FP4'' to single order selecting mask (nominal mode)
+  * ''LMS FP4'' to single order selecting mask (nominal mode) or spectral IFU (extended mode)
   * ''LMS PP5'' Select main dispersed range 
   * Take single exposure or offset pair
   * Real-time image reconstruction (software) 
@@ -125,7 +138,7 @@ While AO loop is closed|
 |INS OPTI3 NAME         |yes         |FIELD-11 (FIELD-11)       |CFO FP2 mask/slit wheel|
 |INS OPTI4 NAME         |yes        |IN (IN)                  |LMS beamsplitter pickoff wheel|
 |INS OPTI5 NAME         |yes        |open PPS-LMS SPM-LMS (PPS-LMS)   |LMS PP1 mask wheel|
-|INS OPTI6 NAME         |yes        |OUT (OUT)                  |LMS spectral IFU mechanism|
+|INS OPTI6 NAME         |yes        |IN OUT (OUT)                  |LMS spectral IFU mechanism|
 |INS OPTI7 NAME         |yes        |TBD (TBD)                  |LMS pre-disperser|
 |INS OPTI8 NAME         |yes        |TBD (TBD)                  |LMS main disperser|
 |INS OPTI9 NAME         |no         |open PPS-LMS SPM-LMS (PPS-LMS)                  |IMG-LM Mask/Grism name|

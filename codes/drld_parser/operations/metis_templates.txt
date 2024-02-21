@@ -17,6 +17,7 @@ METIS Acquisition templates|
 |[[METIS_ifu_acq|METIS_ifu_acq          ]]|acquisition of nominal IFU spectroscopy |
 |[[METIS_ifu_app_acq|METIS_ifu_app_acq]]|acquisition of nominal IFU spectroscopy with APP coronagraph|
 |[[METIS_ifu_vc_acq|METIS_ifu_vc_acq]]|acquisition of nominal IFU spectroscopy with ring-apodized or classical vortex coronagraph |
+|**Obsolete templates**|
 |[[METIS_ifu_ext_acq|METIS_ifu_ext_acq]]|acquisition of extended IFU spectroscopy |
 |[[METIS_ifu_ext_app_acq|METIS_ifu_ext_app_acq]]|acquisition of extended IFU spectroscopy with APP coronagraph |
 |[[METIS_ifu_ext_vc_acq|METIS_ifu_ext_vc_acq]]|acquisition of extended IFU spectroscopy with ring-apodized or classical vortex coronagraph|
@@ -24,31 +25,32 @@ METIS Acquisition templates|
 ++++
 METIS Observing templates|
 ^Template name             ^Functionality  | 
-|**Imaging**|
-|[[METIS_img_lm_obs_AutoJitter|METIS_img_lm_obs_AutoJitter]]	| LM-band imaging with jitter |
-|[[METIS_img_lm_obs_FixedSkyOffset |METIS_img_lm_obs_FixedSkyOffset]] |LM-band imaging with jitter and fixed sky offset|	
+|**Imaging**|	
 |[[METIS_img_lm_obs_GenericOffset |METIS_img_lm_obs_GenericOffset]] |LM-band imaging with user-defined offsets | 
 |[[METIS_img_lm_app_obs_FixedOffset|METIS_img_lm_app_obs_FixedOffset]] |APP coronagraphy in LM with offset between two positions |	
 |[[METIS_img_lm_vc_obs_FixedSkyOffset|METIS_img_lm_vc_obs_FixedSkyOffset]] |Ring-apodized or classical vortex coronagraphy in LM with fixed sky offset|	
-|[[METIS_img_n_obs_AutoChopNod|METIS_img_n_obs_AutoChopNod]] |N-band imaging with chopping and nodding in pre-defined direction |
 |[[METIS_img_n_obs_GenericChopNod|METIS_img_n_obs_GenericChopNod]] |N-band imaging with chopping and nodding |
 |[[METIS_img_n_cvc_obs_AutoChop |METIS_img_n_cvc_obs_AutoChop ]] |Classical vortex coronagraphy in N-band with chopping |
-|[[METIS_img_lmn_obs_AutoChopNod|METIS_img_lmn_obs_AutoChopNod]] |LM and N-band parallel imaging with chopping and nodding in pre-defined direction |
 |[[METIS_img_lmn_obs_GenericChopNod|METIS_img_lmn_obs_GenericChopNod]] |LM and N-band parallel imaging with chopping and nodding |
 |**Long-slit spectroscopy**|
 |[[METIS_spec_lm_obs_AutoNodOnSlit|METIS_spec_lm_obs_AutoNodOnSlit]] 		|Low-resolution LSS in LM with offsets along the slit |
 |[[METIS_spec_lm_obs_GenericOffset|METIS_spec_lm_obs_GenericOffset]]		|Low-resolution LSS in LM with user-defined offsets |
 |[[METIS_spec_n_obs_AutoChopNodOnSlit|METIS_spec_n_obs_AutoChopNodOnSlit]]	|Low-resolution LSS in N-band with chopping and nodding along the slit| 
 |[[METIS_spec_lmn_obs_AutoChopNodOnSlit|METIS_spec_lmn_obs_AutoChopNodOnSlit]]	|Low-resolution LSS in LM and N-band (parallel) with chopping and nodding along the slit|   
-|**Integral Field Unit**|
-|[[METIS_ifu_obs_FixedSkyOffset|METIS_ifu_obs_FixedSkyOffset]] |Nominal IFU spectroscopy with jitter and fixed sky offsets | 
+|**Integral Field Unit**| 
 |[[METIS_ifu_obs_GenericOffset|METIS_ifu_obs_GenericOffset]]   |Nominal IFU spectroscopy with user-defined offsets | 
 |[[METIS_ifu_app_obs_Stare|METIS_ifu_app_obs_Stare]]   | Nominal IFU spectroscopy with APP coronagraph| 
 |[[METIS_ifu_vc_obs_FixedSkyOffset|METIS_ifu_vc_obs_FixedSkyOffset]] |Nominal IFU spectroscopy with ring-apodized or classical vortex coronagraph and fixed sky offsets|
-|[[METIS_ifu_ext_obs_FixedSkyOffset|METIS_ifu_ext_obs_FixedSkyOffset]] |Extended IFU spectroscopy with jitter and fixed sky offsets |
 |[[METIS_ifu_ext_obs_GenericOffset |METIS_ifu_ext_obs_GenericOffset ]] |Extended IFU spectroscopy with user-defined offsets |
 |[[METIS_ifu_ext_app_obs_Stare|METIS_ifu_ext_app_obs_Stare]]   | Extended IFU spectroscopy with APP coronagraph| 
 |[[METIS_ifu_ext_vc_obs_FixedSkyOffset|METIS_ifu_ext_vc_obs_FixedSkyOffset]]   | Extended IFU spectroscopy with ring-apodized or classical vortex coronagraph and fixed sky offsets |
+|**Obsolete templates**|
+|[[METIS_img_lm_obs_AutoJitter|METIS_img_lm_obs_AutoJitter]]	| LM-band imaging with jitter |
+|[[METIS_img_lm_obs_FixedSkyOffset |METIS_img_lm_obs_FixedSkyOffset]] |LM-band imaging with jitter and fixed sky offset|
+|[[METIS_img_n_obs_AutoChopNod|METIS_img_n_obs_AutoChopNod]] |N-band imaging with chopping and nodding in pre-defined direction |
+|[[METIS_img_lmn_obs_AutoChopNod|METIS_img_lmn_obs_AutoChopNod]] |LM and N-band parallel imaging with chopping and nodding in pre-defined direction |
+|[[METIS_ifu_obs_FixedSkyOffset|METIS_ifu_obs_FixedSkyOffset]] |Nominal IFU spectroscopy with jitter and fixed sky offsets |
+|[[METIS_ifu_ext_obs_FixedSkyOffset|METIS_ifu_ext_obs_FixedSkyOffset]] |Extended IFU spectroscopy with jitter and fixed sky offsets |
 ++++
 ++++
 METIS Calibration templates|

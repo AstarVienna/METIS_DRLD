@@ -1,7 +1,20 @@
 ==== Acquisition Template METIS_spec_n_acq ====
 
 === Procedure for METIS_spec_n_acq ===
-
+++++
+Initialize OB|
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+++++
 ++++
 Preset telescope|
   * send target coordinates to TCS
