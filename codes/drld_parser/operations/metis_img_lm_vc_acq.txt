@@ -5,7 +5,20 @@ In this template the initial steps (until the SCAO loop is closed) are identical
 **Note:** For all modes that use pupil tracking it needs to be investigated how close to the zenith an object can be before the field rotation becomes too fast and accurate pupil tracking is no longer possible.
 
 === Procedure for METIS_img_lm_vc_acq ===
-
+++++
+Initialize OB|
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+++++
 ++++
 Preset telescope|
   * send target coordinates to TCS

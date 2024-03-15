@@ -23,22 +23,7 @@ End science exposures|
   * Return telescope and chopper back to the initial position. 
   * Collect headers
   * Merge into one or more data cubes
-  * Send cube to ESO Archive
-  * Send cube to Pipeline machine or ICS storage (tbd)
   * Go back to Setup Imager until target observations are finished (single OB). For example, to observe in a different filter.
-
-At the end of the OB:
-  * Stop chopper
-  * Stop CFO pupil stabilization
-  * Stop AO
-    * open loop
-    * stop field stabilization
-    * stop registration
-    * stop modulation
-  * Stop derotator
-  * Handover to telescope
-    * CCS takes control of M4 and M5
-    * Telescope gets ready for next preset
 ++++
 
 ===Parameters for METIS_img_n_obs_GenericChopNod ===

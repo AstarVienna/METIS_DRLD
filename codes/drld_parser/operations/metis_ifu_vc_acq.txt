@@ -5,6 +5,20 @@
 __Note:__ For all modes that use pupil tracking it needs to be investigated how close to the zenith an object can be before the field rotation becomes too fast accurate pupil tracking is no longer possible.
 
 ++++
+Initialize OB|
+  * Stop chopper
+  * Stop CFO pupil stabilization
+  * Stop AO
+    * open loop
+    * stop field stabilization
+    * stop registration
+    * stop modulation
+  * Stop derotator
+  * Handover to telescope
+    * CCS takes control of M4 and M5
+    * Telescope gets ready for next preset
+++++
+++++
 Preset telescope|
   * send target coordinates to TCS
   * initiate guiding/tracking. Guide star may be chosen by operator (if no coordinates supplied), or use the one specified in the template.
@@ -20,7 +34,7 @@ Configure CFO|
   * Chopper to home position
   * Initialize pupil stabilization mirror
   * ''CFO FP2'' to LM field stop 
-    * at this stage the vortex is not yet inserted, which permits to center the target for the SCAO, and move it at the calibrated position at (or very close to) the center of the vortex. Vortex mask is inserted after the AO loop is closed.
+    * if the ring apodizer is to be used: at this stage the vortex is not yet inserted, which permits to center the target for the SCAO, and move it at the calibrated position at (or very close to) the center of the vortex. Vortex mask is inserted after the AO loop is closed.
   * LMS pick-off to open (acquisition done with the IMG)
 ++++
 ++++
@@ -68,6 +82,7 @@ Coronagraphic acquisition|
   * ''IMG-LM PP1 ND'': insert the ND filter (optional; only ~10% of the light will be sent to the IMG-LM).
   * Take a short exposure both on LMS and IMG-LM systems. Measure the relative position of the (non-coronagraphic) PSF between the IMG-LM and LMS.
   * CFO FP2 to vortex mask (VPM-L or VPM-M)
+  * LMS-PP1 wheel: insert RLS-LMS (if apodizer is used) or CLS-LMS (if no apodizer is used)
   * On IMG-LM, align the star with the VPM center using the chopper or send to the pre-defined position of the VPM center.
   * Accurate centering (closing the QACITS loop):
      * "Science-like” exposures are acquired with the star close to the VPM centre, using the DIT defined for the science exposures, and a ND filter if needed. When the QACITS error signal becomes smaller than a pre-defined threshold, QACITS sends a trigger signal to the ICS.

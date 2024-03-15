@@ -21,25 +21,10 @@ Start science exposures|
 ++++
 ++++
 End science exposures|
-  * Return telescope or chopper (depending on which actuator is used for offsetting) back to the initial position.
+  * Return telescope and chopper back to the initial position. 
   * Collect headers
-  * Merge into one or more data cubes per imager
-  * Send cubes to ESO Archive
-  * Send cubes to Pipeline machine or ICS storage (tbd)
-  * Go back to //Setup Spectrograph// until target observations are finished (single OB).
-
-At the end of the OB:
-  * Stop chopper
-  * Stop CFO pupil stabilization
-  * Stop AO
-    * open loop
-    * stop field stabilization
-    * stop registration
-    * stop modulation
-  * Stop derotator
-  * Handover to telescope
-    * CCS takes control of M4 and M5
-    * Telescope gets ready for next preset
+  * Merge into one or more data cubes
+  * Go back to Setup Imager until target observations are finished (single OB). For example, to observe in a different filter.
 ++++
 
 ===Parameters for METIS_spec_lmn_obs_AutoChopNodOnSlit===
