@@ -1,0 +1,2808 @@
+- ait_id: 350
+  aiv_date: '2026-09-01'
+  aiv_description: IMG Cold Alignment
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+  polarion_id: 10751
+  test_steps:
+  - description: "Set mask with many point sources in WCU. Take exposure sequence\
+      \ while accelerating with maximum acceleration to maximum rotation speed. Decrease\
+      \ again with maximum deceleration. Analyze position of point sources as a function\
+      \ of time. Determine velocities and acceleration. Determine absolute positions\
+      \ and jitter in position. Measure at different starting rotation angles to ensure\
+      \ there is no preferred orientation. Define a worst-case scenario for a 15 minute\
+      \ track.\_"
+    expectedResult: "Velocities and accelerations match set accelerations and velocities,\
+      \ meeting maximum required values. Positions are accurate to within specification\
+      \ (1.6 mas).\_"
+    step: Measure maximum rotation speed and acceleration under operational conditions
+  - description: "Set off-axis point source in WCU. Take exposure sequence while accelerating\
+      \ with maximum acceleration to maximum rotation speed. Decrease again with maximum\
+      \ deceleration. Analyze position of point sources as a function of time. Determine\
+      \ velocities and acceleration. Measure at different starting rotation angles\
+      \ to ensure there is no preferred orientation.\_"
+    expectedResult: "Velocities and accelerations match set accelerations and velocities,\
+      \ meeting maximum required values.\_"
+    step: Measure maximum rotation speed and acceleration under functional conditions
+  - description: TBD - not known yet how to define the absolute reference to use.
+    expectedResult: TBD
+    step: Measure absolute rotation angle of de-rotator
+  title: OPT_Stability/repeatability - De-rotator
+- ait_id: 330
+  aiv_date: '2026-02-01'
+  aiv_description: LMS Cold Functional test
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_wavecal: 5
+    metis_lm_img_flat: 5
+    metis_lm_lss_rsrf: 5
+    metis_lm_lss_trace: 5
+    metis_lm_lss_wave: 5
+    metis_n_img_flat: 5
+    metis_n_lss_rsrf: 5
+    metis_n_lss_trace: 5
+  polarion_id: 10750
+  test_steps:
+  - description: Take exposures with several laser sources and measure wavelength(s).
+      Move [XXX}. Take second exposures with several laser sources and measure wavelength(s).
+      Compare pixel position on detector
+    expectedResult: "Stability under movement of [XXX] is within specification.\_"
+    step: For XXX in [CFO-FP2 with the longslits, the IMG-LM/N-PP1 with the grisms,
+      the LMS predisperser and LMS main dispersion grating, the spectral IFU (LMS-EXT
+      mode) mechanism)], Calibration stability under XXX
+  title: OPT_Robustness of wavelength calibration
+- ait_id: 50
+  aiv_date: '2025-02-01'
+  aiv_description: CFO Warm Sys Integration
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 10747
+  test_steps:
+  - description: Follow procedure to remove Window Blower, following procedure described
+      in TBD. Assess if the procedure can be reversed without additional tools or
+      steps required.
+    expectedResult: "Window blower removed, re-installation of window blower assessed.\_"
+    step: Remove Window Blower
+  - description: Follow procedure to remove window dummy following procedure described
+      in TBD. Assess if the procedure can be reversed without additional tools or
+      steps required.
+    expectedResult: Window dummy removed. Reverse procedure assessed.
+    step: Remove window dummy
+  - description: Follow procedure to install cryostat window following procedure described
+      in TBD. Assess if the procedure can be reversed without additional tools or
+      steps required.
+    expectedResult: Cryostat window installed. Reverse procedure assessed.
+    step: Install cryostat window
+  - description: Follow procedure to install Window Blower, following procedure described
+      in TBD.
+    expectedResult: "Window blower re-installed.\_"
+    step: Re-install Window Blower
+  title: SPE_Cryostat Window Mounting
+- ait_id: 350
+  aiv_date: '2026-09-01'
+  aiv_description: IMG Cold Alignment
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+  polarion_id: 10752
+  test_steps:
+  - description: "Put point source in WCU. Make an acquisition image. Make\_a through-slit\
+      \ image during the acquisition procedure; the source position (better than 1\
+      \ mas, but depending on source brightness) and slit position (better than 0.5\
+      \ mas) will be measured in near-realtime to determine the offset required to\
+      \ center the source in the slit (functionality covered in the ICS), and the\
+      \ appropriate offset will be commanded to the chopper."
+    expectedResult: "Source is in center of slit.\_"
+    step: Verify baseline approach
+  title: OPT_Spectroscopic Target Acquisition
+- ait_id: 440
+  aiv_date: '2026-09-01'
+  aiv_description: SCA Cold Functional test
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+  polarion_id: 10755
+  test_steps:
+  - description: "Operate METIS with the telescope simulator\n        Execute the\
+      \ acquisition sequence [\_, UC 3.1]\n        Close the WFC loop on a disturbance.\n\
+      \        Acquire IMG data.\n        Collect IMG data and associated AOCS telemetry\
+      \ and generate science data product."
+    expectedResult: The configured AOCS telemetry ends up in the designated FITS files.
+    step: Verification of the AOCS telemetry data transfer into the science data product.
+  title: SCA_Storage of AO telemetry in the Science Data Product
+- ait_id: 440
+  aiv_date: '2026-09-01'
+  aiv_description: SCA Cold Functional test
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 10756
+  test_steps:
+  - description: 'Position light source of the telescope simulator at the edge of
+      the Field Selector FoV.
+
+      '
+    expectedResult: '
+
+      '
+    step: '
+
+      '
+  - description: "The acquisition sequence is started:\n\n\nICS SysSup computes the\
+      \ pointing reference position for the guide star at this field position.\n ICS\
+      \ commands the AOCS to acquire the guide star.\n The field selector is positioned\
+      \ at the poinitng referene position.\nThe guide star is acquired and centered\
+      \ on the pointing reference position by adjusting the pointing of the telescope\
+      \ simulator.\nThe PPC loop is closed\nThe WFC loop is closed\nThe CM Optimizer\
+      \ optimizes the CM and takes out misregistration\nThe WFC loop is operating\
+      \ at the maximum performance achievable in this setup.\n\n\n"
+    expectedResult: "\nThe guide star can be acquired in any position in the 27 arcsec\
+      \ FoV.\n The acquisition sequence takes 90s [\_, Note 4]\n\n"
+    step: '
+
+      '
+  title: SCA_NGS Acquisition in the field
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_flat: 5
+    metis_n_img_flat: 5
+    metis_pupil_imaging: 5
+  polarion_id: 10749
+  test_steps:
+  - description: "IMG in pupil viewing mode. Illuminate with various WCU pupil masks.\
+      \ Measure effective diameter on the IMG detector.\_ Measurement performed for\
+      \ both\_L band: 4.00 - 4.10 \xB5m (IB 4.05 filter) and N band: 8.95-9.25 \xB5\
+      m (\"PAH 8.6 ref\" filter)."
+    expectedResult: "Full diameter shall be between 75 and 95% of the full field of\
+      \ view of the IMG detector in both the LM and N band.\_"
+    step: Determine Pupil Image Dimensions
+  - description: "IMG in pupil viewing mode. Derotator set at optimal rotation angle\
+      \ (-10 degrees, link TBD) Image WCU pupil mask PP mask #2 (ELT Pupil incl spiders).\
+      \ Insert 30 mm mask in the CFO-FP2 filter wheel. Determine edge softening of\
+      \ the image on the detector. Measurement performed for both\_L band: 4.00 -\
+      \ 4.10 \xB5m (IB 4.05 filter) and N band: 8.95-9.25 \xB5m (\"PAH 8.6 ref\" filter)."
+    expectedResult: The quality is mainly determined by the WCU re-imaging, so comparison
+      should be made taking (known) WCU pupil quality into account.
+    step: Determine pupil image quality v1
+  - description: "IMG in pupil viewing mode. Derotator set at optimal rotation angle\
+      \ (-10 degrees, link TBD) Image largest/oversize WCU pupil mask. Insert CPO\
+      \ PP1 - PPSCFO2 mask. Insert 30 mm mask in the CFO-FP2 filter wheel. Determine\
+      \ edge softening of the image on the detector.\_Measurement performed for both\_\
+      L band: 4.00 - 4.10 \xB5m (IB 4.05 filter) and N band: 8.95-9.25 \xB5m (\"PAH\
+      \ 8.6 ref\" filter)."
+    expectedResult: This alternate measurements skips the WCU pupil image quality,
+      but also misses the first optics of the CFO. Again not completely fair, but
+      likely better then (v1)
+    step: Determine pupil image quality v2
+  title: OPT_Pupil viewing mode
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_std_process: 5
+    metis_ifu_tellcorr: 5
+    metis_ifu_wavecal: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+  polarion_id: 10754
+  test_steps:
+  - description: "Point source on WCU, Parallel observing mode LMS IMG-LM. Make >15\
+      \ minute time sequence. Determine sources location in LMS and IMG. Compare absolute\
+      \ and relative motion between sources.\_"
+    expectedResult: Relative position remains below 1.6 mas over >= 15 minutes
+    step: "Relative boresight IMG and LMS\_"
+  - description: Point source on WCU, Parallel observing mode LMS - IMG-LM. (use IMG
+      LM as reference to determine external source motions). Change configuration
+      of LMS (TBD sequence). Determine sources location in LMS and IMG. Compare absolute
+      and relative motion between sources.
+    expectedResult: "Relative position remains below 0.1 \u03BB/D (RMS) in the along\
+      \ slice\_and\_0.2 \u03BB/D (RMS) in the across slice direction at 3.7 microns\
+      \ after reconfiguration of the mechanisms within the LMS."
+    step: Relative boresight repeatability for LMS observation
+  title: OPT_Stability/repeatability - boresight
+- ait_id: 40
+  aiv_date: '2025-02-01'
+  aiv_description: CRY Cold Functional tests
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 10740
+  test_steps:
+  - description: "Measure time between start of cooldown and steady state. The temperature\
+      \ logging system will measure the temperature at various locations in the cryostat\
+      \ and a full analysis of the temperature at various locations will be used to\
+      \ determine adherence to the requirement. These measurements will be repeated\
+      \ during each cooldown\_of the cryostat.\_ During the measurement, continuous\
+      \ monitoring of the flow rate will occur using the in-line flow meters. The\
+      \ LN2 consumption and temperature will be monitored and analyzed.\_"
+    expectedResult: "Cooldown time meets requirement\n        LN2 flow during cool\
+      \ down does not exceed maximum flow rates"
+    step: Measure cooldown time
+  title: THE_cooldown time and consumption
+- ait_id: 40
+  aiv_date: '2025-02-01'
+  aiv_description: CRY Cold Functional tests
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 10741
+  test_steps:
+  - description: "Measure ambient temperature and humidity\_at several locations around\
+      \ the cryostat the temperature and humidity has to be measured\n        Verify\
+      \ the conditions are acceptable (Dew Point - Ambiant < -15K)\n"
+    expectedResult: 'Ambient conditions: temperature, humidity, dew point
+
+      '
+    step: '1. Ambient environment verification
+
+      '
+  - description: "Switch off the anti-condensation system\n        Actively monitor\
+      \ the conditions at the Window until it stabilizes\n        If there is a risk\
+      \ of condensation, immediately switch on the anti-condensation system again\
+      \ until a decision is taken\n"
+    expectedResult: 'Evolution of conditions at window: temperature, humidity, dew
+      point'
+    step: '2. Anti-condensation system off
+
+      '
+  - description: Inspect the window for condensation
+    expectedResult: null
+    step: "3.\_visual inspection of the window\n"
+  - description: "With the IR camera the temperature of the flange is measured\n \
+      \       Compare with value from the build in temperature sensor\n        Compare\
+      \ with the predicted value: ambient - 4K\n"
+    expectedResult: 'Temperature of the window flange without temperature control
+
+      '
+    step: 4. Temperature of the window flange
+  - description: "With the IR camera the temperature of the window is measured (minimum\
+      \ center and rim)\n        Compare with the predicted value: ambient - 6K\n"
+    expectedResult: 'Window center temperature and window rim temperature
+
+      '
+    step: '5. Temperature of the window
+
+      '
+  - description: "Heat the window flange with active temperature control to ambient\
+      \ and wait until it stabilizes\n        Record the conditions at the window\n\
+      \        Repeat Steps 4 and 5\n\n        Heat the window flange to ambient +\
+      \ 5K\_and wait until it stabilizes\n        Record the conditions at the window\n\
+      \        Repeat Steps 4 and 5\n\n        Heat the window flange to ambient +10K\_\
+      and wait until it stabilizes\n        Record the conditions at the window\n\
+      \        Repeat Steps 4 and 5\n"
+    expectedResult: "Change in window temperature with temperature control\n     \
+      \   Evolution of conditions at window: temperature, humidity, dew point\n"
+    step: '6. Assess flange heating effect
+
+      '
+  - description: 'Wait for the window to cool down again
+
+      '
+    expectedResult: null
+    step: '7. Stop temperature control
+
+      '
+  - description: "Blow air on the window to 25% of the max flow and wait until it\
+      \ stabilizes\n        Record the conditions at the window\n        Repeat Steps\
+      \ 4 and 5\n\n        Blow air on the window to 50% of the max flow and wait\
+      \ until it stabilizes\n        Record the conditions at the window\n       \
+      \ Repeat Steps 4 and 5\n\n        Blow air on the window to 75% of the max flow\
+      \ and wait until it stabilizes\n        Record the conditions at the window\n\
+      \        Repeat Steps 4 and 5\n\n        Blow air on the window to max flow\
+      \ and wait until it stabilizes\n        Record the conditions at the window\n\
+      \        Repeat Steps 4 and 5\n"
+    expectedResult: "Change in window temperature with temperature control\n     \
+      \   Evolution of conditions at window: temperature, humidity, dew point"
+    step: '8. Assess Window blower effect
+
+      '
+  - description: Break in the testing phase, to allow the performance of other tests.
+    expectedResult: null
+    step: 9. Anti-condensating back to Alarm mode
+  - description: "Based on previous steps outcome, update routines and PLC\n     \
+      \   To be agreed with all parties"
+    expectedResult: null
+    step: 10. Fine tune anti-condensating
+  - description: "Measure ambient temperature and humidity\_at several locations around\
+      \ the cryostat the temperature and humidity has to be measured\n        Verify\
+      \ the conditions are acceptable (Dew Point - Ambiant < -15K)\n"
+    expectedResult: 'Ambient conditions: temperature, humidity, dew point'
+    step: 11. Ambient environment verification
+  - description: "Check if control works as expected\n        Inspect the window\n\
+      \n        Use the humidifier (next to the window) to increase step by step the\
+      \ humidity up to (as close as possible) 100%\n        At each increment, check\
+      \ if control works as expected and inspect the window\n\n        If several\
+      \ modes are defined for the anti-condensating (heating only, blowing only and\
+      \ combined) repeat for each mode.\n\n        If adjustment are to be implemented\
+      \ to the control system, complete test sequence to be repeated after each adjustment."
+    expectedResult: 'window temperature and gas flow are stable, window is dry
+
+      '
+    step: '12. Switch on anti-condensating in automatic mode
+
+      '
+  title: THE_Entrance Window Condensation Prevention
+- ait_id: 250
+  aiv_date: '2025-12-01'
+  aiv_description: LMS Cold Functional test
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+  polarion_id: 9750
+  test_steps:
+  - description: "Perform a series long exposures measurements with the internal METIS\
+      \ pupils at the closed position; IMG-LM, IMG-N, LMS. Dark current tests can\
+      \ be conducted overnight, given that no other subsystem is changing the configuration.\n\
+      \        It should consist of the following exposures:\n        - Long UTR exposures\
+      \ (X times 1h) depending on instrument dark levels. \n        - LMS long UTR\
+      \ exposures (X times 300s) to get dark and error for typical LMS exposures."
+    expectedResult: "Master dark map with a series of exposure times (a substantial\
+      \ number at each DIT, say ~100) to make high-SNR averages. Verify the dark current\
+      \ for the following:\n        - Identify unknown light leaks\n        - Identify\
+      \ transient light sources\n        Processing through the standard pipelines\
+      \ gives an initial indication of expected post-processed detector performance\
+      \ for low signals applications."
+    step: Detector dark current
+  - description: "Perform a series of short\_exposures measurements with the internal\
+      \ METIS pupils at the closed position: IMG-LM, IMG-N, LMS. Readout noises are\
+      \ usually fast and done with the operator there to check on the quality of the\
+      \ noise map.\n        It should consist of the following exposures:\n      \
+      \  - Short CDS exposures (minimum DIT) on usual speed for the instruments (fast\
+      \ and slow for IMG-LM, set speed for LMS and IMG-N)."
+    expectedResult: "Master noise map with spatial and temporal variations. The noise\
+      \ map is used for the following check:\n        - Identify grounding issues\
+      \ (structures on the noise map)\n        - Identify wrong filter configurations\
+      \ on NGCII (wrong levels of noise due to wrong selected bandwidth)\n\n"
+    step: Detector readout noise
+  - description: "Perform two series of flatfield measurements with the WCU blackbody\
+      \ / integrating sphere source. Series one is a constant modest illumination\
+      \ level, varying the DIT. Series two is at constant DIT, varying the illumination\
+      \ level using the discrete entrance apertures of the integrating sphere.\n \
+      \       Those measurement must be repeated for both slow and fast mode to verify\
+      \ that performances are what we expect.\n        - Photon Transfer Curve dataset\
+      \ in slow mode (CDS vs variance)\n        - Photon Transfer Curve dataset in\
+      \ fast mode (frame-baseline vs variance)"
+    expectedResult: "Several maps can be derived from this:\n        - System conversion\
+      \ gain [e-/ADU] in both slow and fast modes\n        - Linearity map\n     \
+      \   - Full well capacity\n        - Reciprocity check"
+    step: Detector Photon Transfer Curve IMG
+  - description: "Perform flatfield measurements with the WCU blackbody set to high\
+      \ intensity (to reduce needed integration time at high dispersion), with a series\
+      \ of DITs to cover detector dynamic range. Do this for all LMS spectral settings\
+      \ (TBC! Alternatively do it for a selected subset; all settings should have\
+      \ already been measured during AIV, this test is just a verification).\n   \
+      \     Those measurements can only be done in slow mode as it is the default\
+      \ speed for LMS\n        - Photon Transfer Curve dataset in slow mode (CDS vs\
+      \ variance)\n"
+    expectedResult: "Several maps can be derived from this:\n        - System conversion\
+      \ gain [e-/ADU] in slow mode.\n        - Linearity map\n        - Full well\
+      \ capacity\n        - Reciprocity check"
+    step: Detector Photon Transfer Curve LMS
+  title: DET_Characterization
+- ait_id: 30
+  aiv_date: '2025-01-01'
+  aiv_description: CRY Warm Integration
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9776
+  test_steps:
+  - description: "Evacuate the CRY to less than 10-2\_mbar and record the time needed\
+      \ to achieve this pressure\n"
+    expectedResult: null
+    step: Rough vacuum for leak test
+  - description: "Start the recording of leak rate\_and make sure it is less than\_\
+      \n          10-10\_mbar.l.s-1\n        Spray Helium on the Vessel along each\
+      \ weld and opening\nFor each weld and opening, record the max. measured leak\
+      \ rate\n          Verify if the success criteria are achieved, if not the test\
+      \ needs to be repeated after modification of the hardware"
+    expectedResult: "Helium leak rate < 10-9\_mbar.l.s-1\_for at each discontinuity\n"
+    step: Helium Leak Test warm
+  - description: "Evacuate the CRY to less than 10-4\_mbar (ideally 10-5\_mbar) and\
+      \ record the time needed to achieve 10-4\_mbar\n"
+    expectedResult: "Total evacuation time\_down to 10-4\_mbar less than 24 hours"
+    step: Intermediate Vacuum for closed valves test
+  - description: "Close all insulating valves\n        Start recording the internal\
+      \ pressure rising for 3 hours every 10 minutes"
+    expectedResult: "Closed Valves Out-gassing/leak-rate L\u2019 =\_DP * V / t < 10-5\
+      \ mbar.l.s-1\n"
+    step: Closed Valves Test
+  - description: Evacuate further and cool down the instrument as per standard or
+      specific test procedure. Continue until steady state is reached
+    expectedResult: null
+    step: Cool down
+  - description: "Start the recording of leak rate\_and make sure it is less than\_\
+      10-10\_mbar.l.s-1\n        Spray Helium on the Vessel along each weld and opening\n\
+      For each weld and opening, record the max. measured leak rate\n          Verify\
+      \ if the success criteria are achieved, if not the test needs to be repeated\
+      \ after modification of the hardware"
+    expectedResult: "Helium leak rate < 10-9\_mbar.l.s-1\_for at each discontinuity"
+    step: Helium Leak Test cold
+  title: THE_Vacuum
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_calibrate: 5
+    metis_lm_img_distortion: 5
+    metis_lm_img_flat: 5
+    metis_lm_img_std_process: 5
+    metis_n_img_calibrate: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_distortion: 5
+    metis_n_img_flat: 5
+    metis_n_img_std_process: 5
+  polarion_id: 9746
+  test_steps:
+  - description: 'Take bias and dark frames over several hours to monitor stability
+      (or drifts) of bias and dark levels, and number of bad pixel (time requirement:
+      0.5 days for LM and N, each)'
+    expectedResult: Initial bad pixel masks and master darks
+    step: 'Basic detector characterisation: bad pixel masks, bias, darks'
+  - description: 'Take flat frames at a range of illumination levels, DITs, and for
+      all detector and instrument configurations (time requirement: about 1 week)'
+    expectedResult: Initial illumination maps, detector linearity and gain maps, master
+      flats
+    step: 'Basic detector characterisation: linearity, flats'
+  - description: 'Take photometric calibration data over time scales from several
+      minutes to several hours to assess photometric stability using both narrow and
+      broad band filter in LM and N (time requirement: about 2.5 days)'
+    expectedResult: "Initial estimate of photometric stability of IMG, verify\_\_\_\
+      \_etc.\n"
+    step: Photometric Stability Calibration
+  - description: 'Run calibration steps using WCU and determine initial estimate of
+      the photometric accuracy (@AIT) in all instrument configurations (time requirement:
+      1 week)'
+    expectedResult: Initial estimate of the photometric accuracy
+    step: Photometric Accuracy
+  - description: "See\_\_. Measurement shall be repeated to ensure stability between\
+      \ mode switches and in time in several instrument configurations (time requirement:\
+      \ 2 days). NOTE that this should be repeated after each major instrument intervention\
+      \ (i.e. warm-up / cool-down cycle) during AIT"
+    expectedResult: 'Initial distortion/plate scale calibration of WCU + instrument.
+
+
+
+
+      '
+    step: Plate Scale Calibration
+  title: CAL_Characterization_IMG
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_flat: 5
+  polarion_id: 9752
+  test_steps:
+  - description: "Bright star in telescope simulator, SCAO in closed-loop.\n     \
+      \   Normal imaging.\n        Record a long sequence of SCAO telemetry and IMG-DET.\n\
+      \        Verify that both SCAO and IMG-DET buffers are synchronized and properly\
+      \ time tagged by cross-correlating the tip-tilt residuals from the SCAO telemetry\
+      \ and the IMG.\n        Verify for both IMG detectors\n"
+    expectedResult: 'Verify the SCAO telemetry and the IMG are synchronized
+
+      '
+    step: 'Synchronization of SCAO telemetry and IMG-DET (HCI SL + ICS SL + SCA SL)
+
+      '
+  - description: "Verify that the DHO monitor (PSI) computation node in the SRTC receives\
+      \ the SCAO telemetry and the synchronized IMG.\n        Verify that PSI can\
+      \ send slope offsets to SCAO\n"
+    expectedResult: 'PSI ready for closed-loop tests
+
+      '
+    step: 'PSI functional test (SCA SL)
+
+      '
+  - description: "Introduce known aberrations via slope offsets of SCAO.\n       \
+      \ Record SCAO telemetry and IMG-DET images\n        Use PSI offline to measure\
+      \ the NCPA"
+    expectedResult: Verify that PSI provides reliable measurements
+    step: 'PSI sensor test (HCI SL)
+
+      '
+  - description: "Bright star, SCAO in closed-loop.\n        Normal imaging.\n   \
+      \     Run PSI in closed-loop. \n        Check the loop stability vs repetition\
+      \ frequency and gain. \n        Optimize frequency and gain.\n        Check\
+      \ number of modes to be corrected\n        Verify long-term behavior\n     \
+      \   Determine PSI magnitude limit\n"
+    expectedResult: "Preliminary optimal operational and control parameters for PSI\
+      \ in closed-loop (final optimization on-sky) for the normal imaging case.\n\
+      \        Verify that PSI is stable in closed-loop\n"
+    step: "PSI closed-loop test on normal imaging (HCI SL + SCA SL) \n"
+  - description: 'same as "PSI closed-loop test on normal imaging" for CVC and RAVC
+      mode
+
+      '
+    expectedResult: "Preliminary parameters for PSI in closed-loop for the focal-plane\
+      \ (vortex) coronagraphic modes.\n        Verify that PSI is stable in closed-loop\n"
+    step: PSI closed-loop test on CVC and RAVC (HCI SL + SCA SL)
+  - description: 'same as "PSI closed-loop test on normal imaging" for APP mode
+
+      '
+    expectedResult: "Preliminary parameters for PSI in closed-loop for the APP coronagraphic\
+      \ mode.\n        Verify that PSI is stable in closed-loop\n"
+    step: PSI closed-loop test on APP (HCI SL + SCA SL)
+  title: SPE_CTRL_PSI
+- ait_id: 240
+  aiv_date: '2025-11-01'
+  aiv_description: LMS Warm Alignment
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9751
+  test_steps:
+  - description: During each integration, all elements that consist the signal chain
+      will have to be connected, pictures to be taken each time elements are connected
+      or disconnected before moving to the next steps.
+    expectedResult: Pictures including the cable routing, connectors.
+    step: Signal chain connectivity check
+  - description: "Both warm and cold, a dedicated read mode will be used that do NOT\
+      \ apply a bias on the pixels (DSub-VReset=0)\_"
+    expectedResult: If another read mode is NOT selected, going further would be prohibited
+      by locking the interface. Else the system will enable the power on option.
+    step: Signal chain read mode selection
+  - description: Once the signal chain is connected, the NGCII is powered on and the
+      telemetry (both clocks levels and biases) is checked to identify any possible
+      voltage drop.
+    expectedResult: Telemetry table dropped by software (where telemetry = command)
+    step: Signal chain telemetry check
+  - description: Enabling all clocks and biases, effectively powering the detector.
+      Telemetry check can identify voltage drops between NGCII and detector and should
+      be saved before starting the sequencer.
+    expectedResult: "Telemetry table dropped by software\_(where telemetry = command)"
+    step: Signal chain power on
+  - description: Starting the sequencer will begin the clock patterns to first initialise
+      the detector, and then reading frames in uncorrelated mode.
+    expectedResult: The real time display will display an uncorrelated image that
+      would be consistent with the warm tests done at ESO for this detector (see datapack
+      provided with each detector).
+    step: Signal chain sequencer on
+  - description: 'Warm: we can only vary the REFERENCE voltage (DC2) to check that
+      the offset on the RTD varies.
+
+      Cold: we can change read mode and actually check for light response'
+    expectedResult: 'Warm: at least two single images showing different offset at
+      two different values of REFERENCE.
+
+      Cold: response to light stimulus with a science mode (CDS?)'
+    step: Responsivity test
+  title: DET_Signal Chain
+- ait_id: 40
+  aiv_date: '2025-02-01'
+  aiv_description: CRY Cold Functional tests
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9777
+  test_steps:
+  - description: "Measure time between start of warmup and temperature level ready\
+      \ to open cryostat.\_The temperature logging system will measure the temperature\
+      \ at various locations in the cryostat and a full analysis of the temperature\
+      \ at various locations will be used to determine adherence to the requirement.\
+      \ These measurements will be repeated during each warmup of the cryostat.\_"
+    expectedResult: Warmup time meets requirement.
+    step: Measure Warmup time
+  title: THE_warmup time
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_adi_cgrph: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_std_process: 5
+    metis_ifu_wavecal: 5
+    metis_img_adi_cgrph: 5
+    metis_lm_adi_app: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_calibrate: 5
+    metis_lm_img_distortion: 5
+    metis_lm_img_flat: 5
+    metis_lm_img_std_process: 5
+    metis_n_img_calibrate: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_distortion: 5
+    metis_n_img_flat: 5
+    metis_n_img_std_process: 5
+    metis_pupil_imaging: 5
+  polarion_id: 9778
+  test_steps:
+  - description: "Measurements to be performed system level, using the telescope simulator\
+      \ with a bright point-like source and SCAO in closed loop, with the static NCPA\
+      \ dialed out as slope offsets to the SCAO wavefront sensor, and pupil stabilisation\
+      \ in closed loop\n        Measure the coronagraphic PSF of all HCI observing\
+      \ modes (RAVC, CVC, APP), in relevant filters for IMG and for at least two setups\
+      \ in the LMS\n        Record a non-coronagraphic PSF with the same IMG filters\
+      \ / LMS setups"
+    expectedResult: "Raw coronagraphic PSF in terms of contrast for all HCI modes\n\
+      \          Raw contrast curves (= coronagraphic PSF radial profile) for all\
+      \ HCI modes --> verification of rejection factor\n          Check that the measured\
+      \ contrast meets requirements (only partial check, final check on sky)\n   \
+      \       Check the bright star limit at system level (only partial check, final\
+      \ check on sky)\n"
+    step: 'Coronagraphic PSF / raw contrast performance verification
+
+      '
+  - description: "While operating all the control loops in closed loop (SCAO, QACITS,\
+      \ PSI, pupil stabilization), use the telescope simulator to move the telescope\
+      \ pupil by up to 3% with respect to the SCAO PyWFS\n        Use the IMG pupil\
+      \ imaging mode to monitor the position of the pupil in the IMG\n"
+    expectedResult: 'Check that the main pupil alignment & stability requirement is
+      met for HCI operations
+
+      '
+    step: 'Pupil alignment and stability
+
+      '
+  title: HCI_Coronagraph performance - dynamic
+- ait_id: 40
+  aiv_date: '2025-02-01'
+  aiv_description: CRY Cold Functional tests
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9788
+  test_steps:
+  - description: "At each of the locations defined in document [TBD] an accelerometer\
+      \ shall be placed. This includes a reference accelerometer attached to the floor\
+      \ to provide a base line. Each accelerometer shall be attached to\_ a data logger\
+      \ or equivalent system to recod to power spectrum."
+    expectedResult: All accelerometers are in place, attached and measuring signal
+    step: Install accelerometers on locations defined in [TBD}
+  - description: "Turn off all vibration sources of METIS, including electronics (TBD\
+      \ compressors as these are normally part of the 'ELT environment' not METIS).\
+      \ Remove all persons from the environment. Measure the vibration spectrum of\
+      \ METIS at each of the accelerometers for at least 1 hour. Repeat 12 hours later\
+      \ (daytime vs night time measurement).\_"
+    expectedResult: "All accelerometers have measure the local background vibration\
+      \ spectrum.\_"
+    step: Take baseline vibration spectrum
+  - description: "Put METIS in its nominal configuration for vibration measurement.\
+      \ Take a measurement of at least 1 hour, under a number of METIS operational\
+      \ conditions. TBD what the nominal configuration is what exactly the operational\
+      \ state should be during these measurement.\_"
+    expectedResult: "All accelerometers have measure the METIS vibrations plus local\
+      \ background vibration spectrum.\_"
+    step: Take METIS vibration spectrum
+  title: MEC_Vibrations
+- ait_id: 370
+  aiv_date: '2026-02-01'
+  aiv_description: AIV Cold Instrument verification CD
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_process: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_flat: 5
+  polarion_id: 9794
+  test_steps:
+  - description: Long expose with bright mono-chromatic point source on-axis. Exposures
+      for all instrument configurations. Check the focal plane for ghosts and quantify
+      ghost level normalized to on-axis PSF
+    expectedResult: No bright ghost near the central point source
+    step: On-axis identification
+  - description: Long expose with bright mono-chromatic point sources on grid(s).
+      Exposures for all instrument configurations. Check the focal plane for ghosts
+      and quantify ghost level normalized to on-axis PSF
+    expectedResult: "No bright sources off-axis.\_"
+    step: Off-axis identification
+  - description: Long expose with WCU flat field illumination and pinhole mask (PNH1)
+      in CFO FP2. Exposures for all instrument configurations. Check the focal plane
+      for scattered light, ghosts and quantify ghost level normalized to on-axis PSF
+    expectedResult: "No bright sources off-axis.\_"
+    step: Detection of scattered light after CFO FP2
+  title: OPT_Ghosting and Straylight
+- ait_id: 370
+  aiv_date: '2026-02-01'
+  aiv_description: AIV Cold Instrument verification CD
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+  polarion_id: 9796
+  test_steps:
+  - description: Attach cold load to entrance of METIS. Take a series of "dark" integrations
+      with the CFO-PP1 wheel in the "closed" position. IMG-LM, IMG-N, LMS
+    expectedResult: (after subtraction of darks) signal level of the instrument-internal
+      (post-CFO-PP1) thermal emission, plus leakage (if any) through the CFO-PP1 closed
+      position.
+    step: Measurements with CFO-PP1 closed
+  - description: Attach cold load to entrance of METIS. Take a series of "dark" integrations
+      with the CFO-PP1 and CFO-FP2 wheels in the "closed" position. IMG-LM, IMG-N,
+      LMS
+    expectedResult: "(after subtraction of darks) signal level of the\_ instrument-internal\
+      \ (post-CFO-FP2) thermal emission. Leakage from outside environment through\
+      \ both the CFO-PP1 and CFO-FP2 closed positions should be negligible."
+    step: Measurements with CFO-PP1 and CFO-FP2 closed
+  - description: Attach cold load to entrance of METIS. Take a series of "dark" integrations
+      with the CFO-PP1 and CFO-FP2 and the subsystem-PP1 wheels all in the "closed"
+      position,. IMG-LM, IMG-N, LMS
+    expectedResult: "(after subtraction of darks) signal level of the\_ sub-system-internal\
+      \ (post-subsystem-PP1) thermal emission."
+    step: "Measurements with CFO-PP1 and CFO-FP2\_ and sub-system-PP1 closed"
+  title: OPT_Instrument Background
+- ait_id: 370
+  aiv_date: '2026-02-01'
+  aiv_description: AIV Cold Instrument verification CD
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_flat: 5
+  polarion_id: 9798
+  test_steps:
+  - description: "Insert multi-point source mask in WCU (FP mask #6a). Mono-chromatic\
+      \ or narrow band filter point source exposure and record of PSF for various\
+      \ instrument configurations. Assessment of PSF profile, Strehl Ratio.\_"
+    expectedResult: "Image quality in several locations over the FoV of METIS.\_"
+    step: Measure optical quality of METIS in IMG mode
+  title: OPT_Optical quality IMG
+- ait_id: 370
+  aiv_date: '2026-02-01'
+  aiv_description: AIV Cold Instrument verification CD
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_flat: 5
+    metis_lm_lss_rsrf: 5
+    metis_lm_lss_trace: 5
+    metis_lm_lss_wave: 5
+    metis_n_img_flat: 5
+    metis_n_lss_rsrf: 5
+    metis_n_lss_trace: 5
+  polarion_id: 9799
+  test_steps:
+  - description: "Using a WCU laser line and the point source mask in the WCU, measure\
+      \ the spectrum with the long-slit spectrograph/IMG.\_3.36 4.70 and 5.26 micrometer."
+    expectedResult: Ideally an unresolved line, but of tbd width (instrumental broadening)
+      and with possible deviations from the perfect (Gaussian) shape of the line.
+    step: "Characterize the spatially and spectrally unresolved LSF in LM band.\_"
+  - description: "Using a WCU laser line and the point source mask in the WCU, measure\
+      \ the spectrum with the long-slit spectrograph/IMG.8, 9, 10.5, 11.5, 12.5 \u03BC\
+      m."
+    expectedResult: Ideally an unresolved line, but of tbd width (instrumental broadening)
+      and with possible deviations from the perfect (Gaussian) shape of the line.
+    step: "Characterize the spatially and spectrally unresolved LSF in N-band.\_"
+  - description: Measurement with broadband sources, using LM band spectral calibration
+      to determine start/end of wavelength range
+    expectedResult: Measurement of the spectral range in LM band
+    step: Measure spectral range in LM band
+  - description: Measurement with broadband sources, using N band spectral calibration
+      to determine start/end of wavelength range
+    expectedResult: Measurement of the spectral range in N band
+    step: Measure spectral range in N band
+  title: OPT_Spectral properties
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_adi_cgrph: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_wavecal: 5
+    metis_img_adi_cgrph: 5
+    metis_lm_adi_app: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_calibrate: 5
+    metis_lm_img_distortion: 5
+    metis_lm_img_flat: 5
+    metis_n_img_calibrate: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_distortion: 5
+    metis_n_img_flat: 5
+    metis_pupil_imaging: 5
+  polarion_id: 9779
+  test_steps:
+  - description: "Illuminate the vortex phase mask (VPM) with a sufficiently uniform\
+      \ emission, so that the VPM center appears through its vortex center glow\n\
+      \        Fit the vortex center glow with a (double) 2D Gaussian function to\
+      \ pinpoint the exact position of the VPM center\n        Repeat for each VPM\
+      \ (L, M, and 3x N)\n"
+    expectedResult: 'Sub-pixel accuracy measurement of the VPM center
+
+      '
+    step: 'Measurement of vortex center position
+
+      '
+  - description: "Measurements to be performed system level, using the telescope simulator\
+      \ with a bright point-like source. SCAO does not need to be in closed loop,\
+      \ although that would be an asset\n        Verification of pupil stop co-alignment\
+      \ in IMG with pupil imaging mode\n        Manual alignment of the point source\
+      \ onto the vortex coronagraph for RAVC and CVC modes, using chopper and/or SCAO\
+      \ modulator\n        Record the coronagraphic PSF of all HCI observing modes\
+      \ (RAVC, CVC, APP)\n        Record a non-coronagraphic PSF with the same IMG\
+      \ filters / LMS setups\n"
+    expectedResult: "Preliminary coronagraphic PSF measured in terms of contrast for\
+      \ all HCI modes\n        Functionnal verification of HCI modes, needed for \n\
+      \        Early assessment of stray light, ghosts, artefacts (ahead of final\
+      \ assessment in ), so that bright ghosts / artefacts can be masked out or subtracted\
+      \ for focal-plane wavefront sensing\n"
+    step: Preliminary coronagraphic PSF measurement for HCI modes
+  title: HCI_Coronagraph performance - static
+- ait_id: 370
+  aiv_date: '2026-02-01'
+  aiv_description: AIV Cold Instrument verification CD
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9783
+  test_steps:
+  - description: "Visually inspect the proper installation of bionding wires, straps\
+      \ or structures, where these are required.\n        Measure the DC resistance\
+      \ between the ELT main structure and METIS, including all relevant subsystems.\n"
+    expectedResult: "Inspection report\n\n        Bonding resistance values "
+    step: Equipotentially bond the instrument to the main structure
+  - description: "Measure the EMC behaviour (immunity and emission properties) of\
+      \ representative components (e.g. Control unit, harnesses, stepper mechanism)\
+      \ in a certified EMC lab.\n        Verify the intra-system EMC under all relevant\
+      \ operational conditions.\_\n        Verify METIS inter-system EMC wrt the ELT\
+      \ environment (To be discussed with ESO) "
+    expectedResult: "EMC test report\_\n\n\n        Correct operation of all METIS\
+      \ subsystems.\n\n        TBD"
+    step: Electromagnetic compatibility
+  - description: null
+    expectedResult: null
+    step: ELT Electrical and Electronic design requirements
+  title: ICS_EMC, Grounding & Safety
+- ait_id: 40
+  aiv_date: '2025-02-01'
+  aiv_description: CRY Cold Functional tests
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9785
+  test_steps:
+  - description: "Starting from the beginning of <telescope preset> the time it takes\
+      \ for METIS preset will be measured.\_\_[For the full description of this test,\
+      \ see the Software Acceptance Test Plan, test METIS-OBS-12]"
+    expectedResult: "Preset duration should be less than 120 seconds.\_"
+    step: Measure instrument preset duration
+  - description: "Switch to safety power (either virtual or by disconnecting mains\
+      \ power). Measure the time it takes the system to transition to a safe state.\_\
+      [For the full description of this test, see the Software Acceptance Test Plan,\
+      \ test METIS-OS-4]"
+    expectedResult: Safe State Transition time less than yy minutes.
+    step: Measure safe state transition time
+  - description: Switch from Off to stand-by. Measure the time it takes for the system
+      to make this transition. [For the full description of this test, see the Software
+      Acceptance Test Plan, test METIS-OS-1]
+    expectedResult: The transition from Off to stand-by less than 10 minutes.
+    step: Measure transition time from Off to Stand-by
+  - description: "Switch from stand-by to operational. Measure the time it takes for\
+      \ the system to make this transition.\_[For the full description of this test,\
+      \ see the Software Acceptance Test Plan, test METIS-OS-1]"
+    expectedResult: The transition from stand-by to operational less than 10 minutes.
+    step: Measure transition time from Stand-by to Operational
+  - description: "Switch from operational to stand-by. Measure the time it takes for\
+      \ the system to make this transition.\_[For the full description of this test,\
+      \ see the Software Acceptance Test Plan, test METIS-OS-1]"
+    expectedResult: The transition from operational to stand-by less than 10 minutes.
+    step: Measure transition time from Operational to Stand-by
+  title: ICS_Functional
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_adi_cgrph: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_wavecal: 5
+    metis_img_adi_cgrph: 5
+    metis_lm_adi_app: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_distortion: 5
+    metis_lm_img_flat: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_distortion: 5
+    metis_n_img_flat: 5
+  polarion_id: 9780
+  test_steps:
+  - description: "Measurements to be performed system level, using the telescope simulator\
+      \ with a bright point-like source. \n          SCAO shoud be in closed loop,\
+      \ ideally with the static NCPA dialed out as slope offsets to the SCAO wavefront\
+      \ sensor (although this test could be done in presence of NCPA is they are low\
+      \ enough).\nLong exposure for all coronagraphic combinations with bright point\
+      \ source. Check focal plane for ghosting features. Compare with results of test\
+      \ OPT_Ghosting"
+    expectedResult: "Stray light level for all HCI mode\n        Map for brightest\
+      \ ghosts / artefacts, and verification that they meet requirements\n"
+    step: 'Measure HCI-specific stray light, ghosts and artefacts
+
+      '
+  title: HCI_Coronagraphs - stray light, ghosting & artefacts
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_adi_cgrph: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_std_process: 5
+    metis_ifu_tellcorr: 5
+    metis_ifu_wavecal: 5
+    metis_img_adi_cgrph: 5
+    metis_lm_adc_slitloss: 5
+    metis_lm_adi_app: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_calibrate: 5
+    metis_lm_img_distortion: 5
+    metis_lm_img_flat: 5
+    metis_lm_img_std_process: 5
+    metis_lm_lss_mf_calctrans: 5
+    metis_lm_lss_mf_correct: 5
+    metis_lm_lss_mf_model: 5
+    metis_lm_lss_rsrf: 5
+    metis_lm_lss_sci: 5
+    metis_lm_lss_std: 5
+    metis_lm_lss_trace: 5
+    metis_lm_lss_wave: 5
+    metis_n_adc_slitloss: 5
+    metis_n_img_calibrate: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_distortion: 5
+    metis_n_img_flat: 5
+    metis_n_img_std_process: 5
+    metis_n_lss_mf_calctrans: 5
+    metis_n_lss_mf_correct: 5
+    metis_n_lss_mf_model: 5
+    metis_n_lss_rsrf: 5
+    metis_n_lss_sci: 5
+    metis_n_lss_std: 5
+    metis_n_lss_trace: 5
+  polarion_id: 9787
+  test_steps:
+  - description: "Note: detailed descriptions in\_, this is a top level overview"
+    expectedResult: null
+    step: null
+  - description: "Estimate the optical throughput of the longslit, LMS, and imaging\
+      \ mode (selected filters), on sky (thus including the ELT, including telluric\
+      \ atmosphere to be modelled with Molecfit)\_"
+    expectedResult: Instrumental optical throughput / sensitivity
+    step: Optical throughput validation / sensitivity
+  - description: "PSF measurements in several filters as well as LSS and LMS observations,\
+      \ at a range of airmasses (planned) and observing conditions (whatever nature\
+      \ gives us during commissioning)\_"
+    expectedResult: Updates as needed to our PSF performance estimates
+    step: PSF quality validation
+  - description: "The Commissioning plan (\_) includes several HCI experiments aimed\
+      \ at validating the contrast performance."
+    expectedResult: On-sky achieved contrast performance
+    step: Coronagraphic contrast validation
+  - description: Estimate the operational overheads in all observing modes; this will
+      be further updated because during much of commissioning things will take longer
+      than later on in regular operations.
+    expectedResult: Updated estimates of overheads. To be further updated after e.g.
+      one year of regular science operations.
+    step: Operational overheads
+  title: Exposure Time Calculator
+- ait_id: 40
+  aiv_date: '2025-02-01'
+  aiv_description: CRY Cold Functional tests
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9786
+  test_steps:
+  - description: "Measure the power of the various cabinets. Tabulate and compare\
+      \ with expected power usage. Both for regular power as well as for safety power.\
+      \ Measure for various states of METIS.\_ Monitor over cool-down/warm up cycle\
+      \ and normal (cold) operation.\_"
+    expectedResult: Peak power and average operational power of METIS.
+    step: "\_Electrical power consumption on the Nasmyth Platform"
+  - description: "Measure the power of the cabinets that will end up in computer room\
+      \ and specific work station (DWs, DRS WS). Tabulate and compare with expected\
+      \ power usage. Both for regular power as well as for safety power. Measure for\
+      \ various states of METIS.\_ Monitor over cool-down/warm up cycle and normal\
+      \ (cold) operation.\_"
+    expectedResult: "Peak power and average operational power of METIS.\_"
+    step: Electrical power consumption in computer room
+  - description: "Measure flow, inlet and outlet temperatures of various cooling points\
+      \ under various load conditions. Individual cabinets will monitor their own\
+      \ cooling power. Global cooling power will be monitored by the facility.\_"
+    expectedResult: "Peak cooling power and average cooling power required for METIS.\_"
+    step: Cooling power consumption
+  - description: 'Two ways: 1) calculate net heat rates based on heating and cooling
+      powers. 2) Measure external temperatures with respect to the environment of
+      all METIS elements and cabinets (excluding transition states).'
+    expectedResult: Two estimates of the heat dissipation.
+    step: Heat dissipation to the ambient environment
+  - description: "An external power meter will be used to measure the power and power\
+      \ factor of each cabinet.\_"
+    expectedResult: "Estimate of power factor.\_"
+    step: Power factor greater than or equal to 0.85
+  title: ICS_Power consumption and dissipation
+- ait_id: 620
+  aiv_date: '2027-10-01'
+  aiv_description: Warm Transfer METIS to WSS
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9789
+  test_steps:
+  - description: "Build up CAS arms and integration ring. Either leave one set of\
+      \ CAS arms open (and one integration ring segment) and insert CRY from the side,\
+      \ or perform operation in an area that is sufficiently high to have all CAS\
+      \ arms in place. Move loaded CRY over CAS interfaces. Slowly lower CRY, monitoring\
+      \ the alignment pins. Lower CRY on CAS. Bolt together the interfaces with screws.\
+      \ During the procedure, no component of the CRY or attached structure can come\
+      \ within 50 mm (TBD) of any part of the CAS structure.\_"
+    expectedResult: CRY attached to CAS, identif
+    step: Verification of the WSS to CRY interfaces & Verification of collisions
+  - description: 'Install the RIG platform (without flooring). Install WCU. Install
+      all nominal cables and cooling lines in the cable trays of the RIG platform.
+      Measure residual cable length and compare to expected final cable length on
+      the Nasmyth platform. Install RIG platform flooring.
+
+      '
+    expectedResult: All cables fit and have sufficient length to bridge down to cabinets
+      on Nasmyth platform.
+    step: Cable routing
+  - description: "Move CAS arms in all directions. Monitor minimum separations to\
+      \ CRY and other components. Monitor tension on cables. Verify that there are\
+      \ no issues over the full ROM.\_"
+    expectedResult: "\_ and\_Anti-collision system verified."
+    step: Verification of anti-collision system
+  - description: "Cool down CRY. Measure position of alignment targets on CRY. Move\
+      \ CAS arms to position CRY in nominal position with respect to PFS focus fiducial.\
+      \ Use alignment telescope to ensure that the internal targets of the CFO are\
+      \ in the nominal location/pick-up range.\_"
+    expectedResult: METIS aligned with respect to nominal PFS target
+    step: Verify repositioning accuracy of WSS with respect to a nominal PFS output
+      focus
+  title: MEC_WSS
+- ait_id: 110
+  aiv_date: '2025-04-01'
+  aiv_description: CFO Cold Alignment
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_wavecal: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_calibrate: 5
+    metis_lm_img_distortion: 5
+    metis_lm_img_flat: 5
+    metis_lm_img_sci_postprocess: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_distortion: 5
+    metis_n_img_flat: 5
+  polarion_id: 9827
+  test_steps:
+  - description: null
+    expectedResult: Alignment telescope is co-aligned with METIS global references
+      to within (TBD) micrometer and (TBD) degrees
+    step: Align Alignment telescope with respect to METIS global reference targets
+      (CFO PP1 & FP2)
+  - description: "Lower WCU periscope. Use focal plane mode and pupil plane mode to\
+      \ observe internal targets of WCU (WCU-FP1, WCU-PP1). Register locations and\
+      \ use center to define WCU internal reference. Remove masks. In Pupil Viewing\
+      \ Mode, observe CFO-PP1. Register offset. Turn on CFO FP2 illumination. In Focal\
+      \ Plane Viewing Mode, observe CFO-FP2. Register offset.\_ Use WCU hexapod model\
+      \ to compute required offsets to match CFO and WCU focal and pupil planes. Remeasure\
+      \ CFO FP2 and CFO PP1 positions. Repeat computations if required, until both\
+      \ planes match to within required offset."
+    expectedResult: WCU is co-aligned with METIS global references to within (TBD)
+      micrometer and (TBD) degrees
+    step: Align WCU with respect to METIS global reference targets (CFO PP1 & CFO
+      FP2)
+  - description: Use PFS laser tracker to determine positions of SRMs on outside of
+      METIS. Sight PFS alignment telescope on internal targets of CDO (PP1 and FP2
+      AIV masks)
+    expectedResult: Offsets between ELT PFS reference and METIS global reference determined
+      to within (TBD) micrometer and (TBD) degrees
+    step: Measure location of METIS with respect to ELT reference
+  - description: null
+    expectedResult: Offsets between CFO PP1/FP2 are within specifications
+    step: CFO cold alignment verification
+  - description: Re-verify co-alignment WCU-PP1 and CFO-PP1. Illuminate IMG *-PP1
+      targets. Measure offsets of targets on WCU using pupil plane viewing mode. Record
+      positional offset.
+    expectedResult: Offsets between IMG *-PP1 and CFO-PP1 within specifications
+    step: IMG LM-PP1 and IMG N-PP1 to CFO-PP1 alignment
+  - description: "Put mask at CFO FP2. Verify mask with CFO-FP2 alignment mask by\
+      \ WCU focal plane camera. This should have been co-aligned before during alignment\
+      \ of \_CFO, but worst case, any offset can be recorded. WCU project white light\
+      \ source on CFO-FP2 mask. Image is recorded by IMG *-DET. Offset between known\
+      \ mask and DET is recorded."
+    expectedResult: Offsets of IMG *-DET and CFO-FP2 are within specifications.
+    step: IMG LM-DET and IMG-N-DET to CFO-FP2 alignment
+  - description: Re-verify co-alignment WCU-PP1 and CFO-PP1. Illuminate LMS-PP1 target.
+      Measure offsets of targets on WCU using pupil plane viewing mode. Record positional
+      offset.
+    expectedResult: Offsets between LMS-PP1 and CFO-PP1 within specifications
+    step: LMS-PP1 - CFO-PP1 alignment
+  - description: "Put mask at CFO FP2. Verify mask with CFO-FP2 alignment mask by\
+      \ WCU focal plane camera. This should have been co-aligned before during alignment\
+      \ of \_CFO, but worst case, any offset can be recorded. WCU project white light\
+      \ source on CFO-FP2 mask. IFU image is recorded by LMS-DET. LMS IFU image is\
+      \ reconstructed and offset between known mask and DET is recorded."
+    expectedResult: Offsets of LMS-DET and CFO-FP2 are within specifications.
+    step: LMS DET - CFO-FP2 alignment
+  - description: "Alternatively, a pinhole can be projected on the tip of the pyramid\
+      \ and offsets can be measured using the WFS reconstruction.\_ Has to come from\
+      \ the WCU (so worse quality). Need to co-check with the same pinhole in other\
+      \ arms (IMG/LMS)."
+    expectedResult: Offsets between SCA FP 1 and CFO-FP2 within specifications
+    step: SCA field selector with respect to CFO FP2
+  - description: "Re-verify co-alignment WCU-PP1 and CFO-PP1. Image the SCA field\
+      \ selector = SCA PP1. Measure offsets of targets on WCU using pupil plane viewing\
+      \ mode. Record positional offset. Alternatively, insert undersized mask in CFO-PP1.\_\
+      \ Measure associated pupil images on the detector. This is similar to the pupil\
+      \ offset measurements SCA is expected to perform to control the CFO-FM2 mirror\_"
+    expectedResult: Offsets between SCA field selector and CFO-PP1 within specifications
+    step: SCA pupil - CFO-PP1
+  title: OPT_System Alignment
+- ait_id: 10
+  aiv_date: '2025-01-01'
+  aiv_description: Start of AIV
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9826
+  test_steps:
+  - description: "Before operating the instrument, the cooling water temperature is\
+      \ measured. The temperature is compared to the local dew point (and expected\
+      \ dew point for the next 24 hours) to ensure no condensation is expected on\
+      \ the cooling lines or inside the instrument.\_"
+    expectedResult: "The cooling water temperature remains above the local dew point\
+      \ in the facility.\_"
+    step: Verification of cooling water temperature
+  title: SPE_General AIT Tests
+- ait_id: 350
+  aiv_date: '2026-09-01'
+  aiv_description: IMG Cold Alignment
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_flat: 5
+  polarion_id: 9800
+  test_steps:
+  - description: WCU illumination of FP2 pinhole. Measure for 1 hour the position
+      at 1 second intervals. Determine positions as a function of time to within 0.2
+      mas
+    expectedResult: "\_On timescales between 10 sec and 10 min (goal: up to 1h)\n\
+      - 0.2 mas RMS on sky for the L- and M-band Pinhole with respect to the IMG-LM\
+      \ detector\n- 0.5 mas RMS on sky for the N-band Pinhole with respect to the\
+      \ IMG-N detector\nOn timescales below 10 sec:\n- 1 mas RMS on sky for the L-\
+      \ and M-band Pinhole with respect to the IMG-LM detector\n- 2.5 mas RMS on sky\
+      \ for the N-band Pinhole with respect to the IMG-N detector"
+    step: "Measure relative stability of FP2 with respect to IMG FP\_"
+  title: OPT_Stability/repeatability - FP2-IMG
+- ait_id: 370
+  aiv_date: '2026-02-01'
+  aiv_description: AIV Cold Instrument verification CD
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_postprocess: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_wavecal: 5
+  polarion_id: 10913
+  test_steps:
+  - description: "Configuration. \_WCU: FP mask #4 (BLANK/CLOSED); BB @ ~1000 oC;\
+      \ Lasers OFF.\_ LMS prism/grating set to wavelength = 3.39 micron; Pupil position\
+      \ = \u2018OPEN\u2019; Spectral IFU out of beam. \_CFO: Open aperture in field\
+      \ selector.\_\nExposure. \_TBD DITs.\_ Background illumination of slices.\n\
+      Analysis.\_ Identify unexpected or unusual artifacts (stray light)"
+    expectedResult: "Sliced straylight image.\_\n"
+    step: "1.\_"
+  - description: "Configuration:\_ WCU FP mask #3 (OPEN)\nExposure. \_Black body continuum\
+      \ spectrum across full field.\nAnalysis:\_ Field of view coverage at this LMS\
+      \ configuration. \_Identify any signs of significant vignetting.\n"
+    expectedResult: 'Black body spectrum extended over full IFU field.
+
+      '
+    step: '2.'
+  - description: "Configuration:\_\_WCU FP mask #6a.\nObserve: DIT TBD, SNR > 500\
+      \ on brightest slice image.\nAnalyse:\_ Continuum spectrum of pinhole near field\
+      \ centre.\_ Generate data cube.\_ Evaluate boresight v wavelength.\n\n"
+    expectedResult: 'Black body spectrum for CFO on-axis point source
+
+      '
+    step: '3.'
+  - description: "Configure: \_Repeat for all 20 WCU Laser (ON) and LMS prism/grating\
+      \ settings listed in Columns C and D of table.\nObserve:\_ DIT TBD, SNR > 500\
+      \ on brightest slice image.\nAnalysis: \_Monochromatic image quality at boresight\
+      \ position.\_ Wavelength calibration and spectral line quality for boresight.\n"
+    expectedResult: "Monochromatic point source spectrum shared between several IFU\
+      \ slices.\_\n"
+    step: '4.'
+  - description: "Configure:\_ LMS. Select extended wavelength coverage (spectral\
+      \ IFU).\n\nRepeat Steps 1 to 4 for all 54 wavelength settings listed in Columns\
+      \ E anf F of table."
+    expectedResult: null
+    step: '5.'
+  title: 'OPT_IFU_2: LMS Field dependent image quality and distortion'
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+  polarion_id: 10758
+  test_steps:
+  - description: "\n The WFC loop is closed on the standard disturbance.\n The L-band\
+      \ PSF of the telescope simulator light source is obtained with the LM IMG.\n\
+      \ P-WFS reference signals are applied during the WFC loop.\n The L-band PSF\
+      \ is obtained again.\n The difference /improvement between both PSFs is determined.\n\
+      \n"
+    expectedResult: '
+
+      '
+    step: '
+
+      '
+  title: 'SCA_WFC @ METIS: static NCPA correction'
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_flat: 5
+    metis_n_img_flat: 5
+    metis_pupil_imaging: 5
+  polarion_id: 9770
+  test_steps:
+  - description: "Run the templates in simulation, where the instrument work station\
+      \ talks not to METIS but to a software simulation of METIS.\_BOB (Broker of\
+      \ Observing Blocks) runs on the instrument work station and is used as a user\
+      \ interface to OBs. It will be used to test/execute individual templates"
+    expectedResult: Templates run through BOB without errors.
+    step: Running templates (OBs) in software simulation.
+  - description: . Templates/OBs will be executed using BOB and/or shell scripts.
+    expectedResult: Tested calibration templates (the ones using the WCU or with optical
+      path closed)
+    step: Testing of templates during AIT
+  - description: . Templates/OBs will be executed using BOB and/or shell scripts.
+      The focus will be on acquisition templates
+    expectedResult: Tested acquisition / science templates and on-sky calibration
+      templates.
+    step: Testing of templates during commissioning
+  title: "Templates \u2013 Technical"
+- ait_id: 370
+  aiv_date: '2026-02-01'
+  aiv_description: AIV Cold Instrument verification CD
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_wavecal: 5
+  polarion_id: 9795
+  test_steps:
+  - description: "Configuration. \_WCU: FP mask #4 (BLANK/CLOSED); BB @ ~1000 oC;\
+      \ Lasers OFF.\_ LMS prism/grating set to wavelength = 3.39 micron; Pupil position\
+      \ = \u2018OPEN\u2019; Spectral IFU out of beam. \_CFO: Open aperture in field\
+      \ selector.\_\nExposure. \_TBD DITs.\_ Background illumination of slices.\n\
+      Analysis.\_ Identify unexpected or unusual artifacts (stray light)"
+    expectedResult: "Sliced straylight image.\_\n"
+    step: "1.\_"
+  - description: "Configuration:\_ WCU FP mask #3 (OPEN)\nExposure. \_Black body continuum\
+      \ spectrum across full field.\nAnalysis:\_ Field of view coverage at this LMS\
+      \ configuration. \_Identify any signs of significant vignetting.\n"
+    expectedResult: 'Black body spectrum extended over full IFU field.
+
+      '
+    step: '2.'
+  - description: "Configuration:\_ CFO: Select fixed pinhole in field selector.\n\
+      Observe: DIT TBD, SNR > 500 on brightest slice image.\nAnalyse:\_ Continuum\
+      \ spectrum of pinhole near field centre.\_ Generate data cube.\_ Evaluate boresight\
+      \ v wavelength.\n\n"
+    expectedResult: 'Black body spectrum for CFO on-axis point source
+
+      '
+    step: '3.'
+  - description: "Configure: \_Repeat for all 20 WCU Laser (ON) and LMS prism/grating\
+      \ settings listed in Columns C and D of Table 8.\nObserve:\_ DIT TBD, SNR >\
+      \ 500 on brightest slice image.\nAnalysis: \_Monochromatic image quality at\
+      \ boresight position.\_ Wavelength calibration and spectral line quality for\
+      \ boresight.\n\n\n\n"
+    expectedResult: "Monochromatic point source spectrum shared between several IFU\
+      \ slices.\_\n"
+    step: '4.'
+  - description: "Configure:\_ LMS. Select extended wavelength coverage (spectral\
+      \ IFU).\n\nRepeat Steps 1 to 4 for all 54 wavelength settings listed in Columns\
+      \ E anf F of table."
+    expectedResult: null
+    step: '5.'
+  title: 'OPT_IFU_1: LMS Boresight image quality verification'
+- ait_id: 640
+  aiv_date: '2027-10-01'
+  aiv_description: Cold Instrument testing
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_std_process: 5
+    metis_ifu_wavecal: 5
+    metis_img_chophome: 5
+    metis_lm_adc_slitloss: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_calibrate: 5
+    metis_lm_img_distortion: 5
+    metis_lm_img_flat: 5
+    metis_lm_img_std_process: 5
+    metis_lm_lss_rsrf: 5
+    metis_lm_lss_wave: 5
+    metis_n_adc_slitloss: 5
+    metis_n_img_calibrate: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_distortion: 5
+    metis_n_img_flat: 5
+    metis_n_img_std_process: 5
+    metis_n_lss_rsrf: 5
+    metis_n_lss_trace: 5
+  polarion_id: 9767
+  test_steps:
+  - description: "Run the templates in simulation, where the instrument work station\
+      \ talks not to METIS but to a software simulation of METIS.\_BOB (Broker of\
+      \ Observing Blocks) runs on the instrument work station and is used as a user\
+      \ interface to OBs. It will be used to test/execute individual templates"
+    expectedResult: Templates run through BOB without errors.
+    step: Running templates (OBs) in software simulation.
+  - description: . Templates/OBs will be executed using BOB and/or shell scripts.
+    expectedResult: "Tested calibration templates (the ones using the WCU or with\
+      \ optical path closed); successful generation of calibration products with accuracies\
+      \ as specified in\_\_"
+    step: Testing of templates during AIT
+  - description: . Templates/OBs will be executed using BOB and/or shell scripts.
+      The focus will be on acquisition templates
+    expectedResult: Tested acquisition / science templates and on-sky calibration
+      templates.
+    step: Testing of templates during commissioning
+  title: "Templates \u2013 Calibration"
+- ait_id: 940
+  aiv_date: '2028-12-01'
+  aiv_description: Cold Performance tests
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_flat: 5
+  polarion_id: 9791
+  test_steps:
+  - description: Exposures with broad band point source [WCU] and narrow band filters
+      [check filters available]/dispersers in the beam. Measurements of recorded PSF
+      centroids to quantify chromatic behavior
+    expectedResult: Measured offset of the PSF versus wavelength (compare to nominal
+      ADC performance).
+    step: Off-sky ADC performance v1
+  - description: Exposures with broad band point source [WCU] and long-slit spectroscopy
+      mode. Slit oriented with derotator in the direction of the ADC dispersion. Measurements
+      of recorded PSF centroids to quantify chromatic behavior
+    expectedResult: Measured offset of the PSF versus wavelength (compare to nominal
+      ADC performance).
+    step: Off-sky ADC performance v2
+  - description: "Measure\_point source displacement for number of zenith angles as\
+      \ a function of wavelength. Measure overall PSF shape as a function of zenith\
+      \ angle."
+    expectedResult: "Decrease in Strehl Ratio versus wavelength and zenith angle (beware\
+      \ of NCPA effects!)\_"
+    step: On-Sky ADC performance
+  title: OPT_Chromatic properties
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_calibrate: 5
+    metis_lm_img_distortion: 5
+    metis_lm_img_flat: 5
+    metis_lm_img_std_process: 5
+    metis_n_img_calibrate: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_distortion: 5
+    metis_n_img_flat: 5
+    metis_n_img_std_process: 5
+  polarion_id: 9793
+  test_steps:
+  - description: "Expose with WCU multi-grid mask on IMG. Determine the distance between\
+      \ point sources and calculate effective plate scale.\_"
+    expectedResult: Measurement of plate scale and pixel sampling in LM/N bands for
+      IMG
+    step: Determine plate scale
+  - description: Set chopper to zero position. Exposure with WCU mono-chromatic flat
+      field source and field mask. Measurement of size of recorded field mask on detector
+      and compare with optical model. Use plate scale to convert to Field of View
+    expectedResult: Measurement of maximum field positions in LM/N bands for IMG
+    step: Nominal FoV of IMG
+  - description: "Move chopper to extreme positions. Measure edge of field mask. Determine\
+      \ FoV of CFO. (requires Chopper Calibration, see \_)"
+    expectedResult: Measurement of maximum field positions in LM/N bands for CFO
+    step: Nominal FoV of CFO
+  title: OPT_Field of View and Plate Scale Calibration
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_wavecal: 5
+    metis_lm_adc_slitloss: 5
+    metis_lm_img_flat: 5
+    metis_lm_lss_rsrf: 5
+    metis_lm_lss_std: 5
+    metis_lm_lss_wave: 5
+    metis_n_adc_slitloss: 5
+    metis_n_img_flat: 5
+    metis_n_lss_rsrf: 5
+    metis_n_lss_std: 5
+  polarion_id: 9790
+  test_steps:
+  - description: Use the longslit modes with an on-sky measurement of a spectro-photometric
+      calibration star in order to estimate the total system transmission, including
+      the ELT, as described in .
+    expectedResult: Total system transmission
+    step: Estimate system transmission
+  - description: "Use the longslit modes with the WCU to determine the transmission\
+      \ curves of the science filters as described in\_."
+    expectedResult: Science filter transmission curves
+    step: Measure science filter transmission curves
+  title: MIR_Characterization
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_std_process: 5
+    metis_ifu_wavecal: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_distortion: 5
+    metis_lm_img_flat: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_distortion: 5
+    metis_n_img_flat: 5
+  polarion_id: 9756
+  test_steps:
+  - description: Mono-chromatic bright point source illumination.
+    expectedResult: Point source illumination at the input focal plane
+    step: Set up WCU
+  - description: "Parallel observing mode with\_\_IMG-LM detector, the IMG-N detector,\
+      \ and Chopper. Set up various chopping frequencies and chopping ranges. Also\
+      \ set up situation with 0 chop-throw as a reference for the PSF size/shape.\_"
+    expectedResult: Observing block ready to be executed
+    step: Set up observing block
+  - description: Run set of observing blocks
+    expectedResult: Observing block(s) correctly executed
+    step: Run Observing block
+  - description: "Cross reference the PSF for the fixed chopper with the chopped version.\
+      \ Any residuals in the cross referencing attributed to timing issues.\_"
+    expectedResult: "Perfect double-delta peak in cross-correlation plot.\_"
+    step: Analyze data
+  title: "SPE_Detector \u2013 chopper synchronization"
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+  polarion_id: 9761
+  test_steps:
+  - description: The METIS ICS commands telescope offsets to the virtual CCS. The
+      CCS communicates the updated position back to the METIS ICS, which passes it
+      on to the FITS headers of the produced test data.
+    expectedResult: Confirmation that this communication works
+    step: Virtual testing of telescope offsets during AIV using the CCS simulator
+  - description: "1. The AO loop is closed with the telescope simulator\n\n      \
+      \  2. ICS in parallel \n\ncommands the Ins:TargetRaDecStream() of the CCS counterpart\
+      \ of the telescope simulator\n\n(recurrently) updates the Pointing Reference\
+      \ Position for the AOCS\n\n\n        3. AOCS updates the field selector position\
+      \ in agreement with the updated pointing reference position. The field is dragged\
+      \ to the new position\n\n"
+    expectedResult: 'The position of the L-Band PSF (from the telescope simulator)
+      in the IMG is shifted, the FITS header contains the updated coordinate. The
+      AO loop remains closed.
+
+      '
+    step: 'Coordinated nodding through ICS, following  ,Section 3.13
+
+      '
+  - description: The METIS ICS commands telescope offsets to the CCS during on-sky
+      observations. The ELT makes the appropriate offsets, and the positional information
+      is communicated back to the METIS ICS and properly stored in the FITS headers
+      of the data. The WFS makes the appropriate offsets with the field selector mirror
+      to keep the NGS centred on the Pyramid.
+    expectedResult: Confirmation that the offsetting process works, the AO system
+      properly locks onto the guide star at all positions, and all metrology information
+      is properly stored in the FITS files.
+    step: On sky testing of telescope offsets during the OSA & commissioning phases
+  title: SPE_Nodding
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+  polarion_id: 9762
+  test_steps:
+  - description: "While operating all the control loops in closed loop (SCAO, QACITS,\
+      \ PSI, pupil stabilization), open the QACITS and PSI loops, and use the chopper\
+      \ to offset the point-like source by a few arcsec to record an off-axis PSF\
+      \ for the RAVC and CVC modes\n          Move the point-like source back to the\
+      \ vortex center with the chopper, and make sure that QACITS and PSI can close\
+      \ the loop again without a significant delay"
+    expectedResult: Check the capability of the whole instrument to perform standard
+      HCI calibration sequences
+    step: Off-axis PSF monitoring in vortex coronagraphy
+  - description: "Observing the WCU point source with the intensity maxed out, perform\
+      \ chopping between the three VPMs. The relative positions of the VPMs w.r.t.\
+      \ the chopper is constant (the absolute position is constant to within a few\
+      \ mas and given by the CFO-FP2 mechanism repeatability); the chopping direction\
+      \ and throw are thus strictly constant.\n        This can already be tested\
+      \ during system AIT. It can be repeated on the telescope during daytime."
+    expectedResult: 'Optimisation of the N-band chopping cycle for coronagraphy.
+
+      '
+    step: Chopping in N-band coronagraphy lab test
+  - description: "While operating all the control loops in closed loop (SCAO, QACITS,\
+      \ PSI, pupil stabilisation) for the N-band CVC mode, use the chopper to move\
+      \ the star back and forth to another N-band VPM position at nominal chopping\
+      \ frequency\n          Check that QACITS and PSI are using the appropriate detector\
+      \ windows to measure NCPA, and that they can properly accommodate chopping +\
+      \ chop subtraction in their operations\n          Check that chopper stability\
+      \ / accuracy is compliant with QACITS and PSI operations\n          Check that\
+      \ QACITS can perform chop throw modifications while chopping at nominal frequency\n"
+    expectedResult: Check that QACITS and PSI control loops can handle chopping at
+      N band
+    step: Chopping in N-band coronagraphy
+  title: SPE_Chopper operations in HCI
+- ait_id: 640
+  aiv_date: '2027-10-01'
+  aiv_description: Cold Instrument testing
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9764
+  test_steps:
+  - description: Verification of induced vibrations, characterization of vibration
+      sources
+    expectedResult: "Condition-based (monitoring) and corrective (fault identification)\_\
+      \_\_ Verified Testability (1 & HSM (2"
+    step: MET-AIT-640 METIS-9788 MEC_Vibrations
+  - description: Input power, cooling power, heat dissipation to environment
+    expectedResult: "Condition-based (monitoring) and corrective (fault identification)\_\
+      \_ \_Verified Testability (1 & HSM (2"
+    step: MET-AIT-640 METIS-9786 ICS_Power consumption and dissipation
+  - description: Functional testing of the ICS system
+    expectedResult: "All types of maintenance (verification)\_\_ \_Verified Testability\
+      \ (1"
+    step: MET-AIT-640 METIS-9785 ICS_Functional
+  - description: Identify and solve any EMC related issues in early stage of system
+      testing
+    expectedResult: "Repeat after significant changes in the configuration (verification)\_\
+      \_ \_Verified Testability (1"
+    step: MET-AIT-640 METIS-9783 ICS_EMC, Grounding & Safety
+  - description: Test of performance parameters, check for anomalies (shall include
+      basic trouble shooting routines)
+    expectedResult: "Condition based (monitoring) and corrective (fault identification)\_\
+      \_ \_Verified Testability (1 & HSM (2"
+    step: MET-AIT-640 METIS-9782 INS_Performance
+  - description: Assessment of INS functionality (includes permanent monitoring of
+      performance and status; shall include basic trouble shooting routines)
+    expectedResult: "Condition-based (monitoring) and corrective (fault identification)\_\
+      \_ \_Verified Testability (1 & HSM (2"
+    step: MET-AIT-640 METIS-9781 INS_Functional
+  - description: Verify that warmup time is compliant with requirements.
+    expectedResult: "Some maintenance actions require warm-up/cool-down (verification)\_\
+      \_ \_Verified Warm-up and cool-down cycles (4"
+    step: MET-AIT-640 METIS-9777 THE_warmup time
+  - description: Correct functioning of vacuum system including sorption pump
+    expectedResult: "Some maintenance actions require warm-up/cool-down (verification)\_\
+      \_ \_Verified Warm-up and cool-down cycles (4"
+    step: MET-AIT-640 METIS-9776 THE_Vacuum
+  - description: Verify that measured temperature levels, gradients, stabilities are
+      compliant with requirements
+    expectedResult: "Condition-based (monitoring) and corrective (fault identification)\_\
+      \_ \_Verified Testability (1 & HSM (2"
+    step: MET-AIT-640 METIS-9775 THE_Temperature
+  - description: "Test of proper functioning of all cryo-vacuum operations including\
+      \ emergencies for integrated cryo-control and cryostat (shall include verification\
+      \ of access to the PTC\u2019s)"
+    expectedResult: "Some maintenance actions require warm-up/cool-down (verification)\
+      \ and/or manual interactions\_\_ \_Verified Testability (1 & Accessibility (3"
+    step: MET-AIT-640 METIS-9772 THE_Cryo-control
+  - description: Verify that no condensation is present on cryostat window under all
+      conditions (shall include verification of access to the cryostat window)
+    expectedResult: "Condition-based (monitoring) and corrective (fault identification)\_\
+      \_ \_Verified Testability (1, HSM (2 & Accessibility (3"
+    step: MET-AIT-640 METIS-10741 THE_Entrance Window Condensation Prevention
+  - description: Verify that cooldown time are compliant with requirements
+    expectedResult: "Some maintenance actions require warm-up/cool-down (verification)\_\
+      \_ \_Verified Warm-up and cool-down cycles (4"
+    step: MET-AIT-640 METIS-10740 THE_cooldown time
+  - description: Verify relevant ASF configuration
+    expectedResult: 'Some maintenance actions require CRY in IAA - Verified ASF configuration
+
+      '
+    step: MET-AIT-830 TBD ASF in Maintenance Configuration
+  - description: 'Verify relevant Corrective Maintenance procedure, if where and when
+      they occur
+
+      '
+    expectedResult: "Verified Corrective Maintenance\_\_\_"
+    step: MET-AIT-860 TBD Corrective Maintenance
+  - description: Verify ASF storage configuration
+    expectedResult: 'Some maintenance actions require CRY in IAA - Verified ASF configuration
+
+      '
+    step: MET-AIT-960 TBD ASF in Storage (Maintenance)
+  title: SE_Maintenance
+- ait_id: 40
+  aiv_date: '2025-02-01'
+  aiv_description: CRY Cold Functional tests
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9772
+  test_steps:
+  - description: Details to be provided after verification at subsystem level
+    expectedResult: "Re-verification of subsystem tests successful.\_"
+    step: Run specific verifications
+  title: THE_Cryo-control
+- ait_id: 810
+  aiv_date: '2028-04-01'
+  aiv_description: Warm Arrival in Chile
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_postprocess: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_wavecal: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_calibrate: 5
+    metis_lm_img_distortion: 5
+    metis_lm_img_flat: 5
+    metis_lm_img_sci_postprocess: 5
+    metis_lm_img_std_process: 5
+    metis_lm_lss_rsrf: 5
+    metis_lm_lss_sci: 5
+    metis_lm_lss_trace: 5
+    metis_lm_lss_wave: 5
+    metis_n_img_calibrate: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_distortion: 5
+    metis_n_img_flat: 5
+    metis_n_lss_rsrf: 5
+    metis_n_lss_sci: 5
+    metis_n_lss_trace: 5
+  polarion_id: 9749
+  test_steps:
+  - description: 'With the BB at the appropriate temperature for the L/M, N band imager,
+      respectively, vary the level of flux by choosing different IS input apertures.
+      Check whether the flux on the detector varies as expected and whether the flat
+      field illumination is unchanged (e.g. by dividing the images at different illumination
+      level by each other)
+
+      '
+    expectedResult: "Flux variation according to exit aperture area and detector linearity\
+      \ curve (as measured in the lab), flat field pattern unchanged to the level\
+      \ given in\_\_."
+    step: "\_"
+  - description: "With the BB at the appropriate temperature for the L/M, N band imager,\
+      \ respectively, vary the level of flux, take exposures with the imagers in tbd\
+      \ science and ND filters and compare against the flux levels expected on-sky:\_\
+      \_"
+    expectedResult: Fluxes provided by the WCU, in conjunction with ND and science
+      filters, cover the range of fluxes expected on sky.
+    step: "\_"
+  - description: "Same test as\_\_"
+    expectedResult: "Same expected result as\_\_"
+    step: "\_"
+  - description: "This requirement demands a 5% flux stability over a 2 years timescale.\
+      \ Over that timescale, during system testing, the WCU BB can be observed repeatedly\
+      \ (with a tbd interval) with identical WCU/INS/DET settings to verify this requirement.\_\
+      This will be checked on best effort basis during subsystem testing."
+    expectedResult: Within the specified range, the measured flux on the detector
+      is constant over the measured timescale. Note that there is power meter directly
+      attached to the integrating sphere which would give better diagnostics for BB
+      performance.
+    step: "\_"
+  - description: Shine optical and IR sources near the entrance window outside the
+      baffled WCU periscope and observe the illumination level in METIS.
+    expectedResult: Unchanged illumination levels irrespective of illumination kind,
+      strength or position.
+    step: "\_"
+  - description: Take flat field images by the subsystem after flux levels are determined.
+    expectedResult: Spatially flat to 0.3% over 3 (goal 5) lambda/D
+    step: "\_"
+  - description: Image the focal plane of all the applicable subsystems with the WCU.
+      Note the relevant parameters (flux level, expsoure time etc.) Run the corresponding
+      template (if any).
+    expectedResult: "By design the requirement is already satisfied but test the functionality.\_"
+    step: "\_"
+  - description: Image the pupil plane of all the applicable subsystems with the WCU.
+      Note the relevant parameters (flux level, expsoure time etc.) Run the corresponding
+      template (if any).
+    expectedResult: "By design the requirement is already satisfied but test the functionality.\_"
+    step: "\_"
+  - description: With the BB at the appropriate temperature for the L/M, N band imager
+      & LMS. Select a mask with at least two point sources. Take exposures with all
+      detectors via template (TBD).
+    expectedResult: "Success if all exposures show the same point sources (in the\
+      \ respective FoV).\_"
+    step: "\_and\_\_"
+  - description: Illuminate METIS with the LMN band lasers with known wavelength.
+      Take exposures with both the LMS as well as long-slit modes for the IMG. Verify
+      that the laser lines are observable. For the tunable laser, offset the laser
+      wavelength by a known amount and re-measure wavelength-to-pixel solution
+    expectedResult: "Success if all laser lines can be identified in respective modes\
+      \ and the wavelength solution can be extracted with an accuracy of 1/2 pixel.\_"
+    step: "\_"
+  - description: With the BB at the appropriate temperature for the L/M, N band imager
+      & LMS. Use open position for uniform image plane illumination. Use chopper to
+      move image field by maximum chopper range in all directions. Reconstruct relative
+      illumination versus chopper position.
+    expectedResult: "Success if uniformity is better than 3% for all bands.\_"
+    step: "\_"
+  title: CAL_WCU functional
+- ait_id: 30
+  aiv_date: '2025-01-01'
+  aiv_description: CRY Warm Integration
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9765
+  test_steps:
+  - description: Test of proper functioning of all cryo-vacuum operations including
+      emergencies for integrated cryo-control and cryostat.
+    expectedResult: "Verifiied Cryo control emergency procedures METIS-2529 - ESO-046147\
+      \ METIS-712 \u2013 ESO-206280"
+    step: MET-AIT-040 METIS-9772 THE_Cryo-control
+  - description: Measure LN2 hold times by time difference between max filling level
+      and temperature rise due to LN2 depletion.
+    expectedResult: "Verified LN2 handling METIS-2529 - ESO-046147 METIS-712 \u2013\
+      \ ESO-206280: Oxygen deprivation"
+    step: MET-AIT-040 METIS-9773 THE_Liquid Nitrogen
+  - description: Verify that measured temperature levels, gradients, stabilities are
+      compliant with requirements.
+    expectedResult: Verified Temperature emergency procedures METIS-2529 - ESO-046147
+    step: MET-AIT-040 METIS-9775 THE_Temperature
+  - description: Correct functioning of vacuum system including sorption pump
+    expectedResult: "Verifiied Vacuum emergency procedures METIS-2529 - ESO-046147\
+      \ METIS-3248 \u2013 Interlocks"
+    step: MET-AIT-030, MET-AIT-040 METIS-9776 THE_Vacuum
+  - description: Assessment of INS functionality (includes permanent monitoring of
+      performance and status)
+    expectedResult: "Verified Interlock procedures METIS-3248 \u2013 Interlocks"
+    step: MET-AIV-910 METIS-9781 INS_Functional
+  - description: EMC and Electronic safety verification
+    expectedResult: "EMC and Electronic safety verified METIS-707 \u2013 ESO-262825"
+    step: MET-AIT-030, MET-AIT-050, MET-AIT-070 METIS-9783 ICS_EMC, Grounding & Safety
+  - description: Functional testing of the ICS system
+    expectedResult: "Verified power-up and emergency procedures METIS-3248 - Interlocks\
+      \ METIS-707 \u2013 ESO-262825"
+    step: MET-AIT-040 METIS-9785 ICS_Functional
+  - description: Input power, cooling power and resulting heat dissipation of METIS
+      towards the environment
+    expectedResult: "Verified power consumption (No Overload) and heat dissipation\
+      \ (No Fire) METIS-707 \u2013 ESO-262825"
+    step: MET-AIT-040 METIS-9786 ICS_Power consumption and dissipation
+  - description: Verification of induced vibrations
+    expectedResult: "Verified induced vibrations / pneumatics Environment for survival\
+      \ conditions METIS-712 \u2013 ESO-206280: Discomfort METIS-3127 - Earthquake"
+    step: MET-AIT-040 METIS-9788 MEC_Vibrations
+  - description: 'Focal plane and pupil plane co-alignment is verified. Furthermore,
+      the stabilities and co-alignment of certain other components is verified. -
+      General Safety measures
+
+      '
+    expectedResult: "Verified Laser tracker, WCU periscope and possibly WSS movement\
+      \ Access categories Working at heights Access ladders METIS-3131 \u2013 ESO-192984\_\
+      \ METIS-3195 \u2013 Confined spaces METIS-2237 \u2013 Fall protection"
+    step: MET-AIT-070 METIS-9827 OPT_System Alignment
+  - description: 'Verification of interlock
+
+      '
+    expectedResult: "Verified laser power interlock METIS-9552 \u2013 Interlock switch"
+    step: MET-AIT-220 TBD WCU Laser box integration
+  - description: General Safety measures
+    expectedResult: "Verified handling, lifting tools\_ No Cutting/severing, Crushing/pinching\
+      \ METIS-705 \u2013 ESO-193497 METIS-712 \u2013 ESO-206280 METIS-3131 \u2013\
+      \ ESO-192984"
+    step: MET-AIT-050 TBD CFO System Integration
+  - description: General Safety measures
+    expectedResult: "Verified handling, lifting tools\_ No Cutting/severing, Crushing/pinching\
+      \ METIS-705 \u2013 ESO-193497 METIS-712 \u2013 ESO-206280 METIS-3131 \u2013\
+      \ ESO-192984"
+    step: MET-AIT-230 TBD LMS
+  - description: General Safety measures
+    expectedResult: "Verified handling, lifting tools\_ No Cutting/severing, Crushing/pinching\
+      \ METIS-705 \u2013 ESO-193497 METIS-712 \u2013 ESO-206280 METIS-3131 \u2013\
+      \ ESO-192984"
+    step: MET-AIT-290 TBD IMG
+  - description: 'Verification of Pressure interlock for Field Selector and Modulator
+      and general safety measures
+
+      '
+    expectedResult: "Verified handling, lifting tools Verified Interlock No Cutting/severing,\
+      \ Crushing/pinching METIS-705 \u2013 ESO-193497 METIS-712 \u2013 ESO-206280\
+      \ METIS-3131 \u2013 ESO-192984"
+    step: MET-AIT-420 TBD SCAO Integration
+  - description: Safety Manual
+    expectedResult: "No Suspension of Safety Measures METIS-712 \u2013 ESO-206280"
+    step: MET-AIT-all
+  title: SE_Safety
+- ait_id: 40
+  aiv_date: '2025-02-01'
+  aiv_description: CRY Cold Functional tests
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9774
+  test_steps:
+  - description: "Start the cool down phase\n\n        Actively monitor that all critical\
+      \ components are safe\n        If any component needs to be protected, adjust\
+      \ the parameters and/or pause/stop the cool down phase\n\n        It is allowed\
+      \ to adjust the control parameters during cool down.\n\n        For the first\
+      \ cool down, the heaters on thermal dummies shall simulate the maximum heat\
+      \ dissipation as per \_.\n        For subsequent cycles with thermal dummies,\
+      \ it might be more relevant to simulate realistic heat dissipation, to be assessed\
+      \ case by case.\n\n        Detailed review of the cool down phase shall be performed\
+      \ afterward (including comparison with simulation) to identify any potential\
+      \ improvement in terms of cool down time and power consumption.\n        If\
+      \ needed, mechanical changes (more or less coupling in particular) can be implemented\
+      \ next time the CRY is to be opened."
+    expectedResult: "Thermal rate and Temperature in line with requirements\n    \
+      \    DET | Not coldest point\n        Thermal rate lower than 1K/min (CRY excluded)\n\
+      \n        Heaters power consumption"
+    step: Temperature During Cool Down
+  - description: "Test performed only with thermal dummies\n\n        Timing and most\
+      \ relevant PTC to be selected based on simulation, not all scenario expected\
+      \ to be tested\n\nSwitch off one PTC to simulate its failure\nActively monitor\
+      \ that all critical components are safe, if approaching the limit, switch on\
+      \ the PTC again, test will be repeated later once the effect is well understood\n\
+      Wait for the agreed duration\nSwitch the PTC on again\nContinue active monitoring\n\
+      \n"
+    expectedResult: "Thermal rate and Temperature in line with requirements\n    \
+      \    DET | Not coldest point\n        Thermal rate lower than 1K/min (CRY excluded)"
+    step: PTC Failure Simulation
+  - description: "Test performed only with thermal dummies\n\n        Timing and most\
+      \ relevant heaters to be selected based on simulation, not all scenario expected\
+      \ to be tested\n\nSwitch off one heater to simulate its failure\nActively monitor\
+      \ that all critical components are safe, if approaching the limit, switch on\
+      \ the heater again, test will be repeated later once the effect is well understood\n\
+      Wait for the agreed duration\nSwitch the heater on again\nContinue active monitoring\n\
+      \n"
+    expectedResult: "Thermal rate and Temperature in line with requirements\n    \
+      \    DET | Not coldest point\n        Thermal rate lower than 1K/min (CRY excluded)"
+    step: Heater Failure Simulation
+  - description: Scenario to be detailed based on routines
+    expectedResult: "Thermal rate and Temperature in line with requirements\n    \
+      \    DET | Not coldest point\n        Thermal rate lower than 1K/min (CRY excluded)"
+    step: Power Failure Simulation
+  title: THE_Temperature Cool Down
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_flat: 5
+  polarion_id: 9755
+  test_steps:
+  - description: "Bright star in telescope simulator, SCAO in closed loop\n      \
+      \  Make a non-corongraphic measurement by offsetting the star away from VPM\
+      \ with chopper\n        Center star manually as well as possible onto VPM\n\
+      \        Perform a ramp of offsets on VPM with sub-mas steps using SCAO modulator\n\
+      \        Record coronagraphic PSF for various offset in at least two perpendicular\
+      \ directions\n"
+    expectedResult: 'Obtain experimental measurement for the slope of the relationship
+      between intensity difference in quadrants and tip-tilt, to be used in QACITS
+
+      '
+    step: 'QACITS model calibration & off-axis transmission measurement (HCI SL)
+
+      '
+  - description: "Introduce know offsets with SCAO modulator and/or chopper\n    \
+      \    Use QACITS sensor to measure offsets\n"
+    expectedResult: 'Verify that QACITS provides reliable measurements
+
+      '
+    step: 'QACITS sensor test (HCI SL)
+
+      '
+  - description: "Verify that QACITS receives data from IMG-DET\n        Verify that\
+      \ QACITS can send offsets to the SCAO modulator, and that the offsets are correct\
+      \ in direction and amplitude\n"
+    expectedResult: 'QACITS ready for target acquisition and closed-loop tests
+
+      '
+    step: 'QACITS functional test (SCA SL)
+
+      '
+  - description: "With the point-like source at about 1 lambda/D from the VPM center,\
+      \ close the QACITS loop\n        Adjust the gain of QACITS during target acquisition\
+      \ to optimize the speed of acquisition"
+    expectedResult: 'Preliminary optimal gain for QACITS target acquisition (final
+      optimization on sky)
+
+      '
+    step: 'QACITS acquisition sequence (SCA+HCI SL)
+
+      '
+  - description: "After QACITS acquisition, record long sequences with QACITS in closed-loop\n\
+      \        Introduce small pointing perturbations with chopper to check loop robustness\n\
+      \        Indtrouce representative SCAO residuals with telescope simulator\n\
+      \        Adjust gain in a preliminary trade-off between performance and robustness\n"
+    expectedResult: 'Preliminary optimal gain for QACITS in closed loop (final optimization
+      on sky)
+
+      '
+    step: 'QACITS close-loop tests (SCA+HCI SL)
+
+      '
+  - description: "In N-band vortex coronagraphy, close the QACITS loop on central\
+      \ VPM, record chopper position\n        Open QACITS loop, and offset star to\
+      \ another VPM center (based on knoweldge of VPM center position)\n        Close\
+      \ QACITS loop, record chopper position\n        Adapt chop throw to match the\
+      \ two measured sweetspots\n        Verify that chop throw has been properly\
+      \ adapted by switching back and forth between the two chopped positions\n  \
+      \      Full functionnal tests of QACITS in chopping mode to be done in \_\n"
+    expectedResult: "Verify that QACITS can adapt chop throw\n        Measure error\
+      \ on the chopped positions based on QACITS error signal\n        Define nominal\
+      \ chopping points for N-band vortex coronagraph operations\n"
+    step: 'QACITS in dual-vortex mode
+
+      '
+  title: SPE_CTRL_QACITS
+- ait_id: 40
+  aiv_date: '2025-02-01'
+  aiv_description: CRY Cold Functional tests
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9775
+  test_steps:
+  - description: "Once steady state is reached verify that the achieved temperature\
+      \ is in line with requirement\n\n        If needed adjust the control temperature\
+      \ to optimise the temperature distribution and power consumption.\n\n      \
+      \  In parallel, fine tuning of the thermal model could help getting a better\
+      \ understanding of the behaviour, in particular before we include the thermal\
+      \ dummies."
+    expectedResult: "Measured temperature vs. Predicted / Required one\n        CFO\
+      \ | 67\n        IMG-LM | 40 \n        N-IMG and LM-IMG at one temperature\n\
+      \        IMG-LM Hawaii detector | 34 - 40\n        IMG-LM Hawaii preamp | >55\n\
+      \        IMG-N | 40\n        IMG-N Geonap | 35 - 40\n        LMS | 70 \n   \
+      \     LMS Hawaii detector | 34 - 40\n        LMS Hawaii preamp | >55\n     \
+      \   SCA | 70\n        SCA SAPHIRA detector | 90-110\n        SCA SAPHIRA Preamp\
+      \ | >55\_\n        CRY Radiation Shield\_| <90\n        DET | Not coldest point\n\
+      \n        Heaters power consumption\n\n        Remark: Direct measurement not\
+      \ possible everywhere, extrapolation based on simulation will be used if needed"
+    step: Steady State Temperature
+  - description: "Test to be mainly performed when we have the thermal dummies\n\n\
+      \        Increase/Decrease the control temperature at ONE location to a predefined\
+      \ value\n        Actively monitor that all critical components are safe\n  \
+      \      Wait until the temperature is stable\_\n        Record the new achieved\
+      \ temperature distribution\n\n        Repeat as many time as needed"
+    expectedResult: "Temperature distribution vs. control temperature\n        Heaters\
+      \ power consumption vs. control temperature"
+    step: Effect of control temperature
+  - description: "Once control temperature is set, monitor the temperature vs. time\
+      \ in parallel to other activities.\n        When thermal dummies are used, adjust\
+      \ the heaters to simulate the predicted heat load variation.\n\n        Adjust\
+      \ the control loop if needed"
+    expectedResult: "Thermal stability vs. specified ones\n        DET:\_+/- 10 mK\
+      \ peak to peak\n        Stability at interfaces: TBD\n\n        Remark: Temperature\
+      \ at interfaces can in most cases only be verified with thermal dummies"
+    step: Steady State Thermal Stability
+  - description: "Test performed only with thermal dummies\n\nIn steady state, switch\
+      \ off one pulse tube cooler to simulate its failure\nActively monitor that all\
+      \ critical components are safe, if approaching the limit, switch on the PTC\
+      \ again and set up an alternative control loop\nWait until the temperature is\
+      \ stable\nSwitch on the PTC \nActively monitor that all critical components\
+      \ are safe, if approaching the limit, switch off the PTC again and set up an\
+      \ alternative control loop\nWait until the temperature is stable\n\n       \
+      \ Repeat for the other two PTC"
+    expectedResult: "Thermal rate and Temperature in line with requirements\n    \
+      \    DET | Not coldest point\n        Thermal rate lower than 1K/min (CRY excluded)"
+    step: PTC Failure simulation
+  title: THE_Temperature Steady State
+- ait_id: 40
+  aiv_date: '2025-02-01'
+  aiv_description: CRY Cold Functional tests
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9771
+  test_steps:
+  - description: 'at several locations around the cryostat the temperature and humidity
+      has to be measured
+
+      '
+    expectedResult: 'ambient conditions, temperature, humidity, dew point
+
+      '
+    step: 'measure ambient temperature and humidity
+
+      '
+  - description: "Use the IR camera and try to get a temperature profile of the surface.\
+      \ Reflections may not allow to get reasonable results\n        Use the IR camera\
+      \ to measure temperature on the black tape.\n        Use temperature probe to\
+      \ measure temperature on the black tape. \n        Compare the two results\n\
+      \n"
+    expectedResult: "Surface temperature profile\n        Surface temperature at local\
+      \ spots\n"
+    step: 'measure surface temperature
+
+      '
+  title: THE_Ambient
+- ait_id: 40
+  aiv_date: '2025-02-01'
+  aiv_description: CRY Cold Functional tests
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 9773
+  test_steps:
+  - description: "Fill all LN2 Vessel\_ to their max level\n        Record time when\
+      \ each Vessel is full"
+    expectedResult: N/A
+    step: Prepare vessel
+  - description: Switch off automatic filling of the LN2 Vessel and operate the instrument
+      nominally
+    expectedResult: N/A
+    step: Operate METIS
+  - description: "Wait\_until refill level is reached\n        Record time when each\
+      \ Vessel is empty\n        Verify that all routines linked to this alarm are\
+      \ properly implemented"
+    expectedResult: "\n        It shall take more than 24 hours to empty the LN2 Vessel\
+      \ in steady state"
+    step: Wait for alarm
+  - description: "Refill each LN2 Vessel when refill level is reached\n        Switch\
+      \ on automatic filling again once all three vessels have reached their alarm\
+      \ level"
+    expectedResult: null
+    step: Reset status of vessel
+  title: THE_Liquid Nitrogen Hold Time
+- ait_id: 370
+  aiv_date: '2026-02-01'
+  aiv_description: AIV Cold Instrument verification CD
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_wavecal: 5
+    metis_lm_img_background: 5
+    metis_lm_img_flat: 5
+    metis_lm_lss_rsrf: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_flat: 5
+    metis_n_lss_rsrf: 5
+  polarion_id: 10531
+  test_steps:
+  - description: measure their prominence (e.g. peak-to-valley compared to the background-noise
+      limit after 1 hour of observation)
+    expectedResult: Estimate of background subtraction residuals
+    step: Measurements of background noise
+  - description: test how stable they are with time and instrument configuration.
+    expectedResult: Stability of background subtraction in time for Nodding residual
+      estimates
+    step: "Measurement of background subtraction stability in time.\_"
+  title: OPT_Instrument Background Subtraction
+- ait_id: 640
+  aiv_date: '2027-10-01'
+  aiv_description: Cold Instrument testing
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_std_process: 5
+    metis_ifu_wavecal: 5
+  polarion_id: 10530
+  test_steps:
+  - description: 'Take bias and dark frames over several hours to monitor stability
+      (or drifts) of bias and dark levels, and number of bad pixel (time requirement:
+      0.5 days)'
+    expectedResult: Initial bad pixel masks and master darks
+    step: 'Basic detector characterisation: bad pixel masks, bias, darks'
+  - description: 'Take continuum lamp frames at a range of illumination levels, DITs,
+      and for all detector and instrument configurations (time requirement: about
+      1 week)'
+    expectedResult: Initial illumination and spectral response maps, detector linearity
+      and gain maps, master spectral flats
+    step: 'Basic detector characterisation: linearity, spectral response functions
+      ("flats")'
+  - description: "Initial wavelength calibration using Sky Fibre. Requires rudimentary\
+      \ pipeline to be able to extract calibration of wavelength\_(time requirement:\
+      \ about 5 days)"
+    expectedResult: Initial wavelength calibration
+    step: Wavelength calibration
+  - description: "Initial RSRF using WCU, see calibration plan\_(time requirement:\
+      \ 1 week)"
+    expectedResult: Initial RSRF calibration
+    step: Characterisation and correction of relative spectral response function
+  - description: 'Run calibration steps using WCU and determine initial estimate of
+      the photometric accuracy ((time requirement: 2.5 days))'
+    expectedResult: Initial estimate of photometric accuracy
+    step: Spectro-photometric Accuracy
+  - description: "See\_\_\n        Measurement shall be repeated to ensure stability\
+      \ between mode switches and in time.\_(time requirement: 2 days).\_NOTE that\
+      \ this should be repeated after each major instrument intervention (i.e. warm-up\
+      \ / cool-down cycle) during AIT"
+    expectedResult: Initial plate scale calibration
+    step: Plate Scale Calibration
+  title: CAL_Characterization_LMS
+- ait_id: 490
+  aiv_date: '2026-10-01'
+  aiv_description: AIV Cold Instrument verification E
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_adc_slitloss: 5
+    metis_lm_img_flat: 5
+    metis_lm_lss_rsrf: 5
+    metis_lm_lss_sci: 5
+    metis_lm_lss_std: 5
+    metis_lm_lss_trace: 5
+    metis_lm_lss_wave: 5
+    metis_n_adc_slitloss: 5
+    metis_n_img_flat: 5
+    metis_n_lss_rsrf: 5
+    metis_n_lss_sci: 5
+    metis_n_lss_std: 5
+    metis_n_lss_trace: 5
+  polarion_id: 10921
+  test_steps:
+  - description: 'Take bias and dark frames over several hours to monitor stability
+      (or drifts) of bias and dark levels, and number of bad pixel (time requirement:
+      0.5 days for LM and N, each)'
+    expectedResult: Initial bad pixel masks and master darks
+    step: 'Basic detector characterisation: bad pixel masks, bias, darks'
+  - description: 'Take flat frames at a range of illumination levels, DITs, and for
+      all detector and instrument configurations (time requirement: about 1 week)'
+    expectedResult: Initial illumination maps, detector linearity and gain maps, master
+      flats
+    step: 'Basic detector characterisation: linearity, flats'
+  - description: "Use spectral calibration source (LM) and CEA source and/or \"sky\
+      \ fiber\" (N, TBC) to derive dispersion solution\_(time requirement: about 1\
+      \ week)"
+    expectedResult: Initial dispersion solutions for LM and N
+    step: Wavelength calibration and dispersion solution
+  - description: 'Place point source in slit, and take data for various relevant instrument
+      setting (LM+N, time requirement: about 1 week)'
+    expectedResult: Characterization of slit losses, RSRF
+    step: Slit loss and ADC calibration
+  - description: 'Take photometric calibration data over time scales from several
+      minutes to several hours to assess photometric stability in LM and N (time requirement:
+      about 2.5 days)'
+    expectedResult: 'Initial estimate of photometric stability of LSS
+
+      '
+    step: Flux (Photometric) Stability Calibration
+  - description: 'Run calibration steps using WCU and determine initial estimate of
+      the photometric accuracy (@AIT) in all LSS instrument configurations (time requirement:
+      1 week)'
+    expectedResult: Initial estimate of the photometric accuracy
+    step: Photometric Accuracy
+  title: CAL_Characterization_LSS
+- ait_id: 370
+  aiv_date: '2026-02-01'
+  aiv_description: AIV Cold Instrument verification CD
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_wavecal: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_flat: 5
+  polarion_id: 10532
+  test_steps:
+  - description: "The system level test would then be to flood illuminate the IFU,\
+      \ and measure the intra slice flux distribution.\_ If the maximum signal at\
+      \ the centre of the inter-slice gap is < 3 % of the in-slice gap, then we would\
+      \ infer that there is a straylight contribution < 1 %.\_ Of course, the much\
+      \ bigger dark regions at the top and bottom of each detector would provide a\
+      \ more sensitive measure of the diffuse background, where the test would include\
+      \ a measurement with the \u2018OPAQUE\u2019 position selected in the LMS PP1\
+      \ mechanism to measure the nominal dark illumination. Running this data set\
+      \ through the pipeline should allow subtraction of the stray light using the\
+      \ applicable pipeline recipe"
+    expectedResult: Success if straylight < 1%
+    step: LMS straylight
+  - description: In order to correct for electronic ghosts and other detector artefacts,
+      the pipeline shall make use of the masked areas as specified in METIS-3093 and
+      METIS-3091. A set of test images shall be made to demonstrate that these artefacts
+      are properly subtracted.
+    expectedResult: 'Success if artefact impact reduced below XXX. Question: This
+      applies to both IMG detectors as well as the LMS detector.'
+    step: Detector Artefact Subtraction
+  - description: Make a number of calibrations and test images with sources in the
+      field. The data reduction shall remove the ghosts caused by internal artefacts
+      and ghosts.
+    expectedResult: "Succes:\_ After data reduction and calibration, the flux in optical\
+      \ artefacts and ghosts shall be less than the 5-sigma thermal background noise\
+      \ for one hour of observations and for the respective spatial scale of the ghost,\
+      \ i.e. point-source-like ghosts shall contain less flux than the point-source\
+      \ sensitivity limit; extended ghosts shall contain less flux than the surface\
+      \ brightness limit for that extension. This shall hold when the brightness of\
+      \ the celestial source causing the artefact(s) corresponds to the saturation\
+      \ limit in the fastest full-frame operation.\n"
+    step: Optical artefacts and ghosts
+  title: PIP_Artefacts, Ghosts and Straylight removal
+- ait_id: 470
+  aiv_date: '2026-10-01'
+  aiv_description: SCA Cold Alignment
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_flat: 5
+    metis_pupil_imaging: 5
+  polarion_id: 10895
+  test_steps:
+  - description: '
+
+      Ensure that the pupil is in the nominal position, i.e. the PSM and the derotator
+      are in the nominal alignment position.
+
+
+      '
+    expectedResult: '
+
+      '
+    step: 'Preset CFO
+
+      '
+  - description: '
+
+      Verify with the pupil reimager in the IMG that the pupil is in the nominal position.
+
+
+      '
+    expectedResult: '
+
+      '
+    step: 'Verify nominal pupil position
+
+      '
+  - description: "\n\_Measure pupil images with the WFS detector.\nDetermine the offset\
+      \ to the nominal position.\n\n"
+    expectedResult: '
+
+      '
+    step: 'Detect nominal pupil position on WFS detector
+
+      '
+  - description: '
+
+      '
+    expectedResult: '
+
+      '
+    step: 'warm up
+
+      '
+  - description: '
+
+      Apply a correction of the lateral position of the WFS detector with the WFS
+      adjustment unit (manual operation, requires access to the SCAO Module).
+
+      Cool down.
+
+      With the same setup, verify the aligned position of the detector.
+
+
+      '
+    expectedResult: The nominal position of the pupil is aligned to the WFS detector
+      with an accuracy of 1 pixel.
+    step: "Align\_ to nominal position\n"
+  title: SCA_ Co-align and verify the lateral pupil position during system integration
+- ait_id: 40
+  aiv_date: '2025-02-01'
+  aiv_description: CRY Cold Functional tests
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 10904
+  test_steps:
+  - description: "After steady state is reached, continuous monitoring of the flow\
+      \ rate will occur every time the CRY needs to be refilled using the in-line\
+      \ flow meters. The LN2 consumption will be monitored and analyzed.\_"
+    expectedResult: LN2 flow during steady state refill does not exceed maximum flow
+      rates
+    step: Measure LN2 flow rate
+  title: THE_Steady State Consumption
+- ait_id: 10
+  aiv_date: '2025-01-01'
+  aiv_description: Start of AIV
+  comments: ''
+  pip_recipes: {}
+  polarion_id: 10903
+  test_steps:
+  - description: "Start the warm up phase\n\n        Actively monitor that all critical\
+      \ components are safe\n        If any component needs to be protected, adjust\
+      \ the parameters and/or pause/stop the warm up phase\n\n        It is allowed\
+      \ to adjust the control parameters during warm up.\n\n        For the first\
+      \ warm up, the heaters on thermal dummies shall simulate the maximum heat dissipation\
+      \ as per\_\_.\n        For subsequent cycles with thermal dummies, it might\
+      \ be more relevant to simulate realistic heat dissipation, to be assessed case\
+      \ by case.\n\n        Detailed review of the warm up phase shall be performed\
+      \ afterward (including comparison with simulation) to identify any potential\
+      \ improvement in terms of warm up time and power consumption.\n        If needed,\
+      \ mechanical changes (more or less coupling in particular) can be implemented\
+      \ next time the CRY is to be opened."
+    expectedResult: "Thermal rate and Temperature in line with requirements\n    \
+      \    DET | Not coldest point\n        Thermal rate lower than 1K/min (CRY excluded)\n\
+      \n        Heaters power consumption"
+    step: Temperature during warm up
+  - description: "Test performed only with thermal dummies\n\n        Timing and most\
+      \ relevant heaters to be selected based on simulation, not all scenario expected\
+      \ to be tested\n\nSwitch off one heater to simulate its failure\nActively monitor\
+      \ that all critical components are safe, if approaching the limit, switch on\
+      \ the heater again, test will be repeated later once the effect is well understood\n\
+      Wait for the agreed duration\nSwitch the heater on again\nContinue active monitoring\n\
+      \n"
+    expectedResult: "Thermal rate and Temperature in line with requirements\n    \
+      \    DET | Not coldest point\n        Thermal rate lower than 1K/min (CRY excluded)"
+    step: Heater Failure Simulation
+  title: THE_Temperature Warm Up
+- ait_id: 370
+  aiv_date: '2026-02-01'
+  aiv_description: AIV Cold Instrument verification CD
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_ifu_adi_cgrph: 5
+    metis_ifu_distortion: 5
+    metis_ifu_rsrf: 5
+    metis_ifu_sci_postprocess: 5
+    metis_ifu_sci_process: 5
+    metis_ifu_std_process: 5
+    metis_ifu_tellcorr: 5
+    metis_ifu_wavecal: 5
+    metis_img_adi_cgrph: 5
+    metis_img_chophome: 5
+    metis_lm_adc_slitloss: 5
+    metis_lm_adi_app: 5
+    metis_lm_img_background: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_calibrate: 5
+    metis_lm_img_distortion: 5
+    metis_lm_img_flat: 5
+    metis_lm_img_sci_postprocess: 5
+    metis_lm_img_std_process: 5
+    metis_lm_lss_mf_calctrans: 5
+    metis_lm_lss_mf_correct: 5
+    metis_lm_lss_mf_model: 5
+    metis_lm_lss_rsrf: 5
+    metis_lm_lss_sci: 5
+    metis_lm_lss_std: 5
+    metis_lm_lss_trace: 5
+    metis_lm_lss_wave: 5
+    metis_n_adc_slitloss: 5
+    metis_n_img_calibrate: 5
+    metis_n_img_chopnod: 5
+    metis_n_img_distortion: 5
+    metis_n_img_flat: 5
+    metis_n_img_restore: 5
+    metis_n_img_std_process: 5
+    metis_n_lss_mf_calctrans: 5
+    metis_n_lss_mf_correct: 5
+    metis_n_lss_mf_model: 5
+    metis_n_lss_rsrf: 5
+    metis_n_lss_sci: 5
+    metis_n_lss_std: 5
+    metis_n_lss_trace: 5
+    metis_pupil_imaging: 5
+  polarion_id: 9802
+  test_steps:
+  - description: "1abcdef)\n          - Collect coronagraphic data in all coronagraphic\
+      \ modes and with all three imagers with the telescope simulator given a diffraction\
+      \ limited point source.\n          - process coronagraphic data with pipeline\
+      \ and check HCI data products for completeness \n\n"
+    expectedResult: "1a) Completed run of ADI pipeline for realistic HCI data. \n\
+      \          1bcdef) HCI Data products consistent with design. \n"
+    step: "Scheduled with  and  \n\n          1a \_\_ \n          1b \_\n        \
+      \  1c \_\n          1d \_\n          1e  \n          1f  \n\n"
+  - description: "2a)\n- Use WCU source with different aperture sizes and exposure\
+      \ times for all instruments to generate linearity data with various illumination\
+      \ levels. \n            - process linearity datasets with pipeline.\n      \
+      \    2b)\n- Collect darks with all three instruments in a cold state with optical\
+      \ path blocked. \n            - Process with pipeline recipes to return master\
+      \ darks."
+    expectedResult: "2a) Linearity parameters consistent with requirements.\n    \
+      \        2b) Master darks with QC parameters consistent with detector requirements\
+      \ and manufacturer specs.\n"
+    step: "Scheduled with  \n\n          2a \n          2b \_\n"
+  - description: "3a)\n- Reduce a dataset through the interactive data reduction system\
+      \ \n            - Validate interactivity\n          3b)\n- Collect data with\
+      \ IMG and IFU \n            - Process data with pipeline \n            - Check\
+      \ that the data products have errors for the relevant parameters\n         \
+      \   - Cross-check errors and SNR with the ETC predictions.\n          3c)\n\
+      - Collect raw data with IFU and IMG \n            - process data with pipeline\
+      \ recipes \n            - verify that the input files used for the recipe is\
+      \ propagated to the header of the reduced data products.\n          3d)\n- Collect\
+      \ raw data with IMG or IFU - Reduce data with pipeline \n            - Verify\
+      \ that the reduced data products contain QC parameters in header generated by\
+      \ the recipe following the design\n            3e)\n            - Use pipeline\
+      \ with data directly received from ICS and verify data is correctly received\n\
+      \            3f) \n            - Take data in several instrument modes and process\
+      \ the data with the interactive data reduction system\n            3g)\n   \
+      \         - Take data in several instrument modes and process the data with\
+      \ the pipeline.\n            3h)\n            - Take data in several instrument\
+      \ modes.\n            - Verify if reduced data products product by the instrument\
+      \ conform to the ESO DICD standard"
+    expectedResult: "3a)\nData reduction through interactive data reduction system\
+      \ via Esoreflex or successor\n            3b)\n            Data products from\
+      \ reduction contain propagated errors for relevant parameters. Estimates are\
+      \ consistent with ETC.\n            3c)\n            Dataproducts with headers\
+      \ that record the files needed for as input for the recipe\n            3d)\n\
+      \            Dataproducts with headers that record QC parameters produced by\
+      \ the recipes\n            3e)\n            Data is passed from ICS to pipeline\
+      \ with proper headers and data extensions.\n            3f) \n            Success\
+      \ if data reduction produces data on reasonable time scale.\n            3g)\
+      \ \n            Success if data reduction produces data on reasonable time scale.\n\
+      \            3h) \n            Success if passing quality check\n"
+    step: "Dedicated PIP tests\n\n          3a  \n          3b  \n          3c  \n\
+      \          3d\_ \n          3e\_ \n          3f \_\n          3g \_\n      \
+      \    3h \_\n\n"
+  - description: "4abcdefgh)\n- Execute template for instrument mode with point source\
+      \ from WCU. \n            - Process data received from ICS with pipeline recipe\
+      \ \n            - Check produced data products against design."
+    expectedResult: '4abcdefgh)
+
+      Collection of data products, based on real data, that match the design'
+    step: "Scheduled with  \n\n          4a  \n          4b  \n          4c  \n  \
+      \        4d  \n          4e  \n          4f  \n          4g  \n          4h\
+      \  \n"
+  - description: "5ab)\n          - Execute calibration template with WCU illuminating\
+      \ the field at a non-saturated level. \n          - Process data with pipeline.\
+      \ \n          - Verify data product with design."
+    expectedResult: "5ab) \n            Flat field data product and QC parameters\
+      \ following design.\n"
+    step: "Scheduled with  \n\n          5a  \n          5b  "
+  - description: "6) \n- Use the laser sources to inject light at various positions\
+      \ in the field (and wavelength range) \n            - Reduce collected data\
+      \ with recipe \n            - Check that spectral resolution can be determined\n"
+    expectedResult: "6) \n          Spectral resolution can be determined with the\
+      \ pipeline at various field and wavelength positions"
+    step: "Scheduled with  and  \n\n          6  \n"
+  - description: "7a)\n- Insert the pinhole grid into the beam and collect images\
+      \ with the IMG. \n            - Reduce collected data with pipeline to retrieve\
+      \ plate solution parameters\n7b)\n- Apply dedistortion recipe to a second set\
+      \ of pinhole images. - Check dedistorted images\n          7c)\n- Collect a\
+      \ series of images with various scenes (reserve some as \"dataset to be corrected\"\
+      ) \n            - Ingest series of historical data into the ESO system to produce\
+      \ correction map for persistence for subset of the data.\n          - check\
+      \ if persistence is diminished\n          7d)\n- Use the WCU to step a broadband\
+      \ point source along the slit, measure for each field position. \n         \
+      \   - Reduce collection of data with slit loss recipe.\n          7e)\n- Collect\
+      \ WCU data with various aperture positions and aperture sizes (similar to RSRF\
+      \ tests). \n            - Reduce images and correct with default RSRF approach.\
+      \ \n            - Check fringe residuals. \n          7f) \n- In case the skyfiber\
+      \ is available during AIV: collect data with the sky fiber collecting flux from\
+      \ the sky. \n            - Process data with the pipeline to fit and correct\
+      \ tellurics \n            - Verify telluric features have been corrected. \n\
+      \            If sky fiber is not available this test needs to be deferred to\
+      \ commissioning.\n          7g)\n- Take data with the LSS with laser lines at\
+      \ known frequency or alternatively use the sky fiber if available \n       \
+      \     - process data with the pipeline \n            - verify the accuracy of\
+      \ the retrieved wavelengths with the input settings\n          7h)\n- Use WCU\
+      \ to collect two datasets of a broadband source with known brightness and spectrum.\
+      \ \n            - Use one set together with pipeline to construct the RSRF.\
+      \ \n            - Use the pipeline together with the other set and the RSRF\
+      \ to correct its curve. \n            - Inspect resulting spectrum. Should be\
+      \ flat."
+    expectedResult: "7a)\nA plate solution based on the reduced pinhole grid measurements\n\
+      \            7b)\n            Dataproduct with undistorted rectilinear grid\
+      \ of points\n          7c)\nDataproducts with persistence corrected\n      \
+      \      7d)\n            Wavelength and slit position dependent model consistent\
+      \ with the measured PSF dependence on wavelength and known slit widths.\n  \
+      \          7e)\n            Fringes corrected below the level of the requirements\
+      \ (1%), showing a spectrum that is similar to a spatially averaged spectrum.\
+      \ If test fails, custom code resorting to FFT or sine-fitting is required.\n\
+      \            7f)\n            A dataset showing the spectrum of the sky with\
+      \ the telluric absorption bands corrected.\n            7g)\n            RMS\
+      \ of residuals of wavelength solution within the requirements\n            7h)\n\
+      \            A flat spectrum within the required tolerance."
+    step: "Scheduled with  and  \n\n          7a\_ \n          7b\_ \n          7c\
+      \  \n          7d  \n          7e  \n          7f  \n          7g  \n      \
+      \    7h  \n\n\n"
+  - description: "8a)\n- Insert the pinhole grid into the beam and collect images\
+      \ with the IFU. \n          - Reduce collected data with pipeline to retrieve\
+      \ plate solution parameters\n        8b)\n- Apply dedistortion recipe to a second\
+      \ set of pinhole images. - Check dedistorted images\n          8c)\n       \
+      \   - Collect a series of images with various scenes (reserve some as \"dataset\
+      \ to be corrected\") \n          - Ingest series of historical data into the\
+      \ ESO system to produce correction map for persistence for subset of the data.\n\
+      \          8d)\n          - Use the WCU to step a broadband point source along\
+      \ the slit, measure for each field position. \n          - Reduce collection\
+      \ of data with slit loss recipe.\n          8e) \n          - Collect WCU data\
+      \ with various aperture positions and aperture sizes (similar to RSRF tests).\
+      \ \n          - Reduce images and correct with default RSRF approach. \n   \
+      \       - Check fringe residuals.\n          8f)\n          - In case the skyfiber\
+      \ is available during AIV: collect data with the sky fiber collecting flux from\
+      \ the sky. \n          - Process data with the pipeline to fit and correct tellurics\
+      \ \n          - Verify telluric features have been corrected. \n          If\
+      \ sky fiber is not available this test needs to be deferred to commissioning.\
+      \ \n        8g)\n- Take data with the LSS with laser lines at known frequency\
+      \ or alternatively with the sky fiber if available \n          - process data\
+      \ with the pipeline \n          - verify the accuracy of the retrieved wavelengths\
+      \ with the input settings\n        8h)\n- Use WCU to collect two datasets of\
+      \ a broadband source with known brightness and spectrum. \n          - Use one\
+      \ set together with pipeline to construct the RSRF. \n          - Use the pipeline\
+      \ together with the other set and the RSRF to correct its curve. \n        \
+      \  - Inspect flatness of resulting spectrum."
+    expectedResult: "8a)\nA plate solution based on the reduced pinhole grid measurements\n\
+      \          8b)\n          Dataproduct with undistorted rectilinear grid of points\n\
+      \          8c)\n          Dataproducts with persistence corrected\n        \
+      \  8d)\n          Wavelength and slit position dependent model consistent with\
+      \ the measured PSF dependence on wavelength and known slit widths.\n       \
+      \   8e)\n          Fringes corrected below the level of the requirements (1%),\
+      \ showing a spectrum that is similar to a spatially averaged spectrum. If test\
+      \ fails custom code resorting to FFT or sine-fitting is required.\n        \
+      \  8f)\n          A dataset showing the spectrum of the sky with the telluric\
+      \ absorption bands corrected.\n          8g)\n          RMS of residuals of\
+      \ wavelength solution within the requirements\n          8h)\n          A flat\
+      \ spectrum within the required tolerance.\n"
+    step: "Scheduled with  \n\n        8a  \n        8b  \n        8c  \n        8d\
+      \  \n        8e  \n        8f  \n        8g  \n        8h  \n\n\n"
+  - description: "9a)\n- Use the WCU to image a point source and a scene without a\
+      \ point source \n          - reduce the image pair as an on and off-target image\
+      \ to remove the instrumental background \n          - verify background subtraction\n\
+      \        9b)\n- Use the WCU and move its aperture to produce multiple images\
+      \ with the source moved by a small amount (effectively a dither) \n        \
+      \  - reduce the images with the pipeline \n          - verify the background\
+      \ is removed\n        9c)\n- When the telescope simulator and SCA is installed\
+      \ use it to produce a chopped sequence of images \n          - Reduce sequence\
+      \ with pipeline to estimate and remove background"
+    expectedResult: '9abc)
+
+      Images with background removed to within requirement
+
+      '
+    step: "Scheduled with  \n\n        9a  \n        9b  \n        9c  \n\n"
+  - description: "10)\n\n- Use the parallel observing mode IFU + IMG_LM to collect\
+      \ data at the maximum burst rate. \n          - Feed the data into the pipeline\
+      \ \n          - Verify that the pipeline can handle this rate continously."
+    expectedResult: '10)
+
+
+      Pipeline can keep up with the incoming datastream'
+    step: "Scheduled with \_ \n        (logical extension of the data rate test written\
+      \ therein)\n\n        10  \n\n"
+  - description: "11)\n\n- Fully load DRS workstation with CPU stress tester. If necessary\
+      \ apply a realistic load with simulated data products - Measure power in the\
+      \ equipment rack with clamp power meter\n          - Verify it doesn't exceed\
+      \ requirements"
+    expectedResult: '11)
+
+
+      Power consumption on average <=420 Watt (24h), peak consumption <=600 watt'
+    step: "Already part of  \n\n        11  \n\n"
+  - description: "12abc) \n- Collect data with IMG_N,IMG_LM, IFU resp. \n        \
+      \  - Reduce data with pipeline \n          - inspect masked region of image\
+      \ for remaining artefacts\n          12d)\n          - Use WCU and if necessary\
+      \ external light sources to produce a light source with a inter-order background\
+      \ in collected IFU data \n          - Reduce data with recipe. \n          -\
+      \ Inspect reduced data products for remaining stray light\n"
+    expectedResult: "12abc)\nDataproducts with corrected detector artefacts where\
+      \ the masked area is flat, indicating a succesful correction\n            12d)\n\
+      \            IFU data with inter-order light below requirement level.\n"
+    step: "Scheduled with  \n\n        12a  \n        12b  \n        12c  \n     \
+      \   12d  \n\n"
+  - description: "13)\n- Collect raw data with IMG or IFU \n          - Verify the\
+      \ data contains AO telemetry in the header \n          - Reduce data with pipeline\
+      \ \n          - Verify the reduced data products contains AO telemetry in header\
+      \ inherited from raw data"
+    expectedResult: '13)
+
+      Reduced data with AO telemetry in header inherited from raw data'
+    step: "Scheduled with  \n\n        13  \n\n"
+  - description: "14a)\n          - Collect raw data with IMG or IFU \n          -\
+      \ Verify the data contains Auxiliary parameters in the header - Reduce data\
+      \ with pipeline \n          - Verify the reduced data products contain auxiliary\
+      \ parameters in header inherited from raw data\n          14b)\n          -\
+      \ Collect raw data from ICS. \n          - Process with pipeline \n        \
+      \  - Verify that the raw data and reduced data have the expected format and\
+      \ fits keywords"
+    expectedResult: "14a)\nDataproducts with headers that record Auxiliary parameters\
+      \ inherited from raw data / ICS\n        14b)\nDataproducts with format and\
+      \ fits format matching the design"
+    step: "Scheduled with \n\n        14a  \n        14b  \n\n"
+  - description: "15\n          - Execute template for instrument mode with point\
+      \ source from WCU.\n          - Process data from ICS with pipeline recipe \n\
+      \          - Check spectral resolution of LSS\n"
+    expectedResult: '15
+
+      Functioning low resolution slit spectroscopy mode reaching R=300, evident from
+      spectral data products and QC parameters'
+    step: "Scheduled with  \n\n        15  \n"
+  title: PIP_Data reduction library
+- ait_id: 350
+  aiv_date: '2026-09-01'
+  aiv_description: IMG Cold Alignment
+  comments: ''
+  pip_recipes:
+    metis_det_dark: 5
+    metis_det_lingain: 5
+    metis_det_persistence: 5
+    metis_lm_img_basic_reduce: 5
+    metis_lm_img_flat: 5
+  polarion_id: 10753
+  test_steps:
+  - description: "Select multi-point source in WCU #6. Select IMG. Step chopper in\
+      \ (X,Y) in # steps over full range (either circle with cross, or square with\
+      \ cross, depending on combined X/Y-range). Take exposures. Analyze relative\
+      \ positions of points. Compute (X,Y) versus commanded position.\_"
+    expectedResult: "Look-up table of the absolute chopper position and evaluation\
+      \ of maximum chopper range.\_"
+    step: Chopper position calibration and range
+  - description: "Run sequence of chop operations at maximum nominal chop throw (+/-5\
+      \ arcsec) at nominal maximum chop frequency. Take exposures. Determine positions\
+      \ and tracks.\_"
+    expectedResult: "Spot is stable at end positions. Spot reaches maximum chop throw.\_"
+    step: Chopper maximum chop range at operational frequency
+  - description: "Run sequence of chop throw amplitudes and durations, see\_\_.\_\
+      \ Run sequence up to 5Hz.\_"
+    expectedResult: Meets requirements. (Remko is lazy today, exact table TBD)
+    step: "Chopper repeatability\_"
+  - description: Run chopper at maximum frame rate between two positions. Run detector
+      in windowing mode at maximum rate. Determine position at rate of 1 kHz to ensure
+      that the 10 ms settling time has been achieved.
+    expectedResult: "Settling time is shorter than 10 ms.\_"
+    step: Chopper movement time
+  - description: Run chop sequence with pre-defined time-varying offset. Determine
+      positions. Compare positions with set offset.
+    expectedResult: "Offset positions match preset positions.\_"
+    step: Chopper Tip/Tilt Offset Functionality
+  title: OPT_Stability/repeatability - Chopper

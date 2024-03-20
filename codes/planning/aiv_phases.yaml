@@ -1,0 +1,75 @@
+Phases :
+  - id : "010"
+    date : 2025-03-01
+    name : AIV start
+    comments : PIP HW and first version of SW needs to be ready
+    polarion_items : []
+    pip_needs :
+      - Connect PIP HW up to METIS
+      - install PIP SW according to AIV-010 tag (v0.1)
+      - verify that we can talk to DB where AIV data is stored
+    pip_recipes : []
+
+  - id : "320"
+    date : 2026-01-01
+    name : DET-LMS Integration
+    comments : ""
+    pip_needs : ""
+    polarion_items : []
+    pip_recipes : []
+
+  - id : "330"
+    date : 2026-03-01
+    name : LMS Cold Functional Test 1
+    comments : First time that DET and LMS are mated and cooled down
+    pip_needs : ""
+    polarion_items : [9750, 9800, 10750, 10751, 10752, 10753]
+    pip_recipes : []
+
+  - id : "350"
+    date : 2026-02-01
+    name : LMS Alignment Test 1
+    comments : ""
+    pip_needs : ""
+    polarion_items : []
+    pip_recipes : []
+
+  - id : "370"
+    date : 2026-02-01
+    name : LMS instrumentation verification run
+    comments : "Full semi-diffraction limited operations"
+    pip_needs : ""
+    polarion_items : [9794, 9795, 9796, 9798, 9799, 10530, 10531, 10532, 10913]
+    pip_recipes : []
+
+  - id: "290"
+    date: 2026-06-01
+    name: "IMG System Integration"
+    comments: ""
+    pip_needs: ""
+    polarion_items: []
+    pip_recipes: [ ]
+
+  - id: "335"
+    date: 2026-09-01
+    name: "IMG Cold Functional Test"
+    comments: "Verification IMG is working, and also alignment of masks"
+    pip_needs: ""
+    polarion_items: []
+    pip_recipes: [ ]
+
+  - id: "490"
+    date: 2026-10-01
+    name: "Instrument verification E"
+    comments: "Do all and every (system) AIV test imaginable - not science verification"
+    pip_needs: "Functionality that enables the sys-int tests. Error propogation and scientific accuracy is not top priority. HCI tests must be done here, as this is the last chance for interventions"
+    polarion_items: [9746, 9749, 9752, 9755, 9756, 9761, 9762, 9767, 9770, 9778, 9779, 9780, 9787, 9790, 9791, 9793, 9794, 9799, 10531, 10532, 10749, 10754, 10758, 10921]
+    pip_recipes: []
+
+  - id: "640"
+    date: 2027-10-01
+    name: "Cold PAE Instrument testing"
+    comments:
+    pip_needs: "Everything. PIP Finished and ready for delivery"
+    polarion_items: []
+    pip_recipes: [all]
