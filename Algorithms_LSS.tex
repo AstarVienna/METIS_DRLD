@@ -33,11 +33,11 @@ The wavelength calibration (i.e. the pixel-to-wavelength relation) of the \ac{LS
 
 %-----------------------------------------------------------------------------------------
 \subsubsection{Flux calibration / AO-induced slitlosses}\label{ssec:aoslitloss}
-Similar to the MICAD instrument, we expect significant slit losses induced by the broad wings of the \ac{PSF}. In order get a first estimate we created a set of simulated \ac{SCAO}-PSFs with \texttt{AnisoCado}\footnote{\url{https://anisocado.readthedocs.io/en/latest/}} incorporating three different turbulence profiles, the EsoMedian profile reflecting median conditions (seeing=0.67", $30^\circ$ zenith distance, wind speed 10\,m/s), and EsoQ1 and EsoQ4 representing the first (i.e. best) quartile of observing conditions (seeing=0.4", $0^\circ$ zenith distance, wind speed 8.8\,m/s), and the fourth (worst) quartile observing conditions  (seeing=1.0", $60^\circ$ zenith distance, wind speed 13\,m/s), respectively. As additional parameter, the distance to the natural guide star was varied between 0 and $20"\times20"$ with respect to the target position (cf. Fig.~\ref{fig:ngsoffsets}). The PSFs were calculated in the $L$, $M$, and $N$-bands with a wavelength step of 0.1$\mu$m,  each with $2048\times2048$ pixels
+Similar to the MICAD instrument, we expect significant slit losses induced by the broad wings of the \ac{PSF}. In order get a first estimate we created a set of simulated \ac{SCAO}-PSFs with \texttt{AnisoCado}\footnote{\url{https://anisocado.readthedocs.io/en/latest/}} incorporating three different turbulence profiles, the EsoMedian profile reflecting median conditions (seeing=0.67", $30^\circ$ zenith distance, wind speed 10\,m/s), and EsoQ1 and EsoQ4 representing the first (i.e. best) quartile of observing conditions (seeing=0.4", $0^\circ$ zenith distance, wind speed 8.8\,m/s), and the fourth (worst) quartile observing conditions  (seeing=1.0", $60^\circ$ zenith distance, wind speed 13\,m/s), respectively. As additional parameter, the distance to the natural guide star was varied between 0 and $20"\times20"$ with respect to the target position (cf. Fig.~\ref{fig:ngsoffsets}). The PSFs were calculated for individual wavelengths covering the entire $L$, $M$, and $N$-bands with a wavelength step of 0.1$\mu$m, each with $2048\times2048$ pixels.
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.4\linewidth]{fig/LSS_CrtAlg_files/ngs_offsets.pdf}
+  \includegraphics[width=0.4\linewidth]{figures/LSS_CrtAlg_files/ngs_offsets.pdf}
   \caption{Sketch of the used \ac{NGS} offsets with respect to the science target and the slits}
   \label{fig:ngsoffsets}
 \end{figure}
