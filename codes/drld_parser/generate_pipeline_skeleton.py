@@ -12,6 +12,11 @@ from astropy.io import fits
 from data_reduction_library_design import METIS_DataReductionLibraryDesign
 
 PATH_SKELETON = Path(__file__).parent.parent.parent / "skeleton"
+PATH_SKELETON.mkdir(parents=True, exist_ok=True)
+
+PATH_SKELETON_DATA = PATH_SKELETON / "data"
+PATH_SKELETON_DATA.mkdir(parents=True, exist_ok=True)
+
 
 def generate_mock_raw(dataitem):
     """Generate a mock raw dataitem."""
@@ -31,6 +36,7 @@ def generate_mock_raw(dataitem):
     ])
     filename = f"{dataitem.name}.fits"
     hdulist.writeto(PATH_SKELETON / "data" / filename, overwrite=True)
+
 
 dataitems_raw = [
     di
@@ -73,11 +79,10 @@ recipe_{recipe.name} = generate_recipe(
     catg_input="{main_input.do_catg}",
     catg_output="{main_output.do_catg}",
 )
-"""
-    )
+""")
 
 with open(PATH_SKELETON / "pycpl_recipes_skeleton.py", "w", encoding="utf-8") as f:
-    #f.write("from .generate_recipe import generate_recipe\n")
+    # f.write("from .generate_recipe import generate_recipe\n")
     for line in lines_recipes:
         f.write(line)
 
