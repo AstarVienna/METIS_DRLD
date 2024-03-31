@@ -35,6 +35,7 @@ def generate_recipe(
             # The recipe will have no parameters
             self.parameters = ui.ParameterList(())
 
+
         def run(self, frameset: ui.FrameSet, settings: Dict[str, Any]) -> ui.FrameSet:
             # input
             raw_frames = ui.FrameSet()

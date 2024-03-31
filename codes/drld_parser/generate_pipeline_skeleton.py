@@ -60,7 +60,12 @@ recipe_{recipe.name} = generate_recipe(
 """)
 
     with open(PATH_SKELETON / "pycpl_recipes_skeleton.py", "w", encoding="utf-8") as f:
-        # f.write("from .generate_recipe import generate_recipe\n")
+        f.write('''"""
+DO NOT EDIT, THIS FILE IS GENERATED!
+
+These are auto-generated PyCPL skeleton recipes. They do not work!
+"""''')
+        f.write("from generate_recipe import generate_recipe\n")
         for line in lines_recipes:
             f.write(line)
 
@@ -162,7 +167,13 @@ def generate_workflow(dataitems_raw):
     sraws = "\n".join(lines_raw)
     stasks = "\n".join(lines_tasks)
 
-    swkf = f"""
+    swkf = f'''"""
+DO NOT EDIT, THIS FILE IS GENERATED!
+
+This is a draft EDPS workflow generated automatically from the DRLD.
+It does not work!
+"""
+
 from edps import SCIENCE, QC1_CALIB, QC0, CALCHECKER
 from edps import task, ReportInput
 from edps import data_source
@@ -188,7 +199,7 @@ mjd_obs = "mjd-obs"
 
 {stasks}
 
-"""
+'''
 
     with open(PATH_SKELETON / "metis_wkf.py", "w", encoding="utf-8") as f:
         f.write(swkf)
