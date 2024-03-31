@@ -66,7 +66,7 @@ recipe_{recipe.name} = generate_recipe(
 
 
 def get_primary_recipe_for_demo(dataitem):
-    "Prefer the LM one for simplicity"
+    """Prefer the LM one for simplicity"""
     if len(dataitem.created_by) == 1:
         return dataitem.created_by[0]
 
@@ -91,14 +91,18 @@ def get_recipes_lower():
 def generate_workflow(dataitems_raw):
     # Finally the workflow.
     lines_raw_class = [
-        f"{di.name.lower()}_class = classification_rule('{di.name}', {{dpr_catg: '{di.dpr_catg}', dpr_tech: '{di.dpr_tech}', dpr_type: '{di.dpr_type}'}})"
+        (
+            f"{di.name.lower()}_class = classification_rule("
+            f"'{di.name}', {{dpr_catg: '{di.dpr_catg}', dpr_tech: '{di.dpr_tech}', dpr_type: '{di.dpr_type}'}})"
+        )
         for di in dataitems_raw
     ]
 
     # lines_master =
     # TODO: We don't know which of the processed data is CALIB
 
-    lines_raw = [f"""
+    lines_raw = [
+        f"""
 {di.name.lower()} = (data_source()
     .with_classification_rule({di.name.lower()}_class)
     .build())
@@ -124,40 +128,27 @@ def generate_workflow(dataitems_raw):
         key=functools.cmp_to_key(compare),
     )
 
-
     dataitems_graph = {
         di.name: [dii.name for dii in recipe.input_data]
         for di, recipe in dataitems_prod_recipe_ok
     }
 
-
     ts = TopologicalSorter(dataitems_graph)
 
     dataitems_topo_sorted = tuple(ts.static_order())
 
-
-
-    #for dataitem, recipe in dataitems_prod_recipe_ok:
     for dataitem_name in dataitems_topo_sorted:
         if dataitem_name not in dataitems_names_ok:
             continue
         dataitem = METIS_DataReductionLibraryDesign.dataitems[dataitem_name]
         recipe = recipes_lower[get_primary_recipe_for_demo(dataitem).name.lower()]
 
-        #recipe_ref = dataitem.created_by[0]
-        #recipe = recipes_lower[recipe_ref.name.lower()]
         main_input, *other_input = [
             METIS_DataReductionLibraryDesign.dataitems[dataitemref.name]
             for dataitemref in recipe.input_data
             if dataitemref.name
         ]
-        main_output, *other_output = [
-            METIS_DataReductionLibraryDesign.dataitems[dataitemref.name]
-            for dataitemref in recipe.output_data
-            if dataitemref.name
-        ]
 
-    #{dataitem.name.lower()}_task = (task('{dataitem.name}')
         line_task = f"""
 {dataitem.name.lower()} = (task('{dataitem.name}')
     .with_recipe('{recipe.name}')
@@ -166,7 +157,6 @@ def generate_workflow(dataitems_raw):
     .build())
 """
         lines_tasks.append(line_task)
-
 
     srawclasss = "\n".join(lines_raw_class)
     sraws = "\n".join(lines_raw)
@@ -204,7 +194,6 @@ mjd_obs = "mjd-obs"
         f.write(swkf)
 
 
-
 @functools.cache
 def get_full_input(dataitem_name):
     """Trace the full input."""
@@ -228,8 +217,9 @@ def get_full_input(dataitem_name):
         some_input += get_full_input(di)
     return some_input
 
-# Need to sort the dataitems topologically
+
 def compare(left, right):
+    """Check whether one dataitem is in the dependency graph of another."""
     di_left, recipe_left = left
     di_right, recipe_right = right
     if di_left.name in get_full_input(di_right.name):
@@ -239,14 +229,13 @@ def compare(left, right):
     return 0
     
 
-
 def main():
     dataitems_raw = [
         di
         for di in METIS_DataReductionLibraryDesign.dataitems.values()
         # E.g. GAIN_MAP_det, then GAIN_MAP_GEO is also there.
         if di.name == di.name.upper()
-           and di.dtype == "RAW"
+        and di.dtype == "RAW"
     ]
 
     for dataitem in dataitems_raw:
