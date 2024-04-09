@@ -110,6 +110,18 @@ However, since the determination of this pattern relies on observations previous
 Therefore, the avoidance of persistence, i.e. a sophisticated planning / persistence management should be one of the major goals for the planning of the observations and the operational concept.
 In case a persistence correction is required, a subtraction of a persistence map (\EXTCALIB{PERSISTENCE_MAP}) is foreseen in any individual recipe. This map is created by the recipe \REC{metis_det_persistence} (cf. Section~\ref{rec:metis_det_persistence}) , which is carried out by \ac{ESO} and relies on the algorithm provided by \ac{ESO}.
 
+% TODO: We are considering including a persistence correction step in the flat
+% and dark recipes anyway, as the code should not actually perform any
+% correction if it detect that no persistence is present and that correcting
+% it would only add noise. Nevertheless, for now we keep that out of the DRLD
+% to close our FDR Action Items with the least effort. We can add that
+% mostly redundant persistence correction step later if we desire.
+% See https://github.com/AstarVienna/METIS_DRLD/issues/229
+
+Calibration data where the flux is controlled (e.g. dark and flat) should not
+be affected by persistence. No persistence correction step is therefore
+included in those recipes.
+
 %\TODO{Will have access to a HDRL function from ESO.
 %The interface is TBD.
 %Subtraction of persistence image as determined by ESO.
