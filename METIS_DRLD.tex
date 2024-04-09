@@ -294,7 +294,10 @@ Felix Bettonvil}
   \lhead{\small\sffamily
     \begin{tabularx}{\textwidth}{Xlll}
       \ifshowgit
-      \shorttitle & \docnumber & GIT \ \gitVer & \gitdate\\[0.7ex]
+      % Just use "DRLD" here as name, because the gitVer and gitdate
+      % take up quite some space. Add "METIS" because we will often
+      % use just a few pages of the document to clear a RIX/AI.
+      METIS DRLD & \docnumber & GIT \gitVer & \gitdate\\[0.7ex]
       \else
       \shorttitle & \docnumber & \issuenumber & \issuedate\\[0.7ex]
       \fi
