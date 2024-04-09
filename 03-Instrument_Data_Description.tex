@@ -449,6 +449,18 @@ SCIDATA = 'IFU1.SCI'         / Name of corresponding science extension
 ERRDATA = 'IFU1.ERR'         / Name of corresponding uncertainty extension
 \end{verbatim}
 
+
+\subsubsection{Handling the 32-bit Data Quality Masks}
+\label{sssec:metisimageformat}
+
+
+As described above, each processed image will have three extensions per detector; DATA (the pixel data), ERROR (the uncertainty), and QUALITY (32-bit mask indicating bad pixels). The QUALITY extension can contain multiple bad pixel flags, depending on why and when the pixels were flagged.  A single HDRL image is not sufficient to contain this information, as the HDRL image only has a 1-bit data quality mask. Therefore, at the function level, each processed image will be represented by an HDRL image containing the pixel data and uncertainty, plus a CPL iamge containing the 32-bit mask. Inside the function, the relevent bad pixel data will be copied to and from the HDRL image 1-bit mask, as appropriate, to take advantage of the built-in HDRL functions for noise propagation and consideration of bad pixels.
+
+In the function descriptions of Section\ref{sec:drl_functions}, we have therefore used  metis\_image and metis\_image\_list instead of hdrl\_image and hdrl\_image\_list, to indicate that the function inputs and outputs will not be a single hdrl\_image. A metis\_image will consist of an hdrl\_image and a cpl\_image, as described above.
+
+
+
+
 % TODO: Describe exceptions like non-linearity
 
 

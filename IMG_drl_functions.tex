@@ -15,13 +15,13 @@ Purpose: &Remove detector signals\\
 Used in recipes: & \REC{metis_lm_img_basic_reduce}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &  \texttt{hdrl\_image *input} \\
-       &  \texttt{const hdrl\_image *dark} (\PROD{MASTER_DARK_det})\\
-       &  \texttt{const hdrl\_image *flat}  (\PROD{MASTER_IMG_FLAT_LAMP_LM}, \PROD{MASTER_IMG_FLAT_LAMP_N}, \PROD{MASTER_IMG_FLAT_TWILIGHT_LM}, \PROD{MASTER_IMG_FLAT_TWILIGHT_N})\\
+Input: &  \texttt{metis\_image *input} \\
+       &  \texttt{const metis\_image *dark} (\PROD{MASTER_DARK_det})\\
+       &  \texttt{const metis\_image *flat}  (\PROD{MASTER_IMG_FLAT_LAMP_LM}, \PROD{MASTER_IMG_FLAT_LAMP_N}, \PROD{MASTER_IMG_FLAT_TWILIGHT_LM}, \PROD{MASTER_IMG_FLAT_TWILIGHT_N})\\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\https://www.overleaf.com/project/5f1abb4137d7690001f8aeb1
-Outputs: & \texttt{hdrl\_image *output} (Detrended Images) \\
+Outputs: & \texttt{metis\_image *output} (Detrended Images) \\
                 & \texttt{cpl\_error\_code} \\
 General description: & De-trending the raw image \\
 Mathematical description: & See Section~\ref{rec:metis_lm_img_basic_reduce} \\
@@ -38,14 +38,14 @@ Purpose: & Building thermal background signals\\
 Used in recipes: & \REC{metis_lm_img_background}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &  \texttt{hdrl\_imagelist *input} \\
+Input: &  \texttt{metis\_imagelist *input} \\
         %& \texttt{const ls\_skybackground\_image} \\
         %\texttt{const ls\_master_dark_image *input} \\
     %\texttt{const ls\_master_flat_image *input} \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
-Outputs: & \texttt{const hdrl\_image *sky} (\PROD{LM_SCI_BKG}, \PROD{LM_STD_BKG}) \\
+Outputs: & \texttt{const metis\_image *sky} (\PROD{LM_SCI_BKG}, \PROD{LM_STD_BKG}) \\
                 & \texttt{cpl\_error\_code} \\
 General description: & Removing sky backround from images \\
 Mathematical description: & See Section~\ref{rec:metis_lm_img_background} \\
@@ -62,14 +62,14 @@ Purpose: & Remove sky background signals\\
 Used in recipes: & \REC{metis_lm_img_background}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{hdrl\_image *input} \\
-       & \texttt{const hdrl\_image *sky} (\PROD{LM_SCI_BKG}, \PROD{LM_STD_BKG})\\
+Input: & \texttt{metis\_image *input} \\
+       & \texttt{const metis\_image *sky} (\PROD{LM_SCI_BKG}, \PROD{LM_STD_BKG})\\
      %\texttt{const ls\_master_dark_image *input} \\
     %\texttt{const ls\_master_flat_image *input} \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
-Outputs: & \texttt{hdrl\_image *output} (sky subtracted image) \\
+Outputs: & \texttt{metis\_image *output} (sky subtracted image) \\
                 & \texttt{cpl\_error\_code} \\
 General description: & Removing sky backround from images \\
 Mathematical description: & See Section~\ref{rec:metis_lm_img_background} \\
@@ -161,13 +161,13 @@ Purpose: & Create master flat field for the LM-band imaging detector\\
 Used in recipes: & \REC{metis_lm_img_flat}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{hdrl\_imagelist *input} \\
+Input: & \texttt{metis\_imagelist *input} \\
 Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
 & parameters for combination method\\
 %&  \PROD{BADPIX_MAP_2RG}   \\
 QC outputs: & QC LM MFLAT RMS\\
 %Output FITS files: & None \\
-Outputs: &  \texttt{hdrl\_image *flat} (\PROD{MASTER_IMG_FLAT_LAMP_LM}, \PROD{MASTER_IMG_FLAT_TWILIGHT_LM}) \\
+Outputs: &  \texttt{metis\_image *flat} (\PROD{MASTER_IMG_FLAT_LAMP_LM}, \PROD{MASTER_IMG_FLAT_TWILIGHT_LM}) \\
          & \texttt{cpl\_error\_code} \\
 General description: & Determination of master flat for flat fielding \\
 Mathematical description: & Combine images with the same DIT, fit slope of pixels against illumination level \\
@@ -183,13 +183,13 @@ Purpose: & Create master flat field for the N-band imaging detector\\
 Used in recipes: & \REC{metis_n_img_flat}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{hdrl\_imagelist *input} \\
+Input: & \texttt{metis\_imagelist *input} \\
 Other inputs: &  combination method (\texttt{median}, \texttt{mean}, \texttt{sigclip},\dots)\\
 & parameters for combination method\\
 %&  \PROD{BADPIX_MAP_GEO}   \\
 QC outputs: & QC N MFLAT RMS\\
 %Output FITS files: & None \\
-Outputs: &  \texttt{hdrl\_image *flat} (\PROD{MASTER_IMG_FLAT_LAMP_N}, \PROD{MASTER_IMG_FLAT_TWILIGHT_N}) \\
+Outputs: &  \texttt{metis\_image *flat} (\PROD{MASTER_IMG_FLAT_LAMP_N}, \PROD{MASTER_IMG_FLAT_TWILIGHT_N}) \\
          & \texttt{cpl\_error\_code} \\
 General description: & Determination of master flat for flat fielding \\
 Mathematical description: & Combine images with the same DIT, fit slope of pixels against illumination level \\
@@ -206,13 +206,13 @@ Purpose: & Flag deviant pixels in the LM master flat and update the image mask\\
 Used in recipes: & \REC{metis_lm_img_flat}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image *input} \\
+Input: & \texttt{const metis\_image *input} \\
 & Threshold(s) for deviant pixel detection\\
 QC outputs: & QC LM FLAT NBADPIX\\
             & QC LM FLAT MEAN\\
             & QC LM FLAT RMS\\
 %Output FITS files: & None \\
-Outputs:         &  \texttt{hdrl\_image *mask} (updated mask for flat field image) \\
+Outputs:         &  \texttt{metis\_image *mask} (updated mask for flat field image) \\
                  & \texttt{cpl\_error\_code} \\
 General description: &  Flag deviant pixels in master flat \\
 Mathematical description: & flag pixels outside the provided threshold(s) \\
@@ -228,13 +228,13 @@ Purpose: & Flag deviant pixels in the N master flat and update the image mask\\
 Used in recipes: & \REC{metis_n_img_flat}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & flat \texttt{const hdrl\_image *input} \\
+Input: & flat \texttt{const metis\_image *input} \\
 Other Inputs: & Threshold(s) for deviant pixel detection\\
 QC outputs: & QC N FLAT NBADPIX\\
             & QC N FLAT MEAN\\
             & QC N FLAT RMS\\
 %Output FITS files: & None \\
-Outputs:         &  \texttt{hdrl\_image *mask} (updated mask for flat field image) \\
+Outputs:         &  \texttt{metis\_image *mask} (updated mask for flat field image) \\
                  & \texttt{cpl\_error\_code} \\
 General description: &  Flag deviant pixels in master flat \\
 Mathematical description: & flag pixels outside the provided threshold(s) \\
@@ -273,11 +273,11 @@ Purpose: & Determine the non-linearity coefficients. \\
 Used in recipes: & \REC{metis_det_lingain}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &  \texttt{hdrl\_imagelist *input} (Dark corrected non-linearity raws) \\
+Input: &  \texttt{metis\_imagelist *input} (Dark corrected non-linearity raws) \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
-Outputs: &  \texttt{hdrl\_image *linearity} (\PROD{LINEARITY_det}) \\
+Outputs: &  \texttt{metis\_image *linearity} (\PROD{LINEARITY_det}) \\
                & \texttt{cpl\_error\_code} \\
 General description: & Determine the non-linearity coefficients. \\
 Mathematical description: & low-order polynomial fit of the individual pixel values as function of the illumination intensity\\
@@ -293,7 +293,7 @@ Purpose: & Calculate LM band flux and position of standard star in detector unit
 Used in recipes: & \REC{metis_lm_img_std_process}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &  \texttt{const hdrl\_image *input} \\
+Input: &  \texttt{const metis\_image *input} \\
 %Other inputs: & photometric standard catalogue \\
 QC outputs: & \QC{QC LM IMG STD BACKGD RMS}\\
             & \QC{QC LM STD PEAK CNTS}\\
@@ -318,7 +318,7 @@ Purpose: & Calculate N band flux and position of standard star in detector units
 Used in recipes: & \REC{metis_n_img_std_process}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image *input} \\
+Input: & \texttt{const metis\_image *input} \\
 %Other inputs: & photometric standard catalogue \\
 QC outputs: & \QC{QC N IMG STD BACKGD RMS}\\
             & \QC{QC N STD PEAK CNTS}\\
@@ -391,7 +391,7 @@ Purpose: & Calculate Detection Limits \\
 Used in recipes: & \REC{metis_lm_img_std_process}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &  \texttt{const hdrl\_image *input} \\
+Input: &  \texttt{const metis\_image *input} \\
 Other Inputs: & \texttt{const cpl\_table *fluxcal} (\PROD{FLUXCAL_TAB}) \\
 QC outputs: & QC det LM SENSITIVITY\\
             & QC det LM AREA SENSITIVITY\\
@@ -416,7 +416,7 @@ Used in recipes: & \REC{metis_img_chophome}\newline
 \REC{metis_n_adc_slitloss}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &  \texttt{hdrl\_imagelist *input} \\
+Input: &  \texttt{metis\_imagelist *input} \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
@@ -437,12 +437,12 @@ Purpose: & Calculate the conversion between instrumental and physical flux units
 Used in recipes: & \REC{metis_lm_img_calibrate}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &  \texttt{hdrl\_image *input} \\
+Input: &  \texttt{metis\_image *input} \\
        & \texttt{const cpl\_table *fluxcal} (\PROD{FLUXCAL_TAB}) \\
 Other inputs: & None \\
 QC outputs: & None\\
 %Output FITS files: & \PROD{LM_STD_COMBINED} \\
-Outputs: &  \texttt{hdrl\_image *output} (image in physical flux units) \\
+Outputs: &  \texttt{metis\_image *output} (image in physical flux units) \\
 General description: & Convert instrumental flux to ph/s \\
 Mathematical description: & See Section~\ref{sssec:lm_img_calibrate} \\
 Quality assessment: & Through QC parameters \\
@@ -459,10 +459,10 @@ Purpose: & Update the FITS header with calibration data (WCS, distortion, units)
 Used in recipes: & \REC{metis_lm_img_calibrate}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &  \texttt{hdrl\_image *input} \\
+Input: &  \texttt{metis\_image *input} \\
        &  \texttt{const cpl\_table *disttab} (\PROD{LM_DISTORTION_TABLE})\\
 QC outputs: & None \\
-Outputs: & \texttt{hdrl\_image *output} (updated header for image) \\
+Outputs: & \texttt{metis\_image *output} (updated header for image) \\
          & \texttt{cpl\_error\_code} \\
 General description: & Add disortion, WCS and BUNIT information to FITS header \\
 Mathematical description: & See Section~\ref{sssec:lm_img_calibrate} \\
@@ -479,12 +479,12 @@ Purpose: & Calculate the conversion between instrumental and physical flux units
 Used in recipes: & \REC{metis_n_img_calibrate}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &  \texttt{hdrl\_image *input} \\
+Input: &  \texttt{metis\_image *input} \\
        & \texttt{cpl\_table *fluxcal} (\PROD{FLUXCAL_TAB}) \\
 Other inputs: & None \\
 QC outputs: & None\\
 %Output FITS files: & \PROD{N_STD_COMBINED} \\
-Outputs: &  \texttt{hdrl\_image *output} (image in physical flux units)\\
+Outputs: &  \texttt{metis\_image *output} (image in physical flux units)\\
          &\texttt{cpl\_error\_code} \\
 General description: & Convert instrumental flux to ph/s \\
 Mathematical description: & See Section~\ref{sssec:n_img_calibrate} \\
@@ -502,10 +502,10 @@ Purpose: & Update the FITS header with calibration data (WCS, distortion, units)
 Used in recipes: & \REC{metis_n_img_calibrate}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &    \texttt{hdrl\_image *input} \\
+Input: &    \texttt{metis\_image *input} \\
        &  \texttt{const cpl\_table *disttab} (\PROD{N_DISTORTION_TABLE})\\
 QC outputs: & None \\
-Output FITS files: & \texttt{hdrl\_image *output} (updated header for image)\\
+Output FITS files: & \texttt{metis\_image *output} (updated header for image)\\
 Outputs: & \texttt{cpl\_error\_code} \\
 General description: & Add disortion and BUNIT information to FITS header \\
 Mathematical description: & See Section~\ref{sssec:n_img_calibrate} \\
@@ -529,7 +529,7 @@ Input: &    \texttt{const hdrl\_catalogue\_result *input} (catalogue of input so
 QC outputs: & \QC{QC LM DISTORT RMS} or \QC{QC N DISTORT RMS}  \\
             & \QC{QC LM DISTORT NSOURCE} or \QC{QC N DISTORT NSOURCE} \\
 Outputs:    & \texttt{cpl\_table *dist} (\PROD{det_DIST_REDUCED})\\
-            &  \texttt{hdrl\_image *distmap}  (\PROD{det_DISTORTION_MAP})\\
+            &  \texttt{metis\_image *distmap}  (\PROD{det_DISTORTION_MAP})\\
             &   \texttt{cpl\_table *disttab} \PROD{det_DISTORTION_TABLE} \\
             & \texttt{cpl\_error\_code} \\
 General description: &  Fit optical distortion coefficients based on pinhole mask image \\
@@ -547,10 +547,10 @@ Purpose: & Cutout a region around a beam in N band image  \\
 Used in recipes: & \REC{metis_n_img_restore}\\
 %Working remarks: & None \\
 Function Parameters: & Size of cutout region \\
-Input: &   \texttt{hdrl\_image *input} \\
+Input: &   \texttt{metis\_image *input} \\
 QC outputs: None \\
 %Output FITS files:\PROD{N_SCI_RESTORED} \\
-Outputs:  & \texttt{hdrl\_image *output} (image cutout) \\
+Outputs:  & \texttt{metis\_image *output} (image cutout) \\
           & \texttt{cpl\_error\_code} \\
 %Outputs:  &  \PROD{det_DISTORTION_TABLE} \\
 %          & \texttt{cpl\_error\_code} \\
