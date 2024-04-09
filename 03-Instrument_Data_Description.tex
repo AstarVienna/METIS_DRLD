@@ -278,7 +278,15 @@ Both templates move the target position between exposures, using the
 internal chopper or the telescope. At a given position a number of
 exposures with DIT/NDIT are taken. Depending on the setting of the
 template parameter \FITS*{DET CUBE MODE} all the DITs may be stored as
-layers of a 3D cube (burst mode) or co-added into a 2D image.
+layers of a 3D cube or, by default, co-added into a 2D image.
+% NOTE by HB: There wase some confusion about the term 'burst mode', because
+% it usually means that the detector is read out as fast as possible. The IFU
+% mode will by default average according to the data rates document
+% (E-LIS-NOVA-MET-1161) so I've added that this is the default.
+% The data rates document is not entirely clear about the length of
+% individual DITs; it seems to be 40 ms, which is slower than burst mode, so
+% I've simply removed the term from this sentence.
+% See https://github.com/AstarVienna/METIS_DRLD/issues/217
 
 As the IFU contains an array of four detectors, there will be four
 image or cube extensions in the FITS file for one exposure.
