@@ -61,7 +61,7 @@ N & 7.5 & 10.5 & 13.5 & 6.665 &$13.225\arcsec\times13.225\arcsec$ & D & 57.1   &
 
 
 
-Fig.~\ref{fig:scaopsfslits} shows as example the \ac{PSF} for the EsoMedian turbulence profile at $4.20\mu$m for an \ac{NGS}-distance of 0\arcsec  (i.e. the best case when the science target star can be used as guide star) with the three slits. The flux losses were calculated as the fraction of the unity \ac{PSF} outside the slit area. The resulting slitlosses for the entire photometric bands for all slits are shown in Fig.~\ref{fig:slitlosses}. As expected, the slit losses are highest for the smallest slit A in the blue end of the $L$-band, when the \ac{NGS} guide star is at the most distant location (nearly 75 per cent). The upper panel row of Fig.~\ref{fig:AL_psf_overview} shows the Strehl ratio (as calculated by \texttt{AnisoCado}), and the slit losses / slit fluxes (i.e. the flux inside the slit = 1 - slitloss) for this slit/band combination as function of five \ac{NGS} guide star distances for the EsoMedian turbulence profile. In order to estimate the errors on that we calculated the same for the EsoQ1 and EsoQ4 profiles, as this is the major source of uncertainty. The results can be seen in the lower panel row of Fig.~\ref{fig:AL_psf_overview} for the two extreme \ac{NGS} distances $0\times0\arcsec$ and $20\times20\arcsec$. Fig.~\ref{fig:EN_psf_overview} shows the same as in Fig.~\ref{fig:AL_psf_overview}, but for the slit E / $N$-band combination.
+Fig.~\ref{fig:scaopsfslits} shows as example the \ac{PSF} for the EsoMedian turbulence profile at $4.20\mu$m for an \ac{NGS}-distance of 0\arcsec  (i.e. the best case when the science target star can be used as guide star) with the three slits. The flux losses were calculated as the fraction of the unity \ac{PSF} outside the slit area. The resulting slitlosses for the entire photometric bands for all slits are shown in Fig.~\ref{fig:slitlosses}. As expected, the slit losses are highest for the smallest slit A in the blue end of the $L$-band, when the \ac{NGS} guide star is at the most distant location (nearly 75 per cent). %The upper panel row of Fig.~\ref{fig:AL_psf_overview} shows the Strehl ratio (as calculated by \texttt{AnisoCado}), and the slit losses / slit fluxes (i.e. the flux inside the slit = 1 - slitloss) for this slit/band combination as function of five \ac{NGS} guide star distances for the EsoMedian turbulence profile. In order to estimate the errors on that we calculated the same for the EsoQ1 and EsoQ4 profiles, as this is the major source of uncertainty. The results can be seen in the lower panel row of Fig.~\ref{fig:AL_psf_overview} for the two extreme \ac{NGS} distances $0\times0\arcsec$ and $20\times20\arcsec$. Fig.~\ref{fig:EN_psf_overview} shows the same as in Fig.~\ref{fig:AL_psf_overview}, but for the slit E / $N$-band combination.
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.5\linewidth]{figures/LSS_CrtAlg_files/ngs_offsets.pdf}
@@ -86,24 +86,29 @@ Fig.~\ref{fig:scaopsfslits} shows as example the \ac{PSF} for the EsoMedian turb
   \label{fig:slitlosses}
 \end{figure}
 \end{landscape}
+As there is no \ac{PSF} reconstruction foreseen, we assume the following approaches to compensate the slitlosses:
+\begin{itemize}
+    \item In case of a point sources as science target: We try to estimate the shape of the \ac{PSF} by measuring the flux dist along the slit (similar 
+\end{itemize}
 
-\begin{landscape}
-\begin{figure}[ht!]
-  \centering
-  \includegraphics[width=1.0\linewidth]{figures/LSS_CrtAlg_files/SCAO_psf_prop_A_L_ALL.pdf}
-  \caption{TBD}
-  \label{fig:AL_psf_overview}
-\end{figure}
-\end{landscape}
 
-\begin{landscape}
-\begin{figure}[ht!]
-  \centering
-  \includegraphics[width=1.0\linewidth]{figures/LSS_CrtAlg_files/SCAO_psf_prop_E_N_ALL.pdf}
-  \caption{Same as in Fig.~\ref{fig:AL_psf_overview} but for slit E and the $N$-band.}
-  \label{fig:EN_psf_overview}
-\end{figure}
-\end{landscape}
+%\begin{landscape}
+%\begin{figure}[ht!]
+%  \centering
+%  \includegraphics[width=1.0\linewidth]{figures/LSS_CrtAlg_files/SCAO_psf_prop_A_L_ALL.pdf}
+%  \caption{TBD}
+%  \label{fig:AL_psf_overview}
+%\end{figure}
+%\end{landscape}
+
+%\begin{landscape}
+%\begin{figure}[ht!]
+%  \centering
+%  \includegraphics[width=1.0\linewidth]{figures/LSS_CrtAlg_files/SCAO_psf_prop_E_N_ALL.pdf}
+%  \caption{Same as in Fig.~\ref{fig:AL_psf_overview} but for slit E and the $N$-band.}
+%  \label{fig:EN_psf_overview}
+%\end{figure}
+%\end{landscape}
 
 %\paragraph{Spectral resolving power}
 %We first estimate the spectral resolving power of the \ac{LSS} mode for the different slits incorporated in the spectrograph. More fancy text to follow \textit{Maybe that part should go somewhere else....?}\cite{METIS-system_analysis}
