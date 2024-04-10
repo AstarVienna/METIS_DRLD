@@ -86,9 +86,10 @@ Fig.~\ref{fig:scaopsfslits} shows as example the \ac{PSF} for the EsoMedian turb
   \label{fig:slitlosses}
 \end{figure}
 \end{landscape}
-As there is no \ac{PSF} reconstruction foreseen, we assume the following approaches to compensate the slitlosses:
+For the flux loss compensation one needs to determine the slitloss functions (shown in Fig.~\ref{fig:slitlosses}). This can be done in the same way as described above As there is no \ac{PSF} reconstruction foreseen, we assume the following approaches to compensate the slitlosses:
 \begin{itemize}
-    \item In case of a point sources as science target: We try to estimate the shape of the \ac{PSF} by measuring the flux distribution along the slit (wi 
+    \item We use \ac{SCAO}-\ac{PSF} simulation tools like \texttt{Anisocado} / \texttt{Toptip} to either create a database of \ac{PSF}s for various conditions, or incorporate these tools directly to calculate appropriate Point Spread Functions by means of available meteorological data
+    \item In case of a point sources as science target: We try to estimate the shape of the \ac{PSF} by measuring the flux distribution along the slit (which should have a similar pattern as shown in Fig.~\ref{fig:scaopsfslits}c) )
 \end{itemize}
 
 
