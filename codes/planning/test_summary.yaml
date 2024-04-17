@@ -12,7 +12,7 @@
   test_steps:
   - description: "Set mask with many point sources in WCU. Take exposure sequence\
       \ while accelerating with maximum acceleration to maximum rotation speed. Decrease\
-      \ again with maximum deceleration. Analyze position of point sources as a function\
+      \ again with maxim-um deceleration. Analyze position of point sources as a function\
       \ of time. Determine velocities and acceleration. Determine absolute positions\
       \ and jitter in position. Measure at different starting rotation angles to ensure\
       \ there is no preferred orientation. Define a worst-case scenario for a 15 minute\
