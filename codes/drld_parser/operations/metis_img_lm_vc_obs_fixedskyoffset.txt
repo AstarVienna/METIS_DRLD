@@ -15,7 +15,7 @@ Start science exposures|
   * Every ~10 minutes a sky and an off-axis PSF measurement are taken (needed for the QACITS):
     * The chopper is used to move the star outside of the detector field-of-view (throw ~5 arcsec), and record empty sky measurements (N_SKY exposures are taken with the same DIT/NDIT combination as the science measurements).
     * Insert the ND filter (if necessary for the off-axis PSF measurement) and take N_SKY sky measurements with the same DIT/NDIT combination as for the off-axis PSF measurement. 
-    * The chopper is used to move the star back into the VPM field-of-view (~3 arcsec diameter), at a separation of more than 20λ/D from the VPM centre. An unsaturated exposure is obtained, using an ND filter if needed.  
+    * The chopper is used to move the star back into the VPM field-of-view (~3 arcsec diameter), at a separation of more than 20λ/D from the VPM centre. An unsaturated exposure is obtained, using an ND filter if needed. The user can specify the offset value for the off-axis PSF measurement, or stick to the default value (to be optimized during commissioning).
     * Put the star back onto the VPM center (within about ~1λ/D) using the chopper. Remove the ND filter.
     * Close the QACITS loop.
   * Read-out and save individual exposures, or co-added frames, depending on the ''cube mode'' T/F keyword.
@@ -56,6 +56,8 @@ End science exposures|
 |SEQ OFFSET COORDS     |no         |SKY DETECTOR (SKY)    |Offset coordinate type selection|
 |SEQ SKYOFFSET ALPHA   |no         |0..TBD (10)                |RA offset to sky|
 |SEQ SKYOFFSET DELTA   |no         |0..TBD (10)                |DEC offset to sky|
+|SEQ PSFOFFSET ALPHA   |no         |0..TBD (TBD)                |RA offset to PSF reference position|
+|SEQ PSFOFFSET DELTA   |no         |0..TBD (TBD)                |DEC offset to PSF reference position|
 |SEQ POISSON           |yes        |1..100 (10)                |Random throw generator
 |SEQ RETURN            |no         |T F (T)                    |Return to origin?|
 |SEQ CFO CHOP POSANG       |yes        |0..360 (0)             |Chopper position angle|
