@@ -156,9 +156,10 @@ Legend:
     date = ,
     label = qchealthmonitoringexample,
 }
+\clearpage
 
 
-\subsubsection{QC NCPA PEAK2VAL}\label{qc:qc_ncpa_peak2val}
+\subsubsection{QC NCPA PEAK2VAL}\label{qchealth:qc_ncpa_peak2val}\label{qc:qc_ncpa_peak2val}
 \qchealthtable{
     name = Peak to valley value of static NCPA between SCAO and IMG,
     qcname = \QC{QC NCPA PEAK2VAL},
@@ -181,3 +182,155 @@ Legend:
     components = Raw FITS header and Processed FITS header,
     date = 2024/02/07,
 }
+\clearpage
+
+\subsubsection{QC DARK MEDIAN}\label{qchealth:qc_dark_median}
+\qchealthtable{
+    name = Median level of the dark frame,
+    qcname = \QC{QC DARK MEDIAN},
+    paramname = \CODE{dark_median},
+    kpi = ,
+    conditions = Shutters+filters closed,
+    perform_def_max = TBD based in Calibration Error Budget allocation and trade-offs with other contributors,
+    perform_def_nom = TBD,
+    perform_def_min = TBD,
+    perform_num_max = TBD during AIT (0.1\% accuracy spec\, \cite{DRLVT}),
+    perform_num_nom = TBD,
+    perform_num_min = 0,
+    calib_def = TBD based in Calibration Error Budget allocation and trade-offs with other contributors,
+    calib_def_max = TBD,
+    calib_def_nom = TBD,
+    calib_def_min = 0,
+    alrogithm = See \REC{metis_det_dark},
+    template = \TPL{METIS_gen_cal_dark}\, \TPL{METIS_gen_cal_InsDark},
+    recipe = \REC{metis_det_dark},
+    components = N/A,
+    date = 2024/04/19,
+}
+\clearpage
+
+\subsubsection{QC LIN GAIN MEAN}\label{qchealth:qc_lin_gain_mean}
+\qchealthtable{
+    name = Mean value of the gain,
+    qcname = \QC{QC LIN GAIN MEAN},
+    paramname = \CODE{gain},
+    kpi = ,
+    conditions = WCU BB on and stabilized\, varying integrating sphere apertures,
+    perform_def_max = TBD based in Calibration Error Budget allocation and trade-offs with other contributors,
+    perform_def_nom = TBD,
+    perform_def_min = TBD,
+    perform_num_max = TBD during AIT (0.8\% accuracy spec\, \cite{DRLVT}),
+    perform_num_nom = TBD,
+    perform_num_min = 0,
+    calib_def = TBD based in Calibration Error Budget allocation and trade-offs with other contributors,
+    calib_def_max = TBD,
+    calib_def_nom = TBD,
+    calib_def_min = 0,
+    alrogithm = See \REC{metis_det_lingain},
+    template = \TPL{METIS_img_lm_cal_DetLin}\, \TPL{METIS_img_n_cal_DetLin}\, \TPL{METIS_ifu_cal_DetLin},
+    recipe = \REC{metis_det_lingain},
+    components = N/A,
+    date = 2024/04/19,
+}
+\clearpage
+
+\subsubsection{QC LM MTFLAT MEDIAN}\label{qchealth:qc_lm_mtflat_median}
+\qchealthtable{
+    name = Median level of the master twilight flat,
+    qcname = \QC{QC LM MTFLAT MEDIAN},
+    paramname = \CODE{lm_twilight_flat_median},
+    kpi = ,
+    conditions = Aligned ELT pupil\, thus morning twilight flats mandatory,
+    perform_def_max = TBD based in Calibration Error Budget allocation and trade-offs with other contributors,
+    perform_def_nom = TBD,
+    perform_def_min = TBD,
+    perform_num_max = TBD during AIT (0.5\% accuracy spec on overall illumination\, 0.3\% on pixel-to-pixel uncertainty\, \cite{DRLVT}),
+    perform_num_nom = TBD,
+    perform_num_min = 0,
+    calib_def = TBD based in Calibration Error Budget allocation and trade-offs with other contributors,
+    calib_def_max = TBD,
+    calib_def_nom = TBD,
+    calib_def_min = 0,
+    alrogithm = See \REC{metis_lm_img_flat},
+    template = \TPL{METIS_img_lm_cal_TwilightFlat},
+    recipe = \REC{metis_lm_img_flat},
+    components = N/A,
+    date = 2024/04/19,
+}
+\clearpage
+
+\subsubsection{QC LM MLFLAT MEDIAN}\label{qchealth:qc_lm_mlflat_median}
+\qchealthtable{
+    name = Median level of the master lamp flat,
+    qcname = \QC{QC LM MLFLAT MEDIAN},
+    paramname = \CODE{lm_lamp_flat_median},
+    kpi = ,
+    conditions = WCU BB on and stabilized,
+    perform_def_max = TBD based in Calibration Error Budget allocation and trade-offs with other contributors,
+    perform_def_nom = TBD,
+    perform_def_min = TBD,
+    perform_num_max = TBD during AIT (0.5\% accuracy spec on overall illumination\, 0.3\% on pixel-to-pixel uncertainty\, \cite{DRLVT}),
+    perform_num_nom = TBD,
+    perform_num_min = 0,
+    calib_def = TBD based in Calibration Error Budget allocation and trade-offs with other contributors,
+    calib_def_max = TBD,
+    calib_def_nom = TBD,
+    calib_def_min = 0,
+    alrogithm = See \REC{metis_lm_img_flat},
+    template = \TPL{METIS_img_lm_cal_InternalFlat},
+    recipe = \REC{metis_lm_img_flat},
+    components = N/A,
+    date = 2024/04/19,
+}
+\clearpage
+
+\subsubsection{QC N MTFLAT MEDIAN}\label{qchealth:qc_n_mtflat_median}
+\qchealthtable{
+    name = Median level of the master twilight flat,
+    qcname = \QC{QC N MTFLAT MEDIAN},
+    paramname = \CODE{n_twilight_flat_median},
+    kpi = ,
+    conditions = Aligned ELT pupil\, thus morning twilight flats mandatory,
+    perform_def_max = TBD based in Calibration Error Budget allocation and trade-offs with other contributors,
+    perform_def_nom = TBD,
+    perform_def_min = TBD,
+    perform_num_max = TBD during AIT (0.5\% accuracy spec on overall illumination\, 0.3\% on pixel-to-pixel uncertainty\, \cite{DRLVT}),
+    perform_num_nom = TBD,
+    perform_num_min = 0,
+    calib_def = TBD based in Calibration Error Budget allocation and trade-offs with other contributors,
+    calib_def_max = TBD,
+    calib_def_nom = TBD,
+    calib_def_min = 0,
+    alrogithm = See \REC{metis_n_img_flat},
+    template = \TPL{METIS_img_n_cal_TwilightFlat},
+    recipe = \REC{metis_n_img_flat},
+    components = N/A,
+    date = 2024/04/19,
+}
+\clearpage
+
+\subsubsection{QC N MLFLAT MEDIAN}\label{qchealth:qc_n_mlflat_median}
+\qchealthtable{
+    name = Median level of the master lamp flat,
+    qcname = \QC{QC N MLFLAT MEDIAN},
+    paramname = \CODE{n_lamp_flat_median},
+    kpi = ,
+    conditions = WCU BB on and stabilized,
+    perform_def_nom = TBD,
+    perform_def_min = TBD,
+    perform_num_max = TBD during AIT (0.5\% accuracy spec on overall illumination\, 0.3\% on pixel-to-pixel uncertainty\, \cite{DRLVT}),
+    perform_num_nom = TBD,
+    perform_num_min = 0,
+    calib_def = TBD based in Calibration Error Budget allocation and trade-offs with other contributors,
+    calib_def_max = TBD,
+    calib_def_nom = TBD,
+    calib_def_min = 0,
+    alrogithm = See \REC{metis_n_img_flat},
+    template = \TPL{METIS_img_v_cal_InternalFlat},
+    recipe = \REC{metis_n_img_flat},
+    components = N/A,
+    date = 2024/04/19,
+}
+\clearpage
+
+
