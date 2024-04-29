@@ -16,7 +16,7 @@ QC outputs: & QC DARK MEAN\\
 & QC DARK MEDIAN\\
 & QC DARK RMS\\
 %Output FITS files: & None \\
-Outputs: & \texttt{hdrl\_image *dark} (\PROD{MASTER_DARK_det})\\
+Outputs: & \texttt{metis\_image *dark} (\PROD{MASTER_DARK_det})\\
                & \texttt{cpl\_error\_code} \\
 General description: & Determination of dark frames for subtraction of dark current \\
 Mathematical description: & Median or mean of input images, with sigma clipping \\
@@ -32,13 +32,13 @@ Purpose: & Flag deviant (hot, cold, bad) pixels in the master dark and update th
 Used in recipes: & \REC{metis_det_dark}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{hdrl\_image *input} \\ 
+Input: & \texttt{metis\_image *input} \\ 
 Other inputs: & Threshold(s) for deviant pixel detection \\
 QC outputs: & QC DARK NHOTPIX\\
 & QC DARK NCOLDPIX \\
 & QC DARK NBADPIX \\
 %Output FITS files: & None \\
-Outputs: & \texttt{hdrl\_image *input} (Updated dark frame mask)\\
+Outputs: & \texttt{metis\_image *input} (Updated dark frame mask)\\
                & \texttt{cpl\_error\_code} \\
 General description: & Flag deviant (hot/cold/bad) pixels in master dark \\
 Mathematical description: & flag pixels outside the provided thresholds \\
@@ -54,11 +54,11 @@ Purpose: & Correction for detector non-linearity\\
 Used in recipes: & \REC{metis_lm_img_basic_reduce}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{hdrl\_imagelist *input} \\
+Input: & \texttt{metis\_imagelist *input} \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
-Outputs: & \texttt{hdrl\_imagelist *output}  (Images corrected for non-linearity)\\
+Outputs: & \texttt{metis\_imagelist *output}  (Images corrected for non-linearity)\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Correction of detector non-linearity \\
 Mathematical description: & See Section~\ref{rec:metis_det_lingain} \\
@@ -74,11 +74,11 @@ Purpose: & Correction for detector crosstalk\\
 Used in recipes: & \REC{metis_lm_img_basic_reduce}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{hdrl\_imagelist *input} \\
+Input: & \texttt{metis\_imagelist *input} \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
-Outputs: &  \texttt{hdrl\_imagelist *output} (Images corrected for cross-talk)\\
+Outputs: &  \texttt{metis\_imagelist *output} (Images corrected for cross-talk)\\
                 & \texttt{cpl\_error\_code} \\
 General description: & Correction of detector crosstalk \\
 Mathematical description: & See Section~\ref{rec:metis_lm_img_basic_reduce} \\
@@ -95,11 +95,11 @@ Purpose: & Apply the persistence correction to raw images\\
 Used in recipes: & \REC{metis_lm_img_flat}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{hdrl\_imagelist *input} \\
+Input: & \texttt{metis\_imagelist *input} \\
 Other inputs: & \PROD{PERSISTENCE_MAP} \\
 QC outputs:   & \QC{QC PERSIST COUNT} \\
 %Output FITS files: & None \\
-Outputs: &  \texttt{hdrl\_imagelist *output} (Images corrected for persistence)\\
+Outputs: &  \texttt{metis\_imagelist *output} (Images corrected for persistence)\\
          & \texttt{cpl\_error\_code} \\
 General description: & Persistence correction of raw images \\
 Mathematical description: & see Section~\ref{sec_persistence_correction} \\

@@ -14,11 +14,11 @@ Used in recipes: & \REC{metis_LM_lss_rsrf}\\
                  & \REC{metis_N_lss_sci}  \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{hdrl\_imagelist *input} \\
+Input: & \texttt{metis\_imagelist *input} \\
 %Other inputs: & None \\
 %QC outputs: & None\\
 %Output FITS files: & None \\
-Output: &  \texttt{hdrl\_imagelist *input} (images corrected for order background contamination) \\
+Output: &  \texttt{metis\_imagelist *input} (images corrected for order background contamination) \\
         & \texttt{cpl\_error\_code} \\
 General description: & Removal of stray light by a 2D-polynomial fits of the order background \\
 Mathematical description: & see Section~\ref{ssec:orderbg} \\
@@ -39,11 +39,11 @@ Used in recipes: & \REC{metis_LM_lss_rsrf} \\
 & \REC{metis_n_adc_slitloss} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image *input} \\
+Input: & \texttt{const metis\_image *input} \\
 Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Output:  & \texttt{const hdrl\_image *input} (images wiht WCU off frame subtracted) \\
+Output:  & \texttt{const metis\_image *input} (images wiht WCU off frame subtracted) \\
          & \texttt{cpl\_error\_code} \\
 General description: & Subtracts a WCU-OFF frame from an WCU image \\
 Mathematical description: &  see~\cite{pis02} and~\cite{pis21}\\
@@ -82,12 +82,12 @@ Used in recipes: & \REC{metis_LM_lss_rsrf} \\
 & \REC{metis_N_lss_rsrf} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image *input} \\
-       & \texttt{const hdrl\_image *rsrf} (\PROD{LM_LSS_RSRF_RAW} , \PROD{N_LSS_RSRF_RAW})\\
+Input: & \texttt{const metis\_image *input} \\
+       & \texttt{const metis\_image *rsrf} (\PROD{LM_LSS_RSRF_RAW} , \PROD{N_LSS_RSRF_RAW})\\
 %Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Output:  & \texttt{const hdrl\_image *input} (normalized flat field)\\
+Output:  & \texttt{const metis\_image *input} (normalized flat field)\\
          & \texttt{cpl\_error\_code} \\
 General description: & Creates normalised \ac{RSRF} \\
 Mathematical description: &  see~\cite{pis02} and~\cite{pis21}\\
@@ -145,10 +145,10 @@ Used in recipes: & \REC{metis_LM_lss_trace} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\
-Inputs: & \texttt{const hdrl\_image *input}\\
+Inputs: & \texttt{const metis\_image *input}\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Output:  & \texttt{const hdrl\_image *input} (flat-fielded image) \\
+Output:  & \texttt{const metis\_image *input} (flat-fielded image) \\
          & \texttt{cpl\_error\_code} \\
 General description: & Normal flatfield process for correcting pixel-to-pixel sensitivities \\
 Mathematical description: & Division by \PROD{MASTER_LM_LSS_RSRF} or  \PROD{MASTER_N_LSS_RSRF}, respectively \\
@@ -221,11 +221,11 @@ Used in recipes: & \REC{metis_LM_lss_std} \\
 & \REC{metis_N_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{hdrl\_image *input} \\
+Input: & \texttt{metis\_image *input} \\
 %Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
-Outputs: &  \texttt{hdrl\_image *output} (background subtracted image) \\
+Outputs: &  \texttt{metis\_image *output} (background subtracted image) \\
          &  \texttt{cpl\_error\_code} \\
 General description: & Removes the sky emission background (nodding/chop-nodding technique) \\
 Mathematical description: &  see~\cite{METIS-operational_concept}, Section 1.4\\
@@ -246,7 +246,7 @@ Used in recipes: & \REC{metis_LM_lss_wave} \\
 & \REC{metis_N_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image *input} \\
+Input: & \texttt{const metis\_image *input} \\
 %Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
@@ -271,7 +271,7 @@ Used in recipes: & \REC{metis_LM_lss_wave} \\
 & \REC{metis_N_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: & \texttt{const hdrl\_image *input} \\
+Input: & \texttt{const metis\_image *input} \\
 %Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
@@ -295,8 +295,8 @@ Used in recipes: & \REC{metis_LM_lss_std} \\
                  & \REC{metis_N_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
-Input: &  \texttt{const hdrl\_image *input} \\
-       &  \texttt{const hdrl\_image *background}\\
+Input: &  \texttt{const metis\_image *input} \\
+       &  \texttt{const metis\_image *background}\\
 %Other inputs: & None\\
 %QC outputs: & None \\
 %Output FITS files: & None \\
