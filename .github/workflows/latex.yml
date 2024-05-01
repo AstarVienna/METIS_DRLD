@@ -21,6 +21,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: METIS_DRLD.tex
+          docker_image: ghcr.io/xu-cheng/texlive-full:20240401
           latexmk_shell_escape: true
           pre_compile: |
             apk --no-cache add git
