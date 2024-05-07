@@ -900,7 +900,7 @@ def test_associationmatrices_input():
     check_associationmatrices(check_input=True, ignore_nonlinearity=False)
 
 
-@pytest.mark.xfail(reason="Some input is still missing from association matrices.")
+# @pytest.mark.xfail(reason="Some input is still missing from association matrices.")
 def test_associationmatrices_input_ignore_nonlin():
     """Test to also check whether all the recipe input is present in the matrix
 
