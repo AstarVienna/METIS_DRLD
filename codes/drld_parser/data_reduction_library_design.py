@@ -1041,6 +1041,7 @@ class DataReductionLibraryDesign:
         not_templates = [
             "METIS_IMAGE",
             "METIS_CUBE",
+            "metis_imagelist",
         ] + [
             # These are still mentioned in filenames and such.
             "metis_ifu_sci_postprocess",
