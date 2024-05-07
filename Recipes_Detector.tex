@@ -52,7 +52,7 @@ show \ac{ELFN}, hence gain determination is probably possible.
 
 The set of calibration frames used for this recipes will include
 exposures with WCU window closed (\CODE{LAMP OFF}), which will be used
-as `dark' frames that captur thermal emission within the
+as `dark' frames that capture thermal emission within the
 instrument. This is subtracted from all other exposures in the
 sequence.
 
@@ -69,15 +69,16 @@ This satisfies \REQ{METIS-5997}.
                        & \TPL{METIS_ifu_cal_DetLin}                                                          \\
   Input data:          & \RAW{DETLIN_det_RAW}: (set of \CODE{FLAT,LAMP} frames taken with increasing DIT) \\
                        & \RAW{det_WCU_OFF_RAW}: (set of internal darks taken at the start of the template) \\
+                       & \EXTCALIB{BADPIX_MAP_det} (optional)                                                \\
   Matched keywords:    & \\
   Algorithm:           & Subtract instrument dark (\CODE{hdrl_imagelist_sub_image}).                         \\
                        & Compute mean and variance for each frame.                              \\
                        & Gain is determined as the slope of variance against mean (\DRL{metis_derive_gain}) \\
                        & Fit polynomial of value as a function of DIT and illumination level for each pixel (\CODE{metis_derive_nonlinearity}). \\
                        & Flag pixels with coefficients significantly different from the mean of all pixels. (\CODE{hdrl_bpm_fit_compute}) \\
-  Output data:         & \PROD{GAIN_MAP_det}                                    \\
+  Output data:         & \STATCALIB{GAIN_MAP_det}                                    \\
                        & \PROD{LINEARITY_det}                                 \\
-                       & \PROD{BADPIX_MAP_det}                                \\
+                       & \EXTCALIB{BADPIX_MAP_det}                                \\
   Expected accuracies: & 0.5\% background subtraction (cf.~\cite{METIS_calerrbudget})                             \\
                        & 0.1\% non-linearity measurement (cf.~\cite{METIS_calerrbudget})                          \\
   QC1 parameters:      & \QC{QC LIN GAIN MEAN}                                    \\
@@ -136,7 +137,10 @@ This fulfills \REQ{METIS-6063}.
   Templates:           & \TPL{METIS_gen_cal_dark}                                                    \\
                        & \TPL{METIS_gen_cal_InsDark}                                                 \\
   Input data:          & \RAW{DARK_det_RAW}  \\
-  & \STATCALIB{LINEARITY_det}  \\
+                       & \STATCALIB{LINEARITY_det}  \\
+                       & \EXTCALIB{BADPIX_MAP_det} (optional) \\
+                       & \EXTCALIB{PERSISTENCE_MAP} \\
+                       & \STATCALIB{GAIN_MAP_det} \\
   Matched Keywords: \\
 % TODO: Remove persistence, because if the raw darks have persistence, we are doing something wrong
                        & \EXTCALIB{PERSISTENCE_MAP}  \\
@@ -153,7 +157,7 @@ This fulfills \REQ{METIS-6063}.
 % otherwise used in the design, so it seems simpler to just remove them.
 %                       & \PROD{BPM_COLD_det}                                                         \\
 %                       & \PROD{BPM_HOT_det}                                                          \\
-                       & \PROD{BADPIX_MAP_det}                                                          \\
+                       & \EXTCALIB{BADPIX_MAP_det}                                                          \\
   Expected accuracies: & 0.1\% (cf.~\cite{METIS_calerrbudget})                                          \\
   QC1 parameters:      & \QC{QC DARK MEAN}                                                              \\
                        & \QC{QC DARK MEDIAN}                                                            \\

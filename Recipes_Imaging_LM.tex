@@ -45,9 +45,13 @@ otherwise a new one is created.
                        & \TPL{METIS_img_lm_cal_TwilightFlat}                               \\
   Input data:          & \RAW{LM_FLAT_LAMP_RAW} \\
                        & or \RAW{LM_FLAT_TWILIGHT_RAW} \\
+                       & \EXTCALIB{BADPIX_MAP_2RG} (optional) \\
+                       & \STATCALIB{LINEARITY_2RG} \\
+                       & \STATCALIB{GAIN_MAP_2RG} \\
+                       & \EXTCALIB{PERSISTENCE_MAP} \\
                        & \PROD{MASTER_DARK_2RG} (for twilight flats) \\
-  %                       & \PROD{BADPIX_MAP_2RG} \\
-%                       & \PROD{GAIN_MAP_2RG}\\
+  %                       & \EXTCALIB{BADPIX_MAP_2RG} \\
+%                       & \STATCALIB{GAIN_MAP_2RG}\\
   Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                  \\
                        & \FITS{DRS.FILTER}                                                     \\
@@ -64,7 +68,7 @@ otherwise a new one is created.
                        & Call \DRL{metis_update_lm_flat_mask} to flag deviant pixels. \\
   Output data:         & \PROD{MASTER_IMG_FLAT_LAMP_LM} \\
                        & or \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
-                       & \PROD{BADPIX_MAP_2RG}                                           \\
+                       & \EXTCALIB{BADPIX_MAP_2RG}                                           \\
   Expected accuracies: & 0.5\% (cf.~\cite{METIS_calerrbudget})                                                           \\
   QC1 parameters:      & \QC{QC LM MFLAT RMS}                                      \\
                        & \QC{QC LM MFLAT NBADPIX}                                        \\
@@ -141,13 +145,15 @@ Basic statistics of the images can be used to screen for saturation.
                     & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
                     & \TPL{METIS_ifu_cal_psf}                                                                  \\
   Input data:       & \RAW{LM_IMAGE_SCI_RAW} or \RAW{LM_IMAGE_STD_RAW} \\
+                    & \EXTCALIB{BADPIX_MAP_2RG} (optional) \\
 %                     & \RAW{IFU_SKY_RAW} (Blank sky images, if available.) \\
 %                     & \EXTCALIB{LM_DETECTOR_MASK} (if available)  \\
                     & \STATCALIB{LINEARITY_2RG} \\
+                    & \STATCALIB{GAIN_MAP_2RG} \\
                     & \EXTCALIB{PERSISTENCE_MAP} \\
                     & \PROD{MASTER_DARK_2RG} \\
                     & \PROD{MASTER_IMG_FLAT_LAMP_LM} \\
-                        & \PROD{GAIN_MAP_2RG}\\
+                        & \STATCALIB{GAIN_MAP_2RG}\\
                    & or \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
     Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                   \\
@@ -500,7 +506,7 @@ The output files fulfill the \ac{SDP} criteria and are compliant with \REQ{METIS
   Templates:           & None                                                       \\
   Type:                & Science                                                    \\
   Input data:          & \PROD{LM_SCI_CALIBRATED} (Calibrated science images)       \\
-%                       & \PROD{BADPIX_MAP_2RG} (Associated bad-pixel maps)           \\
+%                       & \EXTCALIB{BADPIX_MAP_2RG} (Associated bad-pixel maps)           \\
   Matched keywords:  & \FITS{DRS.FILTER} \\
   Parameters:          & None                                                       \\
   Algorithm:           & Check and refine WCS of input images by using the \ac{WFS-FS} data. \\
@@ -555,9 +561,13 @@ pixel scale across the detector will be created.
   Type:                & Calibration                                                     \\
   Input data:          & \RAW{LM_DISTORTION_RAW} (Images of grid mask in WCU-FP2 or CFO-FP2.)\\
                        & \RAW{LM_WCU_OFF_RAW} \\
+                       & \EXTCALIB{BADPIX_MAP_2RG} (optional) \\
+                       & \EXTCALIB{PERSISTENCE_MAP} \\
+                       & \STATCALIB{LINEARITY_2RG} \\
+                       & \STATCALIB{GAIN_MAP_2RG} \\
                        & \EXTCALIB{PINHOLE_TABLE} (Grid of pinhole mask positions) \\
   Matched keywords:  & \FITS{DRS.FILTER} \\
-%                       & \PROD{BADPIX_MAP_2RG} \\
+%                       & \EXTCALIB{BADPIX_MAP_2RG} \\
   Parameters:          & Parameters for fitting routine      \\
 %                       & \TBD \\
   Algorithm:           & Subtract background image.    (\CODE{hdrl_imagelist_sub_image})                                  \\

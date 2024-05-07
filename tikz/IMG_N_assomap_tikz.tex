@@ -21,6 +21,7 @@
     % *_raw, *_lin, *_dark, *_flat, *_std, *_sci1, *_sci2, *_prod
 
     % Row *_raw
+    \node[above] (bpm_raw)[empty]{}; &
     \node[above] (lin_raw){\recipebox{\RAW{DETLIN_GEO_RAW}}{\REC{metis_det_lingain}}}; &
 % TODO: Put back in once we actually include the persistence recipe in the DRLD
 %    \node[above] (pers_raw){\recipebox{\RAW{PERSISTENCE}}{\REC{metis_det_persistence_map}}}; &
@@ -34,40 +35,56 @@
     \node[above] (rest_raw){\recipebox{\RAW{N_SCI_CALIBRATED}}{\REC{metis_n_img_restore}}}; \\
 
     %%% Calibration products
+    % Row *_bpm
+    \node (bpm_bpm)[extcalfile]{\STATCALIB{BADPIX_MAP_GEO}}; &
+    \node (lin_bpm)[connection]{}; &
+    \node (pers_bpm)[empty]{}; &
+    \node (dist_bpm)[connection]{}; &
+    \node (dark_bpm)[connection]{}; &
+    \node (flat_bpm)[connection]{}; &
+    \node (chop_bpm)[connection]{}; &
+    \node (std_bpm)[empty]{}; &
+    \node (cal_bpm)[empty]{}; &
+    \node (rest_bpm)[empty]{}; \\
+
     % Row *_lin
+    \node (bpm_lin)[empty]{}; &
     \node (lin_lin)[statcalfile]{\STATCALIB{LINEARITY_GEO}}; &
     \node (pers_lin)[empty]{}; &
-    \node (dist_lin)[empty]{}; &
+    \node (dist_lin)[connection]{}; &
     \node (dark_lin)[connection]{}; &
-    \node (flat_lin)[empty]{}; &
+    \node (flat_lin)[connection]{}; &
     \node (chop_lin)[connection]{}; &
     \node (std_lin)[empty]{}; &
     \node (cal_lin)[empty]{}; &
     \node (rest_lin)[empty]{}; \\
 
     % Row *_gain
+    \node (bpm_gain)[empty]{}; &
     \node (lin_gain)[statcalfile]{\STATCALIB{GAIN_MAP_GEO}}; &
     \node (pers_gain)[empty]{}; &
-    \node (dist_gain)[empty]{}; &
-    \node (dark_gain)[empty]{}; &
-    \node (flat_gain)[empty]{}; &
+    \node (dist_gain)[connection]{}; &
+    \node (dark_gain)[connection]{}; &
+    \node (flat_gain)[connection]{}; &
     \node (chop_gain)[connection]{}; &
     \node (std_gain)[empty]{}; &
     \node (cal_gain)[empty]{}; &
     \node (rest_gain)[empty]{}; \\
 
     % Row persistence
+    \node (bpm_pers)[empty]{}; &
     \node (lin_pers)[empty]{}; &
     \node (pers_pers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}}; &
-    \node (dist_pers)[empty]{}; &
+    \node (dist_pers)[connection]{}; &
     \node (dark_pers)[connection]{}; &
-    \node (flat_pers)[empty]{}; &
+    \node (flat_pers)[connection]{}; &
     \node (chop_pers)[connection]{}; &
     \node (std_pers)[empty]{}; &
     \node (cal_pers)[empty]{}; &
     \node (rest_pers)[empty]{}; \\
 
     % Row pinhole table
+    \node (bpm_pinh)[empty]{}; &
     \node (lin_pinh)[empty]{}; &
     \node (pers_pinh)[extcalfile]{\STATCALIB{PINHOLE_TABLE}}; &
     \node (dist_pinh)[connection]{}; &
@@ -80,6 +97,7 @@
 
     %%% Calibration products
     % Row *_dark
+    \node (bpm_dark)[empty]{}; &
     \node (lin_dark)[empty]{}; &
     \node (pers_dark)[empty]{}; &
     \node (dist_dark)[empty]{}; &
@@ -91,6 +109,7 @@
     \node (rest_dark)[empty]{}; \\
 
     % Row *_flat
+    \node (bpm_flat)[empty]{}; &
     \node (lin_flat)[empty]{}; &
     \node (pers_flat)[empty]{}; &
     \node (dist_flat) [empty]{}; &
@@ -103,6 +122,7 @@
     \node (rest_flat) [empty]{}; \\
 
     % Row *_chopstd
+    \node (bpm_chopstd)[empty]{}; &
     \node (lin_chopstd)[empty]{}; &
     \node (pers_chopstd)[empty]{}; &
     \node (dist_chopstd) [empty]{}; &
@@ -114,6 +134,7 @@
     \node (rest_chopstd) [empty]{}; \\
 
     % Row *_chopsci
+    \node (bpm_chopsci)[empty]{}; &
     \node (lin_chopsci)[empty]{}; &
     \node (pers_chopsci)[empty]{}; &
     \node (dist_chopsci) [empty]{}; &
@@ -125,6 +146,7 @@
     \node (rest_chopsci) [empty]{}; \\
 
     % Row *_std
+    \node (bpm_std)[empty]{}; &
     \node (lin_std) [empty]{}; &
     \node (pers_std) [empty]{}; &
     \node (dist_std)[empty]{}; &
@@ -136,6 +158,7 @@
     \node (rest_std) [empty]{}; \\
 
     % Row *_cal
+    \node (bpm_cal)[empty]{}; &
     \node (lin_cal)[empty]{}; &
     \node (pers_cal)[empty]{}; &
     \node (dist_cal) [empty]{}; &
@@ -147,6 +170,7 @@
     \node (rest_cal) [empty]{}; \\
 
     % Row *_dist
+    \node (bpm_dist)[empty]{}; &
     \node (lin_dist)[empty]{}; &
     \node (pers_dist)[empty]{}; &
     \node (dist_dist)[statcalfile]{\STATCALIB{N_DISTORTION_TABLE}}; &
@@ -159,6 +183,7 @@
 
 
     % Row *_rest
+    \node (bpm_rest)[empty]{}; &
     \node (lin_rest)[empty]{}; &
     \node (pers_rest)[empty]{}; &
     \node (dist_rest)[empty]{}; &
@@ -170,6 +195,7 @@
     \node (rest_rest) [connection]{}; \\
 
     % Row *_prod
+    \node (bpm_prod)[empty]{}; &
     \node (lin_prod)[empty]{}; &
     \node (pers_prod)[empty]{}; &
     \node (dist_prod)[empty]{}; &
@@ -202,6 +228,7 @@
   \draw [arrow] (rest_rest) -- (rest_prod);
 
   %% Horizontal connections
+  \draw [match] (bpm_bpm) -- (chop_bpm);
   \draw [match] (lin_lin) -- (chop_lin);
   \draw [match] (lin_gain) -- (chop_gain);
   \draw [match] (pers_pers) -- (chop_pers);

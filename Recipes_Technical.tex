@@ -36,7 +36,7 @@ It is not foreseen to be used by scientists in regular operation.
   Templates:           & \TPL{METIS_pup_lm}                            \\
                        & \TPL{METIS_pup_n}                             \\
   Input data:          & \RAW{LM_PUPIL_RAW} or \RAW{N_PUPIL_RAW}       \\
-                       & \PROD{GAIN_MAP_2RG} or \PROD{GAIN_MAP_GEO}    \\
+                       & \STATCALIB{GAIN_MAP_2RG} or \STATCALIB{GAIN_MAP_GEO}    \\
   Matched keywords:    & \FITS{DRS.PUPIL}                              \\
   Algorithm            & Apply dark current and flat field corrections.\\
   Output data:         & \PROD{LM_PUPIL_REDUCED} or \PROD{N_PUPIL_REDUCED} \\
@@ -73,8 +73,8 @@ Templates:      & \TPL{METIS_img_lm_cal_ChopperHome} \\
 Input data:     & \RAW{LM_CHOPPERHOME_RAW} \\
                 & \EXTCALIB{PERSISTENCE_MAP}  \\
                 & \STATCALIB{LINEARITY_2RG}  \\
-                & \PROD{GAIN_MAP_2RG}  \\
-%                & \PROD{BADPIX_MAP_2RG}  \\
+                & \STATCALIB{GAIN_MAP_2RG}  \\
+%                & \EXTCALIB{BADPIX_MAP_2RG}  \\
                 & \PROD{MASTER_DARK_2RG}  \\
                 & \PROD{MASTER_IMG_FLAT_LAMP_LM}  \\
 Matched Keywords & \FITS{DET.DIT} \\
@@ -127,8 +127,8 @@ Input data:     & \RAW{LM_SLITLOSSES_RAW} \\
                 & \RAW{LM_WCU_OFF_RAW} \\
                 & \EXTCALIB{PERSISTENCE_MAP}  \\
                 & \STATCALIB{LINEARITY_2RG}  \\
-                & \PROD{GAIN_MAP_2RG}  \\
-                & \PROD{BADPIX_MAP_2RG}  \\
+                & \STATCALIB{GAIN_MAP_2RG}  \\
+                & \EXTCALIB{BADPIX_MAP_2RG}  \\
                 & \PROD{MASTER_DARK_2RG}  \\
                 & \PROD{MASTER_IMG_FLAT_LAMP_LM}  \\
 Matched Keywords & \FITS{DET.DIT} \\
@@ -164,8 +164,8 @@ Input data:     & \RAW{N_SLITLOSSES_RAW} \\
                 & \RAW{N_WCU_OFF_RAW} \\
                 & \EXTCALIB{PERSISTENCE_MAP}  \\
                 & \STATCALIB{LINEARITY_GEO}  \\
-                & \PROD{GAIN_MAP_GEO}  \\
-                & \PROD{BADPIX_MAP_GEO}  \\
+                & \STATCALIB{GAIN_MAP_GEO}  \\
+                & \EXTCALIB{BADPIX_MAP_GEO}  \\
                 & \PROD{MASTER_DARK_GEO}  \\
 & \PROD{MASTER_IMG_FLAT_LAMP_N}  \\
 Matched Keywords & \FITS{DET.DIT} \\

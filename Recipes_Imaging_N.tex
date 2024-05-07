@@ -56,8 +56,10 @@ otherwise a new one is created.
                        & \TPL{METIS_img_n_cal_TwilightFlat}                               \\
   Input data:          & \RAW{N_FLAT_LAMP_RAW} or \RAW{N_FLAT_TWILIGHT_RAW} \\
                        & \PROD{MASTER_DARK_GEO} (for twilight flats)                               \\
-%                       & \PROD{GAIN_MAP_GEO}\\
-%                       & \PROD{BADPIX_MAP_GEO}                                                  \\
+                       & \EXTCALIB{BADPIX_MAP_GEO} (optional)                               \\
+                       & \STATCALIB{LINEARITY_GEO} \\
+                       & \STATCALIB{GAIN_MAP_GEO} \\
+                       & \EXTCALIB{PERSISTENCE_MAP} \\
   Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                   \\
                        & \FITS{DRS.FILTER}                                                     \\
@@ -75,7 +77,7 @@ otherwise a new one is created.
                        & Compute median or average of input frames to improve statistics.\\
                        & Call \DRL{metis_update_n_flat_mask} to flag deviant pixels. \\
   Output data:         & \PROD{MASTER_IMG_FLAT_LAMP_N} or \PROD{MASTER_IMG_FLAT_TWILIGHT_N} \\
-                       & \PROD{BADPIX_MAP_GEO}                                            \\
+                       & \EXTCALIB{BADPIX_MAP_GEO}                                            \\
   Expected accuracies: & 0.5\% (cf.~\cite{METIS_calerrbudget})                                                           \\
   QC1 parameters:      & \QC{QC N MFLAT RMS}                                       \\
                        & \QC{QC N MFLAT NBADPIX}                                         \\
@@ -139,11 +141,12 @@ The edges of the N-band detector will be behind a cold mask on all four sides.
                      & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
   Input data:        & \RAW{N_IMAGE_SCI_RAW} or \RAW{N_IMAGE_STD_RAW} \\
                      & \PROD{MASTER_DARK_GEO} \\
-%                     & \PROD{BADPIX_MAP_GEO} Bad-pixel map \\
+                     & \EXTCALIB{BADPIX_MAP_GEO} (optional) \\
                      & \STATCALIB{LINEARITY_GEO} \\
+                     & \STATCALIB{GAIN_MAP_GEO} \\
                      & \EXTCALIB{PERSISTENCE_MAP} \\
                      & \PROD{MASTER_IMG_FLAT_LAMP_N} \\
-                        & \PROD{GAIN_MAP_GEO}\\
+                        & \STATCALIB{GAIN_MAP_GEO}\\
                     & or \PROD{MASTER_IMG_FLAT_TWILIGHT_N} \\
   Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                   \\
@@ -200,7 +203,7 @@ following~\cite{visir_manual}.
 %  Templates:           & \TPL{METIS_img_n_cal_standard}                                                \\
   Input data:          & \PROD{N_STD_BKG_SUBTRACTED}                                                   \\
                        & \EXTCALIB{FLUXSTD_CATALOG} \\
-%                       & \PROD{GAIN_MAP_GEO}\\
+%                       & \STATCALIB{GAIN_MAP_GEO}\\
   Matched keywords:    & \FITS{DRS.FILTER} \\
   Parameters:          & None                                                                          \\
   Algorithm:           & call \DRL{n_calculate_std_flux} to measure the flux in all beams\\
@@ -345,8 +348,11 @@ pixel scale across the detector will be created.
   Type:                & Calibration                                                    \\
   Input data:          & \RAW{N_DISTORTION_RAW} (Images of grid mask in WCU-FP2 or CFO-FP2.)\\
                        & \RAW{N_WCU_OFF_RAW} \\
+                       & \EXTCALIB{BADPIX_MAP_GEO} \\
+                       & \STATCALIB{LINEARITY_GEO} \\
+                       & \STATCALIB{GAIN_MAP_GEO} \\
                        & \EXTCALIB{PINHOLE_TABLE} (Grid of pinhole mask positions) \\
-%                       & \PROD{BADPIX_MAP_GEO} \\
+                       & \EXTCALIB{PERSISTENCE_MAP} \\
   Matched keywords:    & \FITS{DRS.FILTER} \\
   Parameters:          & Parameters for fitting routine \\
   Algorithm:           & Subtract background image.  (\CODE{hdrl_imagelist_sub_image})                                       \\

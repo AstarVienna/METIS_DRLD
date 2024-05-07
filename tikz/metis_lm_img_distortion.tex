@@ -23,9 +23,11 @@
     \RAW{LM_DISTORTION_RAW}
   };
 
-  \node (step_subtract) [below=2.5cm of input, redstep]{%
-    subtract WCU OFF dark
-  };
+  \node (step_signature) [below=6.0cm of input, redstep]{%
+    detector signature\\ removal};
+
+  \node (step_subtract) [below=2.5cm of step_signature, redstep]{%
+    subtract WCU OFF dar};
 
   \node (step_locate) [below=2.5cm of step_subtract, redstep]{%
     locate images};
@@ -36,8 +38,24 @@
   \pic (stop) [below=3cm of step_fit]{stop};
 
   %% Input
-  \node (connect_wcuoff) [connection] at
-  ($(input)!0.65!(step_subtract)$) {};
+  \node (connect_bpm) [connection] at ($(input)!0.25!(step_signature)$) {};
+  \node (bpm) [left=of connect_bpm, external] {\EXTCALIB{BADPIX_MAP_2RG}};
+  \draw [connection_arrow, dashed] (bpm) -- (connect_bpm);
+
+  \node (connect_gain) [connection] at ($(input)!0.45!(step_signature)$) {};
+  \node (gain) [left=of connect_gain, external] {\EXTCALIB{GAIN_MAP_2RG}};
+  \draw [connection_arrow] (gain) -- (connect_gain);
+
+  \node (connect_linearity) [connection] at ($(input)!0.65!(step_signature)$){};
+  \node (linearity) [left=of connect_linearity, external]{\EXTCALIB{LINEARITY_2RG}};
+  \draw [connection_arrow] (linearity) -- (connect_linearity);
+
+  \node (connect_persistence) [connection] at ($(input)!0.85!(step_signature)$){};
+  \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
+  \draw [connection_arrow] (persistence) -- (connect_persistence);
+
+
+  \node (connect_wcuoff) [connection] at ($(step_signature)!0.5!(step_subtract)$) {};
   \node (wcuoff) [left=of connect_wcuoff, input] {\RAW{LM_WCU_OFF_RAW}};
   \draw [connection_arrow] (wcuoff) -- (connect_wcuoff);
 
@@ -78,10 +96,10 @@
 
   %% Frame around recipe
   \draw [frame]
-  ($(input)!0.25!(step_subtract) - (2.75,0)$) rectangle
+  ($(input)!0.1!(step_subtract) - (2.75,0)$) rectangle
   ($(step_fit)!0.85!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.25!(step_subtract) - (2.75, 0)$){%
+  ($(input)!0.1!(step_subtract) - (2.75, 0)$){%
     \REC{metis_lm_img_distortion}};
 
 \end{tikzpicture}

@@ -39,7 +39,7 @@
 
 
   %% algorithm steps
-  \node (step_linearity) [below=3.0cm of input, redstep]{%
+  \node (step_linearity) [below=4.0cm of input, redstep]{%
     Correct non-linearity};
 
   \node (step_persistence) [below of=step_linearity, redstep]{%
@@ -68,21 +68,20 @@
 
 
   %% External data
+  \node (connect_bpm) [connection] at ($(input)!0.25!(step_linearity)$) {};
+  \node (bpm) [left=of connect_bpm, external] {\EXTCALIB{BADPIX_MAP_GEO}};
+  \draw [connection_arrow, dashed] (bpm) -- (connect_bpm);
 
-  \node (connect_gain) [connection] at ($(input)!0.45!(step_linearity)$) {};
+  \node (connect_gain) [connection] at ($(input)!0.50!(step_linearity)$) {};
   \node (gain) [left=of connect_gain, external] {\EXTCALIB{GAIN_MAP_GEO}};
   \draw [connection_arrow] (gain) -- (connect_gain);
 
-  \node (connect_linearity) [connection] at
-  ($(input)!0.7!(step_linearity)$){};
-  \node (linearity) [left=of connect_linearity, external]{%
-    \EXTCALIB{LINEARITY_GEO}};
+  \node (connect_linearity) [connection] at ($(input)!0.75!(step_linearity)$){};
+  \node (linearity) [left=of connect_linearity, external]{\EXTCALIB{LINEARITY_GEO}};
   \draw [connection_arrow] (linearity) -- (connect_linearity);
 
-  \node (connect_persistence) [connection] at
-  ($(step_linearity)!0.5!(step_persistence)$){};
-  \node (persistence) [left=of connect_persistence, external]{%
-    \EXTCALIB{PERSISTENCE_MAP}};
+  \node (connect_persistence) [connection] at ($(step_linearity)!0.5!(step_persistence)$){};
+  \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
   \draw [connection_arrow] (persistence) -- (connect_persistence);
 
 %   \node (connectparams) [connection] at

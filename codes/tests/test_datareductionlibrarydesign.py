@@ -1109,6 +1109,8 @@ def check_associationmatrices(check_input=False, ignore_nonlinearity=True):
 
         if problems:
             problems_all.append(problems)
+            print()
+            print("Problems with", asso.filename)
             for recipe_name, problems_recipe in problems:
                 print(" " + recipe_name)
                 for problem in problems_recipe:

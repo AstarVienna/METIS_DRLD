@@ -44,11 +44,11 @@
       \recipebox{\RAW{LM_FLAT_LAMP_RAW} \RAW{LM_FLAT_TWILIGHT_RAW}}{\REC{metis_lm_img_flat}}
     };
     &
-    \node[above] (all1_raw){%
+    \node[above] (red_raw){%
       \recipebox{\RAW{LM_IMAGE_SCI_RAW}, \RAW{LM_IMAGE_STD_RAW}}{\REC{metis_lm_img_basic_reduce}}
     };
     &
-    \node[above] (all2_raw){%
+    \node[above] (back_raw){%
       \recipebox{\RAW{LM_SCI_BASIC_REDUCED}, \RAW{LM_STD_BASIC_REDUCED}}{\REC{metis_lm_img_background}}
     };
     &
@@ -76,13 +76,13 @@
     %%% Calibration products
     % Row *_bpm
     \node (bpm_bpm) [extcalfile]{\STATCALIB{BADPIX_MAP_2RG}}; &
-    \node (lin_bpm) [empty]{}; &
+    \node (lin_bpm) [connection]{}; &
     \node (pers_bpm)[empty]{}; &
-    \node (dist_bpm)[empty]{}; &
-    \node (dark_bpm)[empty]{}; &
-    \node (flat_bpm)[empty]{}; &
-    \node (all1_bpm)[empty]{}; &
-    \node (all2_bpm)[empty]{}; &
+    \node (dist_bpm)[connection]{}; &
+    \node (dark_bpm)[connection]{}; &
+    \node (flat_bpm)[connection]{}; &
+    \node (red_bpm)[connection]{}; &
+    \node (back_bpm)[empty]{}; &
     \node (std_bpm)[empty]{}; &
     \node (sci1_bpm)[empty]{}; &
     \node (sci2_bpm)[empty]{}; \\
@@ -91,11 +91,11 @@
     \node (bpm_lin) [empty]{}; &
     \node (lin_lin) [statcalfile]{\STATCALIB{LINEARITY_2RG}}; &
     \node (pers_lin)[empty]{}; &
-    \node (dist_lin)[empty]{}; &
+    \node (dist_lin)[connection]{}; &
     \node (dark_lin)[connection]{}; &
-    \node (flat_lin)[empty]{}; &
-    \node (all1_lin)[connection]{}; &
-    \node (all2_lin)[empty]{}; &
+    \node (flat_lin)[connection]{}; &
+    \node (red_lin)[connection]{}; &
+    \node (back_lin)[empty]{}; &
     \node (std_lin)[empty]{}; &
     \node (sci1_lin)[empty]{}; &
     \node (sci2_lin)[empty]{}; \\
@@ -104,11 +104,11 @@
     \node (bpm_gain) [empty]{}; &
     \node (lin_gain) [statcalfile]{\STATCALIB{GAIN_MAP_2RG}}; &
     \node (pers_gain)[empty]{}; &
-    \node (dist_gain)[empty]{}; &
-    \node (dark_gain)[empty]{}; &
-    \node (flat_gain)[empty]{}; &
-    \node (all1_gain)[connection]{}; &
-    \node (all2_gain)[empty]{}; &
+    \node (dist_gain)[connection]{}; &
+    \node (dark_gain)[connection]{}; &
+    \node (flat_gain)[connection]{}; &
+    \node (red_gain)[connection]{}; &
+    \node (back_gain)[empty]{}; &
     \node (std_gain)[empty]{}; &
     \node (sci1_gain)[empty]{}; &
     \node (sci2_gain)[empty]{}; \\
@@ -117,11 +117,11 @@
     \node (bpm_pers)[empty]{}; &
     \node (lin_pers)[empty]{}; &
     \node (pers_pers)[extcalfile]{\STATCALIB*{PERSISTENCE_MAP}}; &
-    \node (dist_pers)[empty]{}; &
+    \node (dist_pers)[connection]{}; &
     \node (dark_pers)[connection]{}; &
-    \node (flat_pers)[empty]{}; &
-    \node (all1_pers)[connection]{}; &
-    \node (all2_pers)[empty]{}; &
+    \node (flat_pers)[connection]{}; &
+    \node (red_pers)[connection]{}; &
+    \node (back_pers)[empty]{}; &
     \node (std_pers)[empty]{}; &
     \node (sci1_pers)[empty]{}; &
     \node (sci2_pers)[empty]{}; \\
@@ -133,8 +133,8 @@
     \node (dist_pinh)[connection]{}; &
     \node (dark_pinh)[empty]{}; &
     \node (flat_pinh)[empty]{}; &
-    \node (all1_pinh)[empty]{}; &
-    \node (all2_pinh)[empty]{}; &
+    \node (red_pinh)[empty]{}; &
+    \node (back_pinh)[empty]{}; &
     \node (std_pinh)[empty]{}; &
     \node (sci1_pinh)[empty]{}; &
     \node (sci2_pinh)[empty]{}; \\
@@ -146,8 +146,8 @@
     \node (dist_dark) [empty]{}; &
     \node (dark_dark) [calibproduct]{\PROD{MASTER_DARK_2RG}}; &
     \node (flat_dark)[connection]{}; &
-    \node (all1_dark)[connection]{}; &
-    \node (all2_dark)[empty]{}; &
+    \node (red_dark)[connection]{}; &
+    \node (back_dark)[empty]{}; &
     \node (std_dark)[empty]{}; &
     \node (sci1_dark)[empty]{}; &
     \node (sci2_dark) [empty]{}; \\
@@ -160,8 +160,8 @@
     \node (dark_flat)[empty]{}; &
     \node (flat_flat) [calibproduct]{\PROD{MASTER_IMG_FLAT_LAMP_LM}};
       \node (flat_flat2) [calibproduct,below=.5cm]{\PROD{MASTER_IMG_FLAT_TWILIGHT_LM}}; &
-    \node (all1_flat)[connection]{}; &
-    \node (all2_flat)[empty]{}; &
+    \node (red_flat)[connection]{}; &
+    \node (back_flat)[empty]{}; &
     \node (std_flat)[empty]{}; &
     \node (sci1_flat)[empty]{}; &
     \node (sci2_flat) [empty]{}; \\
@@ -173,8 +173,8 @@
     \node (dist_all1)[empty]{}; &
     \node (dark_all1)[empty]{}; &
     \node (flat_all1)[empty]{}; &
-    \node (all1_all1)[calibproduct]{\PROD{LM_STD_BASIC_REDUCED}}; &
-    \node (all2_all1)[calibproduct]{\PROD{LM_STD_BKG_SUBTRACTED}}; &
+    \node (red_all1)[calibproduct]{\PROD{LM_STD_BASIC_REDUCED}}; &
+    \node (back_all1)[calibproduct]{\PROD{LM_STD_BKG_SUBTRACTED}}; &
     \node (std_all1)[connection]{}; &
     \node (sci1_all1)[empty]{}; &
     \node (sci2_all1) [empty]{}; \\
@@ -186,8 +186,8 @@
     \node (dist_all2)[empty]{}; &
     \node (dark_all2)[empty]{}; &
     \node (flat_all2)[empty]{}; &
-    \node (all1_all2)[scienceproduct]{\PROD{LM_SCI_BASIC_REDUCED}}; &
-    \node (all2_all2)[scienceproduct]{\PROD{LM_SCI_BKG_SUBTRACTED}}; &
+    \node (red_all2)[scienceproduct]{\PROD{LM_SCI_BASIC_REDUCED}}; &
+    \node (back_all2)[scienceproduct]{\PROD{LM_SCI_BKG_SUBTRACTED}}; &
     \node (std_all2)[empty]{}; &
     \node (sci1_all2)[connection]{}; &
     \node (sci2_all2) [empty]{}; \\
@@ -199,8 +199,8 @@
     \node (dist_dist)[statcalfile]{\STATCALIB{LM_DISTORTION_TABLE}}; &
     \node (dark_dist)[empty]{}; &
     \node (flat_dist) [empty]{}; &
-    \node (all1_dist)[empty]{}; &
-    \node (all2_dist)[empty]{}; &
+    \node (red_dist)[empty]{}; &
+    \node (back_dist)[empty]{}; &
     \node (std_dist)[empty]{}; &
     \node (sci1_dist)[connection]{}; &
     \node (sci2_dist) [empty]{}; \\
@@ -212,8 +212,8 @@
     \node (dist_std)[empty]{}; &
     \node (dark_std)[extcalfile]{\EXTCALIB{FLUXSTD_CATALOG}}; &
     \node (flat_std)[empty]{}; &
-    \node (all1_std)[empty]{}; &
-    \node (all2_std)[empty]{}; &
+    \node (red_std)[empty]{}; &
+    \node (back_std)[empty]{}; &
     \node (std_std)[connection]{}; &
     \node (sci1_std)[empty]{}; &
     \node (sci2_std) [empty]{}; \\
@@ -225,8 +225,8 @@
     \node (dist_sci1)[empty]{}; &
     \node (dark_sci1)[empty]{}; &
     \node (flat_sci1)[empty]{}; &
-    \node (all1_sci1)[empty]{}; &
-    \node (all2_sci1)[empty]{}; &
+    \node (red_sci1)[empty]{}; &
+    \node (back_sci1)[empty]{}; &
     \node (std_sci1)[calibproduct]{\PROD{FLUXCAL_TAB}}; &
     \node (sci1_sci1)[connection]{}; &
     \node (sci2_sci1)[empty]{}; \\
@@ -238,8 +238,8 @@
     \node (dist_sci2)[empty]{}; &
     \node (dark_sci2)[empty]{}; &
     \node (flat_sci2)[empty]{}; &
-    \node (all1_sci2)[empty]{}; &
-    \node (all2_sci2)[empty]{}; &
+    \node (red_sci2)[empty]{}; &
+    \node (back_sci2)[empty]{}; &
     \node (std_sci2)[empty]{}; &
     \node (sci1_sci2) [scienceproduct]{\PROD{LM_SCI_CALIBRATED}}; &
     \node (sci2_sci2) [connection]{}; \\
@@ -251,8 +251,8 @@
     \node (dist_prod) [empty]{}; &
     \node (dark_prod) [empty]{}; &
     \node (flat_prod) [empty]{}; &
-    \node (all1_prod) [empty]{}; &
-    \node (all2_prod) [empty]{}; &
+    \node (red_prod) [empty]{}; &
+    \node (back_prod) [empty]{}; &
     \node (std_prod) [empty]{}; &
     \node (sci1_prod) [empty]{}; &
     \node (sci2_prod)[scienceproduct]{\PROD{LM_SCI_COADD}}; \\
@@ -272,25 +272,25 @@
   \draw [arrow] (dist_raw) -- (dist_dist);
   \draw [arrow] (dark_raw) -- (dark_dark);
   \draw [arrow] (flat_raw) -- (flat_flat);
-  \draw [arrow] (all1_raw) -- (all1_all1);
-  \draw [arrow] (all1_all1) -- (all1_all2);
+  \draw [arrow] (red_raw) -- (red_all1);
+  \draw [arrow] (red_all1) -- (red_all2);
   \draw [arrow] (std_all1) -- (std_sci1);
   \draw [arrow] (sci1_all2) -- (sci1_sci2);
   \draw [arrow] (sci2_sci2) -- (sci2_prod);
 %  \draw [arrow] (adi_sci2) -- (adi_prod);
 
   %% Horizontal connections
-  \draw [match, dashed] (bpm_bpm) -- (all1_bpm);
-  \draw [match] (lin_lin) -- (all1_lin);
-  \draw [match] (lin_gain) -- (all1_gain);
-  \draw [match] (pers_pers) -- (all1_pers);
-  \draw [match] (pers_pinh) -- (all1_pinh);
-  \draw [match] (dark_dark) -- (all1_dark);
-  \draw [match] (flat_flat) -- (all1_flat);
-  \draw [match] (all1_all1) -- (all2_all1);
-  \draw [match] (all2_all1) -- (std_all1);
-  \draw [match] (all1_all2) -- (all2_all2);
-  \draw [match] (all2_all2) -- (sci1_all2);
+  \draw [match, dashed] (bpm_bpm) -- (red_bpm);
+  \draw [match] (lin_lin) -- (red_lin);
+  \draw [match] (lin_gain) -- (red_gain);
+  \draw [match] (pers_pers) -- (red_pers);
+  \draw [match] (pers_pinh) -- (dist_pinh);
+  \draw [match] (dark_dark) -- (red_dark);
+  \draw [match] (flat_flat) -- (red_flat);
+  \draw [match] (red_all1) -- (back_all1);
+  \draw [match] (back_all1) -- (std_all1);
+  \draw [match] (red_all2) -- (back_all2);
+  \draw [match] (back_all2) -- (sci1_all2);
   \draw [match] (sci1_std) -- (sci1_sci1);
   \draw [match] (dist_dist) -- (sci1_dist);
   \draw [match] (dark_std) -- (std_std);
