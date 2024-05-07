@@ -890,11 +890,11 @@ def test_associationmatrices():
     check_associationmatrices(check_input=False)
 
 
-@pytest.mark.xfail(reason="Many input is still missing from association matrices."
-                          "This test also complains about non-linearity and gain"
-                          "which we are still considering to combine."
-                          "So test_associationmatrices_input_ignore_nonlin should"
-                          "probably be fixed first, as that is simpler.")
+# @pytest.mark.xfail(reason="Many input is still missing from association matrices."
+#                           "This test also complains about non-linearity and gain"
+#                           "which we are still considering to combine."
+#                           "So test_associationmatrices_input_ignore_nonlin should"
+#                           "probably be fixed first, as that is simpler.")
 def test_associationmatrices_input():
     """Test to also check whether all the recipe input is present in the matrix"""
     check_associationmatrices(check_input=True, ignore_nonlinearity=False)
@@ -1030,6 +1030,7 @@ def check_associationmatrices(check_input=False, ignore_nonlinearity=True):
                 # Skip the first input according to the recipe, because that should
                 # always be the primary input, which is checked above.
                 input_names_according_to_recipe = [diref.name for diref in recipe.input_secondary]
+
                 input_names_missing_from_matrix = [
                     name
                     for name in input_names_according_to_recipe
@@ -1050,6 +1051,31 @@ def check_associationmatrices(check_input=False, ignore_nonlinearity=True):
                         "LINEARITY_IFU",
                     ] if ignore_nonlinearity else [])
                 ]
+
+                # For metis_det_dark, this holds:
+                #   input_names_according_to_recipe ==
+                #     ['LINEARITY_2RG', 'LINEARITY_GEO', 'LINEARITY_IFU', 'PERSISTENCE_MAP']
+                #   input_names_according_to_matrix == ['LINEARITY_2RG', 'PERSISTENCE_MAP']
+                #   input_names_missing_from_matrix == ['LINEARITY_GEO', 'LINEARITY_IFU']
+                # So we check whether e.g. for 'LINEARITY_GEO' it happens that
+                # all three _det combinations are actually in the input
+                # according to the recipe, and then whether at least one
+                # of them is in the matrix.
+                import itertools
+                names_missing_correctly = []
+                for name1 in input_names_missing_from_matrix:
+                    for ext1, ext2, ext3 in itertools.permutations(["GEO", "IFU", "2RG"]):
+                        name2 = name1.replace(ext1, ext2)
+                        name3 = name1.replace(ext1, ext3)
+                        names = (name1, name2, name3)
+                        if all(n in input_names_according_to_recipe for n in names):
+                            if name2 in input_names_according_to_matrix:
+                                names_missing_correctly.append(name1)
+                input_names_missing_from_matrix = [
+                    name for name in input_names_missing_from_matrix
+                    if name not in names_missing_correctly
+                ]
+
                 if input_names_missing_from_matrix:
                     problems_recipe.append(
                         f"{recipe.name} has {input_names_missing_from_matrix} as"
