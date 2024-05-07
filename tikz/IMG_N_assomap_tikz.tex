@@ -38,12 +38,23 @@
     \node (lin_lin)[statcalfile]{\STATCALIB{LINEARITY_GEO}}; &
     \node (pers_lin)[empty]{}; &
     \node (dist_lin)[empty]{}; &
-    \node (dark_lin)[empty]{}; &
+    \node (dark_lin)[connection]{}; &
     \node (flat_lin)[empty]{}; &
     \node (chop_lin)[connection]{}; &
     \node (std_lin)[empty]{}; &
     \node (cal_lin)[empty]{}; &
     \node (rest_lin)[empty]{}; \\
+
+    % Row *_gain
+    \node (lin_gain)[empty]{}; &
+    \node (lin_gain)[statcalfile]{\STATCALIB{GAIN_MAP_GEO}}; &
+    \node (dist_gain)[empty]{}; &
+    \node (dark_gain)[empty]{}; &
+    \node (flat_gain)[empty]{}; &
+    \node (chop_gain)[connection]{}; &
+    \node (std_gain)[empty]{}; &
+    \node (cal_gain)[empty]{}; &
+    \node (rest_gain)[empty]{}; \\
 
     % Row persistence
     \node (lin_pers)[empty]{}; &
