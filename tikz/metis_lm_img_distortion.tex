@@ -47,7 +47,7 @@
   \draw [connection_arrow] (gain) -- (connect_gain);
 
   \node (connect_linearity) [connection] at ($(input)!0.65!(step_signature)$){};
-  \node (linearity) [left=of connect_linearity, external]{\EXTCALIB{LINEARITY_det}};
+  \node (linearity) [left=of connect_linearity, external]{\EXTCALIB{LINEARITY_2RG}};
   \draw [connection_arrow] (linearity) -- (connect_linearity);
 
   \node (connect_persistence) [connection] at ($(input)!0.85!(step_signature)$){};
