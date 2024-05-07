@@ -50,8 +50,8 @@ otherwise a new one is created.
                        & \STATCALIB{GAIN_MAP_2RG} \\
                        & \EXTCALIB{PERSISTENCE_MAP} \\
                        & \PROD{MASTER_DARK_2RG} (for twilight flats) \\
-  %                       & \PROD{BADPIX_MAP_2RG} \\
-%                       & \PROD{GAIN_MAP_2RG}\\
+  %                       & \EXTCALIB{BADPIX_MAP_2RG} \\
+%                       & \STATCALIB{GAIN_MAP_2RG}\\
   Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                  \\
                        & \FITS{DRS.FILTER}                                                     \\
@@ -68,7 +68,7 @@ otherwise a new one is created.
                        & Call \DRL{metis_update_lm_flat_mask} to flag deviant pixels. \\
   Output data:         & \PROD{MASTER_IMG_FLAT_LAMP_LM} \\
                        & or \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
-                       & \PROD{BADPIX_MAP_2RG}                                           \\
+                       & \EXTCALIB{BADPIX_MAP_2RG}                                           \\
   Expected accuracies: & 0.5\% (cf.~\cite{METIS_calerrbudget})                                                           \\
   QC1 parameters:      & \QC{QC LM MFLAT RMS}                                      \\
                        & \QC{QC LM MFLAT NBADPIX}                                        \\
@@ -153,7 +153,7 @@ Basic statistics of the images can be used to screen for saturation.
                     & \EXTCALIB{PERSISTENCE_MAP} \\
                     & \PROD{MASTER_DARK_2RG} \\
                     & \PROD{MASTER_IMG_FLAT_LAMP_LM} \\
-                        & \PROD{GAIN_MAP_2RG}\\
+                        & \STATCALIB{GAIN_MAP_2RG}\\
                    & or \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
     Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                   \\
@@ -506,7 +506,7 @@ The output files fulfill the \ac{SDP} criteria and are compliant with \REQ{METIS
   Templates:           & None                                                       \\
   Type:                & Science                                                    \\
   Input data:          & \PROD{LM_SCI_CALIBRATED} (Calibrated science images)       \\
-%                       & \PROD{BADPIX_MAP_2RG} (Associated bad-pixel maps)           \\
+%                       & \EXTCALIB{BADPIX_MAP_2RG} (Associated bad-pixel maps)           \\
   Matched keywords:  & \FITS{DRS.FILTER} \\
   Parameters:          & None                                                       \\
   Algorithm:           & Check and refine WCS of input images by using the \ac{WFS-FS} data. \\
@@ -567,7 +567,7 @@ pixel scale across the detector will be created.
                        & \STATCALIB{GAIN_MAP_2RG} \\
                        & \EXTCALIB{PINHOLE_TABLE} (Grid of pinhole mask positions) \\
   Matched keywords:  & \FITS{DRS.FILTER} \\
-%                       & \PROD{BADPIX_MAP_2RG} \\
+%                       & \EXTCALIB{BADPIX_MAP_2RG} \\
   Parameters:          & Parameters for fitting routine      \\
 %                       & \TBD \\
   Algorithm:           & Subtract background image.    (\CODE{hdrl_imagelist_sub_image})                                  \\

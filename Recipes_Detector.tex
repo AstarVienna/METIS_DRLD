@@ -76,9 +76,9 @@ This satisfies \REQ{METIS-5997}.
                        & Gain is determined as the slope of variance against mean (\DRL{metis_derive_gain}) \\
                        & Fit polynomial of value as a function of DIT and illumination level for each pixel (\CODE{metis_derive_nonlinearity}). \\
                        & Flag pixels with coefficients significantly different from the mean of all pixels. (\CODE{hdrl_bpm_fit_compute}) \\
-  Output data:         & \PROD{GAIN_MAP_det}                                    \\
+  Output data:         & \STATCALIB{GAIN_MAP_det}                                    \\
                        & \PROD{LINEARITY_det}                                 \\
-                       & \PROD{BADPIX_MAP_det}                                \\
+                       & \EXTCALIB{BADPIX_MAP_det}                                \\
   Expected accuracies: & 0.5\% background subtraction (cf.~\cite{METIS_calerrbudget})                             \\
                        & 0.1\% non-linearity measurement (cf.~\cite{METIS_calerrbudget})                          \\
   QC1 parameters:      & \QC{QC LIN GAIN MEAN}                                    \\
@@ -157,7 +157,7 @@ This fulfills \REQ{METIS-6063}.
 % otherwise used in the design, so it seems simpler to just remove them.
 %                       & \PROD{BPM_COLD_det}                                                         \\
 %                       & \PROD{BPM_HOT_det}                                                          \\
-                       & \PROD{BADPIX_MAP_det}                                                          \\
+                       & \EXTCALIB{BADPIX_MAP_det}                                                          \\
   Expected accuracies: & 0.1\% (cf.~\cite{METIS_calerrbudget})                                          \\
   QC1 parameters:      & \QC{QC DARK MEAN}                                                              \\
                        & \QC{QC DARK MEDIAN}                                                            \\

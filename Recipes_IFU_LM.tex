@@ -94,9 +94,9 @@ A table extension holds the polynomial coefficients.
                        & \EXTCALIB{BADPIX_MAP_IFU} (optional)             \\
                        & \EXTCALIB{PERSISTENCE_MAP}                                              \\
                        & \PROD{MASTER_DARK_IFU}             \\
-%                       & \PROD{BADPIX_MAP_IFU}               \\
+%                       & \EXTCALIB{BADPIX_MAP_IFU}               \\
                        & \PROD{IFU_DISTORTION_TABLE}   \\
-                       & \PROD{GAIN_MAP_IFU}\\
+                       & \STATCALIB{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DET.DIT}\\
                   & \FITS{DET.NDIT}\\
                   & \FITS{DRS.IFU}\\
@@ -153,9 +153,9 @@ Input data:          & \RAW{IFU_RSRF_RAW} (Raw flats taken with black-body calib
                      & \EXTCALIB{PERSISTENCE_MAP}                                               \\
                      & \PROD{MASTER_DARK_IFU}                                                   \\
                      & \PROD{IFU_DISTORTION_TABLE}                                              \\
-%                     & \PROD{BADPIX_MAP_IFU}                                                    \\
+%                     & \EXTCALIB{BADPIX_MAP_IFU}                                                    \\
                      & \PROD{IFU_WAVECAL}: image with wavelength at each pixel.                 \\
-%                       & \PROD{GAIN_MAP_IFU}\\
+%                       & \STATCALIB{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DET.DIT}\\
                   & \FITS{DET.NDIT}\\
                   & \FITS{DRS.IFU}\\
@@ -167,7 +167,7 @@ Algorithm:           & Create continuum image by mapping Planck spectrum at $T_{
                      & Average in spatial direction to obtain relative response function        \\
 Output data:         & \PROD{MASTER_FLAT_IFU}                                                   \\
                      & \PROD{RSRF_IFU}                                                          \\
-                     & \PROD{BADPIX_MAP_IFU}                                                    \\
+                     & \EXTCALIB{BADPIX_MAP_IFU}                                                    \\
 Expected accuracies: & 3\% (\REQ{METIS-6698})                                                   \\
 QC1 parameters:      & \QC{QC IFU RSRF NBADPIX}                                                    \\
 %                     & (more TBD)                                                               \\
@@ -209,7 +209,7 @@ QC1 parameters:      & \QC{QC IFU RSRF NBADPIX}                                 
 %  Input data:          & \RAW{IFU_STD_RAW} (Raw spectra of flux standard star)                  \\
 %                       & \PROD{MASTER_DARK_IFU}            \\
 %                       & \PROD{RSRF_IFU} (2D relative spectral response function)               \\
-%                       & \PROD{BADPIX_MAP_IFU}  \\
+%                       & \EXTCALIB{BADPIX_MAP_IFU}  \\
 %                       & \PROD{IFU_WAVECAL} \\
 %                       & \PROD{IFU_DISTORTION_TABLE} \\
 %  Parameters:          & None                                                                   \\
@@ -363,13 +363,13 @@ Input data:          & \RAW{IFU_SCI_RAW} or \RAW{IFU_STD_RAW}                   
                      & \EXTCALIB{PERSISTENCE_MAP}                                                               \\
                      & \PROD{MASTER_DARK_IFU}                                                                   \\
                      & \PROD{RSRF_IFU} (2D relative spectral response function)                                 \\
-%                     & \PROD{BADPIX_MAP_IFU}                                                                    \\
+%                     & \EXTCALIB{BADPIX_MAP_IFU}                                                                    \\
                      & \PROD{IFU_WAVECAL}                                                                       \\
 % TODO: I believe this should not be just FLUXCAL_TAB as it is not a table but an image
 %                     & \PROD{FLUXCAL_TAB} (Flux calibration table) \\
                      & \PROD{IFU_DISTORTION_TABLE} \\
 %                     & \STATCALIB{LSF_KERNEL} (Line spread kernel to be used with \CODE{molecfit}) \\
-                     & \PROD{GAIN_MAP_IFU}                                                                      \\
+                     & \STATCALIB{GAIN_MAP_IFU}                                                                      \\
 Matched Keywords: & \FITS{DET.DIT}\\
                   & \FITS{DET.NDIT}\\
                   & \FITS{DRS.IFU}\\
@@ -632,7 +632,7 @@ indication of the variation of spectral resolution across the field of view.
                        & \EXTCALIB{BADPIX_MAP_IFU} (optional)                                        \\
                        & \PROD{MASTER_DARK_IFU} \\
                        & \EXTCALIB{PINHOLE_TABLE} \\
-%                       & \PROD{GAIN_MAP_IFU}\\
+%                       & \STATCALIB{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DRS.IFU}\\
   Parameters:          & None                                                                        \\
   Algorithm:           & Calculate table mapping pixel position to position on sky.                  \\
