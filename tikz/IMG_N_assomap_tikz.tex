@@ -46,8 +46,8 @@
     \node (rest_lin)[empty]{}; \\
 
     % Row *_gain
-    \node (lin_gain)[empty]{}; &
     \node (lin_gain)[statcalfile]{\STATCALIB{GAIN_MAP_GEO}}; &
+    \node (pers_gain)[empty]{}; &
     \node (dist_gain)[empty]{}; &
     \node (dark_gain)[empty]{}; &
     \node (flat_gain)[empty]{}; &
@@ -189,6 +189,7 @@
 
   %% Vertical connections
   \draw [arrow] (lin_raw) -- (lin_lin);
+  \draw [arrow] (lin_lin) -- (lin_gain);
 % TODO: Put back in once we actually include the persistence recipe in the DRLD
 %  \draw [arrow] (pers_raw) -- (pers_pers);
   \draw [arrow] (dark_raw) -- (dark_dark);
@@ -202,8 +203,10 @@
 
   %% Horizontal connections
   \draw [match] (lin_lin) -- (chop_lin);
+  \draw [match] (lin_gain) -- (chop_gain);
   \draw [match] (pers_pers) -- (chop_pers);
-  \draw [match] (dark_dark) -- (flat_dark);
+  \draw [match] (pers_pinh) -- (dist_pinh);
+  \draw [match] (dark_dark) -- (chop_dark);
   \draw [match, dashed] (flat_flat) -- (chop_flat);
   \draw [match] (dist_dist) -- (cal_dist);
   \draw [match] (dark_std) -- (std_std);

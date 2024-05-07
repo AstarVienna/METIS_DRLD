@@ -365,7 +365,8 @@
 
   %% Connections
   \draw [arrow] (REClin_raw) -- (REClin_DIlin);
-% TODO: Put back in once we actually include the persistence recipe in the DRLD
+  \draw [arrow] (REClin_DIlin) -- (REClin_DIgain);
+%% TODO: Put back in once we actually include the persistence recipe in the DRLD
 %  \draw [arrow] (RECpers_raw) -- (RECpers_DIpers);
   \draw [arrow] (RECgeom_raw) -- (RECgeom_DIgeom);
   \draw [arrow] (RECrsrf_raw) -- (RECrsrf_DIrsrf);
@@ -382,6 +383,7 @@
         (RECwcal_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
         (RECrsrf_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
         (RECscireduce_DIlin);
+  \draw [match] (REClin_DIgain) -- (RECscireduce_DIgain);
   \draw [match] (RECpers_DIpers) --
         (RECgeom_DIpers) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
         (RECscireduce_DIpers);

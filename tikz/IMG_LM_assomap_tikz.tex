@@ -266,6 +266,7 @@
 
   %% Vertical connections
   \draw [arrow] (lin_raw)  -- (lin_lin);
+  \draw [arrow] (lin_lin) -- (lin_gain);
 % TODO: Put back in once we actually include the persistence recipe in the DRLD
 %  \draw [arrow] (pers_raw) -- (pers_pers);
   \draw [arrow] (dist_raw) -- (dist_dist);
@@ -280,8 +281,10 @@
 
   %% Horizontal connections
   \draw [match, dashed] (bpm_bpm) -- (all1_bpm);
-  \draw [match] (lin_lin)   -- (all1_lin);
+  \draw [match] (lin_lin) -- (all1_lin);
+  \draw [match] (lin_gain) -- (all1_gain);
   \draw [match] (pers_pers) -- (all1_pers);
+  \draw [match] (pers_pinh) -- (all1_pinh);
   \draw [match] (dark_dark) -- (all1_dark);
   \draw [match] (flat_flat) -- (all1_flat);
   \draw [match] (all1_all1) -- (all2_all1);
