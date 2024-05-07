@@ -38,23 +38,45 @@
     \node (lin_lin)[statcalfile]{\STATCALIB{LINEARITY_GEO}}; &
     \node (pers_lin)[empty]{}; &
     \node (dist_lin)[empty]{}; &
-    \node (dark_lin)[empty]{}; &
+    \node (dark_lin)[connection]{}; &
     \node (flat_lin)[empty]{}; &
     \node (chop_lin)[connection]{}; &
     \node (std_lin)[empty]{}; &
     \node (cal_lin)[empty]{}; &
     \node (rest_lin)[empty]{}; \\
 
+    % Row *_gain
+    \node (lin_gain)[statcalfile]{\STATCALIB{GAIN_MAP_GEO}}; &
+    \node (pers_gain)[empty]{}; &
+    \node (dist_gain)[empty]{}; &
+    \node (dark_gain)[empty]{}; &
+    \node (flat_gain)[empty]{}; &
+    \node (chop_gain)[connection]{}; &
+    \node (std_gain)[empty]{}; &
+    \node (cal_gain)[empty]{}; &
+    \node (rest_gain)[empty]{}; \\
+
     % Row persistence
     \node (lin_pers)[empty]{}; &
     \node (pers_pers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}}; &
     \node (dist_pers)[empty]{}; &
-    \node (dark_pers)[empty]{}; &
+    \node (dark_pers)[connection]{}; &
     \node (flat_pers)[empty]{}; &
     \node (chop_pers)[connection]{}; &
     \node (std_pers)[empty]{}; &
     \node (cal_pers)[empty]{}; &
     \node (rest_pers)[empty]{}; \\
+
+    % Row pinhole table
+    \node (lin_pinh)[empty]{}; &
+    \node (pers_pinh)[extcalfile]{\STATCALIB{PINHOLE_TABLE}}; &
+    \node (dist_pinh)[connection]{}; &
+    \node (dark_pinh)[empty]{}; &
+    \node (flat_pinh)[empty]{}; &
+    \node (chop_pinh)[empty]{}; &
+    \node (std_pinh)[empty]{}; &
+    \node (cal_pinh)[empty]{}; &
+    \node (rest_pinh)[empty]{}; \\
 
     %%% Calibration products
     % Row *_dark
@@ -63,7 +85,7 @@
     \node (dist_dark)[empty]{}; &
     \node (dark_dark)[qcproduct]{\STATCALIB{MASTER_DARK_GEO}}; &
     \node (flat_dark)[connection]{}; &
-    \node (chop_dark)[empty]{}; &
+    \node (chop_dark)[connection]{}; &
     \node (std_dark)[empty]{}; &
     \node (cal_dark)[empty]{}; &
     \node (rest_dark)[empty]{}; \\
@@ -167,6 +189,7 @@
 
   %% Vertical connections
   \draw [arrow] (lin_raw) -- (lin_lin);
+  \draw [arrow] (lin_lin) -- (lin_gain);
 % TODO: Put back in once we actually include the persistence recipe in the DRLD
 %  \draw [arrow] (pers_raw) -- (pers_pers);
   \draw [arrow] (dark_raw) -- (dark_dark);
@@ -180,8 +203,10 @@
 
   %% Horizontal connections
   \draw [match] (lin_lin) -- (chop_lin);
+  \draw [match] (lin_gain) -- (chop_gain);
   \draw [match] (pers_pers) -- (chop_pers);
-  \draw [match] (dark_dark) -- (flat_dark);
+  \draw [match] (pers_pinh) -- (dist_pinh);
+  \draw [match] (dark_dark) -- (chop_dark);
   \draw [match, dashed] (flat_flat) -- (chop_flat);
   \draw [match] (dist_dist) -- (cal_dist);
   \draw [match] (dark_std) -- (std_std);

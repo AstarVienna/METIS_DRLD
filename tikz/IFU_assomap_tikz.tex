@@ -66,6 +66,20 @@
     \node (RECsci1_DIlin)[empty]{}; &
     \node (RECsci2_DIlin)[empty]{}; \\
 
+    \node (RECbpm_DIgain)[empty]{}; &
+    \node (REClin_DIgain)[statcalfile]{\STATCALIB{GAIN_MAP_IFU}}; &
+    \node (RECpers_DIgain)[empty]{}; &
+    \node (RECdark_DIgain)[empty]{}; &
+    \node (RECgeom_DIgain)[empty]{}; &
+    \node (RECwcal_DIgain)[connection]{}; &
+    \node (RECrsrf_DIgain)[empty]{}; &
+    \node (RECstdreduce_DIgain)[connection]{}; &
+    \node (RECscireduce_DIgain)[connection]{}; &
+    \node (RECtac_DIgain)[empty]{}; &
+    \node (RECstd_DIgain)[empty]{}; &
+    \node (RECsci1_DIgain)[empty]{}; &
+    \node (RECsci2_DIgain)[empty]{}; \\
+
     \node (RECbpm_DIpers)[empty]{}; &
     \node (REClin_DIpers)[empty]{}; &
     \node (RECpers_DIpers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}}; &
@@ -351,7 +365,8 @@
 
   %% Connections
   \draw [arrow] (REClin_raw) -- (REClin_DIlin);
-% TODO: Put back in once we actually include the persistence recipe in the DRLD
+  \draw [arrow] (REClin_DIlin) -- (REClin_DIgain);
+%% TODO: Put back in once we actually include the persistence recipe in the DRLD
 %  \draw [arrow] (RECpers_raw) -- (RECpers_DIpers);
   \draw [arrow] (RECgeom_raw) -- (RECgeom_DIgeom);
   \draw [arrow] (RECrsrf_raw) -- (RECrsrf_DIrsrf);
@@ -368,6 +383,7 @@
         (RECwcal_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
         (RECrsrf_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
         (RECscireduce_DIlin);
+  \draw [match] (REClin_DIgain) -- (RECscireduce_DIgain);
   \draw [match] (RECpers_DIpers) --
         (RECgeom_DIpers) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
         (RECscireduce_DIpers);
