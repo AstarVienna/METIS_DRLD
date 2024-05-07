@@ -1159,11 +1159,14 @@ def test_tikz():
             + [name_recipe]
         )
 
-        # Check for duplicate names. Primarily used to find BADPIX input,
+        # Check for duplicate names. This was used to find BADPIX_MAP_det input,
         # which is not necessary since all data products have a data quality
-        # layer.
+        # layer. Nevertheless, we decided to add a BADPIX_MAP_det input to
+        # recipes dealing with raw data anyway.
         duplicates = [
-            name for name in names_in_figure if names_in_figure.count(name) > 1
+            name for name in names_in_figure
+            if names_in_figure.count(name) > 1
+               and not name.startswith("BADPIX_MAP_")
         ]
         if duplicates:
             problems_recipe.append(
@@ -1209,11 +1212,18 @@ def test_tikz():
     assert not problems
 
 
+@pytest.mark.skip(reason="We decided we want bad pixel maps")
 def test_badpixinput():
     """The imaging and IFU pipelines do not need a bad pixel map as input.
 
     Every calibration product has a data quality layer that is propagated
     to the data being processed.
+
+    Nevertheless, we decided to add the bad pixel map as input anyway,
+    so this check is not necessary anymore.
+
+    TODO: Perhaps ensure each recipe dealing with raw data actually has
+          an (optional) BADPIX_MAP_det as input?
     """
     problems = []
     for name_recipe, recipe in METIS_DataReductionLibraryDesign.recipes.items():

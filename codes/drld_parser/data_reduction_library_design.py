@@ -795,7 +795,9 @@ class AssociationMatrix:
                         thecell = AssociationMatrixCell(tikz=snode, dataitems=dataitemrefs, **groupd)
                         therow.append(thecell)
                         if 'recipe' not in groupd:
-                            assert "recipe" not in scol
+                            # Sanity check to make sure we didn't miss anything.
+                            assert "recipe" not in snode
+                            assert "recipedef" not in scol
                         break
                 else:
                     assert dataitemrefs, ValueError(snode)
@@ -805,7 +807,8 @@ class AssociationMatrix:
             thematrix.append(therow)
 
         # pprint(thematrix)
-        assert len(set(len(row) for row in thematrix)) == 1
+        row_lengths = [len(row) for row in thematrix]
+        assert len(set(row_lengths)) == 1, f"Not all rows have the same length: {row_lengths}"
         self.matrix = list(zip(*thematrix))
 
 
