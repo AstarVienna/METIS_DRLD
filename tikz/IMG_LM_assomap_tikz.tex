@@ -21,6 +21,7 @@
     % *_raw, *_dark, *_flat, *_std, *_sci1, *_sci2, *_prod
 
     % Row *_raw
+    \node [above] (bpm_raw)[empty]{}; &
     \node [above] (lin_raw){%
       \recipebox{\RAW{DETLIN_2RG_RAW}}{\REC{metis_det_lingain}}
     };
@@ -40,7 +41,7 @@
     };
     &
     \node[above] (flat_raw){%
-      \recipebox{\RAW{LM_FLAT_LAMP_RAW}}{\REC{metis_lm_img_flat}}
+      \recipebox{\RAW{LM_FLAT_LAMP_RAW} \RAW{LM_FLAT_TWILIGHT_RAW}}{\REC{metis_lm_img_flat}}
     };
     &
     \node[above] (all1_raw){%
@@ -73,7 +74,21 @@
    \\
 
     %%% Calibration products
+    % Row *_bpm
+    \node (bpm_bpm) [extcalfile]{\STATCALIB{BADPIX_MAP_2RG}}; &
+    \node (lin_bpm) [empty]{}; &
+    \node (pers_bpm)[empty]{}; &
+    \node (dist_bpm)[empty]{}; &
+    \node (dark_bpm)[empty]{}; &
+    \node (flat_bpm)[empty]{}; &
+    \node (all1_bpm)[empty]{}; &
+    \node (all2_bpm)[empty]{}; &
+    \node (std_bpm)[empty]{}; &
+    \node (sci1_bpm)[empty]{}; &
+    \node (sci2_bpm)[empty]{}; \\
+
     % Row *_lin
+    \node (bpm_lin) [empty]{}; &
     \node (lin_lin) [statcalfile]{\STATCALIB{LINEARITY_2RG}}; &
     \node (pers_lin)[empty]{}; &
     \node (dist_lin)[empty]{}; &
@@ -85,11 +100,25 @@
     \node (sci1_lin)[empty]{}; &
     \node (sci2_lin)[empty]{}; \\
 
+    % Row *_gain
+    \node (bpm_gain) [empty]{}; &
+    \node (lin_gain) [statcalfile]{\STATCALIB{GAIN_MAP_2RG}}; &
+    \node (pers_gain)[empty]{}; &
+    \node (dist_gain)[empty]{}; &
+    \node (dark_gain)[empty]{}; &
+    \node (flat_gain)[empty]{}; &
+    \node (all1_gain)[connection]{}; &
+    \node (all2_gain)[empty]{}; &
+    \node (std_gain)[empty]{}; &
+    \node (sci1_gain)[empty]{}; &
+    \node (sci2_gain)[empty]{}; \\
+
     % Row persistence
+    \node (bpm_pers)[empty]{}; &
     \node (lin_pers)[empty]{}; &
     \node (pers_pers)[extcalfile]{\STATCALIB*{PERSISTENCE_MAP}}; &
     \node (dist_pers)[empty]{}; &
-    \node (dark_pers)[empty]{}; &
+    \node (dark_pers)[connection]{}; &
     \node (flat_pers)[empty]{}; &
     \node (all1_pers)[connection]{}; &
     \node (all2_pers)[empty]{}; &
@@ -97,7 +126,21 @@
     \node (sci1_pers)[empty]{}; &
     \node (sci2_pers)[empty]{}; \\
 
+    % Row pinhole table
+    \node (bpm_pinh)[empty]{}; &
+    \node (lin_pinh)[empty]{}; &
+    \node (pers_pinh)[extcalfile]{\STATCALIB{PINHOLE_TABLE}}; &
+    \node (dist_pinh)[connection]{}; &
+    \node (dark_pinh)[empty]{}; &
+    \node (flat_pinh)[empty]{}; &
+    \node (all1_pinh)[empty]{}; &
+    \node (all2_pinh)[empty]{}; &
+    \node (std_pinh)[empty]{}; &
+    \node (sci1_pinh)[empty]{}; &
+    \node (sci2_pinh)[empty]{}; \\
+
     % Row *_dark
+    \node (bpm_dark)[empty]{}; &
     \node (lin_dark) [empty]{}; &
     \node (pers_dark) [empty]{}; &
     \node (dist_dark) [empty]{}; &
@@ -110,11 +153,13 @@
     \node (sci2_dark) [empty]{}; \\
 
     % Row *_flat
+    \node (bpm_flat)[empty]{}; &
     \node (lin_flat) [empty]{}; &
     \node (pers_flat) [empty]{}; &
     \node (dist_flat)[empty]{}; &
     \node (dark_flat)[empty]{}; &
-    \node (flat_flat) [calibproduct]{\PROD{MASTER_IMG_FLAT_LAMP_LM}}; &
+    \node (flat_flat) [calibproduct]{\PROD{MASTER_IMG_FLAT_LAMP_LM}};
+      \node (flat_flat2) [calibproduct,below=.5cm]{\PROD{MASTER_IMG_FLAT_TWILIGHT_LM}}; &
     \node (all1_flat)[connection]{}; &
     \node (all2_flat)[empty]{}; &
     \node (std_flat)[empty]{}; &
@@ -122,6 +167,7 @@
     \node (sci2_flat) [empty]{}; \\
 
     % Row *_all1
+    \node (bpm_all2)[empty]{}; &
     \node (lin_all1)[empty]{}; &
     \node (pers_all1) [empty]{}; &
     \node (dist_all1)[empty]{}; &
@@ -134,6 +180,7 @@
     \node (sci2_all1) [empty]{}; \\
 
 % Row *_all2
+    \node (bpm_all2)[empty]{}; &
     \node (lin_all2) [empty]{}; &
     \node (pers_all2) [empty]{}; &
     \node (dist_all2)[empty]{}; &
@@ -146,6 +193,7 @@
     \node (sci2_all2) [empty]{}; \\
 
     % Row *_dist
+    \node (bpmdist)[empty]{}; &
     \node (lin_dist) [empty]{}; &
     \node (pers_dist) [empty]{}; &
     \node (dist_dist)[statcalfile]{\STATCALIB{LM_DISTORTION_TABLE}}; &
@@ -158,6 +206,7 @@
     \node (sci2_dist) [empty]{}; \\
 
     % Row *_std
+    \node (bpm_std)[empty]{}; &
     \node (lin_std) [empty]{}; &
     \node (pers_std) [empty]{}; &
     \node (dist_std)[empty]{}; &
@@ -170,6 +219,7 @@
     \node (sci2_std) [empty]{}; \\
 
     % Row *_sci1
+    \node (bpm_sci1)[empty]{}; &
     \node (lin_sci1) [empty]{}; &
     \node (pers_sci1) [empty]{}; &
     \node (dist_sci1)[empty]{}; &
@@ -182,6 +232,7 @@
     \node (sci2_sci1)[empty]{}; \\
 
     % Row *_sci2
+    \node (bpm_sci2)[empty]{}; &
     \node (lin_sci2) [empty]{}; &
     \node (pers_sci2) [empty]{}; &
     \node (dist_sci2)[empty]{}; &
@@ -194,15 +245,16 @@
     \node (sci2_sci2) [connection]{}; \\
 
     % Row *_prod
-    \node(lin_prod) [empty]{}; &
-    \node(pers_prod) [empty]{}; &
-    \node(dist_prod) [empty]{}; &
-    \node(dark_prod) [empty]{}; &
-    \node(flat_prod) [empty]{}; &
-    \node(all1_prod) [empty]{}; &
-    \node(all2_prod) [empty]{}; &
-    \node(std_prod) [empty]{}; &
-    \node(sci1_prod) [empty]{}; &
+    \node (bpm_prod)[empty]{}; &
+    \node (lin_prod) [empty]{}; &
+    \node (pers_prod) [empty]{}; &
+    \node (dist_prod) [empty]{}; &
+    \node (dark_prod) [empty]{}; &
+    \node (flat_prod) [empty]{}; &
+    \node (all1_prod) [empty]{}; &
+    \node (all2_prod) [empty]{}; &
+    \node (std_prod) [empty]{}; &
+    \node (sci1_prod) [empty]{}; &
     \node (sci2_prod)[scienceproduct]{\PROD{LM_SCI_COADD}}; \\
   };    % end matrix
 
@@ -227,6 +279,7 @@
 %  \draw [arrow] (adi_sci2) -- (adi_prod);
 
   %% Horizontal connections
+  \draw [match, dashed] (bpm_bpm) -- (all1_bpm);
   \draw [match] (lin_lin)   -- (all1_lin);
   \draw [match] (pers_pers) -- (all1_pers);
   \draw [match] (dark_dark) -- (all1_dark);
