@@ -56,9 +56,9 @@
     \node (REClin_DIlin)[statcalfile]{\STATCALIB{LINEARITY_IFU}}; &
     \node (RECpers_DIlin)[empty]{}; &
     \node (RECdark_DIlin)[connection]{}; &
-    \node (RECgeom_DIlin)[empty]{}; &
-    \node (RECwcal_DIlin)[empty]{}; &
-    \node (RECrsrf_DIlin)[empty]{}; &
+    \node (RECgeom_DIlin)[connection]{}; &
+    \node (RECwcal_DIlin)[connection]{}; &
+    \node (RECrsrf_DIlin)[connection]{}; &
     \node (RECstdreduce_DIlin)[connection]{}; &
     \node (RECscireduce_DIlin)[connection]{}; &
     \node (RECtac_DIlin)[empty]{}; &
@@ -70,9 +70,9 @@
     \node (REClin_DIgain)[statcalfile]{\STATCALIB{GAIN_MAP_IFU}}; &
     \node (RECpers_DIgain)[empty]{}; &
     \node (RECdark_DIgain)[connection]{}; &
-    \node (RECgeom_DIgain)[empty]{}; &
+    \node (RECgeom_DIgain)[connection]{}; &
     \node (RECwcal_DIgain)[connection]{}; &
-    \node (RECrsrf_DIgain)[empty]{}; &
+    \node (RECrsrf_DIgain)[connection]{}; &
     \node (RECstdreduce_DIgain)[connection]{}; &
     \node (RECscireduce_DIgain)[connection]{}; &
     \node (RECtac_DIgain)[empty]{}; &
@@ -84,7 +84,7 @@
     \node (REClin_DIpers)[empty]{}; &
     \node (RECpers_DIpers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}}; &
     \node (RECdark_DIpers)[connection]{}; &
-    \node (RECgeom_DIpers)[empty]{}; &
+    \node (RECgeom_DIpers)[connection]{}; &
     \node (RECwcal_DIpers)[connection]{}; &
     \node (RECrsrf_DIpers)[connection]{}; &
     \node (RECstdreduce_DIpers)[connection]{}; &
@@ -379,16 +379,17 @@
   \draw [match] (REClin_DIlin) --
 % TODO: Put back in once we actually include the persistence recipe in the DRLD
 %        (RECpers_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
-        (RECgeom_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
-        (RECwcal_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
-        (RECrsrf_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+%        (RECgeom_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+%        (RECwcal_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+%        (RECrsrf_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
         (RECscireduce_DIlin);
   \draw [match] (REClin_DIgain) -- (RECscireduce_DIgain);
   \draw [match] (RECpers_DIpers) --
-        (RECgeom_DIpers) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
+%        (RECgeom_DIpers) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
         (RECscireduce_DIpers);
   \draw [match] (RECdark_DIdark) -- (RECscireduce_DIdark);
   \draw [match] (RECpers_DIpinh) --
+  % At least there is still this one hoop in the matrix!
         (RECdark_DIpinh) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --
         (RECgeom_DIpinh);
   \draw [match] (RECgeom_DIgeom) -- (RECscireduce_DIgeom);
