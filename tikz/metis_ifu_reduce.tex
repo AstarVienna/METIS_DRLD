@@ -36,7 +36,7 @@
     \textsl{M} \RAW{IFU_SKY_RAW}
   };
 
-  \node (step_signature) [below=6cm of input, redstep]{%
+  \node (step_signature) [below=7cm of input, redstep]{%
     detector signature\\
     removal
   };
@@ -81,29 +81,28 @@
 
   %% Input
   % Input for detector signature removal (step_signature)
+  \node (connect_bpm) [connection] at ($(input)!0.20!(step_signature)$) {};
+  \node (bpm) [left=of connect_bpm, external] {\EXTCALIB{BADPIX_MAP_IFU}};
+  \draw [connection_arrow, dashed] (bpm) -- (connect_bpm);
 
-  \node (connectpers) [connection] at ($(input)!0.25!(step_signature)$) {};
+  \node (connectpers) [connection] at ($(input)!0.32!(step_signature)$) {};
   \node (persistence) [left=of connectpers, external]{\EXTCALIB{PERSISTENCE_MAP}};
   \draw [-](persistence) -- (connectpers);
 
-  \node (connectnonlin) [connection] at ($(input)!0.40!(step_signature)$) {};
+  \node (connectnonlin) [connection] at ($(input)!0.44!(step_signature)$) {};
   \node (nonlin) [left=of connectnonlin, calproduct]{\STATCALIB{LINEARITY_IFU}};
   \draw [-](nonlin) -- (connectnonlin);
 
-%  \node (connectbpm) [connection] at ($(input)!0.55!(step_signature)$) {};
-%  \node (bpmin) [left=of connectbpm, calproduct]{\PROD{BADPIX_MAP_IFU}};
-%  \draw [-](bpmin) -- (connectbpm);
-
-  \node (connect_gain) [connection] at ($(input)!0.55!(step_signature)$) {};
+  \node (connect_gain) [connection] at ($(input)!0.56!(step_signature)$) {};
   \node (gain) [left=of connect_gain, external] {\EXTCALIB{GAIN_MAP_IFU}};
   \draw [connection_arrow] (gain) -- (connect_gain);
 
 
-  \node (connectdark) [connection] at ($(input)!0.70!(step_signature)$) {};
+  \node (connectdark) [connection] at ($(input)!0.68!(step_signature)$) {};
   \node (darkin) [left=of connectdark, calproduct] {\PROD{MASTER_DARK_IFU}};
   \draw [connection_arrow] (darkin) -- (connectdark);
 
-  \node (connectflat) [connection] at ($(input)!0.85!(step_signature)$) {};
+  \node (connectflat) [connection] at ($(input)!0.8!(step_signature)$) {};
   \node (flatin) [left=of connectflat, calproduct]{\PROD{RSRF_IFU}};
   \draw [connection_arrow] (flatin.east) -- (connectflat);
 %  \draw [connection_arrow] (flatin.east) -- ++(1., 0) -- ++(0., -0.6) -- ++(1., 0);
@@ -177,10 +176,10 @@
 %  \draw [connection_arrow] (step7) -- (sci_reduced_tac);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.15!(step_signature) - (2.5,0)$)
+  \draw [frame] ($(input)!0.1!(step_signature) - (2.5,0)$)
   rectangle ($(step_reconstruction)!0.5!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.15!(step_signature) - (2.5, 0)$) {%
+  ($(input)!0.1!(step_signature) - (2.5, 0)$) {%
     \REC{metis_ifu_reduce}};
 
 \end{tikzpicture}

@@ -26,7 +26,7 @@
 %    subtract DIST\_OFF
 %  };
 
-  \node (step2) [below=3.cm of input, redstep]{locate images};
+  \node (step2) [below=4.cm of input, redstep]{locate images};
   \node (step3) [below=1.cm of step2, redstep]{fit polynomial};
 
   \pic (stop) [below=2.5cm of step3]{stop};
@@ -43,10 +43,15 @@
 %  };
 %  \draw [connection_arrow] (bpmin) -- (step2);
 
-  \node (connect_pinhole) [connection] at ($(input)!0.4!(step2)$) {};
+  \node (connect_bpm) [connection] at ($(input)!0.25!(step2)$) {};
+  \node (bpm) [left=of connect_bpm, external] {\EXTCALIB{BADPIX_MAP_IFU}};
+  \draw [connection_arrow, dashed] (bpm) -- (connect_bpm);
+
+  \node (connect_pinhole) [connection] at ($(input)!0.5!(step2)$) {};
   \node (pinhole) [left=of connect_pinhole, external] {\EXTCALIB{PINHOLE_TABLE}};
   \draw [connection_arrow] (pinhole) -- (connect_pinhole);
-  \node (connect_dark) [connection] at ($(input)!0.7!(step2)$) {};
+
+  \node (connect_dark) [connection] at ($(input)!0.75!(step2)$) {};
   \node (dark) [left=of connect_dark, calproduct] {\PROD{MASTER_DARK_IFU}};
   \draw [connection_arrow] (dark) -- (connect_dark);
 
@@ -64,10 +69,10 @@
   \draw [connection_arrow] (connect dist reduced) -- (dist reduced);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.25!(step2) - (3.,0)$)
+  \draw [frame] ($(input)!0.1!(step2) - (3.,0)$)
   rectangle ($(step3)!0.275!(stop-t) + (2.75,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.25!(step2) - (3., 0)$) {%
+  ($(input)!0.1!(step2) - (3., 0)$) {%
     \REC{metis_ifu_distortion}};
 
 \end{tikzpicture}

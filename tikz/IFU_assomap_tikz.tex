@@ -11,6 +11,9 @@
 
     % Row *_raw
 
+%    \node[above] (RECbpm_raw)[empty]{}; &
+    \node[above] (RECbpm_raw)[empty]{}; &
+%    \node[above] (RECbpm_raw){\recipebox{\RAW{DETLIN_IFU_RAW}}{\REC{metis_det_lingain}}}; &
     \node[above] (REClin_raw){\recipebox{\RAW{DETLIN_IFU_RAW}}{\REC{metis_det_lingain}}}; &
 % TODO: Put back in once we actually include the persistence recipe in the DRLD
 %    \node[above] (RECpers_raw){\recipebox{\RAW{PERSISTENCE}}{\REC{metis_det_persistence}}}; &
@@ -34,6 +37,22 @@
 %    \node[above] (adi_raw){%
 %      \recipenotitlebox{\REC{metis_ifu_adi_cgrph}}}
 %    };
+
+    \node (RECbpm_DIbpm)[extcalfile]{\STATCALIB{BADPIX_MAP_IFU}}; &
+    \node (REClin_DIbpm)[empty]{}; &
+    \node (RECpers_DIbpm)[empty]{}; &
+    \node (RECdark_DIbpm)[empty]{}; &
+    \node (RECgeom_DIbpm)[connection]{}; &
+    \node (RECwcal_DIbpm)[connection]{}; &
+    \node (RECrsrf_DIbpm)[connection]{}; &
+    \node (RECstdreduce_DIbpm)[connection]{}; &
+    \node (RECscireduce_DIbpm)[connection]{}; &
+    \node (RECtac_DIbpm)[empty]{}; &
+    \node (RECstd_DIbpm)[empty]{}; &
+    \node (RECsci1_DIbpm)[empty]{}; &
+    \node (RECsci2_DIbpm)[empty]{}; \\
+
+    \node (RECbpm_DIlin)[empty]{}; &
     \node (REClin_DIlin)[statcalfile]{\STATCALIB{LINEARITY_IFU}}; &
     \node (RECpers_DIlin)[empty]{}; &
     \node (RECdark_DIlin)[connection]{}; &
@@ -47,6 +66,7 @@
     \node (RECsci1_DIlin)[empty]{}; &
     \node (RECsci2_DIlin)[empty]{}; \\
 
+    \node (RECbpm_DIpers)[empty]{}; &
     \node (REClin_DIpers)[empty]{}; &
     \node (RECpers_DIpers)[extcalfile]{\STATCALIB{PERSISTENCE_MAP}}; &
     \node (RECdark_DIpers)[connection]{}; &
@@ -60,6 +80,7 @@
     \node (RECsci1_DIpers)[empty]{}; &
     \node (RECsci2_DIpers)[empty]{}; \\
 
+    \node (RECbpm_DIpinh)[empty]{}; &
     \node (REClin_DIpinh)[empty]{}; &
     \node (RECpers_DIpinh)[extcalfile]{\PROD{PINHOLE_TABLE}}; &
     \node (RECdark_DIpinh)[empty]{}; &
@@ -74,6 +95,7 @@
     \node (RECsci2_DIpinh)[empty]{}; \\
 
     % Row *_dark
+    \node (RECbpm_DIdark)[empty]{}; &
     \node (REClin_DIdark)[empty]{}; &
     \node (RECpers_DIdark)[empty]{}; &
     \node (RECdark_DIdark)[calibproduct]{\PROD{MASTER_DARK_IFU}}; &
@@ -90,6 +112,7 @@
 %    &
 %    \node (adi_DIdark)[empty]{};
     % Row *_geom
+    \node (RECbpm_DIgeom)[empty]{}; &
     \node (REClin_DIgeom)[empty]{}; &
     \node (RECpers_DIgeom)[empty]{}; &
     \node (RECdark_DIgeom)[empty]{}; &
@@ -106,6 +129,7 @@
 %    \node (adi_DIgeom)[empty]{};
 
     % Row *_wcal
+    \node (RECbpm_DIwal)[empty]{}; &
     \node (REClin_DIwcal)[empty]{}; &
     \node (RECpers_DIwcal)[empty]{}; &
     \node (RECdark_DIwcal)[empty]{}; &
@@ -121,6 +145,7 @@
 %    \node (adi_DIwcal)[empty]{};
 
     % Row *_rsrf
+    \node (RECbpm_DIrsrf)[empty]{}; &
     \node (REClin_DIrsrf)[empty]{}; &
     \node (RECpers_DIrsrf)[empty]{}; &
     \node (RECdark_DIrsrf)[empty]{}; &
@@ -137,6 +162,7 @@
 %    \node (adi_DIrsrf)[empty]{};
 
     % Row *_scireduced
+    \node (RECbpm_DIscireduced)[empty]{}; &
     \node (REClin_DIscireduced)[empty]{}; &
     \node (RECpers_DIscireduced)[empty]{}; &
     \node (RECdark_DIstdreduced)[empty]{}; &
@@ -156,6 +182,7 @@
 %    \node (adi_DIscireduced)[empty]{};
 
     % Row *_stdreduced
+    \node (RECbpm_DIstdreduced)[empty]{}; &
     \node (REClin_DIstdreduced)[empty]{}; &
     \node (RECpers_DIstdreduced)[empty]{}; &
     \node (RECdark_DIstdreduced)[empty]{}; &
@@ -176,6 +203,7 @@
 %    \node (adi_DIstdreduced)[empty]{};
 
     % Row *_basicstd
+    \node (RECbpm_DIfluxstd)[empty]{}; &
     \node (REClin_DIfluxstd)[empty]{}; &
     \node (RECpers_DIfluxstd)[extcalfile]{\EXTCALIB{FLUXSTD_CATALOG}}; &
     \node (RECdark_DIfluxstd)[empty]{}; &
@@ -190,6 +218,7 @@
     \node (RECsci2_DIfluxstd)[empty]{}; \\
 
     % Row *_lsf
+    \node (RECbpm_DIlsf)[empty]{}; &
     \node (REClin_DIlsf)[empty]{}; &
     \node (RECpers_DIlsf)[extcalfile]{\EXTCALIB{LSF_KERNEL}}; &
     \node (RECdark_DIlsf)[empty]{}; &
@@ -204,6 +233,7 @@
     \node (RECsci2_DIlsf)[empty]{}; \\
 
     % Row *_atm
+    \node (RECbpm_DIatm)[empty]{}; &
     \node (REClin_DIatm)[empty]{}; &
     \node (RECpers_DIatm)[extcalfile]{\EXTCALIB{ATM_PROFILE}}; &
     \node (RECdark_DIatm)[empty]{}; &
@@ -220,6 +250,7 @@
 %    \node (adi_DIfluxstd)[empty]{};
 
     % Row *_tac
+    \node (RECbpm_DItac)[empty]{}; &
     \node (REClin_DItac)[empty]{}; &
     \node (RECpers_DItac)[empty]{}; &
     \node (RECdark_DItac)[empty]{}; &
@@ -236,6 +267,7 @@
 %    \node (adi_DItac)[empty]{};
 
     % Row *_fcal
+    \node (RECbpm_DIfcal)[empty]{}; &
     \node (REClin_DIfcal)[empty]{}; &
     \node (RECpers_DIfcal)[empty]{}; &
     \node (RECdark_DIfcal)[empty]{}; &
@@ -256,6 +288,7 @@
 %    \node (adi_DIfcal)[empty]{};
 
     % Row *_sci1
+    \node (RECbpm_DIsci1)[empty]{}; &
     \node (REClin_DIsci1)[empty]{}; &
     \node (RECpers_DIsci1)[empty]{}; &
     \node (RECdark_DIsci1)[empty]{}; &
@@ -273,6 +306,7 @@
 %    \node (adi_DIsci1)[empty]{};
 
     % Row *_sci2
+    \node (RECbpm_DIsci2)[empty]{}; &
     \node (REClin_DIsci2)[empty]{}; &
     \node (RECpers_DIsci2)[empty]{}; &
     \node (RECdark_DIsci2)[empty]{}; &
@@ -291,6 +325,7 @@
 %    \node (adi_DIsci2) [connection]{};
 
     % Row *_adi
+    \node (RECbpm_adi)[empty]{}; &
     \node (REClin_adi)[empty]{}; &
     \node (RECpers_adi)[empty]{}; &
     \node (RECdark_adi)[empty]{}; &
@@ -325,6 +360,7 @@
   \draw [arrow] (RECscireduce_raw)  -- (RECscireduce_DIscireduced);
   \draw [arrow] (RECstdreduce_raw)  -- (RECstdreduce_DIstdreduced);
 
+  \draw [match, dashed] (RECbpm_DIbpm) -- (RECscireduce_DIbpm);
   \draw [match] (REClin_DIlin) --
 % TODO: Put back in once we actually include the persistence recipe in the DRLD
 %        (RECpers_DIlin) [xshift=-0.15cm] arc [start angle=180, end angle=0, radius=.15cm] --

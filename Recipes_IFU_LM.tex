@@ -91,6 +91,7 @@ A table extension holds the polynomial coefficients.
   Type:                & Calibration                                                             \\
   Templates:           & \TPL{METIS_ifu_cal_InternalWave}                                        \\
   Input data:          & \RAW{IFU_WAVE_RAW}                    \\
+                       & \EXTCALIB{BADPIX_MAP_IFU} (optional)             \\
                        & \EXTCALIB{PERSISTENCE_MAP}                                              \\
                        & \PROD{MASTER_DARK_IFU}             \\
 %                       & \PROD{BADPIX_MAP_IFU}               \\
@@ -148,6 +149,7 @@ Requirements:        & \REQ{METIS-6131}, \REQ{METIS-6698}                       
 Type:                & Calibration                                                              \\
 Templates:           & \TPL{METIS_ifu_cal_rsrf}                                                 \\
 Input data:          & \RAW{IFU_RSRF_RAW} (Raw flats taken with black-body calibration lamp.)   \\
+                     & \EXTCALIB{BADPIX_MAP_IFU} (optional)                                     \\
                      & \EXTCALIB{PERSISTENCE_MAP}                                               \\
                      & \PROD{MASTER_DARK_IFU}                                                   \\
                      & \PROD{IFU_DISTORTION_TABLE}                                              \\
@@ -356,6 +358,7 @@ Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                       
                      & \TPL{METIS_ifu_cal_standard}                                                             \\
 Input data:          & \RAW{IFU_SCI_RAW} or \RAW{IFU_STD_RAW}                                                   \\
                      & \RAW{IFU_SKY_RAW} (Blank sky images, if available.)                                      \\
+                     & \EXTCALIB{BADPIX_MAP_IFU} (optional)                                                     \\
                      & \STATCALIB{LINEARITY_IFU}                                                                \\
                      & \EXTCALIB{PERSISTENCE_MAP}                                                               \\
                      & \PROD{MASTER_DARK_IFU}                                                                   \\
@@ -626,6 +629,7 @@ indication of the variation of spectral resolution across the field of view.
   Type:                & Calibration                                                                 \\
   Templates:           & \TPL{METIS_ifu_cal_distortion}                                              \\
   Input data:          & \RAW{IFU_DISTORTION_RAW} (Images of multi-pinhole mask.) \\
+                       & \EXTCALIB{BADPIX_MAP_IFU} (optional)                                        \\
                        & \PROD{MASTER_DARK_IFU} \\
                        & \EXTCALIB{PINHOLE_TABLE} \\
 %                       & \PROD{GAIN_MAP_IFU}\\

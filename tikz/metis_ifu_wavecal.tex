@@ -31,7 +31,7 @@
 
   \node (input) [below=0.75cm of start-m, input, text width=3.8cm]{\RAW{IFU_WAVE_RAW}};
 
-  \node (step_detrend) [below=3.5cm of input, redstep]{
+  \node (step_detrend) [below=5.5cm of input, redstep]{
     remove detector\\
     signature
   };
@@ -54,11 +54,15 @@
   \draw [connection_arrow] (step_fit) -- (stop-t);
 
   %% Input
-  \node (connect_persistence) [connection] at ($(input)!0.35!(step_detrend)$) {};
+  \node (connect_bpm) [connection] at ($(input)!0.2!(step_detrend)$) {};
+  \node (bpm) [left=of connect_bpm, external] {\EXTCALIB{BADPIX_MAP_IFU}};
+  \draw [connection_arrow, dashed] (bpm) -- (connect_bpm);
+
+  \node (connect_persistence) [connection] at ($(input)!0.4!(step_detrend)$) {};
   \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
   \draw [connection_arrow] (persistence.east) -- (connect_persistence);
 
-  \node (connect_dark) [connection] at ($(input)!0.55!(step_detrend)$) {};
+  \node (connect_dark) [connection] at ($(input)!0.6!(step_detrend)$) {};
   \node (darkin) [left=of connect_dark, calproduct]{\STATCALIB{MASTER_DARK_IFU}};
   \draw [connection_arrow] (darkin.east) -- (connect_dark);
 
@@ -66,7 +70,7 @@
 %  \node (bpmin) [left=of connect_bp, calproduct]{\STATCALIB{BADPIX_MAP_IFU}};
 %  \draw [connection_arrow] (bpmin.east) -- (connect_bp);
 
-  \node (connect_gain) [connection] at ($(input)!0.75!(step_detrend)$) {};
+  \node (connect_gain) [connection] at ($(input)!0.8!(step_detrend)$) {};
   \node (gain) [left=of connect_gain, external] {\EXTCALIB{GAIN_MAP_IFU}};
   \draw [connection_arrow] (gain) -- (connect_gain);
 
@@ -86,10 +90,10 @@
   \draw [connection_arrow] (connectwavecal) -- (wavecal);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.2!(step_detrend) - (3,0)$)
+  \draw [frame] ($(input)!0.1!(step_detrend) - (3,0)$)
   rectangle ($(step_fit)!0.7!(stop-t) + (2.5,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.2!(step_detrend) - (3, 0)$) {%
+  ($(input)!0.1!(step_detrend) - (3, 0)$) {%
     \REC{metis_ifu_wavecal}};
 
 \end{tikzpicture}
