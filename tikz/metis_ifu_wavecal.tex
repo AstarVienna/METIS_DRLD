@@ -54,25 +54,26 @@
   \draw [connection_arrow] (step_fit) -- (stop-t);
 
   %% Input
-  \node (connect_bpm) [connection] at ($(input)!0.2!(step_detrend)$) {};
+  \node (connect_bpm) [connection] at ($(input)!0.10!(step_detrend)$) {};
   \node (bpm) [left=of connect_bpm, external] {\EXTCALIB{BADPIX_MAP_IFU}};
   \draw [connection_arrow, dashed] (bpm) -- (connect_bpm);
 
-  \node (connect_persistence) [connection] at ($(input)!0.4!(step_detrend)$) {};
+  \node (connect_persistence) [connection] at ($(input)!0.3!(step_detrend)$) {};
   \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
   \draw [connection_arrow] (persistence.east) -- (connect_persistence);
 
-  \node (connect_dark) [connection] at ($(input)!0.6!(step_detrend)$) {};
+  \node (connect_gain) [connection] at ($(input)!0.5!(step_detrend)$) {};
+  \node (gain) [left=of connect_gain, external] {\EXTCALIB{GAIN_MAP_IFU}};
+  \draw [connection_arrow] (gain) -- (connect_gain);
+
+  \node (connect_linearity) [connection] at ($(input)!0.7!(step_detrend)$){};
+  \node (linearity) [left=of connect_linearity, external]{\EXTCALIB{LINEARITY_IFU}};
+  \draw [connection_arrow] (linearity) -- (connect_linearity);
+
+  \node (connect_dark) [connection] at ($(input)!0.9!(step_detrend)$) {};
   \node (darkin) [left=of connect_dark, calproduct]{\STATCALIB{MASTER_DARK_IFU}};
   \draw [connection_arrow] (darkin.east) -- (connect_dark);
 
-%  \node (connect_bp) [connection] at($(input)!0.65!(step_detrend)$) {};
-%  \node (bpmin) [left=of connect_bp, calproduct]{\STATCALIB{BADPIX_MAP_IFU}};
-%  \draw [connection_arrow] (bpmin.east) -- (connect_bp);
-
-  \node (connect_gain) [connection] at ($(input)!0.8!(step_detrend)$) {};
-  \node (gain) [left=of connect_gain, external] {\EXTCALIB{GAIN_MAP_IFU}};
-  \draw [connection_arrow] (gain) -- (connect_gain);
 
   \node (connect_distortion) [connection] at
     ($(step_detrend)!0.5!(step_locatelines)$) {};

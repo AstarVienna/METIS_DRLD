@@ -93,10 +93,10 @@ A table extension holds the polynomial coefficients.
   Input data:          & \RAW{IFU_WAVE_RAW}                    \\
                        & \EXTCALIB{BADPIX_MAP_IFU} (optional)             \\
                        & \EXTCALIB{PERSISTENCE_MAP}                                              \\
-                       & \PROD{MASTER_DARK_IFU}             \\
-%                       & \EXTCALIB{BADPIX_MAP_IFU}               \\
+                       & \STATCALIB{LINEARITY_IFU} \\
+                       & \STATCALIB{GAIN_MAP_IFU} \\
+                       & \STATCALIB{MASTER_DARK_IFU}             \\
                        & \PROD{IFU_DISTORTION_TABLE}   \\
-                       & \STATCALIB{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DET.DIT}\\
                   & \FITS{DET.NDIT}\\
                   & \FITS{DRS.IFU}\\
@@ -151,11 +151,11 @@ Templates:           & \TPL{METIS_ifu_cal_rsrf}                                 
 Input data:          & \RAW{IFU_RSRF_RAW} (Raw flats taken with black-body calibration lamp.)   \\
                      & \EXTCALIB{BADPIX_MAP_IFU} (optional)                                     \\
                      & \EXTCALIB{PERSISTENCE_MAP}                                               \\
-                     & \PROD{MASTER_DARK_IFU}                                                   \\
+                     & \STATCALIB{MASTER_DARK_IFU}                                                   \\
+                     & \STATCALIB{LINEARITY_IFU}                                                     \\
+                     & \STATCALIB{GAIN_MAP_IFU}                                                      \\
                      & \PROD{IFU_DISTORTION_TABLE}                                              \\
-%                     & \EXTCALIB{BADPIX_MAP_IFU}                                                    \\
                      & \PROD{IFU_WAVECAL}: image with wavelength at each pixel.                 \\
-%                       & \STATCALIB{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DET.DIT}\\
                   & \FITS{DET.NDIT}\\
                   & \FITS{DRS.IFU}\\
@@ -359,17 +359,16 @@ Templates:           & \TPL{METIS_ifu_obs_FixedSkyOffset}                       
 Input data:          & \RAW{IFU_SCI_RAW} or \RAW{IFU_STD_RAW}                                                   \\
                      & \RAW{IFU_SKY_RAW} (Blank sky images, if available.)                                      \\
                      & \EXTCALIB{BADPIX_MAP_IFU} (optional)                                                     \\
-                     & \STATCALIB{LINEARITY_IFU}                                                                \\
+                     & \STATCALIB{LINEARITY_IFU}                                                                     \\
+                     & \STATCALIB{GAIN_MAP_IFU}                                                                      \\
                      & \EXTCALIB{PERSISTENCE_MAP}                                                               \\
-                     & \PROD{MASTER_DARK_IFU}                                                                   \\
+                     & \STATCALIB{MASTER_DARK_IFU}                                                                   \\
                      & \PROD{RSRF_IFU} (2D relative spectral response function)                                 \\
-%                     & \EXTCALIB{BADPIX_MAP_IFU}                                                                    \\
                      & \PROD{IFU_WAVECAL}                                                                       \\
 % TODO: I believe this should not be just FLUXCAL_TAB as it is not a table but an image
 %                     & \PROD{FLUXCAL_TAB} (Flux calibration table) \\
                      & \PROD{IFU_DISTORTION_TABLE} \\
 %                     & \STATCALIB{LSF_KERNEL} (Line spread kernel to be used with \CODE{molecfit}) \\
-                     & \STATCALIB{GAIN_MAP_IFU}                                                                      \\
 Matched Keywords: & \FITS{DET.DIT}\\
                   & \FITS{DET.NDIT}\\
                   & \FITS{DRS.IFU}\\
@@ -630,7 +629,10 @@ indication of the variation of spectral resolution across the field of view.
   Templates:           & \TPL{METIS_ifu_cal_distortion}                                              \\
   Input data:          & \RAW{IFU_DISTORTION_RAW} (Images of multi-pinhole mask.) \\
                        & \EXTCALIB{BADPIX_MAP_IFU} (optional)                                        \\
-                       & \PROD{MASTER_DARK_IFU} \\
+                       & \EXTCALIB{PERSISTENCE_MAP} \\
+                       & \STATCALIB{LINEARITY_IFU} \\
+                       & \STATCALIB{GAIN_MAP_IFU} \\
+                       & \STATCALIB{MASTER_DARK_IFU} \\
                        & \EXTCALIB{PINHOLE_TABLE} \\
 %                       & \STATCALIB{GAIN_MAP_IFU}\\
 Matched Keywords: & \FITS{DRS.IFU}\\

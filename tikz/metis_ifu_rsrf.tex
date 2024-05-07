@@ -33,7 +33,7 @@
     \textsl{N} \RAW{IFU_RSRF_RAW}
   };
 
-  \node (step_detrend) [below=5cm of input, redstep]{%
+  \node (step_detrend) [below=7cm of input, redstep]{%
     detector signature\\
     removal
   };
@@ -58,19 +58,27 @@
   \draw [connection_arrow] (step_average) -- (stop-t);
 
   %% Input
-  \node (connect_bpm) [connection] at ($(input)!0.2!(step_detrend)$) {};
+  \node (connect_bpm) [connection] at ($(input)!0.15!(step_detrend)$) {};
   \node (bpm) [left=of connect_bpm, external] {\EXTCALIB{BADPIX_MAP_IFU}};
   \draw [connection_arrow, dashed] (bpm) -- (connect_bpm);
 
-  \node (connect_persistence) [connection] at ($(input)!0.4!(step_detrend)$) {};
+  \node (connect_persistence) [connection] at ($(input)!0.3!(step_detrend)$) {};
   \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
   \draw [connection_arrow] (persistence.east) -- (connect_persistence);
 
-  \node (connect_dark) [connection] at ($(input)!0.6!(step_detrend)$) {};
+  \node (connect_dark) [connection] at ($(input)!0.45!(step_detrend)$) {};
   \node (darkin) [left=of connect_dark, calproduct]{\STATCALIB{MASTER_DARK_IFU}};
   \draw [connection_arrow] (darkin.east) -- (connect_dark);
 
-  \node (connect_distortion) [connection] at ($(input)!0.8!(step_detrend)$) {};
+  \node (connect_gain) [connection] at ($(input)!0.6!(step_detrend)$) {};
+  \node (gain) [left=of connect_gain, external] {\EXTCALIB{GAIN_MAP_IFU}};
+  \draw [connection_arrow] (gain) -- (connect_gain);
+
+  \node (connect_linearity) [connection] at ($(input)!0.75!(step_detrend)$){};
+  \node (linearity) [left=of connect_linearity, external]{\EXTCALIB{LINEARITY_IFU}};
+  \draw [connection_arrow] (linearity) -- (connect_linearity);
+
+  \node (connect_distortion) [connection] at ($(input)!0.9!(step_detrend)$) {};
   \node (distortion) [left=of connect_distortion, calproduct]{\STATCALIB{IFU_DISTORTION_TABLE}};
   \draw [connection_arrow] (distortion.east) -- (connect_distortion);
 
