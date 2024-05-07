@@ -24,12 +24,21 @@
     \TPL{METIS_gen_cal_dark}\\
     \TPL{METIS_gen_cal_InsDark}};
   \pic (start) [below=0.75cm of template] {start};
-  \node (input) [below=0.75cm of start-m, input] {\textsl{N} \RAW{DARK_det_RAW}};
-  \node (step_linearity) [below=2.0cm of input, redstep] {%
+  \node (input) [below=.75cm of start-m, input] {\textsl{N} \RAW{DARK_det_RAW}};
+  \node (step_linearity) [below=4.0cm of input, redstep] {%
     apply non-linearity correction};
 
-  \node (connectlinearity) [connection] at ($(input)!0.65!(step_linearity)$){};
+  % Input
+  \node (connect_bpm) [connection] at ($(input)!0.3!(step_linearity)$) {};
+  \node (bpm) [left=of connect_bpm, external] {\EXTCALIB{BADPIX_MAP_det}};
+  \draw [connection_arrow, dashed] (bpm) -- (connect_bpm);
+
+  \node (connectlinearity) [connection] at ($(input)!0.55!(step_linearity)$){};
   \node (linearity) [left=of connectlinearity, external]{\STATCALIB{LINEARITY_det}};
+  \draw [connection_arrow] (linearity) -- (connectlinearity);
+
+  \node (connectlinearity) [connection] at ($(input)!0.8!(step_linearity)$){};
+  \node (linearity) [left=of connectlinearity, external]{\STATCALIB{GAIN_MAP_det}};
   \draw [connection_arrow] (linearity) -- (connectlinearity);
 
   \node (step_persistence) [below of=step_linearity, redstep] {%
@@ -62,10 +71,10 @@
   \draw [connection_arrow] (connecthot) -- (hot);
 
   %% frame around recipe
-  \draw [frame] ($(input)!0.4!(step_linearity) - (2.5cm,0)$)
-  rectangle ($(step_thresholding)!0.7!(stop-t) + (2.5cm, 0)$);
+  \draw [frame] ($(input)!0.1!(step_linearity) - (2.8cm,0)$)
+  rectangle ($(step_thresholding)!0.7!(stop-t) + (2.8cm, 0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.4!(step_linearity) - (2.5cm,0)$) {\REC{metis_det_dark}};
+  ($(input)!0.1!(step_linearity) - (2.5cm,0)$) {\REC{metis_det_dark}};
 
 \end{tikzpicture}
 \input{normal_style}

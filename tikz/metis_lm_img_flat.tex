@@ -37,7 +37,7 @@
 %  \node (step_persistence) [below=2.0cm of input, redstep] {%
 %    apply persistence correction};
 
-  \node (step_signature) [below=2.0cm of input, redstep]{%
+  \node (step_signature) [below=6.0cm of input, redstep]{%
     detector signature\\ removal};
 
   \node (step_fit) [below of=step_signature, redstep]{%
@@ -52,11 +52,6 @@
   \draw [connection_arrow] (step_signature) -- (step_fit);
   \draw [connection_arrow] (step_fit) -- (stop-t);
 
-%  \node (connectpers) [connection] at
-%  ($(input)!0.65!(step_persistence)$){};
-%  \node (persistence) [left=of connectpers, external]{%
-%    \EXTCALIB{PERSISTENCE_MAP}};
-%  \draw [connection_arrow] (persistence) -- (connectpers);
 
 %   \node (connectparams) [connection] at
 %   ($(input)!0.7!(step_signature.north)$){};
@@ -69,30 +64,40 @@
 %  \node (bpmin) [left=of connectbpm, calproduct]{\STATCALIB{BADPIX_MAP_2RG}};
 %  \draw [connection_arrow] (bpmin) -- (connectbpm);
 
-  \node (connection_masterdark) [connection] at
-  ($(input)!0.7!(step_signature)$){};
-  \node (darkin) [left=of connection_masterdark, calproduct]{%
-    \STATCALIB{MASTER_DARK_2RG}};
+  \node (connect_bpm) [connection] at ($(input)!0.2!(step_signature)$) {};
+  \node (bpm) [left=of connect_bpm, external] {\EXTCALIB{BADPIX_MAP_2RG}};
+  \draw [connection_arrow, dashed] (bpm) -- (connect_bpm);
+
+   \node (connect_gain) [connection] at ($(input)!0.35!(step_signature)$) {};
+  \node (gain) [left=of connect_gain, external] {\EXTCALIB{GAIN_MAP_2RG}};
+  \draw [connection_arrow] (gain) -- (connect_gain);
+
+  \node (connect_linearity) [connection] at ($(input)!0.50!(step_signature)$){};
+  \node (linearity) [left=of connect_linearity, external]{\EXTCALIB{LINEARITY_det}};
+  \draw [connection_arrow] (linearity) -- (connect_linearity);
+
+  \node (connectpers) [connection] at ($(input)!0.65!(step_signature)$){};
+  \node (persistence) [left=of connectpers, external]{\EXTCALIB{PERSISTENCE_MAP}};
+  \draw [connection_arrow] (persistence) -- (connectpers);
+
+  \node (connection_masterdark) [connection] at ($(input)!0.8!(step_signature)$){};
+  \node (darkin) [left=of connection_masterdark, calproduct]{\STATCALIB{MASTER_DARK_2RG}};
   \draw [connection_arrow] (darkin) -- (connection_masterdark);
 
   %% Output
-  \node (connectflat) [connection] at
-  ($(step_fit)!0.3!(stop-t)$){};
-  \node (flatout) [right=of connectflat,calproduct]{%
-    \STATCALIB{MASTER_IMG_FLAT_LAMP_LM}\\
-    or \STATCALIB{MASTER_IMG_FLAT_TWILIGHT_LM}};
+  \node (connectflat) [connection] at ($(step_fit)!0.3!(stop-t)$){};
+  \node (flatout) [right=of connectflat,calproduct]{\STATCALIB{MASTER_IMG_FLAT_LAMP_LM}\\ or \STATCALIB{MASTER_IMG_FLAT_TWILIGHT_LM}};
   \draw [connection_arrow] (connectflat) -- (flatout);
 
-  \node (connectbpm) [below=0.65cm of connectflat, connection]{};
-  \node (bpmout) [right=of connectbpm, calproduct]{%
-    \STATCALIB{BADPIX_MAP_2RG}};
+  \node (connectbpm) [below=0.95cm of connectflat, connection]{};
+  \node (bpmout) [right=of connectbpm, calproduct]{\STATCALIB{BADPIX_MAP_2RG}};
   \draw [connection_arrow] (connectbpm) -- (bpmout);
 
   %% Frame around recipe
-  \draw [frame] ($(input)!0.35!(step_signature) -(2.85,0)$) rectangle
+  \draw [frame] ($(input)!0.1!(step_signature) -(2.85,0)$) rectangle
   ($(step_fit)!0.75!(stop-t) + (2.85,0)$);
   \node [framecolor, anchor=north west] at
-  ($(input)!0.35!(step_signature) - (2.85,0)$){%
+  ($(input)!0.1!(step_signature) - (2.85,0)$){%
     \REC{metis_lm_img_flat}};
 
 \end{tikzpicture}

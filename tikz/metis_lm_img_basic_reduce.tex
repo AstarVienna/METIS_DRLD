@@ -76,20 +76,20 @@
   %% External data
 
   % External input
-  \node (connect_gain) [connection] at ($(input)!0.45!(step_linearity)$) {};
+  \node (connect_bpm) [connection] at ($(input)!0.35!(step_linearity)$) {};
+  \node (bpm) [left=of connect_bpm, external] {\EXTCALIB{BADPIX_MAP_2RG}};
+  \draw [connection_arrow, dashed] (bpm) -- (connect_bpm);
+
+  \node (connect_gain) [connection] at ($(input)!0.55!(step_linearity)$) {};
   \node (gain) [left=of connect_gain, external] {\EXTCALIB{GAIN_MAP_2RG}};
   \draw [connection_arrow] (gain) -- (connect_gain);
 
-  \node (connect_linearity) [connection] at
-  ($(input)!0.65!(step_linearity)$){};
-  \node (linearity) [left=of connect_linearity, external]{%
-    \EXTCALIB{LINEARITY_det}};
+  \node (connect_linearity) [connection] at ($(input)!0.75!(step_linearity)$){};
+  \node (linearity) [left=of connect_linearity, external]{\EXTCALIB{LINEARITY_det}};
   \draw [connection_arrow] (linearity) -- (connect_linearity);
 
-  \node (connect_persistence) [connection] at
-  ($(step_linearity)!0.5!(step_persistence)$){};
-  \node (persistence) [left=of connect_persistence, external]{%
-    \EXTCALIB{PERSISTENCE_MAP}};
+  \node (connect_persistence) [connection] at ($(step_linearity)!0.5!(step_persistence)$){};
+  \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
   \draw [connection_arrow] (persistence) -- (connect_persistence);
 
 %   \node (connectparams) [connection] at
