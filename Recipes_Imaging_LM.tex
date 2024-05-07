@@ -45,6 +45,10 @@ otherwise a new one is created.
                        & \TPL{METIS_img_lm_cal_TwilightFlat}                               \\
   Input data:          & \RAW{LM_FLAT_LAMP_RAW} \\
                        & or \RAW{LM_FLAT_TWILIGHT_RAW} \\
+                       & \EXTCALIB{BADPIX_MAP_2RG} (optional) \\
+                       & \STATCALIB{LINEARITY_2RG} \\
+                       & \STATCALIB{GAIN_MAP_2RG} \\
+                       & \EXTCALIB{PERSISTENCE_MAP} \\
                        & \PROD{MASTER_DARK_2RG} (for twilight flats) \\
   %                       & \PROD{BADPIX_MAP_2RG} \\
 %                       & \PROD{GAIN_MAP_2RG}\\
@@ -141,9 +145,11 @@ Basic statistics of the images can be used to screen for saturation.
                     & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
                     & \TPL{METIS_ifu_cal_psf}                                                                  \\
   Input data:       & \RAW{LM_IMAGE_SCI_RAW} or \RAW{LM_IMAGE_STD_RAW} \\
+                    & \EXTCALIB{BADPIX_MAP_2RG} (optional) \\
 %                     & \RAW{IFU_SKY_RAW} (Blank sky images, if available.) \\
 %                     & \EXTCALIB{LM_DETECTOR_MASK} (if available)  \\
                     & \STATCALIB{LINEARITY_2RG} \\
+                    & \STATCALIB{GAIN_MAP_2RG} \\
                     & \EXTCALIB{PERSISTENCE_MAP} \\
                     & \PROD{MASTER_DARK_2RG} \\
                     & \PROD{MASTER_IMG_FLAT_LAMP_LM} \\
@@ -555,6 +561,10 @@ pixel scale across the detector will be created.
   Type:                & Calibration                                                     \\
   Input data:          & \RAW{LM_DISTORTION_RAW} (Images of grid mask in WCU-FP2 or CFO-FP2.)\\
                        & \RAW{LM_WCU_OFF_RAW} \\
+                       & \EXTCALIB{BADPIX_MAP_2RG} (optional) \\
+                       & \EXTCALIB{PERSISTENCE_MAP} \\
+                       & \STATCALIB{LINEARITY_2RG} \\
+                       & \STATCALIB{GAIN_MAP_2RG} \\
                        & \EXTCALIB{PINHOLE_TABLE} (Grid of pinhole mask positions) \\
   Matched keywords:  & \FITS{DRS.FILTER} \\
 %                       & \PROD{BADPIX_MAP_2RG} \\

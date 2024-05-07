@@ -57,7 +57,7 @@ otherwise a new one is created.
   Input data:          & \RAW{N_FLAT_LAMP_RAW} or \RAW{N_FLAT_TWILIGHT_RAW} \\
                        & \PROD{MASTER_DARK_GEO} (for twilight flats)                               \\
 %                       & \PROD{GAIN_MAP_GEO}\\
-%                       & \PROD{BADPIX_MAP_GEO}                                                  \\
+                       & \PROD{BADPIX_MAP_GEO} (optional)                               \\
   Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                   \\
                        & \FITS{DRS.FILTER}                                                     \\
@@ -139,7 +139,7 @@ The edges of the N-band detector will be behind a cold mask on all four sides.
                      & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
   Input data:        & \RAW{N_IMAGE_SCI_RAW} or \RAW{N_IMAGE_STD_RAW} \\
                      & \PROD{MASTER_DARK_GEO} \\
-%                     & \PROD{BADPIX_MAP_GEO} Bad-pixel map \\
+                     & \EXTCALIB{BADPIX_MAP_GEO} (optional) \\
                      & \STATCALIB{LINEARITY_GEO} \\
                      & \EXTCALIB{PERSISTENCE_MAP} \\
                      & \PROD{MASTER_IMG_FLAT_LAMP_N} \\
@@ -345,6 +345,7 @@ pixel scale across the detector will be created.
   Type:                & Calibration                                                    \\
   Input data:          & \RAW{N_DISTORTION_RAW} (Images of grid mask in WCU-FP2 or CFO-FP2.)\\
                        & \RAW{N_WCU_OFF_RAW} \\
+                       & \EXTCALIB{BADPIX_MAP_GEO} \\
                        & \EXTCALIB{PINHOLE_TABLE} (Grid of pinhole mask positions) \\
 %                       & \PROD{BADPIX_MAP_GEO} \\
   Matched keywords:    & \FITS{DRS.FILTER} \\
