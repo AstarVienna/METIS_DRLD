@@ -26,11 +26,10 @@
   \node (step_signature) [below=6.0cm of input, redstep]{%
     detector signature\\ removal};
 
-  \node (step_subtract) [below=2.5cm of step_signature, redstep]{%
-    subtract WCU OFF dark
-  };
+  \node (step_subtract) [below=1.5cm of step_signature, redstep]{%
+    subtract WCU OFF dark};
 
-  \node (step_locate) [below=2.5cm of step_subtract, redstep]{%
+  \node (step_locate) [below=1.5cm of step_subtract, redstep]{%
     locate images};
 
   \node (step_fit) [below=1.5cm of step_locate, redstep]{%
@@ -56,8 +55,7 @@
   \node (persistence) [left=of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
   \draw [connection_arrow] (persistence) -- (connect_persistence);
 
-  \node (connect_wcuoff) [connection] at
-  ($(step_signature)!0.65!(step_subtract)$) {};
+  \node (connect_wcuoff) [connection] at ($(step_signature)!0.5!(step_subtract)$) {};
   \node (wcuoff) [left=of connect_wcuoff, input] {\RAW{N_WCU_OFF_RAW}};
   \draw [connection_arrow] (wcuoff) -- (connect_wcuoff);
 
@@ -65,8 +63,7 @@
 %  \node (bpmin) [left=of connect_bpmin, calproduct] {\STATCALIB{BADPIX_MAP_GEO}};
 %  \draw [connection_arrow] (bpmin) -- (connect_bpmin);
 
-  \node (connect_pinhole) [connection] at
-  ($(step_subtract)!0.7!(step_locate)$) {};
+  \node (connect_pinhole) [connection] at ($(step_subtract)!0.5!(step_locate)$) {};
   \node (pinhole) [left=of connect_pinhole, external] {\EXTCALIB{PINHOLE_TABLE}};
   \draw [connection_arrow] (pinhole) -- (connect_pinhole);
 

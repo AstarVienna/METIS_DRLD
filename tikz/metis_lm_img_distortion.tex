@@ -26,10 +26,10 @@
   \node (step_signature) [below=6.0cm of input, redstep]{%
     detector signature\\ removal};
 
-  \node (step_subtract) [below=2.5cm of step_signature, redstep]{%
-    subtract WCU OFF dar};
+  \node (step_subtract) [below=1.5cm of step_signature, redstep]{%
+    subtract WCU OFF dark};
 
-  \node (step_locate) [below=2.5cm of step_subtract, redstep]{%
+  \node (step_locate) [below=1.5cm of step_subtract, redstep]{%
     locate images};
 
   \node (step_fit) [below=1.5cm of step_locate, redstep]{%
@@ -64,13 +64,14 @@
 %  \draw [connection_arrow] (bpmin) -- (connect_bpmin);
 
   \node (connect_pinhole) [connection] at
-  ($(step_subtract)!0.7!(step_locate)$) {};
+  ($(step_subtract)!0.5!(step_locate)$) {};
   \node (pinhole) [left=of connect_pinhole, external] {\EXTCALIB{PINHOLE_TABLE}};
   \draw [connection_arrow] (pinhole) -- (connect_pinhole);
 
   %% Connections
   \draw [connection_arrow] (start-m) -- (input);
-  \draw [connection_arrow] (input) -- (step_subtract);
+  \draw [connection_arrow] (input) -- (step_signature);
+  \draw [connection_arrow] (step_signature) -- (step_subtract);
   \draw [connection_arrow] (step_subtract) -- (step_locate);
   \draw [connection_arrow] (step_locate) -- (step_fit);
   \draw [connection_arrow] (step_fit) -- (stop-t);
