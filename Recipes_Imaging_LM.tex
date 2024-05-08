@@ -376,13 +376,13 @@ following~\cite{visir_manual}.
                        & \EXTCALIB{FLUXSTD_CATALOG} (photometric standard catalogue) \\
   Matched keywords:    & \FITS{DRS.FILTER}                                                                 \\
   Parameters:          & None                                                                         \\
-  Algorithm:           & Call \DRL{lm_calculate_std_flux} to measure flux in input images                      \\
+  Algorithm:           & Call \DRL{metis_lm_calculate_std_flux} to measure flux in input images                      \\
 %                       & call \DRL{recentre_img} to recentre and stack images                         \\
                        & call \CODE{hdrl_resample_compute} to recenter the images \\
                        & call \CODE{hdrl_imagelist_collapse} to stack the images \\
-                       & call \DRL{lm_calculate_std_flux} on the stacked image to get flux of the star in detector units\\
-                       & call \DRL{calculate_std_fluxcal} to calculate the conversion factor to physical units    \\
-                       & call \DRL{calculate_detection_limits} to compute measure background noise (std,rms) and compute detection limits \\
+                       & call \DRL{metis_lm_calculate_std_flux} on the stacked image to get flux of the star in detector units\\
+                       & call \DRL{metis_calculate_std_fluxcal} to calculate the conversion factor to physical units    \\
+                       & call \DRL{metis_calculate_detection_limits} to compute measure background noise (std,rms) and compute detection limits \\
   Output data:         & \PROD{LM_STD_COMBINED}                                                       \\
                        & \PROD{FLUXCAL_TAB}                                                           \\
   Expected accuracies: & 3\% (cf.~\cite{METIS_calerrbudget})                                          \\
@@ -457,7 +457,7 @@ header. The images are not resampled by this recipe, this is left to
                      & \PROD{LM_DISTORTION_TABLE}                       \\
   Matched keywords:  & \FITS{DRS.FILTER} \\
   Parameters:        & None                                             \\
-  Algorithm:         & call \DRL{lm_scale_image_flux} to Scale image data to ph/s \\
+  Algorithm:         & call \DRL{metis_lm_scale_image_flux} to Scale image data to ph/s \\
                      & add header information (\FITS*{BUNIT}, WCS, etc.) \\
   Output data:       & \PROD{LM_SCI_CALIBRATED}                         \\
   QC1 parameters:    & None                                             \\
@@ -572,7 +572,7 @@ pixel scale across the detector will be created.
 %                       & \TBD \\
   Algorithm:           & Subtract background image.    (\CODE{hdrl_imagelist_sub_image})                                  \\
                        & Measure location of point source images in frames (\CODE{hdrl_catalogue_create})             \\
-                       & call \DRL{fit_distortion} to fit polynomial coefficients to deviations from grid positions.  \\
+                       & call \DRL{metis_fit_distortion} to fit polynomial coefficients to deviations from grid positions.  \\
   Output data:         & \PROD{LM_DISTORTION_TABLE} \\
                        & \PROD{LM_DISTORTION_MAP}        \\
                        & \PROD{LM_DIST_REDUCED}               \\

@@ -8,9 +8,9 @@
 
 
 
-\subsubsection{Detrending}\label{drl:img_detrend}
+\subsubsection{Detrending}\label{drl:metis_img_detrend}
 \begin{recipedef}
-Name: & \DRL{img_detrend} \\
+Name: & \DRL{metis_img_detrend} \\
 Purpose: &Remove detector signals\\
 Used in recipes: & \REC{metis_lm_img_basic_reduce}\\
 %Working remarks: & None \\
@@ -31,9 +31,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
-\subsubsection{Building sky background}\label{drl:img_skybackground_build}
+\subsubsection{Building sky background}\label{drl:metis_img_skybackground_build}
 \begin{recipedef}
-Name: & \DRL{img_skybackground_build} \\
+Name: & \DRL{metis_img_skybackground_build} \\
 Purpose: & Building thermal background signals\\
 Used in recipes: & \REC{metis_lm_img_background}\\
 %Working remarks: & None \\
@@ -55,9 +55,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
         
     
-\subsubsection{Remove sky background}\label{drl:img_skybackground_removal}
+\subsubsection{Remove sky background}\label{drl:metis_img_skybackground_removal}
 \begin{recipedef}
-Name: & \DRL{img_skybackground_removal} \\
+Name: & \DRL{metis_img_skybackground_removal} \\
 Purpose: & Remove sky background signals\\
 Used in recipes: & \REC{metis_lm_img_background}\\
 %Working remarks: & None \\
@@ -286,9 +286,9 @@ Error conditions: & None. \\
 %Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
-\subsubsection{Measure LM band flux of standard star}\label{drl:lm_calculate_std_flux}
+\subsubsection{Measure LM band flux of standard star}\label{drl:metis_lm_calculate_std_flux}
 \begin{recipedef}
-Name: & \DRL{lm_calculate_std_flux} \\
+Name: & \DRL{metis_lm_calculate_std_flux} \\
 Purpose: & Calculate LM band flux and position of standard star in detector units \\
 Used in recipes: & \REC{metis_lm_img_std_process}\\
 %Working remarks: & None \\
@@ -311,9 +311,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
-\subsubsection{Measure N band flux of standard star}\label{drl:n_std_flux}\label{drl:n_calculate_std_flux}
+\subsubsection{Measure N band flux of standard star}\label{drl:n_std_flux}\label{drl:metis_n_calculate_std_flux}
 \begin{recipedef}
-Name: & \DRL{n_calculate_std_flux} \\
+Name: & \DRL{metis_n_calculate_std_flux} \\
 Purpose: & Calculate N band flux and position of standard star in detector units \\
 Used in recipes: & \REC{metis_n_img_std_process}\\
 %Working remarks: & None \\
@@ -361,9 +361,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 %Unit tests: & See~\cite{DRLVT}. \\
 %\end{recipedef}
 
-\subsubsection{Calculate flux calibration}\label{drl:calculate_std_fluxcal}
+\subsubsection{Calculate flux calibration}\label{drl:metis_calculate_std_fluxcal}
 \begin{recipedef}
-Name: & \DRL{calculate_std_fluxcal} \\
+Name: & \DRL{metis_calculate_std_fluxcal} \\
 Purpose: & Calculate the conversion between instrumental and physical flux units \\
 Used in recipes: & \REC{metis_lm_img_std_process}\\
 %Working remarks: & None \\
@@ -384,9 +384,9 @@ Error conditions: & See~\cite{DRLVT}. \\
 Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
-\subsubsection{Calculate detection limits}\label{drl:calculate_detection_limits}
+\subsubsection{Calculate detection limits}\label{drl:metis_calculate_detection_limits}
 \begin{recipedef}
-Name: & \DRL{calculate_detection_limits} \\
+Name: & \DRL{metis_calculate_detection_limits} \\
 Purpose: & Calculate Detection Limits \\
 Used in recipes: & \REC{metis_lm_img_std_process}\\
 %Working remarks: & None \\
@@ -407,9 +407,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 
 
-\subsubsection{Detect peak centroid location}\label{drl:img_peakcentroid}\label{drl:detect_centroid_peak}
+\subsubsection{Detect peak centroid location}\label{drl:img_peakcentroid}\label{drl:metis_detect_centroid_peak}
 \begin{recipedef}
-Name: & \DRL{detect_centroid_peak} \\
+Name: & \DRL{metis_detect_centroid_peak} \\
 Purpose: & Detect the location of a source peak by a centroid\\
 Used in recipes: & \REC{metis_img_chophome}\newline
 \REC{metis_lm_adc_slitloss} \newline
@@ -430,9 +430,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
-\subsubsection{Convert LM image to physical flux}\label{drl:lm_scale_image_flux}
+\subsubsection{Convert LM image to physical flux}\label{drl:metis_lm_scale_image_flux}
 \begin{recipedef}
-Name: & \DRL{lm_scale_image_flux} \\
+Name: & \DRL{metis_lm_scale_image_flux} \\
 Purpose: & Calculate the conversion between instrumental and physical flux units \\
 Used in recipes: & \REC{metis_lm_img_calibrate}\\
 %Working remarks: & None \\
@@ -452,9 +452,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 
 
-\subsubsection{Add LM calibration information to header}\label{drl:lm_update_header_distortion}
+\subsubsection{Add LM calibration information to header}\label{drl:metis_lm_update_header_distortion}
 \begin{recipedef}
-Name: & \DRL{lm_update_header_distortion} \\
+Name: & \DRL{metis_lm_update_header_distortion} \\
 Purpose: & Update the FITS header with calibration data (WCS, distortion, units)  \\
 Used in recipes: & \REC{metis_lm_img_calibrate}\\
 %Working remarks: & None \\
@@ -472,9 +472,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
-\subsubsection{Convert N image to physical flux}\label{drl:n_scale_image_flux}
+\subsubsection{Convert N image to physical flux}\label{drl:metis_n_scale_image_flux}
 \begin{recipedef}
-Name: & \DRL{n_scale_image_flux} \\
+Name: & \DRL{metis_n_scale_image_flux} \\
 Purpose: & Calculate the conversion between instrumental and physical flux units \\
 Used in recipes: & \REC{metis_n_img_calibrate}\\
 %Working remarks: & None \\
@@ -495,9 +495,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 
 
-\subsubsection{Add N calibration information to header}\label{drl:n_update_header_distortion}
+\subsubsection{Add N calibration information to header}\label{drl:metis_n_update_header_distortion}
 \begin{recipedef}
-Name: & \DRL{n_update_header_distortion} \\
+Name: & \DRL{metis_n_update_header_distortion} \\
 Purpose: & Update the FITS header with calibration data (WCS, distortion, units)  \\
 Used in recipes: & \REC{metis_n_img_calibrate}\\
 %Working remarks: & None \\
@@ -516,9 +516,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 
 
 
-\subsubsection{Fit distortion parameters}\label{drl:fit_distortion}
+\subsubsection{Fit distortion parameters}\label{drl:metis_fit_distortion}
 \begin{recipedef}
-Name: & \DRL{fit_distortion} \\
+Name: & \DRL{metis_fit_distortion} \\
 Purpose: & Fit optical distortion coefficients based on pinhole mask image  \\
 Used in recipes: & \REC{metis_lm_img_distortion}\\
                  & \REC{metis_n_img_distortion}\\
@@ -540,9 +540,9 @@ Unit tests: & See~\cite{DRLVT}. \\
 \end{recipedef}
 
 
-\subsubsection{Cutout region around beam}\label{drl:cutout_region}
+\subsubsection{Cutout region around beam}\label{drl:metis_cutout_region}
 \begin{recipedef}
-Name: & \DRL{cutout_region} \\
+Name: & \DRL{metis_cutout_region} \\
 Purpose: & Cutout a region around a beam in N band image  \\
 Used in recipes: & \REC{metis_n_img_restore}\\
 %Working remarks: & None \\
