@@ -17,6 +17,8 @@ and the smoothed column, i.e. pixel $(x,y)$ is selected if
 \begin{equation}
     I(x,y) > \bar{I}(x,y) + \mathrm{Median} ( I(x,y) - \bar{I}(x,y) ) .
 \end{equation}
+where $I$ is the intensity of the smoothed images, and $\bar{I}$ that of the unsmoothed image.
+
 In the following a clustering analysis is performed, which associates connected groups of pixels. This is done scanning rows and columns and identifying neighbouring pixels selected in the previous step as belonging to the same cluster if $\delta x$ and $\delta y$ differ by at most 1. As spectral orders may be partitioned into different clusters because of e.g. detector defects, polynomial fits to the clusters are performed and the pairwise extensions of the fits to consecutive clusters are compared to identify which clusters are to be merged according to predefined criteria for the goodness of match. For each order, the detection algorithm yields a polynomial description of order location on the detector (the order center and its edges), an uncertainty estimate
 for the fitted polynomial, and the first and last columns to be used during spectrum extraction. 
 %The upper and lower edges of the orders are also traced and fitted by the order tracing algorithm using the pinhole frames with the flatfield lamp. 
