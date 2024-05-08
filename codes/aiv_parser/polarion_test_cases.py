@@ -9,13 +9,10 @@ from astropy.io import ascii
 import polarion.polarion as polarion
 from polarion.workitem import Workitem
 
-from codes.drld_parser.data_reduction_library_design import DataReductionLibraryDesign as DRLD
 
 aiv_dates_tbl = ascii.read("aiv_dates.dat")
 AIV_DATES = {row["MET-AIV-x"] : [row["Date"], row["Description"]]
              for row in aiv_dates_tbl}
-
-drld = DRLD()
 
 
 def get_polarion_test_cases():
@@ -112,7 +109,7 @@ class MetisTestCases:
     @property
     def pip_recipes_time_unique(self):
         date_dict = {date: test.pip_recipes
-                     for date, tests in mtcs.pip_tests_time_sorted.items()
+                     for date, tests in self.pip_tests_time_sorted.items()
                      for test in tests}
         date_dict = {date : np.unique(recipes)
                      for date, recipes in date_dict.items()}
@@ -135,7 +132,3 @@ class MetisTestCases:
                 yaml.dump(tests_lists, f)
         else:
             return yaml.dump(tests_lists)
-
-
-mtcs = MetisTestCases()
-print(mtcs.pip_recipe_need_dates)

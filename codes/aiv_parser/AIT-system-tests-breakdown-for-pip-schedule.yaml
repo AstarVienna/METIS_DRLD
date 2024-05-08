@@ -33,11 +33,17 @@
         pip_recipes :
             metis_det_dark : skel
             metis_det_lingain : skel
+            metis_det_persistence: skel
             metis_lm_img_basic_reduce : skel
-            metis_lm_adc_slitloss : skel
-            metis_n_adc_slitloss : skel
             metis_pupil_imaging : skel
             metis_img_chophome : skel
+            metis_ifu_wavecal: skel
+            metis_ifu_rsrf: skel
+            metis_ifu_reduce: skel
+            metis_ifu_distortion: skel
+            metis_ifu_telluric: skel
+            metis_ifu_calibrate: skel
+            metis_ifu_postprocess: skel
         comments : |
             Need to have PIP infrastructure set up in AIV Facility including:
             - a working skeleton of the pipeline
@@ -52,25 +58,31 @@
     -   polarion_id : METIS-9827
         name : OPT_System Alignment 2.1-1
         pip_recipes :
-            metis_det_lingain : skel
-            metis_det_dark : skel
-            metis_det_persistence : skel
-            metis_ifu_wavecal : skel
-            metis_ifu_rsrf : skel
-            metis_ifu_reduce : skel
-            metis_ifu_distortion : skel
-            metis_ifu_telluric : skel
-            metis_ifu_calibrate : skel
-            metis_ifu_postprocess : skel
+            metis_det_lingain : func
+            metis_det_dark : func
+            metis_det_persistence : func
+            metis_ifu_wavecal : func
+            metis_ifu_rsrf : func
+            metis_ifu_reduce : func
+            metis_ifu_distortion : func
+            metis_ifu_postprocess : func
+            metis_lm_img_basic_reduce: func
+            metis_lm_img_flat: skel
+            metis_lm_img_background: skel
+            metis_lm_img_std_process: skel
+            metis_lm_img_calibrate: skel
+            metis_lm_img_sci_postprocess: skel
+            metis_lm_img_distortion: skel
+            metis_n_img_flat: skel
+            metis_n_img_chopnod: skel
+            metis_n_img_std_process: skel
+            metis_n_img_calibrate: skel
+            metis_n_img_restore: skel
+            metis_n_img_distortion: skel
         comments : |
             - No detectors are installed, but a dress-rehearsal of the pipeline should be possible for the IFU alignment tests
             - Interface between PIP and AIT GUI software needs to be ready
 
-
--   phase_id : MET-AIT-250
-    name : LMS cold functional test
-    date : 2025-12-5
-    tests :
     -   polarion_id : METIS-9750
         name: DET_Characterization
         pip_recipes :
@@ -78,29 +90,7 @@
             metis_det_dark : func
         comments : |
             Only what is needed to check that the pipeline runs with pixel data
-
-
--   phase_id : MET-AIT-330
-    name : LMS cold functional test (with detector)
-    date : 2026-2-6
-    tests :
-    -   polarion_id : METIS-9750
-        name: DET_Characterization
-        pip_recipes :
-            metis_det_lingain : perf
-            metis_det_dark : perf
-        comments : |
-            Only what is needed for the LMS detectors (i.e the HAWAII-2RGs)
-
-    -   polarion_id : METIS-10750
-        name : OPT_Robustness of wavelength calibration
-        pip_recipes :
-            metis_ifu_wavecal : func
-            metis_ifu_rsrf : func
-            metis_ifu_reduce : func
-            metis_ifu_distortion : func
-        comments : |
-            To test the repeatability of the wavelength solution after moving the various mechanisms. Pixel positions of laser emission lines needs to be tested
+            Moved from AIV-250 for sake of readability
 
 
 -   phase_id : MET-AIT-350
@@ -113,8 +103,15 @@
             metis_lm_img_flat : func
             metis_lm_img_basic_reduce : func
             metis_lm_img_background : func
+            metis_lm_img_std_process : func
+            metis_lm_img_sci_postprocess : func
+            metis_lm_img_distortion : func
+            metis_lm_img_calibrate : func
             metis_n_img_flat : func
             metis_n_img_chopnod : func
+            metis_n_img_distortion : func
+            metis_n_img_restore : func
+            metis_n_img_calibrate : func
         comments : |
             Basic reduction needed to see pinhole mask on the LM-DET and N-DET and determine offset between expected position and actual position of detectors
 
@@ -124,6 +121,7 @@
             metis_lm_img_basic_reduce : func
             metis_lm_img_flat : func
             metis_lm_img_background : func
+            metis_n_img_std_process : func
             metis_n_img_chopnod : func
             metis_n_img_flat : func
         comments : |
@@ -135,9 +133,13 @@
             metis_lm_lss_wave : func
             metis_lm_lss_trace : func
             metis_lm_lss_rsrf : func
+            metis_lm_lss_std : func
+            metis_lm_lss_sci : func
             metis_n_lss_wave : func
             metis_n_lss_trace : func
             metis_n_lss_rsrf : func
+            metis_n_lss_std : func
+            metis_n_lss_sci : func
         comments : |
             To test the repeatability of the wavelength solution after moving the various mechanisms. Pixel positions of laser emission lines needs to be tested
 
@@ -166,11 +168,56 @@
             - Lots of readouts to analyse performance of chopper in active and passive phases, at operational speeds of upto 1 kHz.
             - To reach kHz rates, pipeline (and detector readout) need to be able to work in windowed mode.
 
+    -   polarion_id : METIS-10895
+        name : SCA_ Co-align and verify the lateral pupil position during system integration
+        pip_recipes :
+            metis_pupil_imaging : func
+            metis_det_lingain   : func
+            metis_det_dark  : func
+            metis_det_persistence   : func
+            metis_lm_img_flat : func
+        comments : |
+            Unclear what is actually needed from the PIP. Assumption is a reduced pupil image, what ever that may be
+            This is moved from AIV-450 for the sake of ease of reading
 
--   phase_id : MET-AIT-360
-    name : LMS cold system alignment verification
-    date : 2026-2-13
+    -   polarion_id : METIS-10755
+        name : SCA_Storage of AO telemetry in the Science Data Product
+        pip_recipes :
+            metis_lm_img_basic_reduce : func
+            metis_det_lingain   : func
+            metis_det_dark  : func
+            metis_det_persistence   : func
+            metis_lm_img_flat : func
+        comments : |
+            Tests whether the reference to the AO-telemetry files have been included in the headers
+            This is moved from AIV-440 for the sake of ease of reading
+
+
+-   phase_id : MET-AIT-370
+    name : Instrument verification C/D (LMS)
+    date : 2026-2-06
     tests :
+    -   polarion_id : METIS-9750
+        name: DET_Characterization
+        pip_recipes :
+            metis_det_lingain : perf
+            metis_det_dark : perf
+        comments : |
+            Only what is needed for the LMS detectors (i.e the HAWAII-2RGs)
+            Originally in AIT-330
+
+    -   polarion_id : METIS-10750
+        name : OPT_Robustness of wavelength calibration
+        pip_recipes :
+            metis_ifu_wavecal : func
+            metis_ifu_rsrf : func
+            metis_ifu_reduce : func
+            metis_ifu_distortion : func
+            metis_ifu_postprocess : func
+        comments : |
+            To test the repeatability of the wavelength solution after moving the various mechanisms. Pixel positions of laser emission lines needs to be tested
+            Originally in AIT-330          
+
     -   polarion_id : METIS-9827
         name : OPT_System Alignment
         pip_recipes :
@@ -183,12 +230,8 @@
             metis_ifu_distortion : func
         comments : |
             - IFU cube (image) is reconstructed and "offset" between known mask and DET is recorded. Assuming this will happen with pinholes ...
+            - Originally in MET-360
 
-
--   phase_id : MET-AIT-370
-    name : Instrument verification C/D (LMS)
-    date : 2026-2-20
-    tests :
     -   polarion_id : METIS-9794
         name : OPT_Ghosting and Straylight
         pip_recipes :
@@ -198,19 +241,7 @@
             metis_ifu_rsrf : perf
             metis_ifu_reduce : perf
             metis_ifu_distortion : perf
-            metis_lm_img_flat   : skel
-            metis_lm_img_basic_reduce   : skel
-            metis_lm_img_background : skel
-            metis_lm_img_std_process : skel
-            metis_lm_img_calibrate : skel
-            metis_lm_img_sci_postprocess : skel
-            metis_lm_img_distortion : skel            
-            metis_n_img_flat : skel            
-            metis_n_img_chopnod : skel            
-            metis_n_img_std_process : skel            
-            metis_n_img_calibrate : skel            
-            metis_n_img_restore : skel            
-            metis_n_img_distortion : skel
+            metis_ifu_postprocess : perf
             metis_lm_lss_rsrf : skel
             metis_lm_lss_trace : skel
             metis_lm_lss_wave : skel
@@ -229,6 +260,8 @@
             metis_img_adi_cgrph : skel
             metis_lm_adi_app : skel
             metis_ifu_adi_cgrph : skel
+            metis_lm_adc_slitloss : skel
+            metis_n_adc_slitloss : skel
         comments : |
             Need to be able to "see" ghosts in the images. So reduction needs to be on the level of a performance test.
 
@@ -265,8 +298,8 @@
     -   polarion_id : METIS-9796
         name : OPT_Instrument Background
         pip_recipes :
-            metis_det_lingain : sci
-            metis_det_dark : sci
+            metis_det_lingain : perf
+            metis_det_dark : perf
             metis_det_persistence : func
             metis_lm_img_flat : skel
         comments : |
@@ -313,37 +346,6 @@
             - Complementary test to OPT_IFU_1 - LMS Boresight image quality verification
 
 
--   phase_id : MET-AIT-440
-    name : SCA cold functional tests
-    date : 2026-9-3
-    tests :
-    -   polarion_id : METIS-10755
-        name : SCA_Storage of AO telemetry in the Science Data Product
-        pip_recipes :
-            metis_lm_img_basic_reduce : func
-            metis_det_lingain   : func
-            metis_det_dark  : func
-            metis_det_persistence   : func
-            metis_lm_img_flat : func
-        comments : |
-            Tests whether the reference to the AO-telemetry files have been included in the headers
-
--   phase_id : MET-AIT-450
-    name : SCA cold system alignment verification
-    date : 2026-9-10
-    tests :
-    -   polarion_id : METIS-10895
-        name : SCA_ Co-align and verify the lateral pupil position during system integration
-        pip_recipes :
-            metis_pupil_imaging : func
-            metis_det_lingain   : func
-            metis_det_dark  : func
-            metis_det_persistence   : func
-            metis_lm_img_flat : func
-        comments : |
-            Unclear what is actually needed from the PIP. Assumption is a reduced pupil image, what ever that may be
-
-
 -   phase_id : MET-AIT-490
     name : Instrument verification E (IMG+LSS+HCI)
     date : 2026-10-27
@@ -351,51 +353,52 @@
     -   polarion_id : METIS-9746
         name : CAL_Characterization_IMG
         pip_recipes :
-            metis_det_lingain    : func
-            metis_det_dark   : func
-            metis_det_persistence : func
-            metis_lm_img_flat : func
-            metis_lm_img_basic_reduce : func
-            metis_lm_img_background : func
-            metis_lm_img_std_process :  func
-            metis_lm_img_calibrate : func
-            metis_lm_img_distortion : func
-            metis_n_img_flat : func
-            metis_n_img_chopnod : func
-            metis_n_img_std_process : func
-            metis_n_img_calibrate : func
-            metis_n_img_distortion : func
+            metis_det_lingain    : perf
+            metis_det_dark   : perf
+            metis_det_persistence : perf
+            metis_lm_img_flat : perf
+            metis_lm_img_basic_reduce : perf
+            metis_lm_img_background : perf
+            metis_lm_img_std_process :  perf
+            metis_lm_img_calibrate : perf
+            metis_lm_img_distortion : perf
+            metis_lm_img_sci_postprocess : perf
+            metis_n_img_flat : perf
+            metis_n_img_chopnod : perf
+            metis_n_img_std_process : perf
+            metis_n_img_calibrate : perf
+            metis_n_img_distortion : perf
         comments : |
             Early (and short) assessment to understand instrument calibration characteristics for the IMG module.
 
     -   polarion_id : METIS-9749
         name : CAL_WCU functional
         pip_recipes :
-            metis_det_lingain    : func
-            metis_det_dark   : func
-            metis_det_persistence : func
-            metis_lm_img_flat : func
-            metis_lm_img_basic_reduce : func
-            metis_lm_img_background : func
-            metis_lm_img_calibrate : func
-            metis_lm_img_distortion : func
-            metis_n_img_flat : func
-            metis_n_img_chopnod : func
-            metis_n_img_calibrate : func
-            metis_n_img_distortion : func
-            metis_lm_lss_rsrf : func
-            metis_lm_lss_trace : func
-            metis_lm_lss_wave : func
-            metis_lm_lss_sci : func
-            metis_n_lss_rsrf : func
-            metis_n_lss_trace : func
-            metis_n_lss_sci : func
-            metis_ifu_wavecal : func
-            metis_ifu_rsrf : func
-            metis_ifu_reduce : func
-            metis_ifu_distortion : func
-            metis_ifu_sci_postprocess : func
-            metis_pupil_imaging : func
+            metis_det_lingain    : perf
+            metis_det_dark   : perf
+            metis_det_persistence : perf
+            metis_lm_img_flat : perf
+            metis_lm_img_basic_reduce : perf
+            metis_lm_img_background : perf
+            metis_lm_img_calibrate : perf
+            metis_lm_img_distortion : perf
+            metis_n_img_flat : perf
+            metis_n_img_chopnod : perf
+            metis_n_img_calibrate : perf
+            metis_n_img_distortion : perf
+            metis_lm_lss_rsrf : perf
+            metis_lm_lss_trace : perf
+            metis_lm_lss_wave : perf
+            metis_lm_lss_sci : perf
+            metis_n_lss_rsrf : perf
+            metis_n_lss_trace : perf
+            metis_n_lss_sci : perf
+            metis_ifu_wavecal : perf
+            metis_ifu_rsrf : perf
+            metis_ifu_reduce : perf
+            metis_ifu_distortion : perf
+            metis_ifu_sci_postprocess : perf
+            metis_pupil_imaging : perf
         comments : |
             Assess the IMG and LMS response to all WCU sources. Provide exposure time tables as input for future tests.
 
@@ -633,6 +636,7 @@
             metis_ifu_rsrf  : func
             metis_ifu_reduce   : func
             metis_ifu_telluric  : func
+            metis_ifu_calibrate : func
             metis_ifu_distortion    : func
             metis_img_adi_cgrph : func
             metis_lm_adi_app    : func
@@ -782,6 +786,7 @@
             metis_ifu_distortion    : func
             metis_ifu_reduce   : func
             metis_ifu_telluric  : func
+            metis_ifu_calibrate : func
             metis_lm_img_background : func
             
     -   polarion_id :  METIS-10758
@@ -818,6 +823,55 @@
     name : Instrument Testing (PAE)
     date : 2027-11-12
     tests :
+    -   polarion_id: METIS-9802
+        name: PIP_Data reduction library
+        pip_recipes:
+            metis_det_lingain: perf
+            metis_det_dark: perf
+            metis_det_persistence: perf
+            metis_lm_img_flat: perf
+            metis_lm_img_basic_reduce: perf
+            metis_lm_img_background: perf
+            metis_lm_img_std_process: perf
+            metis_lm_img_calibrate: perf
+            metis_lm_img_perf_postprocess: perf
+            metis_lm_img_distortion: perf
+            metis_n_img_flat: perf
+            metis_n_img_chopnod: perf
+            metis_n_img_std_process: perf
+            metis_n_img_calibrate: perf
+            metis_n_img_restore: perf
+            metis_n_img_distortion: perf
+            metis_lm_adc_slitloss: perf
+            metis_lm_lss_rsrf: perf
+            metis_lm_lss_trace: perf
+            metis_lm_lss_wave: perf
+            metis_lm_lss_std: perf
+            metis_lm_lss_perf: perf
+            metis_lm_lss_mf_model: perf
+            metis_lm_lss_mf_calctrans: perf
+            metis_lm_lss_mf_correct: perf
+            metis_n_adc_slitloss: perf
+            metis_n_lss_rsrf: perf
+            metis_n_lss_trace: perf
+            metis_n_lss_std: perf
+            metis_n_lss_perf: perf
+            metis_n_lss_mf_model: perf
+            metis_n_lss_mf_calctrans: perf
+            metis_n_lss_mf_correct: perf
+            metis_ifu_wavecal: perf
+            metis_ifu_rsrf: perf
+            metis_ifu_reduce: perf
+            metis_ifu_telluric: perf
+            metis_ifu_calibrate: perf
+            metis_ifu_postprocess: perf
+            metis_ifu_distortion: perf
+            metis_pupil_imaging: perf
+            metis_img_chophome: perf
+            metis_img_adi_cgrph: perf
+            metis_lm_adi_app: perf
+            metis_ifu_adi_cgrph: perf
+
     -   polarion_id :  METIS-10530
         name : CAL_Characterization_LMS
         pip_recipes : 
@@ -867,6 +921,7 @@
             metis_n_img_std_process : perf
             metis_n_img_calibrate : perf
             metis_n_img_distortion : perf
+            metis_n_img_restore : perf
         comments : |
             PAE assessment to understand instrument calibration characteristics for the IMG module.
 
@@ -942,8 +997,6 @@
             - Verify the implementation and testing of the observing templates.
             - Little to no PIP support mandatory. Would be nice to have.
 
-        pip_recipes :
-
 
 -   phase_id : MET-AIV-850
     name : Instrument check-in Chile
@@ -952,9 +1005,11 @@
     -   polarion_id : METIS-10532
         name : PIP_Artefacts, Ghosts and Straylight removal
         pip_recipes : 
-            metis_det_dark  : sci
+            metis_det_dark      : sci
             metis_det_lingain   : sci
             metis_det_persistence   : sci
+            metis_ifu_telluric  : perf
+            metis_ifu_calibrate : perf
             metis_lm_lss_rsrf   : sci
             metis_lm_lss_trace  : sci
             metis_lm_lss_wave   : sci
@@ -962,8 +1017,8 @@
             metis_lm_lss_sci    : sci
             metis_n_lss_rsrf    : sci
             metis_n_lss_trace   : sci
-            metis_n_lss_std : sci
-            metis_n_lss_sci : sci
+            metis_n_lss_std     : sci
+            metis_n_lss_sci     : sci
             metis_lm_img_flat   : sci
             metis_n_img_flat    : sci
             metis_lm_adc_slitloss   : sci
@@ -1013,6 +1068,7 @@
             metis_ifu_rsrf  : sci
             metis_ifu_reduce   : sci
             metis_ifu_telluric  : sci
+            metis_ifu_calibrate : sci
             metis_ifu_postprocess   : sci
             metis_ifu_distortion    : sci
             metis_pupil_imaging : sci

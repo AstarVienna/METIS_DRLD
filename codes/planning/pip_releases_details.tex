@@ -1,0 +1,1227 @@
+\subsubsection{Version v0.1 : ESO: Skeleton functional}
+\label{sssec:pip_del_v0.1}
+
+
+\begin{recipedef}
+    Version      :  & v0.1      \\
+    Release Name :  & ESO: Skeleton functional    \\
+    Release Date :  & 2024-11-15            \\
+    Description :   & ESO 1st pipeline skeleton delivery         \\
+    Needed by AIV phase : & AIV-10     \\
+    Contents :      & pipeline            \\
+    Recipes :       & \REC{metis_det_dark} : skel    \\ 
+                    & \REC{metis_det_lingain} : skel    \\ 
+                    & \REC{metis_ifu_calibrate} : skel    \\ 
+                    & \REC{metis_ifu_distortion} : skel    \\ 
+                    & \REC{metis_ifu_postprocess} : skel    \\ 
+                    & \REC{metis_ifu_reduce} : skel              \\
+    Data Items :    & \PROD{DARK_2RG_RAW} : skel    \\ 
+                    & \PROD{DARK_GEO_RAW} : skel    \\ 
+                    & \PROD{DARK_IFU_RAW} : skel    \\ 
+                    & \PROD{LINEARITY_2RG} : skel    \\ 
+                    & \PROD{LINEARITY_GEO} : skel    \\ 
+                    & \PROD{LINEARITY_IFU} : skel    \\ 
+                    & \PROD{PERSISTENCE_MAP} : skel    \\ 
+                    & \PROD{MASTER_DARK_2RG} : skel    \\ 
+                    & \PROD{MASTER_DARK_GEO} : skel    \\ 
+                    & \PROD{MASTER_DARK_IFU} : skel    \\ 
+                    & \PROD{BADPIX_MAP_2RG} : skel    \\ 
+                    & \PROD{BADPIX_MAP_GEO} : skel    \\ 
+                    & \PROD{BADPIX_MAP_IFU} : skel    \\ 
+                    & \PROD{DETLIN_2RG_RAW} : skel    \\ 
+                    & \PROD{DETLIN_GEO_RAW} : skel    \\ 
+                    & \PROD{DETLIN_IFU_RAW} : skel    \\ 
+                    & \PROD{LM_WCU_OFF_RAW} : skel    \\ 
+                    & \PROD{N_WCU_OFF_RAW} : skel    \\ 
+                    & \PROD{IFU_WCU_OFF_RAW} : skel    \\ 
+                    & \PROD{GAIN_MAP_2RG} : skel    \\ 
+                    & \PROD{GAIN_MAP_GEO} : skel    \\ 
+                    & \PROD{GAIN_MAP_IFU} : skel    \\ 
+                    & \PROD{IFU_SCI_REDUCED} : skel    \\ 
+                    & \PROD{FLUXCAL_TAB} : skel    \\ 
+                    & \PROD{IFU_TELLURIC} : skel    \\ 
+                    & \PROD{IFU_SCI_CUBE_CALIBRATED} : skel    \\ 
+                    & \PROD{IFU_DISTORTION_RAW} : skel    \\ 
+                    & \PROD{PINHOLE_TABLE} : skel    \\ 
+                    & \PROD{IFU_DISTORTION_TABLE} : skel    \\ 
+                    & \PROD{IFU_DIST_REDUCED} : skel    \\ 
+                    & \PROD{IFU_SCI_COADD} : skel    \\ 
+                    & \PROD{IFU_SCI_RAW} : skel    \\ 
+                    & \PROD{IFU_STD_RAW} : skel    \\ 
+                    & \PROD{IFU_SKY_RAW} : skel    \\ 
+                    & \PROD{RSRF_IFU} : skel    \\ 
+                    & \PROD{IFU_WAVECAL} : skel    \\ 
+                    & \PROD{IFU_STD_REDUCED} : skel    \\ 
+                    & \PROD{IFU_SCI_BACKGROUND} : skel    \\ 
+                    & \PROD{IFU_STD_BACKGROUND} : skel    \\ 
+                    & \PROD{IFU_SCI_REDUCED_CUBE} : skel    \\ 
+                    & \PROD{IFU_STD_REDUCED_CUBE} : skel    \\ 
+                    & \PROD{IFU_SCI_COMBINED} : skel    \\ 
+                    & \PROD{IFU_STD_COMBINED} : skel          \\
+\end{recipedef}
+
+
+\subsubsection{Version v0.2 : AIV-A: Skeleton integrated}
+\label{sssec:pip_del_v0.2}
+
+
+\begin{recipedef}
+    Version      :  & v0.2      \\
+    Release Name :  & AIV-A: Skeleton integrated    \\
+    Release Date :  & 2025-02-11            \\
+    Description :   & AIV Hall PIP workstation integration         \\
+    Needed by AIV phase : & AIV-10     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_ifu_rsrf} : skel    \\ 
+                    & \REC{metis_ifu_telluric} : skel    \\ 
+                    & \REC{metis_ifu_wavecal} : skel    \\ 
+                    & \REC{metis_img_chophome} : skel    \\ 
+                    & \REC{metis_lm_img_basic_reduce} : skel    \\ 
+                    & \REC{metis_pupil_imaging} : skel              \\
+    Data Items :    & \PROD{IFU_RSRF_RAW} : skel    \\ 
+                    & \PROD{MASTER_FLAT_IFU} : skel    \\ 
+                    & \PROD{FLUXSTD_CATALOG} : skel    \\ 
+                    & \PROD{LSF_KERNEL} : skel    \\ 
+                    & \PROD{ATM_PROFILE} : skel    \\ 
+                    & \PROD{IFU_SCI_REDUCED_1D} : skel    \\ 
+                    & \PROD{IFU_STD_REDUCED_1D} : skel    \\ 
+                    & \PROD{IFU_WAVE_RAW} : skel    \\ 
+                    & \PROD{LM_CHOPPERHOME_RAW} : skel    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_LM} : skel    \\ 
+                    & \PROD{LM_IMAGE_SCI_RAW} : skel    \\ 
+                    & \PROD{LM_IMAGE_STD_RAW} : skel    \\ 
+                    & \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} : skel    \\ 
+                    & \PROD{LM_SCI_BASIC_REDUCED} : skel    \\ 
+                    & \PROD{LM_STD_BASIC_REDUCED} : skel    \\ 
+                    & \PROD{LM_PUPIL_RAW} : skel    \\ 
+                    & \PROD{N_PUPIL_RAW} : skel    \\ 
+                    & \PROD{LM_PUPIL_REDUCED} : skel    \\ 
+                    & \PROD{N_PUPIL_REDUCED} : skel          \\
+\end{recipedef}
+
+
+\subsubsection{Version v0.2.1 : AIV-A: Skeleton engineering}
+\label{sssec:pip_del_v0.2.1}
+
+
+\begin{recipedef}
+    Version      :  & v0.2.1      \\
+    Release Name :  & AIV-A: Skeleton engineering    \\
+    Release Date :  & 2025-05-15            \\
+    Description :   & None         \\
+    Needed by AIV phase : & AIV-250     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_det_dark} : func    \\ 
+                    & \REC{metis_det_lingain} : func    \\ 
+                    & \REC{metis_ifu_distortion} : func    \\ 
+                    & \REC{metis_ifu_postprocess} : func    \\ 
+                    & \REC{metis_ifu_reduce} : func    \\ 
+                    & \REC{metis_ifu_rsrf} : func              \\
+    Data Items :    & \PROD{DARK_2RG_RAW} : func    \\ 
+                    & \PROD{DARK_GEO_RAW} : func    \\ 
+                    & \PROD{DARK_IFU_RAW} : func    \\ 
+                    & \PROD{LINEARITY_2RG} : func    \\ 
+                    & \PROD{LINEARITY_GEO} : func    \\ 
+                    & \PROD{LINEARITY_IFU} : func    \\ 
+                    & \PROD{PERSISTENCE_MAP} : func    \\ 
+                    & \PROD{MASTER_DARK_2RG} : func    \\ 
+                    & \PROD{MASTER_DARK_GEO} : func    \\ 
+                    & \PROD{MASTER_DARK_IFU} : func    \\ 
+                    & \PROD{BADPIX_MAP_2RG} : func    \\ 
+                    & \PROD{BADPIX_MAP_GEO} : func    \\ 
+                    & \PROD{BADPIX_MAP_IFU} : func    \\ 
+                    & \PROD{DETLIN_2RG_RAW} : func    \\ 
+                    & \PROD{DETLIN_GEO_RAW} : func    \\ 
+                    & \PROD{DETLIN_IFU_RAW} : func    \\ 
+                    & \PROD{LM_WCU_OFF_RAW} : func    \\ 
+                    & \PROD{N_WCU_OFF_RAW} : func    \\ 
+                    & \PROD{IFU_WCU_OFF_RAW} : func    \\ 
+                    & \PROD{GAIN_MAP_2RG} : func    \\ 
+                    & \PROD{GAIN_MAP_GEO} : func    \\ 
+                    & \PROD{GAIN_MAP_IFU} : func    \\ 
+                    & \PROD{IFU_DISTORTION_RAW} : func    \\ 
+                    & \PROD{PINHOLE_TABLE} : func    \\ 
+                    & \PROD{IFU_DISTORTION_TABLE} : func    \\ 
+                    & \PROD{IFU_DIST_REDUCED} : func    \\ 
+                    & \PROD{IFU_SCI_CUBE_CALIBRATED} : func    \\ 
+                    & \PROD{IFU_SCI_COADD} : func    \\ 
+                    & \PROD{IFU_SCI_RAW} : func    \\ 
+                    & \PROD{IFU_STD_RAW} : func    \\ 
+                    & \PROD{IFU_SKY_RAW} : func    \\ 
+                    & \PROD{RSRF_IFU} : func    \\ 
+                    & \PROD{IFU_WAVECAL} : func    \\ 
+                    & \PROD{IFU_SCI_REDUCED} : func    \\ 
+                    & \PROD{IFU_STD_REDUCED} : func    \\ 
+                    & \PROD{IFU_SCI_BACKGROUND} : func    \\ 
+                    & \PROD{IFU_STD_BACKGROUND} : func    \\ 
+                    & \PROD{IFU_SCI_REDUCED_CUBE} : func    \\ 
+                    & \PROD{IFU_STD_REDUCED_CUBE} : func    \\ 
+                    & \PROD{IFU_SCI_COMBINED} : func    \\ 
+                    & \PROD{IFU_STD_COMBINED} : func    \\ 
+                    & \PROD{IFU_RSRF_RAW} : func    \\ 
+                    & \PROD{MASTER_FLAT_IFU} : func          \\
+\end{recipedef}
+
+
+\subsubsection{Version v0.2.2 : AIV-A: Skeleton LMS }
+\label{sssec:pip_del_v0.2.2}
+
+
+\begin{recipedef}
+    Version      :  & v0.2.2      \\
+    Release Name :  & AIV-A: Skeleton LMS     \\
+    Release Date :  & 2025-08-15            \\
+    Description :   & None         \\
+    Needed by AIV phase : & AIV-250     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_ifu_wavecal} : func    \\ 
+                    & \REC{metis_lm_img_basic_reduce} : func    \\ 
+                    & \REC{metis_lm_img_background} : skel    \\ 
+                    & \REC{metis_lm_img_calibrate} : skel    \\ 
+                    & \REC{metis_lm_img_distortion} : skel    \\ 
+                    & \REC{metis_lm_img_flat} : skel              \\
+    Data Items :    & \PROD{IFU_WAVE_RAW} : func    \\ 
+                    & \PROD{LM_IMAGE_SCI_RAW} : func    \\ 
+                    & \PROD{LM_IMAGE_STD_RAW} : func    \\ 
+                    & \PROD{MASTER_DARK_2RG} : skel    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_LM} : skel    \\ 
+                    & \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} : skel    \\ 
+                    & \PROD{LM_SCI_BASIC_REDUCED} : skel    \\ 
+                    & \PROD{LM_STD_BASIC_REDUCED} : skel    \\ 
+                    & \PROD{LM_SCI_BKG} : skel    \\ 
+                    & \PROD{LM_STD_BKG} : skel    \\ 
+                    & \PROD{LM_SCI_BKG_SUBTRACTED} : skel    \\ 
+                    & \PROD{LM_STD_BKG_SUBTRACTED} : skel    \\ 
+                    & \PROD{LM_SCI_OBJECT_CAT} : skel    \\ 
+                    & \PROD{LM_STD_OBJECT_CAT} : skel    \\ 
+                    & \PROD{FLUXCAL_TAB} : skel    \\ 
+                    & \PROD{LM_DISTORTION_TABLE} : skel    \\ 
+                    & \PROD{LM_SCI_CALIBRATED} : skel    \\ 
+                    & \PROD{LM_DISTORTION_RAW} : skel    \\ 
+                    & \PROD{LM_WCU_OFF_RAW} : skel    \\ 
+                    & \PROD{PINHOLE_TABLE} : skel    \\ 
+                    & \PROD{LM_DISTORTION_MAP} : skel    \\ 
+                    & \PROD{LM_DIST_REDUCED} : skel    \\ 
+                    & \PROD{LM_FLAT_LAMP_RAW} : skel    \\ 
+                    & \PROD{LM_FLAT_TWILIGHT_RAW} : skel    \\ 
+                    & \PROD{BADPIX_MAP_2RG} : skel          \\
+\end{recipedef}
+
+
+\subsubsection{Version v0.2.3 : AIV-C: LMS functional}
+\label{sssec:pip_del_v0.2.3}
+
+
+\begin{recipedef}
+    Version      :  & v0.2.3      \\
+    Release Name :  & AIV-C: LMS functional    \\
+    Release Date :  & 2025-11-15            \\
+    Description :   & AIV-250 LMS Cold Functional test         \\
+    Needed by AIV phase : & AIV-250     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_lm_img_sci_postprocess} : skel    \\ 
+                    & \REC{metis_lm_img_std_process} : skel    \\ 
+                    & \REC{metis_n_img_calibrate} : skel    \\ 
+                    & \REC{metis_n_img_chopnod} : skel    \\ 
+                    & \REC{metis_n_img_distortion} : skel    \\ 
+                    & \REC{metis_n_img_flat} : skel    \\ 
+                    & \REC{metis_n_img_restore} : skel    \\ 
+                    & \REC{metis_n_img_std_process} : skel              \\
+    Data Items :    & \PROD{LM_SCI_COADD} : skel    \\ 
+                    & \PROD{FLUXSTD_CATALOG} : skel    \\ 
+                    & \PROD{LM_STD_COMBINED} : skel    \\ 
+                    & \PROD{N_SCI_BKG_SUBTRACTED} : skel    \\ 
+                    & \PROD{N_DISTORTION_TABLE} : skel    \\ 
+                    & \PROD{N_SCI_CALIBRATED} : skel    \\ 
+                    & \PROD{N_IMAGE_SCI_RAW} : skel    \\ 
+                    & \PROD{N_IMAGE_STD_RAW} : skel    \\ 
+                    & \PROD{MASTER_DARK_GEO} : skel    \\ 
+                    & \PROD{LINEARITY_GEO} : skel    \\ 
+                    & \PROD{PERSISTENCE_MAP} : skel    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_N} : skel    \\ 
+                    & \PROD{GAIN_MAP_GEO} : skel    \\ 
+                    & \PROD{MASTER_IMG_FLAT_TWILIGHT_N} : skel    \\ 
+                    & \PROD{N_STD_BKG_SUBTRACTED} : skel    \\ 
+                    & \PROD{N_DISTORTION_RAW} : skel    \\ 
+                    & \PROD{N_WCU_OFF_RAW} : skel    \\ 
+                    & \PROD{N_DISTORTION_MAP} : skel    \\ 
+                    & \PROD{N_DIST_REDUCED} : skel    \\ 
+                    & \PROD{N_FLAT_LAMP_RAW} : skel    \\ 
+                    & \PROD{N_FLAT_TWILIGHT_RAW} : skel    \\ 
+                    & \PROD{BADPIX_MAP_GEO} : skel    \\ 
+                    & \PROD{N_SCI_RESTORED} : skel          \\
+\end{recipedef}
+
+
+\subsubsection{Version v0.3 : AIV-D: LMS performance}
+\label{sssec:pip_del_v0.3}
+
+
+\begin{recipedef}
+    Version      :  & v0.3      \\
+    Release Name :  & AIV-D: LMS performance    \\
+    Release Date :  & 2026-02-15            \\
+    Description :   & AIV-370 Instrument verification C/D         \\
+    Needed by AIV phase : & AIV-370     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_det_dark} : perf    \\ 
+                    & \REC{metis_det_lingain} : perf    \\ 
+                    & \REC{metis_ifu_adi_cgrph} : skel    \\ 
+                    & \REC{metis_ifu_distortion} : perf    \\ 
+                    & \REC{metis_ifu_postprocess} : perf    \\ 
+                    & \REC{metis_ifu_reduce} : perf    \\ 
+                    & \REC{metis_ifu_rsrf} : perf    \\ 
+                    & \REC{metis_ifu_wavecal} : perf    \\ 
+                    & \REC{metis_img_adi_cgrph} : skel    \\ 
+                    & \REC{metis_lm_adc_slitloss} : skel    \\ 
+                    & \REC{metis_lm_adi_app} : skel    \\ 
+                    & \REC{metis_lm_lss_mf_calctrans} : skel    \\ 
+                    & \REC{metis_lm_lss_mf_correct} : skel    \\ 
+                    & \REC{metis_lm_lss_mf_model} : skel    \\ 
+                    & \REC{metis_lm_lss_rsrf} : skel    \\ 
+                    & \REC{metis_lm_lss_sci} : skel    \\ 
+                    & \REC{metis_lm_lss_std} : skel    \\ 
+                    & \REC{metis_lm_lss_trace} : skel    \\ 
+                    & \REC{metis_lm_lss_wave} : skel    \\ 
+                    & \REC{metis_n_adc_slitloss} : skel    \\ 
+                    & \REC{metis_n_lss_mf_calctrans} : skel    \\ 
+                    & \REC{metis_n_lss_mf_correct} : skel    \\ 
+                    & \REC{metis_n_lss_mf_model} : skel    \\ 
+                    & \REC{metis_n_lss_rsrf} : skel    \\ 
+                    & \REC{metis_n_lss_sci} : skel    \\ 
+                    & \REC{metis_n_lss_std} : skel    \\ 
+                    & \REC{metis_n_lss_trace} : skel              \\
+    Data Items :    & \PROD{DARK_2RG_RAW} : perf    \\ 
+                    & \PROD{DARK_GEO_RAW} : perf    \\ 
+                    & \PROD{DARK_IFU_RAW} : perf    \\ 
+                    & \PROD{LINEARITY_2RG} : skel    \\ 
+                    & \PROD{LINEARITY_IFU} : perf    \\ 
+                    & \PROD{MASTER_DARK_2RG} : skel    \\ 
+                    & \PROD{MASTER_DARK_IFU} : perf    \\ 
+                    & \PROD{BADPIX_MAP_2RG} : skel    \\ 
+                    & \PROD{BADPIX_MAP_IFU} : perf    \\ 
+                    & \PROD{DETLIN_2RG_RAW} : perf    \\ 
+                    & \PROD{DETLIN_GEO_RAW} : perf    \\ 
+                    & \PROD{DETLIN_IFU_RAW} : perf    \\ 
+                    & \PROD{LM_WCU_OFF_RAW} : skel    \\ 
+                    & \PROD{IFU_WCU_OFF_RAW} : perf    \\ 
+                    & \PROD{GAIN_MAP_2RG} : skel    \\ 
+                    & \PROD{GAIN_MAP_IFU} : perf    \\ 
+                    & \PROD{IFU_SCI_CUBE_CALIBRATED} : perf    \\ 
+                    & \PROD{IFU_DISTORTION_TABLE} : perf    \\ 
+                    & \PROD{IFU_CGRPH_SCI_THROUGHPUT} : skel    \\ 
+                    & \PROD{IFU_OFF_AXIS_PSF_RAW} : skel    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CALIBRATED} : skel    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CENTRED} : skel    \\ 
+                    & \PROD{IFU_CGRPH_CENTROID_TAB} : skel    \\ 
+                    & \PROD{IFU_CGRPH_SCI_SPECKLE} : skel    \\ 
+                    & \PROD{IFU_CGRPH_SCI_DEROTATED_PSFSUB} : skel    \\ 
+                    & \PROD{IFU_CGRPH_SCI_DEROTATED} : skel    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CONTRAST_RADPROF} : skel    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CONTRAST_ADI} : skel    \\ 
+                    & \PROD{IFU_CGRPH_SCI_SNR} : skel    \\ 
+                    & \PROD{IFU_CGRPH_SCI_COVERAGE} : skel    \\ 
+                    & \PROD{IFU_DISTORTION_RAW} : perf    \\ 
+                    & \PROD{PINHOLE_TABLE} : perf    \\ 
+                    & \PROD{IFU_DIST_REDUCED} : perf    \\ 
+                    & \PROD{IFU_SCI_COADD} : perf    \\ 
+                    & \PROD{IFU_SCI_RAW} : perf    \\ 
+                    & \PROD{IFU_STD_RAW} : perf    \\ 
+                    & \PROD{IFU_SKY_RAW} : perf    \\ 
+                    & \PROD{RSRF_IFU} : perf    \\ 
+                    & \PROD{IFU_WAVECAL} : perf    \\ 
+                    & \PROD{IFU_SCI_REDUCED} : perf    \\ 
+                    & \PROD{IFU_STD_REDUCED} : perf    \\ 
+                    & \PROD{IFU_SCI_BACKGROUND} : perf    \\ 
+                    & \PROD{IFU_STD_BACKGROUND} : perf    \\ 
+                    & \PROD{IFU_SCI_REDUCED_CUBE} : perf    \\ 
+                    & \PROD{IFU_STD_REDUCED_CUBE} : perf    \\ 
+                    & \PROD{IFU_SCI_COMBINED} : perf    \\ 
+                    & \PROD{IFU_STD_COMBINED} : perf    \\ 
+                    & \PROD{IFU_RSRF_RAW} : perf    \\ 
+                    & \PROD{MASTER_FLAT_IFU} : perf    \\ 
+                    & \PROD{IFU_WAVE_RAW} : perf    \\ 
+                    & \PROD{LM_SCI_CALIBRATED} : skel    \\ 
+                    & \PROD{LM_DISTORTION_TABLE} : skel    \\ 
+                    & \PROD{LM_CGRPH_SCI_THROUGHPUT} : skel    \\ 
+                    & \PROD{N_CGRPH_SCI_THROUGHPUT} : skel    \\ 
+                    & \PROD{LM_OFF_AXIS_PSF_RAW} : skel    \\ 
+                    & \PROD{N_OFF_AXIS_PSF_RAW} : skel    \\ 
+                    & \PROD{LM_CGRPH_SCI_CALIBRATED} : skel    \\ 
+                    & \PROD{N_CGRPH_SCI_CALIBRATED} : skel    \\ 
+                    & \PROD{LM_CGRPH_SCI_CENTRED} : skel    \\ 
+                    & \PROD{N_CGRPH_SCI_CENTRED} : skel    \\ 
+                    & \PROD{LM_CGRPH_CENTROID_TAB} : skel    \\ 
+                    & \PROD{N_CGRPH_CENTROID_TAB} : skel    \\ 
+                    & \PROD{LM_CGRPH_SCI_SPECKLE} : skel    \\ 
+                    & \PROD{N_CGRPH_SCI_SPECKLE} : skel    \\ 
+                    & \PROD{LM_CGRPH_SCI_DEROTATED_PSFSUB} : skel    \\ 
+                    & \PROD{N_CGRPH_SCI_DEROTATED_PSFSUB} : skel    \\ 
+                    & \PROD{LM_CGRPH_SCI_DEROTATED} : skel    \\ 
+                    & \PROD{N_CGRPH_SCI_DEROTATED} : skel    \\ 
+                    & \PROD{LM_CGRPH_SCI_CONTRAST_RADPROF} : skel    \\ 
+                    & \PROD{N_CGRPH_SCI_CONTRAST_RADPROF} : skel    \\ 
+                    & \PROD{LM_CGRPH_SCI_CONTRAST_ADI} : skel    \\ 
+                    & \PROD{N_CGRPH_SCI_CONTRAST_ADI} : skel    \\ 
+                    & \PROD{LM_CGRPH_SCI_COVERAGE} : skel    \\ 
+                    & \PROD{N_CGRPH_SCI_COVERAGE} : skel    \\ 
+                    & \PROD{LM_CGRPH_SCI_SNR} : skel    \\ 
+                    & \PROD{N_CGRPH_SCI_SNR} : skel    \\ 
+                    & \PROD{LM_CGRPH_PSF_MEDIAN} : skel    \\ 
+                    & \PROD{N_CGRPH_PSF_MEDIAN} : skel    \\ 
+                    & \PROD{LM_SLITLOSSES_RAW} : skel    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_LM} : skel    \\ 
+                    & \PROD{LM_ADC_SLITLOSS} : skel    \\ 
+                    & \PROD{LM_APP_SCI_CALIBRATED} : skel    \\ 
+                    & \PROD{LM_APP_SCI_CENTRED} : skel    \\ 
+                    & \PROD{LM_APP_CENTROID_TAB} : skel    \\ 
+                    & \PROD{LM_APP_SCI_SPECKLE} : skel    \\ 
+                    & \PROD{LM_APP_SCI_DEROTATED_PSFSUB} : skel    \\ 
+                    & \PROD{LM_APP_SCI_DEROTATED} : skel    \\ 
+                    & \PROD{LM_APP_SCI_CONTRAST_RADPROF} : skel    \\ 
+                    & \PROD{LM_APP_SCI_CONTRAST_ADI} : skel    \\ 
+                    & \PROD{LM_APP_SCI_THROUGHPUT} : skel    \\ 
+                    & \PROD{LM_APP_SCI_COVERAGE} : skel    \\ 
+                    & \PROD{LM_APP_SCI_SNR} : skel    \\ 
+                    & \PROD{LM_APP_PSF_MEDIAN} : skel    \\ 
+                    & \PROD{MF_BEST_FIT_TAB} : skel    \\ 
+                    & \PROD{LSF_KERNEL} : skel    \\ 
+                    & \PROD{ATM_PROFILE} : skel    \\ 
+                    & \PROD{ATM_LINE_CAT} : skel    \\ 
+                    & \PROD{LM_LSS_SYNTH_TRANS} : skel    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_1D} : skel    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_TELLCORR_1D} : skel    \\ 
+                    & \PROD{LM_LSS_RSRF_RAW} : skel    \\ 
+                    & \PROD{MASTER_LM_LSS_RSRF} : skel    \\ 
+                    & \PROD{MEDIAN_LM_LSS_RSRF_IMG} : skel    \\ 
+                    & \PROD{MEAN_LM_LSS_RSRF_IMG} : skel    \\ 
+                    & \PROD{LM_LSS_SCI_RAW} : skel    \\ 
+                    & \PROD{LM_LSS_DIST_SOL} : skel    \\ 
+                    & \PROD{LM_LSS_WAVE_GUESS} : skel    \\ 
+                    & \PROD{STD_TRANSMISSION} : skel    \\ 
+                    & \PROD{MASTER_LM_RESPONSE} : skel    \\ 
+                    & \PROD{LM_LSS_SCI_OBJ_MAP} : skel    \\ 
+                    & \PROD{LM_LSS_SCI_SKY_MAP} : skel    \\ 
+                    & \PROD{LM_LSS_SCI_2D} : skel    \\ 
+                    & \PROD{LM_LSS_SCI_1D} : skel    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_2D} : skel    \\ 
+                    & \PROD{LM_LSS_STD_RAW} : skel    \\ 
+                    & \PROD{AO_PSF_MODEL} : skel    \\ 
+                    & \PROD{LM_SYNTH_TRANS} : skel    \\ 
+                    & \PROD{REF_STD_CAT} : skel    \\ 
+                    & \PROD{LM_LSS_STD_OBJ_MAP} : skel    \\ 
+                    & \PROD{LM_LSS_STD_SKY_MAP} : skel    \\ 
+                    & \PROD{LM_LSS_STD_1D} : skel    \\ 
+                    & \PROD{LM_LSS_STD_WAVE} : skel    \\ 
+                    & \PROD{LM_LSS_RSRF_PINH_RAW} : skel    \\ 
+                    & \PROD{LM_LSS_TRACE} : skel    \\ 
+                    & \PROD{LM_LSS_WAVE_RAW} : skel    \\ 
+                    & \PROD{LASER_TAB} : skel    \\ 
+                    & \PROD{LM_LSS_CURVE} : skel    \\ 
+                    & \PROD{N_SLITLOSSES_RAW} : skel    \\ 
+                    & \PROD{N_ADC_SLITLOSS} : skel    \\ 
+                    & \PROD{N_LSS_SYNTH_TRANS} : skel    \\ 
+                    & \PROD{N_LSS_SCI_FLUX_1D} : skel    \\ 
+                    & \PROD{N_LSS_SCI_FLUX_TELLCORR_1D} : skel    \\ 
+                    & \PROD{N_LSS_RSRF_RAW} : skel    \\ 
+                    & \PROD{MASTER_N_LSS_RSRF} : skel    \\ 
+                    & \PROD{MEDIAN_N_LSS_RSRF_IMG} : skel    \\ 
+                    & \PROD{MEAN_N_LSS_RSRF_IMG} : skel    \\ 
+                    & \PROD{N_LSS_SCI_RAW} : skel    \\ 
+                    & \PROD{N_LSS_TRACE} : skel    \\ 
+                    & \PROD{N_LSS_DIST_SOL} : skel    \\ 
+                    & \PROD{N_LSS_WAVE_GUESS} : skel    \\ 
+                    & \PROD{MASTER_N_RESPONSE} : skel    \\ 
+                    & \PROD{N_LSS_SCI_OBJ_MAP} : skel    \\ 
+                    & \PROD{N_LSS_SCI_SKY_MAP} : skel    \\ 
+                    & \PROD{N_LSS_SCI_2D} : skel    \\ 
+                    & \PROD{N_LSS_SCI_1D} : skel    \\ 
+                    & \PROD{N_LSS_SCI_FLUX_2D} : skel    \\ 
+                    & \PROD{N_LSS_STD_RAW} : skel    \\ 
+                    & \PROD{N_SYNTH_TRANS} : skel    \\ 
+                    & \PROD{N_LSS_STD_OBJ_MAP} : skel    \\ 
+                    & \PROD{N_LSS_STD_SKY_MAP} : skel    \\ 
+                    & \PROD{N_LSS_STD_1D} : skel    \\ 
+                    & \PROD{N_LSS_RSRF_PINH_RAW} : skel          \\
+\end{recipedef}
+
+
+\subsubsection{Version v0.3.1 : AIV-D: LMS updates 1}
+\label{sssec:pip_del_v0.3.1}
+
+
+\begin{recipedef}
+    Version      :  & v0.3.1      \\
+    Release Name :  & AIV-D: LMS updates 1    \\
+    Release Date :  & 2026-05-15            \\
+    Description :   & None         \\
+    Needed by AIV phase : & AIV-370     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_lm_img_background} : perf    \\ 
+                    & \REC{metis_lm_img_basic_reduce} : perf    \\ 
+                    & \REC{metis_lm_img_calibrate} : perf    \\ 
+                    & \REC{metis_lm_img_distortion} : perf    \\ 
+                    & \REC{metis_lm_img_flat} : perf    \\ 
+                    & \REC{metis_lm_img_sci_postprocess} : perf    \\ 
+                    & \REC{metis_lm_img_std_process} : perf    \\ 
+                    & \REC{metis_lm_lss_rsrf} : perf    \\ 
+                    & \REC{metis_lm_lss_sci} : perf    \\ 
+                    & \REC{metis_lm_lss_std} : perf    \\ 
+                    & \REC{metis_lm_lss_trace} : perf    \\ 
+                    & \REC{metis_lm_lss_wave} : perf              \\
+    Data Items :    & \PROD{LM_SCI_BASIC_REDUCED} : perf    \\ 
+                    & \PROD{LM_STD_BASIC_REDUCED} : perf    \\ 
+                    & \PROD{LM_SCI_BKG} : perf    \\ 
+                    & \PROD{LM_STD_BKG} : perf    \\ 
+                    & \PROD{LM_SCI_BKG_SUBTRACTED} : perf    \\ 
+                    & \PROD{LM_STD_BKG_SUBTRACTED} : perf    \\ 
+                    & \PROD{LM_SCI_OBJECT_CAT} : perf    \\ 
+                    & \PROD{LM_STD_OBJECT_CAT} : perf    \\ 
+                    & \PROD{LM_IMAGE_SCI_RAW} : perf    \\ 
+                    & \PROD{LM_IMAGE_STD_RAW} : perf    \\ 
+                    & \PROD{LINEARITY_2RG} : perf    \\ 
+                    & \PROD{PERSISTENCE_MAP} : perf    \\ 
+                    & \PROD{MASTER_DARK_2RG} : perf    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_LM} : perf    \\ 
+                    & \PROD{GAIN_MAP_2RG} : perf    \\ 
+                    & \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} : perf    \\ 
+                    & \PROD{FLUXCAL_TAB} : perf    \\ 
+                    & \PROD{LM_DISTORTION_TABLE} : perf    \\ 
+                    & \PROD{LM_SCI_CALIBRATED} : perf    \\ 
+                    & \PROD{LM_DISTORTION_RAW} : perf    \\ 
+                    & \PROD{LM_WCU_OFF_RAW} : perf    \\ 
+                    & \PROD{LM_DISTORTION_MAP} : perf    \\ 
+                    & \PROD{LM_DIST_REDUCED} : perf    \\ 
+                    & \PROD{LM_FLAT_LAMP_RAW} : perf    \\ 
+                    & \PROD{LM_FLAT_TWILIGHT_RAW} : perf    \\ 
+                    & \PROD{BADPIX_MAP_2RG} : perf    \\ 
+                    & \PROD{LM_SCI_COADD} : perf    \\ 
+                    & \PROD{FLUXSTD_CATALOG} : perf    \\ 
+                    & \PROD{LM_STD_COMBINED} : perf    \\ 
+                    & \PROD{LM_LSS_RSRF_RAW} : perf    \\ 
+                    & \PROD{MASTER_LM_LSS_RSRF} : perf    \\ 
+                    & \PROD{MEDIAN_LM_LSS_RSRF_IMG} : perf    \\ 
+                    & \PROD{MEAN_LM_LSS_RSRF_IMG} : perf    \\ 
+                    & \PROD{LM_LSS_SCI_RAW} : perf    \\ 
+                    & \PROD{LM_LSS_DIST_SOL} : perf    \\ 
+                    & \PROD{LM_LSS_WAVE_GUESS} : perf    \\ 
+                    & \PROD{ATM_LINE_CAT} : perf    \\ 
+                    & \PROD{LM_ADC_SLITLOSS} : perf    \\ 
+                    & \PROD{STD_TRANSMISSION} : perf    \\ 
+                    & \PROD{MASTER_LM_RESPONSE} : perf    \\ 
+                    & \PROD{LM_LSS_SCI_OBJ_MAP} : perf    \\ 
+                    & \PROD{LM_LSS_SCI_SKY_MAP} : perf    \\ 
+                    & \PROD{LM_LSS_SCI_2D} : perf    \\ 
+                    & \PROD{LM_LSS_SCI_1D} : perf    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_2D} : perf    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_1D} : perf    \\ 
+                    & \PROD{LM_LSS_STD_RAW} : perf    \\ 
+                    & \PROD{AO_PSF_MODEL} : perf    \\ 
+                    & \PROD{LM_SYNTH_TRANS} : perf    \\ 
+                    & \PROD{REF_STD_CAT} : perf    \\ 
+                    & \PROD{LM_LSS_STD_OBJ_MAP} : perf    \\ 
+                    & \PROD{LM_LSS_STD_SKY_MAP} : perf    \\ 
+                    & \PROD{LM_LSS_STD_1D} : perf    \\ 
+                    & \PROD{LM_LSS_STD_WAVE} : perf    \\ 
+                    & \PROD{LM_LSS_RSRF_PINH_RAW} : perf    \\ 
+                    & \PROD{LM_LSS_TRACE} : perf    \\ 
+                    & \PROD{LM_LSS_WAVE_RAW} : perf    \\ 
+                    & \PROD{LASER_TAB} : perf    \\ 
+                    & \PROD{LM_LSS_CURVE} : perf          \\
+\end{recipedef}
+
+
+\subsubsection{Version v0.3.2 : AIV-D: LMS updates 2}
+\label{sssec:pip_del_v0.3.2}
+
+
+\begin{recipedef}
+    Version      :  & v0.3.2      \\
+    Release Name :  & AIV-D: LMS updates 2    \\
+    Release Date :  & 2026-08-15            \\
+    Description :   & 350 IMG Cold Functional test         \\
+    Needed by AIV phase : & AIV-350     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_n_img_calibrate} : perf    \\ 
+                    & \REC{metis_n_img_chopnod} : perf    \\ 
+                    & \REC{metis_n_img_distortion} : perf    \\ 
+                    & \REC{metis_n_img_flat} : perf    \\ 
+                    & \REC{metis_n_img_std_process} : perf    \\ 
+                    & \REC{metis_n_lss_rsrf} : perf    \\ 
+                    & \REC{metis_n_lss_sci} : perf    \\ 
+                    & \REC{metis_n_lss_std} : perf    \\ 
+                    & \REC{metis_n_lss_trace} : perf    \\ 
+                    & \REC{metis_pupil_imaging} : perf    \\ 
+                    & \REC{metis_ifu_adi_cgrph} : func    \\ 
+                    & \REC{metis_ifu_calibrate} : func              \\
+    Data Items :    & \PROD{N_SCI_BKG_SUBTRACTED} : perf    \\ 
+                    & \PROD{FLUXCAL_TAB} : func    \\ 
+                    & \PROD{N_DISTORTION_TABLE} : perf    \\ 
+                    & \PROD{N_SCI_CALIBRATED} : perf    \\ 
+                    & \PROD{N_IMAGE_SCI_RAW} : perf    \\ 
+                    & \PROD{N_IMAGE_STD_RAW} : perf    \\ 
+                    & \PROD{MASTER_DARK_GEO} : perf    \\ 
+                    & \PROD{LINEARITY_GEO} : perf    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_N} : perf    \\ 
+                    & \PROD{GAIN_MAP_GEO} : perf    \\ 
+                    & \PROD{MASTER_IMG_FLAT_TWILIGHT_N} : perf    \\ 
+                    & \PROD{N_STD_BKG_SUBTRACTED} : perf    \\ 
+                    & \PROD{N_DISTORTION_RAW} : perf    \\ 
+                    & \PROD{N_WCU_OFF_RAW} : perf    \\ 
+                    & \PROD{PINHOLE_TABLE} : perf    \\ 
+                    & \PROD{N_DISTORTION_MAP} : perf    \\ 
+                    & \PROD{N_DIST_REDUCED} : perf    \\ 
+                    & \PROD{N_FLAT_LAMP_RAW} : perf    \\ 
+                    & \PROD{N_FLAT_TWILIGHT_RAW} : perf    \\ 
+                    & \PROD{BADPIX_MAP_GEO} : perf    \\ 
+                    & \PROD{N_LSS_RSRF_RAW} : perf    \\ 
+                    & \PROD{MASTER_N_LSS_RSRF} : perf    \\ 
+                    & \PROD{MEDIAN_N_LSS_RSRF_IMG} : perf    \\ 
+                    & \PROD{MEAN_N_LSS_RSRF_IMG} : perf    \\ 
+                    & \PROD{N_LSS_SCI_RAW} : perf    \\ 
+                    & \PROD{N_LSS_TRACE} : perf    \\ 
+                    & \PROD{N_LSS_DIST_SOL} : perf    \\ 
+                    & \PROD{N_LSS_WAVE_GUESS} : perf    \\ 
+                    & \PROD{N_ADC_SLITLOSS} : perf    \\ 
+                    & \PROD{MASTER_N_RESPONSE} : perf    \\ 
+                    & \PROD{N_LSS_SCI_OBJ_MAP} : perf    \\ 
+                    & \PROD{N_LSS_SCI_SKY_MAP} : perf    \\ 
+                    & \PROD{N_LSS_SCI_2D} : perf    \\ 
+                    & \PROD{N_LSS_SCI_1D} : perf    \\ 
+                    & \PROD{N_LSS_SCI_FLUX_2D} : perf    \\ 
+                    & \PROD{N_LSS_SCI_FLUX_1D} : perf    \\ 
+                    & \PROD{N_LSS_STD_RAW} : perf    \\ 
+                    & \PROD{N_SYNTH_TRANS} : perf    \\ 
+                    & \PROD{N_LSS_STD_OBJ_MAP} : perf    \\ 
+                    & \PROD{N_LSS_STD_SKY_MAP} : perf    \\ 
+                    & \PROD{N_LSS_STD_1D} : perf    \\ 
+                    & \PROD{N_LSS_RSRF_PINH_RAW} : perf    \\ 
+                    & \PROD{LM_PUPIL_RAW} : perf    \\ 
+                    & \PROD{N_PUPIL_RAW} : perf    \\ 
+                    & \PROD{LM_PUPIL_REDUCED} : perf    \\ 
+                    & \PROD{N_PUPIL_REDUCED} : perf    \\ 
+                    & \PROD{IFU_SCI_CUBE_CALIBRATED} : func    \\ 
+                    & \PROD{IFU_DISTORTION_TABLE} : func    \\ 
+                    & \PROD{IFU_CGRPH_SCI_THROUGHPUT} : func    \\ 
+                    & \PROD{IFU_OFF_AXIS_PSF_RAW} : func    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CALIBRATED} : func    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CENTRED} : func    \\ 
+                    & \PROD{IFU_CGRPH_CENTROID_TAB} : func    \\ 
+                    & \PROD{IFU_CGRPH_SCI_SPECKLE} : func    \\ 
+                    & \PROD{IFU_CGRPH_SCI_DEROTATED_PSFSUB} : func    \\ 
+                    & \PROD{IFU_CGRPH_SCI_DEROTATED} : func    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CONTRAST_RADPROF} : func    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CONTRAST_ADI} : func    \\ 
+                    & \PROD{IFU_CGRPH_SCI_SNR} : func    \\ 
+                    & \PROD{IFU_CGRPH_SCI_COVERAGE} : func    \\ 
+                    & \PROD{IFU_SCI_REDUCED} : func    \\ 
+                    & \PROD{IFU_TELLURIC} : func          \\
+\end{recipedef}
+
+
+\subsubsection{Version v0.4 : AIV-E: IMG functional}
+\label{sssec:pip_del_v0.4}
+
+
+\begin{recipedef}
+    Version      :  & v0.4      \\
+    Release Name :  & AIV-E: IMG functional    \\
+    Release Date :  & 2026-11-15            \\
+    Description :   & 490 Instrument verification E         \\
+    Needed by AIV phase : & AIV-490     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_ifu_telluric} : func    \\ 
+                    & \REC{metis_img_adi_cgrph} : func    \\ 
+                    & \REC{metis_img_chophome} : func    \\ 
+                    & \REC{metis_lm_adc_slitloss} : func    \\ 
+                    & \REC{metis_lm_adi_app} : func    \\ 
+                    & \REC{metis_lm_lss_mf_calctrans} : func    \\ 
+                    & \REC{metis_lm_lss_mf_correct} : func    \\ 
+                    & \REC{metis_lm_lss_mf_model} : func    \\ 
+                    & \REC{metis_n_adc_slitloss} : func    \\ 
+                    & \REC{metis_n_img_restore} : func    \\ 
+                    & \REC{metis_n_lss_mf_calctrans} : func    \\ 
+                    & \REC{metis_n_lss_mf_correct} : func    \\ 
+                    & \REC{metis_n_lss_mf_model} : func              \\
+    Data Items :    & \PROD{IFU_SCI_COMBINED} : func    \\ 
+                    & \PROD{IFU_STD_COMBINED} : func    \\ 
+                    & \PROD{FLUXSTD_CATALOG} : func    \\ 
+                    & \PROD{LSF_KERNEL} : func    \\ 
+                    & \PROD{ATM_PROFILE} : func    \\ 
+                    & \PROD{IFU_SCI_REDUCED_1D} : func    \\ 
+                    & \PROD{IFU_STD_REDUCED_1D} : func    \\ 
+                    & \PROD{LM_SCI_CALIBRATED} : func    \\ 
+                    & \PROD{N_SCI_CALIBRATED} : func    \\ 
+                    & \PROD{LM_DISTORTION_TABLE} : func    \\ 
+                    & \PROD{N_DISTORTION_TABLE} : func    \\ 
+                    & \PROD{LM_CGRPH_SCI_THROUGHPUT} : func    \\ 
+                    & \PROD{N_CGRPH_SCI_THROUGHPUT} : func    \\ 
+                    & \PROD{LM_OFF_AXIS_PSF_RAW} : func    \\ 
+                    & \PROD{N_OFF_AXIS_PSF_RAW} : func    \\ 
+                    & \PROD{LM_CGRPH_SCI_CALIBRATED} : func    \\ 
+                    & \PROD{N_CGRPH_SCI_CALIBRATED} : func    \\ 
+                    & \PROD{LM_CGRPH_SCI_CENTRED} : func    \\ 
+                    & \PROD{N_CGRPH_SCI_CENTRED} : func    \\ 
+                    & \PROD{LM_CGRPH_CENTROID_TAB} : func    \\ 
+                    & \PROD{N_CGRPH_CENTROID_TAB} : func    \\ 
+                    & \PROD{LM_CGRPH_SCI_SPECKLE} : func    \\ 
+                    & \PROD{N_CGRPH_SCI_SPECKLE} : func    \\ 
+                    & \PROD{LM_CGRPH_SCI_DEROTATED_PSFSUB} : func    \\ 
+                    & \PROD{N_CGRPH_SCI_DEROTATED_PSFSUB} : func    \\ 
+                    & \PROD{LM_CGRPH_SCI_DEROTATED} : func    \\ 
+                    & \PROD{N_CGRPH_SCI_DEROTATED} : func    \\ 
+                    & \PROD{LM_CGRPH_SCI_CONTRAST_RADPROF} : func    \\ 
+                    & \PROD{N_CGRPH_SCI_CONTRAST_RADPROF} : func    \\ 
+                    & \PROD{LM_CGRPH_SCI_CONTRAST_ADI} : func    \\ 
+                    & \PROD{N_CGRPH_SCI_CONTRAST_ADI} : func    \\ 
+                    & \PROD{LM_CGRPH_SCI_COVERAGE} : func    \\ 
+                    & \PROD{N_CGRPH_SCI_COVERAGE} : func    \\ 
+                    & \PROD{LM_CGRPH_SCI_SNR} : func    \\ 
+                    & \PROD{N_CGRPH_SCI_SNR} : func    \\ 
+                    & \PROD{LM_CGRPH_PSF_MEDIAN} : func    \\ 
+                    & \PROD{N_CGRPH_PSF_MEDIAN} : func    \\ 
+                    & \PROD{LM_CHOPPERHOME_RAW} : func    \\ 
+                    & \PROD{PERSISTENCE_MAP} : func    \\ 
+                    & \PROD{LINEARITY_2RG} : func    \\ 
+                    & \PROD{GAIN_MAP_2RG} : func    \\ 
+                    & \PROD{MASTER_DARK_2RG} : func    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_LM} : func    \\ 
+                    & \PROD{LM_SLITLOSSES_RAW} : func    \\ 
+                    & \PROD{LM_WCU_OFF_RAW} : func    \\ 
+                    & \PROD{BADPIX_MAP_2RG} : func    \\ 
+                    & \PROD{LM_ADC_SLITLOSS} : func    \\ 
+                    & \PROD{LM_APP_SCI_CALIBRATED} : func    \\ 
+                    & \PROD{LM_APP_SCI_CENTRED} : func    \\ 
+                    & \PROD{LM_APP_CENTROID_TAB} : func    \\ 
+                    & \PROD{LM_APP_SCI_SPECKLE} : func    \\ 
+                    & \PROD{LM_APP_SCI_DEROTATED_PSFSUB} : func    \\ 
+                    & \PROD{LM_APP_SCI_DEROTATED} : func    \\ 
+                    & \PROD{LM_APP_SCI_CONTRAST_RADPROF} : func    \\ 
+                    & \PROD{LM_APP_SCI_CONTRAST_ADI} : func    \\ 
+                    & \PROD{LM_APP_SCI_THROUGHPUT} : func    \\ 
+                    & \PROD{LM_APP_SCI_COVERAGE} : func    \\ 
+                    & \PROD{LM_APP_SCI_SNR} : func    \\ 
+                    & \PROD{LM_APP_PSF_MEDIAN} : func    \\ 
+                    & \PROD{MF_BEST_FIT_TAB} : func    \\ 
+                    & \PROD{ATM_LINE_CAT} : func    \\ 
+                    & \PROD{LM_LSS_SYNTH_TRANS} : func    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_1D} : func    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_TELLCORR_1D} : func    \\ 
+                    & \PROD{N_SLITLOSSES_RAW} : func    \\ 
+                    & \PROD{N_WCU_OFF_RAW} : func    \\ 
+                    & \PROD{LINEARITY_GEO} : func    \\ 
+                    & \PROD{GAIN_MAP_GEO} : func    \\ 
+                    & \PROD{BADPIX_MAP_GEO} : func    \\ 
+                    & \PROD{MASTER_DARK_GEO} : func    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_N} : func    \\ 
+                    & \PROD{N_ADC_SLITLOSS} : func    \\ 
+                    & \PROD{N_SCI_RESTORED} : func    \\ 
+                    & \PROD{N_LSS_SYNTH_TRANS} : func    \\ 
+                    & \PROD{N_LSS_SCI_FLUX_1D} : func    \\ 
+                    & \PROD{N_LSS_SCI_FLUX_TELLCORR_1D} : func          \\
+\end{recipedef}
+
+
+\subsubsection{Version v0.4.1 : AIV-E: LSS functional}
+\label{sssec:pip_del_v0.4.1}
+
+
+\begin{recipedef}
+    Version      :  & v0.4.1      \\
+    Release Name :  & AIV-E: LSS functional    \\
+    Release Date :  & 2027-02-15            \\
+    Description :   & None         \\
+    Needed by AIV phase : & AIV-490     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_ifu_adi_cgrph} : perf    \\ 
+                    & \REC{metis_ifu_calibrate} : perf    \\ 
+                    & \REC{metis_ifu_telluric} : perf              \\
+    Data Items :    & \PROD{IFU_SCI_CUBE_CALIBRATED} : perf    \\ 
+                    & \PROD{IFU_DISTORTION_TABLE} : perf    \\ 
+                    & \PROD{IFU_CGRPH_SCI_THROUGHPUT} : perf    \\ 
+                    & \PROD{IFU_OFF_AXIS_PSF_RAW} : perf    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CALIBRATED} : perf    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CENTRED} : perf    \\ 
+                    & \PROD{IFU_CGRPH_CENTROID_TAB} : perf    \\ 
+                    & \PROD{IFU_CGRPH_SCI_SPECKLE} : perf    \\ 
+                    & \PROD{IFU_CGRPH_SCI_DEROTATED_PSFSUB} : perf    \\ 
+                    & \PROD{IFU_CGRPH_SCI_DEROTATED} : perf    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CONTRAST_RADPROF} : perf    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CONTRAST_ADI} : perf    \\ 
+                    & \PROD{IFU_CGRPH_SCI_SNR} : perf    \\ 
+                    & \PROD{IFU_CGRPH_SCI_COVERAGE} : perf    \\ 
+                    & \PROD{IFU_SCI_REDUCED} : perf    \\ 
+                    & \PROD{FLUXCAL_TAB} : perf    \\ 
+                    & \PROD{IFU_TELLURIC} : perf    \\ 
+                    & \PROD{IFU_SCI_COMBINED} : perf    \\ 
+                    & \PROD{IFU_STD_COMBINED} : perf    \\ 
+                    & \PROD{FLUXSTD_CATALOG} : perf    \\ 
+                    & \PROD{LSF_KERNEL} : perf    \\ 
+                    & \PROD{ATM_PROFILE} : perf    \\ 
+                    & \PROD{IFU_SCI_REDUCED_1D} : perf    \\ 
+                    & \PROD{IFU_STD_REDUCED_1D} : perf          \\
+\end{recipedef}
+
+
+\subsubsection{Version v0.4.2 : AIV-E: IMG+LSS performance}
+\label{sssec:pip_del_v0.4.2}
+
+
+\begin{recipedef}
+    Version      :  & v0.4.2      \\
+    Release Name :  & AIV-E: IMG+LSS performance    \\
+    Release Date :  & 2027-05-15            \\
+    Description :   & None         \\
+    Needed by AIV phase : & AIV-490     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_img_adi_cgrph} : perf    \\ 
+                    & \REC{metis_img_chophome} : perf    \\ 
+                    & \REC{metis_lm_adc_slitloss} : perf              \\
+    Data Items :    & \PROD{LM_SCI_CALIBRATED} : perf    \\ 
+                    & \PROD{N_SCI_CALIBRATED} : perf    \\ 
+                    & \PROD{LM_DISTORTION_TABLE} : perf    \\ 
+                    & \PROD{N_DISTORTION_TABLE} : perf    \\ 
+                    & \PROD{LM_CGRPH_SCI_THROUGHPUT} : perf    \\ 
+                    & \PROD{N_CGRPH_SCI_THROUGHPUT} : perf    \\ 
+                    & \PROD{LM_OFF_AXIS_PSF_RAW} : perf    \\ 
+                    & \PROD{N_OFF_AXIS_PSF_RAW} : perf    \\ 
+                    & \PROD{LM_CGRPH_SCI_CALIBRATED} : perf    \\ 
+                    & \PROD{N_CGRPH_SCI_CALIBRATED} : perf    \\ 
+                    & \PROD{LM_CGRPH_SCI_CENTRED} : perf    \\ 
+                    & \PROD{N_CGRPH_SCI_CENTRED} : perf    \\ 
+                    & \PROD{LM_CGRPH_CENTROID_TAB} : perf    \\ 
+                    & \PROD{N_CGRPH_CENTROID_TAB} : perf    \\ 
+                    & \PROD{LM_CGRPH_SCI_SPECKLE} : perf    \\ 
+                    & \PROD{N_CGRPH_SCI_SPECKLE} : perf    \\ 
+                    & \PROD{LM_CGRPH_SCI_DEROTATED_PSFSUB} : perf    \\ 
+                    & \PROD{N_CGRPH_SCI_DEROTATED_PSFSUB} : perf    \\ 
+                    & \PROD{LM_CGRPH_SCI_DEROTATED} : perf    \\ 
+                    & \PROD{N_CGRPH_SCI_DEROTATED} : perf    \\ 
+                    & \PROD{LM_CGRPH_SCI_CONTRAST_RADPROF} : perf    \\ 
+                    & \PROD{N_CGRPH_SCI_CONTRAST_RADPROF} : perf    \\ 
+                    & \PROD{LM_CGRPH_SCI_CONTRAST_ADI} : perf    \\ 
+                    & \PROD{N_CGRPH_SCI_CONTRAST_ADI} : perf    \\ 
+                    & \PROD{LM_CGRPH_SCI_COVERAGE} : perf    \\ 
+                    & \PROD{N_CGRPH_SCI_COVERAGE} : perf    \\ 
+                    & \PROD{LM_CGRPH_SCI_SNR} : perf    \\ 
+                    & \PROD{N_CGRPH_SCI_SNR} : perf    \\ 
+                    & \PROD{LM_CGRPH_PSF_MEDIAN} : perf    \\ 
+                    & \PROD{N_CGRPH_PSF_MEDIAN} : perf    \\ 
+                    & \PROD{LM_CHOPPERHOME_RAW} : perf    \\ 
+                    & \PROD{PERSISTENCE_MAP} : perf    \\ 
+                    & \PROD{LINEARITY_2RG} : perf    \\ 
+                    & \PROD{GAIN_MAP_2RG} : perf    \\ 
+                    & \PROD{MASTER_DARK_2RG} : perf    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_LM} : perf    \\ 
+                    & \PROD{LM_SLITLOSSES_RAW} : perf    \\ 
+                    & \PROD{LM_WCU_OFF_RAW} : perf    \\ 
+                    & \PROD{BADPIX_MAP_2RG} : perf    \\ 
+                    & \PROD{LM_ADC_SLITLOSS} : perf          \\
+\end{recipedef}
+
+
+\subsubsection{Version v1.0 : Full pipeline : PAE-beta}
+\label{sssec:pip_del_v1.0}
+
+
+\begin{recipedef}
+    Version      :  & v1.0      \\
+    Release Name :  & Full pipeline : PAE-beta    \\
+    Release Date :  & 2027-08-15            \\
+    Description :   & 640 PAE testing         \\
+    Needed by AIV phase : & AIV-640     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_lm_adi_app} : perf    \\ 
+                    & \REC{metis_lm_lss_mf_calctrans} : perf    \\ 
+                    & \REC{metis_lm_lss_mf_correct} : perf              \\
+    Data Items :    & \PROD{LM_APP_SCI_CALIBRATED} : perf    \\ 
+                    & \PROD{LM_APP_SCI_CENTRED} : perf    \\ 
+                    & \PROD{LM_APP_CENTROID_TAB} : perf    \\ 
+                    & \PROD{LM_APP_SCI_SPECKLE} : perf    \\ 
+                    & \PROD{LM_APP_SCI_DEROTATED_PSFSUB} : perf    \\ 
+                    & \PROD{LM_APP_SCI_DEROTATED} : perf    \\ 
+                    & \PROD{LM_APP_SCI_CONTRAST_RADPROF} : perf    \\ 
+                    & \PROD{LM_APP_SCI_CONTRAST_ADI} : perf    \\ 
+                    & \PROD{LM_APP_SCI_THROUGHPUT} : perf    \\ 
+                    & \PROD{LM_APP_SCI_COVERAGE} : perf    \\ 
+                    & \PROD{LM_APP_SCI_SNR} : perf    \\ 
+                    & \PROD{LM_APP_PSF_MEDIAN} : perf    \\ 
+                    & \PROD{MF_BEST_FIT_TAB} : perf    \\ 
+                    & \PROD{LSF_KERNEL} : perf    \\ 
+                    & \PROD{ATM_PROFILE} : perf    \\ 
+                    & \PROD{ATM_LINE_CAT} : perf    \\ 
+                    & \PROD{LM_LSS_SYNTH_TRANS} : perf    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_1D} : perf    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_TELLCORR_1D} : perf          \\
+\end{recipedef}
+
+
+\subsubsection{Version v1.0.1 : PAE delivery}
+\label{sssec:pip_del_v1.0.1}
+
+
+\begin{recipedef}
+    Version      :  & v1.0.1      \\
+    Release Name :  & PAE delivery    \\
+    Release Date :  & 2027-11-15            \\
+    Description :   & None         \\
+    Needed by AIV phase : & AIV-640     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_lm_lss_mf_model} : perf    \\ 
+                    & \REC{metis_n_adc_slitloss} : perf    \\ 
+                    & \REC{metis_n_img_restore} : perf    \\ 
+                    & \REC{metis_n_lss_mf_calctrans} : perf    \\ 
+                    & \REC{metis_n_lss_mf_correct} : perf    \\ 
+                    & \REC{metis_n_lss_mf_model} : perf              \\
+    Data Items :    & \PROD{N_SLITLOSSES_RAW} : perf    \\ 
+                    & \PROD{N_WCU_OFF_RAW} : perf    \\ 
+                    & \PROD{PERSISTENCE_MAP} : perf    \\ 
+                    & \PROD{LINEARITY_GEO} : perf    \\ 
+                    & \PROD{GAIN_MAP_GEO} : perf    \\ 
+                    & \PROD{BADPIX_MAP_GEO} : perf    \\ 
+                    & \PROD{MASTER_DARK_GEO} : perf    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_N} : perf    \\ 
+                    & \PROD{N_ADC_SLITLOSS} : perf    \\ 
+                    & \PROD{N_SCI_CALIBRATED} : perf    \\ 
+                    & \PROD{N_SCI_RESTORED} : perf    \\ 
+                    & \PROD{N_LSS_SYNTH_TRANS} : perf    \\ 
+                    & \PROD{N_LSS_SCI_FLUX_1D} : perf    \\ 
+                    & \PROD{N_LSS_SCI_FLUX_TELLCORR_1D} : perf          \\
+\end{recipedef}
+
+
+\subsubsection{Version v1.0.2 : PAE: updates}
+\label{sssec:pip_del_v1.0.2}
+
+
+\begin{recipedef}
+    Version      :  & v1.0.2      \\
+    Release Name :  & PAE: updates    \\
+    Release Date :  & 2028-02-15            \\
+    Description :   & None         \\
+    Needed by AIV phase : & AIV-640     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_det_dark} : sci    \\ 
+                    & \REC{metis_det_lingain} : sci    \\ 
+                    & \REC{metis_lm_adc_slitloss} : sci    \\ 
+                    & \REC{metis_lm_img_flat} : sci    \\ 
+                    & \REC{metis_lm_lss_rsrf} : sci              \\
+    Data Items :    & \PROD{DARK_2RG_RAW} : sci    \\ 
+                    & \PROD{DARK_GEO_RAW} : sci    \\ 
+                    & \PROD{DARK_IFU_RAW} : sci    \\ 
+                    & \PROD{LINEARITY_2RG} : sci    \\ 
+                    & \PROD{LINEARITY_GEO} : sci    \\ 
+                    & \PROD{LINEARITY_IFU} : sci    \\ 
+                    & \PROD{PERSISTENCE_MAP} : sci    \\ 
+                    & \PROD{MASTER_DARK_2RG} : sci    \\ 
+                    & \PROD{MASTER_DARK_GEO} : sci    \\ 
+                    & \PROD{MASTER_DARK_IFU} : sci    \\ 
+                    & \PROD{BADPIX_MAP_2RG} : sci    \\ 
+                    & \PROD{BADPIX_MAP_GEO} : sci    \\ 
+                    & \PROD{BADPIX_MAP_IFU} : sci    \\ 
+                    & \PROD{DETLIN_2RG_RAW} : sci    \\ 
+                    & \PROD{DETLIN_GEO_RAW} : sci    \\ 
+                    & \PROD{DETLIN_IFU_RAW} : sci    \\ 
+                    & \PROD{LM_WCU_OFF_RAW} : sci    \\ 
+                    & \PROD{N_WCU_OFF_RAW} : sci    \\ 
+                    & \PROD{IFU_WCU_OFF_RAW} : sci    \\ 
+                    & \PROD{GAIN_MAP_2RG} : sci    \\ 
+                    & \PROD{GAIN_MAP_GEO} : sci    \\ 
+                    & \PROD{GAIN_MAP_IFU} : sci    \\ 
+                    & \PROD{LM_SLITLOSSES_RAW} : sci    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_LM} : sci    \\ 
+                    & \PROD{LM_ADC_SLITLOSS} : sci    \\ 
+                    & \PROD{LM_FLAT_LAMP_RAW} : sci    \\ 
+                    & \PROD{LM_FLAT_TWILIGHT_RAW} : sci    \\ 
+                    & \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} : sci    \\ 
+                    & \PROD{LM_LSS_RSRF_RAW} : sci    \\ 
+                    & \PROD{MASTER_LM_LSS_RSRF} : sci    \\ 
+                    & \PROD{MEDIAN_LM_LSS_RSRF_IMG} : sci    \\ 
+                    & \PROD{MEAN_LM_LSS_RSRF_IMG} : sci          \\
+\end{recipedef}
+
+
+\subsubsection{Version v1.1 : Armazones: update 1}
+\label{sssec:pip_del_v1.1}
+
+
+\begin{recipedef}
+    Version      :  & v1.1      \\
+    Release Name :  & Armazones: update 1    \\
+    Release Date :  & 2028-05-15            \\
+    Description :   & 850 Cold Check-in test Chile         \\
+    Needed by AIV phase : & AIV-850     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_lm_lss_sci} : sci    \\ 
+                    & \REC{metis_lm_lss_std} : sci    \\ 
+                    & \REC{metis_lm_lss_trace} : sci    \\ 
+                    & \REC{metis_lm_lss_wave} : sci    \\ 
+                    & \REC{metis_n_adc_slitloss} : sci              \\
+    Data Items :    & \PROD{LM_LSS_SCI_RAW} : sci    \\ 
+                    & \PROD{LM_LSS_DIST_SOL} : sci    \\ 
+                    & \PROD{LM_LSS_WAVE_GUESS} : sci    \\ 
+                    & \PROD{ATM_LINE_CAT} : sci    \\ 
+                    & \PROD{STD_TRANSMISSION} : sci    \\ 
+                    & \PROD{MASTER_LM_RESPONSE} : sci    \\ 
+                    & \PROD{LM_LSS_SCI_OBJ_MAP} : sci    \\ 
+                    & \PROD{LM_LSS_SCI_SKY_MAP} : sci    \\ 
+                    & \PROD{LM_LSS_SCI_2D} : sci    \\ 
+                    & \PROD{LM_LSS_SCI_1D} : sci    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_2D} : sci    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_1D} : sci    \\ 
+                    & \PROD{LM_LSS_STD_RAW} : sci    \\ 
+                    & \PROD{AO_PSF_MODEL} : sci    \\ 
+                    & \PROD{LM_SYNTH_TRANS} : sci    \\ 
+                    & \PROD{REF_STD_CAT} : sci    \\ 
+                    & \PROD{LM_LSS_STD_OBJ_MAP} : sci    \\ 
+                    & \PROD{LM_LSS_STD_SKY_MAP} : sci    \\ 
+                    & \PROD{LM_LSS_STD_1D} : sci    \\ 
+                    & \PROD{LM_LSS_STD_WAVE} : sci    \\ 
+                    & \PROD{LM_LSS_RSRF_PINH_RAW} : sci    \\ 
+                    & \PROD{LM_LSS_TRACE} : sci    \\ 
+                    & \PROD{LM_LSS_WAVE_RAW} : sci    \\ 
+                    & \PROD{LASER_TAB} : sci    \\ 
+                    & \PROD{LM_LSS_CURVE} : sci    \\ 
+                    & \PROD{N_SLITLOSSES_RAW} : sci    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_N} : sci    \\ 
+                    & \PROD{N_ADC_SLITLOSS} : sci          \\
+\end{recipedef}
+
+
+\subsubsection{Version v1.1.1 : Armazones: update 2}
+\label{sssec:pip_del_v1.1.1}
+
+
+\begin{recipedef}
+    Version      :  & v1.1.1      \\
+    Release Name :  & Armazones: update 2    \\
+    Release Date :  & 2028-08-15            \\
+    Description :   & None         \\
+    Needed by AIV phase : & AIV-850     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_n_img_flat} : sci    \\ 
+                    & \REC{metis_n_lss_rsrf} : sci    \\ 
+                    & \REC{metis_n_lss_sci} : sci    \\ 
+                    & \REC{metis_n_lss_std} : sci    \\ 
+                    & \REC{metis_n_lss_trace} : sci              \\
+    Data Items :    & \PROD{N_FLAT_LAMP_RAW} : sci    \\ 
+                    & \PROD{N_FLAT_TWILIGHT_RAW} : sci    \\ 
+                    & \PROD{MASTER_DARK_GEO} : sci    \\ 
+                    & \PROD{MASTER_IMG_FLAT_TWILIGHT_N} : sci    \\ 
+                    & \PROD{BADPIX_MAP_GEO} : sci    \\ 
+                    & \PROD{N_LSS_RSRF_RAW} : sci    \\ 
+                    & \PROD{PERSISTENCE_MAP} : sci    \\ 
+                    & \PROD{LINEARITY_GEO} : sci    \\ 
+                    & \PROD{GAIN_MAP_GEO} : sci    \\ 
+                    & \PROD{MASTER_N_LSS_RSRF} : sci    \\ 
+                    & \PROD{MEDIAN_N_LSS_RSRF_IMG} : sci    \\ 
+                    & \PROD{MEAN_N_LSS_RSRF_IMG} : sci    \\ 
+                    & \PROD{N_LSS_SCI_RAW} : sci    \\ 
+                    & \PROD{N_LSS_TRACE} : sci    \\ 
+                    & \PROD{N_LSS_DIST_SOL} : sci    \\ 
+                    & \PROD{N_LSS_WAVE_GUESS} : sci    \\ 
+                    & \PROD{MASTER_N_RESPONSE} : sci    \\ 
+                    & \PROD{N_LSS_SCI_OBJ_MAP} : sci    \\ 
+                    & \PROD{N_LSS_SCI_SKY_MAP} : sci    \\ 
+                    & \PROD{N_LSS_SCI_2D} : sci    \\ 
+                    & \PROD{N_LSS_SCI_1D} : sci    \\ 
+                    & \PROD{N_LSS_SCI_FLUX_2D} : sci    \\ 
+                    & \PROD{N_LSS_SCI_FLUX_1D} : sci    \\ 
+                    & \PROD{N_LSS_STD_RAW} : sci    \\ 
+                    & \PROD{N_SYNTH_TRANS} : sci    \\ 
+                    & \PROD{N_LSS_STD_OBJ_MAP} : sci    \\ 
+                    & \PROD{N_LSS_STD_SKY_MAP} : sci    \\ 
+                    & \PROD{N_LSS_STD_1D} : sci    \\ 
+                    & \PROD{N_LSS_RSRF_PINH_RAW} : sci          \\
+\end{recipedef}
+
+
+\subsubsection{Version v1.2 : ESO: Full pipeline PAC}
+\label{sssec:pip_del_v1.2}
+
+
+\begin{recipedef}
+    Version      :  & v1.2      \\
+    Release Name :  & ESO: Full pipeline PAC    \\
+    Release Date :  & 2028-11-20            \\
+    Description :   & 940 PAC Testing         \\
+    Needed by AIV phase : & AIV-940     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       & \REC{metis_ifu_adi_cgrph} : sci    \\ 
+                    & \REC{metis_ifu_calibrate} : sci    \\ 
+                    & \REC{metis_ifu_distortion} : sci    \\ 
+                    & \REC{metis_ifu_postprocess} : sci    \\ 
+                    & \REC{metis_ifu_reduce} : sci    \\ 
+                    & \REC{metis_ifu_rsrf} : sci    \\ 
+                    & \REC{metis_ifu_telluric} : sci    \\ 
+                    & \REC{metis_ifu_wavecal} : sci    \\ 
+                    & \REC{metis_img_adi_cgrph} : sci    \\ 
+                    & \REC{metis_img_chophome} : sci    \\ 
+                    & \REC{metis_lm_adi_app} : sci    \\ 
+                    & \REC{metis_lm_img_background} : sci    \\ 
+                    & \REC{metis_lm_img_basic_reduce} : sci    \\ 
+                    & \REC{metis_lm_img_calibrate} : sci    \\ 
+                    & \REC{metis_lm_img_distortion} : sci    \\ 
+                    & \REC{metis_lm_img_sci_postprocess} : sci    \\ 
+                    & \REC{metis_lm_img_std_process} : sci    \\ 
+                    & \REC{metis_lm_lss_mf_calctrans} : sci    \\ 
+                    & \REC{metis_lm_lss_mf_correct} : sci    \\ 
+                    & \REC{metis_lm_lss_mf_model} : sci    \\ 
+                    & \REC{metis_n_img_calibrate} : sci    \\ 
+                    & \REC{metis_n_img_chopnod} : sci    \\ 
+                    & \REC{metis_n_img_distortion} : sci    \\ 
+                    & \REC{metis_n_img_restore} : sci    \\ 
+                    & \REC{metis_n_img_std_process} : sci    \\ 
+                    & \REC{metis_n_lss_mf_calctrans} : sci    \\ 
+                    & \REC{metis_n_lss_mf_correct} : sci    \\ 
+                    & \REC{metis_n_lss_mf_model} : sci    \\ 
+                    & \REC{metis_pupil_imaging} : sci              \\
+    Data Items :    & \PROD{IFU_SCI_CUBE_CALIBRATED} : sci    \\ 
+                    & \PROD{IFU_DISTORTION_TABLE} : sci    \\ 
+                    & \PROD{IFU_CGRPH_SCI_THROUGHPUT} : sci    \\ 
+                    & \PROD{IFU_OFF_AXIS_PSF_RAW} : sci    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CALIBRATED} : sci    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CENTRED} : sci    \\ 
+                    & \PROD{IFU_CGRPH_CENTROID_TAB} : sci    \\ 
+                    & \PROD{IFU_CGRPH_SCI_SPECKLE} : sci    \\ 
+                    & \PROD{IFU_CGRPH_SCI_DEROTATED_PSFSUB} : sci    \\ 
+                    & \PROD{IFU_CGRPH_SCI_DEROTATED} : sci    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CONTRAST_RADPROF} : sci    \\ 
+                    & \PROD{IFU_CGRPH_SCI_CONTRAST_ADI} : sci    \\ 
+                    & \PROD{IFU_CGRPH_SCI_SNR} : sci    \\ 
+                    & \PROD{IFU_CGRPH_SCI_COVERAGE} : sci    \\ 
+                    & \PROD{IFU_SCI_REDUCED} : sci    \\ 
+                    & \PROD{FLUXCAL_TAB} : sci    \\ 
+                    & \PROD{IFU_TELLURIC} : sci    \\ 
+                    & \PROD{IFU_DISTORTION_RAW} : sci    \\ 
+                    & \PROD{MASTER_DARK_IFU} : sci    \\ 
+                    & \PROD{PINHOLE_TABLE} : sci    \\ 
+                    & \PROD{IFU_DIST_REDUCED} : sci    \\ 
+                    & \PROD{IFU_SCI_COADD} : sci    \\ 
+                    & \PROD{IFU_SCI_RAW} : sci    \\ 
+                    & \PROD{IFU_STD_RAW} : sci    \\ 
+                    & \PROD{IFU_SKY_RAW} : sci    \\ 
+                    & \PROD{LINEARITY_IFU} : sci    \\ 
+                    & \PROD{RSRF_IFU} : sci    \\ 
+                    & \PROD{IFU_WAVECAL} : sci    \\ 
+                    & \PROD{GAIN_MAP_IFU} : sci    \\ 
+                    & \PROD{IFU_STD_REDUCED} : sci    \\ 
+                    & \PROD{IFU_SCI_BACKGROUND} : sci    \\ 
+                    & \PROD{IFU_STD_BACKGROUND} : sci    \\ 
+                    & \PROD{IFU_SCI_REDUCED_CUBE} : sci    \\ 
+                    & \PROD{IFU_STD_REDUCED_CUBE} : sci    \\ 
+                    & \PROD{IFU_SCI_COMBINED} : sci    \\ 
+                    & \PROD{IFU_STD_COMBINED} : sci    \\ 
+                    & \PROD{IFU_RSRF_RAW} : sci    \\ 
+                    & \PROD{MASTER_FLAT_IFU} : sci    \\ 
+                    & \PROD{BADPIX_MAP_IFU} : sci    \\ 
+                    & \PROD{FLUXSTD_CATALOG} : sci    \\ 
+                    & \PROD{LSF_KERNEL} : sci    \\ 
+                    & \PROD{ATM_PROFILE} : sci    \\ 
+                    & \PROD{IFU_SCI_REDUCED_1D} : sci    \\ 
+                    & \PROD{IFU_STD_REDUCED_1D} : sci    \\ 
+                    & \PROD{IFU_WAVE_RAW} : sci    \\ 
+                    & \PROD{LM_SCI_CALIBRATED} : sci    \\ 
+                    & \PROD{N_SCI_CALIBRATED} : sci    \\ 
+                    & \PROD{LM_DISTORTION_TABLE} : sci    \\ 
+                    & \PROD{N_DISTORTION_TABLE} : sci    \\ 
+                    & \PROD{LM_CGRPH_SCI_THROUGHPUT} : sci    \\ 
+                    & \PROD{N_CGRPH_SCI_THROUGHPUT} : sci    \\ 
+                    & \PROD{LM_OFF_AXIS_PSF_RAW} : sci    \\ 
+                    & \PROD{N_OFF_AXIS_PSF_RAW} : sci    \\ 
+                    & \PROD{LM_CGRPH_SCI_CALIBRATED} : sci    \\ 
+                    & \PROD{N_CGRPH_SCI_CALIBRATED} : sci    \\ 
+                    & \PROD{LM_CGRPH_SCI_CENTRED} : sci    \\ 
+                    & \PROD{N_CGRPH_SCI_CENTRED} : sci    \\ 
+                    & \PROD{LM_CGRPH_CENTROID_TAB} : sci    \\ 
+                    & \PROD{N_CGRPH_CENTROID_TAB} : sci    \\ 
+                    & \PROD{LM_CGRPH_SCI_SPECKLE} : sci    \\ 
+                    & \PROD{N_CGRPH_SCI_SPECKLE} : sci    \\ 
+                    & \PROD{LM_CGRPH_SCI_DEROTATED_PSFSUB} : sci    \\ 
+                    & \PROD{N_CGRPH_SCI_DEROTATED_PSFSUB} : sci    \\ 
+                    & \PROD{LM_CGRPH_SCI_DEROTATED} : sci    \\ 
+                    & \PROD{N_CGRPH_SCI_DEROTATED} : sci    \\ 
+                    & \PROD{LM_CGRPH_SCI_CONTRAST_RADPROF} : sci    \\ 
+                    & \PROD{N_CGRPH_SCI_CONTRAST_RADPROF} : sci    \\ 
+                    & \PROD{LM_CGRPH_SCI_CONTRAST_ADI} : sci    \\ 
+                    & \PROD{N_CGRPH_SCI_CONTRAST_ADI} : sci    \\ 
+                    & \PROD{LM_CGRPH_SCI_COVERAGE} : sci    \\ 
+                    & \PROD{N_CGRPH_SCI_COVERAGE} : sci    \\ 
+                    & \PROD{LM_CGRPH_SCI_SNR} : sci    \\ 
+                    & \PROD{N_CGRPH_SCI_SNR} : sci    \\ 
+                    & \PROD{LM_CGRPH_PSF_MEDIAN} : sci    \\ 
+                    & \PROD{N_CGRPH_PSF_MEDIAN} : sci    \\ 
+                    & \PROD{LM_CHOPPERHOME_RAW} : sci    \\ 
+                    & \PROD{LINEARITY_2RG} : sci    \\ 
+                    & \PROD{GAIN_MAP_2RG} : sci    \\ 
+                    & \PROD{MASTER_DARK_2RG} : sci    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_LM} : sci    \\ 
+                    & \PROD{LM_APP_SCI_CALIBRATED} : sci    \\ 
+                    & \PROD{LM_APP_SCI_CENTRED} : sci    \\ 
+                    & \PROD{LM_APP_CENTROID_TAB} : sci    \\ 
+                    & \PROD{LM_APP_SCI_SPECKLE} : sci    \\ 
+                    & \PROD{LM_APP_SCI_DEROTATED_PSFSUB} : sci    \\ 
+                    & \PROD{LM_APP_SCI_DEROTATED} : sci    \\ 
+                    & \PROD{LM_APP_SCI_CONTRAST_RADPROF} : sci    \\ 
+                    & \PROD{LM_APP_SCI_CONTRAST_ADI} : sci    \\ 
+                    & \PROD{LM_APP_SCI_THROUGHPUT} : sci    \\ 
+                    & \PROD{LM_APP_SCI_COVERAGE} : sci    \\ 
+                    & \PROD{LM_APP_SCI_SNR} : sci    \\ 
+                    & \PROD{LM_APP_PSF_MEDIAN} : sci    \\ 
+                    & \PROD{LM_SCI_BASIC_REDUCED} : sci    \\ 
+                    & \PROD{LM_STD_BASIC_REDUCED} : sci    \\ 
+                    & \PROD{LM_SCI_BKG} : sci    \\ 
+                    & \PROD{LM_STD_BKG} : sci    \\ 
+                    & \PROD{LM_SCI_BKG_SUBTRACTED} : sci    \\ 
+                    & \PROD{LM_STD_BKG_SUBTRACTED} : sci    \\ 
+                    & \PROD{LM_SCI_OBJECT_CAT} : sci    \\ 
+                    & \PROD{LM_STD_OBJECT_CAT} : sci    \\ 
+                    & \PROD{LM_IMAGE_SCI_RAW} : sci    \\ 
+                    & \PROD{LM_IMAGE_STD_RAW} : sci    \\ 
+                    & \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} : sci    \\ 
+                    & \PROD{LM_DISTORTION_RAW} : sci    \\ 
+                    & \PROD{LM_WCU_OFF_RAW} : sci    \\ 
+                    & \PROD{LM_DISTORTION_MAP} : sci    \\ 
+                    & \PROD{LM_DIST_REDUCED} : sci    \\ 
+                    & \PROD{LM_SCI_COADD} : sci    \\ 
+                    & \PROD{LM_STD_COMBINED} : sci    \\ 
+                    & \PROD{MF_BEST_FIT_TAB} : sci    \\ 
+                    & \PROD{ATM_LINE_CAT} : sci    \\ 
+                    & \PROD{LM_LSS_SYNTH_TRANS} : sci    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_1D} : sci    \\ 
+                    & \PROD{LM_LSS_SCI_FLUX_TELLCORR_1D} : sci    \\ 
+                    & \PROD{N_SCI_BKG_SUBTRACTED} : sci    \\ 
+                    & \PROD{N_IMAGE_SCI_RAW} : sci    \\ 
+                    & \PROD{N_IMAGE_STD_RAW} : sci    \\ 
+                    & \PROD{MASTER_IMG_FLAT_LAMP_N} : sci    \\ 
+                    & \PROD{N_STD_BKG_SUBTRACTED} : sci    \\ 
+                    & \PROD{N_DISTORTION_RAW} : sci    \\ 
+                    & \PROD{N_WCU_OFF_RAW} : sci    \\ 
+                    & \PROD{N_DISTORTION_MAP} : sci    \\ 
+                    & \PROD{N_DIST_REDUCED} : sci    \\ 
+                    & \PROD{N_SCI_RESTORED} : sci    \\ 
+                    & \PROD{N_LSS_SYNTH_TRANS} : sci    \\ 
+                    & \PROD{N_LSS_SCI_FLUX_TELLCORR_1D} : sci    \\ 
+                    & \PROD{LM_PUPIL_RAW} : sci    \\ 
+                    & \PROD{N_PUPIL_RAW} : sci    \\ 
+                    & \PROD{LM_PUPIL_REDUCED} : sci    \\ 
+                    & \PROD{N_PUPIL_REDUCED} : sci          \\
+\end{recipedef}
+
+
+\subsubsection{Version v1.3 : ESO: Commissioning}
+\label{sssec:pip_del_v1.3}
+
+
+\begin{recipedef}
+    Version      :  & v1.3      \\
+    Release Name :  & ESO: Commissioning    \\
+    Release Date :  & 2029-02-15            \\
+    Description :   & Commissioning release         \\
+    Needed by AIV phase : & AIV-940     \\
+    Contents :      & pipeline, data            \\
+    Recipes :       &               \\
+    Data Items :    &           \\
+\end{recipedef}
+
+

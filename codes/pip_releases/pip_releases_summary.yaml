@@ -1,0 +1,132 @@
+#-   release_types : [data]
+#    date : 2024-05-15
+#    needed_by_aiv_phase : 10
+#    version_no : "v0.1"
+#    version_name : "ESO: Simulated data functional"
+#    comment : "ESO 1st simulated data delivery"
+
+-   release_types : [pipeline]
+    date : 2024-11-15
+    needed_by_aiv_phase : 10
+    version_no : "v0.1"
+    version_name : "ESO: Skeleton functional"
+    comment : "ESO 1st pipeline skeleton delivery"
+
+-   release_types : [pipeline, data]
+    date : 2025-02-11
+    needed_by_aiv_phase : 10
+    version_no : "v0.2"
+    version_name : "AIV-A: Skeleton integrated"
+    comment : "AIV Hall PIP workstation integration"
+
+-   release_types : [pipeline, data]
+    date : 2025-05-15
+    needed_by_aiv_phase : 250
+    version_no : "v0.2.1"
+    version_name : "AIV-A: Skeleton engineering"
+    comment :
+
+-   release_types : [pipeline, data]
+    date : 2025-08-15
+    needed_by_aiv_phase : 250
+    version_no : "v0.2.2"
+    version_name : "AIV-A: Skeleton LMS "
+    comment :
+
+-   release_types : [pipeline, data]
+    date : 2025-11-15
+    needed_by_aiv_phase : 250
+    version_no : "v0.2.3"
+    version_name : "AIV-C: LMS functional"
+    comment : "AIV-250 LMS Cold Functional test"
+
+-   release_types : [pipeline, data]
+    date : 2026-02-15
+    needed_by_aiv_phase : 370
+    version_no : "v0.3"
+    version_name : "AIV-D: LMS performance"
+    comment : "AIV-370 Instrument verification C/D"
+
+-   release_types : [pipeline, data]
+    date : 2026-05-15
+    needed_by_aiv_phase : 370
+    version_no : "v0.3.1"
+    version_name : "AIV-D: LMS updates 1"
+    comment :
+
+-   release_types : [pipeline, data]
+    date : 2026-08-15
+    needed_by_aiv_phase : 350
+    version_no : "v0.3.2"
+    version_name : "AIV-D: LMS updates 2"
+    comment : "350 IMG Cold Functional test"
+
+-   release_types : [pipeline, data]
+    date : 2026-11-15
+    needed_by_aiv_phase : 490
+    version_no : "v0.4"
+    version_name : "AIV-E: IMG functional"
+    comment : "490 Instrument verification E"
+
+-   release_types : [pipeline, data]
+    date : 2027-02-15
+    needed_by_aiv_phase : 490
+    version_no : "v0.4.1"
+    version_name : "AIV-E: LSS functional"
+    comment :
+
+-   release_types : [pipeline, data]
+    date : 2027-05-15
+    needed_by_aiv_phase : 490
+    version_no : "v0.4.2"
+    version_name : "AIV-E: IMG+LSS performance"
+    comment :
+
+-   release_types : [pipeline, data]
+    date : 2027-08-15
+    needed_by_aiv_phase : 640
+    version_no : "v1.0"
+    version_name : "Full pipeline : PAE-beta"
+    comment : "640 PAE testing"
+
+-   release_types : [pipeline, data]
+    date : 2027-11-15
+    needed_by_aiv_phase : 640
+    version_no : "v1.0.1"
+    version_name : "PAE delivery"
+    comment :
+
+-   release_types : [pipeline, data]
+    date : 2028-02-15
+    needed_by_aiv_phase : 640
+    version_no : "v1.0.2"
+    version_name : "PAE: updates"
+    comment :
+
+-   release_types : [pipeline, data]
+    date : 2028-05-15
+    needed_by_aiv_phase : 850
+    version_no : "v1.1"
+    version_name : "Armazones: update 1"
+    comment : "850 Cold Check-in test Chile"
+
+-   release_types : [pipeline, data]
+    date : 2028-08-15
+    needed_by_aiv_phase : 850
+    version_no : "v1.1.1"
+    version_name : "Armazones: update 2"
+    comment :
+
+-   release_types : [pipeline, data]
+    date : 2028-11-20
+    needed_by_aiv_phase : 940
+    version_no : "v1.2"
+    version_name : "ESO: Full pipeline PAC"
+    comment : "940 PAC Testing"
+
+-   release_types : [pipeline, data]
+    date : 2029-02-15
+    needed_by_aiv_phase : 940
+    version_no : "v1.3"
+    version_name : "ESO: Commissioning"
+    comment : "Commissioning release"

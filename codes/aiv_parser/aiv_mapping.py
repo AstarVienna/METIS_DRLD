@@ -1,4 +1,5 @@
 from collections import OrderedDict
+from pathlib import Path
 
 import yaml
 from datetime import datetime, date
@@ -12,16 +13,36 @@ DRLD = drld_parser.DataReductionLibraryDesign()
 RECIPES = {key.lower(): value for key, value in DRLD.get_recipes().items()}
 RECIPES = OrderedDict(sorted(RECIPES.items()))
 
-DATA_ITEMS = {key.lower(): value for key, value in DRLD.get_dataitems().items()}
+DATA_ITEMS = {key.lower(): value for key, value in DRLD.get_dataitems().items()
+              if "det_" not in key.lower() and "_det" not in key.lower()}
 DATA_ITEMS = OrderedDict(sorted(DATA_ITEMS.items()))
 
-VALS = {"skel": 1, "func": 2, "perf": 3, "sci": 4}
-CLRS = {"skel": "blue", "func": "yellow", "perf": "orange", "sci": "red"}
+VALS = {"none": 0, "skel": 1, "func": 2, "perf": 3, "sci": 4}
+INV_VALS = {0: "none", 1: "skel", 2: "func", 3: "perf", 4: "sci"}
+CLRS = {"none": "white", "skel": "blue", "func": "yellow", "perf": "orange", "sci": "red"}
 
 
 class AivMap:
-    def __init__(self, data):
+    """
+    Examples
+    ::
+        aiv_map = AivMap()
+        aiv_map.plot_aiv_matrix()       # default non-compressed recipes
+        aiv_map.plot_aiv_matrix(True, "recipes", filename="recipes.pdf")
+        aiv_map.plot_aiv_matrix(True, "data_items", filename="data_items.pdf")
+
+    """
+    def __init__(self, data=None):
+        if not data:
+            path = Path(__file__).parent
+            fname = "AIT-system-tests-breakdown-for-pip-schedule.yaml"
+            with open(path / fname, "r") as f:
+                data = yaml.load(f, Loader=yaml.FullLoader)
+
         self.aiv_phases = [AivPhase(**aiv_phase) for aiv_phase in data]
+
+    def get_phase_from_id(self, id):
+        return [ph for ph in self.aiv_phases if ph.int_phase_id == id]
 
     @property
     def year_index_dict(self):
@@ -50,11 +71,15 @@ class AivMap:
         idx = np.argsort(mat[0])
         mat = mat[:, idx]
 
+        for i in range(3, mat.shape[0]):
+            for j in range(1, mat.shape[1]):
+                if mat[i, j] < 1 + max(mat[i, :j]):
+                    mat[i, j] = 0
+
         return mat
 
-    def plot_aiv_matrix(self, compress=False, which="recipes", filename=None,
-                        figsize=(15, 10)):
-        im = aiv_map.aiv_matrix(compress, which)
+    def plot_aiv_matrix(self, compress=False, which="recipes", filename=None):
+        im = self.aiv_matrix(compress, which)
         # Sort by leading zeros
         leading_zeros = [np.where(row > 0)[0][0]
                          if row.max() > 0 else im.shape[1] for row in im]
@@ -65,10 +90,12 @@ class AivMap:
             recipes = list(RECIPES.keys())
             y_tick_labels = [recipes[i] for i in idx]
             gridspec_kw = {'height_ratios': [1, 5]}
+            figsize = (10, 15)
         elif which == "data_items":
             data_items = list(DATA_ITEMS.keys())
             y_tick_labels = [data_items[i] for i in idx]
             gridspec_kw = {'height_ratios': [1, 20]}
+            figsize = (10, 40)
 
         fig, axs = plt.subplots(2, 1, figsize=figsize,
                                 gridspec_kw=gridspec_kw)
@@ -112,6 +139,8 @@ class AivPhase:
     def __init__(self, **kwargs):
         self.__dict__.update(kwargs)
         self.aiv_tests = [AivTest(**test) for test in kwargs["tests"]]
+        if isinstance(self.date, str):
+            self.date = datetime.strptime(self.date, '%Y-%m-%d').date()
 
     @property
     def int_phase_id(self):
@@ -174,9 +203,11 @@ class AivTest:
                 for drld_rec, rec_item in RECIPES.items():
                     if my_rec == drld_rec.lower():
                         for in_d in rec_item.input_data:
-                            data_itmes_dict[in_d.name] = level
-                        for in_d in rec_item.output_data:
-                            data_itmes_dict[in_d.name] = level
+                            if in_d.name is not None and isinstance(in_d.name, str):
+                                data_itmes_dict[in_d.name.upper()] = level
+                        for out_d in rec_item.output_data:
+                            if out_d.name is not None and isinstance(out_d.name, str):
+                                data_itmes_dict[out_d.name.upper()] = level
 
         return data_itmes_dict
 
@@ -188,15 +219,5 @@ class AivTest:
         for i, di in enumerate(DATA_ITEMS):
             if data_items and di.upper() in data_items:
                 mat[i + 3] = VALS[data_items[di.upper()]]
+
         return mat
-
-
-if __name__ == "__main__":
-    with open("AIT-system-tests-breakdown-for-pip-schedule.yaml", "r") as f:
-        data = yaml.load(f, Loader=yaml.FullLoader)
-
-    aiv_map = AivMap(data)
-    aiv_map.plot_aiv_matrix(True, which="recipes",
-                            filename="recipes.pdf", figsize=(10, 15))
-    aiv_map.plot_aiv_matrix(True, which="data_items",
-                            filename="data_items.pdf", figsize=(10, 40))
