@@ -23,13 +23,13 @@ and N band, and CVC/RAVC coronagraphs. An input set of
 observations consists of a time sequence of pupil-tracked images in LM or N
 band, which have already undergone basic calibration. 
 
-For each image, the centroid of the central source is determined,
+For each image, the centroid of the central source is determined (from QACITS telemetry or via cross-correlation with a template, see also Subsection \ref{adi_center}),
 distortion corrections are performed, and the images are aligned on a
-subpixel scale. The median PSF is then estimated and subtracted from
+subpixel scale. The temporal median of the coronagraphic image cube (hereafter call median PSF) is then estimated and subtracted from
 all images following the first step of the standard ADI technique of
 Marois et al (2006), which implicitly also subtracts the thermal background.
 Each image is then derotated using the known
-position angle and coadded to produce the final science image. In
+position angle and combined to produce the final science image. In
 addition, the images prior to PSF subtraction are derotated and
 combined to produce a second final image.
 
@@ -123,7 +123,7 @@ similar to the recipe for RAVC/CVC coronagraphs, with the
 addition of steps for merging together the two half PSFs, and of
 applying an angular wedge mask before the derotation and stacking, and
 contrast curve calculations steps. An input set of observations
-consists of a time sequence of ADI images in LM band, which have
+consists of a time sequence of pupil-tracked images in LM band, which have
 already undergone basic calibration.
 
 For each image, the centroid of the central source is determined for
@@ -322,7 +322,7 @@ PSFs. In addition coverage maps are produced.
 \restoregeometry
 
 \subsubsection{Centering}
-
+\label{adi_center}
 To determine the derotation center of the focal plane coronagraphs (CVC/RAVC) we use the position given by the QACITS telemetry which should be precise to less than $1/100$ $\lambda/D$ ($<1/50$ by requirement). As a backup we resort to cross-correlation with a template PSF.
 
 For the pupil plane coronagraph (APP) we cross-correlate the unsaturated parts of the PSF with a template PSF. A Gaussian centroid might not deliver an accurate derotation center because the APP PSF is not symmetric but a PSF template will correct for this.
