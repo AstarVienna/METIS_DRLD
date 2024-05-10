@@ -128,7 +128,7 @@
 \draw [connection_arrow] (incont1.east) -- ++(1, 0) -- ++(0., 0.8) -- ++(1, 0);
 
 \node (incont2) [left=2cm of step6, yshift=-0.8cm,calproduct]{%
-    Off-axis PSF reference
+    LM_OFF_AXIS_PSF_RAW
   };
 \draw [connection_arrow] (incont2.east) -- ++(1, 0) -- ++(0., -0.8) -- ++(1, 0);
 
@@ -185,6 +185,7 @@
   \node (reduced4) [left=1.75cm of step1, calib]{%
     On-axis PSF template
   };
+  \draw [connection_arrow] (reduced4) -- (step1);
  % \node (connectfluxcal) [connection] at
  % ($(step5)!0.8!(stop-t)$) {};
   \node (fluxcal) [right=1.cm of step3, sciproduct]{%

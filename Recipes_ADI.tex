@@ -131,9 +131,9 @@ all three PSFs and distortion corrections are performed. The PSFs are
 aligned at a sub-pixel scale and extracted; the extracted
 coronagraphic PSFs are merged to produce a complete PSF and the third
 PSF is used to form a cube of calibrated leakage PSFs.  The
-mean/median/sigmaclipped PSF is estimated and subtracted from each
+median PSF is estimated and subtracted from each
 frame of the merged coronagraphic PSF. Each image is then derotated to
-place the off-axis source at the same on-sky angle and coadded to
+place the images at the same on-sky angle and combined (median/mean/sigmaclipped...) to
 produce the final stacked science image. In addition, the images prior
 to PSF subtraction are derotated and combined to produce a second
 final stacked image.
