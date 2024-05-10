@@ -30,11 +30,11 @@ all images following the first step of the standard ADI technique of
 Marois et al (2006), which implicitly also subtracts the thermal background.
 Each image is then derotated using the known
 position angle and combined to produce the final science image. In
-addition, the images prior to PSF subtraction are derotated and
+addition, the images prior to ADI subtraction are derotated and
 combined to produce a second final image.
 
 In addition to the final images, the calibrated cube is used to calculate the raw and post-ADI contrast curves as
-well as the ADI throughput curve. The raw contrast is the flux level in the coronagraphic image divided by the peak flux level of the star given by the unsaturated off-axis reference psf (taking into account any neutral density transmission curves). The post-ADI contrast curve is based on the statistics of the ADI processed image cube. The intrinsic radial throughput of
+well as the ADI throughput curve. The raw contrast is the flux level in the coronagraphic image divided by the peak flux level of the star given by the unsaturated off-axis reference psf (taking into account any neutral density transmission curves). The post-ADI contrast curve is based on the statistics of the ADI processed image cube and typically calculated at a significance level of $5\sigma$. The intrinsic radial throughput of
 the coronagraph is taken from static calibrations while the
 post-processing losses are estimated from injection and retrieval of
 artificial companions with a known brightness and separation.
@@ -72,7 +72,7 @@ compensation of any neutral density transmission).
                        & call \DRL{metis_adi_regrid} to apply distortion map and regrid images based on position of central PSFs \\
                        & call \DRL{metis_lm_adi_cgrph_psf} or \DRL{metis_n_adi_cgrph_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
-                       & call \DRL{metis_adi_derotate} to derotate both PSF subtracted and unsubtracted images \\
+                       & call \DRL{metis_adi_derotate} to derotate both ADI subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed contrast curves \\
   Output data:       & \PROD{LM_cgrph_SCI_CALIBRATED} or \PROD{N_cgrph_SCI_CALIBRATED}\\
@@ -173,7 +173,7 @@ the effective number of included frames.
                        & call \DRL{metis_lm_merge_app_adi_psf} to merge the coronagraphic PSFs \\
                        & call \DRL{metis_lm_adi_app_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
-                       & call \DRL{metis_adi_derotate} to derotate both PSF subtracted and unsubtracted images \\
+                       & call \DRL{metis_adi_derotate} to derotate both ADI subtracted and unsubtracted images \\
                        & coadd derotated images with image mask   (\CODE{hdrl_imagelist_collapse})\\
                        & call \DRL{metis_lm_adi_app_contrast} for raw and post processed images \\
   Output data:       & \PROD{LM_APP_SCI_CALIBRATED}\\
@@ -281,7 +281,7 @@ PSFs. In addition coverage maps are produced.
                        & call \DRL{metis_ifu_adi_regrid} to perform distortion correction, square pixel reconstruction and sub-pixel alignment   \\
                        & call \DRL*{metis_det_adi_cgrph_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
-                       & call \DRL{metis_adi_derotate} to derotate both PSF subtracted and unsubtracted images \\
+                       & call \DRL{metis_adi_derotate} to derotate both ADI subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
   Output data:       & \PROD{IFU_cgrph_SCI_CALIBRATED}\\
