@@ -129,6 +129,8 @@
   %\node (connectreduced) [connection] at
  % ($(step5)!0.4!(stop-t)$) {};
 
+ 
+
 \node (incont1) [left=2cm of step6, yshift=0.8cm,calib]{%
     Coronagraphic throughput\\map/profile
   };
@@ -188,6 +190,11 @@
     LM\_DISTORTION\_TABLE
   };
   \draw [connection_arrow] (reduced3) -- (step2);
+
+  \node (reduced4) [left=1.75cm of step1, calproduct]{%
+    On-axis PSF template
+  };
+  \draw [connection_arrow] (reduced4) -- (step1);
 
  % \node (connectfluxcal) [connection] at
  % ($(step5)!0.8!(stop-t)$) {};
