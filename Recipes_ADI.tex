@@ -34,7 +34,7 @@ addition, the images prior to PSF subtraction are derotated and
 combined to produce a second final image.
 
 In addition to the final images, the calibrated cube is used to calculate the raw and post-ADI contrast curves as
-well as the ADI throughput curve. The intrinsic radial throughput of
+well as the ADI throughput curve. The raw contrast is the flux level in the coronagraphic image divided by the peak flux level of the star given by the unsaturated off-axis reference psf (taking into account any neutral density transmission curves). The post-ADI contrast curve is based on the statistics of the ADI processed image cube. The intrinsic radial throughput of
 the coronagraph is taken from static calibrations while the
 post-processing losses are estimated from injection and retrieval of
 artificial companions with a known brightness and separation.
@@ -43,7 +43,7 @@ Off-axis unsaturated PSFs which are needed for the ADI process are
 either collected as part of the observations, static calibrations or
 available from the QACITS control loop.  If collected as part of the
 OB they are processed by the regular science recipes (with
-compensation of any neutral density transmission).
+compensation of any neutral density transmission). 
 
 %While not part of the PIP specs, the current generation of VIP\_HCI
 %ADI reduction algorithms supports the more detailed Marois et al. 2006
