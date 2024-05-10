@@ -120,12 +120,12 @@
  % ($(step5)!0.4!(stop-t)$) {};
 
 \node (incont1) [left=2cm of step6, yshift=0.8cm,calib]{%
-    Coronagraphic throughput\\map/profile
+    IFU\_cgrph\_SCI\_THROUGHPUT
   };
 \draw [connection_arrow] (incont1.east) -- ++(1, 0) -- ++(0., 0.8) -- ++(1, 0);
 
 \node (incont2) [left=2cm of step6, yshift=-0.8cm,calproduct]{%
-    Off-axis PSF reference cube
+    IFU\_OFF\_AXIS\_PSF\_RAW
   };
 \draw [connection_arrow] (incont2.east) -- ++(1, 0) -- ++(0., -0.8) -- ++(1, 0);
 
