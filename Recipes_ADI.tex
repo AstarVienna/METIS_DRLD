@@ -66,12 +66,14 @@ compensation of any neutral density transmission).
                        & parameters for combination method         \\
                        & resampling method \\
                        & parameters for resampling method \\
+                       & parameters for high-pass filtering \\
                        & start and end limit for contrast curve (in $\lambda/D$) \\
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
   Algorithm:           & call \DRL{metis_lm_adi_cgrph_centroid}  or \DRL{metis_n_adi_cgrph_centroid} to determine the centroids of the central PSFs \\
                        & call \DRL{metis_adi_regrid} to apply distortion map and regrid images based on position of central PSFs \\
                        & call \DRL{metis_lm_adi_cgrph_psf} or \DRL{metis_n_adi_cgrph_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
+                       & optionally high pass filter all frames \\
                        & call \DRL{metis_adi_derotate} to derotate both ADI subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed contrast curves \\
@@ -161,6 +163,7 @@ the effective number of included frames.
                        & parameters for combination method         \\
                        & resampling method \\
                        & parameters for resampling method \\
+                       & parameters for high-pass filtering \\
                        & start and end limit to contrast curve (in $\lambda/D$) \\
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
 % HB 20230627: There is no APP in the N-band right?
@@ -173,6 +176,7 @@ the effective number of included frames.
                        & call \DRL{metis_lm_merge_app_adi_psf} to merge the coronagraphic PSFs \\
                        & call \DRL{metis_lm_adi_app_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
+                       & optionally high pass filter all frames \\
                        & call \DRL{metis_adi_derotate} to derotate both ADI subtracted and unsubtracted images \\
                        & coadd derotated images with image mask   (\CODE{hdrl_imagelist_collapse})\\
                        & call \DRL{metis_lm_adi_app_contrast} for raw and post processed images \\
@@ -275,12 +279,14 @@ PSFs. In addition coverage maps are produced.
                        & parameters for combination method        \\
                        & resampling method \\
                        & parameters for resampling method \\
+                       & parameters for high-pass filtering \\
                        & start and end limit to contrast curve (in $\lambda/D$) \\
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
   Algorithm:           & call \DRL*{metis_det_adi_cgrph_centroid} to determine the location of the central PSFs \\
                        & call \DRL{metis_ifu_adi_regrid} to perform distortion correction, square pixel reconstruction and sub-pixel alignment   \\
                        & call \DRL*{metis_det_adi_cgrph_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
+                       & optionally high pass filter all frames \\
                        & call \DRL{metis_adi_derotate} to derotate both ADI subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
