@@ -470,7 +470,12 @@ sufficient for a full sampling of the PSF. How to implement this
 reconstruction and to what extent the information can be recovered
 from real data needs to be investigated.
 
-The algorithm is implemented in \REC{metis_ifu_reduce}.
+The image reconstruction algorithm is implemented in \REC{metis_ifu_reduce}.
+The baseline is to reuse the implementation already present in HDRL
+with minor modifications. Alternative approaches are
+derived from variable-pixel linear reconstruction (also colloquially known as `drizzle')
+that was successfully employed on HST; and a full linear image reconstruction technique
+based on minimization of a system of linear equations that is described in this section.
 
 \begin{figure}[hb]
   \centering
