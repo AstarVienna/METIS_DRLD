@@ -333,6 +333,10 @@ To determine the derotation center of the focal plane coronagraphs (CVC/RAVC) we
 
 For the pupil plane coronagraph (APP) we cross-correlate the unsaturated parts of the PSF with a template PSF. A Gaussian centroid might not deliver an accurate derotation center because the APP PSF is not symmetric but the use of a PSF template will correct for this effect.
 
+\subsubsection{High-pass filtering of PSF subtracted cube}
+
+To improve the noise characteristics of the image and therefore the achievable contrast, especially in the presence of a time-variable wind driven halo a high-pass filtering step can optionally be applied. Two options are available: a simple median filtering with an NxN box, and also LaPlacian filtering with an odd-sized kernel of size NxN. In the case of IFU cubes (including the spectral dimension) the filtering is done for each wavelength slice and for each timestep.
+
 %%% Local Variables:
 %%% TeX-master: "METIS_DRLD"
 %%% End:
