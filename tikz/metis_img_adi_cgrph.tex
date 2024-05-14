@@ -39,8 +39,11 @@
   \node (step4) [below=1.cm of step3, redstep]{%
     Subtract median PSF
   };
+  \node (step4b) [below=1.cm of step4, redstep]{%
+    optionally: high-pass filter
+  };
 
-  \node (step5) [below=1.cm of step4, redstep]{%
+  \node (step5) [below=1.cm of step4b, redstep]{%
     Derotate images
   };
 
@@ -62,7 +65,8 @@
   \draw [connection_arrow] (step1) -- (step2);
   \draw [connection_arrow] (step2) -- (step3);
   \draw [connection_arrow] (step3) -- (step4);
-  \draw [connection_arrow] (step4) -- (step5);
+  \draw [connection_arrow] (step4) -- (step4b);
+  \draw [connection_arrow] (step4b) -- (step5);
   \draw [connection_arrow] (step5) -- (step6);
   \draw [connection_arrow] (step6) -- (step7);
   \draw [connection_arrow] (step7) -- (stop-t);

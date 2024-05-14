@@ -29,27 +29,31 @@
     Centroid determination
   };
 
-  \node (step2)[below=0.5cm of step1, redstep]{%
+  \node (step2)[below=0.25cm of step1, redstep]{%
     Distortion correction\\square pixel\\reconstruction and \\subpixel alignment
   };
 
-  \node (step3) [below=0.5cm of step2, redstep]{%
+  \node (step3) [below=0.25cm of step2, redstep]{%
     Estimate median PSF
   };
 
-  \node (step4) [below=0.5cm of step3, redstep]{%
+  \node (step4) [below=0.25cm of step3, redstep]{%
     Subtract median PSF
   };
 
-  \node (step5) [below=0.5cm of step4, redstep]{%
+  \node (step4b) [below=0.25cm of step4, redstep]{%
+    optionally: high-pass filter
+  };
+
+  \node (step5) [below=0.25cm of step4b, redstep]{%
     Derotate images
   };
 
-  \node (step6) [below=0.5cm of step5, xshift=0cm,redstep]{%
+  \node (step6) [below=0.25cm of step5, xshift=0cm,redstep]{%
     Contrast curve calculation
   };
 
-  \node (step7) [below=0.5cm of step6, xshift=0cm,redstep]{%
+  \node (step7) [below=0.25cm of step6, xshift=0cm,redstep]{%
     Coadd images
   };
 
@@ -63,7 +67,8 @@
   \draw [connection_arrow] (step1) -- (step2);
   \draw [connection_arrow] (step2) -- (step3);
   \draw [connection_arrow] (step3) -- (step4);
-  \draw [connection_arrow] (step4) -- (step5);
+  \draw [connection_arrow] (step4) -- (step4b);
+  \draw [connection_arrow] (step4b) -- (step5);
   \draw [connection_arrow] (step5) -- (step6);
   \draw [connection_arrow] (step6) -- (step7);
   \draw [connection_arrow] (step7) -- (stop-t);
