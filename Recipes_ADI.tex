@@ -74,7 +74,7 @@ compensation of any neutral density transmission).
                        & call \DRL{metis_adi_regrid} to apply distortion map and regrid images based on position of central PSFs \\
                        & call \DRL{metis_lm_adi_cgrph_psf} or \DRL{metis_n_adi_cgrph_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
-                       & optionally high pass filter all frames \\
+                       & optionally high pass filter all frames with \DRL*{metis_cgrph_highpass_filter} \\
                        & call \DRL{metis_adi_derotate} to derotate both ADI subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed contrast curves \\
