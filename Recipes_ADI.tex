@@ -74,7 +74,7 @@ compensation of any neutral density transmission).
                        & call \DRL{metis_adi_regrid} to apply distortion map and regrid images based on position of central PSFs \\
                        & call \DRL{metis_lm_adi_cgrph_psf} or \DRL{metis_n_adi_cgrph_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
-                       & optionally high pass filter all frames with \DRL*{metis_cgrph_highpass_filter} \\
+                       & optionally high pass filter all frames with \DRL*{metis_adi_highpass_filter} \\
                        & call \DRL{metis_adi_derotate} to derotate both ADI subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed contrast curves \\
@@ -185,7 +185,7 @@ the effective number of included frames.
                        & call \DRL{metis_lm_merge_app_adi_psf} to merge the coronagraphic PSFs \\
                        & call \DRL{metis_lm_adi_app_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
-                       & optionally high pass filter all frames with \DRL*{metis_cgrph_highpass_filter} \\
+                       & optionally high pass filter all frames with \DRL*{metis_adi_highpass_filter} \\
                        & call \DRL{metis_adi_derotate} to derotate both ADI subtracted and unsubtracted images \\
                        & coadd derotated images with image mask   (\CODE{hdrl_imagelist_collapse})\\
                        & call \DRL{metis_lm_adi_app_contrast} for raw and post processed images \\
@@ -298,7 +298,7 @@ PSFs. In addition coverage maps are produced.
                        & call \DRL{metis_ifu_adi_regrid} to perform distortion correction, square pixel reconstruction and sub-pixel alignment   \\
                        & call \DRL*{metis_det_adi_cgrph_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
-                       & optionally high pass filter all frames with \DRL*{metis_cgrph_highpass_filter} \\
+                       & optionally high pass filter all frames with \DRL*{metis_adi_highpass_filter} \\
                        & call \DRL{metis_adi_derotate} to derotate both ADI subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
