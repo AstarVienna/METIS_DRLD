@@ -290,7 +290,7 @@ PSFs. In addition coverage maps are produced.
                        & call \DRL{metis_ifu_adi_regrid} to perform distortion correction, square pixel reconstruction and sub-pixel alignment   \\
                        & call \DRL*{metis_det_adi_cgrph_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
-                       & optionally high pass filter all frames \\
+                       & optionally high pass filter all frames with \DRL*{metis_cgrph_highpass_filter} \\
                        & call \DRL{metis_adi_derotate} to derotate both ADI subtracted and unsubtracted images \\
                        & coadd derotated images   (\CODE{hdrl_imagelist_collapse})\\
                        & call \CODE{det_adi_cgrph_contrast} for raw and post processed images \\
@@ -340,7 +340,7 @@ To determine the derotation center of the focal plane coronagraphs (CVC/RAVC) we
 For the pupil plane coronagraph (APP) we cross-correlate the unsaturated parts of the PSF with a template PSF. A Gaussian centroid might not deliver an accurate derotation center because the APP PSF is not symmetric but the use of a PSF template will correct for this effect.
 
 \subsubsection{High-pass filtering of PSF subtracted cube}
-
+\label{adi_highpass}
 To improve the noise characteristics of the image and therefore the achievable contrast, especially in the presence of a time-variable wind driven halo, a high-pass filtering step can be optionally applied. Two options are available: a simple median filtering with an NxN box, and also LaPlacian filtering with an odd-sized kernel of size NxN. In the case of IFU cubes (including the spectral dimension) the filtering is done for each wavelength slice and for each timestep.
 
 %%% Local Variables:
