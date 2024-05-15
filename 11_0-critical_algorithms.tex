@@ -145,7 +145,7 @@ In~\cite{matisse_minutes}, the correction is described as follows:
     \begin{itemize}
         \item Step 1 : Use the masked pixels to correct bias offsets between series buses.
         \item Step 2 : Pixels are corrected using the corresponding masked pixels in terms of raw
-            number in the two vertical masked outputs.  
+            number in the two vertical masked outputs.
     \end{itemize}
 \end{displayquote}
 
@@ -646,6 +646,18 @@ with negligible loss of precision, as shown by \cite{Law+2023} for the MIRI inst
 The exact position of each detector pixel is translated directly to the output cube space,
 affecting at most a small constant number of layers in the $\lambda$ direction.
 
+\subsubsection{Precision of positions}
+    The described algorithm does not assume that exact positions of exposures are equidistant
+    and the differences in orientation of the exposure sets are exactly 90 degrees.
+    However, it assumes that the positions and rotations of the individual exposures
+    are \emph{known} with sufficient precision and stored in the corresponding FITS headers.
+
+    If this is not the case, repeated runs of the entire algorithm are required,
+    with relative positions and rotations of individual exposures varied by small values
+    on the order of a fraction of pixel size.
+    The solution for which the $\chi^2$ error (see equation \ref{eq:chi2_minimisation})
+    is minimal is then declared to be the best estimate of the original model image.
+
 \subsection{Data rates}
 \label{ssec:criticalifudatarate}
 \label{ssec:ifu_data_rate}
@@ -683,7 +695,7 @@ backlog of pending data reductions should accumulate.
 
 However, the maximum estimated data rate for a single mode has decreased by a
 factor of four between PDR and FDR because the rate by which the IFU detectors
-can be read out has been decreased. This helps ameliorate the issue. 
+can be read out has been decreased. This helps ameliorate the issue.
 The fastest frame rate will be 1 Hz.
 Sources that would need faster frame rates will be observed with a coronagraph and/or a ND filter.
 
@@ -697,9 +709,7 @@ parameters to, if necessary, reduce the performance of the recipe if a high data
 stream is to be expected. Another option might be to compute QC parameters only
 on a subset of incoming frames.
 
-
 This is in compliance with \REQ{METIS-6075}.
-
 
 % Additional critical algos
 \input{CritAlgo_ADI}
