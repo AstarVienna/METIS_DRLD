@@ -82,7 +82,13 @@ compensation of any neutral density transmission).
                      & \PROD{LM_cgrph_SCI_CENTRED} or \PROD{N_cgrph_SCI_CENTRED}\\
                      & \PROD{LM_cgrph_CENTROID_TAB} or \PROD{N_cgrph_CENTROID_TAB}\\
                      & \PROD{LM_cgrph_SCI_SPECKLE} or \PROD{N_cgrph_SCI_SPECKLE}\\
-                     & \PROD{LM_cgrph_SCI_DEROTATED_PSFSUB} or \PROD{N_cgrph_SCI_DEROTATED_PSFSUB}\\
+                     &
+                     
+                     \PROD{LM_cgrph_SCI_HIFILT}\\
+                     &
+                     \PROD{N_cgrph_SCI_HIFILT}\\
+                     &
+                     \PROD{LM_cgrph_SCI_DEROTATED_PSFSUB} or \PROD{N_cgrph_SCI_DEROTATED_PSFSUB}\\
                      & \PROD{LM_cgrph_SCI_DEROTATED} or \PROD{N_cgrph_SCI_DEROTATED}\\
                      & \PROD{LM_cgrph_SCI_CONTRAST_RADPROF} or \PROD{N_cgrph_SCI_CONTRAST_RADPROF}\\
                      & \PROD{LM_cgrph_SCI_CONTRAST_ADI} or \PROD{N_cgrph_SCI_CONTRAST_ADI}\\
@@ -179,7 +185,7 @@ the effective number of included frames.
                        & call \DRL{metis_lm_merge_app_adi_psf} to merge the coronagraphic PSFs \\
                        & call \DRL{metis_lm_adi_app_psf} to determine the median PSF \\
                        & Subtract median PSF from all frames  (\CODE{hdrl_imagelist_sub_image})\\
-                       & optionally high pass filter all frames \\
+                       & optionally high pass filter all frames with \DRL*{metis_cgrph_highpass_filter} \\
                        & call \DRL{metis_adi_derotate} to derotate both ADI subtracted and unsubtracted images \\
                        & coadd derotated images with image mask   (\CODE{hdrl_imagelist_collapse})\\
                        & call \DRL{metis_lm_adi_app_contrast} for raw and post processed images \\
@@ -187,7 +193,9 @@ the effective number of included frames.
                      & \PROD{LM_APP_SCI_CENTRED}\\
                      & \PROD{LM_APP_CENTROID_TAB}\\
                      & \PROD{LM_APP_SCI_SPECKLE}\\
-                     & \PROD{LM_APP_SCI_DEROTATED_PSFSUB}\\
+                     & \PROD{LM_APP_SCI_HIFILT}\\
+                     &
+                     \PROD{LM_APP_SCI_DEROTATED_PSFSUB}\\
                      & \PROD{LM_APP_SCI_DEROTATED}\\
                      & \PROD{LM_APP_SCI_CONTRAST_RADPROF}\\
                      & \PROD{LM_APP_SCI_CONTRAST_ADI}\\

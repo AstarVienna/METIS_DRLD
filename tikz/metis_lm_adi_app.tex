@@ -211,6 +211,10 @@
     LM\_APP\_CALIB\_PSF\_LEAKAGE
   };
   \draw [connection_arrow] (step2a) -- (fluxcal2);
+  \node (highfilt) [right=1.5cm of step4b, sciproduct]{%
+    LM\_APP\_SCI\_HIFILT
+  };
+  \draw [connection_arrow] (step4b) -- (highfilt);
 
 
   %% Frame around recipe
