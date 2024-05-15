@@ -627,9 +627,24 @@ The $4628 \times 16800$ solution matrix $S$ depends on the data
 through the covariance matrix $\mat{C}$. Since the reconstruction operates on rectified IFU cubes,
 i.e.~data that have been resampled from the raw data,
 the pixel noises are correlated and $\mat{C}$ is non-diagonal.
+
 As an approximation, the pixel noises could be treated as uncorrelated, in which case $\mat{C}$ would be diagonal.
 If $\mat{C}$ were further approximated by the unit matrix (giving an unweighted least-squares reconstruction),
 $\mat{S}$ would be independent of the data and could be reused and even be provided as a static calibration in the METIS pipeline.
+
+Alternatively, the reconstruction algorithm can operate directly on unrectified detector data,
+producing the entire model cube in one pass, at the cost of having to work with significantly larger data and model vectors.
+This has an advantage of eliminating the first resampling, thus avoiding the need for the covariance matrix altogether.
+In this case the size of the data vector is $6 \times 4096 \times 4096 \approx 10^8$
+and the size of the model vector increases to $68 \times 68 \times 4096 \approx 2 \cdot 10^7$.
+The size of $\mat{A}$ is enormous -- however as each detector pixel contributes
+to at most a small constant number of output voxels, it is also extremely sparse.
+
+Furthermore, as long as the distortion and the angle between the data pixels and across-slice direction is sufficiently small,
+it is possible to process the detector data in layers in the $\lambda$ direction separately
+with negligible loss of precision, as shown by \cite{Law+2023} for the MIRI instrument at JWST.
+The exact position of each detector pixel is translated directly to the output cube space,
+affecting at most a small constant number of layers in the $\lambda$ direction.
 
 \subsection{Data rates}
 \label{ssec:criticalifudatarate}
