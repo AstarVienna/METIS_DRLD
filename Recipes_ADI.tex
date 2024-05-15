@@ -61,15 +61,15 @@ compensation of any neutral density transmission).
 %                        & Coronagraphic throughput map and profile         \\
                        & \PROD{LM_cgrph_SCI_THROUGHPUT} or \PROD{N_cgrph_SCI_THROUGHPUT} \\
                        & \RAW{LM_OFF_AXIS_PSF_RAW} or \RAW{N_OFF_AXIS_PSF_RAW}\\&
-                       \EXTCALIB{LM_ON_AXIS_PSF_TEMPLATE}\\&
+                       \EXTCALIB{LM_ON_AXIS_PSF_TEMPLATE} or
                        \EXTCALIB{N_ON_AXIS_PSF_TEMPLATE}\\
    Matched keywords:   & \FITS{DRS.MASK} \\
   Parameters:          & combination method (median, mean, sigclip, \dots) \\
                        & parameters for combination method         \\
                        & resampling method \\
                        & parameters for resampling method \\
-                       & high-pass filtering method\\
-                       & parameters for high-pass filtering \\
+                       & high-pass filtering method (Laplacian / median box)\\
+                       & parameters for high-pass filtering (kernel/box size) \\
                        & start and end limit for contrast curve (in $\lambda/D$) \\
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
   Algorithm:           & call \DRL{metis_lm_adi_cgrph_centroid}  or \DRL{metis_n_adi_cgrph_centroid} to determine the centroids of the central PSFs \\
@@ -172,8 +172,8 @@ the effective number of included frames.
                        & resampling method \\
                        & parameters for 
                        resampling method \\
-                       & high-pass filtering method\\
-                       & parameters for high-pass filtering \\
+                       & high-pass filtering method (Laplacian / median box)\\
+                       & parameters for high-pass filtering (kernel/box size) \\
                        & start and end limit to contrast curve (in $\lambda/D$) \\
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
 % HB 20230627: There is no APP in the N-band right?
@@ -291,8 +291,8 @@ PSFs. In addition coverage maps are produced.
                        & parameters for combination method        \\
                        & resampling method \\
                        & parameters for resampling method \\
-                       & high-pass filtering method\\
-                       & parameters for high-pass filtering \\
+                       & high-pass filtering method (Laplacian / median box)\\
+                       & parameters for high-pass filtering (kernel/box size) \\
                        & start and end limit to contrast curve (in $\lambda/D$) \\
                        & frame exclusion thresholds dependent on AO parameters and centroid offset \\
   Algorithm:           & call \DRL*{metis_det_adi_cgrph_centroid} to determine the location of the central PSFs \\
@@ -350,7 +350,7 @@ For the pupil plane coronagraph (APP) we cross-correlate the unsaturated parts o
 
 \subsubsection{High-pass filtering of PSF subtracted cube}
 \label{adi_highpass}
-To improve the noise characteristics of the image and therefore the achievable contrast, especially in the presence of a time-variable wind driven halo, a high-pass filtering step can be optionally applied. Two options are available: a simple median filtering with an NxN box, and also LaPlacian filtering with an odd-sized kernel of size NxN. In the case of IFU cubes (including the spectral dimension) the filtering is done for each wavelength slice and for each timestep.
+To improve the noise characteristics of the image and therefore the achievable contrast, especially in the presence of a time-variable wind driven halo, a high-pass filtering step can be optionally applied. Two options are available: a simple median filtering with an N by N box, and also Laplacian filtering with an odd-sized kernel of size N by N. In the case of IFU cubes (including the spectral dimension) the filtering is done for each wavelength slice and for each timestep.
 
 %%% Local Variables:
 %%% TeX-master: "METIS_DRLD"
