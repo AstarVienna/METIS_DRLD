@@ -849,4 +849,69 @@ Purpose: & telluric correction of flux standard stars\\
 %\paragraph{\PROD{}}\label{dataitem:}
 %\paragraph{\PROD{}}\label{dataitem:}
 
+\subsubsection{ADI calibration database item structures}\label{sssec:adicaldbdatastructs}
+
+
+\paragraph{\EXTCALIB{LM_ON_AXIS_PSF_TEMPLATE}}\label{dataitem:lm_on_axis_psf_template}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \EXTCALIB{LM_ON_AXIS_PSF_TEMPLATE}\\[0.3cm]
+Description: & PSF template for centroiding in coronagraphic images\\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{LM_ON_AXIS_PSF_TEMPLATE}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{LM_ON_AXIS_PSF_TEMPLATE}\\[0.3cm]
+Source: & obtained from simulated images or high SNR observations\\
+Input for:    & \REC{metis_img_adi_cgrph}, \REC{metis_lm_app_cgrph}, \REC{metis_lm_adi_app} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+Purpose: & centroiding of ADI images\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{metis\_image *template}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+\paragraph{\EXTCALIB{N_ON_AXIS_PSF_TEMPLATE}}\label{dataitem:n_on_axis_psf_template}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \EXTCALIB{N_ON_AXIS_PSF_TEMPLATE}\\[0.3cm]
+Description: & PSF template for centroiding in coronagraphic images\\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{N_ON_AXIS_PSF_TEMPLATE}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{N_ON_AXIS_PSF_TEMPLATE}\\[0.3cm]
+Source: & obtained from simulated images or high SNR observations\\
+Input for:    & \REC{metis_img_adi_cgrph}, \REC{metis_n_app_cgrph}, \REC{metis_n_adi_app} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+Purpose: & centroiding of ADI images\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{metis\_image *template}
+\end{enumerate}
+\end{datastructdef}
+
+
+\paragraph{\EXTCALIB{IFU_ON_AXIS_PSF_TEMPLATE}}\label{dataitem:ifu_on_axis_psf_template}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \EXTCALIB{IFU_ON_AXIS_PSF_TEMPLATE}\\[0.3cm]
+Description: & PSF template for centroiding in coronagraphic images\\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_ON_AXIS_PSF_TEMPLATE}\\
+OCA keywords: & \FITS{PRO.CATG}\\
+\FITS{DO.CATG}: & \CODE{IFU_ON_AXIS_PSF_TEMPLATE}\\[0.3cm]
+Source: & obtained from simulated images or high SNR observations\\
+Input for:    & \REC{metis_img_adi_cgrph}, \REC{metis_ifu_app_cgrph}, \REC{metis_ifu_adi_app} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+Purpose: & centroiding of ADI images\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{metis\_image *template}
+\end{enumerate}
+\end{datastructdef}
 

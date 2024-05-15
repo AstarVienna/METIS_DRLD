@@ -304,6 +304,77 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{datastructdef}
 
 
+\paragraph{\PROD{LM_CGRPH_SCI_HIFILT}}\label{dataitem:lm_cgrph_sci_hifilt}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \PROD{LM_CGRPH_SCI_HIFILT}\\[0.3cm]
+Description: & Low-pass component subtracted in the optional high pass filter step for coronagraphic data reduction \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{LM_CGRPH_SCI_HIFILT}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
+\FITS{DO.CATG}: & \CODE{LM_CGRPH_SCI_HIFILT}\\[0.3cm]
+Created by: & \REC{metis_img_adi_cgrph},\REC{metis_lm_adi_app}, \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
+    \item \texttt{hdrl\_image * image: Image Cube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+\paragraph{\PROD{N_CGRPH_SCI_HIFILT}}\label{dataitem:n_cgrph_sci_hifilt}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \PROD{N_CGRPH_SCI_HIFILT}\\[0.3cm]
+Description: & Low-pass component subtracted in the optional high pass filter step for coronagraphic data reduction \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{N_CGRPH_SCI_HIFILT}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
+\FITS{DO.CATG}: & \CODE{N_CGRPH_SCI_HIFILT}\\[0.3cm]
+Created by: & \REC{metis_img_adi_cgrph}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
+    \item \texttt{hdrl\_image * image: Image Cube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+\paragraph{\PROD{IFU_CGRPH_SCI_HIFILT}}\label{dataitem:ifu_cgrph_sci_hifilt}
+\begin{recipedef}
+\textbf{\ac{FITS} image structure:}\\
+Name: & \PROD{IFU_CGRPH_SCI_HIFILT}\\[0.3cm]
+Description: & Low-pass component subtracted in the optional high pass filter step for coronagraphic data reduction \\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{IFU_CGRPH_SCI_HIFILT}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.MASK} \\
+\FITS{DO.CATG}: & \CODE{IFU_CGRPH_SCI_HIFILT}\\[0.3cm]
+Created by: & \REC{metis_ifu_adi_cgrph}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+ \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.MASK})}
+    \item \texttt{hdrl\_image * image: Image Cube}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+
+
+
+
 
 
 \paragraph{\PROD{LM_APP_SCI_COVERAGE}}\label{dataitem:lm_app_sci_coverage}
