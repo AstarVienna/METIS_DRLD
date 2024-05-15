@@ -60,7 +60,9 @@ compensation of any neutral density transmission).
                        & \PROD{LM_DISTORTION_TABLE} or \PROD{N_DISTORTION_TABLE} \\
 %                        & Coronagraphic throughput map and profile         \\
                        & \PROD{LM_cgrph_SCI_THROUGHPUT} or \PROD{N_cgrph_SCI_THROUGHPUT} \\
-                       & \RAW{LM_OFF_AXIS_PSF_RAW} or \RAW{N_OFF_AXIS_PSF_RAW}\\
+                       & \RAW{LM_OFF_AXIS_PSF_RAW} or \RAW{N_OFF_AXIS_PSF_RAW}\\&
+                       \EXTCALIB{LM_ONAXIS_PSF_TEMPLATE}\\&
+                       \EXTCALIB{N_ONAXIS_PSF_TEMPLATE}\\
    Matched keywords:   & \FITS{DRS.MASK} \\
   Parameters:          & combination method (median, mean, sigclip, \dots) \\
                        & parameters for combination method         \\
@@ -164,7 +166,8 @@ the effective number of included frames.
   Type:                & Science                                                    \\
   Input data:          & \PROD{LM_SCI_CALIBRATED}                            \\
                        & \PROD{LM_DISTORTION_TABLE} \\
-                       & \RAW{LM_OFF_AXIS_PSF_RAW}                                                  \\
+                       & \RAW{LM_OFF_AXIS_PSF_RAW}                                                  \\&
+                       \EXTCALIB{det_ONAXIS_PSF_TEMPLATE}\\
    Matched keywords:   & \FITS{DRS.MASK} \\
    Parameters:         & combination method (median, mean, sigclip, \dots) \\
                        & parameters for combination method         \\
@@ -284,7 +287,7 @@ PSFs. In addition coverage maps are produced.
                        & \PROD{IFU_DISTORTION_TABLE}\\
 %                        & Coronagraphic throughput map and profile                                                  \\
                        & \PROD{IFU_cgrph_SCI_THROUGHPUT} \\
-                       & \RAW{IFU_OFF_AXIS_PSF_RAW} \\
+                       & \RAW{IFU_OFF_AXIS_PSF_RAW} \\& \EXTCALIB{IFU_ONAXIS_PSF_TEMPLATE}\\
    Matched keywords:   & \FITS{DRS.MASK} \\
   Parameters:          & combination method (median, mean, sigclip, \dots)\\
                        & parameters for combination method        \\
