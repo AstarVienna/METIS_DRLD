@@ -75,6 +75,9 @@ METIS Calibration templates|
 |[[METIS_spec_lm_cal_standard|METIS_spec_lm_cal_standard]] |Standard star observations for LSS in LM |
 |[[METIS_spec_n_cal_standard|METIS_spec_n_cal_standard]] |Standard star observations for LSS in N|
 |[[METIS_ifu_cal_standard|METIS_ifu_cal_standard]] |Standard star observations with IFU|
+|[[METIS_spec_lm_cal_telluric|METIS_spec_lm_cal_telluric]] |Telluric standard star observations for LSS in LM |
+|[[METIS_spec_n_cal_telluric|METIS_spec_n_cal_telluric]] |Telluric standard star observations for LSS in N|
+|[[METIS_ifu_cal_telluric|METIS_ifu_cal_telluric]] |Telluric standard star observations with IFU|
 |[[METIS_img_lm_cal_psf|METIS_img_lm_cal_psf]] |PSF calibrator imaging LM |
 |[[METIS_img_n_cal_psf|METIS_img_n_cal_psf]] |PSF calibrator imaging N |
 |[[METIS_ifu_cal_psf|METIS_ifu_cal_psf]] |PSF calibrator IFU|
