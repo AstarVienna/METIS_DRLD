@@ -60,9 +60,8 @@ compensation of any neutral density transmission).
                        & \PROD{LM_DISTORTION_TABLE} or \PROD{N_DISTORTION_TABLE} \\
 %                        & Coronagraphic throughput map and profile         \\
                        & \PROD{LM_cgrph_SCI_THROUGHPUT} or \PROD{N_cgrph_SCI_THROUGHPUT} \\
-                       & \RAW{LM_OFF_AXIS_PSF_RAW} or \RAW{N_OFF_AXIS_PSF_RAW}\\&
-                       \EXTCALIB{LM_ON_AXIS_PSF_TEMPLATE} or
-                       \EXTCALIB{N_ON_AXIS_PSF_TEMPLATE}\\
+                       & \RAW{LM_OFF_AXIS_PSF_RAW} or \RAW{N_OFF_AXIS_PSF_RAW} \\
+                       & \EXTCALIB{LM_ON_AXIS_PSF_TEMPLATE} or \EXTCALIB{N_ON_AXIS_PSF_TEMPLATE}\\
    Matched keywords:   & \FITS{DRS.MASK} \\
   Parameters:          & combination method (median, mean, sigclip, \dots) \\
                        & parameters for combination method         \\
@@ -86,7 +85,7 @@ compensation of any neutral density transmission).
                      & \PROD{LM_cgrph_SCI_SPECKLE} or \PROD{N_cgrph_SCI_SPECKLE}\\
                      &
                      
-                     \PROD{LM_cgrph_SCI_HIFILT}or \PROD{N_cgrph_SCI_HIFILT}\\
+                     \PROD{LM_cgrph_SCI_HIFILT} or \PROD{N_cgrph_SCI_HIFILT}\\
                      &
                      \PROD{LM_cgrph_SCI_DEROTATED_PSFSUB} or \PROD{N_cgrph_SCI_DEROTATED_PSFSUB}\\
                      & \PROD{LM_cgrph_SCI_DEROTATED} or \PROD{N_cgrph_SCI_DEROTATED}\\
@@ -164,8 +163,8 @@ the effective number of included frames.
   Type:                & Science                                                    \\
   Input data:          & \PROD{LM_SCI_CALIBRATED}                            \\
                        & \PROD{LM_DISTORTION_TABLE} \\
-                       & \RAW{LM_OFF_AXIS_PSF_RAW}                                                  \\&
-                       \EXTCALIB{LM_ON_AXIS_PSF_TEMPLATE}\\
+                       & \RAW{LM_OFF_AXIS_PSF_RAW} \\
+                       & \EXTCALIB{LM_ON_AXIS_PSF_TEMPLATE}\\
    Matched keywords:   & \FITS{DRS.MASK} \\
    Parameters:         & combination method (median, mean, sigclip, \dots) \\
                        & parameters for combination method         \\
@@ -195,8 +194,7 @@ the effective number of included frames.
                      & \PROD{LM_APP_CENTROID_TAB}\\
                      & \PROD{LM_APP_SCI_SPECKLE}\\
                      & \PROD{LM_cgrph_SCI_HIFILT}\\
-                     &
-                     \PROD{LM_APP_SCI_DEROTATED_PSFSUB}\\
+                     & \PROD{LM_APP_SCI_DEROTATED_PSFSUB}\\
                      & \PROD{LM_APP_SCI_DEROTATED}\\
                      & \PROD{LM_APP_SCI_CONTRAST_RADPROF}\\
                      & \PROD{LM_APP_SCI_CONTRAST_ADI}\\
@@ -285,7 +283,8 @@ PSFs. In addition coverage maps are produced.
                        & \PROD{IFU_DISTORTION_TABLE}\\
 %                        & Coronagraphic throughput map and profile                                                  \\
                        & \PROD{IFU_cgrph_SCI_THROUGHPUT} \\
-                       & \RAW{IFU_OFF_AXIS_PSF_RAW} \\& \EXTCALIB{IFU_ON_AXIS_PSF_TEMPLATE}\\
+                       & \RAW{IFU_OFF_AXIS_PSF_RAW} \\
+                       & \EXTCALIB{IFU_ON_AXIS_PSF_TEMPLATE}\\
    Matched keywords:   & \FITS{DRS.MASK} \\
   Parameters:          & combination method (median, mean, sigclip, \dots)\\
                        & parameters for combination method        \\
