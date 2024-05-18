@@ -637,7 +637,7 @@ producing the entire model cube in one pass, at the cost of having to work with 
 This has an advantage of eliminating the first resampling, thus avoiding the need for the covariance matrix altogether.
 In this case the size of the data vector is $6 \times 4096 \times 4096 \approx 10^8$
 and the size of the model vector increases to $68 \times 68 \times 4096 \approx 2 \cdot 10^7$.
-The size of $\mat{A}$ is enormous -- however as each detector pixel contributes
+The size of $\mat{A}$ is then enormous -- however as each detector pixel contributes
 to at most a small constant number of output voxels, it is also extremely sparse.
 
 Furthermore, as long as the distortion and the angle between the data pixels and across-slice direction is sufficiently small,
