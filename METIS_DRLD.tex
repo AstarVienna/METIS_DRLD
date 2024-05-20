@@ -69,8 +69,19 @@ Felix Bettonvil}
 \parindent=0mm
 \parskip=0.3em
 
-\renewcommand{\floatpagefraction}{0.98} % separate float page does not work
+\renewcommand{\floatpagefraction}{1.0} % separate float page does not work
 \renewcommand{\bottomfraction}{1.0}
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\textfraction}{0.0}
+% Allow a page full of floats. 
+% LaTeX might emit a warning like 
+%   Text page 382 contains only floats.
+% Such a warning occurs because many figures are included as
+%   \begin{figure}[ht!]
+% which excludes putting the floats on a separate page ([p]).
+% It would perhaps be better to use [htbp] than [ht!].
+% E.f. nee]]]
+%\textfraction=0.0
 
 %% Fonts
 \usepackage{mathptmx}
@@ -192,12 +203,6 @@ Felix Bettonvil}
 
 %\setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
-
-% Allow a page full of floats. 
-% LaTeX might emit a warning like 
-%   Text page 382 contains only floats.
-% tH
-\textfraction=0.0
 
 % ADDING NEW DEFINITIONS -------------------------------------------- start
 \input{normal_style}
