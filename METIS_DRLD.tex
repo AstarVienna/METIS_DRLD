@@ -69,19 +69,18 @@ Felix Bettonvil}
 \parindent=0mm
 \parskip=0.3em
 
-\renewcommand{\floatpagefraction}{1.0} % separate float page does not work
-\renewcommand{\bottomfraction}{1.0}
-\renewcommand{\topfraction}{1.0}
-\renewcommand{\textfraction}{0.0}
-% Allow a page full of floats. 
+% Attempt to allow a page full of floats. 
 % LaTeX might emit a warning like 
 %   Text page 382 contains only floats.
 % Such a warning occurs because many figures are included as
 %   \begin{figure}[ht!]
 % which excludes putting the floats on a separate page ([p]).
 % It would perhaps be better to use [htbp] than [ht!].
-% See further e
-%\textfraction=0.0
+% See further e.g. https://tex.stackexchange.com/q/546787/2775
+\renewcommand{\floatpagefraction}{1.0} % separate float page does not work
+\renewcommand{\bottomfraction}{1.0}
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\textfraction}{0.0}
 
 %% Fonts
 \usepackage{mathptmx}
