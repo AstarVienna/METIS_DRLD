@@ -78,15 +78,22 @@
 \label{sec:implementation}
 
 \subsection{ESO pipeline environment}
+\label{ssec:imp_eso}
+
 	- Legacy C code: CPL, HDRL
 	- ESO's shift to Python: EDPS, PyCPL
 	- Integration with qcFlow
+
 \subsection{Pipeline design}
+\label{ssec:imp_pip}
+
 	- DRL-D + DRL-VT, PIP-FDR success
 	- Association matrices
 	- Pipeline to be fully developed in python 
 	- Integration into EDPS
+ 
 \subsection{Connection to the METIS AIV archive}
+\label{ssec:imp_archive}
 
 
 \section{Development scheduling and tooling}
@@ -94,10 +101,32 @@
 
 \subsection{Scheduling matched to AIV plans}
 \label{ssec:dev_aiv}
-	- Major METIS AIV milestones for which recipes need to be ready
-		- 02-2025 : AIV-010 : PIP workstation setup in Leiden
-		- 11-2025 : AIV-250 : Dress-rehearsal of data flow chain
-		- 02-2026 : AIV-370 : IFU system testing
+
+\begin{table}[]
+    \centering
+\caption{Caption}
+\label{tab:dev_aiv_milestones}
+    \begin{tabular}{c|cl}
+         Date&   Internal AIV phase ID&Description METIS AIV phase\\
+         02-2025&   AIV-010&PIP workstation setup in Leiden\\
+         11-2025&   AIV-250&Dress-rehearsal of data flow chain\\
+ 02-2026& &IFU system testing\\
+ &  &\\
+ & &\\
+ & &\\
+ & &\\
+ & &\\
+ & &\\
+ \end{tabular}
+   
+   
+\end{table}
+
+
+ - Major METIS AIV milestones for which recipes need to be ready
+		-  :  : 
+		-  :  : 
+		-  : AIV-370 : 
 		- 10-2026 : AIV-490 : IMG/LSS system testing
 		- 12-2027 : AIV-640 : PAE
 		- 12-2028 : AIV-920 : Commissioning starts
