@@ -43,9 +43,87 @@
 % Include a list of keywords after the abstract 
 \keywords{Manuscript format, template, SPIE Proceedings, LaTeX}
 
-\section{INTRODUCTION}
-\label{sec:intro}  % \label{} allows reference to this section
 
+\section{Introduction}
+\label{sec:introduction}
+
+
+\section{METIS and the pipeline}
+\label{sec:environment}
+
+\subsection{Description of METIS}
+\label{ssec:env_metis}
+	- MIR
+	- SCAO
+\subsection{Observation Modes}
+\label{ssec:env_modes}
+	- IFU
+	- IMG
+	- LSS
+	- HCI
+ 
+\subsection{What challenges does this pose for the pipeline}
+\label{ssec:env_challenges}
+
+- IFU undersampled pixels due to slit-width of IFU pseudo-slits
+		- IFU reconstruction on rectangular pixels
+	- MIR Background subtraction
+	- Fixed ADCs
+	- Multiple HCI modes
+	- Geosnap cosmetics
+	- Highly distriubuted team
+
+
+\section{Implementation plans}
+\label{sec:implementation}
+
+\subsection{ESO pipeline environment}
+	- Legacy C code: CPL, HDRL
+	- ESO's shift to Python: EDPS, PyCPL
+	- Integration with qcFlow
+\subsection{Pipeline design}
+	- DRL-D + DRL-VT, PIP-FDR success
+	- Association matrices
+	- Pipeline to be fully developed in python 
+	- Integration into EDPS
+\subsection{Connection to the METIS AIV archive}
+
+
+\section{Development scheduling and tooling}
+\label{sec:development}
+
+\subsection{Scheduling matched to AIV plans}
+\label{ssec:dev_aiv}
+	- Major METIS AIV milestones for which recipes need to be ready
+		- 02-2025 : AIV-010 : PIP workstation setup in Leiden
+		- 11-2025 : AIV-250 : Dress-rehearsal of data flow chain
+		- 02-2026 : AIV-370 : IFU system testing
+		- 10-2026 : AIV-490 : IMG/LSS system testing
+		- 12-2027 : AIV-640 : PAE
+		- 12-2028 : AIV-920 : Commissioning starts
+\subsection{Functionality levels}
+\label{ssec:dev_levels}
+	- Skel
+	- Func
+	- Perf
+	- Sci
+\subsection{Integration with data simulator}
+\label{ssec:dev_scopesim}
+	- Part of the new ESO strategy (1618 v4) to have coherent simulated data sets from the consortia before the pipeline 
+	- ScopeSim with METIS
+	- Wrapper for generate mock data sets
+	- Efforts to 
+\subsection{Official release schedule}
+\label{ssec:dev_releases}
+	- Table of release dates
+\subsection{Github toolchain}
+\label{ssec:dev_testing}
+	- CI, testing on multiple systems
+	- Issue tracking
+	- Project management and defining release goals
+
+\section{Conclusion}
+\label{sec:conclusion}
 
 
 
