@@ -104,38 +104,45 @@
 
 \begin{table}[]
     \centering
-\caption{Caption}
+\caption{Major METIS AIV milestones for which pipeline recipes need to be ready}
 \label{tab:dev_aiv_milestones}
-    \begin{tabular}{c|cl}
-         Date&   Internal AIV phase ID&Description METIS AIV phase\\
-         02-2025&   AIV-010&PIP workstation setup in Leiden\\
-         11-2025&   AIV-250&Dress-rehearsal of data flow chain\\
- 02-2026& AIV-370&IFU system testing\\
- &  &\\
- & &\\
- & &\\
- & &\\
- & &\\
- & &\\
+    \begin{tabular}{c|c|l}
+    \hline
+    \hline
+         Date &   METIS AIV phase ID & Description\\
+         \hline
+         02-2025 &   AIV-010&PIP workstation setup in Leiden\\
+         11-2025 &   AIV-250&Dress-rehearsal of data flow chain\\
+ 02-2026 & AIV-370&IFU system testing\\
+ 10-2026 &  AIV-490&IMG/LSS system testing\\
+ 12-2027 & AIV-640&PAE\\
+ 12-2028 & AIV-920&Commissioning on-sky at ELT starts\\
+ \hline
  \end{tabular}
-   
-   
+      
 \end{table}
 
+\begin{itemize}
+    \item AIV-010
+    \item AIV-250
+    \item AIV-370
+    \item AIV-490
+    \item AIV-640
+    \item AIV-920
+\end{itemize}
 
- - Major METIS AIV milestones for which recipes need to be ready
-		-  :  : 
-		-  :  : 
-		-  :  : 
-		- 10-2026 : AIV-490 : IMG/LSS system testing
-		- 12-2027 : AIV-640 : PAE
-		- 12-2028 : AIV-920 : Commissioning starts
+
+
 \subsection{Functionality levels}
 \label{ssec:dev_levels}
-	- Skel
-	- Func
-	- Perf
-	- Sci
+ 
+ 
+ \begin{enumerate}
+     \item Skeleton
+     \item Functional
+     \item Performance
+     \item Science
+ \end{enumerate}
 \subsection{Integration with data simulator}
 \label{ssec:dev_scopesim}
 	- Part of the new ESO strategy (1618 v4) to have coherent simulated data sets from the consortia before the pipeline 
