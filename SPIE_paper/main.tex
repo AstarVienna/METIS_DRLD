@@ -57,22 +57,26 @@
 	- SCAO
 \subsection{Observation Modes}
 \label{ssec:env_modes}
-	- IFU
-	- IMG
-	- LSS
-	- HCI
+ \begin{itemize}
+     \item - IFU
+     \item - IMG
+     \item - LSS
+     \item - HCI
+ \end{itemize}
  
 \subsection{What challenges does this pose for the pipeline}
 \label{ssec:env_challenges}
 
-- IFU undersampled pixels due to slit-width of IFU pseudo-slits
-		- IFU reconstruction on rectangular pixels
-	- MIR Background subtraction
-	- Fixed ADCs
-	- Multiple HCI modes
-	- Geosnap cosmetics
-	- Highly distriubuted team
+\begin{itemize}
+    \item - IFU undersampled pixels due to slit-width of IFU pseudo-slits
+    \item - IFU reconstruction on rectangular pixels
+    \item - MIR Background subtraction
+    \item - Fixed ADCs
+    \item - Multiple HCI modes
+    \item - Geosnap cosmetics
+    \item - Highly distriubuted team
 
+\end{itemize}
 
 \section{Implementation plans}
 \label{sec:implementation}
@@ -80,20 +84,25 @@
 \subsection{ESO pipeline environment}
 \label{ssec:imp_eso}
 
-	- Legacy C code: CPL, HDRL
-	- ESO's shift to Python: EDPS, PyCPL
-	- Integration with qcFlow
+ \begin{itemize}
+     \item - Legacy C code: CPL, HDRL
+     \item - ESO's shift to Python: EDPS, PyCPL
+     \item - Integration with qcFlow
+ \end{itemize}
 
 \subsection{Pipeline design}
 \label{ssec:imp_pip}
 
-	- DRL-D + DRL-VT, PIP-FDR success
-	- Association matrices
-	- Pipeline to be fully developed in python 
-	- Integration into EDPS
+ \begin{itemize}
+     \item - DRL-D + DRL-VT, PIP-FDR success
+     \item - Association matrices
+     \item - Pipeline to be fully developed in python
+     \item - Integration into EDPS
+ \end{itemize}
  
 \subsection{Connection to the METIS AIV archive}
 \label{ssec:imp_archive}
+
 
 
 \section{Development scheduling and tooling}
@@ -135,23 +144,30 @@
 
 \subsection{Functionality levels}
 \label{ssec:dev_levels}
- 
- 
+  
  \begin{enumerate}
      \item Skeleton
      \item Functional
      \item Performance
      \item Science
  \end{enumerate}
+
 \subsection{Integration with data simulator}
 \label{ssec:dev_scopesim}
-	- Part of the new ESO strategy (1618 v4) to have coherent simulated data sets from the consortia before the pipeline 
-	- ScopeSim with METIS
-	- Wrapper for generate mock data sets
-	- Efforts to 
+
+ \begin{itemize}
+     \item - Part of the new ESO strategy (1618 v4) to have coherent simulated data sets from the consortia before the pipeline
+     \item - ScopeSim with METIS
+     \item - Wrapper for generate mock data sets
+     \item - Efforts to integrate feasibility studies from the science team into the pixel in the test data set
+ \end{itemize}
+
+ 
 \subsection{Official release schedule}
 \label{ssec:dev_releases}
-	- Table of release dates
+
+
+
 \subsection{Github toolchain}
 \label{ssec:dev_testing}
 	- CI, testing on multiple systems
