@@ -168,9 +168,12 @@ The instrument's operational details and implementation plans are meticulously o
 
 \subsection{Functionality levels}
 \label{ssec:dev_levels}
+
+The development of each software recipe for the METIS data reduction pipeline is structured into four distinct phases: skeleton, functional, performance, and science-grade. This phased approach allows for targeted progress, ensuring that development can pause once the software meets the requirements for any upcoming Assembly, Integration, and Verification (AIV) system functional or performance tests. By structuring development in this way, team members can efficiently move between multiple software recipes, focusing their efforts where they are most needed and avoiding the inefficiencies that can arise from getting bogged down in overly detailed or premature optimizations. This strategy ensures a balanced and flexible development process, maximizing productivity and maintaining alignment with project milestones. 
   
  \begin{enumerate}
-     \item Skeleton
+     \item The skeleton phase marks the initial stage in the development of each software recipe for the METIS data reduction pipeline. During this phase, the software recipes are essentially barebones structures that primarily focus on handling file input and output operations correctly. Despite their minimal functionality, these recipes adhere to the output specifications outlined in the design document and are capable of reading the necessary metadata from input files. Furthermore, the recipes are designed to reject or fail gracefully if inappropriate files are used as input, ensuring robustness and reliability from the outset. This foundational phase sets the stage for more advanced development, providing a clear framework that supports subsequent enhancements in functionality and performance.
+ 
      \item Functional
      \item Performance
      \item Science
