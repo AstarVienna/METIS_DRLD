@@ -63,10 +63,11 @@ It will offer  an array of powerful observing modes including  integral-field an
 Table gives an overivew of all the observing modes available with METIS and Brandl et al 2022 <insert refs here> provides a more indepth description of the current status of the instrument. 
 
 The METIS data reduction pipeline (also referred to as  "the pipeline") will play the crucial role of turning usually unintelligeble raw data frames into science-grade data products, with which astronomers will be able to unveil the secrets of the cool universe.
-Not only are there many observational constrains that the METIS pipeline must deal with, there are also many 
+Not only are there many observational constrains that the METIS pipeline must deal with, there are also many practical and developmental contrains imposed by the various stake holders associated with the METIS pipeline.
+This proceeding paper is split into the following sections. Section \ref{sec:env} will attempt to explain the operational constrains that apply to the development of the METIS pipeline. Section \ref{sec:dev} with present the arguments for developing the pipeline as part of an integrated testing architecture which includes data simulators,
 
 \section{Environmental constraints for the pipeline}
-
+\label{sec:env}
 
 
 
@@ -80,6 +81,7 @@ Not only are there many observational constrains that the METIS pipeline must de
 - PIP is a very distributed team
 
 \section{Need for integrated development and testing architecture}
+\label{sec:dev}
 - Pipeline as a single element in an integrated software ecosystem
 - AIV data archive for storing AIV data and for monitoring the system integration of the METIS instrument
 - AIV system integration tests monitor both functionality and performance of METIS
@@ -88,6 +90,7 @@ Not only are there many observational constrains that the METIS pipeline must de
 
 
 \section{Pipeline implementation plans}
+\label{sec:imp}
 
 Early on it was decided that the pipeline would support the system-level integration activities.
 Practically this means the METIS pipeline should already contain the functionality needed by any system level tests that will use header or pixel data from the METIS detectors.
@@ -154,19 +157,23 @@ The development of each software recipe for the METIS data reduction pipeline is
 
 
 \subsection{Integration with data simulator}
+\label{subsec:imp_sim}
 
 
 
 
 
 \subsection{Development tools}
+\label{subsec:imp_tools}
 - Pipeline to be fully developed in python, using EDPS and PyCPL frameworks
 - Utilising Github toolchain
 
 \subsection{Release schedule}
+\label{subsec:imp_schedule}
 
 
 \section{Pipeline topology}
+\label{sec:pip}
 - Association matrices
 - See DRL-D + DRL-VT, PIP-FDR success
 
@@ -174,6 +181,7 @@ The development of each software recipe for the METIS data reduction pipeline is
 
 
 \section{Outlook until PAE}
+\label{sec:outlook}
 - Issues on the horizon
 - Upcoming milestones
 
