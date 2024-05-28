@@ -39,7 +39,7 @@
 \maketitle
 
 \begin{abstract}
-The METIS data reduction software is designed to transform raw data from the instrument's diverse observing modes into science-ready data, facilitating seamless analysis for astronomers. This process will be executed automatically on the ESO servers using the software, ensuring efficient and consistent data processing. Additionally, the pipeline software will be made available to the broader astronomical community, allowing for widespread use and collaboration. The development of this software is closely integrated with the Assembly, Integration, and Verification (AIV) activities, providing valuable feedback to both the instrument builders and the pipeline development team. This iterative process ensures that both the instrument and its software are finely tuned well before METIS begins observations with the ELT in 2028. 
+
 
 \end{abstract}
 
@@ -48,173 +48,39 @@ The METIS data reduction software is designed to transform raw data from the ins
 
 
 \section{Introduction}
-\label{sec:introduction}
+- ELT and METIS overview
+- Goals of the pipeline
+- Role of the pipeline
 
-% - METIS will be the first generation mid infrared instrument on the ELT
-% - It will utilise both the immense light collecting ability of the ELT as well as the  unparalleled diffraction limited resolution of the ELTs 39m mirror to look at both intra and extra galactic sources. 
+\section{Environmental constraints for the pipeline}
+- METIS TLR for performance dictate the level to which the METIS pipeline must process data
+- Pipeline is to also support AIV activities
+- Pipeline will need to be able to have functionality available at different levels through out AIV to enable testing
+- AIV team will use pipeline to monitor performance of METIS during the integration phase
+- ESO is expecting METIS to be on-sky for decades, pipeline must work for this length too
+- ESO is rolling out new pipeline tool chains in python: EDPS, PyCPL. This affects the implementation efforts
+- PIP is a very distributed team
 
+\section{Need for integrated development and testing archite}
+- Pipeline as a single element in an integrated software ecosystem
+- AIV data archive for storing AIV data and for monitoring the system integration of the METIS instrument
+- AIV system integration tests monitor both functionality and performance of METIS
+- Heavy use of instrument data simulator (ScopeSim) for pre-testing use cases in advance of AIV needs
+- Pipeline as a way of connecting predictions (simulations) to reality
 
-% - it will contain a suite of observation modes including 
-%    - medium resolution long-slit spectroscopy
-%    - a high-resolution IFU
-%    - imaging cameras in the LM and N bands
-%    - various HCI modes using different types of coronagraphs
-%  - METIS will 
+Pipeline implementation plans
+- Scheduling matched to AIV plans
+- Functionality levels
+- Integration with data simulator
+- Pipeline to be fully developed in python, using EDPS and PyCPL frameworks
+- Official release schedule
+- Utilising Github toolchain
 
-The Mid-infrared ELT Imager and Spectrograph (METIS) is an advanced instrument designed for the Extremely Large Telescope (ELT), equipped with a variety of observing modes to explore the universe in unprecedented detail. METIS can perform direct imaging to capture clear pictures of celestial objects, high-resolution spectroscopy to analyze the composition and physical properties of those objects, and coronagraphy to block out starlight and reveal faint nearby features. This combination of capabilities allows METIS to offer a comprehensive toolkit for astronomers studying the mid-infrared spectrum.
+Pipeline topology
+- Association matrices
+- See DRL-D + DRL-VT, PIP-FDR success
 
-METIS is being built to address several key scientific questions in modern astronomy. One of its primary science cases is the study of exoplanets and their atmospheres, which can provide insights into the potential for life beyond Earth. Additionally, METIS will investigate the formation and evolution of protoplanetary disks, the birthplaces of planets, and will observe the environments around supermassive black holes in the centers of galaxies. Its ability to capture detailed mid-infrared data will also enhance our understanding of the interstellar medium and the processes that lead to star formation.
-
-The METIS instrument is expected to begin its observations at the end of the decade, soon after the ELT becomes operational. This timeline positions METIS to be at the forefront of astronomical discovery, leveraging the unprecedented capabilities of the ELT to push the boundaries of our knowledge about the universe. As the ELT and its suite of instruments come online, METIS will play a crucial role in unlocking new cosmic secrets and furthering our understanding of the cosmos.
-
-The implementation plans for the METIS pipeline and environment into which it must fit are outlined in the rest of this proceedings paper. Section 2 introduces the METIS instrument, a critical component that processes raw data into scientifically usable information. Section 3 discusses the implementation plans, including the integration of METIS into the ESO pipeline environment and the design of the pipeline itself, ensuring seamless operation and data handling. Section 4 presents the development schedule, detailing how the timeline for METIS's completion aligns with Assembly, Integration, and Verification (AIV) activities occurring simultaneously. This coordinated approach ensures that METIS will be ready to begin its groundbreaking observations soon after the ELT becomes operational near the end of the decade. 
-
-
-
-\section{METIS and the pipeline}
-\label{sec:environment}
-
-\subsection{Description of METIS}
-\label{ssec:env_metis}
-	- MIR
-	- SCAO
-\subsection{Observation Modes}
-\label{ssec:env_modes}
- \begin{itemize}
-     \item - IFU
-     \item - IMG
-     \item - LSS
-     \item - HCI
- \end{itemize}
- 
-\subsection{What challenges does this pose for the pipeline}
-\label{ssec:env_challenges}
-
-\begin{itemize}
-    \item - IFU undersampled pixels due to slit-width of IFU pseudo-slits
-    \item - IFU reconstruction on rectangular pixels
-    \item - MIR Background subtraction
-    \item - Fixed ADCs
-    \item - Multiple HCI modes
-    \item - Geosnap cosmetics
-    \item - Highly distriubuted team
-
-\end{itemize}
-
-\section{Implementation plans}
-\label{sec:implementation}
-
-\subsection{ESO pipeline environment}
-\label{ssec:imp_eso}
-
- \begin{itemize}
-     \item - Legacy C code: CPL, HDRL
-     \item - ESO's shift to Python: EDPS, PyCPL
-     \item - Integration with qcFlow
- \end{itemize}
-
-\subsection{Pipeline design}
-\label{ssec:imp_pip}
-
- \begin{itemize}
-     \item - DRL-D + DRL-VT, PIP-FDR success
-     \item - Association matrices
-     \item - Pipeline to be fully developed in python
-     \item - Integration into EDPS
- \end{itemize}
- 
-\subsection{Connection to the METIS AIV archive}
-\label{ssec:imp_archive}
-
-\missingfigure{Add figure from GIlles slide show}
-
-
-\section{Development scheduling and tooling}
-\label{sec:development}
-
-\subsection{Scheduling matched to AIV plans}
-\label{ssec:dev_aiv}
-
-\begin{table}[]
-    \centering
-\caption{Major METIS AIV milestones for which pipeline recipes need to be ready}
-\label{tab:dev_aiv_milestones}
-    \begin{tabular}{c|c|l}
-    \hline
-    \hline
-         Date &   METIS AIV phase ID & Description\\
-         \hline
-         02-2025 &   AIV-010&PIP workstation setup in Leiden\\
-         11-2025 &   AIV-250&Dress-rehearsal of data flow chain\\
- 02-2026 & AIV-370&IFU system testing\\
- 10-2026 &  AIV-490&IMG/LSS system testing\\
- 12-2027 & AIV-640&PAE\\
- 12-2028 & AIV-920&Commissioning on-sky at ELT starts\\
- \hline
- \end{tabular}
-      
-\end{table}
-
-A carefully devised development schedule has been crafted to ensure that the pipeline functionality required for each critical Assembly, Integration, and Verification (AIV) phase is ready well ahead of the AIV team's need. This strategy offers several advantages. Firstly, by implementing only the necessary functionality needed at a given time, pipeline developers can swiftly move on to other tasks, preventing unnecessary delays and ensuring efficient progress. Secondly, the phased approach enables the pipeline to evolve iteratively, with each phase providing valuable feedback to the development team. Utilizing the pipeline during the six major AIV cold-phases offers a unique opportunity to gather crucial insights and refine the software iteratively. This iterative development process ensures that the pipeline remains robust and adaptable, culminating in a well-tested and reliable tool by the time METIS begins on-sky operations at the Extremely Large Telescope (ELT) in 2028. 
-
-\begin{itemize}
-    \item AIV-010
-    \item AIV-250
-    \item AIV-370
-    \item AIV-490
-    \item AIV-640
-    \item AIV-920
-\end{itemize}
-
-
-
-\subsection{Functionality levels}
-\label{ssec:dev_levels}
-
-The development of each software recipe for the METIS data reduction pipeline is structured into four distinct phases: skeleton, functional, performance, and science-grade. This phased approach allows for targeted progress, ensuring that development can pause once the software meets the requirements for any upcoming Assembly, Integration, and Verification (AIV) system functional or performance tests. By structuring development in this way, team members can efficiently move between multiple software recipes, focusing their efforts where they are most needed and avoiding the inefficiencies that can arise from getting bogged down in overly detailed or premature optimizations. This strategy ensures a balanced and flexible development process, maximizing productivity and maintaining alignment with project milestones. 
-  
- \begin{enumerate}
-     \item \textbf{Skeleton recipes }are the initial stage in the development of each software recipe for the METIS data reduction pipeline. During this phase, the software recipes are essentially barebones structures that primarily focus on handling file input and output operations correctly. Despite their minimal functionality, these recipes adhere to the output specifications outlined in the design document and are capable of reading the necessary metadata from input files. Furthermore, the recipes are designed to reject or fail gracefully if inappropriate files are used as input, ensuring robustness and reliability from the outset. This foundational phase sets the stage for more advanced development, providing a clear framework that supports subsequent enhancements in functionality and performance.
- 
-     \item \textbf{Functional recipes} build upon the skeleton phase by incorporating sufficient code to fulfill the primary tasks outlined in the design document for each software recipe. In this phase, the recipes not only manage file input and output but also perform their intended functions, although they may not yet handle all edge cases. The pixel values in the output should reflect an initial, first-order correction, providing a meaningful representation of the data. Additionally, the internal structure of the recipes is designed to facilitate further development and expansion in later phases. Comprehensive documentation for each function should be available, and unit tests should utilize simulated data products to verify that the recipes perform their designated tasks correctly. This phase ensures that the core functionality is in place and ready for refinement and optimization in subsequent stages. 
-
-     \item \textbf{Performance recipes} will have reached an advanced stage of development. They incorporate all expected functionalities and can handle various edge cases encountered during scientific operations. These recipes are designed to process raw data to meet the performance standards defined in the METIS science top-level requirements. However, testing is limited to simulated data and data collected during AIV testing runs. While this approach allows for thorough lab testing, it does not replicate all potential challenges encountered during actual observations. Nonetheless, achieving performance-level recipes represents significant progress toward readiness for deployment with the METIS instrument on the Extremely Large Telescope. 
-
-     \item \textbf{Science-Grade recipes}: In an ideal scenario, science recipes would mirror the capabilities of performance recipes, as thorough lab testing would have accounted for all possible edge cases. However, the reality of on-sky testing during the METIS commissioning run may unveil unexpected challenges. This could necessitate upgrades or even complete redesigns of various algorithms to ensure optimal performance in real-world conditions. A recipe will only earn the classification of "science grade" once it has undergone testing with on-sky data, and the resulting reduced data products align with the scientific performance targets outlined in the METIS Top-Level Requirements (TLRs). This iterative process underscores the importance of rigorous testing and adaptation to ensure that METIS can deliver scientifically meaningful results once operational. 
- \end{enumerate}
-
-
-
-
-
-\subsection{Integration with data simulator}
-\label{ssec:dev_scopesim}
-
- \begin{itemize}
-     \item - Part of the new ESO strategy (1618 v4) to have coherent simulated data sets from the consortia before the pipeline
-     \item - ScopeSim with METIS
-     \item - Wrapper for generate mock data sets
-     \item - Efforts to integrate feasibility studies from the science team into the pixel in the test data set
- \end{itemize}
-
- 
-\subsection{Official release schedule}
-\label{ssec:dev_releases}
-
-\missingfigure{Add figure showing gantt chart of releases}
-
-
-\subsection{Github toolchain}
-\label{ssec:dev_testing}
- \begin{itemize}
-     \item - CI, testing on multiple systems
-     \item - Issue tracking
-     \item - Project management and defining release goals
- \end{itemize}
-
-\section{Conclusion}
-\label{sec:conclusion}
-
+Outlook until PAE 
 
 
 \appendix    %>>>> this command starts appendixes
