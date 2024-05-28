@@ -175,10 +175,11 @@ The development of each software recipe for the METIS data reduction pipeline is
 ESO has shown a commitment over the last several years to move its data reduction pipeline towards a new system based on python. 
 This is evident in the recent release of the EDPS \cite{edps} and PyCPL \cite{pycpl} packages.
 These two packages are meant as replacements for the existing EsoRex and CPL systems.
-Given these deveThe METIS pipeline 
+Given these developments, we took the decision to implement the METIS pipeline primarily in Python.
+Although Python is not known for it's computation speed, it does have several advantages in terms of  reducing the time needed by developers to code the pipeline as well as providing developers with easier to use debugging tools. 
+Because of these benefits we anticipate a reduction in the time and effort needed to develop the METIS pipeline.
+Additional benefits include the possibility of forking and including already existing third-party software for any of the tasks that are not included in the ESO stack (PyCP
 
-- Development in python
--  frameworks
 - Utilising Github toolchain
 
 \subsection{Release schedule}
