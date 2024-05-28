@@ -1,73 +1,517 @@
-%% report.bib - contains BiBtex input for bibliography
+%%%%% APPLICABLE DOCUMENTS
 
-@book{Alred03, 
-	author = "G. J. Alred and C. T. Brusaw and W. E. Oliu", 
-	title  = "Handbook of Technical Writing", 
-	publisher= "St. Martin's", 
-	address= "New York", 
-	year   = "2015 (eleventh edition)"	}
-	
-@book{Goossens97, 
-	author = "Michel Goossens and Frank Mittelbach and Sebastian Rahtz", 
-	title  = "The LaTeX Companion", 
-	publisher= "Addison-Wesley", 
-	address= "Reading, Mass.", 
-	year   = "1997"	} 
+@Manual{ESO-257869,
+  title =        {METIS (E-ELT MIDIR) Technical Specification},
+  version =      1,
+  number =       {ESO-257869},
+  keywords =     {applicable},
+  url = {https://filr.astron.nl/ssf/s/readFile/folderEntry/2484619/8ad780115a432e7f015a8469d18c455f/1429028226000/lastView/ESO-257869_1-10_METIS_E-ELT_MIDIR_TechnicalSpecification.pdf}
+  }
 
-@book{Mittelbach04, 
-	author = "Frank Mittelbach and Michel Goossens and Johannes Braams and David Carlisle", 
-	title  = "The LaTeX Companion", 
-	publisher= "Addison-Wesley", 
-	address= "Reading, Mass.",
-	edition= "second", 
-	year   = "2004"	} 
+@Manual{ESO-DICD,
+  title =        {Data Interface Control Document},
+  version =      6,
+  number =       {ESO-044156},
+  keywords =     {applicable},
+  note =         {2016-06-21}
+  }
 
-@incollection{Gull89a, 
-	author = "S. F. Gull", 
-	title  = "Developments in maximum-entropy data analysis", 
-	booktitle= " Maximum Entropy and Bayesian Methods", 
-	editor = "J. Skilling", 
-	pages  = "53-71 ", 
-	publisher= "Kluwer Academic",
-	address= "Dordrecht", 
-	year   = "1989"	} 
+
+@Manual{PIP_specs,
+  title =        {PIP Specification},
+  version =      {1},
+  number =       {E-SPE-AST-MET-1002},
+  keywords =     {applicable},
+  note =         {2019-01-23}}
+
+@Manual{1618,
+  title =        {Dataflow for ESO Observatories Deliverables Standard},
+  version =      4,
+  number =       {ESO-037611},
+  keywords =     {applicable},
+  note =         {2020-03-02},
+  organization = {ESO}
+}
+
+@Manual{ESO-products_standard,
+  title =        {ESO Science Data Products Standard},
+  version =      6,
+  number =       {ESO-044286},
+  keywords =     {applicable},
+  note =         {2020-06-15}
+}
+
+@Manual{DRLS,
+  title =        {METIS Data Reduction Library Specifications},
+  version =      {2-0},
+  number =       {E-SPE-AST-MET-1001},
+  keywords =     {applicable},
+  note =         {2019-11-22}
+  }
+
+% Bernard Brandl say the OCD should be an applicable document.
+@Manual{METIS-operational_concept,
+  title =        {METIS Operational Concept Description},
+  version =      {4-0},
+  number =       {E-PLA-MPIA-MET-1057},
+  keywords =     {applicable},
+  note =         {2022-08-26}}
+
+%%%% REFERENCE DOCUMENTS
+
+@Manual{DRLD,
+  title =        {METIS Data Reduction Library Design},
+  version =      {1-0},
+  number =       {E-PLA-AST-MET-1006},
+  keywords =     {reference},
+  note =         {2024-05-28}
+}
+
+@Manual{DRLVT,
+  title =        {METIS Data Reduction Library Validation and Test Plan},
+  version =      {1-0},
+  number =       {E-PLA-AST-MET-1007},
+  keywords =     {reference},
+  note =         {2023-09-18}
+}
+
+@Manual{MAIT,
+  title =        {System MAIT Plan},
+  version =      {1-0},
+  number =       {E-PLA-NOVA-MET-1074},
+  keywords =     {reference},
+  note =         {2022-09-30}
+}
+
+@Manual{PIPVCD,
+  title =        {PIP Verification Control Document},
+  version =      {2-0},
+  number =       {E-VCD-AST-MET-1003},
+  keywords =     {reference},
+  note =         {2019-03-09}}
+
+@Manual{METIS-Interim,
+  title =        {METIS Interim Study Report},
+  version =      {1.0},
+  number =       {E-REP-NOVA-MET-0004},
+  keywords =     {reference},
+  note =         {2015-06-30}
+  }
+
+@Manual{hdrl-manual,
+  title =        {HDRL Pipeline Developer Manual},
+  version =      {1.5.0},
+  number =       {ESO-299492},
+  keywords =     {reference},
+  note =         {2022-06-01}
+}
+
+@Manual{detmon-manual,
+  title =        {Detector Monitoring Recipes User Manual},
+  version =      {1.2.5},
+  number =       {VLT-MAN-ESO-19500-4846},
+  keywords =     {reference},
+  note =         {2014-01-21}
+}
+
+@Manual{LMS-design,
+  title =        {LM Spectrograph: Sub-system Design and Analyis
+                  Report},
+  version =      {0.2},
+  number =       {E-REP-ATC-MET-1003},
+  keywords =     {reference},
+  note =         {2019-01-24}
+}
+
+@Manual{matisse_minutes,
+  title =        {``METIS meets MATISSE'' detector meeting},
+  version =      {0.1},
+  number =       {E-MIN-CEA-MET-1005},
+  keywords =     {reference},
+  note =         {2017-05-23}}
+
+@Manual{METIS-calibration_plan,
+  title =        {METIS Calibration Plan},
+  version =      {4-0},
+  number =       {E-PLA-NOVA-MET-1066},
+  keywords =     {reference},
+  note =         {2022-08-05}}
+
+@manual{METIS_calerrbudget,
+ title = {METIS calibration error budget},
+ version = {2-0},
+ number = {E-SPE-NOVA-MET-1291},
+ keywords = {reference},
+ url = {https://polarion.astron.nl/polarion/#/project/METIS/workitem?id=METIS-9099},
+}
+
+@Manual{METIS-template_manual,
+  title =        {METIS Template Manual},
+  version =      {2-0},
+  number =       {E-MAN-MPIA-MET-1058},
+  keywords =     {reference},
+  note =         {2022-08-08}}
+
+@Manual{METIS-system_analysis,
+  title =        {METIS T System Analysis \& Design Report },
+  version =      {3-0},
+  number =       {E-REP-NOVA-MET-1144},
+  keywords =     {reference},
+  note =         {2022-09-09}}  
+
+@Manual{HEEPS,
+  title =        {HEEPS end-to-end simulator documentation},
+  version =      {1-0},
+  number =       {E-TNT-ULG-MET-1032},
+  keywords =     {reference},
+  note =         {2022-08-04}}
+
+
+@Manual{METIS-ADC_study,
+  title =        {Atmospheric Differential Dispersion in METIS},
+  version =      {1-0},
+  number =       {E-TNT-MPIA-MET-1002},
+  keywords =     {reference},
+  note =         {2019-03-02}}
+
+@Manual{SimMETIS-manual,
+  title =        {SimMETIS: The METIS data simulator},
+  version =      {1.0},
+  number =       {E-MAN-NOVA-MET-1187},
+  keywords =     {reference},
+  note =         {2019-03-05}}
+
+@Manual{METIS-coordinates,
+  title =        {METIS Coordinate system definition},
+  version =      {3-0},
+  number =       {E-SPE-NOVA-MET-1090},
+  keywords =     {reference},
+  note =         {2021-08-16}}
+
+@Manual{METIS-data_rates,
+  title =        {METIS data rates},
+  version =      {4-0},
+  number =       {E-LIS-NOVA-MET-1161},
+  keywords =     {reference},
+  note =         {2022-09-15}}
+
+@Manual{METIS-work_packages,
+  title =        {METIS Work Packages},
+  version =      {6-0},
+  number =       {E-LIS-NOVA-MET-0013},
+  keywords =     {reference},
+  note =         {2021-12-22}}
+
+@Manual{METIS-pbs,
+  title =        {METIS Product Breakdown Structure},
+  version =      {7-0},
+  number =       {E-LIS-NOVA-MET-0035},
+  keywords =     {reference},
+  note =         {2022-08-08}}
+
+@Article{Hunziker2018,
+  author =       {Hunziker, S. and Quanz, S. P. and Amara, A. and
+                  Meyer, M. R.},
+  title =        {PCA-based approach for subtracting thermal
+                  background emission in high-contrast imaging data},
+  journal =      {Astron.\ \& Astroph.},
+  year =         2018,
+  volume =    611,
+  pages =     {A23},
+  month =     {3},
+  keywords =  {reference}
+  }
+
+@Manual{xshooter_manual,
+  title =        {X-Shooter Pipeline User Manual},
+  version =      {12.19},
+  number =       {VLT-MAN-ESO-14650-4840},
+  keywords =     {reference},
+  note =         {2018-08-06}}
+
+@Manual{METIS-DID,
+  title =        {METIS Data Interface Definition},
+  version =      {2-0},
+  number =       {E-LIS-KUL-MET-1002},
+  keywords =     {reference},
+  note =         {2022-08-01}}
+
+@Manual{visir_manual,
+  title =        {VISIR Pipeline User Manual},
+  version =      {1.7},
+  number =       {VLT-MAN-ESO-19500-3852},
+  keywords =     {reference},
+  note =         {2016-09-21}}
  
-@inproceedings{Hanson93c, 
-	author = "K. M. Hanson", 
-	title  = "Introduction to {B}ayesian image analysis", 
-	booktitle= "Medical Imaging:\ Image Processing",
-	editor = "M.\ H. Loew",
-	series = "Proc. SPIE", 
-	volume = "1898",
-	pages  = "716-731", 
-	year   = "1993"	} 
+@Book{McLean2008,
+  author = 	 {McLean, I. S.},
+  title = 	 {Electronic imaging in astronomy: detectors and instrumentation},
+  publisher = 	 {Springer},
+  year = 	 2008,
+  edition = 	 2,
+  keywords =     {reference}}
 
-@book{Lamport94, 
-	author = "L. Lamport", 
-	title  = "LaTeX: A Document Preparation System", 
-	publisher= "Addison-Wesley", 
-	address= "Reading, Mass.", 
-	year   = "1994"	}
+@Manual{molecfit,
+  title =        {MOLECFIT Pipeline User Manual},
+  version =      {4.2},
+  number =       {VLT-MAN-ESO-19550-5772},
+  keywords =     {reference},
+  note =         {2021-02-08}}
 
-@article{Metropolis53, 
-	author = "N. Metropolis and A. W. Rosenbluth and M. N. Rosenbluth and A. H. Teller and E. Teller", 
-	title  = "Equations of state calculations by fast computing machine", 
-	journal= "J. Chem. Phys.",  
-	volume = "21", 
-	pages  = "1087-1091", 
-	year   = "1953"	} 
 
-@book{Perelman97, 
-	author = "L. C. Perelman and J. Paradis and E. Barrett", 
-	title  = "Mayfield Handbook of Technical and Scientific Writing", 
-	publisher= "Mountain View", 
-	address= "Mayfield",
-	month  = "April", 
-	year   = "1997",
-	note = "http://mit.imoat.net/handbook/"	}
-    
-@misc{Lees-Miller-LaTeX-course-1,
-    author = {John D Lees-Miller},
-    title = {{Free and Interactive Online Introduction to LaTeX}},
-    howpublished = "Overleaf, 26 February 2015  \url{https://www.overleaf.com/latex/learn/free-online-introduction-to-latex-part-1}", 
-    note = "(Accessed: 15 September 2015)" }
+@ARTICLE{pis02,
+       author = {{Piskunov}, N.~E. and {Valenti}, J.~A.},
+        title = "{New algorithms for reducing cross-dispersed echelle spectra}",
+      journal = {\aap},
+     keywords = {reference},
+         year = 2002,
+        month = apr,
+       volume = {385},
+        pages = {1095-1106},
+          doi = {10.1051/0004-6361:20020175},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2002A&A...385.1095P},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}  
+  
+@ARTICLE{pis21,
+       author = {{Piskunov}, Nikolai and {Wehrhahn}, Ansgar and {Marquart}, Thomas},
+        title = "{Optimal extraction of echelle spectra: Getting the most out of observations}",
+      journal = {\aap},
+     keywords = {reference},
+         year = 2021,
+        month = feb,
+       volume = {646},
+          eid = {A32},
+        pages = {A32},
+          doi = {10.1051/0004-6361/202038293},
+archivePrefix = {arXiv},
+       eprint = {2008.05827},
+ primaryClass = {astro-ph.IM},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2021A&A...646A..32P},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{mor00,
+       author = {{Morton}, Donald C.},
+        title = "{Atomic Data for Resonance Absorption Lines. II. Wavelengths Longward of the Lyman Limit for Heavy Elements}",
+      journal = {\apjs},
+         year = 2000,
+        month = oct,
+       volume = {130},
+       number = {2},
+        pages = {403-436},
+          doi = {10.1086/317349},
+     keywords = {reference},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2000ApJS..130..403M},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+  
+@ARTICLE{mf1,
+       author = {{Smette}, A. and {Sana}, H. and {Noll}, S. and {Horst}, H. and {Kausch}, W. and {Kimeswenger}, S. and {Barden}, M. and {Szyszka}, C. and {Jones}, A.~M. and {Gallenne}, A. and {Vinther}, J. and {Ballester}, P. and {Taylor}, J.},
+        title = "{Molecfit: A general tool for telluric absorption correction. I. Method and application to ESO instruments}",
+      journal = {\aap},
+     keywords = {reference},
+         year = 2015,
+        month = apr,
+       volume = {576},
+          eid = {A77},
+        pages = {A77},
+          doi = {10.1051/0004-6361/201423932},
+archivePrefix = {arXiv},
+       eprint = {1501.07239},
+ primaryClass = {astro-ph.IM},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2015A&A...576A..77S},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{mf2,
+       author = {{Kausch}, W. and {Noll}, S. and {Smette}, A. and {Kimeswenger}, S. and {Barden}, M. and {Szyszka}, C. and {Jones}, A.~M. and {Sana}, H. and {Horst}, H. and {Kerber}, F.},
+        title = "{Molecfit: A general tool for telluric absorption correction. II. Quantitative evaluation on ESO-VLT/X-Shooterspectra}",
+      journal = {\aap},
+     keywords = {reference},
+         year = 2015,
+        month = apr,
+       volume = {576},
+          eid = {A78},
+        pages = {A78},
+          doi = {10.1051/0004-6361/201423909},
+archivePrefix = {arXiv},
+       eprint = {1501.07265},
+ primaryClass = {astro-ph.IM},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2015A&A...576A..78K},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{coh99,
+       author = {{Cohen}, Martin and {Walker}, Russell G. and {Carter}, Brian and {Hammersley}, Peter and {Kidger}, Mark and {Noguchi}, Kunio},
+        title = "{Spectral Irradiance Calibration in the Infrared. X. A Self-Consistent Radiometric All-Sky Network of Absolutely Calibrated Stellar Spectra}",
+      journal = {\aj},
+     keywords = {reference},
+         year = 1999,
+        month = apr,
+       volume = {117},
+       number = {4},
+        pages = {1864-1889},
+          doi = {10.1086/300813},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/1999AJ....117.1864C},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{phoenix,
+       author = {{Husser}, T. -O. and {Wende-von Berg}, S. and {Dreizler}, S. and {Homeier}, D. and {Reiners}, A. and {Barman}, T. and {Hauschildt}, P.~H.},
+        title = "{A new extensive library of PHOENIX stellar atmospheres and synthetic spectra}",
+      journal = {\aap},
+     keywords = {reference},
+         year = 2013,
+        month = may,
+       volume = {553},
+          eid = {A6},
+        pages = {A6},
+          doi = {10.1051/0004-6361/201219058},
+archivePrefix = {arXiv},
+       eprint = {1303.5632},
+ primaryClass = {astro-ph.SR},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2013A&A...553A...6H},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@Manual{telluriccorr,
+  title =        {MOLECFIT Pipeline User Manual},
+  version =      {4.1},
+  number =       {VLT-MAN-ESO-19550-5772},
+  keywords =     {reference},
+  note =         {2021-02-08},
+  organization = {ESO}
+}
+  
+@Manual{MATISSE-DRLD,
+  title =        {MATISSE Data Reduction Library Design},
+  version =      {3},
+  number =       {ESO-255410, VLT-TRE-MAT-15860-9305},
+  keywords =     {reference},
+  note =         {2017-05-24}
+}
+
+@ARTICLE{gor22,
+       author = {{Gordon}, Karl D. and {Bohlin}, Ralph and {Sloan}, G.~C. and {Rieke}, George and {Volk}, Kevin and {Boyer}, Martha and {Muzerolle}, James and {Schlawin}, Everett and {Deustua}, Susana E. and {Hines}, Dean C. and {Kraemer}, Kathleen E. and {Mullally}, Susan E. and {Su}, Kate Y.~L.},
+        title = "{The James Webb Space Telescope Absolute Flux Calibration. I. Program Design and Calibrator Stars}",
+      journal = {\aj},
+     keywords = {reference},
+         year = 2022,
+        month = jun,
+       volume = {163},
+       number = {6},
+          eid = {267},
+        pages = {267},
+          doi = {10.3847/1538-3881/ac66dc},
+archivePrefix = {arXiv},
+       eprint = {2204.06500},
+ primaryClass = {astro-ph.IM},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2022AJ....163..267G},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@article{vdb96,
+	Adsnote = {Provided by the SAO/NASA Astrophysics Data System},
+	Adsurl = {https://ui.adsabs.harvard.edu/\#abs/1996A&AS..119..547V},
+	Author = {{van der Bliek}, N.~S. and {Manfroid}, J. and {Bouchet}, P.},
+	Date-Added = {2019-03-01 15:27:34 +0100},
+	Date-Modified = {2019-03-01 15:27:39 +0100},
+	Journal = {Astronomy and Astrophysics Supplement Series},
+	keywords = {reference},
+	Month = {11},
+	Pages = {547-557},
+	Title = {{Infrared aperture photometry at ESO (1983-1994) and its future use.}},
+	Volume = {119},
+	Year = {1996}
+}
+@ARTICLE{boh14,
+       author = {{Bohlin}, Ralph C. and {Gordon}, Karl D. and {Tremblay}, P. -E.},
+        title = "{Techniques and Review of Absolute Flux Calibration from the Ultraviolet to the Mid-Infrared}",
+      journal = {Publications of the Astronomical Society of the Pacific},
+     keywords = {reference},
+         year = "2014",
+        month = "8",
+       volume = {126},
+        pages = {711},
+          doi = {10.1086/677655},
+archivePrefix = {arXiv},
+       eprint = {1406.1707},
+ primaryClass = {astro-ph.IM},
+       adsurl = {https://ui.adsabs.harvard.edu/\#abs/2014PASP..126..711B},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@article{mcg94,
+	Adsnote = {Provided by the SAO/NASA Astrophysics Data System},
+	Adsurl = {https://ui.adsabs.harvard.edu/\#abs/1994PASP..106..508M},
+	Author = {{McGregor}, Peter J.},
+	Date-Added = {2019-03-01 16:04:35 +0100},
+	Date-Modified = {2019-03-01 16:04:43 +0100},
+	Doi = {10.1086/133406},
+	Journal = {Publications of the Astronomical Society of the Pacific},
+	Keywords = {reference},
+	Month = {5},
+	Pages = {508},
+	Title = {{The MSSSO Near-Infrared Photometric System}},
+	Volume = {106},
+	Year = {1994}
+ }
+
+@Article{bs10,
+       author = {{Bolton}, Adam S. and {Schlegel}, David J.},
+        title = "{Spectro-Perfectionism: An Algorithmic Framework for Photon Noise-Limited Extraction of Optical Fiber Spectroscopy}",
+      journal = {\pasp},
+     keywords = {Astrophysics - Instrumentation and Methods for Astrophysics, Astrophysics - Cosmology and Nongalactic Astrophysics},
+         year = 2010,
+        month = feb,
+       volume = {122},
+       number = {888},
+        pages = {248},
+          doi = {10.1086/651008},
+	Keywords = {reference},
+archivePrefix = {arXiv},
+       eprint = {0911.2689},
+ primaryClass = {astro-ph.IM},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2010PASP..122..248B},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@Article{Law+2023,
+    author      = {{Law}, David R. and {Morrison}, Jane E. and others},
+    title       = {A 3D Drizzle Algorithm for JWST and Practical Application to the MIRI Medium Resolution Spectrometer},
+    journal     = {The Astrophysical Journal},
+    year        = 2023,
+    month       = 8,
+}
+
+@Article{Leisenring_2023,
+       author = {{Leisenring}, Jarron M. and {Atkinson}, Dani and {Bowens}, Rory and {Douence}, Vincent and {Hoffmann}, William F. and {Meyer}, Michael R. and {Auyeung}, John and {Beletic}, James and {Cabrera}, Mario S. and {Greenbaum}, Alexandra Z. and {Hinz}, Phil and {Ives}, Derek and {Forrest}, William J. and {McMurtry}, Craig W. and {Pipher}, Judith L. and {Viges}, Eric},
+        title = "{Evaluating the GeoSnap 13-$\mu$m Cut-Off HgCdTe Detector for mid-IR ground-based astronomy}",
+      journal = {arXiv e-prints},
+     keywords = {Astrophysics - Instrumentation and Methods for Astrophysics, Physics - Instrumentation and Detectors},
+         year = 2023,
+        month = jun,
+          eid = {arXiv:2306.05470},
+        pages = {arXiv:2306.05470},
+          doi = {10.48550/arXiv.2306.05470},
+    Keywords = {reference},
+archivePrefix = {arXiv},
+       eprint = {2306.05470},
+ primaryClass = {astro-ph.IM},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2023arXiv230605470L},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@Manual{Fits-format-description,
+  title =        {FITS format description for pipeline products with data, error and data quality information},
+  version =      {1.0},
+  number =       {ESO-202163},
+  keywords =     {reference},
+  note =         {2012-07-11},
+  organization = {ESO}
+% VLT-SPE-ESO-19500-5667
+% https://pdm.eso.org/kronodoc/HQ/ESO-202163
+% https://ftp.eso.org/pub/dfs/pipelines/doc/VLT-SPE-ESO-19500-5667_DataFormat.pdf
+}
