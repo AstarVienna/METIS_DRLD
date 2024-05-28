@@ -93,7 +93,7 @@ Practically this means the METIS pipeline should already contain the functionali
 
 
 \subsection{Scheduling matched to AIV plans}
-\label{subsec:imp_}
+\label{subsec:imp_aiv}
 
 \begin{table}[]
     \centering
@@ -116,13 +116,13 @@ Practically this means the METIS pipeline should already contain the functionali
 \end{table}
 
 Table \ref{tab:dev_aiv_milestones} lists the major AIV testing phases when the AIV team will require functional aspects of the pipeline. 
-As the AIV phase progresses, and more sub-systems are integrated into the cryostat, so too with the demand for pipeline functionality grow. 
+As the integration activities progress and more sub-systems are integrated into the cryostat, so too with the demand for pipeline functionality grow. 
 The pipeline development schedule has been designed to move in lock-step with the AIV integration schedule.
-This schedule necessarily means a very tight development timeline for the pipeline team.
+This schedule implies a very tight development timeline for the pipeline team.
 While attempting to reconcile the available person-power in the pipeline team with the needs of the AIV schedule we recognised that not all AIV tests need fully functioning pipeline recipes. 
 We therefore decided to split the development of each pipeline recipe into four levels in order to accommodate the tight timeline dictated by AIV activities.
-The different levels of development are descriped in more detail in section 
-
+The different levels of development are described in more detail in section \ref{subsec:imp_levels}.
+A brief overview of the AIV phases and the requirements on the pipeline is as follows:
 
 \begin{itemize}
     \item \textbf{AIV-010, PIP workstation setup} : At the beginning of the AIV activites the pipeline workstation will be installed in the AIV Hall in Leiden. A working pipeline skeleton is required to test the interfaces to other subsystems, most notably the staging area for freshly data frames from the METIS detectors. 
@@ -130,10 +130,12 @@ The different levels of development are descriped in more detail in section
     \item \textbf{AIV-370, IFU system testing} : The IFU module will be fully mated with the detectors and the instrument will be cooled to operating temperature. The phase includes all lab-based performance tests for the IFU module. All IFU-pipeline recipes will need to be available (mostly) at the performance level in order for the AIV team to test the perfomance of the IFU module against the top level requirements.
     \item \textbf{AIV-490, IMG/LSS system testing} : The imaging and long-slit sub-system, including HAWAII and GeoSnap detectors, will have been integrated into the cryostat by this stage and performance testing as a whole instrument will begin. All imaging and long-slit recipes used by the lab-based performance tests (i.e. utilising the warm calibration unit) will need to be at the performance level, while recipes that require on-sky observations (e.g. telluric corrections) may remain at the functional level.
     \item \textbf{AIV-640, Preliminary acceptance Europe (PAE)} : PAE represents the end of the main pipeline development stage. As such all recipes, including those that will only be fully tested on-sky, must be at the performance level. Heavy use will be made of the instrument data simulator in order to achieve this.
-    \item \textbf{AIV-920, Commissioning on-sky at ELT starts} : Initial data from on-sky observations at the ELT will allow the pipeline team to test the performance of the data reduction recipes against the top level requirements for scientific output. Recipes which allow METIS to meet its required performance will be recieve the classification of science-grade. Effort will then be spent on upgrading the algorithms in the recipes which don't deliver data compliant with the TLRs.
+    \item \textbf{AIV-920, Commissioning on-sky at ELT starts} : Initial data from on-sky observations at the ELT will allow the pipeline team to test the performance of the data reduction recipes against the top level requirements for scientific output. Recipes which allow METIS to meet its required performance will be receive the classification of science-grade. Effort will then be spent on upgrading the algorithms in the recipes which don't deliver data compliant with the TLRs.
 \end{itemize}
 
+
 \subsection{Functionality levels}
+\label{subsec:imp_levels}
 
 The development of each software recipe for the METIS data reduction pipeline is structured into four distinct phases: skeleton, functional, performance, and science-grade. This phased approach allows for targeted progress, ensuring that development can pause once the software meets the requirements for any upcoming Assembly, Integration, and Verification (AIV) system functional or performance tests. By structuring development in this way, team members can efficiently move between multiple software recipes, focusing their efforts where they are most needed and avoiding the inefficiencies that can arise from getting bogged down in overly detailed or premature optimizations. This strategy ensures a balanced and flexible development process, maximizing productivity and maintaining alignment with project milestones. 
   
