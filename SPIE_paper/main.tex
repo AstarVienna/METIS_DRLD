@@ -76,21 +76,26 @@ This proceeding paper is split into the following sections. Section \ref{sec:env
 
 
 
-- METIS TLR for performance dictate the level to which the METIS pipeline must process data
-- Pipeline is to also support AIV activities
-- Pipeline will need to be able to have functionality available at different levels through out AIV to enable testing
-- AIV team will use pipeline to monitor performance of METIS during the integration phase
-- ESO is expecting METIS to be on-sky for decades, pipeline must work for this length too
-- ESO is rolling out new pipeline tool chains in python: EDPS, PyCPL. This affects the implementation efforts
-- PIP is a very distributed team
+\begin{itemize}
+    \item - METIS TLR for performance dictate the level to which the METIS pipeline must process data
+    \item - Pipeline is to also support AIV activities
+    \item - Pipeline will need to be able to have functionality available at different levels through out AIV to enable testing
+    \item - AIV team will use pipeline to monitor performance of METIS during the integration phase
+    \item - ESO is expecting METIS to be on-sky for decades, pipeline must work for this length too
+    \item - ESO is rolling out new pipeline tool chains in python: EDPS, PyCPL. This affects the implementation efforts
+    \item - PIP is a very distributed team
+\end{itemize}
 
 \section{Need for integrated development and testing architecture}
 \label{sec:dev}
-- Pipeline as a single element in an integrated software ecosystem
-- AIV data archive for storing AIV data and for monitoring the system integration of the METIS instrument
-- AIV system integration tests monitor both functionality and performance of METIS
-- Heavy use of instrument data simulator (ScopeSim) for pre-testing use cases in advance of AIV needs
-- Pipeline as a way of connecting predictions (simulations) to reality
+
+\begin{itemize}
+    \item - Pipeline as a single element in an integrated software ecosystem
+    \item - AIV data archive for storing AIV data and for monitoring the system integration of the METIS instrument
+    \item - AIV system integration tests monitor both functionality and performance of METIS
+    \item - Heavy use of instrument data simulator (ScopeSim) for pre-testing use cases in advance of AIV needs
+    \item - Pipeline as a way of connecting predictions (simulations) to reality
+\end{itemize}
 
 
 \section{Pipeline implementation plans}
@@ -98,8 +103,9 @@ This proceeding paper is split into the following sections. Section \ref{sec:env
 
 Early on it was decided that the pipeline would support the system-level integration activities.
 Practically this means the METIS pipeline should already contain the functionality needed by any system level tests that will use header or pixel data from the METIS detectors.
-
-
+In order to ensure that this functionality is ready, we plan to make extensive use of simulated data sets. 
+Furthermore to aid in continued testing of bother the METIS instrument and the pipeline throughout the full AIV phase, the consortium will store all important data sets from the METIS detectors in an archive.
+The following sections provides a brief overview of how each of these aspects will be utilised to aid the implementation of the pipeline.
 
 \subsection{Scheduling matched to AIV plans}
 \label{subsec:imp_aiv}
