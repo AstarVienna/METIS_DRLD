@@ -58,7 +58,7 @@ These capabilities will open up countless new parameter spaces in all areas of a
 
 METIS will be the first-light MIR instrument at the ELT.
 It will offer  an array of powerful observing modes including  integral-field and long-slit spectrographs, L-M and N-band imagers, and multiple types of coronagraphs for high-contrast imaging and spectroscopy.
-The METIS instrument is desc
+<insert refs here> for a more indepth description of the instrument. 
 
 - TLRs of the pipeline
 - Role of the pipeline
@@ -88,11 +88,48 @@ The METIS instrument is desc
 \section{Pipeline implementation plans}
 
 \subsection{Scheduling matched to AIV plans}
-Early on the 
+
+\begin{table}[]
+    \centering
+\caption{Major METIS AIV milestones for which pipeline recipes need to be ready}
+\label{tab:dev_aiv_milestones}
+    \begin{tabular}{c|c|l}
+    \hline
+    \hline
+         Date &   METIS AIV phase ID & Description\\
+         \hline
+         02-2025 &   AIV-010&PIP workstation setup in Leiden\\
+         11-2025 &   AIV-250&Dress-rehearsal of data flow chain\\
+ 02-2026 & AIV-370&IFU system testing\\
+ 10-2026 &  AIV-490&IMG/LSS system testing\\
+ 12-2027 & AIV-640&Preliminary acceptance Europe (PAE)\\
+ 12-2028 & AIV-920&Commissioning on-sky at ELT starts\\
+ \hline
+ \end{tabular}
+      
+\end{table}
+
+Early on it was decided that the pipeline would support the testing which occurs as part of the system-level integration activities.
+Practically this mea
+
+
+
 
 
 
 \subsection{Functionality levels}
+
+The development of each software recipe for the METIS data reduction pipeline is structured into four distinct phases: skeleton, functional, performance, and science-grade. This phased approach allows for targeted progress, ensuring that development can pause once the software meets the requirements for any upcoming Assembly, Integration, and Verification (AIV) system functional or performance tests. By structuring development in this way, team members can efficiently move between multiple software recipes, focusing their efforts where they are most needed and avoiding the inefficiencies that can arise from getting bogged down in overly detailed or premature optimizations. This strategy ensures a balanced and flexible development process, maximizing productivity and maintaining alignment with project milestones. 
+  
+ \begin{enumerate}
+     \item \textbf{Skeleton recipes }are the initial stage in the development of each software recipe for the METIS data reduction pipeline. During this phase, the software recipes are essentially barebones structures that primarily focus on handling file input and output operations correctly. Despite their minimal functionality, these recipes adhere to the output specifications outlined in the design document and are capable of reading the necessary metadata from input files. Furthermore, the recipes are designed to reject or fail gracefully if inappropriate files are used as input, ensuring robustness and reliability from the outset. This foundational phase sets the stage for more advanced development, providing a clear framework that supports subsequent enhancements in functionality and performance.
+ 
+     \item \textbf{Functional recipes} build upon the skeleton phase by incorporating sufficient code to fulfill the primary tasks outlined in the design document for each software recipe. In this phase, the recipes not only manage file input and output but also perform their intended functions, although they may not yet handle all edge cases. The pixel values in the output should reflect an initial, first-order correction, providing a meaningful representation of the data. Additionally, the internal structure of the recipes is designed to facilitate further development and expansion in later phases. Comprehensive documentation for each function should be available, and unit tests should utilize simulated data products to verify that the recipes perform their designated tasks correctly. This phase ensures that the core functionality is in place and ready for refinement and optimization in subsequent stages. 
+
+     \item \textbf{Performance recipes} will have reached an advanced stage of development. They incorporate all expected functionalities and can handle various edge cases encountered during scientific operations. These recipes are designed to process raw data to meet the performance standards defined in the METIS science top-level requirements. However, testing is limited to simulated data and data collected during AIV testing runs. While this approach allows for thorough lab testing, it does not replicate all potential challenges encountered during actual observations. Nonetheless, achieving performance-level recipes represents significant progress toward readiness for deployment with the METIS instrument on the Extremely Large Telescope. 
+
+     \item \textbf{Science-Grade recipes}: In an ideal scenario, science recipes would mirror the capabilities of performance recipes, as thorough lab testing would have accounted for all possible edge cases. However, the reality of on-sky testing during the METIS commissioning run may unveil unexpected challenges. This could necessitate upgrades or even complete redesigns of various algorithms to ensure optimal performance in real-world conditions. A recipe will only earn the classification of "science grade" once it has undergone testing with on-sky data, and the resulting reduced data products align with the scientific performance targets outlined in the METIS Top-Level Requirements (TLRs). This iterative process underscores the importance of rigorous testing and adaptation to ensure that METIS can deliver scientifically meaningful results once operational. 
+ \end{enumerate}
 
 
 
