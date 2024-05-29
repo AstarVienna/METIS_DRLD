@@ -332,15 +332,25 @@ The earlier any problems with the scheduling are identified, the easier it will 
 \begin{figure}
     \centering
     \includegraphics{SPIE_paper/figures/metis_ifu_adi_cgrph_recipe.png}
-    \caption{The graphical representation of the \verb|metis_ifu_adi_cgrph| recipe, detailed in the DRL-Design document\cite{DRLD}. The METIS pipeline contains 44 such recipes. These figures and the corresponding text are used to define the critical aspects of each recipe, including expected input and output data types and contents, }
-    \label{fig:enter-label}
+    \caption{An example of the graphical representation of a METIS pipeline recipe - in this case for \verb|metis_ifu_adi_cgrph|, the angular differential imaging (ADI) recipe used for the rediction of data from the high contrast IFU observing mode.}
+    \label{fig:recipe_example}
 \end{figure}
 
+
+\subsection{The pipeline design}
 
 
 
 The METIS pipeline team passed the final design review with ESO in November 2023. 
 
+
+\subsection{Association Matrices}
+
+
+\subsection{Pipeline Recipes}
+The METIS pipeline contains 44 recipes to cover the multitude of observing modes (see Table \ref{fig:metis_modes}. 
+Figure \ref{fig:recipe_example} shows the graphical representation of the \verb|metis_ifu_adi_cgrph| recipe, detailed in the DRL-Design document\cite{DRLD}. 
+These figures and the corresponding text are used to define the critical aspects of each recipe, including expected input and output data types and contents, derived parameters to be included in the header information, as well as the basic algorithmic steps.
 
 
 
