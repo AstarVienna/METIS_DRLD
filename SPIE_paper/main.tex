@@ -175,7 +175,7 @@ Early on it was decided that the pipeline would support the system-level integra
 Practically this means the METIS pipeline should already contain the functionality needed by any system level tests that will use header or pixel data from the METIS detectors.
 In order to ensure that this functionality is ready, we plan to make extensive use of simulated data sets. 
 Furthermore to aid in continued testing of both the METIS instrument and the pipeline throughout the full AIV phase, the consortium will store all important data sets from the METIS detectors in an archive.
-The following subsections provides a brief overview of how the decision to couple the pipeline development to the AIV activities influences the release schedule of the pipeline.
+The following subsections provides a brief overview of how coupling the pipeline development to the AIV activities influences the release schedule of the pipeline.
 
 \subsection{Scheduling matched to AIV plans}
 \label{subsec:imp_aiv}
@@ -207,15 +207,15 @@ This schedule implies a very tight development timeline for the pipeline team.
 While attempting to reconcile the available person-power in the pipeline team with the needs of the AIV schedule we recognised that not all AIV tests need fully functioning pipeline recipes. 
 We therefore decided to split the development of each pipeline recipe into four levels in order to accommodate the tight timeline dictated by AIV activities.
 The different levels of development are described in more detail in section \ref{subsec:imp_levels}.
-A brief overview of the AIV phases and the requirements on the pipeline is as follows:
+Here is a brief overview of the AIV phases and the requirements on the pipeline:
 
 \begin{itemize}
-    \item \textbf{AIV-010, PIP workstation setup} : At the beginning of the AIV activites the pipeline workstation will be installed in the AIV Hall in Leiden. A working pipeline skeleton is required to test the interfaces to other subsystems, most notably the staging area for freshly data frames from the METIS detectors. 
+    \item \textbf{AIV-010, PIP workstation setup} : At the beginning of the AIV activites the pipeline workstation will be installed in the AIV Hall in Leiden. A working pipeline skeleton is required to test the interfaces to other subsystems, most notably the staging area for fresh data frames from the METIS detectors. 
     \item  \textbf{AIV-250, Dress-rehearsal of data flow chain} : This phase foresees the integration of the IFU optics into the cryostat, excluding the detectors. This will be the first time the full data flow system - from raw detector readouts through to processed files - is tested. Recipes for the IFU data reduction must be ready at the functional level by this stage.
     \item \textbf{AIV-370, IFU system testing} : The IFU module will be fully mated with the detectors and the instrument will be cooled to operating temperature. The phase includes all lab-based performance tests for the IFU module. All IFU-pipeline recipes will need to be available (mostly) at the performance level in order for the AIV team to test the perfomance of the IFU module against the top level requirements.
     \item \textbf{AIV-490, IMG/LSS system testing} : The imaging and long-slit sub-system, including HAWAII and GeoSnap detectors, will have been integrated into the cryostat by this stage and performance testing as a whole instrument will begin. All imaging and long-slit recipes used by the lab-based performance tests (i.e. utilising the warm calibration unit) will need to be at the performance level, while recipes that require on-sky observations (e.g. telluric corrections) may remain at the functional level.
     \item \textbf{AIV-640, Preliminary acceptance Europe (PAE)} : PAE represents the end of the main pipeline development stage. As such all recipes, including those that will only be fully tested on-sky, must be at the performance level. Heavy use will be made of the instrument data simulator in order to achieve this.
-    \item \textbf{AIV-920, Commissioning on-sky at ELT starts} : Initial data from on-sky observations at the ELT will allow the pipeline team to test the performance of the data reduction recipes against the top level requirements for scientific output. Recipes which allow METIS to meet its required performance will be receive the classification of science-grade. Effort will then be spent on upgrading the algorithms in the recipes which don't deliver data compliant with the TLRs.
+    \item \textbf{AIV-920, Commissioning on-sky at the ELT starts} : Initial data from on-sky observations at the ELT will allow the pipeline team to test the performance of the data reduction recipes against the top level requirements for scientific output. Recipes which allow METIS to meet its required performance will receive the classification of science-grade. Effort will then be spent on upgrading the algorithms in the recipes which don't deliver data compliant with the TLRs.
 \end{itemize}
 
 
