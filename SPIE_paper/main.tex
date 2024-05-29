@@ -83,7 +83,7 @@ Table \ref{fig:metis_modes} gives an overview of all the available observing mod
 The METIS data reduction pipeline (also referred to as ``the pipeline'') will play the crucial role of turning unintelligible raw data frames into science-grade data products, with which astronomers will be able to unveil the secrets of the cool universe.
 Not only are there many observational constrains that the METIS pipeline must deal with, there are also many practical and developmental constraints imposed by the various stake holders associated with the METIS pipeline. 
 
-This proceeding paper is split into the following sections. Section \ref{sec:env} describes the operational constrains that apply to the development of the METIS pipeline. Section \ref{sec:dev} presents the arguments for developing the pipeline as part of an integrated testing architecture which includes data simulators, archives, and dedicated performance testing frameworks. Details of how the pipeline team intends to develop the pipeline given the various operation constraints are given in section \ref{sec:imp}. Section \ref{sec:pip} briefly describes the pipeline as detailed in the METIS pipeline design documents. Finally, section \ref{sec:outlook} gives an outlook for the pipeline development out to the initial delivery of the pipeline to ESO in 2028.
+This proceeding paper is split into the following sections. Section \ref{sec:env} describes the operational constrains that apply to the development of the METIS pipeline. Section \ref{sec:dev} presents the arguments for developing the pipeline as part of an integrated testing architecture which includes data simulators, archives, and dedicated performance testing frameworks. Details of how the pipeline team intends to develop the pipeline given the various operation constraints are given in section \ref{sec:imp}. Section \ref{sec:pip} briefly describes the pipeline as detailed in the METIS pipeline design documents. Finally, section \ref{sec:outlook} gives an outlook for the pipeline development out to the initial delivery of the pipeline to ESO at PAE in 2028.
 
 Disclaimer: This proceedings paper was written with limited help from ChatGPT \footnote{The main intellectual content of the paper belongs solely to the authors, as does the structure of the paper and content of each section and subsection. For each paragraph, the authors wrote down a series of bullet points. ChatGPT was used to string these together into coherent sentences. Ultimately the content and context of each paragraph was checked by the authors to make sure the original intent of the section was conveyed properly. Whether or not this ultimately saved the authors any time is up for debate, but it did help with reducing the mental effort of writing the paper.}.
 
@@ -103,7 +103,7 @@ Disclaimer: This proceedings paper was written with limited help from ChatGPT \f
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{SPIE_paper/figures/METIS_modes.png}
-    \caption{The METIS instrument will include a multitide of observation modes, including standard imaging, long-slit and IFU spectroscopy, and high-contrast modes. The METIS pipeline must be able to handle all of these modes, and indeed also the possibility of multiple modes being used simultaneously. This figure was taken from the latest version (May 2024) of the METIS Data Reduction Library Design document \cite{DRLD}.}
+    \caption{The METIS instrument will include a multitide of observation modes, including standard imaging, long-slit and IFU spectroscopy, and high-contrast modes. The METIS pipeline need to process all types of data originating from these observing modes, and indeed also data from observations using multiple modes simultaneously. This figure was taken from the latest version (May 2024) of the METIS Data Reduction Library Design document \cite{DRLD}.}
     \label{fig:metis_modes}
 \end{figure}
 
@@ -112,16 +112,16 @@ As with every astronomical instrument, METIS is not being built in a vacuum\foot
 There are many and varied outside factors which influence both the design and the development of the pipeline, from the physical characteristics of the instrument to the external interfaces and frameworks within which the pipeline must operate.
 
 First and foremost, the Top Level Requirements (TLRs) for METIS \cite{ESO-257869} establish the boundary conditions for the METIS pipeline.
-These scientific and technical performance requirements will ensuring that the pipeline processes data to the levels necessary for accurate and reliable scientific output. 
+These scientific and technical performance requirements will ensure that the pipeline processes data to the levels necessary for accurate and reliable scientific output. 
 The aim of the pipeline team here is to provide a trustworthy tool chain to the astronomical community and to enable a level of scientific discovery worthy of a first-light instrument at the ELT. 
 
 While supporting AIV activities is not an official requirement of the pipeline, it is a useful method to both keep the pipeline development on schedule and keep the functionality aligned with the needs of the instrument. 
 The METIS AIV team is expecting to be able to use parts of the the METIS pipeline to monitor and evaluate the instrument's performance.
-By leveraging the pipeline, the team will be able to continuously track the behavior of METIS, identify any issues early, and make necessary adjustments . 
+By making use of the pipeline, the AIV team will be able to continuously track the behavior of METIS, identify any issues early, and make adjustments when necessary. 
 This ongoing monitoring is vital for the successful deployment and operation of METIS, ensuring that all components function correctly before the instrument is operational.
 
 During the AIV phase, the pipeline will be required to provide functionality at different levels of readiness to facilitate thorough testing and validation of the instrument. 
-To this end the pipeline (and the pipeline team) must remain sufficiently flexible in order to be iterate effectively with the AIV team through out the integration activities.
+To this end the pipeline (and the pipeline team) must remain sufficiently flexible in order to be iterate effectively with the AIV team throughout the integration activities.
 
 Considering that the European Southern Observatory (ESO) anticipates METIS to remain on-sky for several decades, the pipeline must be designed for long-term functionality and reliability. 
 It should be robust enough to support the instrument throughout its operational life, maintaining high performance and adapting to any future changes or upgrades. 
