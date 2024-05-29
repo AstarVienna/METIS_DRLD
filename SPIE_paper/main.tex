@@ -95,7 +95,7 @@ Disclaimer: This proceedings paper was written with limited help from ChatGPT \f
 \end{figure}
 
 
-As with every astronomical instrument, METIS is not being built in a vacuum\footnote{There is an obligitory pun intended as the evacuated cryostat of METIS indeed comes very close to providing a full vacuum }. 
+As with every astronomical instrument, METIS is not being built in a vacuum\footnote{There is an obligatory pun intended here, as the evacuated METIS cryostat indeed comes very close to producing a full vacuum.}. 
 There are many and varied outside factors which influence both the design and the development of the pipeline, from the physical characteristics of the instrument to the external interfaces and frameworks within which the pipeline must operate.
 
 First and foremost, the Top Level Requirements (TLRs) for METIS \cite{ESO-257869} establish the boundary conditions for the METIS pipeline.
@@ -321,6 +321,23 @@ The earlier any problems with the scheduling are identified, the easier it will 
 
 \section{Pipeline topology}
 \label{sec:pip}
+
+\begin{figure}
+    \centering
+    \includegraphics{SPIE_paper/figures/metis_ifu_assoc.png}
+    \caption{Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{SPIE_paper/figures/metis_ifu_adi_cgrph_recipe.png}
+    \caption{The graphical representation of the \verb|metis_ifu_adi_cgrph| recipe, detailed in the DRL-Design document\cite{DRLD}. The METIS pipeline contains 44 such recipes. These figures and the corresponding text are used to define the critical aspects of each recipe, including expected input and output data ty}
+    \label{fig:enter-label}
+\end{figure}
+
+
+
 
 The METIS pipeline team passed the final design review with ESO in November 2023. 
 
