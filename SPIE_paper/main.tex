@@ -65,7 +65,7 @@ These capabilities will open up countless new parameter spaces in all areas of a
 
 METIS will be the first-light MIR instrument at the ELT.
 It will offer  an array of powerful observing modes including  integral-field and long-slit spectrographs, L-M and N-band imagers, and multiple types of coronagraphs for high-contrast imaging and spectroscopy.
-Table gives an overview of all the observing modes available with METIS and Brandl et al 2022 <insert refs here> provides a more in-depth description of the current status of the instrument. 
+Table \ref{fig:metis_modes} gives an overview of all the observing modes available with METIS and Brandl et al 2022 \cite{brandl} provides a more in-depth description of the current status of the instrument. 
 
 The METIS data reduction pipeline (also referred to as  ``the pipeline'') will play the crucial role of turning usually unintelligible raw data frames into science-grade data products, with which astronomers will be able to unveil the secrets of the cool universe.
 Not only are there many observational constrains that the METIS pipeline must deal with, there are also many practical and developmental constraints imposed by the various stake holders associated with the METIS pipeline.
@@ -260,20 +260,14 @@ Time will tell whether the echos of the Covid era will prove the distributed-tea
 \subsection{Release schedule}
 \label{subsec:imp_schedule}
 
-The delivery schedule during the pipeline development stage is set by the ESO standards document for data flow deliveries \cite{1618}. 
-This dictates that the pipeline team (unless otherwise agreed) will deliver and updated version of the data reduction library (DRL) every three months starting 12 months after the final design review and extending until the pipeline is officially accepted by ESO.
 
-The first release of a full pipeline is expected at the milestone for ``Preliminary Acceptance Europe''.
-The devil is in the detail though.
-The definition of a ``full'' pipeline does not necessarily mean a finished pipeline.
-A ``full'' pipeline refers to a pipeline which covers all observation modes and is fully runnable from start to finish without any major intervention by the user.
-Indeed many of the algorithms will not be complete (e.g. spectroscopic sky background subtraction) because there will be no chance before PAE to test the pipeline on-sky. 
-As stated before, the pipeline team will make heavy use of the instrument simulator (ScopeSim), but artificial test data and data taken using the warm calibration unit will only allow a subset of the performance tests to be run.
-For this reason we fully expect to continue updating the algorithms in the pipeline well after METIS goes on sky.
-Nevertheless the release schedule proposed in Table \ref{tab:pip_releases} and shown graphically in Figure \ref{fig:pip_releases}.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.83\textwidth]{SPIE_paper/figures/deliveries_recipes.pdf}
+    \caption{Current delivery schedule for the METIS pipeline. Every 3 months during the AIV phase of METIS the pipeline team will release an update of the software. The 4 levels of recipe development are represented here thusly: blue = skeleton, green = functional, orange = performance, red = science-grade. The description of functionality for each of the development levels is given in subsection \ref{subsec:imp_levels}.}
+    \label{fig:pip_releases}
+\end{figure}
 
-The quarterly granularity of the schedule will help both the pipeline team, as well as the METIS management and ESO, to keep track of the progress on the pipeline. 
-Within several release cycles is should be obvious whether the team will be able to meet their responsibilites 
 
 \begin{table}[]
 \caption{Release schedule for the METIS data reduction pipeline software.}
@@ -309,12 +303,21 @@ Year & Date & Version & Version description & AIV-Phase & Nearest METIS Mileston
 \end{table}
 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.83\textwidth]{SPIE_paper/figures/deliveries_recipes.pdf}
-    \caption{Current delivery schedule for the METIS pipeline. Every 3 months during the AIV phase of METIS the pipeline team will release an update of the software. The 4 levels of recipe development are represented here thusly: blue = skeleton, green = functional, orange = performance, red = science-grade. The description of functionality for each of the development levels is given in subsection \ref{subsec:imp_levels}.}
-    \label{fig:pip_releases}
-\end{figure}
+The delivery schedule during the pipeline development stage is set by the ESO standards document for data flow deliveries \cite{1618}. 
+This dictates that the pipeline team (unless otherwise agreed) will deliver and updated version of the data reduction library (DRL) every three months starting 12 months after the final design review and extending until the pipeline is officially accepted by ESO.
+
+The first release of a full pipeline is expected at the milestone for ``Preliminary Acceptance Europe''.
+The devil is in the detail though.
+The definition of a ``full'' pipeline does not necessarily mean a finished pipeline.
+A ``full'' pipeline refers to a pipeline which covers all observation modes and is fully runnable from start to finish without any major intervention by the user.
+Indeed many of the algorithms will not be complete (e.g. spectroscopic sky background subtraction) because there will be no chance before PAE to test the pipeline on-sky. 
+As stated before, the pipeline team will make heavy use of the instrument simulator (ScopeSim), but artificial test data and data taken using the warm calibration unit will only allow a subset of the performance tests to be run.
+For this reason we fully expect to continue updating the algorithms in the pipeline well after METIS goes on sky.
+Nevertheless the release schedule proposed in Table \ref{tab:pip_releases} and shown graphically in Figure \ref{fig:pip_releases}.
+
+The quarterly granularity of the schedule will help both the pipeline team, as well as the METIS management and the ESO follow up team, keep track of the progress of the pipeline. 
+Within several release cycles is should be obvious to which extent we, the pipeline team, will be able to support the AIV activities.
+The earlier any problems with the scheduling are identified, the easier it will be to throw a couple more PhD students at the pipeline and hope the problems solve themselves.
 
 \section{Pipeline topology}
 \label{sec:pip}
