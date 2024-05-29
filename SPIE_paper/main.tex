@@ -345,7 +345,7 @@ The DRL-D details all aspects of the pipeline, including:
     \item association matrices : Chapter 4 : 
     \item recipe definitions : Chapter 6 : these
     \item critical algorithms : Chapter 10 : 
-    \item ``QC parameters'' : Chapter 11 : in essence derived parameters that are added to the header information of intermediate and final data products. Such derived parameters can be useful for a variety of cases, including monitoring the health of the instrument, providing extra information on the observing conditions to the end-user (astronomer), or for detailing the quality of the raw and reduced data.
+    \item ``QC parameters'' : Chapter 11 : 
     
 \end{itemize}
 
@@ -354,7 +354,7 @@ The DRL-D details all aspects of the pipeline, including:
 
 The association matrices (Chapter 4 of the DRL-D) describe the reduction steps and input files required to process raw observation frames (FITS files) into scientifically relevant data products. 
 See Figure \ref{fig:assoc_mat_example} for an example. 
-An association matrix is provided for each official observing mode for METIS (see Table \ref{fig:metis_modes}
+An association matrix is provided for each official observing mode for METIS (see Table \ref{fig:metis_modes})
 
 
 \subsection{Pipeline Recipes}
@@ -362,6 +362,15 @@ The METIS pipeline contains 44 recipes to cover the multitude of observing modes
 The association matrices (Chapter 4 of the DRL-D)
 Figure \ref{fig:recipe_example} shows the graphical representation of the \verb|metis_ifu_adi_cgrph| recipe, detailed in the DRL-Design document\cite{DRLD}. 
 These figures and the corresponding text are used to define the critical aspects of each recipe, including expected input and output data types and contents, derived parameters to be included in the header information, as well as the basic algorithmic steps.
+
+\subsection{``QC'' Parameters}
+
+Quality control parameters are in essence derived parameters which are added to the header information of intermediate and final data products. 
+Such derived parameters are useful for a variety of cases, including monitoring the health of the instrument, providing extra information on the observing conditions to the end-user (astronomer), or for detailing the quality of the raw and reduced data.
+The term ``QC'' parameter is used pretty loosely and, depending on context, can cover all the use cases described here for additional FITS header keywords. 
+We, the METIS pipeline team, would like to use this public forum to advocate for an increased usage of case specfic terminology when refering to such additions to the FITS header. 
+The terms ``health monitoring keywords''
+
 
 
 - Association matrices
