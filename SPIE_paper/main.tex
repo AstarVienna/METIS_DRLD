@@ -83,7 +83,12 @@ Table \ref{fig:metis_modes} gives an overview of all the available observing mod
 The METIS data reduction pipeline (also referred to as ``the pipeline'') will play the crucial role of turning unintelligible raw data frames into science-grade data products, with which astronomers will be able to unveil the secrets of the cool universe.
 Not only are there many observational constrains that the METIS pipeline must deal with, there are also many practical and developmental constraints imposed by the various stake holders associated with the METIS pipeline. 
 
-This proceeding paper is split into the following sections. Section \ref{sec:env} describes the operational constrains that apply to the development of the METIS pipeline. Section \ref{sec:dev} presents the arguments for developing the pipeline as part of an integrated testing architecture which includes data simulators, archives, and dedicated performance testing frameworks. Details of how the pipeline team intends to develop the pipeline given the various operation constraints are given in section \ref{sec:imp}. Section \ref{sec:pip} briefly describes the pipeline as detailed in the METIS pipeline design documents. Finally, section \ref{sec:outlook} gives an outlook for the pipeline development out to the initial delivery of the pipeline to ESO at PAE in 2028.
+This proceeding paper is split into the following sections. 
+Section \ref{sec:env} describes the operational constrains that apply to the development of the METIS pipeline. 
+% Section \ref{sec:dev} presents the arguments for developing the pipeline as part of an integrated testing architecture which includes data simulators, archives, and dedicated performance testing frameworks. 
+Details of how the pipeline team intends to develop the pipeline given the various operation constraints are given in section \ref{sec:imp}. 
+Section \ref{sec:pip} briefly describes the pipeline as detailed in the METIS pipeline design documents. 
+Finally, section \ref{sec:outlook} gives an outlook for the pipeline development out to the initial delivery of the pipeline to ESO at PAE in 2028.
 
 Disclaimer: This proceedings paper was written with limited help from ChatGPT \footnote{The main intellectual content of the paper belongs solely to the authors, as does the structure of the paper and content of each section and subsection. For each paragraph, the authors wrote down a series of bullet points. ChatGPT was used to string these together into coherent sentences. Ultimately the content and context of each paragraph was checked by the authors to make sure the original intent of the section was conveyed properly. Whether or not this ultimately saved the authors any time is up for debate, but it did help with reducing the mental effort of writing the paper.}.
 
@@ -140,8 +145,8 @@ If leveraged effectively, the diverse range of expertise and perspectives will h
 
 
 
-\section{Need for integrated development and testing architecture}
-\label{sec:dev}
+% \section{The pipeline as part of an integrated development and testing architecture}
+% \label{sec:dev}
 
 % \begin{itemize}
     % \item - Pipeline as a single element in an integrated software ecosystem
@@ -152,15 +157,15 @@ If leveraged effectively, the diverse range of expertise and perspectives will h
 % \end{itemize}
 
 
-The METIS pipeline will be a critical component of a complex, integrated software and hardware ecosystem. This ecosystem is designed to ensure that all software elements, from data acquisition to processing and analysis, work in harmony. The pipeline's role within this ecosystem is to process and analyse data to meet the goals described in the Top Level Requirements (TLRs). By doing so, it guarantees that the processed data products are accurate, reliable, and ready for scientific interpretation.
+% The METIS pipeline will be a critical component of a complex, integrated software and hardware ecosystem. This ecosystem is designed to ensure that all software elements, from data acquisition to processing and analysis, work in harmony. The pipeline's role within this ecosystem is to process and analyse data to meet the goals described in the Top Level Requirements (TLRs). By doing so, it guarantees that the processed data products are accurate, reliable, and ready for scientific interpretation.
 
-A vital aspect of the AIV phase is the establishment of an AIV data archive. This archive is tasked with storing all data generated during the AIV activities, serving as a comprehensive repository for integration data. It also provides a crucial platform for monitoring the METIS instrument's integration process. By archiving AIV data, the team can track the instrument's performance over time, quickly identifying and addressing any integration issues that may arise.
+% A vital aspect of the AIV phase is the establishment of an AIV data archive. This archive is tasked with storing all data generated during the AIV activities, serving as a comprehensive repository for integration data. It also provides a crucial platform for monitoring the METIS instrument's integration process. By archiving AIV data, the team can track the instrument's performance over time, quickly identifying and addressing any integration issues that may arise.
 
-The AIV system integration tests are fundamental to ensuring that both the functionality and performance of METIS meet the required standards. These tests will assess the instrument's components, ensuring they function correctly individually and within the larger system. By monitoring both functionality and performance, the AIV team can verify that METIS operates as intended and is ready to be shipped to the ELT.
+% The AIV system integration tests are fundamental to ensuring that both the functionality and performance of METIS meet the required standards. These tests will assess the instrument's components, ensuring they function correctly individually and within the larger system. By monitoring both functionality and performance, the AIV team can verify that METIS operates as intended and is ready to be shipped to the ELT.
 
-To prepare for the AIV phase, the team will make extensive use of the instrument data simulator, ScopeSim \cite{scopesim}. This tool allows for pre-testing of various use cases, enabling the team to anticipate and address potential challenges before they arise during actual AIV activities. ScopeSim helps bridge the gap between theoretical predictions and practical implementation, ensuring that the AIV process is as smooth and efficient as possible.
+% To prepare for the AIV phase, the pipeline team will make extensive use of the instrument data simulator: ScopeSim\cite{scopesim}. This will allow for pre-testing of various use cases, enabling the team to anticipate and address potential challenges before they arise during actual AIV activities. ScopeSim will help to bridge the gap between theoretical predictions and practical implementation, ensuring that the AIV process is as smooth and efficient as possible.
 
-The METIS pipeline serves as a crucial link between simulations and real-world observations. By comparing data processed through the pipeline with simulated data, the team can validate their models and predictions, ensuring that the instrument performs as expected in practice. This capability is essential for confirming the accuracy of simulations and for making any necessary adjustments to enhance the instrument's performance. In this way, the pipeline not only processes data but also helps to refine and validate the scientific models that drive METIS's mission.
+% The METIS pipeline serves as a crucial link between simulations and real-world observations. By comparing data processed through the pipeline with simulated data, the team can validate their models and predictions, ensuring METIS performs as expected in practice. This capability is essential for confirming the accuracy of simulations and for making any necessary adjustments to enhance the instrument's performance.
 
 
 \section{Pipeline implementation plans}
@@ -169,7 +174,7 @@ The METIS pipeline serves as a crucial link between simulations and real-world o
 Early on it was decided that the pipeline would support the system-level integration activities.
 Practically this means the METIS pipeline should already contain the functionality needed by any system level tests that will use header or pixel data from the METIS detectors.
 In order to ensure that this functionality is ready, we plan to make extensive use of simulated data sets. 
-Furthermore to aid in continued testing of bother the METIS instrument and the pipeline throughout the full AIV phase, the consortium will store all important data sets from the METIS detectors in an archive.
+Furthermore to aid in continued testing of both the METIS instrument and the pipeline throughout the full AIV phase, the consortium will store all important data sets from the METIS detectors in an archive.
 The following subsections provides a brief overview of how the decision to couple the pipeline development to the AIV activities influences the release schedule of the pipeline.
 
 \subsection{Scheduling matched to AIV plans}
