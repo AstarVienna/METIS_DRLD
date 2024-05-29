@@ -265,7 +265,11 @@ This dictates that the pipeline team (unless otherwise agreed) will deliver and 
 The first release of a full pipeline is expected at the milestone for ``Preliminary Acceptance Europe''.
 The devil is in the detail though.
 The definition of a ``full'' pipeline does not necessarily mean a finished pipeline.
-A ``full'' pipeline refers to a pipeline which
+A ``full'' pipeline refers to a pipeline which covers all observation modes and is fully runnable from start to finish without any major intervention by the user.
+Indeed many of the algorithms will not be complete (e.g. spectroscopic sky background subtraction) because there will be no chance before PAE to test the pipeline on-sky. 
+As stated before, the pipeline team will make heavy use of the instrument simulator (ScopeSim), but artificial test data and data taken using the warm calibration unit will only allow a subset of the performance tests to be run.
+For this reason we fully expect to continue updating the algorithms in the pipeline well after METIS goes on sky.
+Nevertheless the release schedule proposed in Table \ref{tab:pip_releases} and shown graphically in Figure \ref{fig:pip_releases}
 
 \begin{table}[]
 \caption{Release schedule for the METIS data reduction pipeline software.}
@@ -305,7 +309,7 @@ Year & Date & Version & Version description & AIV-Phase & Nearest METIS Mileston
     \centering
     \includegraphics[width=0.83\textwidth]{SPIE_paper/figures/deliveries_recipes.pdf}
     \caption{Current delivery schedule for the METIS pipeline. Every 3 months during the AIV phase of METIS the pipeline team will release an update of the software. The 4 levels of recipe development are represented here thusly: blue = skeleton, green = functional, orange = performance, red = science-grade. The description of functionality for each of the development levels is given in subsection \ref{subsec:imp_levels}.}
-    \label{fig:del_schedule}
+    \label{fig:pip_releases}
 \end{figure}
 
 \section{Pipeline topology}
