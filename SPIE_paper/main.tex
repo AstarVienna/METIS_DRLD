@@ -9,6 +9,7 @@
 \usepackage{todonotes}
 \usepackage{lipsum}
 \usepackage{pdfpages}
+\usepackage{verbatim}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \title{Implementation plans for the data reduction pipeline for METIS at the ELT}
@@ -325,14 +326,14 @@ The earlier any problems with the scheduling are identified, the easier it will 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{SPIE_paper/figures/metis_ifu_assoc.png}
-    \caption{An example of an }
+    \caption{An example of an association matrix }
     \label{fig:assoc_mat_example}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{SPIE_paper/figures/metis_ifu_adi_cgrph_recipe.png}
-    \caption{An example of the graphical representation of a METIS pipeline recipe - in this case for \verb|metis_ifu_adi_cgrph|, the angular differential imaging (ADI) recipe used for the rediction of data from the high contrast IFU observing mode.}
+    \includegraphics[width=0.75\textwidth]{SPIE_paper/figures/metis_ifu_adi_cgrph_recipe.png}
+    \caption{An example of the graphical representation of a METIS pipeline recipe - in this case for the metis\_ifu\_adi\_cgrph, the angular differential imaging (ADI) recipe used for the reduction of data from the high contrast IFU observing mode.}
     \label{fig:recipe_example}
 \end{figure}
 
@@ -349,17 +350,16 @@ The DRL-D details all aspects of the pipeline, including:
 \end{itemize}
 
 
-
-
-
 \subsection{Association Matrices}
 
-The association matrices (Cahpter 4 of the DRL-D) describe the reduction steps and input files required to process raw observation frames (FITS files) into scientifically relevant data products. See Figure \ref{fig:assoc_mat_example} for an example. 
+The association matrices (Chapter 4 of the DRL-D) describe the reduction steps and input files required to process raw observation frames (FITS files) into scientifically relevant data products. 
+See Figure \ref{fig:assoc_mat_example} for an example. 
 An association matrix is provided for each official observing mode for METIS (see Table \ref{fig:metis_modes}
 
 
 \subsection{Pipeline Recipes}
 The METIS pipeline contains 44 recipes to cover the multitude of observing modes (see Table \ref{fig:metis_modes}. 
+The association matrices (Chapter 4 of the DRL-D)
 Figure \ref{fig:recipe_example} shows the graphical representation of the \verb|metis_ifu_adi_cgrph| recipe, detailed in the DRL-Design document\cite{DRLD}. 
 These figures and the corresponding text are used to define the critical aspects of each recipe, including expected input and output data types and contents, derived parameters to be included in the header information, as well as the basic algorithmic steps.
 
