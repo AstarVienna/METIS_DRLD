@@ -349,9 +349,14 @@ Among much other information, the DRL-D details all aspects of the pipeline need
 \end{itemize}
 
 At 543 pages long, and containing the programmatic definitions of 44 recipes and over 200 individual data objects, the document can only aptly be referred to as a monster.
-Manually checking the consistency of the text, figures, inputs, outputs, al was out of the question.
+Manually checking the text and figures in each section for consistency was out of the question.
+As such a digital twin of the document was created to automate the process of consistency checking.
+A talented member of the pipeline team created a python module which read in all the latex files associated with the DRL-D and created python objects for each recipe and data item. 
+Additional code was also added together with a Github Action runner to check the consistency of all objects in the DRL-D every time a pull request was made on the DRL-D Github repository.
+If any of the \verb+.tex+ files fall out of sync with the rest of the project an alert is sent to the author of the pull request as well as the responsible person for the DRL-D repository.
+While this process was initially time consuming to implement, it has saved countless cumulative days of manual work checking the 
 
-Digital implementation of 
+
 
 
 \subsection{Association Matrices}
