@@ -339,7 +339,17 @@ The earlier any problems with the scheduling are identified, the easier it will 
 The METIS pipeline team passed the final design review with ESO in November 2023. 
 As part of the formal review the pipeline team was required to submit several documents, the most prominent of which was the Data Reduction Library Design, or DRL-D for short\cite{DRLD}.
 The DRL-D details all aspects of the pipeline, including:
-- the association matrices : these describe the reduction steps and required input files to process raw observation frames (FITS files) into scientifically relevant data products.See Figure \ref{fig:assoc_mat_example} 
+
+\begin{itemize}
+    \item the association matrices : section these describe the reduction steps and input files required to process raw observation frames (FITS files) into scientifically relevant data products. See Figure \ref{fig:assoc_mat_example} for an example.
+    \item the recipe definitions : these
+    \item critical algorithms : 
+    \item ``QC parameters'' : in essence derived parameters that are added to the header information of intermediate and final data products. Such derived parameters can be useful for a variety of cases, including monitoring the health of the instrument, providing extra information on the observing conditions to the end-user (astronomer), or for detailing the quality of the raw and reduced data.
+    
+
+
+    
+\end{itemize}
 
 
 
