@@ -36,8 +36,9 @@
 \authorinfo{Further author information contact Kieran Leschinski - E-mail: kieran.leschinski@univie.ac.at}
 
 % Option to view page numbers
-\pagestyle{empty} % change to \pagestyle{plain} for page numbers   
-\setcounter{page}{301} % Set start page numbering at e.g. 301
+% \pagestyle{empty} % change to \pagestyle{plain} for page numbers   
+\pagestyle{plain}
+% \setcounter{page}{301} % Set start page numbering at e.g. 301
  
 \begin{document} 
 \maketitle
@@ -54,7 +55,7 @@
 \section{Introduction}
 % ELT and METIS overview
 ELT will be the largest optical telescope ever built, and optimaised for infrared wavelength.
-It will a collecting area of almost 1000m2 with its 39m mirror 
+It will a collecting area of almost 1000m2 with its 39m mirror.
 From the outset adaptive optics were built into the operational concept, with deformable and tip-tilt mirrors part of the telescope's 5 mirror design.
 At mid-infrared wavelengths this will allow for high-strehl-ratio (> 90\%) observations at the diffraction limit of the telescope. 
 E.g. FWHM of 20mas at 3µm and 100mas at 15µm.
@@ -69,7 +70,7 @@ Table gives an overview of all the observing modes available with METIS and Bran
 The METIS data reduction pipeline (also referred to as  "the pipeline") will play the crucial role of turning usually unintelligible raw data frames into science-grade data products, with which astronomers will be able to unveil the secrets of the cool universe.
 Not only are there many observational constrains that the METIS pipeline must deal with, there are also many practical and developmental constraints imposed by the various stake holders associated with the METIS pipeline.
 
-This proceeding paper is split into the following sections. Section \ref{sec:env} will attempt to explain the operational constrains that apply to the development of the METIS pipeline. Section \ref{sec:dev} with present the arguments for developing the pipeline as part of an integrated testing architecture which includes data simulators, archives, and dedicated performance testing frameworks. Section \ref{sec:imp} details how the pipeline team intends to develop the pipeline given the various operation constraints. Section \ref{sec:pip} briefly describes the pipeline topology as detailed in the approved METIS pipeline design documents. Lastly \ref{sec:outlook} gives a outlook for the pipeline development out to the initial delivery of the pipeline to ESO in 2028.
+This proceeding paper is split into the following sections. Section \ref{sec:env} will attempt to explain the operational constrains that apply to the development of the METIS pipeline. Section \ref{sec:dev} with present the arguments for developing the pipeline as part of an integrated testing architecture which includes data simulators, archives, and dedicated performance testing frameworks. Details how the pipeline team intends to develop the pipeline given the various operation constraints are given in section \ref{sec:imp}. Section \ref{sec:pip} briefly describes the pipeline topology as detailed in the approved METIS pipeline design documents. Lastly section  \ref{sec:outlook} gives a outlook for the pipeline development out to the initial delivery of the pipeline to ESO in 2028.
 
 \section{Environmental constraints for the pipeline}
 \label{sec:env}
@@ -190,12 +191,6 @@ In addition to the use of the python ecosystem, we are taking advantage of the t
 
 The delivery schedule during the pipeline development stage is set by the ESO standards document for data flow deliveries \cite{1618}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.95\textwidth]{SPIE_paper/figures/deliveries_recipes.pdf}
-    \caption{Current delivery schedule for the METIS pipeline}
-    \label{fig:del_schedule}
-\end{figure}
 \begin{table}[]
 \caption{Release schedule for the METIS pipeline}
 \label{tab:pip_releases}
@@ -228,6 +223,14 @@ Year & Date & Version & Version description & AIV-Phase & Nearest METIS Mileston
 \hline
 \end{tabular}
 \end{table}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\textwidth]{SPIE_paper/figures/deliveries_recipes.pdf}
+    \caption{Current delivery schedule for the METIS pipeline}
+    \label{fig:del_schedule}
+\end{figure}
 
 \section{Pipeline topology}
 \label{sec:pip}
