@@ -90,7 +90,7 @@ Disclaimer: This proceedings paper was written with limited help from ChatGPT \f
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{SPIE_paper/figures/METIS_modes.png}
+    \includegraphics[width=0.9\textwidth]{SPIE_paper/figures/METIS_modes.png}
     \caption{The METIS instrument will include a multitide of observation modes, including standard imaging, long-slit and IFU spectroscopy, and high-contrast modes. The METIS pipeline must be able to handle all of these modes, and indeed also the possibility of multiple modes being used simultaneously. This figure was taken from the latest version (May 2024) of the METIS Data Reduction Library Design document \cite{DRLD}.}
     \label{fig:metis_modes}
 \end{figure}
@@ -222,13 +222,13 @@ The development of each software recipe for the METIS data reduction pipeline is
 \subsection{Integration with data simulator}
 \label{subsec:imp_sim}
 
-\missingfigure
 
 
 
 
 \subsection{Development tools}
 \label{subsec:imp_tools}
+
 ESO has shown a commitment over the last several years to move its data reduction pipeline towards a new system based on python. 
 This is evident in the recent release of the EDPS \cite{edps} and PyCPL \cite{pycpl} packages.
 These two packages are meant as replacements for the existing EsoRex and CPL systems written in C.
@@ -342,9 +342,9 @@ As part of the formal review the pipeline team was required to submit several do
 Among much other information, the DRL-D details all aspects of the pipeline needed for a successful implementation, including:
 
 \begin{itemize}
-    \item association matrices
-    \item recipe definitions
-    \item critical algorithms
+    \item Association matrices
+    \item Recipe definitions
+    \item Critical algorithms
     \item ``QC'' parameters
 \end{itemize}
 
@@ -355,10 +355,7 @@ A talented member of the pipeline team created a python module which read in all
 Additional code was also added together with a Github Action runner to check the consistency of all objects in the DRL-D every time a pull request was made on the DRL-D Github repository.
 If any of the \verb+.tex+ files fall out of sync with the rest of the project an alert is sent to the author of the pull request as well as the responsible person for the DRL-D repository.
 While this process was initially time consuming to implement, it has saved countless cumulative days of manual work checking consistency of entries in the DRL-D.
-
-Together with a separate python module that scraps the project management software Polarion for the list of AIV system tests, the DRL-D digital twin also provided the basis for automating the creation of the development schedule (See section . 
-
-
+Furthermore, together with a separate python module that scraps the project management software Polarion for the list of AIV system tests, the DRL-D digital twin also provided the basis for automating the creation of the development schedule (See section \ref{subsec:imp_schedule}). 
 
 \subsection{Association Matrices}
 
@@ -366,8 +363,8 @@ The association matrices (Chapter 4 of the DRL-D) describe the reduction steps a
 See Figure \ref{fig:assoc_mat_example} for an example. 
 An association matrix is provided for each official observing mode for METIS (see Table \ref{fig:metis_modes})
 
-
 \subsection{Pipeline Recipes}
+
 The METIS pipeline contains 44 recipes to cover the multitude of observing modes (see Table \ref{fig:metis_modes}. 
 The association matrices (Chapter 4 of the DRL-D)
 Figure \ref{fig:recipe_example} shows the graphical representation of the \verb|metis_ifu_adi_cgrph| recipe, detailed in the DRL-Design document\cite{DRLD}. 
