@@ -72,7 +72,8 @@ Not only are there many observational constrains that the METIS pipeline must de
 
 This proceeding paper is split into the following sections. Section \ref{sec:env} will attempt to explain the operational constrains that apply to the development of the METIS pipeline. Section \ref{sec:dev} with present the arguments for developing the pipeline as part of an integrated testing architecture which includes data simulators, archives, and dedicated performance testing frameworks. Details how the pipeline team intends to develop the pipeline given the various operation constraints are given in section \ref{sec:imp}. Section \ref{sec:pip} briefly describes the pipeline topology as detailed in the approved METIS pipeline design documents. Lastly section  \ref{sec:outlook} gives a outlook for the pipeline development out to the initial delivery of the pipeline to ESO in 2028.
 
-\footnote{A brief disclaimer. This proceedings paper was written with the help of ChatGPT. The main intellectual content of the paper belongs solely to the authors, as does the structure of the paper and content of each section and subsection. For each paragraph, the authors wrote down a series of bullet point. ChatGPT was used to string these together into coherent sentences. Ultimately the content and context of each paragraph was checked by the authors to make sure the original intent of the section was conveyed properly. Whether or not this ultimately }
+Disclaimer: This proceedings paper was written with the help of ChatGPT \footnote{The main intellectual content of the paper belongs solely to the authors, as does the structure of the paper and content of each section and subsection. For each paragraph, the authors wrote down a series of bullet point. ChatGPT was used to string these together into coherent sentences. Ultimately the content and context of each paragraph was checked by the authors to make sure the original intent of the section was conveyed properly. Whether or not this ultimately saved the authors any time is up for debate, but did help with reducing the mental effort of writing the paper.}.
+
 \section{Environmental constraints for the pipeline}
 \label{sec:env}
 
@@ -117,10 +118,12 @@ Coordinating efforts across different locations and ensuring seamless communicat
 If leveraged effectively, this diverse range of expertise and perspectives will hopefully significantly enhance the quality and performance of the METIS pipeline.
 
 
+
+
 \section{Need for integrated development and testing architecture}
 \label{sec:dev}
 
-\begin{itemize}
+% \begin{itemize}
     % \item - Pipeline as a single element in an integrated software ecosystem
     % \item - AIV data archive for storing AIV data and for monitoring the system integration of the METIS instrument
     % \item - AIV system integration tests monitor both functionality and performance of METIS
@@ -222,10 +225,15 @@ These two packages are meant as replacements for the existing EsoRex and CPL sys
 Given these developments, we took the decision to implement the METIS pipeline primarily in Python.
 Although Python is not known for it's computation speed, it does have several advantages in terms of  reducing the time needed by developers to code the pipeline as well as providing developers with easier to use debugging tools. 
 Because of these benefits we anticipate a reduction in the time and effort needed to develop the METIS pipeline.
-Additional benefits include the possibility of forking and including already existing third-party software for any of the tasks that are not included in the ESO stack (CPL and HDRL). 
+Additional benefits include the possibility of forking third-party python repositories and reusing already existing code for any of the tasks that are not included in the ESO stack (CPL and HDRL). 
 Example of packages which may provide such functionality to the METIS pipeline include: TIPTOP \cite{tiptop}, HEEPS \cite{HEEPS} and PyREDUCE \cite{pyreduce}
 
 In addition to the use of the python ecosystem, we are taking advantage of the tool chain provided by Github.
+
+
+
+
+
 - Utilising Github toolchain
 
 \subsection{Release schedule}
