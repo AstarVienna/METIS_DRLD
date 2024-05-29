@@ -319,14 +319,14 @@ The quarterly granularity of the schedule will help both the pipeline team, as w
 Within several release cycles is should be obvious to which extent we, the pipeline team, will be able to support the AIV activities.
 The earlier any problems with the scheduling are identified, the easier it will be to throw a couple more PhD students at the pipeline and hope the problems solve themselves.
 
-\section{Pipeline topology}
+\section{A digital pipeline design}
 \label{sec:pip}
 
 \begin{figure}
     \centering
     \includegraphics{SPIE_paper/figures/metis_ifu_assoc.png}
     \caption{Caption}
-    \label{fig:enter-label}
+    \label{fig:assoc_mat_example}
 \end{figure}
 
 \begin{figure}
@@ -336,12 +336,13 @@ The earlier any problems with the scheduling are identified, the easier it will 
     \label{fig:recipe_example}
 \end{figure}
 
-
-\subsection{The pipeline design}
-
-
-
 The METIS pipeline team passed the final design review with ESO in November 2023. 
+As part of the formal review the pipeline team was required to submit several documents, the most prominent of which was the Data Reduction Library Design, or DRL-D for short\cite{DRLD}.
+The DRL-D details all aspects of the pipeline, including:
+- the association matrices : these describe the reduction steps and required input  needed to process raw observation frames (FITS files) into scientifically relevant data products.See Figure \ref{fig:assoc_mat_example} 
+
+
+
 
 
 \subsection{Association Matrices}
@@ -351,8 +352,6 @@ The METIS pipeline team passed the final design review with ESO in November 2023
 The METIS pipeline contains 44 recipes to cover the multitude of observing modes (see Table \ref{fig:metis_modes}. 
 Figure \ref{fig:recipe_example} shows the graphical representation of the \verb|metis_ifu_adi_cgrph| recipe, detailed in the DRL-Design document\cite{DRLD}. 
 These figures and the corresponding text are used to define the critical aspects of each recipe, including expected input and output data types and contents, derived parameters to be included in the header information, as well as the basic algorithmic steps.
-
-
 
 
 - Association matrices
