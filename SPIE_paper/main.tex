@@ -65,14 +65,14 @@ These capabilities will open up countless new parameter spaces in all areas of a
 
 METIS will be the first-light MIR instrument at the ELT.
 It will offer  an array of powerful observing modes including  integral-field and long-slit spectrographs, L-M and N-band imagers, and multiple types of coronagraphs for high-contrast imaging and spectroscopy.
-Table \ref{fig:metis_modes} gives an overview of all the observing modes available with METIS and Brandl et al 2022 \cite{brandl} provides a more in-depth description of the current status of the instrument. 
+Table \ref{fig:metis_modes} gives an overview of all the observing modes available with METIS and Brandl et al 2022 \cite{metis_spie_2022} provides a more in-depth description of the current status of the instrument. 
 
 The METIS data reduction pipeline (also referred to as  ``the pipeline'') will play the crucial role of turning usually unintelligible raw data frames into science-grade data products, with which astronomers will be able to unveil the secrets of the cool universe.
 Not only are there many observational constrains that the METIS pipeline must deal with, there are also many practical and developmental constraints imposed by the various stake holders associated with the METIS pipeline.
 
 This proceeding paper is split into the following sections. Section \ref{sec:env} will attempt to explain the operational constrains that apply to the development of the METIS pipeline. Section \ref{sec:dev} with present the arguments for developing the pipeline as part of an integrated testing architecture which includes data simulators, archives, and dedicated performance testing frameworks. Details how the pipeline team intends to develop the pipeline given the various operation constraints are given in section \ref{sec:imp}. Section \ref{sec:pip} briefly describes the pipeline topology as detailed in the approved METIS pipeline design documents. Lastly section  \ref{sec:outlook} gives a outlook for the pipeline development out to the initial delivery of the pipeline to ESO in 2028.
 
-Disclaimer: This proceedings paper was written with the help of ChatGPT \footnote{The main intellectual content of the paper belongs solely to the authors, as does the structure of the paper and content of each section and subsection. For each paragraph, the authors wrote down a series of bullet point. ChatGPT was used to string these together into coherent sentences. Ultimately the content and context of each paragraph was checked by the authors to make sure the original intent of the section was conveyed properly. Whether or not this ultimately saved the authors any time is up for debate, but did help with reducing the mental effort of writing the paper.}.
+Disclaimer: This proceedings paper was written with limited help from ChatGPT \footnote{The main intellectual content of the paper belongs solely to the authors, as does the structure of the paper and content of each section and subsection. For each paragraph, the authors wrote down a series of bullet points. ChatGPT was used to string these together into coherent sentences. Ultimately the content and context of each paragraph was checked by the authors to make sure the original intent of the section was conveyed properly. Whether or not this ultimately saved the authors any time is up for debate, but it did help with reducing the mental effort of writing the paper.}.
 
 \section{Environmental constraints for the pipeline}
 \label{sec:env}
@@ -95,7 +95,7 @@ Disclaimer: This proceedings paper was written with the help of ChatGPT \footnot
 \end{figure}
 
 
-As with every astronomical instrument, METIS is not being built in a vacuum. 
+As with every astronomical instrument, METIS is not being built in a vacuum\footnote{There is an obligitory pun intended as the evacuated cryostat of METIS indeed comes very close to providing a full}. 
 There are many and varied outside factors which influence both the design and the development of the pipeline, from the physical characteristics of the instrument to the external interfaces and frameworks within which the pipeline must operate.
 
 First and foremost, the Top Level Requirements (TLRs) for METIS \cite{ESO-257869} establish the boundary conditions for the METIS pipeline.
