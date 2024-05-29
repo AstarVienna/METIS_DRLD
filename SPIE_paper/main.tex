@@ -223,8 +223,12 @@ The development of each software recipe for the METIS data reduction pipeline is
 \label{subsec:imp_sim}
 
 Both unit testing and integration testing are much easier when there is a sufficient supply of realistic test data.
-The ScopeSim instrument data simulator\cite{scopesim} is able to 
-The METIS pipeline team 
+The ScopeSim\footnote{\url{https://scopesim.readthedocs.io/en/stable/}} instrument data simulator\cite{scopesim} is able to provide an almost unlimited stream of mock data frames for all observation modes of METIS\footnote{The elephant in the room, the HCI modes, are almost complete and will be included in one of the next ScopeSim releases.}.
+Luckily the developers of ScopeSim are also members of the METIS pipeline team.
+The METIS pipeline team can therefore take full advantage of the functionality included in the ScopeSim python packages.
+
+To aid the development of the pipeline, we have automated the creation of simulated raw data for all METIS modes.
+These data products are updated whenever there a pull request to
 
 
 
