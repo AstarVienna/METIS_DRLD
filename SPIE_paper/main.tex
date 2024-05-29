@@ -233,9 +233,15 @@ The \verb+METIS_simulations+ package is installed on the pipeline production ser
 The motivation behind creating a python package to do generate the test data set is two fold:
 \begin{enumerate}
     \item The normal advantages of version control, traceability, and ability to upgrade functionality mean that we can add or change the contents of the test data sets, or create new sets with differing characteristics (pixel data, header information, etc) without needing to wade through and (re)understand loose outdated scripts and backing up large data sets.
-    \item Every member of the pipeline team can install the package in the local python environment and generate locally their own set of test data. This in turn allows local tests to differ from the ``primarly'' dataset, and encourages the team members to create and test edge cases that will otherwise not be covered. If deemed useful, the team members can then create a pull request to add their custom dataset to the primarly 
+    \item Every member of the pipeline team can install the package in the local python environment and generate locally their own set of test data. This in turn allows local tests to differ from the ``primarly'' dataset, and encourages the team members to create and test edge cases that will otherwise not be covered. If deemed useful, the team members can then create a pull request to add their custom dataset to the package so that eventually it also gets folded into the nightly testing runs.
 \end{enumerate}
 
+Further motivation for integrating the instrument simulator package into the pipeline development comes from the inclusion of the METIS science team in the pipeline development activities.
+By using the same tool that that science team members are (should be) using, science team member can ask the pipeline team to include realistic science cases in the test suite of the pipeline.
+This approach benefits both teams equally.
+Science team members will be able to see well in advance of METIS going on sky whether their proposed observation will be successful or not. 
+It also allows them to voice their concerns or wishes about which algorithms are offered at each step of the reduction.
+Essentially front
 
 
 
