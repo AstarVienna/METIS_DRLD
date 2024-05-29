@@ -92,13 +92,23 @@ First and foremost, the Top Level Requirements (TLRs) for METIS \cite{ESO-257869
 These scientific and technical performance requirements will ensuring that the pipeline processes data to the levels necessary for accurate and reliable scientific output. 
 The aim of the pipeline team here is to provide a trustworthy tool chain to the astronomical community and to enable a level of scientific discovery worthy of a first-light instrument at the ELT. 
 
-While supporting AIV activities is not an official requirement of the pipeline, it is a useful method to both keep the pipeline development on schedule and keep the functionality aligned with the needs of the instrument. The METIS AIV team is expecting to be able to use parts of the the METIS pipeline to monitor and evaluate the instrument's performance, By leveraging the pipeline, the team will be able to continuously track the behavior of METIS, identify any issues early, and make necessary adjustments . This ongoing monitoring is vital for the successful deployment and operation of METIS, ensuring that all components function correctly before the instrument is operational.
+While supporting AIV activities is not an official requirement of the pipeline, it is a useful method to both keep the pipeline development on schedule and keep the functionality aligned with the needs of the instrument. 
+The METIS AIV team is expecting to be able to use parts of the the METIS pipeline to monitor and evaluate the instrument's performance.
+By leveraging the pipeline, the team will be able to continuously track the behavior of METIS, identify any issues early, and make necessary adjustments . 
+This ongoing monitoring is vital for the successful deployment and operation of METIS, ensuring that all components function correctly before the instrument is operational.
 
-During the AIV phase, the pipeline will be required to provide functionality at different levels of readiness to facilitate thorough testing and validation of the instrument. To this end the pipeline (and the pipeline team) must remain sufficiently flexible in order to be iterate effectively with the AIV team through out the integration activities.
+During the AIV phase, the pipeline will be required to provide functionality at different levels of readiness to facilitate thorough testing and validation of the instrument. 
+To this end the pipeline (and the pipeline team) must remain sufficiently flexible in order to be iterate effectively with the AIV team through out the integration activities.
 
-Considering that the European Southern Observatory (ESO) anticipates METIS to remain on-sky for several decades, the pipeline must be designed for long-term functionality and reliability. It should be robust enough to support the instrument throughout its operational life, maintaining high performance and adapting to any future changes or upgrades. The longevity of the pipeline is as crucial as the durability of the instrument itself, ensuring sustained scientific productivity.
+Considering that the European Southern Observatory (ESO) anticipates METIS to remain on-sky for several decades, the pipeline must be designed for long-term functionality and reliability. 
+It should be robust enough to support the instrument throughout its operational life, maintaining high performance and adapting to any future changes or upgrades. 
+The longevity of the pipeline is as crucial as the durability of the instrument itself, ensuring sustained scientific productivity.
 
-ESO has recently introduced a new set of python-based tools for developing data reduction pipelines, specifically EDPS \cite{edps} and PyCPL \cite{pycpl}. The METIS pipeline team recognises that Python tools wil, as the implementation efforts must align with these new standards. Utilizing EDPS and PyCPL will likely streamline the development process, enhance integration with existing ESO tools, and ensure future compatibility and support.
+ESO has recently introduced a new set of python-based tools for developing data reduction pipelines, specifically EDPS \cite{edps} and PyCPL \cite{pycpl}. 
+The METIS pipeline team recognises that a python-based tool chain will enable a much greater adoption among the astronomical community, and will (gladly) use the new ESO framework for developling the METIS pipeline. 
+Utilizing Python, EDPS, and PyCPL should also help to streamline the development process and ensure future compatibility and support from ESO.
+The expected downside to adopting the new python-based framework is the lack of previous experience within the community.
+This can however be seen as a hidden opportunity
 
 Finally, it is important to note that the pipeline development for METIS involves a highly distributed team. Coordinating efforts across different locations and ensuring seamless communication and collaboration is essential for the project's success. The distributed nature of the team can bring diverse expertise and perspectives, which, if managed effectively, can significantly enhance the development and implementation of the METIS pipeline.
 
