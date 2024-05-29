@@ -227,8 +227,15 @@ The ScopeSim\footnote{\url{https://scopesim.readthedocs.io/en/stable/}} instrume
 Luckily the developers of ScopeSim are also members of the METIS pipeline team.
 The METIS pipeline team can therefore take full advantage of the functionality included in the ScopeSim python packages.
 
-To aid the development of the pipeline, we have automated the creation of simulated raw data for all METIS modes.
-These data products are updated whenever there a pull request to the ``METIS_simulations'' repo
+To aid the development of the pipeline, we have created a python package which automatically generated a set of simulated raw data frames for all METIS modes defined in the configuration YAML files.
+Currently the package is configured to only create the raw readout files, but in the future the ability to also generate intermediate or partially reduced files will be added.
+The \verb+METIS_simulations+ package is installed on the pipeline production server so that the production code will always have the an up-to-date source of simulated files to work with.
+The motivation behind creating a python package to do generate the test data set is two fold:
+\begin{enumerate}
+    \item The normal advantages of version control, tracability, 
+\end{enumerate}
+
+
 
 
 
