@@ -75,16 +75,30 @@ This proceeding paper is split into the following sections. Section \ref{sec:env
 \section{Environmental constraints for the pipeline}
 \label{sec:env}
 
+% \begin{itemize}
+%     \item - METIS TLR for performance dictate the level to which the METIS pipeline must process data
+%     \item - Pipeline is to also support AIV activities
+%     \item - Pipeline will need to be able to have functionality available at different levels through out AIV to enable testing
+%     \item - AIV team will use pipeline to monitor performance of METIS during the integration phase
+%     \item - ESO is expecting METIS to be on-sky for decades, pipeline must work for this length too
+%     \item - ESO is rolling out new pipeline tool chains in python: EDPS, PyCPL. This affects the implementation efforts
+%     \item - PIP is a very distributed team
+% \end{itemize}
 
-\begin{itemize}
-    \item - METIS TLR for performance dictate the level to which the METIS pipeline must process data
-    \item - Pipeline is to also support AIV activities
-    \item - Pipeline will need to be able to have functionality available at different levels through out AIV to enable testing
-    \item - AIV team will use pipeline to monitor performance of METIS during the integration phase
-    \item - ESO is expecting METIS to be on-sky for decades, pipeline must work for this length too
-    \item - ESO is rolling out new pipeline tool chains in python: EDPS, PyCPL. This affects the implementation efforts
-    \item - PIP is a very distributed team
-\end{itemize}
+The scientific and technical performance requirements for METIS, as outlined in the Top Level Requirements (TLRs), establish the standards for data processing by the METIS pipeline. These standards ensure that the pipeline processes data to the precise levels necessary for accurate and reliable scientific output. The pipeline must not only meet these high-performance benchmarks but also seamlessly integrate with various activities associated with Assembly, Integration, and Verification (AIV).
+
+Supporting AIV activities is a critical function of the METIS pipeline. During the AIV phase, the pipeline will be required to provide functionality at different levels to facilitate thorough testing and validation. This means that the pipeline must be adaptable, allowing the AIV team to engage with it at various stages of integration and verification. The ability to access and utilize the pipeline's capabilities progressively will be essential for ensuring that METIS performs optimally once fully assembled.
+
+The AIV team will rely heavily on the METIS pipeline to monitor and evaluate the instrument's performance throughout the integration phase. By leveraging the pipeline, the team can continuously track the system's behavior, identify any issues early, and make necessary adjustments. This ongoing monitoring is vital for the successful deployment and operation of METIS, ensuring that all components function correctly before the instrument is operational.
+
+Considering that the European Southern Observatory (ESO) anticipates METIS to remain on-sky for several decades, the pipeline must be designed for long-term functionality and reliability. It should be robust enough to support the instrument throughout its operational life, maintaining high performance and adapting to any future changes or upgrades. The longevity of the pipeline is as crucial as the durability of the instrument itself, ensuring sustained scientific productivity.
+
+ESO is currently implementing new pipeline toolchains, specifically EDPS and PyCPL, both of which are based on Python. This transition affects the METIS pipeline development, as the implementation efforts must align with these new standards. Utilizing EDPS and PyCPL will likely streamline the development process, enhance integration with existing ESO tools, and ensure future compatibility and support.
+
+Finally, it is important to note that the pipeline development for METIS involves a highly distributed team. Coordinating efforts across different locations and ensuring seamless communication and collaboration is essential for the project's success. The distributed nature of the team can bring diverse expertise and perspectives, which, if managed effectively, can significantly enhance the development and implementation of the METIS pipeline.
+
+ 
+
 
 \section{Need for integrated development and testing architecture}
 \label{sec:dev}
