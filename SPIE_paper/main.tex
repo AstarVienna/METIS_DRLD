@@ -10,6 +10,7 @@
 \usepackage{lipsum}
 \usepackage{pdfpages}
 \usepackage{verbatim}
+\usepackage{textgreek}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \title{Implementation plans for the data reduction pipeline for METIS at the ELT}
@@ -48,12 +49,12 @@
 
 \begin{abstract}
 METIS will be the first-light mid-infrared instrument at the ELT.
-Given the expected performance of the ELT's adaptive optics correction, METIS will be probing a regions of the sky previously unaccessible to astronomers.
+Given the expected performance of the ELT's adaptive optics correction, METIS will be probing a regions of the sky previously inaccessible to astronomers.
 In support of both the METIS integration and verification efforts as well as the astronomical community at large, the METIS pipeline team is begun work on the METIS data reduction pipeline.
 The METIS pipeline will be written mostly in Python to take advantage of the new data reduction tools released by ESO.
 The development schedule has been set in such a way that the pipeline team will be able to directly support the testing and verification efforts during the upcoming system integration phase for METIS.
 In order to ensure that the required pipeline functionality is available when it is needed, the development of recipes and workflows has been broken down into four levels of functionality: skeleton, functional, performance, and science-grade. 
-This b
+This breakdown aims to ensure a more agile approach to the pipeline implementation as well as enabling productive contributions from all members of the highly geographically distributed team.
 
 
 
@@ -71,7 +72,7 @@ The ELT (Extremely Large Telescope) will be the largest optical telescope ever c
 It will feature a 39-meter mirror, collecting light over a nearly 1000-square-meter area. 
 Adaptive optic capabilities were integrated into the operational design from the beginning, employing deformable and tip-tilt mirrors within its five-mirror system. 
 Such a design will enable the ELT to achieve high Strehl ratio observations (greater than 90\%) at the diffraction limit in mid-infrared wavelengths. 
-For instance, a full width at half maximum (FWHM) of 20 milliarcseconds at 3 micrometers and 100 milliarcseconds at 15 micrometers should be achievable by METIS. 
+For instance, a full width at half maximum (FWHM) of 20\,mas at 3\,\textmu m and 100\,mas at 15\,\textmu m should be achievable by METIS. 
 These capabilities will open up countless new parameter spaces in all areas of astronomy and astrophysics
 
 %Overview of METIS
