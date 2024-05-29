@@ -67,7 +67,7 @@ METIS will be the first-light MIR instrument at the ELT.
 It will offer  an array of powerful observing modes including  integral-field and long-slit spectrographs, L-M and N-band imagers, and multiple types of coronagraphs for high-contrast imaging and spectroscopy.
 Table gives an overview of all the observing modes available with METIS and Brandl et al 2022 <insert refs here> provides a more in-depth description of the current status of the instrument. 
 
-The METIS data reduction pipeline (also referred to as  "the pipeline") will play the crucial role of turning usually unintelligible raw data frames into science-grade data products, with which astronomers will be able to unveil the secrets of the cool universe.
+The METIS data reduction pipeline (also referred to as  ``the pipeline'') will play the crucial role of turning usually unintelligible raw data frames into science-grade data products, with which astronomers will be able to unveil the secrets of the cool universe.
 Not only are there many observational constrains that the METIS pipeline must deal with, there are also many practical and developmental constraints imposed by the various stake holders associated with the METIS pipeline.
 
 This proceeding paper is split into the following sections. Section \ref{sec:env} will attempt to explain the operational constrains that apply to the development of the METIS pipeline. Section \ref{sec:dev} with present the arguments for developing the pipeline as part of an integrated testing architecture which includes data simulators, archives, and dedicated performance testing frameworks. Details how the pipeline team intends to develop the pipeline given the various operation constraints are given in section \ref{sec:imp}. Section \ref{sec:pip} briefly describes the pipeline topology as detailed in the approved METIS pipeline design documents. Lastly section  \ref{sec:outlook} gives a outlook for the pipeline development out to the initial delivery of the pipeline to ESO in 2028.
@@ -90,7 +90,7 @@ Disclaimer: This proceedings paper was written with the help of ChatGPT \footnot
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{SPIE_paper/figures/METIS_modes.png}
-    \caption{The METIS instrument will include a multitide of observation modes, including standard imaging, long-slit and IFU spectroscopy, and high-contrast modes. The METIS pipeline must be able to handle all of these modes, and indeed also the possibility of multiple modes being used simultaneously. This figure was taken from the latest version of the METIS Data Reduction Design document \cite{DRLD}.}
+    \caption{The METIS instrument will include a multitide of observation modes, including standard imaging, long-slit and IFU spectroscopy, and high-contrast modes. The METIS pipeline must be able to handle all of these modes, and indeed also the possibility of multiple modes being used simultaneously. This figure was taken from the latest version (May 2024) of the METIS Data Reduction Library Design document \cite{DRLD}.}
     \label{fig:metis_modes}
 \end{figure}
 
@@ -214,13 +214,14 @@ The development of each software recipe for the METIS data reduction pipeline is
 
      \item \textbf{Performance recipes} will have reached an advanced stage of development. They incorporate all expected functionalities and can handle various edge cases encountered during scientific operations. These recipes are designed to process raw data to meet the performance standards defined in the METIS science top-level requirements. However, testing is limited to simulated data and data collected during AIV testing runs. While this approach allows for thorough lab testing, it does not replicate all potential challenges encountered during actual observations. Nonetheless, achieving performance-level recipes represents significant progress toward readiness for deployment with the METIS instrument on the Extremely Large Telescope. 
 
-     \item \textbf{Science-Grade recipes}: In an ideal scenario, science recipes would mirror the capabilities of performance recipes, as thorough lab testing would have accounted for all possible edge cases. However, the reality of on-sky testing during the METIS commissioning run may unveil unexpected challenges. This could necessitate upgrades or even complete redesigns of various algorithms to ensure optimal performance in real-world conditions. A recipe will only earn the classification of "science grade" once it has undergone testing with on-sky data, and the resulting reduced data products align with the scientific performance targets outlined in the METIS Top-Level Requirements (TLRs). This iterative process underscores the importance of rigorous testing and adaptation to ensure that METIS can deliver scientifically meaningful results once operational. 
+     \item \textbf{Science-Grade recipes}: In an ideal scenario, science recipes would mirror the capabilities of performance recipes, as thorough lab testing would have accounted for all possible edge cases. However, the reality of on-sky testing during the METIS commissioning run may unveil unexpected challenges. This could necessitate upgrades or even complete redesigns of various algorithms to ensure optimal performance in real-world conditions. A recipe will only earn the classification of ``science grade'' once it has undergone testing with on-sky data, and the resulting reduced data products align with the scientific performance targets outlined in the METIS Top-Level Requirements (TLRs). This iterative process underscores the importance of rigorous testing and adaptation to ensure that METIS can deliver scientifically meaningful results once operational. 
  \end{enumerate}
 
 
 \subsection{Integration with data simulator}
 \label{subsec:imp_sim}
 
+\missingfigure
 
 
 
@@ -259,7 +260,12 @@ Time will tell whether the echos of the Covid era will prove the distributed-tea
 \subsection{Release schedule}
 \label{subsec:imp_schedule}
 
-The delivery schedule during the pipeline development stage is set by the ESO standards document for data flow deliveries \cite{1618}
+The delivery schedule during the pipeline development stage is set by the ESO standards document for data flow deliveries \cite{1618}. 
+This dictates that the pipeline team (unless otherwise agreed) will deliver and updated version of the data reduction library (DRL) every three months starting 12 months after the final design review and extending until the pipeline is officially accepted by ESO.
+The first release of a full pipeline is expected at the milestone for ``Preliminary Acceptance Europe''.
+The devil is in the detail though.
+The definition of a ``full'' pipeline does not necessarily mean a finished pipeline.
+A ``full'' pi
 
 \begin{table}[]
 \caption{Release schedule for the METIS data reduction pipeline software.}
@@ -271,7 +277,7 @@ Year & Date & Version & Version description & AIV-Phase & Nearest METIS Mileston
 \hline
 {2024}          & 15. Nov.      & v0.1             & ESO : Skeleton functional      &                                        & ESO 1st pipeline skeleton delivery   \\
 \hline
-{2025}          & 15. Feb.      & v0.2             & AIV-A: Skeleton integrated"    & 10                 & AIV Hall PIP workstation integration \\
+{2025}          & 15. Feb.      & v0.2             & AIV-A: Skeleton integrated    & 10                 & AIV Hall PIP workstation integration \\
                                   & 15. Mai       & v0.2.1           & AIV-A: Skeleton engineering  &                                        &                                      \\
                                   & 15. Aug.      & v0.2.2           & AIV-A: Skeleton LMS           &                                        &                                      \\
                                   & 15. Nov.      & v0.2.3           & AIV-C : LMS functional       & {250}                & LMS Cold Functional test             \\
