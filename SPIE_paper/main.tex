@@ -277,7 +277,7 @@ These two packages are meant as replacements for the existing EsoRex and CPL sys
 Given these developments, we took the decision to implement the METIS pipeline primarily in Python.
 Although Python is not known for its computation speed, it does have several advantages in terms of reducing the time needed by developers to code the pipeline as well as providing developers with easy-to-use debugging tools. 
 Because of these benefits we anticipate a reduction in the time and effort needed to develop the METIS pipeline.
-Additional benefits include the possibility of forking third-party python repositories and reusing already existing code for any of the tasks that are not included in the ESO stack (CPL and HDRL). 
+Additional benefits include the possibility of easily forking from Github third-party python repositories and reusing already existing code for any of the tasks that are not included in the ESO stack (CPL and HDRL). 
 Example of packages which may provide such functionality to the METIS pipeline include: TIPTOP \cite{tiptop}, HEEPS \cite{HEEPS} and PyREDUCE \cite{pyreduce}
 
 In addition to the use of the python ecosystem, we are taking advantage of the tool chain provided by Github. 
@@ -288,7 +288,7 @@ This has given us a clear and organized way to manage and trace work.
 We are also using the Github-Projects feature to visualize and manage the development workflow. 
 This makes it easier to see the status of tasks at a glance and ensure the pipeline development stay on track.
 
-We take full advantage of are the GitHub Actions service too. 
+We also take full advantage of the GitHub Actions service. 
 Github Actions allow us to automate the Continuous Integration process for the development of the pipeline. 
 This automation should enhance code quality and speed up the development cycle by ensuring the test suite is run every time a pull request is made. 
 
@@ -347,7 +347,7 @@ Year & Date & Version & Version description & AIV-Phase & Nearest METIS Mileston
 
 
 The delivery schedule during the pipeline development stage is set by the ESO standards document for data flow deliveries \cite{1618}. 
-This dictates that the pipeline team (unless otherwise agreed) will deliver and updated version of the data reduction library (DRL) every three months starting 12 months after the final design review and extending until the pipeline is officially accepted by ESO.
+This dictates that the pipeline team (unless otherwise agreed) will deliver an updated version of the data reduction library (DRL) every three months starting 12 months after the final design review and extending until the pipeline is officially accepted by ESO.
 
 The first release of a full pipeline is expected at the milestone for ``Preliminary Acceptance Europe''.
 The devil is in the detail though.
@@ -356,7 +356,7 @@ A ``full'' pipeline refers to a pipeline which covers all observation modes and 
 Indeed many of the algorithms will not be complete (e.g. spectroscopic sky background subtraction) because there will be no chance before PAE to test the pipeline on-sky. 
 As stated before, the pipeline team will make heavy use of the instrument simulator (ScopeSim), but artificial test data and data taken using the warm calibration unit will only allow a subset of the performance tests to be run.
 For this reason we fully expect to continue updating the algorithms in the pipeline well after METIS goes on sky.
-Nevertheless the release schedule proposed in Table \ref{tab:pip_releases} and shown graphically in Figure \ref{fig:pip_releases}.
+The release schedule proposed in Table \ref{tab:pip_releases} and shown graphically in Figure \ref{fig:pip_releases} however only covers the time until METIS goes on sky in 2028.
 
 The quarterly granularity of the schedule will help both the pipeline team, as well as the METIS management and the ESO follow up team, keep track of the progress of the pipeline. 
 Within several release cycles is should be obvious to which extent we, the pipeline team, will be able to support the AIV activities.
