@@ -246,10 +246,10 @@ The METIS pipeline team can therefore take full advantage of the functionality i
 To aid the development of the pipeline, we have created a python package which automatically generates a set of simulated raw data frames for all METIS modes defined in the configuration YAML files.
 Currently the package is configured to only create the raw readout files, but in the future the ability to also generate intermediate or partially reduced files will be added.
 The \verb+METIS_simulations+ package is installed on the pipeline production server so that the production code will always have the an up-to-date source of simulated files to work with.
-The motivation behind creating a python package to do generate the test data set is two fold:
+The motivation behind creating a python package to generate the test data set is two-fold:
 \begin{enumerate}
-    \item The normal advantages of version control, traceability, and ability to upgrade functionality mean that we can add or change the contents of the test data sets, or create new sets with differing characteristics (pixel data, header information, etc) without needing to wade through and (re)understand loose outdated scripts and backing up large data sets.
-    \item Every member of the pipeline team can install the package in the local python environment and generate locally their own set of test data. This in turn allows local tests to differ from the ``primarly'' dataset, and encourages the team members to create and test edge cases that will otherwise not be covered. If deemed useful, the team members can then create a pull request to add their custom dataset to the package so that eventually it also gets folded into the nightly testing runs.
+    \item The normal advantages of version control, traceability, and ability to upgrade functionality mean that we can add or change the contents of the test data sets, or create new sets with differing characteristics (pixel data, header information, etc) without needing to wade through and (re)understand loose outdated scripts, all the while backing up large data sets.
+    \item Every member of the pipeline team can install the package in their local python environment and generate locally their own set of test data. This in turn allows local tests to differ from the ``primarly'' dataset, and encourages the team members to create and test edge cases that will otherwise not be covered. If deemed useful, the team members can then create a pull request to add their custom dataset to the package so that eventually it also gets folded into the nightly test runs.
 \end{enumerate}
 
 Further motivation for integrating the instrument simulator package into the pipeline development comes from the inclusion of the METIS science team in the pipeline development activities.
@@ -258,13 +258,14 @@ This approach benefits both teams equally.
 Science team members will be able to see well in advance of METIS going on sky whether their proposed observation will be successful or not. 
 It also allows them to voice their concerns or wishes about which algorithms are offered at each step of the reduction.
 Essentially front-row tickets to the show that is the pipeline development.
-The symbiotic flip-side to this arrangement is that the pipeline team is able to use the best ``toy-models'' around as input for the pipeline.
-This is equivalent to being able to test the pipeline on the most realistic versions of simulated data.
-By doing so the pipeline team will also be testing the data reduction algorithms under conditions that are as close to ``real-world'' examples as can be expected while the actual instrument is still being assembled.
+The symbiotic flip-side to this arrangement is that the pipeline team is able to use the best models around as input for the pipeline.
+% This is equivalent to being able to test the pipeline on the most realistic versions of simulated data.
+By doing so the pipeline team will be able to test the data reduction algorithms under conditions that are as close to ``real-world'' examples as can be expected while the actual instrument is still being assembled.
 
 Integration between pipeline and simulator is further facilitated by the fact that both pieces of software are primarily based in python.
 This fact alone reduces the friction between the to two pieces of software to practically zero.
-Furthermore, the benefit to having each piece of software as the others ``best customer'' is that each package must necessarily continue to develop in order to meet the evolving needs of the other one, introducing a certain about of positive feedback into the system.
+Furthermore, the benefit to having each piece of software as the others ``best customer'' is that each package must necessarily continue to develop in order to meet the evolving needs of the other
+This introduces a certain about of positive feedback into the development cycles of each piece of software.
 
 
 \subsection{Development tools}
@@ -274,7 +275,7 @@ ESO has shown a commitment over the last several years to move its data reductio
 This is evident in the recent release of the EDPS \cite{edps} and PyCPL \cite{pycpl} packages.
 These two packages are meant as replacements for the existing EsoRex and CPL systems written in C.
 Given these developments, we took the decision to implement the METIS pipeline primarily in Python.
-Although Python is not known for it's computation speed, it does have several advantages in terms of reducing the time needed by developers to code the pipeline as well as providing developers with easy-to-use debugging tools. 
+Although Python is not known for its computation speed, it does have several advantages in terms of reducing the time needed by developers to code the pipeline as well as providing developers with easy-to-use debugging tools. 
 Because of these benefits we anticipate a reduction in the time and effort needed to develop the METIS pipeline.
 Additional benefits include the possibility of forking third-party python repositories and reusing already existing code for any of the tasks that are not included in the ESO stack (CPL and HDRL). 
 Example of packages which may provide such functionality to the METIS pipeline include: TIPTOP \cite{tiptop}, HEEPS \cite{HEEPS} and PyREDUCE \cite{pyreduce}
