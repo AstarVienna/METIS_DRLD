@@ -389,19 +389,18 @@ As such a digital twin of the document was created to automate the process of co
 A talented member of the pipeline team created a python module which read in all the latex files associated with the DRL-D and created python objects for each recipe and data item. 
 Additional code was also added together with a Github Action runner to check the consistency of all objects in the DRL-D every time a pull request was made on the DRL-D Github repository.
 If any of the \verb+.tex+ files fall out of sync with the rest of the project an alert is sent to the author of the pull request as well as the responsible person for the DRL-D repository.
-While this process was initially time consuming to implement, it has saved countless cumulative days of manual work checking consistency of entries in the DRL-D.
-Furthermore, together with a separate python module that scraps the project management software Polarion for the list of AIV system tests, the DRL-D digital twin also provided the basis for automating the creation of the development schedule (See section \ref{subsec:imp_schedule}). 
+While this process was initially time consuming to implement, it has saved countless cumulative days of manual work checking the consistency of entries in the DRL-D.
+Furthermore, together with a separate python module that scraps the project management software Polarion for the list of AIV system tests, the DRL-D digital twin also provides the basis for the automatic creation of the development schedule (See section \ref{subsec:imp_schedule}). 
 
 \subsection{Association Matrices}
 
 The association matrices (Chapter 4 of the DRL-D) describe the reduction steps and input files required to process raw observation frames (FITS files) into scientifically relevant data products. 
 See Figure \ref{fig:assoc_mat_example} for an example. 
-An association matrix is provided for each official observing mode for METIS (see Table \ref{fig:metis_modes})
+An association matrix is provided for each official observing mode for METIS (see Table \ref{fig:metis_modes}).
 
 \subsection{Pipeline Recipes}
 
-The METIS pipeline contains 44 recipes to cover the multitude of observing modes (see Table \ref{fig:metis_modes}. 
-The association matrices (Chapter 4 of the DRL-D)
+The METIS pipeline contains 44 recipes to cover the multitude of observing modes. 
 Figure \ref{fig:recipe_example} shows the graphical representation of the \verb|metis_ifu_adi_cgrph| recipe, detailed in the DRL-Design document\cite{DRLD}. 
 These figures and the corresponding text are used to define the critical aspects of each recipe, including expected input and output data types and contents, derived parameters to be included in the header information, as well as the basic algorithmic steps.
 
@@ -409,7 +408,7 @@ These figures and the corresponding text are used to define the critical aspects
 
 Quality control parameters are in essence derived parameters which are added to the header information of intermediate and final data products. 
 Such derived parameters are useful for a variety of cases, including monitoring the health of the instrument, providing extra information on the observing conditions to the end-user (astronomer), or for detailing the quality of the raw and reduced data.
-The term ``QC'' parameter is used pretty loosely and, depending on context, can cover all the use cases described here for additional FITS header keywords. 
+The term ``QC'' parameter is used pretty loosely and, depending on context, can cover all the use cases described above for additional FITS header keywords. 
 We, the METIS pipeline team, would like to use this public forum to advocate for an increased usage of case specific terminology when referring to such additions to the FITS header. 
 The terms ``instrument health parameters'', ``derived performance parameters'', and ``quality control parameters'' might help alleviate much of the confusion surrounding the definition and origin of these header keywords.
 
@@ -417,7 +416,7 @@ The terms ``instrument health parameters'', ``derived performance parameters'', 
 \section{Outlook until PAE}
 \label{sec:outlook}
 
-Although nominally there are still three and a half years until the delivery of the first full pipeline to ESO, there is much work to be done and already some are worried about whether there is indeed enough time and person-power allocated to meet this deadline. 
+Although nominally there are still three and a half years until the delivery of the first full pipeline to ESO, there is much work to be done. Several worried voices are already concerned with whether there is indeed enough time and person-power allocated to the pipeline team to meet this deadline. 
 More immediate is the need to be ready for the AIV activities that are kicking off at the start of 2025 at the METIS integration hall in Leiden.
 
 As detailed in section \ref{subsec:imp_schedule}, the pipeline team will release updates to the DRL every 3 months until the pipeline is accepted. 
