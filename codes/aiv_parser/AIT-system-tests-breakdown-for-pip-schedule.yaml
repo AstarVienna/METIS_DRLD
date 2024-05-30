@@ -203,8 +203,12 @@
             metis_det_lingain : perf
             metis_det_dark : perf
         comments : |
-            Only what is needed for the LMS detectors (i.e the HAWAII-2RGs)
-            Originally in AIT-330
+            - Only what is needed for the LMS detectors (i.e the HAWAII-2RGs)
+            - Originally in AIT-330
+            - Determining Dark, RON, Flats, Lin-gain, Saturation, deviant pixels
+        archive_reqs :
+            raw_data_dump : large
+            processed_data_dump : small
 
     -   polarion_id : METIS-10750
         name : OPT_Robustness of wavelength calibration
@@ -216,7 +220,10 @@
             metis_ifu_postprocess : func
         comments : |
             To test the repeatability of the wavelength solution after moving the various mechanisms. Pixel positions of laser emission lines needs to be tested
-            Originally in AIT-330          
+            Originally in AIT-330
+        archive_reqs :
+            raw_data_dump : small
+            processed_data_dump : small
 
     -   polarion_id : METIS-9827
         name : OPT_System Alignment

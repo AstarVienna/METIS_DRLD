@@ -2,9 +2,11 @@ import numpy as np
 import yaml
 from pathlib import Path
 from copy import copy
+from matplotlib import pyplot as plt
+from matplotlib.colors import LogNorm
 
 
-from codes.aiv_parser.aiv_mapping import AivMap, RECIPES, DATA_ITEMS, INV_VALS, DRLD
+from codes.aiv_parser.aiv_mapping import AivMap, RECIPES, DATA_ITEMS, INV_VALS, VALS
 AIV_MAP = AivMap()
 
 
@@ -183,10 +185,67 @@ class DeliveryScheduler:
         with open(filename, "w") as f:
             f.write(self.latex_for_delivery_schedule)
 
+    def delv_dict_matrix(self, delv_dict):
+        mat = np.zeros([len(delv_dict), len(RECIPES)])
+        for j, delv in delv_dict.items():
+            for i, rec in enumerate(RECIPES):
+                mat[j, i] = VALS[delv["pip_recipes"][rec]] if rec in delv["pip_recipes"] else 0
+
+        mat = np.array(mat).T
+        return mat
+
+    def plot_delv_matrix(self, filename=None):
+        dd = self.delivery_dict
+        mat = self.delv_dict_matrix(dd)
+        # Sort by leading zeros
+        leading_zeros = [np.where(row > 0)[0][0]
+                         if row.max() > 0 else mat.shape[1] for row in mat]
+        idx = np.argsort(leading_zeros[:])
+        mat[:, :] = mat[:, :][idx, :]
+
+        recipes = list(RECIPES.keys())
+        y_tick_labels = [recipes[i] for i in idx]
+
+        figsize = (10, 15)
+        gridspec_kw = {'height_ratios': [5, 1]}
+        fig, axs = plt.subplots(2, 1, figsize=figsize,
+                                gridspec_kw=gridspec_kw)
+
+        plt.sca(axs[0])
+        plt.imshow(mat, cmap="jet", norm=LogNorm())
+
+        x_values = [f"{year}.{month:02d}.{15}"
+                    for year in range(2024, 2030)
+                    for month in range(2, 13, 3)][3:mat.shape[1]+3]
+        x_axis = np.arange(len(x_values))
+        plt.xticks(x_axis, x_values, rotation=90)
+        plt.gca().xaxis.tick_top()
+
+        y_axis = np.arange(len(y_tick_labels))
+        plt.yticks(y_axis, y_tick_labels)
+        plt.gca().set_aspect('auto')
+
+        plt.sca(axs[1])
+
+        plt.imshow(mat.sum(axis=0)[None, :], cmap="Greys", norm=LogNorm())
+        plt.yticks([0], ["# Recipe Updates"])
+        x_values = [d["version_no"] for d in dd.values()]
+        x_axis = np.arange(len(x_values))
+        plt.xticks(x_axis, x_values, rotation=270)
+        #plt.gca().xaxis.tick_top()
+
+        plt.tight_layout()
+
+        if filename:
+            plt.savefig(filename, format="pdf")
+
 
 if __name__ == "__main__":
     ds = DeliveryScheduler(True)
-    dd = ds.delivery_dict
-    s = ds.latex_for_delivery_schedule
-    ds.dump_latex()
-    print(s)
+    ds.plot_delv_matrix()
+    plt.show()
+
+    # dd = ds.delivery_dict
+    # mat = ds.delv_dict_matrix(dd)
+    # s = ds.latex_for_delivery_schedule
+    # ds.dump_latex()
