@@ -59,10 +59,10 @@ End science exposures|
 |SEQ NEXPO             |no         |0..1000 (NODEFAULT)        |Number of exposures per offset|
 |SEQ OBSTYPE LIST      |no         |O S (NODEFAULT)            |Observation type list, O/S|
 |SEQ OFFSET COORDS     |no         |SKY DETECTOR (DETECTOR)    |Offset coordinate type selection|
-|SEQ SKYOFFSET ALPHA   |no         |0..TBD (10)                |RA offset to sky|
-|SEQ SKYOFFSET DELTA   |no         |0..TBD (10)                |DEC offset to sky|
-|SEQ PSFOFFSET ALPHA   |no         |0..TBD (TBD)                |RA offset to PSF reference position|
-|SEQ PSFOFFSET DELTA   |no         |0..TBD (TBD)                |DEC offset to PSF reference position|
+|SEQ SKYOFFSET AZ      |no         |0..TBD (10)                |Azimuth offset to sky|
+|SEQ SKYOFFSET ALT     |no         |0..TBD (10)                |Altitude offset to sky|
+|SEQ PSFOFFSET AZ      |no         |0..TBD (TBD)               |Azimuth offset to PSF reference position|
+|SEQ PSFOFFSET ALT     |no         |0..TBD (TBD)               |Altitude offset to PSF reference position|
 |SEQ RETURN            |no         |T F (T)                    |Return to origin?|
 |INS WLEN CEN         |no         |2700 - 5300 nm (NODEFAULT)           |Central wavelength|
 |INS OPTI10 NAME         |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef M' CO(1-0)/ice COref HCIL-short HCIL-long (L')                |IMG-LM Filter name|

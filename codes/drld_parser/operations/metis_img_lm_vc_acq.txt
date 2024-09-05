@@ -6,7 +6,7 @@ In this template the initial steps (until the SCAO loop is closed) are identical
 
 === Procedure for METIS_img_lm_vc_acq ===
 ++++
-Initialize OB|
+Prepare for preset|
   * Stop chopper
   * Stop CFO pupil stabilization
   * Stop AO

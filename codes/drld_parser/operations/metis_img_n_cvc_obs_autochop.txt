@@ -51,5 +51,5 @@ End science exposures|
 |SEQ CFO CHOP POSANG       |yes        |0..360 (0)             |Chopper position angle|
 |SEQ CFO CHOP THROW        |yes        |0..5 (2.5)             |Chop throw|
 |SEQ CFO CHOP FREQ         |yes        |0..5 (1)               |Chopping frequency|
-|SEQ PSFOFFSET ALPHA   |no         |0..TBD (TBD)                |RA offset to PSF reference position|
-|SEQ PSFOFFSET DELTA   |no         |0..TBD (TBD)                |DEC offset to PSF reference position|
+|SEQ PSFOFFSET AZ      |no         |0..TBD (TBD)               |Azimuth offset to PSF reference position|
+|SEQ PSFOFFSET ALT     |no         |0..TBD (TBD)               |Altitude offset to PSF reference position|
