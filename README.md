@@ -105,6 +105,73 @@ The full process to verify a change in the Template Manual is consistent with th
 - The github workflow subsequently creates a Pull Request (if necessary) to update the [local template files](https://github.com/AstarVienna/METIS_DRLD/tree/master/codes/drld_parser/operations), which should be merged, or after running the 
 - Finally, run the [`tests`](https://github.com/AstarVienna/METIS_DRLD/actions/workflows/tests.yml) workflow.
 
+# Synchronization between Overleaf and Gitlab
+
+The METIS DRLD can be accessed both through [overleaf](https://www.overleaf.com/project/5f1abb4137d7690001f8aeb1) and [github](https://github.com/AstarVienna/METIS_DRLD).
+It is relatively straightforward to synchronize both repositories because overleaf supports git.
+The synchronization is currently (as of 2024/09/05) done through a cron-job ran by @hugobuddel on astro08 at the university of Vienna.
+The process is as follows.
+
+Create a dedicated directory for the synchronization, e.g.
+```bash
+export MY_SYNC_DIR="${HOME}/my_drld_sync"
+mkdir -p "${MY_SYNC_DIR}"
+cd "${MY_SYNC_DIR}"
+```
+
+Download the git remote sync script.
+```bash
+cd "${MY_SYNC_DIR}"
+git clone https://gitlab.astro-wise.org/buddel/gitremotesync.git
+```
+
+Clone the github repository and then also add overleaf as a git remote.
+E.g.
+```bash
+cd "${MY_SYNC_DIR}"
+git clone git@github.com:AstarVienna/METIS_DRLD.git
+cd "${MY_SYNC_DIR}/METIS_DRLD"
+git remote add overleaf https://git.overleaf.com/5f1abb4137d7690001f8aeb1
+```
+
+Then create a [create a git authentication token for overleaf](https://www.overleaf.com/learn/how-to/Git_integration_authentication_tokens).
+Run the following to use the token:
+```bash
+cd "${MY_SYNC_DIR}/METIS_DRLD"
+git config credential.helper store
+git fetch overleaf
+```
+Use `git` as your username, and the token as password.
+
+Run the git remote sync script manually to test whether it works.
+```bash
+cd "${MY_SYNC_DIR}/METIS_DRLD"
+bash "${MY_SYNC_DIR}/gitremotesync/synchronize.sh
+```
+There should be no output, unless someone has edited the DRLD since the previous step.
+
+Finally add the synchronization job to cron:
+```bash
+(crontab -l ; echo "*/5 * * * * cd ${MY_SYNC_DIR}/METIS_DRLD && bash ${MY_SYNC_DIR}/gitremotesync/synchronize.sh") | crontab -
+```
+
+Now make a change to the DRLD on either github or overleaf.
+Wait about ten minutes and the change should have propagated.
+You should also get an email about the propagation if you setup cron correctly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
