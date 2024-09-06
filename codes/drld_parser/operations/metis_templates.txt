@@ -33,7 +33,6 @@ METIS Observing templates|
 |[[METIS_img_n_cvc_obs_AutoChop |METIS_img_n_cvc_obs_AutoChop ]] |Classical vortex coronagraphy in N-band with chopping |
 |[[METIS_img_lmn_obs_GenericChopNod|METIS_img_lmn_obs_GenericChopNod]] |LM and N-band parallel imaging with chopping and nodding |
 |**Long-slit spectroscopy**|
-|[[METIS_spec_lm_obs_AutoNodOnSlit|METIS_spec_lm_obs_AutoNodOnSlit]] 		|Low-resolution LSS in LM with offsets along the slit |
 |[[METIS_spec_lm_obs_GenericOffset|METIS_spec_lm_obs_GenericOffset]]		|Low-resolution LSS in LM with user-defined offsets |
 |[[METIS_spec_n_obs_AutoChopNodOnSlit|METIS_spec_n_obs_AutoChopNodOnSlit]]	|Low-resolution LSS in N-band with chopping and nodding along the slit| 
 |[[METIS_spec_lmn_obs_AutoChopNodOnSlit|METIS_spec_lmn_obs_AutoChopNodOnSlit]]	|Low-resolution LSS in LM and N-band (parallel) with chopping and nodding along the slit|   
@@ -49,6 +48,7 @@ METIS Observing templates|
 |[[METIS_img_lm_obs_FixedSkyOffset |METIS_img_lm_obs_FixedSkyOffset]] |LM-band imaging with jitter and fixed sky offset|
 |[[METIS_img_n_obs_AutoChopNod|METIS_img_n_obs_AutoChopNod]] |N-band imaging with chopping and nodding in pre-defined direction |
 |[[METIS_img_lmn_obs_AutoChopNod|METIS_img_lmn_obs_AutoChopNod]] |LM and N-band parallel imaging with chopping and nodding in pre-defined direction |
+|[[METIS_spec_lm_obs_AutoNodOnSlit|METIS_spec_lm_obs_AutoNodOnSlit]] 		|Low-resolution LSS in LM with offsets along the slit |
 |[[METIS_ifu_obs_FixedSkyOffset|METIS_ifu_obs_FixedSkyOffset]] |Nominal IFU spectroscopy with jitter and fixed sky offsets |
 |[[METIS_ifu_ext_obs_FixedSkyOffset|METIS_ifu_ext_obs_FixedSkyOffset]] |Extended IFU spectroscopy with jitter and fixed sky offsets |
 ++++

@@ -6,7 +6,7 @@ __Note:__ For all modes that use pupil tracking it needs to be investigated how 
 
 === Procedure for METIS_img_n_cvc_acq ===
 ++++
-Initialize OB|
+Prepare for preset|
   * Stop chopper
   * Stop CFO pupil stabilization
   * Stop AO

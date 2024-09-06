@@ -2,7 +2,7 @@
 
 === Procedure for METIS_img_lmn_acq ===
 ++++
-Initialize OB|
+Prepare for preset|
   * Stop chopper
   * Stop CFO pupil stabilization
   * Stop AO
