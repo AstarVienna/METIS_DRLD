@@ -20,7 +20,6 @@ Template options:
 In the N-band, the fluctuations of the thermal background and the detector noise require chopping (~1Hz for the GeoSnap detector). Since the simple subtraction of two chopped frames (on- and off-axis positions) leaves chopping residuals, we additionally need to regularly offset (nod) the telescope. 
 
 Template options: 
-  * [[METIS_img_n_obs_autochopnod|METIS_img_n_obs_AutoChopNod]]
   * [[METIS_img_n_obs_genericchopnod|METIS_img_n_obs_GenericChopNod]]
 
 

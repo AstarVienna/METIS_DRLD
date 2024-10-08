@@ -36,17 +36,13 @@ Template options:
   * [[metis_img_lm_acq|METIS_img_lm_acq]]
 
 ==== Science sequence ====
-Depending on the sky subtraction strategy, following offsetting options are available: 
-  * dithering (aka jittering): using CFO-PP2 chopper or telescope offsets
-  * sky offsets: using telescope offsets. Can be implemented in situations where there is no suitable blank position at the regular chop-throw distance (5 arcsec), in case of e.g. crowded field, or a very extended target. 
-  * sky offsets + dithering. Offset to a sky position, and back to the target, with a small dither that places the target in a slightly different position on the detector than the initial one. Can be performed using the CFO-PP2 chopper or telescope offsets, or a combination of the two.
+
+The observations can accommodate any sequence of offsets, depending on the science application and sky-subtraction strategy, e.g. small offsets (dithering) with or without larger offsets to a separate sky position. The offsets can be performed using the CFO-PP2 chopper or telescope offsets, or a combination of the two.
 
 Template options: 
-  * [[metis_img_lm_obs_autojitter|METIS_img_lm_obs_AutoJitter]]
-  * [[metis_img_lm_obs_genericoffset|METIS_img_lm_obs_GenericOffset]]
-  * [[metis_img_lm_obs_fixedskyoffset|METIS_img_lm_obs_FixedSkyOffset]] 
 
-**Note:** The METIS_img_lm_obs_FixedSkyOffset template is a special case of the METIS_img_lm_obs_GenericOffset template, but with an advantage of simplicity from the user point of view (only one offset positions is specified, and the rest is calculated by the system). 
+  * [[metis_img_lm_obs_genericoffset|METIS_img_lm_obs_GenericOffset]]
+
 ===== Calibration data =====
 
 ++++

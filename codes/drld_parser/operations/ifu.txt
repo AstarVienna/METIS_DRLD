@@ -18,16 +18,10 @@ Template options:
 
 ==== Science sequence ====
 
-Two options to deal with offsetting to the sky: 
-
-  * Periodic offsets to a pre-defined nearby sky position, alternating between the science target and the sky position, with dithering (Fixed Sky Offset)
-  * Any user-defined offset pattern (Generic Offset)
- 
-All offsets can be performed using the telescope or the CFO-PP2 chopper (TBC).
+Any user-defined offset pattern can be defined, depending on the science application and the sky-subtraction strategy. All offsets can be performed using the telescope or the CFO-PP2 chopper (TBC).
 
 Template options:
 
-  * [[METIS_ifu_obs_FixedSkyOffset|METIS_ifu_obs_FixedSkyOffset]]
   * [[METIS_ifu_obs_GenericOffset|METIS_ifu_obs_GenericOffset]]
 
 ===== Discussion =====

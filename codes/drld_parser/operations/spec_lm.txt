@@ -21,7 +21,6 @@ Template options:
 In long-slit spectroscopy mode, the sky subtraction in LM is performed by nodding the target between two positions along the slit, with optional jitters at each position.  
 
 Template options: 
-  * [[METIS_spec_lm_obs_AutoNodOnSlit|METIS_spec_lm_obs_AutoNodOnSlit]]
   * [[METIS_spec_lm_obs_GenericOffset|METIS_spec_lm_obs_GenericOffset]]
 
 ===== Discussion =====
