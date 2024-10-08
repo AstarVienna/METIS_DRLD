@@ -20,7 +20,6 @@ Template options:
 In the N-band, the fluctuations of the thermal background requires chopping. Since the simple subtraction of two chopped frames (on- and off-axis positions) leaves chopping residuals, we additionally need to regularly offset (nod) the telescope. The parallel mode template compromises in terms of field of view (it chooses the smaller field masks of the LM band imager) and in terms of background subtraction (it uses chopping which is probably not required in the LM band). According to preliminary data, 1 Hz chopping would be sufficient for the GeoSnap (N band) detector and read-out at this rate would not compromise the performance of the L band imager (too much).
 
 Template options: 
-  * [[METIS_img_lmn_obs_autochopnod|METIS_img_lmn_obs_AutoChopNod]]
   * [[METIS_img_lmn_obs_genericchopnod|METIS_img_lmn_obs_GenericChopNod]]
 
 
