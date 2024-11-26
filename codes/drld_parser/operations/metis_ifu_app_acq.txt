@@ -75,7 +75,6 @@ AO and target acquisition|
 ++++
 ++++
 Coronagraphic and IFU acquisition|
-  * ''IMG-LM PP1 MASK/GRISM'' (mask wheel) to APP-LM
   * ''LMS PP1'' to APP-LMS
   * ''IMG-LM'' and ''LMS PP1'': Add fixed offset to compensate for the wedge in the APP.
   * [comment] This is a fixed vector from the direct imaging location of the PSF to the leakage term of the APP PSF, and it’s (very slightly) wavelength dependent.
