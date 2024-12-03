@@ -130,11 +130,11 @@ While AO loop is closed|
 |INS OPTI2 NAME         |yes        | OUT (OUT)                |CFO-PP1 ADC wheel|
 |INS OPTI3 NAME         |no         |A_19 B_29 C_38 D_57 E_114 (NODEFAULT)                  |Slit name|
 |INS OPTI4 NAME         |yes         |OUT (OUT)                  |LMS beamsplitter pickoff wheel|
-|INS OPTI9 NAME         |no         |GRISM-L GRISM-M (NODEFAULT)                  |IMG-LM Mask/Grism name|
-|INS OPTI10 NAME         |no         |full_L full_M (NODEFAULT)                |IMG-LM Filter name|
+|INS OPTI9 NAME         |yes         |Open (Open)                  |IMG-LM Mask/Grism name|
+|INS OPTI10 NAME         |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef M' (NODEFAULT)                |IMG-LM Filter name|
 |INS OPTI11 NAME         |no     |OPEN ND1 ND2 ND3 ND4 ND5 DARK (NODEFAULT)                  |IMG-LM Neutral density filter|
-|INS OPTI12 NAME         |no         |GRISM-N (GRISM-N)                  |IMG-N Mask/Grism name|
-|INS OPTI13 NAME         |no         |full_N (full_N)                |IMG-N Filter name|
+|INS OPTI12 NAME         |yes         |Open (Open)                  |IMG-N Mask/Grism name|
+|INS OPTI13 NAME         |no         |N1 N2 PAH8.6 PAH8.6_ref PAH11.25 PAH11.25_ref [NeII] [NeII]_ref (NODEFAULT)                |IMG-N Filter name|
 |INS OPTI14 NAME         |no         |OPEN ND1 ND2 ND3 ND4 (NODEFAULT)                  |IMG-N Neutral density filter|
 |INS OPTI15 NAME         |yes        |OUT (OUT)                    | IMG-LM pupil imaging lens|
 |INS OPTI16 NAME         |yes        |OUT (OUT)                    | IMG-N pupil imaging lens|
