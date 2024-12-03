@@ -1,6 +1,6 @@
 ===Procedure for METIS_gen_cal_insdark ===
 
-This template is used for QC purposes only and measures the dark current of the detector and any thermal emission (or leaks) from inside the cold instrument. It acquires a number NEXPO of darks with specified DIT and NDIT. The darks can be taken in parallel using the different detectors (IMG LM, IMG NQ, LMS), with a different DIT/NDIT.
+This template is used for QC purposes only and measures the dark current of the detector and any thermal emission (or leaks) from inside the cold instrument. It acquires a number NEXPO of darks with specified DIT and NDIT. The darks can be taken in parallel using the different detectors (IMG LM, IMG N, LMS), with a different DIT/NDIT.
 
 This dark calibration is also referred to as instrument dark and uses the dark position only in the CFO-PP1 wheel.
 
