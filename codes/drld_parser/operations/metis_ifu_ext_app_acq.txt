@@ -69,8 +69,6 @@ Coronagraphic and IFU acquisition|
   * ''LMS PP4'' Select pre-dispersed range (spectral order)
   * ''LMS FP4'' to Spectral IFU (extended mode)
   * ''LMS PP5'' Select main dispersed range
-  * Take single exposure or offset pair
-  * Real-time image reconstruction (software) 
 ++++
 ++++
 While AO loop is closed|
