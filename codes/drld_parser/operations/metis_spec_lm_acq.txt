@@ -43,7 +43,7 @@ Setup imager for target acquisition|
   * Set ''IMG-N PP1'' to CLOSED (no light on IMG-N system)
   * [comment] IMG-LM PP1 has three wheels. The wheel located exactly in the pupil plane will contain the pupil masks (stops; for coronagraphy), APP, and the grisms. The other two wheels located behind the one in the pupil plane will contain the science filters, and the neutral density (ND) filters (METIS-3953, METIS-3781, METIS-5528).
   * Move ''IMG-LM PP1 MASK/GRISM'' (mask/grism wheel) to open
-  * Move ''IMG-LM PP1 FILT'' to selected science filter 
+  * Move ''IMG-LM PP1 FILT'' to filter selected for acquisition 
   * Move ''IMG-LM PP1 ND'' to selected neutral-density filter (for acquisition of very bright targets)
   * Pupil imaging lens to open
     * a mechanism for pupil viewing. Not located in the pupil plane, probably in front of the detector (tbc). In IMG used for engineering/AIV purposes.
@@ -136,8 +136,8 @@ While AO loop is closed|
 |INS OPTI2 NAME         |yes        |OUT ADC-1 ADC-2 (NODEFAULT)               |CFO-PP1 ADC wheel|
 |INS OPTI3 NAME         |no         |A_19 B_29 C_38 D_57 E_114 (NODEFAULT)                  |Slit name|
 |INS OPTI4 NAME         |yes        |OUT (OUT)                  |LMS beamsplitter pickoff wheel|
-|INS OPTI9 NAME         |no         |GRISM-L GRISM-M (NODEFAULT)                  |IMG-LM Mask/Grism name|
-|INS OPTI10 NAME         |no         |full_L full_M (NODEFAULT)                |IMG-LM Filter name|
+|INS OPTI9 NAME         |yes         |Open (Open)                  |IMG-LM Mask/Grism name|
+|INS OPTI10 NAME         |no         |L' H2Oice shortL IB4.05 PAH3.3 PAH3.3ref Br-alpha Br-alpharef M'  (NODEFAULT)                |IMG-LM Filter name|
 |INS OPTI11 NAME         |no     |OPEN ND1 ND2 ND3 ND4 ND5 DARK (NODEFAULT)                  |IMG-LM Neutral density filter|
 |INS OPTI15 NAME         |yes        |OUT (OUT)                    | IMG-LM pupil imaging lens|
 |INS OPTI17 NAME         |yes        |OUT (OUT)                    | WCU periscope arm|

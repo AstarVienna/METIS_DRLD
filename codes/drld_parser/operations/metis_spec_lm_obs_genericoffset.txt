@@ -5,7 +5,6 @@
 ++++
 Setup spectrograph|
   * Move to selected filter (''IMG-LM PP1 FILT'') 
-  * Mask wheel to open
   * Move to selected grism (''IMG-LM PP1 GRISM'')
   * Set detector parameters (DIT, NDIT, readout mode, cube mode T/F)
 ++++

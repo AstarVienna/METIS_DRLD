@@ -42,8 +42,8 @@ Setup imager for target acquisition|
   * Insert ''IMG-LM PP1'' to CLOSED (no light to IMG-LM system)
   * [comment] IMG-N PP1 has three wheels. The wheel located exactly in the pupil plane will contain the pupil masks (stops; for coronagraphy), and the N-band grism. The other two wheels located behind the one in the pupil plane will contain the science filters, and the neutral density (ND) filters (METIS-3954, METIS-3782, METIS-5529).
   * Move ''IMG-N PP1 MASK/GRISM'' (mask/grism wheel) to open
-  * Move ''IMG-N PP1 FILT'' to selected science filter 
-  * Move ''IMG-N PP1 ND'' to selected neutral-density filter (for acquisition of very bright targets)
+  * Move ''IMG-N PP1 FILT'' to filter selected for acquisition
+  * Move ''IMG-N PP1 ND'' to selected neutral-density filter (for the acquisition of very bright targets)
   * Pupil imaging lens to open
     * a mechanism for pupil viewing. Not located in the pupil plane, probably in front of the detector (tbc). In IMG used for engineering/AIV purposes.
   * Set detector parameters (total exposure time, readout mode). The system will set the DIT/NDIT combination depending on the background levels. 
@@ -136,8 +136,8 @@ While AO loop is closed|
 |INS OPTI2 NAME         |yes        | OUT (OUT)                |CFO-PP1 ADC wheel|
 |INS OPTI3 NAME         |no         |A_19 B_29 C_38 D_57 E_114 (NODEFAULT)                  |Slit name|
 |INS OPTI4 NAME         |yes         |OUT (OUT)                  |LMS beamsplitter pickoff wheel|
-|INS OPTI12 NAME         |no         |GRISM-N (GRISM-N)                  |IMG-N Mask/Grism name|
-|INS OPTI13 NAME         |no         |full_N (full_N)                |IMG-N Filter name|
+|INS OPTI12 NAME         |yes         |Open (Open)                  |IMG-N Mask/Grism name|
+|INS OPTI13 NAME         |no         |N1 N2 PAH8.6 PAH8.6_ref PAH11.25 PAH11.25_ref [NeII] [NeII]_ref (NODEFAULT)                |IMG-N Filter name|
 |INS OPTI14 NAME         |no         |OPEN ND1 ND2 ND3 ND4 (NODEFAULT)                  |IMG-N Neutral density filter|
 |INS OPTI16 NAME         |yes        |OUT (OUT)                    | IMG-N pupil imaging lens|
 |INS OPTI17 NAME         |yes        |OUT (OUT)                    | WCU periscope arm|
