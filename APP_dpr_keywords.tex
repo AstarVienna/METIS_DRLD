@@ -1,19 +1,19 @@
 \footnotesize
 \begin{center}
-\begin{longtable}{|l|l|l|l|l|} 
+\begin{longtable}{|l|l|l|l|l|}
 \hline
-\multicolumn{1}{|l|}{\textbf{DPR.CATG}} & \multicolumn{1}{l|}{\textbf{DPR.TECH}} & \multicolumn{1}{l|}{\textbf{DPR.TYPE}} & \multicolumn{1}{l|}{\textbf{DO.CATG}} & \multicolumn{1}{l|}{\textbf{Recipes}}\\ \hline 
+\multicolumn{1}{|l|}{\textbf{DPR.CATG}} & \multicolumn{1}{l|}{\textbf{DPR.TECH}} & \multicolumn{1}{l|}{\textbf{DPR.TYPE}} & \multicolumn{1}{l|}{\textbf{DO.CATG}} & \multicolumn{1}{l|}{\textbf{Recipes}}\\ \hline
 \endfirsthead \hline
 
 \multicolumn{5}{c}%
 {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
 \hline
 
-\multicolumn{1}{|l|}{\textbf{DPR.CATG}} & \multicolumn{1}{l|}{\textbf{DPR.TECH}} & \multicolumn{1}{l|}{\textbf{DPR.TYPE}} & \multicolumn{1}{l|}{\textbf{DO.CATG}} & \multicolumn{1}{l|}{\textbf{Recipes}}\\ \hline 
+\multicolumn{1}{|l|}{\textbf{DPR.CATG}} & \multicolumn{1}{l|}{\textbf{DPR.TECH}} & \multicolumn{1}{l|}{\textbf{DPR.TYPE}} & \multicolumn{1}{l|}{\textbf{DO.CATG}} & \multicolumn{1}{l|}{\textbf{Recipes}}\\ \hline
 \endhead
 
 \hline
-\multicolumn{5}{|r|}{{Continued on next page}} \\ 
+\multicolumn{5}{|r|}{{Continued on next page}} \\
 \hline
 \endfoot
 
@@ -28,16 +28,17 @@
  CALIB     & IFU      & DETLIN         & DETLIN\_IFU\_RAW       & \REC{metis_det_lingain}         \\
  CALIB     & IFU      & DISTORTION     & IFU\_DISTORTION\_RAW   & \REC{metis_ifu_distortion}      \\
  CALIB     & IFU      & PSF,OFFAXIS    & IFU\_OFF\_AXIS\_PSF\_RAW & \REC{metis_ifu_adi_cgrph}       \\
- CALIB     & IFU      & RSRF           & IFU\_RSRF\_RAW         & \REC{metis_ifu_rsrf}            \\             
+ CALIB     & IFU      & RSRF           & IFU\_RSRF\_RAW         & \REC{metis_ifu_rsrf}            \\
  CALIB     & IFU      & RSRF           & IFU\_RSRF\_RAW         & \REC{metis_ifu_rsrf}            \\
  CALIB     & IFU      & SKY            & IFU\_SKY\_RAW          & \REC{metis_ifu_reduce}          \\
  CALIB     & IFU      & STD            & IFU\_STD\_RAW          & \REC{metis_ifu_reduce}          \\
  CALIB     & IFU      & WAVE           & IFU\_WAVE\_RAW         & \REC{metis_ifu_wavecal}         \\
- CALIB     & IMAGE,LM & CHOPHOME       & LM\_CHOPPERHOME\_RAW   & \REC{metis_img_chophome}        \\
+ CALIB     & IMAGE,LM & CHOPHOME       & LM\_CHOPHOME\_RAW      & \REC{metis_cal_chophome}        \\
  CALIB     & IMAGE,LM & DARK           & DARK\_2RG\_RAW         & \REC{metis_det_dark}            \\
- CALIB     & IMAGE,LM & DARK,WCUOFF    & LM\_WCU\_OFF\_RAW       & \REC{metis_det_lingain}         \\
- "         & "        & "              & "                    & \REC{metis_lm_img_distortion}   \\
- "         & "        & "              & "                    & \REC{metis_lm_adc_slitloss}     \\
+ CALIB     & IMAGE,LM & DARK,WCUOFF    & LM\_WCU\_OFF\_RAW      & \REC{metis_det_lingain}         \\
+ "         & "        & "              & "                      & \REC{metis_lm_img_distortion}   \\
+ "         & "        & "              & "                      & \REC{metis_lm_adc_slitloss}     \\
+ "         & "        & "              & "                      & \REC{metis_cal_chophome}     \\
  CALIB     & IMAGE,LM & DETLIN         & DETLIN\_2RG\_RAW       & \REC{metis_det_lingain}         \\
  CALIB     & IMAGE,LM & DISTORTION     & LM\_DISTORTION\_RAW    & \REC{metis_lm_img_distortion}   \\
  CALIB     & IMAGE,LM & FLAT,LAMP      & LM\_FLAT\_LAMP\_RAW     & \REC{metis_lm_img_flat}         \\
@@ -70,7 +71,7 @@
  TECHNICAL & PUP,M    & PUPIL          & LM\_PUPIL\_RAW         & \REC{metis_pupil_imaging}       \\
  TECHNICAL & PUP,N    & PUPIL          & N\_PUPIL\_RAW          & \REC{metis_pupil_imaging}       \\
  \hline
-\caption[DPR keywords table]{DPR keywords table}\label{tab:dpr_keywords}  
+\caption[DPR keywords table]{DPR keywords table}\label{tab:dpr_keywords}
 \end{longtable}
 
 \end{center}

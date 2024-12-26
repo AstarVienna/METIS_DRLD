@@ -1,4 +1,4 @@
- 
+
 \subsection{Recipes for engineering templates}
 \label{ssec:recipes_technical}
 
@@ -47,50 +47,69 @@ It is not foreseen to be used by scientists in regular operation.
 \clearpage
 %------------------------------------------------------------------------------------------------------------------
 \clearpage
-\subsubsection{\REC*{metis_img_chophome}: Chopper home position recipe }\label{ssec:metisimgchophome}
-The recipe \REC{metis_img_chophome} aims to detect chopper mirror zero positions. Currently it is foreseen to be carried out on a daily basis, but it is for sure necessary after changes on the chopper (e.g.\ after instrument interventions) or induced by unforeseen events like earthquakes (cf.\ Section ``Chopper Home Position'' in  \cite{METIS-calibration_plan}).
+\subsubsection{\REC*{metis_cal_chophome}: Chopper home position recipe}
+\label{sssec:metiscalchophome}
+\label{sssec:metis_cal_chophome}
+\label{metis_cal_chophome}
+\label{rec:metiscalchophome}
+\label{rec:metis_cal_chophome}
 
-The procedure consists in measuring the position of a point source from the \ac{WCU}, which has been centred on the \ac{WFS} pyramid (in the K-band), in the \CODE{IMG_LM} mode.
-Then, taking the respective positional metrology values of the \ac{WFS}-FS and the chopper,
-% TODO: What is the FS in WFS-FS? (field selector)
-the coordinate offset between the \ac{WFS} Pyramid focal plane and the science focal planes is established.
+The recipe \REC{metis_cal_chophome} aims to detect chopper mirror zero positions. It is foreseen to be carried out on a daily basis; at the very least it is necessary after changes that possibly affect the absolute chopper position, e.g.\ after instrument interventions or unforeseen events like earthquakes (cf.\ Section ``Chopper Home Position'' in  \cite{METIS-calibration_plan}).
+
+The procedure consists in measuring the position of a point source
+from the \ac{WCU}, which has been centred on the \ac{WFS} pyramid (in
+the K-band), in the \CODE{IMG_LM} mode.  The recipe measures the
+position of the point source on the LM detector and derives a
+coordinate offset between the \ac{WFS} Pyramid focal plane and the
+science focal planes by comparing to the respective positional
+metrology values of the \ac{WFS} field selector and the chopper.
 %  (the latter in plural because we have already calibrated the relative astrometry between between IMG-LM and IMG-N/LMS).
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_img_chophome_v0.83.pdf}
-  \caption[Recipe: \REC*{metis_img_chophome}]{\REC*{metis_img_chophome} --
-    Recipe workflow to detect the zero position of the chopper mirror.}
-  \label{Fig:rec_chop_home}
-\end{figure}
-
-\begin{recipedef}\label{rec:metisimgchophome}\label{rec:metis_img_chophome}
-Name:		& \REC{metis_img_chophome} \\
+\begin{recipedef}
+Name:		& \REC{metis_cal_chophome} \\
 Purpose:	& Detection of the chopper mirror home position \\
 Type:		& Calibration\\
 Requirements: & None \\
 Templates:      & \TPL{METIS_img_lm_cal_ChopperHome} \\
-Input data:     & \RAW{LM_CHOPPERHOME_RAW} \\
+Input data:     & \RAW{LM_CHOPHOME_RAW} \\
+                & \RAW{LM_WCU_OFF_RAW} \\
                 & \EXTCALIB{PERSISTENCE_MAP}  \\
                 & \STATCALIB{LINEARITY_2RG}  \\
                 & \STATCALIB{GAIN_MAP_2RG}  \\
-%                & \EXTCALIB{BADPIX_MAP_2RG}  \\
-                & \PROD{MASTER_DARK_2RG}  \\
-                & \PROD{MASTER_IMG_FLAT_LAMP_LM}  \\
+                & \EXTCALIB{BADPIX_MAP_2RG}  \\
 Matched Keywords & \FITS{DET.DIT} \\
                  & \FITS{DET.NDIT} \\
                  & \FITS{DRS.FILTER} \\
 Parameters: 	& None\\
 Algorithm:      & remove detector signature\\
                 & remove median background\\
-                & apply flatfield\\
                 & detect reference source from \ac{WCU} via centroid peak detection\\
                 & Calculate mirror offset\\
-Output data:	& Offset of the chopper mirror to be piped either into the \ac{ICS} for correction \\
-                & or to be used in the pipeline for astrometric correction\\
+Output data:	& Stacked chopperhome image \\
+                & Offset of the chopper mirror (as header keywords) to be piped either into the \ac{ICS} for correction  or to be used in the pipeline for astrometric correction\\
 Expected accuracies: & 0.1\,mas accuracy of the centroid position (cf.~\cite{METIS-calibration_plan})\\
-QC1 parameters: & None\\
+QC1 parameters: & \QC{QC CAL CHOPHOME XCEN} \\
+                & \QC{QC CAL CHOPHOME XCEN STDEV} \\
+                & \QC{QC CAL CHOPHOME YCEN} \\
+                & \QC{QC CAL CHOPHOME YCEN STDEV} \\
+                & \QC{QC CAL CHOPHOME FWHM} \\
+                & \QC{QC CAL CHOPHOME SNR} \\
+                & \QC{QC CAL CHOPHOME OFFX} \\
+                & \QC{QC CAL CHOPHOME OFFY} \\
+
 \end{recipedef}
+
+
+\begin{figure}[hb]
+  \centering
+  \def \globalscale {0.600000}
+  \fontsize{10}{12}\selectfont
+  \input{tikz/metis_cal_chophome}
+  \caption[Recipe: \REC*{metis_cal_chophome}]{\REC*{metis_cal_chophome} --
+    measurement of the zero position of the chopper mirror.}
+  \label{fig:metis_cal_chophome}
+\end{figure}
+
 \clearpage
 
 %------------------------------------------------------------------------------------------------------------------
