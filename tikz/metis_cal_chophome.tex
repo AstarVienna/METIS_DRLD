@@ -30,7 +30,7 @@
   \node (step_subtract) [below=1.cm of step_signature, redstep]{%
     median-combine WCU\_OFF\\ subtract from CHOPHOME};
 
-  \node (step_locate) [below=1.cm of step_subtract, redstep]{%
+  \node (step_locate) [below=1.5cm of step_subtract, redstep]{%
     Centroid peak\\ detection};
 
   \node (step_fit) [below=1.cm of step_locate, redstep]{%
@@ -59,8 +59,15 @@
 %  \node (bpmin) [left=of connect_bpmin, calproduct] {\STATCALIB{BADPIX_MAP_2RG}};
 %  \draw [connection_arrow] (bpmin) -- (connect_bpmin);
 
+  \node (connect_background) [connection] at
+  ($(step_subtract)!0.35!(step_locate)$) {};
+  \node (background) [right=3.5cm of connect_background, calproduct,
+                      minimum width=4cm]{%
+    \PROD{LM_CHOPHOME_BACKGROUND}};
+  \draw [connection_arrow, dashed] (connect_background) -- (background);
+
   \node (connect_pinhole) [connection] at
-  ($(step_subtract)!0.45!(step_locate)$) {};
+  ($(step_subtract)!0.55!(step_locate)$) {};
   \node (pinhole) [left=3.75cm of connect_pinhole, external] {\EXTCALIB{PINHOLE_TABLE}};
   \draw [connection_arrow] (pinhole) -- (connect_pinhole);
 
