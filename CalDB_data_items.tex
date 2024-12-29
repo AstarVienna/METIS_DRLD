@@ -36,7 +36,7 @@ Input for:    & \REC{metis_det_dark} \\
               & \REC{metis_N_lss_std} \\
               & \REC{metis_N_lss_sci} \\
               & \REC{metis_pupil_imaging} \\
-              & \REC{metis_img_chophome} \\
+              & \REC{metis_cal_chophome} \\
               & \REC{metis_lm_adc_slitloss} \\
               & \REC{metis_n_adc_slitloss} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -139,7 +139,7 @@ Input for:    & \REC{metis_det_dark} \\
               & \REC{metis_N_lss_trace} \\
               & \REC{metis_N_lss_std} \\
               & \REC{metis_N_lss_sci} \\
-              & \REC{metis_img_chophome} \\
+              & \REC{metis_cal_chophome} \\
               & \REC{metis_lm_adc_slitloss} \\
               & \REC{metis_n_adc_slitloss} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -182,7 +182,7 @@ Input for:    & \REC{metis_lm_img_flat} \\
               & \REC{metis_LM_lss_wave} \\
               & \REC{metis_LM_lss_std} \\
               & \REC{metis_LM_lss_sci} \\
-              & \REC{metis_img_chophome} \\
+              % & \REC{metis_cal_chophome} \\
               & \REC{metis_lm_adc_slitloss} \\
 & \REC{metis_lm_img_basic_reduce}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -485,7 +485,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %\clearpage
 \subsubsection{LSS calibration database item structures}\label{sssec:lsscaldbdatastructs}
 \textbf{External calibration data}
-% ##################################################################################### 
+% #####################################################################################
 \paragraph{\EXTCALIB{PERSISTENCE_MAP}}\label{dataitem:persistence_map}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -515,7 +515,7 @@ Input for:    & \REC{metis_det_dark} \\
               & \REC{metis_N_lss_trace} \\
               & \REC{metis_N_lss_std} \\
               & \REC{metis_N_lss_sci} \\
-              & \REC{metis_img_chophome} \\
+              & \REC{metis_cal_chophome} \\
               & \REC{metis_lm_adc_slitloss} \\
               & \REC{metis_n_adc_slitloss} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
@@ -565,7 +565,7 @@ Purpose: & wavelength calibration\\
 \end{enumerate}
 \end{datastructdef}
 
-% ##################################################################################### 
+% #####################################################################################
 \paragraph{\EXTCALIB{AO_PSF_MODEL}}\label{dataitem:ao_psf_model}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -591,7 +591,7 @@ Purpose: & flux calibration\\
 \end{enumerate}
 \end{datastructdef}
 
-% ##################################################################################### 
+% #####################################################################################
 \paragraph{\EXTCALIB{ATM_PROFILE}}\label{dataitem:atm_profile}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -621,7 +621,7 @@ Purpose: & telluric correction\\
 \end{enumerate}
 \end{datastructdef}
 
-% ##################################################################################### 
+% #####################################################################################
 \textbf{Static calibration data}
 \paragraph{\EXTCALIB{LASER_TAB}}\label{dataitem:laser_tab}
 \begin{recipedef}
@@ -645,15 +645,15 @@ Purpose: & wavelength calibration\\
 \end{enumerate}
 \end{datastructdef}
 
-% ##################################################################################### 
+% #####################################################################################
 %\paragraph{\STATCALIB{TSS_MODEL_CAT}}\label{dataitem:tss_model_cat}
 %TBWritten
-% ##################################################################################### 
+% #####################################################################################
 %\paragraph{\STATCALIB{TSS_CONT_TAB}}\label{dataitem:tss_cont_tab}
 %TBWritten
 
 
-% ##################################################################################### 
+% #####################################################################################
 \paragraph{\STATCALIB{REF_STD_CAT}}\label{dataitem:ref_std_cat}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -677,7 +677,7 @@ Purpose: & flux calibration\\
 \end{enumerate}
 \end{datastructdef}
 
-% ##################################################################################### 
+% #####################################################################################
 \paragraph{\STATCALIB{LM_ADC_SLITLOSS}}\label{dataitem:lm_adc_slitloss}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -701,7 +701,7 @@ Purpose: & flux calibration\\
 \end{enumerate}
 \end{datastructdef}
 
-% ##################################################################################### 
+% #####################################################################################
 \paragraph{\STATCALIB{N_ADC_SLITLOSS}}\label{dataitem:n_adc_slitloss}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -725,7 +725,7 @@ Purpose: & flux calibration\\
 \end{enumerate}
 \end{datastructdef}
 
-% ##################################################################################### 
+% #####################################################################################
 \paragraph{\STATCALIB{LSF_KERNEL}}\label{dataitem:lsf_kernel}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -752,7 +752,7 @@ Purpose: & telluric correction\\
 \end{enumerate}
 \end{datastructdef}
 
-% ##################################################################################### 
+% #####################################################################################
 \paragraph{\STATCALIB{N_LSS_DIST_SOL}}\label{dataitem:n_lss_dist_sol}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -776,7 +776,7 @@ Purpose: & wavelength calibration / rectification\\
 \end{enumerate}
 \end{datastructdef}
 
-% ##################################################################################### 
+% #####################################################################################
 \paragraph{\STATCALIB{N_LSS_WAVE_GUESS}}\label{dataitem:n_lss_wave_guess}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -800,7 +800,7 @@ Purpose: & wavelength calibration\\
 \end{enumerate}
 \end{datastructdef}
 
-% ##################################################################################### 
+% #####################################################################################
 \paragraph{\STATCALIB{LM_SYNTH_TRANS}}\label{dataitem:lm_synth_trans}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -823,7 +823,7 @@ Purpose: & telluric correction of flux standard stars\\
 \end{enumerate}
 \end{datastructdef}
 
-% ##################################################################################### 
+% #####################################################################################
 \paragraph{\STATCALIB{N_SYNTH_TRANS}}\label{dataitem:n_synth_trans}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
@@ -915,4 +915,3 @@ Purpose: & centroiding of ADI images\\
     \item \texttt{metis\_image *template}
 \end{enumerate}
 \end{datastructdef}
-
