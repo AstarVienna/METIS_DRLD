@@ -136,6 +136,9 @@ class DataItem:
         """Parse a dataitem from a paragraph with a recipedef table."""
         lines1 = [line.strip() for line in sparagraph.splitlines() if not line.strip().startswith("%")]
         line_header = lines1[0]
+        # Some paragraphs have the label on the next line.
+        if "label" not in line_header and "label" in lines1[1]:
+            line_header = line_header + lines1[1]
         # E.g. \paragraph{\hyperref[dataitem:master_n_lss_rsrf]{\PROD{MASTER_N_LSS_RSRF}}}\label{dataitem:master_n_lss_rsrf}
         regex_header = re.compile(
             # r"\\paragraph{\\hyperref\[(?P<hyperref>.*?)]{\\(?P<dtype>[A-Z]+){(?P<name>.*?)}}}\\label{(?P<label>.*?)}"
