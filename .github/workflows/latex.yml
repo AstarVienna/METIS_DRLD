@@ -28,7 +28,7 @@ jobs:
             git config --system --add safe.directory /github/workspace
           post_compile: mv METIS_DRLD.pdf "METIS_DRLD.$(date +'%Y%m%dT%H%M%S').${{ github.sha }}.pdf"
       - name: Upload PDF file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: METIS DRLD
           path: ./*.pdf
