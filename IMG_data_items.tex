@@ -1231,6 +1231,27 @@ Depending on context, \PROD{det_DIST_REDUCED} can refer to either
   \end{enumerate}
 \end{datastructdef}
 
+\paragraph{\PROD{LM_CHOPHOME_BACKGROUND}}
+\label{dataitem:lm_chophome_background}
+\begin{recipedef}
+  \textbf{\ac{FITS} file structure:}\\
+  Name:            & \PROD{LM_CHOPHOME_BACKGROUND} \\[0.3cm]
+  Description:     & Stacked WCU background images. \\[0.3cm]
+  \FITS{PRO.CATG}  & \CODE{LM_CHOPHOME_BACKGROUND} \\[0.3cm]
+  OCA keywords:    & \FITS{PRO.CATG}, \FITS{INS.OPTI19.NAME}, \FITS{INS.OPTI20.NAME} \\
+  \FITS{DO.CATG}:     & \CODE{LM_CHOPHOME_BACKGROUND} \\
+  Input for recipe:   & None \\
+  Produced by recipe: & \REC{metis_cal_chophome} \\
+  Processing \ac{FITS} keywords: & provided at \ac{PAE} \\
+\end{recipedef}
+\begin{datastructdef}
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \lstinline{cpl_propertylist * keywords}: Primary keywords (\FITS{PRO.CATG}, \FITS{PRO.TECH}, \FITS{INS.OPTI20.NAME}, \FITS{INS.OPTI10.NAME})
+  \item \lstinline{hdrl_image * image}: Single image
+  \item \lstinline{cpl_propertylist * plistarray[]}: Extension keywords
+  \end{enumerate}
+\end{datastructdef}
 
 
 

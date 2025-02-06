@@ -63,7 +63,9 @@ position of the point source on the LM detector and derives a
 coordinate offset between the \ac{WFS} Pyramid focal plane and the
 science focal planes by comparing to the respective positional
 metrology values of the \ac{WFS} field selector and the chopper.
-%  (the latter in plural because we have already calibrated the relative astrometry between between IMG-LM and IMG-N/LMS).
+% (the latter in plural because we have already calibrated the relative astrometry between between IMG-LM and IMG-N/LMS).
+The offset in $x$ and $y$ is delivered as QC parameters in the header
+of the \PROD{LM_CHOPHOME_COMBINED} product.
 
 \begin{recipedef}
 Name:		& \REC{metis_cal_chophome} \\
@@ -77,6 +79,7 @@ Input data:     & \RAW{LM_CHOPHOME_RAW} \\
                 & \STATCALIB{LINEARITY_2RG}  \\
                 & \STATCALIB{GAIN_MAP_2RG}  \\
                 & \EXTCALIB{BADPIX_MAP_2RG}  \\
+                & \EXTCALIB{PINHOLE_TABLE} \\
 Matched Keywords & \FITS{DET.DIT} \\
                  & \FITS{DET.NDIT} \\
                  & \FITS{DRS.FILTER} \\
@@ -88,7 +91,7 @@ Algorithm:      & remove detector signature\\
                 Output data:
                 & \PROD{LM_CHOPHOME_BACKGROUND} \\
                 & \PROD{LM_CHOPHOME_COMBINED} \\
-                & The latter product includes the offset of the chopper mirror as keywords in the FITS header. \\
+%                & The latter product includes the offset of the chopper mirror as keywords in the FITS header. \\
 Expected accuracies: & 0.1\,mas accuracy of the centroid position (cf.~\cite{METIS-calibration_plan})\\
 QC1 parameters: & \QC{QC CAL CHOPHOME XCEN} \\
                 & \QC{QC CAL CHOPHOME XCEN STDEV} \\
