@@ -35,17 +35,38 @@ class TestDataReductionLibraryDesign:
         assert len(METIS_DataReductionLibraryDesign.dataitems) > 0
 
     def test_dataitem_extraction(self):
-        """Another way to find the dataitems."""
+        """Another way to find the dataitems.
+
+        This test directly checks the paragraph headers in all tex files for
+        data items.
+        This check is rather fragile, so it will probably break at some point.
+        """
         sglob = str(METIS_DataReductionLibraryDesign.path_drld / "*.tex")
         paths_tex = glob.glob(sglob)
-        lines_single = [
+        lines1 = [
             line
             for path in paths_tex
             for line in open(path).readlines()
+        ]
+        lines2 = [
+            # Some paragraph headers have their label on the next line.
+            l1 + (l2 if "label" in l2 else "") 
+            for l1, l2 in zip(lines1, lines1[1:])
+            if "paragraph" in l1
+        ]
+        lines_single1 = [
+            line
+            for line in lines2
             if "paragraph" in line and "dataitem" in line and not line.startswith("%")
         ]
+        # Prevent paragraphs after labels.
+        lines_single2 = [
+            line
+            for line in lines_single1
+            if line.index("paragraph") < line.index("dataitem")
+        ]
         lines_full = []
-        for line in lines_single:
+        for line in lines_single2:
             lmulti = [line]
             for lmn in ["LM", "N", "IFU", "2RG", "GEO"]:
                 if f"{{{lmn}_" in line:
@@ -78,7 +99,7 @@ class TestDataReductionLibraryDesign:
                     # IFU_SCI_COMBINED is there, but also IFU_SCI_COMBINED_TAC,
                     # and they should all have a drsstructure line as well
                     di in line and f"{di}_" not in line and "drsstructure" not in line
-                    for line in lines_single
+                    for line in lines_single2
                 ]
             )
             if not found.any():
@@ -90,7 +111,7 @@ class TestDataReductionLibraryDesign:
         # Are all lines used for some dataitem?
         not_used_anywhere = [
             (linesingle, linefull)
-            for linesingle, linefull, used in zip(lines_single, lines_full, is_used)
+            for linesingle, linefull, used in zip(lines_single2, lines_full, is_used)
             if not used
         ]
 

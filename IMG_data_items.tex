@@ -123,19 +123,19 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
-\paragraph{\RAW{LM_CHOPPERHOME_RAW}}\label{dataitem:lm_chopperhome_raw}
+\paragraph{\RAW{LM_CHOPHOME_RAW}}\label{dataitem:lm_chophome_raw}
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
-Name: & \RAW{LM_CHOPPERHOME_RAW}\\[0.3cm]
+Name: & \RAW{LM_CHOPHOME_RAW}\\[0.3cm]
 Description: & Raw exposure of the LM image mode.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,LM} \\
 \FITS{DPR.TYPE}: & \CODE{CHOPHOME} \\[0.3cm]
 OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
-\FITS{DO.CATG}: & \CODE{LM_CHOPPERHOME_RAW}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{LM_CHOPHOME_RAW}\\[0.3cm]
 % TODO: Some of the offset templates also produce a SKY or PSF observation that should also be processed
 Template: & \TPL{METIS_img_lm_cal_ChopperHome} \\
-Input for:    & \REC{metis_img_chophome} \\
+Input for:    & \REC{metis_cal_chophome} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -334,6 +334,7 @@ Templates:           & \TPL{METIS_img_lm_cal_DetLin}                            
 Input for:    & \REC{metis_det_lingain} \\
               & \REC{metis_lm_img_distortion} \\
               & \REC{metis_lm_adc_slitloss} \\
+              & \REC{metis_cal_chophome} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -608,7 +609,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 %\clearpage
-\subsubsection{Master calibration / intermediate data item structures}\label{sssec:imgprocdatastructs}
+\subsubsection{Master calibration / intermediate product data item structures}\label{sssec:imgprocdatastructs}
 
 \paragraph{\PROD{MASTER_IMG_FLAT_LAMP_LM}}\label{dataitem:master_img_flat_lamp_lm}
 \begin{recipedef}
@@ -621,7 +622,7 @@ OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 %Template: & \TPL{METIS_lm_img_flat}\\
 Created by: & \REC{metis_lm_img_flat} \\
 Input for:    & \REC{metis_lm_img_basic_reduce} \\
-              & \REC{metis_img_chophome} \\
+            % & \REC{metis_cal_chophome} \\
               & \REC{metis_lm_adc_slitloss} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -801,7 +802,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
-\end{datastructdef}    
+\end{datastructdef}
 
 
 \paragraph{\PROD{LM_STD_BKG_SUBTRACTED}}\label{dataitem:lm_std_bkg_subtracted}
@@ -827,7 +828,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
-\end{datastructdef}    
+\end{datastructdef}
 
 
 
@@ -856,8 +857,8 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
-\end{datastructdef}    
-    
+\end{datastructdef}
+
 
 
 \paragraph{\PROD{LM_STD_OBJECT_CAT}}\label{dataitem:lm_std_object_cat}
@@ -882,319 +883,367 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
     \item \texttt{hdrl\_image * image: Single image}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
-\end{datastructdef}    
+\end{datastructdef}
 
 
 
 
 
-\subsubsection{Final data item structures}\label{sssec:imgfinaldatastructs}
+\subsubsection{Final product data item structures}
+\label{sssec:imgfinaldatastructs}
 
 
 \paragraph{\PROD{LM_SCI_BASIC_REDUCED}}\label{dataitem:lm_sci_basic_reduced}
 \begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{LM_SCI_BASIC_REDUCED}\\[0.3cm]
-Description: & Science grade detrended exposure of the LM image mode.\\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{LM_SCI_BASIC_REDUCED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
-\FITS{DO.CATG}: & \CODE{LM_SCI_BASIC_REDUCED}\\[0.3cm]
-Input for:    & \REC{metis_lm_img_background} \\
-Produced by recipe: & \REC{metis_lm_img_basic_reduce}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+  \textbf{\ac{FITS} file structure:}\\
+  Name: & \PROD{LM_SCI_BASIC_REDUCED}\\[0.3cm]
+  Description: & Science grade detrended exposure of the LM image mode.\\[0.3cm]
+  \FITS{PRO.CATG}: & \CODE{LM_SCI_BASIC_REDUCED} \\[0.3cm]
+  OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
+  \FITS{DO.CATG}: & \CODE{LM_SCI_BASIC_REDUCED}\\[0.3cm]
+  Input for:    & \REC{metis_lm_img_background} \\
+  Produced by recipe: & \REC{metis_lm_img_basic_reduce}\\
+  Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
+  \item \texttt{hdrl\_image * image: Single image}
+  \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+  \end{enumerate}
 \end{datastructdef}
 
 
 \paragraph{\PROD{N_SCI_BKG_SUBTRACTED}}\label{dataitem:n_sci_bkg_subtracted}
 \begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{N_SCI_BKG_SUBTRACTED}\\[0.3cm]
-Description: & Thermal background subtracted images of science N exposures.\\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{N_SCI_BKG_SUBTRACTED}\\
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
-\FITS{DO.CATG}: & \CODE{N_SCI_BKG_SUBTRACTED}\\[0.3cm]
-% Template: & \TPL{METIS_img_n_cal_standard}\\
-%             & \TPL{METIS_img_n_*_obs_*}       \\
-Produced by recipe: & \REC{metis_n_img_chopnod} \\
-Input for:    & \REC{metis_n_img_calibrate} \\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+  \textbf{\ac{FITS} file structure:}\\
+  Name: & \PROD{N_SCI_BKG_SUBTRACTED}\\[0.3cm]
+  Description: & Thermal background subtracted images of science N exposures.\\[0.3cm]
+  \FITS{PRO.CATG}: & \CODE{N_SCI_BKG_SUBTRACTED}\\
+  OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
+  \FITS{DO.CATG}: & \CODE{N_SCI_BKG_SUBTRACTED}\\[0.3cm]
+  % Template: & \TPL{METIS_img_n_cal_standard}\\
+  % & \TPL{METIS_img_n_*_obs_*}       \\
+  Produced by recipe: & \REC{metis_n_img_chopnod} \\
+  Input for:    & \REC{metis_n_img_calibrate} \\
+  Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+  % Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
+% \paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
+  \item \texttt{hdrl\_image * image: Single image}
+  \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+  \end{enumerate}
 \end{datastructdef}
 
 
 \paragraph{\PROD{LM_SCI_OBJECT_CAT}}\label{dataitem:lm_sci_object_cat}
 \begin{recipedef}
-\textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \PROD{LM_SCI_OBJECT_CAT}\\[0.3cm]
-Description: & Catalog of masked objects in science LM exposures.\\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{LM_SCI_OBJECT_CAT} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
-\FITS{DO.CATG}: & \CODE{LM_SCI_OBJECT_CAT}\\[0.3cm]
-% Template: & \TPL{METIS_img_lm_cal_standard}\\
-%             & \TPL{METIS_img_lm_*_obs_*}       \\
-Created by: & \REC{metis_lm_img_background}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+  \textbf{\ac{FITS} TABLE file structure:}\\
+  Name: & \PROD{LM_SCI_OBJECT_CAT}\\[0.3cm]
+  Description: & Catalog of masked objects in science LM exposures.\\[0.3cm]
+  \FITS{PRO.CATG}: & \CODE{LM_SCI_OBJECT_CAT} \\[0.3cm]
+  OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
+  \FITS{DO.CATG}: & \CODE{LM_SCI_OBJECT_CAT}\\[0.3cm]
+  % Template: & \TPL{METIS_img_lm_cal_standard}\\
+  % & \TPL{METIS_img_lm_*_obs_*}       \\
+  Created by: & \REC{metis_lm_img_background}\\
+  Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+  % Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
+% \paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}    
-    
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
+  \item \texttt{hdrl\_image * image: Single image}
+  \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+  \end{enumerate}
+\end{datastructdef}
+
 
 \paragraph{\PROD{LM_SCI_CALIBRATED}}\label{dataitem:lm_sci_calibrated}
 \begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{LM_SCI_CALIBRATED}\\[0.3cm]
-Description: & LM band image with flux calibration, WC coordinate system and distorion information\\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{LM_SCI_CALIBRATED}\\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
-\FITS{DO.CATG}: & \CODE{LM_SCI_CALIBRATED}\\[0.3cm]
-% Template: & \TPL{METIS_img_lm_cal_standard}\\
-%             & \TPL{METIS_img_lm_*_obs_*}       \\
-Created by:   & \REC{metis_lm_img_calibrate} \\
-Input for:    & \REC{metis_img_adi_cgrph} \\
-              & \REC{metis_lm_adi_app} \\
-              & \REC{metis_lm_img_sci_postprocess} \\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+  \textbf{\ac{FITS} file structure:}\\
+  Name: & \PROD{LM_SCI_CALIBRATED}\\[0.3cm]
+  Description: & LM band image with flux calibration, WC coordinate system and distorion information\\[0.3cm]
+  \FITS{PRO.CATG}: & \CODE{LM_SCI_CALIBRATED}\\[0.3cm]
+  OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
+  \FITS{DO.CATG}: & \CODE{LM_SCI_CALIBRATED}\\[0.3cm]
+  % Template: & \TPL{METIS_img_lm_cal_standard}\\
+  % & \TPL{METIS_img_lm_*_obs_*}       \\
+  Created by:   & \REC{metis_lm_img_calibrate} \\
+  Input for:    & \REC{metis_img_adi_cgrph} \\
+                & \REC{metis_lm_adi_app} \\
+                & \REC{metis_lm_img_sci_postprocess} \\
+  Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+  % Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\PROD{LM_SCI_CALIBRATED}}\label{drsstructure:LM_SCI_CALIBRATED}
+% \paragraph{\PROD{LM_SCI_CALIBRATED}}\label{drsstructure:LM_SCI_CALIBRATED}
 \begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}    
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
+  \item \texttt{hdrl\_image * image: Single image}
+  \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+  \end{enumerate}
+\end{datastructdef}
 
 
 \paragraph{\PROD{N_SCI_CALIBRATED}}\label{dataitem:n_sci_calibrated}
 \begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{N_SCI_CALIBRATED}\\[0.3cm]
-Description: & N band image with flux calibration and distorion information\\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{N_SCI_CALIBRATED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
-\FITS{DO.CATG}: & \CODE{N_SCI_CALIBRATED}\\[0.3cm]
-% Template: & \TPL{METIS_img_n_cal_standard}\\
-%             & \TPL{METIS_img_n_*_obs_*}       \\
-Created by:   & \REC{metis_n_img_calibrate} \\
-Input for:    & \REC{metis_img_adi_cgrph} \\
-              & \REC{metis_n_img_restore} \\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:nrsrfraw}\\
+  \textbf{\ac{FITS} file structure:}\\
+  Name: & \PROD{N_SCI_CALIBRATED}\\[0.3cm]
+  Description: & N band image with flux calibration and distorion information\\[0.3cm]
+  \FITS{PRO.CATG}: & \CODE{N_SCI_CALIBRATED} \\[0.3cm]
+  OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
+  \FITS{DO.CATG}: & \CODE{N_SCI_CALIBRATED}\\[0.3cm]
+  % Template: & \TPL{METIS_img_n_cal_standard}\\
+  % & \TPL{METIS_img_n_*_obs_*}       \\
+  Created by:   & \REC{metis_n_img_calibrate} \\
+  Input for:    & \REC{metis_img_adi_cgrph} \\
+                & \REC{metis_n_img_restore} \\
+  Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+  % Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-%\paragraph{\PROD{N_SCI_CALIBRATED}}\label{drsstructure:N_SCI_CALIBRATED}
+% \paragraph{\PROD{N_SCI_CALIBRATED}}\label{drsstructure:N_SCI_CALIBRATED}
 \begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}    
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
+  \item \texttt{hdrl\_image * image: Single image}
+  \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+  \end{enumerate}
+\end{datastructdef}
 
 
 \paragraph{\PROD{LM_SCI_COADD}}\label{dataitem:lm_sci_coadd}
 \begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{LM_SCI_COADD}\\[0.3cm]
-Description: & Coadded, mosaiced LM image. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{LM_SCI_COADD} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
-\FITS{DO.CATG}: & \CODE{LM_SCI_COADD}\\[0.3cm]
-Input for recipe: & None \\
-Produced by recipe: & \REC{metis_lm_img_sci_postprocess}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+  \textbf{\ac{FITS} file structure:}\\
+  Name: & \PROD{LM_SCI_COADD}\\[0.3cm]
+  Description: & Coadded, mosaiced LM image. \\[0.3cm]
+  \FITS{PRO.CATG}: & \CODE{LM_SCI_COADD} \\[0.3cm]
+  OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
+  \FITS{DO.CATG}: & \CODE{LM_SCI_COADD}\\[0.3cm]
+  Input for recipe: & None \\
+  Produced by recipe: & \REC{metis_lm_img_sci_postprocess}\\
+  Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.FILTER})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.FILTER})}
+  \item \texttt{hdrl\_image * image: Single image}
+  \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+  \end{enumerate}
 \end{datastructdef}
 
 \paragraph{\PROD{N_SCI_RESTORED}}\label{dataitem:n_sci_restored}
 \begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{N_SCI_RESTORED}\\[0.3cm]
-Description: & N band image with a single positive beam restored from chop-nod image\\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{N_SCI_RESTORED}\\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
-\FITS{DO.CATG}: & \CODE{N_SCI_RESTORED}\\[0.3cm]
-% Template: & \TPL{METIS_img_n_cal_standard}\\
-%             & \TPL{METIS_img_n_*_obs_*}       \\
-Created by:   & \REC{metis_n_img_restore} \\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:nrsrfraw}\\
+  \textbf{\ac{FITS} file structure:}\\
+  Name: & \PROD{N_SCI_RESTORED}\\[0.3cm]
+  Description: & N band image with a single positive beam restored from chop-nod image\\[0.3cm]
+  \FITS{PRO.CATG}: & \CODE{N_SCI_RESTORED}\\[0.3cm]
+  OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
+  \FITS{DO.CATG}: & \CODE{N_SCI_RESTORED}\\[0.3cm]
+  % Template: & \TPL{METIS_img_n_cal_standard}\\
+  % & \TPL{METIS_img_n_*_obs_*}       \\
+  Created by:   & \REC{metis_n_img_restore} \\
+  Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+  % Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-%\paragraph{\PROD{N_SCI_RESTORED}}\label{drsstructure:N_SCI_RESTORED}
+% \paragraph{\PROD{N_SCI_RESTORED}}\label{drsstructure:N_SCI_RESTORED}
 \begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}    
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
+  \item \texttt{hdrl\_image * image: Single image}
+  \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+  \end{enumerate}
+\end{datastructdef}
 
 
+\paragraph{\PROD{LM_STD_COMBINED}}\label{dataitem:lm_std_combined}
+\begin{recipedef}
+  \textbf{\ac{FITS} file structure:}\\
+  Name: & \PROD{LM_STD_COMBINED}\\[0.3cm]
+  Description: & Stacked LM band exposures. \\[0.3cm]
+  \FITS{PRO.CATG}: & \CODE{LM_STD_COMBINED} \\[0.3cm]
+  OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
+  \FITS{DO.CATG}: & \CODE{LM_STD_COMBINED}\\[0.3cm]
+  Input for recipe: & None \\
+  Produced by recipe: & \REC{metis_lm_img_std_process}\\
+  Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.FILTER})}
+  \item \texttt{hdrl\_image * image: Single image}
+  \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+  \end{enumerate}
+\end{datastructdef}
 
 
 \paragraph{\PROD{det_DIST_REDUCED}}\label{dataitem:det_dist_reduced}
-Depending on context, a \PROD{det_DIST_REDUCED} can refer to either a
+Depending on context, \PROD{det_DIST_REDUCED} can refer to either
 \begin{enumerate}
 \item \PROD{N_DIST_REDUCED}
 \item \PROD{LM_DIST_REDUCED}
-% \item \PROD{IFU_DIST_REDUCED}
+  % \item \PROD{IFU_DIST_REDUCED}
 \end{enumerate}
 
 
 \paragraph{\PROD{LM_DIST_REDUCED}}\label{dataitem:lm_dist_reduced}
 \begin{recipedef}
-\textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \PROD{LM_DIST_REDUCED}\\[0.3cm]
-Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{LM_DIST_REDUCED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
-\FITS{DO.CATG}: & \CODE{LM_DIST_REDUCED}\\[0.3cm]
-%Template: & \TPL{METIS_img_lm_cal_distortion}\\
-Created by: & \REC{metis_lm_img_distortion}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:nrsrfraw}\\
+  \textbf{\ac{FITS} TABLE file structure:}\\
+  Name: & \PROD{LM_DIST_REDUCED}\\[0.3cm]
+  Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
+  \FITS{PRO.CATG}: & \CODE{LM_DIST_REDUCED} \\[0.3cm]
+  OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
+  \FITS{DO.CATG}: & \CODE{LM_DIST_REDUCED}\\[0.3cm]
+  % Template: & \TPL{METIS_img_lm_cal_distortion}\\
+  Created by: & \REC{metis_lm_img_distortion}\\
+  Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+  % Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-%\paragraph{\PROD{LM_DIST_REDUCED}}\label{drsstructure:LM_DIST_REDUCED}
+% \paragraph{\PROD{LM_DIST_REDUCED}}\label{drsstructure:LM_DIST_REDUCED}
 \begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
-    \item \texttt{cpl\_table * table}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}    
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
+  \item \texttt{cpl\_table * table}
+  \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+  \end{enumerate}
+\end{datastructdef}
 
 
 
 
 \paragraph{\PROD{N_DIST_REDUCED}}\label{dataitem:n_dist_reduced}
-
 \begin{recipedef}
-\textbf{\ac{FITS} TABLE file structure:}\\
-Name: & \PROD{N_DIST_REDUCED}\\[0.3cm]
-Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{N_DIST_REDUCED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
-\FITS{DO.CATG}: & \CODE{N_DIST_REDUCED}\\[0.3cm]
-%Template: & \TPL{METIS_img_n_cal_distortion}\\
-Created by: & \REC{metis_n_img_distortion}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:nrsrfraw}\\
+  \textbf{\ac{FITS} TABLE file structure:}\\
+  Name: & \PROD{N_DIST_REDUCED}\\[0.3cm]
+  Description: & Table of polynomial coefficients for distortion correction\\[0.3cm]
+  \FITS{PRO.CATG}: & \CODE{N_DIST_REDUCED} \\[0.3cm]
+  OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
+  \FITS{DO.CATG}: & \CODE{N_DIST_REDUCED}\\[0.3cm]
+  % Template: & \TPL{METIS_img_n_cal_distortion}\\
+  Created by: & \REC{metis_n_img_distortion}\\
+  Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+  % Data item structure: & see \ref{drsstructure:nrsrfraw}\\
 \end{recipedef}
-%\paragraph{\PROD{N_DIST_REDUCED}}\label{drsstructure:N_DIST_REDUCED}
+% \paragraph{\PROD{N_DIST_REDUCED}}\label{drsstructure:N_DIST_REDUCED}
 \begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
-    \item \texttt{cpl\_table * table}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
-\end{datastructdef}    
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
+  \item \texttt{cpl\_table * table}
+  \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+  \end{enumerate}
+\end{datastructdef}
 
 
 
-%\clearpage
+% \clearpage
 \paragraph{\PROD{LM_PUPIL_REDUCED}}\label{dataitem:lm_pupil_reduced}
 \begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{LM_PUPIL_REDUCED}\\[0.3cm]
-Description: & Reduced pupil image in LM mode. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{LM_PUPIL_REDUCED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.PUPIL}\\
-\FITS{DO.CATG}: & \CODE{LM_PUPIL_REDUCED}\\[0.3cm]
-Input for recipe: & None \\
-Produced by recipe: & \REC{metis_pupil_imaging}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+  \textbf{\ac{FITS} file structure:}\\
+  Name: & \PROD{LM_PUPIL_REDUCED}\\[0.3cm]
+  Description: & Reduced pupil image in LM mode. \\[0.3cm]
+  \FITS{PRO.CATG}: & \CODE{LM_PUPIL_REDUCED} \\[0.3cm]
+  OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.PUPIL}\\
+  \FITS{DO.CATG}: & \CODE{LM_PUPIL_REDUCED}\\[0.3cm]
+  Input for recipe: & None \\
+  Produced by recipe: & \REC{metis_pupil_imaging}\\
+  Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.PUPIL})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.PUPIL})}
+  \item \texttt{hdrl\_image * image: Single image}
+  \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+  \end{enumerate}
 \end{datastructdef}
 
 %\clearpage
 \paragraph{\PROD{N_PUPIL_REDUCED}}\label{dataitem:n_pupil_reduced}
 \begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{N_PUPIL_REDUCED}\\[0.3cm]
-Description: & Reduced pupil image in N mode. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{N_PUPIL_REDUCED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.PUPIL}\\
-\FITS{DO.CATG}: & \CODE{N_PUPIL_REDUCED}\\[0.3cm]
-Input for recipe: & None \\
-Produced by recipe: & \REC{metis_pupil_imaging}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
-%Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
+  \textbf{\ac{FITS} file structure:}\\
+  Name: & \PROD{N_PUPIL_REDUCED}\\[0.3cm]
+  Description: & Reduced pupil image in N mode. \\[0.3cm]
+  \FITS{PRO.CATG}: & \CODE{N_PUPIL_REDUCED} \\[0.3cm]
+  OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.PUPIL}\\
+  \FITS{DO.CATG}: & \CODE{N_PUPIL_REDUCED}\\[0.3cm]
+  Input for recipe: & None \\
+  Produced by recipe: & \REC{metis_pupil_imaging}\\
+  Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+  % Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
-%\paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
+% \paragraph{\PROD{LM_RSRF_RAW}}\label{drsstructure:LM_RSRF_RAW}
 \begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.PUPIL})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.PUPIL})}
+  \item \texttt{hdrl\_image * image: Single image}
+  \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+  \end{enumerate}
 \end{datastructdef}
 
-
-
-
-\paragraph{\PROD{LM_STD_COMBINED}}\label{dataitem:lm_std_combined}
+% \clearpage
+\paragraph{\PROD{LM_CHOPHOME_COMBINED}}\label{dataitem:lm_chophome_combined}
 \begin{recipedef}
-\textbf{\ac{FITS} file structure:}\\
-Name: & \PROD{LM_STD_COMBINED}\\[0.3cm]
-Description: & Stacked LM band exposures. \\[0.3cm]
-\FITS{PRO.CATG}: & \CODE{LM_STD_COMBINED} \\[0.3cm]
-OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
-\FITS{DO.CATG}: & \CODE{LM_STD_COMBINED}\\[0.3cm]
-Input for recipe: & None \\
-Produced by recipe: & \REC{metis_lm_img_std_process}\\
-Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+  \textbf{\ac{FITS} file structure:}\\
+  Name:               & \PROD{LM_CHOPHOME_COMBINED} \\[0.3cm]
+  Description:        & Stacked LM band exposures. \\[0.3cm]
+  \FITS{PRO.CATG}:    & \CODE{LM_CHOPHOME_COMBINED} \\[0.3cm]
+  OCA keywords:       & \FITS{PRO.CATG}, \FITS{INS.OPTI20.NAME} \\
+  \FITS{DO.CATG}:     & \CODE{LM_CHOPHOME_COMBINED} \\
+  Input for recipe:   & None \\   %%% CHECK might be used for astrometric correction
+  Produced by recipe: & \REC{metis_cal_chophome} \\
+  Processing \ac{FITS} keywords: & provided at \ac{PAE} \\
 \end{recipedef}
 \begin{datastructdef}
-\textbf{Corresponding \ac{CPL} structure:}
-\begin{enumerate}
-    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.FILTER})}
-    \item \texttt{hdrl\_image * image: Single image}
-    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
-\end{enumerate}
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords}: Primary keywords (\FITS{PRO.CATG}, \FITS{PRO.TECH}, \FITS{INS.OPTI20.NAME}, \FITS{INS.OPTI10.NAME})
+  \item \texttt{hdrl\_image * image}: Single image
+  \item \texttt{cpl\_propertylist * plistarray[]}: Extension keywords
+  \end{enumerate}
 \end{datastructdef}
 
+\paragraph{\PROD{LM_CHOPHOME_BACKGROUND}}\label{dataitem:lm_chophome_background}
+\begin{recipedef}
+  \textbf{\ac{FITS} file structure:}\\
+  Name:            & \PROD{LM_CHOPHOME_BACKGROUND} \\[0.3cm]
+  Description:     & Stacked WCU background images. \\[0.3cm]
+  \FITS{PRO.CATG}  & \CODE{LM_CHOPHOME_BACKGROUND} \\[0.3cm]
+  OCA keywords:    & \FITS{PRO.CATG}, \FITS{INS.OPTI19.NAME}, \FITS{INS.OPTI20.NAME} \\
+  \FITS{DO.CATG}:     & \CODE{LM_CHOPHOME_BACKGROUND} \\
+  Input for recipe:   & None \\
+  Produced by recipe: & \REC{metis_cal_chophome} \\
+  Processing \ac{FITS} keywords: & provided at \ac{PAE} \\
+\end{recipedef}
+\begin{datastructdef}
+  \textbf{Corresponding \ac{CPL} structure:}
+  \begin{enumerate}
+  \item \texttt{cpl\_propertylist * keywords}: Primary keywords (\FITS{PRO.CATG}, \FITS{PRO.TECH}, \FITS{INS.OPTI20.NAME}, \FITS{INS.OPTI10.NAME})
+  \item \texttt{hdrl\_image * image}: Single image
+  \item \texttt{cpl\_propertylist * plistarray[]}: Extension keywords
+  \end{enumerate}
+\end{datastructdef}
+
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "METIS_DRLD"
+%%% End:

@@ -1,0 +1,103 @@
+\input{black_style}
+\input{recipe_config}
+
+\begin{tikzpicture}
+  [x=1cm,
+  y=-1cm,
+  align=center,
+  node distance=2cm and 3cm]
+  \sffamily
+
+  %% Grid for orientation. Comment out for final figure!
+  % \draw[help lines, green](-5, 0) grid (8, 11);
+
+  %%% Put workflow commands here:
+  %% Main reduction workflow
+
+  %% template names
+  \node (template) [template] {\TPL{METIS_img_lm_cal_ChopperHome}};
+
+  \pic (start)[below=0.75cm of template]{start};
+
+  \node (input) [below=0.75cm of start-m, input] {%
+    \textsl{N$_{\mathsf{on}}$} \RAW{LM_CHOPHOME_RAW}\\
+    \textsl{N$_{\mathsf{off}}$} \RAW{LM_WCU_OFF_RAW}
+  };
+
+  \node (step_signature) [below=4.0cm of input, redstep]{%
+    detector signature\\ removal};
+
+  \node (step_subtract) [below=1.cm of step_signature, redstep]{%
+    median-combine WCU\_OFF\\ subtract from CHOPHOME};
+
+  \node (step_locate) [below=1.5cm of step_subtract, redstep]{%
+    Centroid peak\\ detection};
+
+  \node (step_fit) [below=1.cm of step_locate, redstep]{%
+    offset calculation};
+
+  \pic (stop) [below=1.5cm of step_fit]{stop};
+
+  %% Input
+  \node (connect_bpm) [connection] at ($(input)!0.3!(step_signature)$) {};
+  \node (bpm) [left=3.75cm of connect_bpm, external] {\EXTCALIB{BADPIX_MAP_2RG}};
+  \draw [connection_arrow, dashed] (bpm) -- (connect_bpm);
+
+  \node (connect_gain) [connection] at ($(input)!0.47!(step_signature)$) {};
+  \node (gain) [left=3.75cm of connect_gain, external] {\EXTCALIB{GAIN_MAP_2RG}};
+  \draw [connection_arrow] (gain) -- (connect_gain);
+
+  \node (connect_linearity) [connection] at ($(input)!0.64!(step_signature)$){};
+  \node (linearity) [left=3.75cm of connect_linearity, external]{\EXTCALIB{LINEARITY_2RG}};
+  \draw [connection_arrow] (linearity) -- (connect_linearity);
+
+  \node (connect_persistence) [connection] at ($(input)!0.81!(step_signature)$){};
+  \node (persistence) [left=3.75cm of connect_persistence, external]{\EXTCALIB{PERSISTENCE_MAP}};
+  \draw [connection_arrow, dashed] (persistence) -- (connect_persistence);
+
+%  \node (connect_bpmin) [connection] at ($(step_subtract)!0.3!(step_locate)$) {};
+%  \node (bpmin) [left=of connect_bpmin, calproduct] {\STATCALIB{BADPIX_MAP_2RG}};
+%  \draw [connection_arrow] (bpmin) -- (connect_bpmin);
+
+  \node (connect_background) [connection] at
+  ($(step_subtract)!0.35!(step_locate)$) {};
+  \node (background) [right=3.5cm of connect_background, calproduct,
+                      minimum width=4cm]{%
+    \PROD{LM_CHOPHOME_BACKGROUND}};
+  \draw [connection_arrow, dashed] (connect_background) -- (background);
+
+  \node (connect_pinhole) [connection] at
+  ($(step_subtract)!0.55!(step_locate)$) {};
+  \node (pinhole) [left=3.75cm of connect_pinhole, external] {\EXTCALIB{PINHOLE_TABLE}};
+  \draw [connection_arrow] (pinhole) -- (connect_pinhole);
+
+  %% Connections
+  \draw [connection_arrow] (start-m) -- (input);
+  \draw [connection_arrow] (input) -- (step_signature);
+  \draw [connection_arrow] (step_signature) -- (step_subtract);
+  \draw [connection_arrow] (step_subtract) -- (step_locate);
+  \draw [connection_arrow] (step_locate) -- (step_fit);
+  \draw [connection_arrow] (step_fit) -- (stop-t);
+
+  %% Output
+  \node (connectoutput) [connection] at
+  ($(step_fit)!0.5!(stop-t)$) {};
+  \node (output) [right=3.5cm of connectoutput, calproduct, minimum width=4cm]{%
+    \PROD{LM_CHOPHOME_COMBINED}};
+  \draw [connection_arrow] (connectoutput) -- (output);
+
+  %% Frame around recipe
+  \draw [frame]
+  ($(input)!0.15!(step_subtract) - (3.5,0)$) rectangle
+  ($(step_fit)!0.65!(stop-t) + (3.05,0)$);
+  \node [framecolor, anchor=south west] at
+  ($(input)!0.16!(step_subtract) - (3.5, 0)$){%
+    \REC{metis_cal_chophome}};
+
+\end{tikzpicture}
+\input{normal_style}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "all"
+%%% End:
