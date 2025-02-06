@@ -192,8 +192,8 @@ HACK_INCORRECT_INPUT_DATA = {
 }
 
 HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT = {
-    # Output of metis_img_chophome is to be used by the ICS.
-    "metis_img_chophome",
+    # Output of metis_cal_chophome is to be used by the ICS.
+    #"metis_cal_chophome",
 }
 
 HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING = {

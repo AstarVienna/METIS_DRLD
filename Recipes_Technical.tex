@@ -85,8 +85,10 @@ Algorithm:      & remove detector signature\\
                 & remove median background\\
                 & detect reference source from \ac{WCU} via centroid peak detection\\
                 & Calculate mirror offset\\
-Output data:	& Stacked chopperhome image \\
-                & Offset of the chopper mirror (as header keywords) to be piped either into the \ac{ICS} for correction  or to be used in the pipeline for astrometric correction\\
+                Output data:
+                & \PROD{LM_CHOPHOME_BACKGROUND} \\
+                & \PROD{LM_CHOPHOME_COMBINED} \\
+                & The latter product includes the offset of the chopper mirror as keywords in the FITS header. \\
 Expected accuracies: & 0.1\,mas accuracy of the centroid position (cf.~\cite{METIS-calibration_plan})\\
 QC1 parameters: & \QC{QC CAL CHOPHOME XCEN} \\
                 & \QC{QC CAL CHOPHOME XCEN STDEV} \\
