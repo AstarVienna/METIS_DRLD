@@ -134,11 +134,13 @@ This recipe creates a spectroscopic master flat and determines the
 relative spectral response function (RSRF) for the four HAWAII2RG
 detectors of the LM spectrograph. The input data are obtained by
 illuminating the field of view with the black-body calibration lamp at
-two different temperatures. The RSRF is then determined by dividing
-the image by the known lamp continuum shape for the respective
-temperature. We refer to the two-dimensional image obtained by this
-division as \PROD{MASTER_FLAT_IFU} and the one-dimensional reponse
-function obtained by averaging along the spatial direction of the
+a selected temperature and subtracting a combinded "background" frame obtained
+by taking exposures with the \ac{WCU} input aperture closed (\CODE{WCU_OFF}
+frames).
+The RSRF is then determined by dividing the image by the known lamp continuum
+shape for the respective temperature. We refer to the two-dimensional image
+obtained by this division as \PROD{MASTER_FLAT_IFU} and the one-dimensional reponse
+function obtained by averaging along the spatial direction the
 \PROD{RSRF_IFU}. The bad pixel mask can be updated by identifying pixels
 that deviate strongly from their neighbours.
 
@@ -149,6 +151,7 @@ Requirements:        & \REQ{METIS-6131}, \REQ{METIS-6698}                       
 Type:                & Calibration                                                              \\
 Templates:           & \TPL{METIS_ifu_cal_rsrf}                                                 \\
 Input data:          & \RAW{IFU_RSRF_RAW} (Raw flats taken with black-body calibration lamp.)   \\
+                     & \RAW{IFU_WCU_OFF_RAW} (\ac{WCU} "off" frames taken with \ac{WCU} input shutter closed.)\\
                      & \EXTCALIB{BADPIX_MAP_IFU} (optional)                                     \\
                      & \EXTCALIB{PERSISTENCE_MAP}                                               \\
                      & \STATCALIB{MASTER_DARK_IFU}                                                   \\
@@ -159,9 +162,10 @@ Input data:          & \RAW{IFU_RSRF_RAW} (Raw flats taken with black-body calib
 Matched Keywords: & \FITS{DET.DIT}\\
                   & \FITS{DET.NDIT}\\
                   & \FITS{DRS.IFU}\\
-Parameters:          & None                                                                     \\
-Algorithm:           & Create continuum image by mapping Planck spectrum at $T_{\mathrm{lamp}}$ to
-                       wavelength image.                                                        \\
+Parameters:          & averaging / stacking method                                                                     \\
+Algorithm:           & Create background image from the average of a number of \RAW{IFU_WCU_OFF_RAW} images (this could become a separate recipe?).\\
+                     & Subtract background image from each \RAW{IFU_RSRF_RAW} exposure.         \\
+                     & Create continuum image by mapping Planck spectrum at $T_{\mathrm{lamp}}$ to wavelength image. \\ 
                      & Divide exposures by continuum image.                                     \\
                      & Average exposures to yield master flat (2D RSRF).                        \\
                      & Average in spatial direction to obtain relative response function        \\
