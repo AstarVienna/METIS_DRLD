@@ -30,12 +30,13 @@
   \pic (start) [below=0.75cm of template] {start};
 
   \node (input) [below=0.75cm of start-m, input]{%
-    \textsl{N} \RAW{IFU_RSRF_RAW}
+    \textsl{N} \RAW{IFU_RSRF_RAW} and\\
+    \textsl{M} \RAW{IFU_WCU_OFF_RAW}
   };
 
   \node (step_detrend) [below=7cm of input, redstep]{%
     detector signature\\
-    removal
+    and background removal
   };
 
 
