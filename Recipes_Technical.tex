@@ -36,8 +36,13 @@ It is not foreseen to be used by scientists in regular operation.
   Templates:           & \TPL{METIS_pup_lm}                            \\
                        & \TPL{METIS_pup_n}                             \\
   Input data:          & \RAW{LM_PUPIL_RAW} or \RAW{N_PUPIL_RAW}       \\
-                       & \STATCALIB{GAIN_MAP_2RG} or \STATCALIB{GAIN_MAP_GEO}    \\
-  Matched keywords:    & \FITS{DRS.PUPIL}                              \\
+  & \STATCALIB{GAIN_MAP_2RG} or \STATCALIB{GAIN_MAP_GEO}    \\
+                & \EXTCALIB{PERSISTENCE_MAP}  \\
+                & \STATCALIB{LINEARITY_2RG} or  \STATCALIB{LINEARITY_GEO}  \\
+                & \STATCALIB{GAIN_MAP_2RG} or  \STATCALIB{GAIN_MAP_GEO}  \\
+                & \PROD{MASTER_DARK_2RG} or  \PROD{MASTER_DARK_GEO}  \\
+                & \PROD{MASTER_IMG_FLAT_LAMP_LM} or \PROD{MASTER_IMG_FLAT_LAMP_N}  \\
+  Matched keywords:    & \FITS{DRS.PUPIL}                           \\
   Algorithm            & Apply dark current and flat field corrections.\\
   Output data:         & \PROD{LM_PUPIL_REDUCED} or \PROD{N_PUPIL_REDUCED} \\
   Expected accuracies: & n/a                                           \\
