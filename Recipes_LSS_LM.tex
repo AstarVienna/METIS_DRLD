@@ -333,7 +333,7 @@ QC1 parameters: & \QC{QC LM LSS SCI SNR}: Signal-to-noise ration of science spec
 \clearpage
 
 \subsubsection{\REC*{metis_LM_lss_mf_model}:  Telluric correction}\label{rec:metis_lm_lss_mf_model}
-The telluric correction will be done with the package \texttt{molecfit}\footnote{\url{https://www.eso.org/sci/software/pipelines/molecfit/molecfit-pipe-recipes.html}}. It is realised in three individual recipes, \REC{metis_LM_lss_mf_model}, which calculates the best-fit model, \REC{metis_LM_lss_mf_calctrans}, which creates a synthetic transmission curve, and \REC{metis_LM_lss_mf_correct}, which performs the actual telluric correction by means of the synthetic transmission.
+The telluric correction will be done with the package \texttt{molecfit}\footnote{\url{https://www.eso.org/sci/software/pipelines/molecfit/molecfit-pipe-recipes.html}}\cite{molecfit}. It is based on the \texttt{telluricorr} package provided by \ac{ESO} and incorporates in three individual recipes, \REC{metis_LM_lss_mf_model}, which calculates the best-fit model, \REC{metis_LM_lss_mf_calctrans}, which creates a synthetic transmission curve, and \REC{metis_LM_lss_mf_correct}, which performs the actual telluric correction by means of the synthetic transmission.
 
 \begin{figure}[ht]
   \centering
