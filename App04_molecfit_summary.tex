@@ -12,7 +12,7 @@ All three recipes require the usual \texttt{sof} file and a \texttt{.rc} file wi
 \subsubsection{\texttt{XXX\_mf\_model}}
 Following the User Manual of \texttt{molecfit}\cite{molecfit} the first recipe requires a 1d-spectrum as input, either a science observation or a telluric standard star. This means that from both, \ac{IFU}-cubes and 2d-\ac{LSS}-data one-dimensional spectra need to be extracted beforehand. For the time being we assume that the best-fit model done on that 1d-spectrum is sufficient to correct the entire \ac{IFU} cube. If it turns out that one of the fitting parameters shows major variations over the \ac{FoV} (especially the the \ac{LSF}), best-fit models need to be created for each spaxel. For the \ac{LSS} spectra we do not assume large \ac{LSF} variations along the slit. \\
 %---------------------------------------------------------------------
-\paragraph{\texttt{sof}-files}\label{}
+\paragraph{\texttt{sof}-files}\label{app:mf_model_sof}
 The \texttt{sof}-files should have the following input:\\
 \begin{table}
 %\begin{center}
@@ -21,14 +21,14 @@ The \texttt{sof}-files should have the following input:\\
 input & \texttt{sof}-tag & type\\
     & \FITS{PRO.CATG} & mandatory/optional\\
 \hline
-\texttt{1d-input\_spectrum_filename} &  & mandatory\\
+\texttt{1d-input\_spectrum\_filename} &  & mandatory\\
 \hdashline
-\texttt{1d-input\_spectrum_filename} &  & mandatory\\
+\texttt{1d-input\_spectrum\_filename} &  & mandatory\\
 \end{tabular}
 \caption{Expected content of the \texttt{sof}-file for the recipe \texttt{XXX\_mf\_model}\label{tab:sof_mf_model}).
 %\end{center}
 \end{table}
 
 %---------------------------------------------------------------------
-\paragraph{\texttt{rc}-files}
-Due to the complexity of \mf a large set of parameters are required. It is beyond the scope of this document w
+\paragraph{\texttt{rc}-files}\label{app:mf_model_rc}
+Due to the complexity of \mf a large set of parameters are required. As it is beyond the scope of this document to list all of them, we refer to App.~B in \cite{molecfit}.
