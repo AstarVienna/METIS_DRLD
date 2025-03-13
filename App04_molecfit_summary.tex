@@ -1,11 +1,11 @@
 \section{Summary of the usage of \texttt{molecfit}}\label{app:mf}
 This section is intended to be a summary on how the package \texttt{molecfit} will be used for the \ac{METIS} pipeline. As it will be incorporated in the \ac{IFU} and both \ac{LSS} modes in the same way, we describe here the technical part only once for all pipelines. The overall strategy is described in Section~\ref{ssec:tellcorr}.
 %---------------------------------------------------------------------
-\subsection{Principles}\label{app:mf_principles}
-\texttt{molecfit} is provided by \ac{ESO} via the \texttt{telluriccorr} package. It incorporates three individual recipes: \texttt{XXX_mf_model}, \texttt{XXX_mf_calctrans}, and \texttt{XXX_mf_correct} (being \texttt{XXX} the prefix of the respective pipelines, e.g. \texttt{met_lm_lss}). The first recipe aims at fitting telluric features visible in the spectra with the help of a radiative transfer code, a line database and an atmospheric profile. This best fit is done on small wavelength regions only, where specific features of atmospheric molecules are visible. Having this best fit at hand, the transmission curve is calculated on the whole wavelength regime of the input spectrum (recipe \texttt{XXX_mf_calctrans}). The final telluric correction is performed by the last recipe \texttt{XXX_mf_correct}. For more details on the actual algorithms in \texttt{molecfit} we refer the user to the respective User Manual \cite{molecfit}.\\
+\subsection{Principles}\label{app:mf\_principles}
+\texttt{molecfit} is provided by \ac{ESO} via the \texttt{telluriccorr} package. It incorporates three individual recipes: \texttt{XXX\_mf\_model}, \texttt{XXX\_mf\_calctrans}, and \texttt{XXX\_mf\_correct} (being \texttt{XXX} the prefix of the respective pipelines, e.g. \texttt{met\_lm\_lss}). The first recipe aims at fitting telluric features visible in the spectra with the help of a radiative transfer code, a line database and an atmospheric profile. This best fit is done on small wavelength regions only, where specific features of atmospheric molecules are visible. Having this best fit at hand, the transmission curve is calculated on the whole wavelength regime of the input spectrum (recipe \texttt{XXX\_mf\_calctrans}). The final telluric correction is performed by the last recipe \texttt{XXX\_mf\_correct}. For more details on the actual algorithms in \texttt{molecfit} we refer the user to the respective User Manual \cite{molecfit}.\\
 %---------------------------------------------------------------------
-\subsection{Input}\label{app:mf_input}
+\subsection{Input}\label{app:mf\_input}
 All three recipes require the usual \texttt{sof} file and a \texttt{.rc} file with parameters as input.
-\subsubsection{\texttt{XXX_mf_model}}
+\subsubsection{\texttt{XXX\_mf\_model}}
 Following \cite{molecfit} the first recipe requires a 1d-Spectrum as input.
 
