@@ -7,5 +7,4 @@ The software \texttt{molecfit} is provided by \ac{ESO} via the \texttt{telluricc
 \subsection{Input}\label{app:mf_input}
 All three recipes require the usual \texttt{sof} file and a \texttt{.rc} file with parameters as input.
 \subsubsection{\texttt{XXX\_mf\_model}}
-Following \cite{molecfit} the first recipe requires a 1d-spectrum as input, either a science observation or a telluric standard star. This means that 
-
+Following the User Manual of \texttt{molecfit}\cite{molecfit} the first recipe requires a 1d-spectrum as input, either a science observation or a telluric standard star. This means that from both, \ac{IFU}-cubes and 2d-\ac{LSS}-data one-dimensional spectra need to be extracted beforehand. For the time being we assume that the best-fit model done on that 1d-spectrum is sufficient to correct the entire cube and the 2d-\ac{LSS}-spectrum, respectively. If it turns out that e.g. the \ac{LSF} varies over the field-of-view, best-fit models need to be created for each spaxel.
