@@ -18,13 +18,17 @@ The \texttt{sof}-files should have the following input:\\
 %\begin{center}
 \centering
 \begin{tabular}{r|l|l}
-input
+input & \texttt{sof}-tag & type\\
+    & \FITS{PRO.CATG} & mandatory/optional\\
+\hline
+\texttt{1d-input\_spectrum_filename} &  & mandatory\\
+\hdashline
+\texttt{1d-input\_spectrum_filename} &  & mandatory\\
 \end{tabular}
-\caption{Overview of the used slits in all three bands (data taken from Tabs.~4-2 and 4-3 in \cite{METIS-system_analysis}\label{tab:slit_props}).
-\newline $^a$there are 64 / 28 masked pixels at each side of the H2RG/Geosnap detectors, therefore the \ac{FoV} is slightly smaller than expected for a 2048-pixel detector.
-\newline $^b$all slits have length 8000\,mas.}
+\caption{Expected content of the \texttt{sof}-file for the recipe \texttt{XXX\_mf\_model}\label{tab:sof_mf_model}).
 %\end{center}
 \end{table}
 
-
-\texttt{1d-input\_spectrum_filename}
+%---------------------------------------------------------------------
+\paragraph{\texttt{sof}-files}
+Due to the complexity of \mf a large set of parameters are required. It is beyond the scope of this document w
