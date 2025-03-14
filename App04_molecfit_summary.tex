@@ -17,15 +17,15 @@ The \texttt{sof}-files should have the following input:\\
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{|c : c : c|} 
+\begin{tabular}{|c : c : c : c|} 
  \hline
- input & \texttt{sof}-tag & mandatory / \\ 
- file & \FITS{PRO.CATG} & optional \\ 
+ input & type & \texttt{sof}-tag & mandatory / \\ 
+ file & & \FITS{PRO.CATG} & optional \\ 
  \hline
- \texttt{input\_spectrum} & sof & mandatory  \\ 
- \texttt{input\_spectrum} & sof & mandatory  \\ 
+ \texttt{1d\_input\_spectrum} & 1d science spectrum & sof & mandatory  \\ 
+ \texttt{input\_spectrum} & 1d telluric spectrum & sof & mandatory  \\ 
  \hdashline
- \texttt{input\_spectrum} & sof & mandatory  \\ 
+ \texttt{TBD} & TBD & sof & optional  \\ 
  \hline
 \end{tabular}
 \caption{Expected content of the \texttt{sof}-file for the recipe \texttt{XXX\_mf\_model}\label{tab:sof_mf_model}.}
