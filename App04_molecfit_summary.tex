@@ -12,25 +12,27 @@ All three recipes require the usual \texttt{sof} file and a \texttt{.rc} file wi
 \subsubsection{\texttt{XXX\_mf\_model}}
 Following the User Manual of \mf\cite{molecfit} the first recipe requires a 1d-spectrum as input, either a science observation or a telluric standard star. This means that from both, \ac{IFU}-cubes and 2d-\ac{LSS}-data one-dimensional spectra need to be extracted beforehand. For the time being we assume that the best-fit model done on that 1d-spectrum is sufficient to correct the entire \ac{IFU} cube. If it turns out that one of the fitting parameters shows major variations over the \ac{FoV} (especially the the \ac{LSF}), best-fit models need to be created for each spaxel. For the \ac{LSS} spectra we do not assume large \ac{LSF} variations along the slit. \\
 %---------------------------------------------------------------------
-\paragraph{\texttt{sof}-files}\label{app:mf_model_sof}
-The \texttt{sof}-files should have the following input:\\
+\paragraph{\texttt{sof}-files}\label{app:mf_model_sof}\\
+The required input files for the recipe is listed in Tab.~\ref{tab:sof_mf_model}. Note that for the mandatory inputs only one out of them is expected.\\
 
 \begin{table}[h!]
 \centering
 \begin{tabular}{|c : c : c : c : c|} 
  \hline
  observing  & type & \texttt{sof}-tag & mandatory / & expected \\ 
- mode & file & \FITS{PRO.CATG} & optional & #\\ 
+ mode       & file & \FITS{PRO.CATG}  & optional    & number\\ 
  \hline
- LM LSS & 1d science spectrum & \CODE{LM_LSS_STD_1D} & mandatory & 1 \\ 
-  & 1d telluric spectrum & \CODE{LM_LSS_SCI_1D} & mandatory & 1 \\ 
+ LM LSS & 1d science spectrum & \CODE{LM_LSS_SCI_1D} & mandatory & 1 \\ 
+  & 1d telluric spectrum & \CODE{LM_LSS_STD_1D} & mandatory & 1 \\ 
  \hdashline
- N LSS & 1d science spectrum & \CODE{N_LSS_STD_1D} & mandatory & 1 \\ 
-  & 1d telluric spectrum & \CODE{N_LSS_SCI_1D} & mandatory & 1 \\ 
+ N LSS & 1d science spectrum & \CODE{N_LSS_SCI_1D} & mandatory & 1 \\ 
+  & 1d telluric spectrum & \CODE{N_LSS_STD_1D} & mandatory & 1 \\ 
  \hdashline
  \hdashline
  LM IFU & 1d science spectrum & \CODE{TBD} & mandatory & 1 \\ 
  \hline
+ ALL modes & Atmospheric profile & \CODE{TBD} & optional & 1 \\ 
+ 
 \end{tabular}
 \caption{Expected content of the \texttt{sof}-file for the recipe \texttt{XXX\_mf\_model}\label{tab:sof_mf_model}.}
 \label{table:1}
