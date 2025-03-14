@@ -1,5 +1,8 @@
 %=======================================================================
 \section{Summary of the usage of \texttt{molecfit}}\label{app:mf}
+\textbf{COMMENT by WK:} This section is based on the approach implemented in XShooter! Needs to be adapted for METIS!\\[1cm]
+
+
 This section is intended to be a summary on how the package \texttt{molecfit} will be used for the \ac{METIS} pipeline. As it will be incorporated in the \ac{IFU} and both \ac{LSS} modes in the same way, we describe here the technical implementation only once for all pipelines. The overall strategy is described in Section~\ref{ssec:tellcorr}, more details on the \mf algorithm can be found in \cite{molecfit} and references therein.
 
 %=======================================================================
@@ -19,7 +22,7 @@ The required input files for the recipe is listed in Tab.~\ref{tab:sof_mf_model}
 \centering
 \begin{tabular}{|c : c : c : c : c|} 
  \hline
- observing  & type & \texttt{sof}-tag & mandatory / & expected \\ 
+ observing  & type & \texttt{sof}-tag & mandatory$^a$ / & expected \\ 
  mode       & file & \FITS{PRO.CATG}  & optional    & number\\ 
  \hline
  LM LSS & 1d science spectrum & \CODE{LM_LSS_SCI_1D} & mandatory & 1 \\ 
@@ -32,10 +35,11 @@ The required input files for the recipe is listed in Tab.~\ref{tab:sof_mf_model}
  LM IFU & 1d science spectrum & \CODE{TBD} & mandatory & 1 \\ 
  \hline
  ALL modes & Atmospheric profile & \CODE{TBD} & optional & 1 \\ 
- ALL modes & Atmospheric profile & \CODE{TBD} & optional & 1 \\ 
- 
+           & GDAS profile & \CODE{TBD} & optional & 1 \\ 
+           & KERNEL library & \CODE{TBD} & optional & 1 \\ 
 \end{tabular}
-\caption{Expected content of the \texttt{sof}-file for the recipe \texttt{XXX\_mf\_model}\label{tab:sof_mf_model}.}
+\caption{Expected content of the \texttt{sof}-file for the recipe \texttt{XXX\_mf\_model}\label{tab:sof_mf_model}.
+\newline $^a$Note that from the mandatory input spectra only one is needed.}
 \label{table:1}
 \end{table}
 %---------------------------------------------------------------------
