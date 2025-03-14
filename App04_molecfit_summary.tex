@@ -17,6 +17,7 @@ Following the User Manual of \mf\cite{molecfit} the first recipe requires a 1d-s
 %---------------------------------------------------------------------
 \paragraph{\texttt{sof}-files\newline}\label{app:mf_model_sof}
 The required input files for the recipe is listed in Tab.~\ref{tab:sof_mf_model}. Note that for the mandatory 1d-input spectra only one out of them is expected.
+\begin{landscape}
 \begin{table}[h!]
 \centering
 \begin{tabular}{|c : r : c : c : c|} 
@@ -33,7 +34,7 @@ The required input files for the recipe is listed in Tab.~\ref{tab:sof_mf_model}
   & telluric spectrum & \PROD{N_LSS_STD_1D} & mandatory & 1 \\ 
  \hdashline
  LM IFU & extracted 1d science spectrum & TBD & mandatory & 1 \\ 
-  & extracted 1d science spectrum & TBD & mandatory & 1 \\ 
+  & extracted 1d science spectrum (flux cal.) & TBD & mandatory & 1 \\ 
  \hline
  ALL modes & Atmospheric profile & TBD & optional & 1 \\ 
            & GDAS profile & TBD & optional & 1 \\ 
@@ -48,6 +49,7 @@ The required input files for the recipe is listed in Tab.~\ref{tab:sof_mf_model}
 \newline $^a$Note that from the mandatory input spectra only one out of them is needed, i.e. choose one of the \texttt{sof}-tags.}
 \label{table:1}
 \end{table}
+\end{landscape}
 %---------------------------------------------------------------------
 \paragraph{\texttt{rc}-files\\}\label{app:mf_model_rc}
 Due to the complexity of \mf a large set of parameters are required. As it is beyond the scope of this document to list all of them, we refer to App.~B in \cite{molecfit}. From the technical point-of-view, these parameters should have decent default values (which are to be determined), but changeable by the user, and then passed over to \mf via the recipe. 
