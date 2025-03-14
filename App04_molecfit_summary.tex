@@ -19,16 +19,17 @@ The \texttt{sof}-files should have the following input:\\
 \centering
 \begin{tabular}{|c : c : c : c : c|} 
  \hline
- observing & input & type & \texttt{sof}-tag & mandatory / \\ 
- mode & file & & \FITS{PRO.CATG} & optional \\ 
+ observing  & type & \texttt{sof}-tag & mandatory / & expected \\ 
+ mode & file & \FITS{PRO.CATG} & optional & #\\ 
  \hline
- LM LSS & \texttt{1d\_input\_spectrum} & 1d science spectrum & \CODE{LM_LSS_STD_1D} & mandatory  \\ 
-  & \texttt{input\_spectrum} & 1d telluric spectrum & \CODE{LM_LSS_SCI_1D} & mandatory  \\ 
+ LM LSS & 1d science spectrum & \CODE{LM_LSS_STD_1D} & mandatory & 1 \\ 
+  & & 1d telluric spectrum & \CODE{LM_LSS_SCI_1D} & mandatory & 1 \\ 
  \hdashline
- N LSS & \texttt{1d\_input\_spectrum} & 1d science spectrum & \CODE{N_LSS_STD_1D} & mandatory  \\ 
-  & \texttt{input\_spectrum} & 1d telluric spectrum & \CODE{N_LSS_SCI_1D} & mandatory  \\ 
+ N LSS & 1d science spectrum & \CODE{N_LSS_STD_1D} & mandatory & 1 \\ 
+  & 1d telluric spectrum & \CODE{N_LSS_SCI_1D} & mandatory & 1 \\ 
  \hdashline
- & \texttt{TBD} & TBD & sof & optional  \\ 
+ \hdashline
+ LM IFU & 1d science spectrum & \CODE{TBD} & mandatory & 1 \\ 
  \hline
 \end{tabular}
 \caption{Expected content of the \texttt{sof}-file for the recipe \texttt{XXX\_mf\_model}\label{tab:sof_mf_model}.}
