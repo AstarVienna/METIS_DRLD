@@ -17,20 +17,20 @@ The \texttt{sof}-files should have the following input:\\
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{||c c c c||} 
+\begin{tabular}{|c c c|} 
  \hline
- Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
- \hline\hline
- 1 & 6 & 87837 & 787 \\ 
- 2 & 7 & 78 & 5415 \\
- 3 & 545 & 778 & 7507 \\
- 4 & 545 & 18744 & 7560 \\
+ input & \texttt{sof}-tag & mandatory / \\ [0.5ex] 
+ file & \FITS{PRO.CATG} & optional \\ [0.5ex] 
+ \hline
+ \texttt{input\_spectrum} & sof & mandatory  \\ 
+ \texttt{input\_spectrum} & sof & mandatory  \\ 
  5 & 88 & 788 & 6344 \\ [1ex] 
  \hline
 \end{tabular}
-\caption{Table to test captions and labels.}
+\caption{Expected content of the \texttt{sof}-file for the recipe \texttt{XXX\_mf\_model}\label{tab:sof_mf_model}.}
 \label{table:1}
 \end{table}
 %---------------------------------------------------------------------
 \paragraph{\texttt{rc}-files}\label{app:mf_model_rc}
 Due to the complexity of \mf a large set of parameters are required. As it is beyond the scope of this document to list all of them, we refer to App.~B in \cite{molecfit}. From the technical point-of-view, these parameters should have decent default values (which are to be determined), but changeable by the user, and then passed over to \mf via the recipe. 
+
