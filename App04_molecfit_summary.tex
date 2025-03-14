@@ -1,6 +1,6 @@
 %=======================================================================
-\section{Summary of the usage of \texttt{molecfit}}\label{app:mf}
-\textbf{COMMENT by WK:} This section is based on the approach implemented in XShooter! Needs to be adapted for METIS!\\[1cm]
+\section{Technical implementation of \texttt{molecfit}}\label{app:mf}
+\textbf{COMMENT by WK:} This section is based on the approach implemented in XShooter! Needs probably to be adapted for METIS!\\[1cm]
 
 
 This section is intended to be a summary on how the package \texttt{molecfit} will be used for the \ac{METIS} pipeline. As it will be incorporated in the \ac{IFU} and both \ac{LSS} modes in the same way, we describe here the technical implementation only once for all pipelines. The overall strategy is described in Section~\ref{ssec:tellcorr}, more details on the \mf algorithm can be found in \cite{molecfit} and references therein.
@@ -15,9 +15,8 @@ All three recipes require the usual \texttt{sof} file and a \texttt{.rc} file wi
 \subsubsection{\texttt{XXX\_mf\_model}}
 Following the User Manual of \mf\cite{molecfit} the first recipe requires a 1d-spectrum as input, either a science observation or a telluric standard star. This means that from both, \ac{IFU}-cubes and 2d-\ac{LSS}-data one-dimensional spectra need to be extracted beforehand. For the time being we assume that the best-fit model done on that 1d-spectrum is sufficient to correct the entire \ac{IFU} cube. If it turns out that one of the fitting parameters shows major variations over the \ac{FoV} (especially the the \ac{LSF}), best-fit models need to be created for each spaxel. For the \ac{LSS} spectra we do not assume large \ac{LSF} variations along the slit. \\
 %---------------------------------------------------------------------
-\paragraph{\texttt{sof}-files}\label{app:mf_model_sof}\\
-The required input files for the recipe is listed in Tab.~\ref{tab:sof_mf_model}. Note that for the mandatory inputs only one out of them is expected.\\
-
+\paragraph{\texttt{sof}-files}\label{app:mf_model_sof}
+The required input files for the recipe is listed in Tab.~\ref{tab:sof_mf_model}. Note that for the mandatory 1d-inputspectra only one out of them is expected.
 \begin{table}[h!]
 \centering
 \begin{tabular}{|c : c : c : c : c|} 
