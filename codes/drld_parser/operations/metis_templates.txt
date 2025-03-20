@@ -92,8 +92,8 @@ METIS Calibration templates|
 |[[METIS_ifu_cal_distortion|METIS_ifu_cal_distortion]] |Distortion map IFU|
 |[[METIS_ifu_cal_DetLin|METIS_ifu_cal_DetLin]] |Detector linearity check IFU |
 |**All subsystems**|
-|[[METIS_gen_cal_dark|METIS_gen_cal_dark]]|Series of dark frames (imager dark)|
-|[[METIS_gen_cal_InsDark|METIS_gen_cal_InsDark]]|Series of dark frames (instrument dark)|
+|[[METIS_gen_cal_dark|METIS_gen_cal_dark]]|Detector dark current and read noise|
+|[[METIS_gen_cal_InsDark|METIS_gen_cal_InsDark]]|Instrument internal background|
 ++++
 ++++
 METIS Engineering templates|
