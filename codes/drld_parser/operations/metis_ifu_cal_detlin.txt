@@ -2,43 +2,27 @@
 
 Detector linearity templates are used to determine detector linearity curves. The WCU BB/flatfield source is set to the appropriate temperature. A short series (10, tbc) of observations is taken with various WCU integrating sphere exit aperture masks to vary the brightness levels.
 
-++++
-Setup WCU|
-  * Move periscopic arm to IN
-  * Set temperature of the blackbody to specified temperature
+<color #00a2e8>Setup METIS: Background exposures</color>
+  * Set ''wcu-per'' (''INS.OPTI17.NAME'') to ''IN''
+  * Set ''wcu-pp1'' (''INS.OPTI18.NAME'') to ''ELT_mask''
+  * Set ''wcu-bb-aperture-mask'' (''INS.OPTI19.NAME'') to ''CLOSED''
+  * Set ''wcu-fp2-1'' (''INS.OPTI20.NAME'') to ''flatfield'' (open position)
+  * Set ''wcu-bb'' (''SEQ.WCU.BB.TEMP'') to ''TEMP-L''
   * Wait for about 45 minutes (warming up time, depends on the BB temperature selection)
-  * Set ''WCU-FP2.1'' to flat-field mask (open position)
-  * Set ''WCU-PP1'' to ELT mask
-  * Check the power readout. If the power is detectable, continue. 
-  * Set ''WCU-BB-aperture-mask'' to CLOSE
-  * take background measurement
-  * Set ''WCU-BB-aperture-mask'' to smallest aperture mask
-++++
+  * Check the power readout. If the power is detectable, continue
+  * Take background measurements with requested DIT, NDIT and NEXPO
 
-++++
-Setup CFO and subsystems|
-  * Set ''CFO-PP1'' to PPS-CFO1
-  * Set ''CFO-FP2'' to FIELD-11
-  * Set LMS beamsplitter pickoff wheel to IN
-  * insert ''LMS PP1'' cold stop
-  * ''LMS PP4'' Select pre-dispersed range (spectral order)
-  * ''LMS FP4'' to single order selecting mask (nominal mode) or spectral IFU (extended mode)
-  * ''LMS PP5'' Select main dispersed range
-  * [comment] For this detector calibration we will set the pre-disperser and disperser to such a setting that illuminates the detector most equally.
-++++
-++++
-Start Exposure|
-  * Start exposures with the LMS with the requested DIT and NDIT
-  * Until largest WCU aperture mask is reached:
-    * Set ''WCU-BB-aperture-mask'' to next larger size aperture mask
-    * Start exposures with the LMS with the requested DIT and NDIT
-++++
-
-++++
-End Exposure|
-  * Collect headers
-  * Send file to ESO Archive
-++++
+<color #00a2e8>Setup METIS: Science exposures</color>
+  * Set ''wcu-bb-aperture-mask''  (''INS.OPTI19.NAME'') to ''MASK01''
+  * Set ''cfo-pp1'' (''INS.OPTI1.NAME'') to ''PPS-CFO1''
+  * Set ''cfo-fp2'' (''INS.OPTI3.NAME'') to ''FIELD-11''
+  * Set ''cfo-lms'' (''INS.OPTI4.NAME'') to ''IN''
+  * Set ''lms-pwa'' (''INS.OPTI5.NAME'') to ''PPS-LMS''
+  * Set ''lms-gra'' (''INS.OPTI6.NAME'') to grating angle (main dispersed range)
+  * Set ''lms-pra'' (''INS.OPTI7.NAME'') to chosen pre-disperser angle (spectral order)
+  * Set ''lms-msa'' (''INS.OPTI8.NAME'') to ''Nominal'' or ''Extended''
+  * [comment] For this detector calibration we set the pre-disperser and disperser to such a setting that illuminates the detector most equally.
+  * Take science measurements with requested DIT, NDIT and NEXPO 
 
 ===Parameters for METIS_ifu_cal_DetLin ===
 

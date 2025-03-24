@@ -1,33 +1,22 @@
 ===Procedure for METIS_gen_cal_dark ===
 
-This template is used for the science dark frame calibration. It acquires a number NEXPO of darks with specified DIT and NDIT (which should correspond to the DIT and NDIT of the exposure to correct). The darks can be taken in parallel using the different detectors (IMG LM, IMG N, LMS), with a different DIT/NDIT.
+This template is used for the science dark frame calibration. It acquires a number NEXPO of darks with specified DIT and NDIT. The darks can be taken in parallel using the different detectors (IMG LM, IMG N, LMS), with a different DIT/NDIT.
 
 This dark calibration is also referred to as imager dark and uses the dark positions in both the CFO-PP1 and the IMG-PP1 and LMS-PP1 wheels.
- 
-++++
-Setup WCU|
-  * Nothing to be done
-++++
 
-++++
-Setup CFO and subsystems|
-  * Set ''CFO-PP1'' to DARK
-  * Set ''IMG-PP1'' to DARK
-  * Set ''LMS-PP1'' to DARK
-++++
+<color #00a2e8>Setup METIS</color>
+  * Blackbody source and laser sources must be off (run OB that puts METIS in default configuration)
+  * Set ''wcu-bb-aperture-mask'' (''INS.OPTI19.NAME'') to ''CLOSED''
+  * Set ''wcu-fp2-1'' (''INS.OPTI20.NAME'') to ''ALIGNMENT'' (0% transmission to METIS)
+  * Set ''cfo-pp1'' (''INS.OPTI1.NAME'') to ''DARK''
+  * Set ''cfo-adc'' (''INS.OPTI2.NAME'') to ''OUT''
+  * Set ''cfo-fp2'' (''INS.OPTI3.NAME'') to ''ALIGN+DARK'' (see E-SPE-NOVA-MET-1141)
+  * Set ''img-lm-pw'' (''INS.OPTI9.NAME'')  to ''DARK-LM''
+  * Set ''img-n-pw'' (''INS.OPTI12.NAME'')  to ''DARK-N''
+  * Set ''lms-pwa'' (''INS.OPTI5.NAME'') to ''CLOSED''
 
-++++
-Start Exposure|
-  * Start exposures with request DIT and NDIT in all subsystems
-++++
-
-++++
-End Exposure|
-  * Collect headers
-  * Send file to ESO Archive
-++++
-
-
+<color #00a2e8>Take Exposures</color>
+  * Take exposures with requested DIT, NDIT and NEXPO in all subsystems
 
 ===Parameters for METIS_gen_cal_dark ===
 
@@ -45,6 +34,10 @@ End Exposure|
 |SEQ NEXPO2              |no         |0..TBD (1)                 |Number of exposures per DIT for IMG-N|
 |SEQ NEXPO3              |no         |0..TBD (1)                 |Number of exposures per DIT for LMS|
 |INS OPTI1 NAME      |yes                 |DARK (DARK)                |CFO-PP1 mask wheel |
+|INS OPTI2 NAME      |yes                 |OUT (OUT)                |CFO-ADC mask wheel |
+|INS OPTI3 NAME      |yes                 |ALIGN+DARK (ALIGN+DARK)                |CFO-FP2 mask wheel |
 |INS OPTI5 NAME      |yes                 |DARK (DARK)                |LMS-PP1 mask wheel |
-|INS OPTI9 NAME      |yes                 |DARK-LM (DARK-LM)                |IMG-LM mask/grism wheel |
+|INS OPTI9 NAME      |yes                 |DARK (DARK-LM)                |IMG-LM mask/grism wheel |
 |INS OPTI12 NAME      |yes                 |DARK-N (DARK-N)                |IMG-N mask/grism wheel |
+|INS OPTI19 NAME      |yes                 |CLOSED (CLOSED)                |WCU BB aperture mask |
+|INS OPTI20 NAME      |yes                 |ALIGNMENT (ALIGNMENT)                |WCU FP2.1 wheel |
