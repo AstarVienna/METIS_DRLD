@@ -44,22 +44,22 @@ End Exposure|
 |DPR CATG              |yes        |CALIB TEST (CALIB) |Data product category|
 |DPR TECH              |yes        |IFU (IFU)                 |Data product technique|
 |DPR TYPE              |yes        |WAVE (WAVE)|Data product type| 
-|DET3 DIT               |yes         |0..TBD (NODEFAULT)         |LMS Detector integration time (DIT)|
-|DET3 NDIT              |yes         |1..TBD (NODEFAULT)         |LMS Number of Integrations (NDIT)|
+|DET3 DIT               |yes         |0..TBD (1)         |LMS Detector integration time (DIT)|
+|DET3 NDIT              |yes         |1..TBD (1)         |LMS Number of Integrations (NDIT)|
 |DET3 NCORRS NAME       |no         |TBD                         |LMS Readout mode|
-|SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
+|SEQ TIME              |no         |0..TBD (1)         |Total integration time (sec)|
 |SEQ NEXPO              |no         |0..TBD (1)                 |Number of exposures per DIT|
 |INS WLEN CEN         |no         |2700 - 5300 nm (NODEFAULT)           |Central wavelength|
-|SEQ WCU LASER1         |yes        |OFF ON (NODEFAULT)         |WCU L band fixed laser source|
-|SEQ WCU LASER2         |yes        |OFF ON (NODEFAULT)         |WCU M band tuneable laser source|
-|SEQ WCU LASER2 WAVE    |yes        |4.68..4.78 (NODEFAULT)     |WCU M band tuneable laser source wavelength|
-|SEQ WCU LASER3         |yes        |OFF ON (NODEFAULT)         |WCU M band fixed laser source|
+|SEQ WCU LASER1         |yes        |OFF ON (OFF)         |WCU L band fixed laser source|
+|SEQ WCU LASER2         |yes        |OFF ON (OFF)         |WCU M band tuneable laser source|
+|SEQ WCU LASER2 WAVE    |yes        |4.68..4.78 (4.68)     |WCU M band tuneable laser source wavelength|
+|SEQ WCU LASER3         |yes        |OFF ON (OFF)         |WCU M band fixed laser source|
 |INS OPTI1 NAME         |yes        | PPS-CFO1 (PPS-CFO1)                |CFO-PP1 mask wheel|
 |INS OPTI2 NAME         |yes        | OUT (OUT)                |CFO-PP1 ADC wheel|
 |INS OPTI3 NAME   	|yes        | OPEN (OPEN)  |CFO FP2 mask/slit wheel |
 |INS OPTI4 NAME         |yes        |OUT IN (IN)                  |LMS beamsplitter pickoff wheel|
-|INS OPTI5 NAME         |no         |OPEN PPS-LMS SPM-LMS (NODEFAULT) |PP1 mask wheel|
-|INS OPTI6 NAME         |no         |OUT IN (NODEFAULT)           |LMS spectral IFU mechanism|
+|INS OPTI5 NAME         |no         |OPEN PPS-LMS SPM-LMS (OPEN) |PP1 mask wheel|
+|INS OPTI6 NAME         |no         |Nominal Extended (Nominal)           |LMS spectral IFU mechanism|
 |INS OPTI7 NAME         |yes        |TBD                          |LMS pre-disperser angle (to be computed by template)|
 |INS OPTI8 NAME         |           |TBD                          |LMS main disperser angle (to be computed by template)|
 |INS OPTI9 NAME         |no         |DARK (DARK)          |IMG-LM Mask/Grism name|
