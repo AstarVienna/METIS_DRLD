@@ -54,27 +54,13 @@ The required input files for the recipe is listed in Tab.~\ref{tab:sof_mf_model}
 \end{tabular}
 \caption{Expected content of the \texttt{sof}-file for the recipe \texttt{XXX\_mf\_model}\label{tab:sof_mf_model}.
 \newline $^a$Note that from the mandatory input spectra only one out of them is needed, i.e. choose one of the \texttt{sof}-tags.}
-\label{table:1}
+\label{table:mfmodelsof}
 \end{table}
 \end{landscape}
 %---------------------------------------------------------------------
 \paragraph{\texttt{rc}-files\\}\label{app:mf_model_rc}
-Due to the complexity of \mf a large set of parameters are required. We refer to App.~B in \cite{molecfit} for more details. From the technical point-of-view, these parameters should have decent default values (which are to be determined), but changeable by the user, and then passed over to \mf via the recipe.\\
-%\textbf{Comment by WK:} \textit{The user params given in the xshooter manual don't see really useful for me - I won't work out that in detail now as \mf will maybe change significantly in the future.}
-\begin{landscape}
-\begin{table}[h!]
-\centering
-\begin{tabular}{|c : r : c |} 
-\hline
-parameter  & purpose & data  \\ 
-name       &     & type  \\ 
-\hline
-ATM&  &  &  \\
+Due to the complexity of \mf a large set of parameters are required. We refer to App.~B in \cite{molecfit} for more details on the parameters for \texttt{XXX\_mf\_model} and the data types necessary to run \mf. However, not all of them are to be changed by the user. From the technical point-of-view, the majority of these parameters should have decent default values (which are to be determined beforehand). Which of these are changeable by the user is to be checked.\\
+%---------------------------------------------------------------------
+\paragraph{\texttt{sof}-files\newline}\label{app:mf_model_output}
 
-\hline
-\end{tabular}
-\caption{Expected content of the \texttt{sof}-file for the recipe \texttt{XXX\_mf\_model}\label{tab:sof_mf_model}.
-\newline $^a$Note that from the mandatory input spectra only one out of them is needed, i.e. choose one of the \texttt{sof}-tags.}
-\label{table:1}
-\end{table}
-\end{landscape}
+
