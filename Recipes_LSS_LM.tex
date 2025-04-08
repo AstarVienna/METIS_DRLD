@@ -19,7 +19,7 @@ The recipe \REC{metis_LM_adc_slitloss} aims to determine the slit losses induced
 The recipe \REC{metis_LM_lss_rsrf} aims to create a spectroscopic master flatfield for determining the pixel-to-pixel sensitivity and to enable the order location algorithm (\REC{metis_LM_lss_trace}).
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_rsrf_v0.83.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_lm_lss_rsrf_v0.84.pdf}
   \caption[Recipe: \REC*{metis_LM_lss_rsrf}]{\REC*{metis_LM_lss_rsrf} --
     Recipe workflow to create the spectroscopic flatfield by means of the \ac{RSRF}.}
   \label{Fig:rec_lm_lss_rsrf}
@@ -32,6 +32,7 @@ Type:		& Calibration\\
 Requirements: &  METIS-6084, METIS-3291, METIS-9099 \\
 Templates:           & \TPL{METIS_spec_lm_cal_rsrf} \\
 Input data:     & $N\times$ \RAW{LM_LSS_RSRF_RAW} \\
+                & $N\times$ \RAW{LMWCU_OFF_RAW} \\
                 & \EXTCALIB{PERSISTENCE_MAP}  \\
                 & \STATCALIB{LINEARITY_2RG}  \\
                 & \STATCALIB{GAIN_MAP_2RG}  \\
