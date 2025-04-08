@@ -20,7 +20,7 @@ The recipe \REC{metis_n_adc_slitloss} aims to determine the slit losses induced 
 The recipe \REC{metis_N_lss_rsrf} aims to create a spectroscopic master flatfield for determining the pixel-to-pixel sensitivity and to enable the order location algorithm (\REC{metis_N_lss_trace}).
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textheight]{figures/metis_n_lss_rsrf_v0.83.pdf}
+  \includegraphics[width=0.5\textheight]{figures/metis_n_lss_rsrf_v0.84.pdf}
   \caption[Recipe: \REC*{metis_N_lss_rsrf}]{\REC*{metis_N_lss_rsrf} --
     Spectroscopic faltfielding with \ac{RSRF}.}
   \label{Fig:rec_n_lss_rsrf}
@@ -33,6 +33,7 @@ Type:		& Calibration\\
 Requirements: & METIS-6084, METIS-3291, METIS-9099 \\
 Templates:           & \TPL{METIS_spec_n_cal_rsrf} \\
 Input data:     & $N\times$ \RAW{N_LSS_RSRF_RAW} \\
+                & $N\times$ \RAW{_NWCU_OFF_RAW} \\
                 & \EXTCALIB{PERSISTENCE_MAP}  \\
                 & \STATCALIB{LINEARITY_GEO}  \\
                 & \STATCALIB{GAIN_MAP_GEO}  \\
