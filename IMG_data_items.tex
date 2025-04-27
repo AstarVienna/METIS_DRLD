@@ -331,10 +331,13 @@ OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE} \\
 \FITS{DO.CATG}: & \CODE{LM_WCU_OFF_RAW}\\[0.3cm]
 Templates:           & \TPL{METIS_img_lm_cal_DetLin}                                                       \\
                        & \TPL{METIS_spec_lm_cal_SlitAdc} \\
-Input for:    & \REC{metis_det_lingain} \\
-              & \REC{metis_lm_img_distortion} \\
+Input for:    & \REC{metis_cal_chophome} \\
               & \REC{metis_lm_adc_slitloss} \\
-              & \REC{metis_cal_chophome} \\
+              & \REC{metis_LM_lss_rsrf} \\
+              & \REC{metis_LM_lss_trace} \\
+              & \REC{metis_LM_lss_wave} \\
+              & \REC{metis_lm_img_distortion} \\
+              & \REC{metis_det_lingain} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -359,9 +362,10 @@ OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE} \\
 Templates:             & \TPL{METIS_img_n_cal_DetLin}                                                        \\
                        & \TPL{METIS_img_n_cal_distortion} \\
                        & \TPL{METIS_spec_n_cal_slit} \\
-Input for:    & \REC{metis_det_lingain} \\
+Input for:    & \REC{metis_n_adc_slitloss} \\
               & \REC{metis_n_img_distortion} \\
-              & \REC{metis_n_adc_slitloss} \\
+              & \REC{metis_det_lingain} \\
+              & \REC{metis_N_lss_rsrf} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -622,9 +626,9 @@ OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{MASTER_IMG_FLAT_LAMP_LM}\\[0.3cm]
 %Template: & \TPL{METIS_lm_img_flat}\\
 Created by: & \REC{metis_lm_img_flat} \\
-Input for:    & \REC{metis_lm_img_basic_reduce} \\
-            % & \REC{metis_cal_chophome} \\
+Input for:    & \REC{metis_pupil_imaging} \\
               & \REC{metis_lm_adc_slitloss} \\
+              & \REC{metis_lm_img_basic_reduce} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -670,8 +674,9 @@ OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{MASTER_IMG_FLAT_LAMP_N}\\[0.3cm]
 %Template: & \TPL{METIS_n_img_flat}\\
 Created by: & \REC{metis_n_img_flat} \\
-Input for:    & \REC{metis_n_img_chopnod} \\
+Input for:    & \REC{metis_pupil_imaging} \\
               & \REC{metis_n_adc_slitloss} \\
+              & \REC{metis_n_img_chopnod} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}

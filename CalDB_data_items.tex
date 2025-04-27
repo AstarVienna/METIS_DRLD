@@ -120,29 +120,30 @@ Description: & Coefficients for the pixel non-linearity correction\\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG} \\
 \FITS{DO.CATG}: & \CODE{LINEARITY_det}\\[0.3cm]
 Created by recipe: & \REC{metis_det_lingain} \\
-Input for:    & \REC{metis_det_dark} \\
-              & \REC{metis_ifu_wavecal} \\
+Input for:    & \REC{metis_ifu_wavecal} \\
               & \REC{metis_ifu_rsrf} \\
               & \REC{metis_ifu_reduce} \\
               & \REC{metis_ifu_distortion} \\
-              & \REC{metis_lm_img_flat} \\
-              & \REC{metis_lm_img_basic_reduce} \\
-              & \REC{metis_lm_img_distortion} \\
-              & \REC{metis_n_img_flat} \\
-              & \REC{metis_n_img_chopnod} \\
-              & \REC{metis_n_img_distortion} \\
+              & \REC{metis_pupil_imaging} \\
+              & \REC{metis_cal_chophome} \\
+              & \REC{metis_lm_adc_slitloss} \\
+              & \REC{metis_n_adc_slitloss} \\
               & \REC{metis_LM_lss_rsrf} \\
               & \REC{metis_LM_lss_trace} \\
               & \REC{metis_LM_lss_wave} \\
               & \REC{metis_LM_lss_std} \\
               & \REC{metis_LM_lss_sci} \\
+              & \REC{metis_n_img_flat} \\
+              & \REC{metis_n_img_chopnod} \\
+              & \REC{metis_n_img_distortion} \\
+              & \REC{metis_lm_img_flat} \\
+              & \REC{metis_lm_img_basic_reduce} \\
+              & \REC{metis_lm_img_distortion} \\
+              & \REC{metis_det_dark} \\
               & \REC{metis_N_lss_rsrf} \\
               & \REC{metis_N_lss_trace} \\
               & \REC{metis_N_lss_std} \\
               & \REC{metis_N_lss_sci} \\
-              & \REC{metis_cal_chophome} \\
-              & \REC{metis_lm_adc_slitloss} \\
-              & \REC{metis_n_adc_slitloss} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -176,16 +177,15 @@ OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{MASTER_DARK_2RG}\\[0.3cm]
 %Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by: & \REC{metis_det_dark} \\
-Input for:    & \REC{metis_lm_img_flat} \\
-              & \REC{metis_lm_img_basic_reduce} \\
+Input for:    & \REC{metis_pupil_imaging} \\
+              & \REC{metis_lm_adc_slitloss} \\
               & \REC{metis_LM_lss_rsrf} \\
               & \REC{metis_LM_lss_trace} \\
               & \REC{metis_LM_lss_wave} \\
               & \REC{metis_LM_lss_std} \\
               & \REC{metis_LM_lss_sci} \\
-              % & \REC{metis_cal_chophome} \\
-              & \REC{metis_lm_adc_slitloss} \\
-& \REC{metis_lm_img_basic_reduce}\\
+              & \REC{metis_lm_img_flat} \\
+              & \REC{metis_lm_img_basic_reduce} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
 \end{recipedef}
@@ -211,13 +211,14 @@ OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.FILTER}\\
 \FITS{DO.CATG}: & \CODE{MASTER_DARK_GEO}\\[0.3cm]
 %Template: & \TPL{METIS_gen_cal_dark},  \TPL{METIS_gen_cal_Insdark}\\
 Created by: & \REC{metis_det_dark} \\
-Input for:    & \REC{metis_N_lss_rsrf} \\
-              & \REC{metis_N_lss_trace} \\
-              & \REC{metis_N_lss_std} \\
-              & \REC{metis_N_lss_sci} \\
+Input for:    & \REC{metis_pupil_imaging} \\
               & \REC{metis_n_adc_slitloss} \\
               & \REC{metis_n_img_flat} \\
               & \REC{metis_n_img_chopnod} \\
+              & \REC{metis_N_lss_rsrf} \\
+              & \REC{metis_N_lss_trace} \\
+              & \REC{metis_N_lss_std} \\
+              & \REC{metis_N_lss_sci} \\
 % The n-band does not have a basic_reduce recipe (according to the association map)
 % & \CODE{metis_n_img_basic_reduce}\\
 % The equivalent would be metis_n_img_chopnod, but that incorrectly does not have a MASTER_DARK as input
@@ -497,29 +498,30 @@ Description: & Persistence map\\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{PERSISTENCE_MAP}\\[0.3cm]
 Source: & created by \ac{ESO} with recipe \REC{metis_det_persistence}\\
-Input for:    & \REC{metis_det_dark} \\
-              & \REC{metis_ifu_wavecal} \\
+Input for:    & \REC{metis_ifu_wavecal} \\
               & \REC{metis_ifu_rsrf} \\
               & \REC{metis_ifu_reduce} \\
               & \REC{metis_ifu_distortion} \\
-              & \REC{metis_lm_img_flat} \\
-              & \REC{metis_lm_img_basic_reduce} \\
-              & \REC{metis_lm_img_distortion} \\
-              & \REC{metis_n_img_flat} \\
-              & \REC{metis_n_img_chopnod} \\
-              & \REC{metis_n_img_distortion} \\
+              & \REC{metis_pupil_imaging} \\
+              & \REC{metis_cal_chophome} \\
+              & \REC{metis_lm_adc_slitloss} \\
+              & \REC{metis_n_adc_slitloss} \\
               & \REC{metis_LM_lss_rsrf} \\
               & \REC{metis_LM_lss_trace} \\
               & \REC{metis_LM_lss_wave} \\
               & \REC{metis_LM_lss_std} \\
               & \REC{metis_LM_lss_sci} \\
+              & \REC{metis_n_img_flat} \\
+              & \REC{metis_n_img_chopnod} \\
+              & \REC{metis_n_img_distortion} \\
+              & \REC{metis_lm_img_flat} \\
+              & \REC{metis_lm_img_basic_reduce} \\
+              & \REC{metis_lm_img_distortion} \\
+              & \REC{metis_det_dark} \\
               & \REC{metis_N_lss_rsrf} \\
               & \REC{metis_N_lss_trace} \\
               & \REC{metis_N_lss_std} \\
               & \REC{metis_N_lss_sci} \\
-              & \REC{metis_cal_chophome} \\
-              & \REC{metis_lm_adc_slitloss} \\
-              & \REC{metis_n_adc_slitloss} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & removal of persistence patterns\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
