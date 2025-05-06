@@ -5,7 +5,10 @@ import re
 from typing import Dict, Set
 
 from codes.drld_parser.fits_header import FitsHeader
-from codes.drld_parser.hacks import hack_rename_template_header
+from codes.drld_parser.hacks import (
+    hack_rename_template_header,
+    HACK_TEMPLATE_NAMES_ONLY_IN_WIKI_SUMMARY_BUT_NOT_ACTUALLY_ON_WIKI,
+)
 
 
 @dataclasses.dataclass
@@ -28,6 +31,13 @@ class Template:
         """
         path_here = Path(__file__).parent
         path_template = path_here / "operations" / f"{name.lower()}.txt"
+
+        if not path_template.exists():
+            if name in HACK_TEMPLATE_NAMES_ONLY_IN_WIKI_SUMMARY_BUT_NOT_ACTUALLY_ON_WIKI:
+                print(f"WARNING: {name} is mentioned in the wiki summary but does not have its own wiki page.")
+                return None
+            else:
+                raise FileNotFoundError(f"Cannot find template {name}")
 
         datatt = open(path_template, encoding="utf8").read()
         used_template_names = set(
@@ -96,7 +106,16 @@ class TemplateManual:
         """
         data = open(os.path.join(self.path_operations, "metis_templates.txt"), encoding="utf8").read()
         sections = [section.strip() for section in data.split("++++")[1:] if section.strip()]
-        assert len(sections) == 4
+        if len(sections) != 4:
+            print(f"WARNING: Expected 4 sections, found {len(sections)}")
+        # There should be 4 sections: Acquisition, Observing, Calibration, and Engineering.
+        # However, the Calibration section header was broken in #326 so now
+        # there are only 3. And we might add a new section for AIT templates,
+        # meaning there could also be 5.
+        # These asserts are in here because a failure usually means something
+        # else is wrong too, so it is fine to relax or remove them, if done
+        # consciously.
+        assert 3 <= len(sections) <= 5
 
         template_summaries = {}
         for section in sections:
@@ -107,7 +126,17 @@ class TemplateManual:
             template_list = {}
             for line_with_template in lines_with_template:
                 # print(line_with_template)
-                _, name_a, name_b, description, _ = line_with_template.strip().split("|")
+                line_splitted = line_with_template.strip().split("|")
+                if len(line_splitted) == 5:
+                    # Original lines from Kora, e.g.
+                    # ['', '[[METIS_gen_cal_detchar', 'METIS_gen_cal_detchar]]', 'Detector characterisation (e.g. bias voltage)', '']
+                    _, name_a, name_b, description, _ = line_with_template.strip().split("|")
+                elif len(line_splitted) > 5:
+                    # New lines by Yannis
+                    _, _aitid, name_a, name_b, description, *_rest = line_with_template.strip().split("|")
+                else:
+                    raise ValueError(f"Unexpected template line {len(line_splitted)} {line_with_template}")
+
                 name_a = name_a.strip().strip("[").strip("]").strip()
                 name_b = name_b.strip().strip("[").strip("]").strip()
                 assert name_a == name_b, f"{name_a} {name_b}"
@@ -131,13 +160,14 @@ class TemplateManual:
         template_summaries = self.get_template_summaries()
 
         self.templates = {
-            name_template: Template.from_wiki_file(
+            name_template: temp
+            for type_template, names_descs in template_summaries.items()
+            for name_template, description in names_descs.items()
+            if (temp := Template.from_wiki_file(
                 name=name_template,
                 ttype=type_template,
                 description=description,
-            )
-            for type_template, names_descs in template_summaries.items()
-            for name_template, description in names_descs.items()
+            )) is not None
         }
 
     def get_template(self, name):

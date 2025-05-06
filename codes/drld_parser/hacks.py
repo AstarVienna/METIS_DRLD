@@ -4,6 +4,27 @@ These are currently necessary, but should in due time be removed.
 """
 from pathlib import Path
 
+HACK_TEMPLATE_NAMES_ONLY_IN_WIKI_SUMMARY_BUT_NOT_ACTUALLY_ON_WIKI = [
+    "METIS_gen_cal_detchar",
+    "METIS_gen_cal_readout",
+    "METIS_gen_cal_DetChopperSync",
+    "METIS_gen_cal_RelBoresight",
+    "METIS_ifu_cal_RSRFstability",
+    "METIS_ifu_cal_LatentDecay",
+    "METIS_ifu_cal_oob",
+    "METIS_ifu_cal_SlopeStability",
+    "METIS_ifu_cal_BkgSubChopper",
+    "METIS_ifu_cal_fov",
+    "METIS_ifu_cal_OptomecStability",
+    "METIS_ifu_cal_SliceWidth",
+    "METIS_ifu_cal_specres",
+    "METIS_ifu_cal_WaveStability",
+    "METIS_ifu_cal_OOFstraylight",
+    "METIS_ifu_cal_pup",
+    "METIS_ifu_cal_SourceCentering",
+    "",
+]
+
 HACK_TEMPLATE_NAMES_IN_WIKI = {
     # Should just not be there:
     ("fits_keywords", "METIS_all_dark"): "metis_gen_cal_dark",
