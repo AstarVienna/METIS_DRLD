@@ -1,41 +1,30 @@
 ===Procedure for METIS_ifu_cal_distortion ===
 
-Procedure to determine the detector distortion maps. A grid is inserted in the optical path of the instrument. The grid is illuminated, simulating a set of point sources at various positions of the detector. The template takes a set of ''NEXPO'' exposures with a particular ''DIT'' and ''NDIT'' combination.
+Procedure to determine the detector distortion maps. A pinhole grid is inserted in the optical path of the instrument. The pinhole grid is illuminated, simulating a set of point sources at various positions of the detector.
 
-++++
-Setup WCU|
-  * Move periscopic arm to IN
-  * Set temperature of the blackbody to specified temperature
-  * Set ''WCU-FP2.1'' to grid-LM
-  * Set ''WCU-PP1'' to ELT mask
+<color #00a2e8>Setup METIS: Background exposures</color>
+  * Set ''cfo-pp1'' (''INS.OPTI1.NAME'') to ''PPS-CFO1''
+  * Set ''cfo-fp2'' (''INS.OPTI2.NAME'') to ''FIELD-11''
+  * Set ''cfo-lms'' (''INS.OPTI4.NAME'') to ''IN''
+  * Set ''lms-pwa'' (''INS.OPTI5.NAME'') to ''PPS-LMS''
+  * Set ''lms-msa'' (''INS.OPTI6.NAME'') to ''nominal''
+  * Set ''lms-pra'' (''INS.OPTI7.NAME'') to list of settings
+  * Set ''lms-gra'' (''INS.OPTI8.NAME'') to list of settings
+  * Set ''wcu-per'' (''INS.OPTI17.NAME'') to ''IN''
+  * Set ''wcu-pp1'' (''INS.OPTI18.NAME'') to ''ELT_mask''
+  * Set ''wcu-bb-aperture-mask'' (''INS.OPTI19.NAME'') to ''CLOSED''
+  * Set ''wcu-fp2-1'' (''INS.OPTI20.NAME'') to ''grid-LM'' (pinhole mask position)
+  * Set ''wcu-bb'' (''SEQ.WCU.BB.TEMP'') to ''TEMP-L''
   * Wait for about 45 minutes (warming up time, depends on the BB temperature selection)
-  * Check the power readout. If the power is detectable, continue. 
-  * Set ''WCU-BB-aperture-mask'' to CLOSE
-  * take background measurement
-  * Set ''WCU-BB-aperture-mask'' to OPEN
-++++
+  * Check the power readout. If the power is detectable, continue
+  * Take background measurements with requested DIT, NDIT and NEXPO
 
-++++
-Setup CFO and subsystems|
-  * Set ''CFO-PP1'' to PPS-CFO1
-  * Set ''CFO-FP2'' to FIELD-11
-  * Set LMS beamsplitter pickoff wheel to IN
-  * insert ''LMS PP1'' cold stop
-  * ''LMS PP4'' Select pre-dispersed range (spectral order)
-  * ''LMS FP4'' to single order selecting mask (nominal mode) or spectral IFU (extended mode)
-  * ''LMS PP5'' Select main dispersed range 
-++++
-++++
-Start Exposure|
-  * Start exposures with the LMS with the requested DIT and NDIT
-  * move grid by known offsets in the field using the chopper, repeat exposures
-++++
-
-++++
-End Exposure|
-  * Collect headers
-  * Send file to ESO Archive
-++++
+<color #00a2e8>Setup METIS: Science exposures</color>
+  * Set ''wcu-bb-aperture-mask'' (''INS.OPTI19.NAME'') to ''OPEN''
+  * Set ''lms-pra'' (''INS.OPTI7.NAME'') to list of settings
+  * Set ''lms-gra'' (''INS.OPTI8.NAME'') to list of settings
+  * Start science exposures with the LMS with the requested DIT and NDIT
+  * Move grid by known offsets in the field using the chopper, repeat exposures
 
 
 ===Parameters for METIS_ifu_cal_distortion ===
@@ -47,10 +36,13 @@ End Exposure|
 |DPR TYPE              |yes        |DISTORTION (DISTORTION)|Data product type|         
 |DET1 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-LM Detector integration time (DIT)|
 |DET1 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-LM Number of Integrations (NDIT)|
-|DET1 NCORRS NAME       |no         |TBD                         |IMG-LM Readout mode|
+|DET1 NCORRS NAME       |no         |CDS                         |IMG-LM Readout mode|
+|DET2 DIT               |yes         |0..TBD (NODEFAULT)         |IMG-N Detector integration time (DIT)|
+|DET2 NDIT              |yes         |1..TBD (NODEFAULT)         |IMG-N Number of Integrations (NDIT)|
+|DET2 NCORRS NAME       |no         |CDS                         |IMG-N Readout mode|
 |DET3 DIT               |yes         |0..TBD (NODEFAULT)         |LMS Detector integration time (DIT)|
 |DET3 NDIT              |yes         |1..TBD (NODEFAULT)         |LMS Number of Integrations (NDIT)|
-|DET3 NCORRS NAME       |no         |TBD                         |LMS Readout mode|
+|DET3 NCORRS NAME       |no         |CDS                         |LMS Readout mode|
 |DET1 CUBE MODE        |no         |T F (F)                    |Toggle cube mode| 
 |DET3 CUBE MODE        |no         |T F (F)                    |Toggle cube mode| 
 |SEQ TIME              |no         |0..TBD (NODEFAULT)         |Total integration time (sec)|
@@ -72,5 +64,5 @@ End Exposure|
 |INS OPTI15 NAME         |yes        |OUT (OUT)                    | IMG-LM pupil imaging lens|
 |INS OPTI17 NAME         |yes        |IN (IN)                    | WCU periscope arm|
 |INS OPTI18 NAME	|yes                |WCU_mask AIV_mask ELT_mask (ELT_mask)             |WCU PP1 masks|
-|INS OPTI19 NAME	|yes                |OPEN (OPEN)                              |WCU BB exit aperture masks|
+|INS OPTI19 NAME	|yes                |OPEN CLOSED (OPEN)                              |WCU BB exit aperture masks|
 |INS OPTI20 NAME        |yes         |grid-LM (grid-LM) |WCU FP2.1 mask wheel|
