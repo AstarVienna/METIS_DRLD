@@ -52,52 +52,68 @@ METIS Observing templates|
 |[[METIS_ifu_obs_FixedSkyOffset|METIS_ifu_obs_FixedSkyOffset]] |Nominal IFU spectroscopy with jitter and fixed sky offsets |
 |[[METIS_ifu_ext_obs_FixedSkyOffset|METIS_ifu_ext_obs_FixedSkyOffset]] |Extended IFU spectroscopy with jitter and fixed sky offsets |
 ++++
-++++
-METIS Calibration templates|
-^Template name             ^Functionality  | 
-|**Imaging**|
-|[[METIS_img_lm_cal_ChopperHome|METIS_img_lm_cal_ChopperHome]]|Chopper home position|
-|[[METIS_img_lm_cal_InternalFlat|METIS_img_lm_cal_InternalFlat]]|Imaging internal flat field in LM |
-|[[METIS_img_n_cal_InternalFlat|METIS_img_n_cal_InternalFlat]]|Imaging internal flat field in N |
-|[[METIS_img_lm_cal_TwilightFlat|METIS_img_lm_cal_TwilightFlat]] | Imaging twilight flat fields in LM|
-|[[METIS_img_n_cal_TwilightFlat|METIS_img_n_cal_TwilightFlat]] | Imaging twilight flat fields in N|
-|[[METIS_img_lm_cal_standard|METIS_img_lm_cal_standard]] |Standard star imaging in LM |
-|[[METIS_img_n_cal_standard|METIS_img_n_cal_standard]] |Standard star imaging in N |
-|[[METIS_img_lm_cal_psf|METIS_img_lm_cal_psf]] |PSF calibrator imaging LM |
-|[[METIS_img_n_cal_psf|METIS_img_n_cal_psf]] |PSF calibrator imaging N |
-|[[METIS_img_lm_cal_platescale|METIS_img_lm_cal_platescale]]   |Plate-scale and true North calibration imaging LM|
-|[[METIS_img_n_cal_platescale|METIS_img_n_cal_platescale]]   |Plate-scale and true North calibration imaging N|
-|[[METIS_img_lm_cal_distortion|METIS_img_lm_cal_distortion]]   |Distortion map imaging LM|
-|[[METIS_img_n_cal_distortion|METIS_img_n_cal_distortion]]   |Distortion map imaging N|
-|[[METIS_img_lm_cal_DetLin|METIS_img_lm_cal_DetLin]] |Detector linearity check imaging LM |
-|[[METIS_img_n_cal_DetLin|METIS_img_n_cal_DetLin]] |Detector linearity check imaging N |
-|**Long-slit spectroscopy**|
-|[[METIS_spec_lm_cal_SlitAdc|METIS_spec_lm_cal_SlitAdc]] |Calibration of slit loss and ADC model in LM |
-|[[METIS_spec_n_cal_slit|METIS_spec_n_cal_slit]] |Calibration of slit loss and atmospheric dispersion model in N  |
-|[[METIS_spec_lm_cal_InternalWave|METIS_spec_lm_cal_InternalWave]] |Wavelength calibration with internal light source LM long-slit spectroscopy|
-|[[METIS_spec_n_cal_InternalWave|METIS_spec_n_cal_InternalWave]] |Wavelength calibration with internal light source N long-slit spectroscopy|
-|[[METIS_spec_lm_cal_rsrf|METIS_spec_lm_cal_rsrf]] |Determine the relative spectral response function for the LM-band LSS|
-|[[METIS_spec_n_cal_rsrf|METIS_spec_n_cal_rsrf]] |Determine the relative spectral response function for the N-band LSS|
-|[[METIS_spec_lm_cal_standard|METIS_spec_lm_cal_standard]] |Standard star observations for LSS in LM |
-|[[METIS_spec_n_cal_standard|METIS_spec_n_cal_standard]] |Standard star observations for LSS in N|
-|[[METIS_spec_lm_cal_telluric|METIS_spec_lm_cal_telluric]] |Telluric standard star observations for LSS in LM |
-|[[METIS_spec_n_cal_telluric|METIS_spec_n_cal_telluric]] |Telluric standard star observations for LSS in N|
+
+METIS Calibration templates
+^AIT/V Test ID            ^Template name             ^Functionality  | 
+|**All subsystems - shared template**|
+|LMS_RAD_00 & IMG_RAD_00|[[METIS_gen_cal_detchar|METIS_gen_cal_detchar]]|Detector characterisation (e.g. bias voltage)|
+|LMS_RAD_01 & IMG_RAD_01|[[METIS_gen_cal_dark|METIS_gen_cal_dark]]|Detector dark current and read noise|
+|LMS_RAD_02 & IMG_RAD_02|[[METIS_gen_cal_readout|METIS_gen_cal_readout]]|Detector noise vs. readout|
+|LMS_RAD_03 & IMG_RAD_03|[[METIS_gen_cal_InsDark|METIS_gen_cal_InsDark]]|Instrument internal background|
+|LMS_RAD_13 & IMG_RAD_13|[[METIS_gen_cal_DetChopperSync|METIS_gen_cal_DetChopperSync]]|Detector-chopper synchronisation|
+|LMS_OPT_11|[[METIS_gen_cal_RelBoresight|METIS_gen_cal_RelBoresight]]|Relative boresight LMS-IMG|
 |**Integral Field Unit**|
-|[[METIS_ifu_cal_InternalWave|METIS_ifu_cal_InternalWave]] |Wavelength calibration with internal light source IFU|
-|[[METIS_ifu_cal_rsrf|METIS_ifu_cal_rsrf]] |Determine the relative spectral response function for the IFU|
-|[[METIS_ifu_cal_standard|METIS_ifu_cal_standard]] |Standard star observations with IFU|
-|[[METIS_ifu_cal_telluric|METIS_ifu_cal_telluric]] |Telluric standard star observations with IFU|
-|[[METIS_ifu_cal_psf|METIS_ifu_cal_psf]] |PSF calibrator IFU|
-|[[METIS_ifu_cal_platescale|METIS_ifu_cal_platescale]] |Plate-scale and true North calibration IFU|
-|[[METIS_ifu_cal_distortion|METIS_ifu_cal_distortion]] |Distortion map IFU|
-|[[METIS_ifu_cal_DetLin|METIS_ifu_cal_DetLin]] |Detector linearity check IFU |
-|**All subsystems**|
-|[[METIS_gen_cal_dark|METIS_gen_cal_dark]]|Detector dark current and read noise|
-|[[METIS_gen_cal_InsDark|METIS_gen_cal_InsDark]]|Instrument internal background|
-++++
-++++
+|LMS_RAD_05|[[METIS_ifu_cal_RSRFstability|METIS_ifu_cal_RSRFstability]] |Temporal stability of RSRF IFU|
+|LMS_RAD_06|[[METIS_ifu_cal_DetLin|METIS_ifu_cal_DetLin]] |Detector linearity check IFU |
+|LMS_RAD_07|[[METIS_ifu_cal_LatentDecay|METIS_ifu_cal_LatentDecay]] |Detector latent decay check IFU |
+|LMS_RAD_08|[[METIS_ifu_cal_rsrf|METIS_ifu_cal_rsrf]] |Determine the relative spectral response function for the IFU|
+|LMS_RAD_08|[[METIS_ifu_cal_standard|METIS_ifu_cal_standard]] |Standard star observations with IFU|
+|LMS_RAD_09|[[METIS_ifu_cal_oob|METIS_ifu_cal_oob]] |Out of band sensitivity IFU|
+|LMS_RAD_10|[[METIS_ifu_cal_SlopeStability|METIS_ifu_cal_SlopeStability]] |Point vs extended slope IFU|
+|LMS_RAD_11|[[METIS_ifu_cal_SlopeStability|METIS_ifu_cal_SlopeStability]] |Point vs extended slope IFU|
+|LMS_RAD_14|[[METIS_ifu_cal_BkgSubChopper|METIS_ifu_cal_BkgSubChopper]] |Background subtraction systematics with chopper IFU|
+|LMS_OPT_01|[[METIS_ifu_cal_fov|METIS_ifu_cal_fov]] |Field of view IFU|
+|LMS_OPT_01|[[METIS_ifu_cal_distortion|METIS_ifu_cal_distortion]] |Distortion map IFU|
+|LMS_OPT_01|[[METIS_ifu_cal_platescale|METIS_ifu_cal_platescale]] |Plate-scale and true North calibration IFU|
+|LMS_OPT_02|[[METIS_ifu_cal_psf|METIS_ifu_cal_psf]] |PSF calibrator IFU|
+|LMS_OPT_03|[[METIS_ifu_cal_OptomecStability|METIS_ifu_cal_OptomecStability]] |Optomechanical stability IFU|
+|LMS_OPT_04|[[METIS_ifu_cal_SliceWidth|METIS_ifu_cal_SliceWidth]] |Slice width IFU|
+|LMS_OPT_05|[[METIS_ifu_cal_InternalWave|METIS_ifu_cal_InternalWave]] |Wavelength calibration with internal light source IFU|
+|LMS_OPT_05|[[METIS_ifu_cal_telluric|METIS_ifu_cal_telluric]] |Telluric sky and standard star observations with IFU|
+|LMS_OPT_06|[[METIS_ifu_cal_specres|METIS_ifu_cal_specres]] |Spectral resolving power IFU|
+|LMS_OPT_07|[[METIS_ifu_cal_WaveStability|METIS_ifu_cal_WaveStability]] |Wavelength stability IFU|
+|LMS_OPT_08|[[METIS_ifu_cal_OOFstraylight|METIS_ifu_cal_OOFstraylight]] |Out of field straylight IFU|
+|LMS_OPT_09|[[METIS_ifu_cal_pup|METIS_ifu_cal_pup]] |Pupil imaging IFU|
+|LMS_OPT_10|[[METIS_ifu_cal_SourceCentering|METIS_ifu_cal_SourceCentering]] |Source centering IFU|
+|**Imaging**|
+| |[[METIS_img_lm_cal_ChopperHome|METIS_img_lm_cal_ChopperHome]]|Chopper home position|
+| |[[METIS_img_lm_cal_InternalFlat|METIS_img_lm_cal_InternalFlat]]|Imaging internal flat field in LM |
+| |[[METIS_img_n_cal_InternalFlat|METIS_img_n_cal_InternalFlat]]|Imaging internal flat field in N |
+| |[[METIS_img_lm_cal_TwilightFlat|METIS_img_lm_cal_TwilightFlat]] | Imaging twilight flat fields in LM|
+| |[[METIS_img_n_cal_TwilightFlat|METIS_img_n_cal_TwilightFlat]] | Imaging twilight flat fields in N|
+| |[[METIS_img_lm_cal_standard|METIS_img_lm_cal_standard]] |Standard star imaging in LM |
+| |[[METIS_img_n_cal_standard|METIS_img_n_cal_standard]] |Standard star imaging in N |
+| |[[METIS_img_lm_cal_psf|METIS_img_lm_cal_psf]] |PSF calibrator imaging LM |
+| |[[METIS_img_n_cal_psf|METIS_img_n_cal_psf]] |PSF calibrator imaging N |
+| |[[METIS_img_lm_cal_platescale|METIS_img_lm_cal_platescale]]   |Plate-scale and true North calibration imaging LM|
+| |[[METIS_img_n_cal_platescale|METIS_img_n_cal_platescale]]   |Plate-scale and true North calibration imaging N|
+| |[[METIS_img_lm_cal_distortion|METIS_img_lm_cal_distortion]]   |Distortion map imaging LM|
+| |[[METIS_img_n_cal_distortion|METIS_img_n_cal_distortion]]   |Distortion map imaging N|
+| |[[METIS_img_lm_cal_DetLin|METIS_img_lm_cal_DetLin]] |Detector linearity check imaging LM |
+| |[[METIS_img_n_cal_DetLin|METIS_img_n_cal_DetLin]] |Detector linearity check imaging N |
+|**Long-slit spectroscopy**|
+| |[[METIS_spec_lm_cal_SlitAdc|METIS_spec_lm_cal_SlitAdc]] |Calibration of slit loss and ADC model in LM |
+| |[[METIS_spec_n_cal_slit|METIS_spec_n_cal_slit]] |Calibration of slit loss and atmospheric dispersion model in N  |
+| |[[METIS_spec_lm_cal_InternalWave|METIS_spec_lm_cal_InternalWave]] |Wavelength calibration with internal light source LM long-slit spectroscopy|
+| |[[METIS_spec_n_cal_InternalWave|METIS_spec_n_cal_InternalWave]] |Wavelength calibration with internal light source N long-slit spectroscopy|
+| |[[METIS_spec_lm_cal_rsrf|METIS_spec_lm_cal_rsrf]] |Determine the relative spectral response function for the LM-band LSS|
+| |[[METIS_spec_n_cal_rsrf|METIS_spec_n_cal_rsrf]] |Determine the relative spectral response function for the N-band LSS|
+| |[[METIS_spec_lm_cal_standard|METIS_spec_lm_cal_standard]] |Standard star observations for LSS in LM |
+| |[[METIS_spec_n_cal_standard|METIS_spec_n_cal_standard]] |Standard star observations for LSS in N|
+| |[[METIS_spec_lm_cal_telluric|METIS_spec_lm_cal_telluric]] |Telluric standard star observations for LSS in LM |
+| |[[METIS_spec_n_cal_telluric|METIS_spec_n_cal_telluric]] |Telluric standard star observations for LSS in N|
+
 METIS Engineering templates|
-^Template name             ^Functionality  | 
-|[[METIS_pup_lm|METIS_pup_lm]] |Pupil imaging in LM |
-|[[METIS_pup_n|METIS_pup_n]] |Pupil imaging in N |
-++++
+^AIT/V Test ID             ^Template name             ^Functionality  | 
+| |[[METIS_pup_lm|METIS_pup_lm]] |Pupil imaging in LM |
+| |[[METIS_pup_n|METIS_pup_n]] |Pupil imaging in N |
