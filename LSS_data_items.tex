@@ -497,7 +497,7 @@ Description: & Polynomial fit of the LM order edges (i.e. order location on chip
 OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_TRACE}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_trace}\\
-Input for:    & \REC{metis_LM_lss_wave} \\
+Input for:    & \REC{metis_lm_lss_wave} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & wavelength calibration / rectification\\
 \end{recipedef}
@@ -521,8 +521,8 @@ Description: & Polynomial fit of the N order edges (i.e. order location on chip)
 OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{N_LSS_TRACE}\\[0.3cm]
 Created by: & \REC{metis_n_lss_trace}\\
-Input for:    & \REC{metis_N_lss_std} \\
-              & \REC{metis_N_lss_sci} \\
+Input for:    & \REC{metis_n_lss_std} \\
+              & \REC{metis_n_lss_sci} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -565,8 +565,8 @@ Description: & LM-band geometrical distortion solution\\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_DIST_SOL}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_wave}\\
-Input for:    & \REC{metis_LM_lss_std} \\
-              & \REC{metis_LM_lss_sci} \\
+Input for:    & \REC{metis_lm_lss_std} \\
+              & \REC{metis_lm_lss_sci} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -588,8 +588,8 @@ Description: & First guess of the N-band wavelength solution\\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_WAVE_GUESS}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_wave}\\
-Input for:    & \REC{metis_LM_lss_std} \\
-              & \REC{metis_LM_lss_sci} \\
+Input for:    & \REC{metis_lm_lss_std} \\
+              & \REC{metis_lm_lss_sci} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -600,7 +600,6 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
-
 
 % ##################################################################################### 
 \paragraph{\PROD{LM_LSS_STD_OBJ_MAP}}\label{dataitem:lm_lss_std_obj_map}
@@ -659,7 +658,7 @@ Description: & Extracted 1d flux standard star spectrum.\\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{LM_LSS_STD_1D}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_std}\\
-Input for:    & \REC{metis_LM_lss_mf_model} \\
+Input for:    & \REC{metis_lm_lss_mf_model} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product also used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -732,7 +731,7 @@ Description: & Extracted 1d science spectrum.\\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{N_LSS_STD_1D}\\[0.3cm]
 Created by: & \REC{metis_n_lss_std}\\
-Input for:    & \REC{metis_N_lss_mf_model} \\
+Input for:    & \REC{metis_n_lss_mf_model} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product also used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -944,9 +943,9 @@ Description: & Transmission curve derived by means of the \ac{STD} star \\[0.3cm
 \FITS{PRO.CATG}: & \CODE{STD_TRANSMISSION} \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS*{INS.SPEC.SETUP}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{STD_TRANSMISSION} \\[0.3cm]
-Produced by recipe: & \REC{metis_LM_lss_std} \\
-                    & \REC{metis_N_lss_std} \\
-Input for recipe(s): & \REC{metis_LM_LSS_sci}\\
+Produced by recipe: & \REC{metis_lm_lss_std} \\
+                    & \REC{metis_n_lss_std} \\
+Input for recipe(s): & \REC{metis_lm_LSS_sci}\\
 QC Parameters: &  none\\
 Processing FITS Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
@@ -969,8 +968,8 @@ Description: & Master LM-band response function for absolute flux calibration \\
 \FITS{PRO.CATG}: & \CODE{MASTER_LM_RESPONSE} \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS*{INS.SPEC.SETUP}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{MASTER_LM_RESPONSE} \\[0.3cm]
-Produced by recipe: & \REC{metis_LM_lss_std} \\
-Input for recipe(s): & \REC{metis_LM_LSS_sci}\\
+Produced by recipe: & \REC{metis_lm_lss_std} \\
+Input for recipe(s): & \REC{metis_lm_LSS_sci}\\
 QC Parameters: &  none\\
 Processing FITS Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
@@ -992,8 +991,8 @@ Description: & Master N-band response function for absolute flux calibration \\[
 \FITS{PRO.CATG}: & \CODE{MASTER_N_RESPONSE} \\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS*{INS.SPEC.SETUP}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{MASTER_N_RESPONSE} \\[0.3cm]
-Produced by recipe: & \REC{metis_N_lss_std} \\
-Input for recipe(s): & \REC{metis_N_LSS_sci}\\
+Produced by recipe: & \REC{metis_n_lss_std} \\
+Input for recipe(s): & \REC{metis_n_LSS_sci}\\
 QC Parameters: &  none\\
 Processing FITS Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
@@ -1015,10 +1014,10 @@ Description: & Table of best-fit \texttt{molecfit} values\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{MF_BEST_FIT_TAB}\\
 OCA keywords: & \FITS{PRO.CATG}\\
 \FITS{DO.CATG}: & \CODE{MF_BEST_FIT_TAB}\\[0.3cm]
-Created by: & \REC{metis_LM_lss_mf_model}\\
-            & \REC{metis_N_lss_mf_model}\\
-Input for:    & \REC{metis_LM_lss_mf_calctrans} \\
-              & \REC{metis_N_lss_mf_calctrans} \\
+Created by: & \REC{metis_lm_lss_mf_model}\\
+            & \REC{metis_n_lss_mf_model}\\
+Input for:    & \REC{metis_lm_lss_mf_calctrans} \\
+              & \REC{metis_n_lss_mf_calctrans} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Purpose: & wavelength calibration / rectification\\
 \end{recipedef}
@@ -1041,8 +1040,8 @@ Description: & Synthetic transmission curve to be used for telluric correction o
 OCA keywords: & \FITS{PRO.CATG}\\
               & \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{LM_LSS_SYNTH_TRANS}\\[0.3cm]
-Created by: & \REC{metis_LM_lss_mf_calctrans}\\
-Input for:    & \REC{metis_LM_lss_mf_correct} \\
+Created by: & \REC{metis_lm_lss_mf_calctrans}\\
+Input for:    & \REC{metis_lm_lss_mf_correct} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -1062,8 +1061,8 @@ Description: & Synthetic transmission curve to be used for telluric correction o
 \FITS{PRO.CATG}: & \CODE{N_LSS_SYNTH_TRANS}\\
 OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{N_LSS_SYNTH_TRANS}\\[0.3cm]
-Created by: & \REC{metis_N_lss_mf_calctrans}\\
-Input for:    & \REC{metis_N_lss_mf_correct} \\
+Created by: & \REC{metis_n_lss_mf_calctrans}\\
+Input for:    & \REC{metis_n_lss_mf_correct} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -1071,6 +1070,28 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{enumerate}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.SLIT})}
     \item \texttt{hdrl\_spectrum1D * spectrum: Spectrum}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+% ##################################################################################### 
+\paragraph{\PROD{N_LSS_STD_WAVE}}\label{dataitem:n_lss_std_wave}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \PROD{N_LSS_STD_WAVE}\\[0.3cm]
+Description: & N-band wavelength solution / standard star\\[0.3cm]
+\FITS{PRO.CATG}: & \CODE{N_LSS_STD_WAVE}\\
+OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
+\FITS{DO.CATG}: & \CODE{N_LSS_WAVE_GUESS}\\[0.3cm]
+Created by: & \REC{metis_n_lss_std}\\
+Input for:    & \REC{metis_n_lss_sci} \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.SLIT})}
+    \item \texttt{cpl\_table * table: Tables}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
@@ -1145,8 +1166,8 @@ Description: & Extracted, flux-calibrated 1d science spectrum.\\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{LM_LSS_SCI_FLUX_1D}\\[0.3cm]
 Created by: & \REC{metis_lm_lss_sci}\\
-Input for:    & \REC{metis_LM_lss_mf_model} \\
-              & \REC{metis_LM_lss_mf_correct} \\
+Input for:    & \REC{metis_lm_lss_mf_model} \\
+              & \REC{metis_lm_lss_mf_correct} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -1171,8 +1192,8 @@ Description: & Extracted, flux-calibrated 1d science spectrum.\\[0.3cm]
 OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{N_LSS_SCI_FLUX_1D}\\[0.3cm]
 Created by: & \REC{metis_n_lss_sci}\\
-Input for:    & \REC{metis_N_lss_mf_model} \\
-              & \REC{metis_N_lss_mf_correct} \\
+Input for:    & \REC{metis_n_lss_mf_model} \\
+              & \REC{metis_n_lss_mf_correct} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -1218,7 +1239,7 @@ Description: & Extracted, flux-calibrated 1d science spectrum.\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{LM_LSS_SCI_FLUX_TELLCORR_1D}\\
 OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{LM_LSS_SCI_FLUX_TELLCORR_1D}\\[0.3cm]
-Created by: & \REC{metis_LM_lss_mf_correct}\\
+Created by: & \REC{metis_lm_lss_mf_correct}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
@@ -1241,7 +1262,7 @@ Description: & Extracted, flux-calibrated, telluric corrected 1d science spectru
 \FITS{PRO.CATG}: & \CODE{N_LSS_SCI_FLUX_TELLCORR_1D}\\
 OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{N_LSS_SCI_FLUX_TELLCORR_1D}\\[0.3cm]
-Created by: & \REC{metis_N_lss_mf_correct}\\
+Created by: & \REC{metis_n_lss_mf_correct}\\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\
