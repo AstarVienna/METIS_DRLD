@@ -159,7 +159,7 @@ Algorithm:      & Application of master calibration files\\
 Output data:	& \PROD{N_LSS_STD_OBJ_MAP}: Pixel map of object pixels (\ac{QC})\\
             	& \PROD{N_LSS_STD_SKY_MAP}: Pixel map of sky pixels (\ac{QC})\\
               	& \PROD{N_LSS_STD_1D}  : coadded, wavelength calibrated, collapsed 1D spectrum\\
-                & \PROD{STD_TRANSMISSION}: Transmission curve derived by menas of the \ac{STD} star (\ac{QC})\\
+                & \PROD{STD_TRANSMISSION}: Transmission curve derived by means of the \ac{STD} star (also for \ac{QC})\\
                 & \PROD{MASTER_N_RESPONSE}: response function (optionally including the transmission)\\
                 & \PROD{N_LSS_STD_WAVE}: Wavelength solution\\
 Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
@@ -229,8 +229,9 @@ Input data: 	& \RAW{N_LSS_SCI_RAW}\\
                 & \EXTCALIB{ATM_LINE_CAT} \\
                 %& \EXTCALIB{AO_PSF_MODEL} \\
                 & \STATCALIB{N_ADC_SLITLOSS}\\
+                & \EXTCALIB{AO_PSF_MODEL} \\
                 & \PROD{MASTER_N_RESPONSE} \\
-Matched Keywords & \FITS{DET.DIT} \\
+                & \PROD{STD_TRANSMISSION}: Transmission curve derived by means of the \ac{STD} star Matched Keywords & \FITS{DET.DIT} (optionally) \\
                  & \FITS{DET.NDIT}\\
                  & \FITS{DRS.SLIT}\\
 Parameters: 	& exposure time, target information, nodding(/chopping parameters\\
