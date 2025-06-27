@@ -151,9 +151,6 @@ class TestDataReductionLibraryDesign:
             not names_not_existing
         ), f"Non existing recipe names: {names_not_existing}"
 
-    @pytest.mark.xfail(
-        reason="There are references to recipes with incorrect capitalization, e.g. in LSS_data_items.tex."
-    )
     def test_all_recipe_names_are_correctly_capitalized(self):
         names_existing = METIS_DataReductionLibraryDesign.recipes.keys()
         names_used = METIS_DataReductionLibraryDesign.recipe_names_used
