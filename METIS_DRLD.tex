@@ -141,27 +141,32 @@ Felix Bettonvil}
    colorlinks=false]{hyperref}
 
 
-% Git stuff, must by after hyperref
+% Git stuff, must be included after hyperref.
 % The git hash and commit date will be shown when compiling with --shell-escape
 % https://tex.stackexchange.com/a/598669/2775
-\newif\ifshowgit  % flag to show git info instead of Issue info
+% flag to show git info instead of Issue info
+\newif\ifshowgit
+
 % "The control sequence \pdfshellescape is (only?) available in pdftex"
 % http://tex.stackexchange.com/a/13253/2595
-\ifnum\pdfshellescape=1{ %
+\ifnum\pdfshellescape=1
     % Check for overleaf https://tex.stackexchange.com/a/598669/2775
     \ifnum\pdfstrcmp{\jobname}{output}=0
         % Apparently overleaf does not compile from their git repo.
         \showgitfalse
     \else
-        \usepackage[noheader]{gitver}
-        \def\parsegitdate#1-#2-#3 #4\endparse{#3.#2.#1}
-        \makeatletter
-            \edef\gitdate{\@@input|"git log -1 --format=\@percentchar ci"}
-        \makeatother
         \showgittrue
     \fi
 \else
     \showgitfalse
+\fi
+
+\ifshowgit
+    \usepackage[noheader]{gitver}
+    \def\parsegitdate#1-#2-#3 #4\endparse{#3.#2.#1}
+    \makeatletter
+        \edef\gitdate{\@@input|"git log -1 --format=\@percentchar ci"}
+    \makeatother
 \fi
 
 
