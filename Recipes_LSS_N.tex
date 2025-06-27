@@ -231,9 +231,10 @@ Input data: 	& \RAW{N_LSS_SCI_RAW}\\
                 & \STATCALIB{N_ADC_SLITLOSS}\\
                 & \EXTCALIB{AO_PSF_MODEL} \\
                 & \PROD{MASTER_N_RESPONSE} \\
-                & \PROD{STD_TRANSMISSION}: Transmission curve derived by means of the \ac{STD} star Matched Keywords & \FITS{DET.DIT} (optionally) \\
-                 & \FITS{DET.NDIT}\\
-                 & \FITS{DRS.SLIT}\\
+                & \PROD{STD_TRANSMISSION}: Transmission curve derived by means of the \ac{STD} star Matched Keywords \\
+                & \FITS{DET.DIT} (optionally) \\
+                & \FITS{DET.NDIT}\\
+                & \FITS{DRS.SLIT}\\
 Parameters: 	& exposure time, target information, nodding(/chopping parameters\\
 Algorithm:      & Application of the detector master calib files\\
                 & wavelength calibration \\
@@ -252,6 +253,8 @@ Output data:	& \PROD{N_LSS_SCI_OBJ_MAP}: Pixel map of object pixels (\ac{QC})\\
                 & (\FITS{PRO.CATG}: \CODE{N_LSS_2d_coadd_wavecal}) \\
               	& \PROD{N_LSS_SCI_FLUX_1D}: coadded, wavelength 1D spectrum\\
                 & (\FITS{PRO.CATG}: \CODE{N_LSS_1d_coadd_wavecal}) \\
+              	& \PROD{N_LSS_SCI_FLUX_TELL_1D}: coadded, wavelength, telluric corrected 1D spectrum\\
+                & (\FITS{PRO.CATG}: \CODE{N_LSS_1d_coadd_wavecal_tell}) \\
 Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
             & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
             & for flux: 10\% over an atmospheric band \\
