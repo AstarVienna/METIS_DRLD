@@ -152,7 +152,7 @@ Algorithm:      & Application of master calibration files\\
                 & Determination and application of the wavelength solution\\
                 & Background removal\\
                 & Determination and application of the distortion correction\\
-                & Identifying/separatiing sky/object pixels\\
+                & Identifying/separating sky/object pixels\\
                 & Removing telluric lines\\
                 & Collapsing 2D to 1D spectrum, (see Fig.\,\ref{Fig:rec_n_lss_sci})\\
                 & Determination and application of response curve\\
@@ -160,7 +160,8 @@ Output data:	& \PROD{N_LSS_STD_OBJ_MAP}: Pixel map of object pixels (\ac{QC})\\
             	& \PROD{N_LSS_STD_SKY_MAP}: Pixel map of sky pixels (\ac{QC})\\
               	& \PROD{N_LSS_STD_1D}  : coadded, wavelength calibrated, collapsed 1D spectrum\\
                 & \PROD{STD_TRANSMISSION}: Transmission curve derived by menas of the \ac{STD} star (\ac{QC})\\
-                & \PROD{MASTER_n_RESPONSE}: response function (optionally including the transmission)\\
+                & \PROD{MASTER_N_RESPONSE}: response function (optionally including the transmission)\\
+                & \PROD{N_LSS_STD_WAVE}: Wavelength solution\\
 Expected accuracies: & for wavelength: 1/10th of a pixel after post-processing\\
             & (cf.~\cite{METIS-calibration_plan}, R-MET-106, METIS-167, METIS-1371)\\
             & for flux: 10\% over an atmospheric band \\
@@ -173,7 +174,7 @@ QC1 parameters: & \QC{QC N LSS STD BACKGD MEAN}: Mean value of background\\
                 & \QC{QC N LSS STD SNR}: Signal-to-noise ration of flux standard star spectrum\\
                 & \QC{QC N LSS STD NOISELEV}: Noise level of flux standard star spectrum\\
                 & \QC{QC N LSS STD FWHM}: FWHM of flux standard spectrum\\
-                & \QC{QC N LSS STD INTORDR LEVEL}: Flux level of the interorder background\\
+                & \QC{QC N LSS STD INTORDR LEVEL}: Flux level of the inter-order background\\
                 & \QC{QC N LSS STD AVGLEVEL}: Average level of the standard star flux \\
                 & \QC{QC N LSS STD WAVECAL DEVMEAN}: Mean deviation from the
                   wavelength reference frame\\
@@ -228,7 +229,7 @@ Input data: 	& \RAW{N_LSS_SCI_RAW}\\
                 & \EXTCALIB{ATM_LINE_CAT} \\
                 %& \EXTCALIB{AO_PSF_MODEL} \\
                 & \STATCALIB{N_ADC_SLITLOSS}\\
-                & \PROD{MASTER_n_RESPONSE} \\
+                & \PROD{MASTER_N_RESPONSE} \\
 Matched Keywords & \FITS{DET.DIT} \\
                  & \FITS{DET.NDIT}\\
                  & \FITS{DRS.SLIT}\\
