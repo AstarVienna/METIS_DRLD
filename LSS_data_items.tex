@@ -945,7 +945,8 @@ OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS*{INS.SPEC.SETUP}, \FITS{
 \FITS{DO.CATG}: & \CODE{STD_TRANSMISSION} \\[0.3cm]
 Produced by recipe: & \REC{metis_lm_lss_std} \\
                     & \REC{metis_n_lss_std} \\
-Input for recipe(s): & \REC{metis_lm_LSS_sci}\\
+Input for:    & \REC{metis_lm_lss_sci} \\
+              & \REC{metis_n_lss_sci} \\
 QC Parameters: &  none\\
 Processing FITS Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
@@ -992,7 +993,7 @@ Description: & Master N-band response function for absolute flux calibration \\[
 OCA keywords: & \FITS{PRO.CATG}, \FITS{INS.MODE}, \FITS*{INS.SPEC.SETUP}, \FITS{DRS.SLIT}\\
 \FITS{DO.CATG}: & \CODE{MASTER_N_RESPONSE} \\[0.3cm]
 Produced by recipe: & \REC{metis_n_lss_std} \\
-Input for recipe(s): & \REC{metis_n_LSS_sci}\\
+Input for recipe(s): & \REC{metis_n_lss_sci}\\
 QC Parameters: &  none\\
 Processing FITS Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
@@ -1082,9 +1083,9 @@ Name: & \PROD{N_LSS_STD_WAVE}\\[0.3cm]
 Description: & N-band wavelength solution / standard star\\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{N_LSS_STD_WAVE}\\
 OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.SLIT}\\
-\FITS{DO.CATG}: & \CODE{N_LSS_WAVE_GUESS}\\[0.3cm]
+\FITS{DO.CATG}: & \CODE{N_LSS_STD_WAVE}\\[0.3cm]
 Created by: & \REC{metis_n_lss_std}\\
-Input for:    & \REC{metis_n_lss_sci} \\
+% Input for:    & \REC{metis_n_lss_sci} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{recipedef}
 \begin{datastructdef}
@@ -1262,7 +1263,8 @@ Description: & Extracted, flux-calibrated, telluric corrected 1d science spectru
 \FITS{PRO.CATG}: & \CODE{N_LSS_SCI_FLUX_TELLCORR_1D}\\
 OCA keywords: & \FITS{PRO.CATG},  \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME}, \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT} \\
 \FITS{DO.CATG}: & \CODE{N_LSS_SCI_FLUX_TELLCORR_1D}\\[0.3cm]
-Created by: & \REC{metis_n_lss_mf_correct}\\
+Created by:   & \REC{metis_n_lss_sci} \\
+              & \REC{metis_n_lss_mf_correct} \\
 Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 Comment: & intermediate data product used for \ac{QC}\\
 %Data item structure: & see \ref{drsstructure:lmrsrfraw}\\

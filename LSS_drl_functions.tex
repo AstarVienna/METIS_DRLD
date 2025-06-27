@@ -5,13 +5,13 @@
 \begin{recipedef}
 Name: & \DRL{metis_correct_order_bg} \\
 Purpose: & Removal of order background contamination (e.g. stray light)\\
-Used in recipes: & \REC{metis_LM_lss_rsrf}\\
-                 & \REC{metis_N_lss_rsrf} \\
-                 & \REC{metis_LM_lss_wave}\\
-                 & \REC{metis_LM_lss_std} \\
-                 & \REC{metis_N_lss_std}  \\
-                 & \REC{metis_LM_lss_sci} \\
-                 & \REC{metis_N_lss_sci}  \\
+Used in recipes: & \REC{metis_lm_lss_rsrf}\\
+                 & \REC{metis_n_lss_rsrf} \\
+                 & \REC{metis_lm_lss_wave}\\
+                 & \REC{metis_lm_lss_std} \\
+                 & \REC{metis_n_lss_std}  \\
+                 & \REC{metis_n_lss_sci} \\
+                 & \REC{metis_n_lss_sci}  \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{metis\_imagelist *input} \\
@@ -33,8 +33,8 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}\label{rec:subtrwcuoffillum}
 Name: & \DRL{metis_subtract_wcu_off_illum} \\
 Purpose: & Subtract a WCU-OFF frame \\
-Used in recipes: & \REC{metis_LM_lss_rsrf} \\
-& \REC{metis_N_lss_rsrf} \\
+Used in recipes: & \REC{metis_lm_lss_rsrf} \\
+& \REC{metis_n_lss_rsrf} \\
 & \REC{metis_lm_adc_slitloss} \\
 & \REC{metis_n_adc_slitloss} \\
 %Working remarks: & None \\
@@ -56,8 +56,8 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}\label{rec:calcbb}
 Name: & \DRL{metis_calc_bb} \\
 Purpose: & Calculate blackbody spectrum \\
-Used in recipes: & \REC{metis_LM_lss_rsrf} \\
-& \REC{metis_N_lss_rsrf} \\
+Used in recipes: & \REC{metis_lm_lss_rsrf} \\
+& \REC{metis_n_lss_rsrf} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{double *temp} (temperature parameter) \\
@@ -78,8 +78,8 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}\label{drl:metis_normflat}
 Name: & \DRL{metis_norm_flat} \\
 Purpose: & Creates normalised flats from \PROD{LM_LSS_RSRF_RAW} / \PROD{N_LSS_RSRF_RAW}\\
-Used in recipes: & \REC{metis_LM_lss_rsrf} \\
-& \REC{metis_N_lss_rsrf} \\
+Used in recipes: & \REC{metis_lm_lss_rsrf} \\
+& \REC{metis_n_lss_rsrf} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const metis\_image *input} \\
@@ -101,8 +101,8 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}\label{drl:metis_norm_tss}
 Name: & \DRL{metis_norm_spec} \\
 Purpose: & Creates unity-normalised version from an input \ac{STD} spectra \\
-Used in recipes: & \REC{metis_LM_lss_std} \\
-& \REC{metis_N_lss_std} \\
+Used in recipes: & \REC{metis_lm_lss_std} \\
+& \REC{metis_n_lss_std} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: &  \texttt{hdrl\_spectrum1D *input}\\
@@ -121,8 +121,8 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 %\subsubsection{Detect order traces}\label{drl:tracedetect}
 %Used in recipes:\\ 
-%\REC{metis_LM_lss_trace} \newline
-%\REC{metis_N_lss_trace} \newline
+%\REC{metis_lm_lss_trace} \newline
+%\REC{metis_n_lss_trace} \newline
 %TBD
 
 
@@ -133,13 +133,13 @@ Unit tests: & See~\cite{DRLVT}. \\
 Name: & \DRL{metis_apply_rsrf}\\
 Purpose: & applies \PROD{MASTER_LM_LSS_RSRF} to LM-frames\\
          &  applies \PROD{MASTER_N_LSS_RSRF} to N-frames\\
-Used in recipes: & \REC{metis_LM_lss_trace} \\
-                & \REC{metis_N_lss_trace}  \\
-                & \REC{metis_LM_lss_wave}  \\
-                & \REC{metis_LM_lss_std}  \\
-                & \REC{metis_N_lss_std}  \\
-                & \REC{metis_LM_lss_sci} \\
-                & \REC{metis_N_lss_sci} \\
+Used in recipes: & \REC{metis_lm_lss_trace} \\
+                & \REC{metis_n_lss_trace}  \\
+                & \REC{metis_lm_lss_wave}  \\
+                & \REC{metis_lm_lss_std}  \\
+                & \REC{metis_n_lss_std}  \\
+                & \REC{metis_n_lss_sci} \\
+                & \REC{metis_n_lss_sci} \\
                 & \REC{metis_lm_adc_slitloss} \\
                 &\REC{metis_n_adc_slitloss}\\
 %Working remarks: & None \\
@@ -162,7 +162,7 @@ Unit tests: & See~\cite{DRLVT}. \\
 %\begin{recipedef}\label{drl:wavecal}
 %Name: & \DRL{wave_cal} \\
 %Purpose: & Computes wavelength calibration \\
-%Used in recipes: & \REC{metis_LM_lss_wave} \\
+%Used in recipes: & \REC{metis_lm_lss_wave} \\
 %%Working remarks: & None \\
 %%Function Parameters: & None \\
 %Input: & \texttt{const hdrl\_image *input} \\https://www.overleaf.com/project/5f1abb4137d7690001f8aeb1
@@ -180,11 +180,11 @@ Unit tests: & See~\cite{DRLVT}. \\
 %---------------------------------------------------------------------
 %\subsubsection{Detect line peak}\label{drl:linedetect}
 %Used in recipes:\\ 
-%\REC{metis_LM_lss_wave} \newline
-%\REC{metis_LM_lss_std} \newline
-%\REC{metis_N_lss_std} \newline
-%\REC{metis_LM_lss_sci} \newline
-%\REC{metis_N_lss_sci} \newline
+%\REC{metis_lm_lss_wave} \newline
+%\REC{metis_lm_lss_std} \newline
+%\REC{metis_n_lss_std} \newline
+%\REC{metis_n_lss_sci} \newline
+%\REC{metis_n_lss_sci} \newline
 %TBD
 
 
@@ -194,8 +194,8 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}
 Name: & \DRL{metis_determine_response}\\
 Purpose: & Determination of the spectral response function\\
-Used in recipes: &  \REC{metis_LM_lss_std} \\
-                 &  \REC{metis_N_lss_std} \\
+Used in recipes: &  \REC{metis_lm_lss_std} \\
+                 &  \REC{metis_n_lss_std} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input:        & \texttt{const hdrl\_spectrum1D *input} \\
@@ -215,10 +215,10 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}\label{rec:removeskybackground}
 Name: & \DRL{metis_remove_sky_background} \\
 Purpose: & Remove sky background from spectra \\
-Used in recipes: & \REC{metis_LM_lss_std} \\
-& \REC{metis_LM_lss_sci}\\
-& \REC{metis_N_lss_std} \\
-& \REC{metis_N_lss_sci}\\
+Used in recipes: & \REC{metis_lm_lss_std} \\
+& \REC{metis_n_lss_sci}\\
+& \REC{metis_n_lss_std} \\
+& \REC{metis_n_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{metis\_image *input} \\
@@ -239,11 +239,11 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}\label{rec:slitcurvature}
 Name: & \DRL{metis_slit_curvature} \\
 Purpose: & Determines the slit curvature along the orders \\
-Used in recipes: & \REC{metis_LM_lss_wave} \\
-& \REC{metis_LM_lss_std} \\
-& \REC{metis_LM_lss_sci}\\
-& \REC{metis_N_lss_std} \\
-& \REC{metis_N_lss_sci}\\
+Used in recipes: & \REC{metis_lm_lss_wave} \\
+& \REC{metis_lm_lss_std} \\
+& \REC{metis_n_lss_sci}\\
+& \REC{metis_n_lss_std} \\
+& \REC{metis_n_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const metis\_image *input} \\
@@ -264,11 +264,11 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}\label{rec:detectordertrace}
 Name: & \DRL{metis_detect_order_trace} \\
 Purpose: & Determines the order traces on the detectors\\
-Used in recipes: & \REC{metis_LM_lss_wave} \\
-& \REC{metis_LM_lss_std} \\
-& \REC{metis_LM_lss_sci}\\
-& \REC{metis_N_lss_std} \\
-& \REC{metis_N_lss_sci}\\
+Used in recipes: & \REC{metis_lm_lss_wave} \\
+& \REC{metis_lm_lss_std} \\
+& \REC{metis_n_lss_sci}\\
+& \REC{metis_n_lss_std} \\
+& \REC{metis_n_lss_sci}\\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: & \texttt{const metis\_image *input} \\
@@ -289,10 +289,10 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}
 Name: & \DRL{metis_extract_object}\\
 Purpose: & Extract object spectrum from 2D-spectrum\\
-Used in recipes: & \REC{metis_LM_lss_std} \\
-                 & \REC{metis_N_lss_std}\\
-                 & \REC{metis_LM_lss_sci}\\
-                 & \REC{metis_N_lss_sci} \\
+Used in recipes: & \REC{metis_lm_lss_std} \\
+                 & \REC{metis_n_lss_std}\\
+                 & \REC{metis_n_lss_sci}\\
+                 & \REC{metis_n_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 Input: &  \texttt{const metis\_image *input} \\
@@ -314,8 +314,8 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}
 Name: & \DRL{metis_apply_wavecal}\\
 Purpose: & applies \PROD{LM_LSS_WAVE_GUESS}\\
-Used in recipes: & \REC{metis_LM_lss_std} \\
-                 & \REC{metis_LM_lss_sci} \\
+Used in recipes: & \REC{metis_lm_lss_std} \\
+                 & \REC{metis_n_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\
@@ -336,8 +336,8 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}
 Name: & \DRL{metis_apply_fluxcal}\\
 Purpose: & applies \PROD{MASTER_LM_RESPONSE} or \PROD{MASTER_N_RESPONSE} to science frames\\
-Used in recipes: & \REC{metis_LM_lss_sci} \\
-                 & \REC{metis_N_lss_sci} \\
+Used in recipes: & \REC{metis_n_lss_sci} \\
+                 & \REC{metis_n_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\
@@ -358,8 +358,8 @@ Unit tests: & See~\cite{DRLVT}. \\
 \begin{recipedef}
 Name: & \DRL{metis_apply_tellcorr}\\
 Purpose: & applies \STATCALIB{LM_SYNTH_TRANS} and \STATCALIB{N_SYNTH_TRANS} to corresponding standard star spectrum (\PROD{LM_LSS_STD_1D} and \PROD{N_LSS_STD_1D})\\
-Used in recipes: & \REC{metis_LM_lss_sci} \\
-                 & \REC{metis_N_lss_sci} \\
+Used in recipes: & \REC{metis_n_lss_sci} \\
+                 & \REC{metis_n_lss_sci} \\
 %Working remarks: & None \\
 %Function Parameters: & None \\
 %Input FITS files: & None \\

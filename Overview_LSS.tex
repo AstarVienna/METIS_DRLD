@@ -97,20 +97,20 @@ In general, there are four major steps in each of the two cascades:
 %    		& \CODE{DPR.TYPE==DARK}  &			&		&	\PROD{GAIN_MAP_2RG} & Bad pixel map\\
 %    		& \CODE{DPR.TECH==IMAGE}  &			&		&	\PROD{LINEARITY_2RG} & \\
 %    \hline
-%    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_rsrf} & Exposure time	& \EXTCALIB{PERSISTENCE_MAP}	& Averaged, normalized flatfield\\
+%    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_lm_lss_rsrf} & Exposure time	& \EXTCALIB{PERSISTENCE_MAP}	& Averaged, normalized flatfield\\
 %    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	& 	\PROD{GAIN_MAP_2RG} & \\
 %    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	\PROD{LINEARITY_2RG} & \\
 %    \hline
-%         	& \CODE{DPR.CATG==CALIB} &\REC{metis_LM_lss_trace} & Exposure time	&	\EXTCALIB{PERSISTENCE_MAP}& Order location\\
+%         	& \CODE{DPR.CATG==CALIB} &\REC{metis_lm_lss_trace} & Exposure time	&	\EXTCALIB{PERSISTENCE_MAP}& Order location\\
 %    		& \CODE{DPR.TYPE==FLAT}  &			&		&	 \PROD{GAIN_MAP_2RG}& (polynomial fit)\\
 %    		& \CODE{DPR.TECH==SPECTRUM}  &			&		&	\PROD{LINEARITY_2RG} & \\
 %    \hline
-%    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} &\REC{metis_LM_lss_wave} & Exposure time & \EXTCALIB{PERSISTENCE_MAP}  & wavelength solution\\
+%    \TPL{WAVE,LASER} & \CODE{DPR.CATG==CATG} &\REC{metis_lm_lss_wave} & Exposure time & \EXTCALIB{PERSISTENCE_MAP}  & wavelength solution\\
 %    		& \CODE{DPR.TYPE==WAVE,LASER}   &			   & Grism & \PROD{GAIN_MAP_2RG} &\\
 %    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	\PROD{LINEARITY_2RG}& \\
 %    		& \CODE{PRO.CATG==SPECTRUM}   &  &  & \STATCALIB{LASER_TAB} & \\
 %    \hline
-%    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \REC{metis_LM_lss_std}& Object name (\ac{STD} star) & \EXTCALIB{PERSISTENCE_MAP} & Instrumental\\
+%    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \REC{metis_lm_lss_std}& Object name (\ac{STD} star) & \EXTCALIB{PERSISTENCE_MAP} & Instrumental\\
 %      & \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \PROD{GAIN_MAP_2RG} & response function\\
 %    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\PROD{LINEARITY_2RG} & Transmission (optionally)\\
 %    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \EXTCALIB{ATM_LINE_CAT} & Wavelength correction \\
@@ -119,7 +119,7 @@ In general, there are four major steps in each of the two cascades:
 %    		& & & &  \EXTCALIB{AO_PSF_MODEL} &\\
 %%    		& & & & \STATCALIB{TSS_CONT_TAB} &\\
 %    		& & & & \STATCALIB{REF_STD_CAT} &\\    \hline
-%    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_sci} & Object name & \EXTCALIB{PERSISTENCE_MAP}  & Science grade spectrum\\
+%    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_n_lss_sci} & Object name & \EXTCALIB{PERSISTENCE_MAP}  & Science grade spectrum\\
 %    		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \PROD{GAIN_MAP_2RG} &\\
 %    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&\STATCALIB{LM_ADC_SLITLOSS} & \\
 %    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit  &  \EXTCALIB{ATM_LINE_CAT}	& \\
@@ -140,17 +140,17 @@ In general, there are four major steps in each of the two cascades:
 %      Input   & Classification & Recipe (Level)	& FITS Keywords & static/external & Products\\
 %    data & Keywords	 & Processing steps	&		&	 CalibDB  &	\\
 %    \hline
-%%            Science grade spectrum & \CODE{DPR.CATG==SCIENCE} & \REC{metis_LM_lss_mf_model} & Object name & \STATCALIB{LSF_KERNEL}	 & Best-fit \\
+%%            Science grade spectrum & \CODE{DPR.CATG==SCIENCE} & \REC{metis_lm_lss_mf_model} & Object name & \STATCALIB{LSF_KERNEL}	 & Best-fit \\
 %    		processed \ac{STD} spectrum& \CODE{DPR.TYPE==OBJECT}   &			  & & \EXTCALIB{ATM_PROFILE}  & \texttt{molecfit} parameters\\
 %    		& \CODE{DPR.TECH==TBD}  &			&		& \EXTCALIB{ATM_LINE_CAT}	& \\
 %    		& \CODE{PRO.CATG==TBD}   &  &  & start parameter set & \\
 %    \hline
-%            & \CODE{DPR.CATG==SCIENCE} &  \REC{metis_LM_lss_mf_calctrans} & Object name & \EXTCALIB{ATM_LINE_CAT}	 & synthetic \\
+%            & \CODE{DPR.CATG==SCIENCE} &  \REC{metis_lm_lss_mf_calctrans} & Object name & \EXTCALIB{ATM_LINE_CAT}	 & synthetic \\
 %    		& \CODE{DPR.TYPE==LSS}   &		&	   &   & Transmission curve\\
 %    		& \CODE{DPR.TECH==TBD}  &			&		& 	& \\
 %    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
 %    \hline
-%            & \CODE{DPR.CATG==SCIENCE} &  \REC{metis_LM_lss_mf_correct} & Object name &  & Absorption corrected\\
+%            & \CODE{DPR.CATG==SCIENCE} &  \REC{metis_lm_lss_mf_correct} & Object name &  & Absorption corrected\\
 %    		& \CODE{DPR.TYPE==LSS}   &			   & &    & science spectrum\\
 %    		& \CODE{DPR.TECH==TBD}  &			&		&	& \\
 %    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
@@ -199,15 +199,15 @@ In general, there are four major steps in each of the two cascades:
 %    		& \CODE{DPR.TYPE==DARK}  &			&		&	\PROD{GAIN_MAP_GEO} & Bad pixel map\\
 %    		& \CODE{DPR.TECH==IMAGE}  &			&		&	\PROD{LINEARITY_GEO} & \\
 %    \hline
-%    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_N_lss_rsrf} & Exposure time	& \EXTCALIB{PERSISTENCE_MAP}	& Averaged, normalized flatfield (\ac{RSRF}\\
+%    \TPL{FLAT}	& \CODE{DPR.CATG==CALIB} & \REC{metis_n_lss_rsrf} & Exposure time	& \EXTCALIB{PERSISTENCE_MAP}	& Averaged, normalized flatfield (\ac{RSRF}\\
 %    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	&	\PROD{GAIN_MAP_GEO} & Bad pixel map\\
 %    		& \CODE{DPR.TECH==SPECTRUM}  &			& Slit		&	\PROD{LINEARITY_GEO} & \\
 %    \hline
-%         	& \CODE{DPR.CATG==CALIB} & \REC*{metis_N_lss_trace} & Exposure time	& 	\EXTCALIB{PERSISTENCE_MAP} & Order location\\
+%         	& \CODE{DPR.CATG==CALIB} & \REC*{metis_n_lss_trace} & Exposure time	& 	\EXTCALIB{PERSISTENCE_MAP} & Order location\\
 %    		& \CODE{DPR.TYPE==FLAT}  &			&	Grism	&	\PROD{GAIN_MAP_GEO} & (polynomial fit)\\
 %    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Slit	&	 \PROD{LINEARITY_GEO} & \\
 %    \hline
-%    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \REC{metis_N_lss_std} & Object name (\ac{STD} star) & \EXTCALIB{PERSISTENCE_MAP} & Instrumental\\
+%    \TPL{STD} & \CODE{DPR.CATG==CALIB} & \REC{metis_n_lss_std} & Object name (\ac{STD} star) & \EXTCALIB{PERSISTENCE_MAP} & Instrumental\\
 %    		& \CODE{DPR.TYPE==FLUX,STD}   &			   & Exposure time & \PROD{GAIN_MAP_GEO} & response function\\
 %    		& \CODE{DPR.TECH==SPECTRUM}   &			   & Grism		& \PROD{LINEARITY_GEO} & transmission (optional)\\
 %    		& \CODE{PRO.CATG==SPECTRUM}   &  &  Slit & \STATCALIB{N_LSS_WAVE_GUESS} & wavelength correction\\
@@ -216,7 +216,7 @@ In general, there are four major steps in each of the two cascades:
 %    		& & & & \STATCALIB{N_LSS_DIST_SOL} &\\
 %   		& & & & \STATCALIB{REF_STD_CAT} &\\
 %    \hline
-%    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_sci} & Object name &  \EXTCALIB{PERSISTENCE_MAP} & Science grade spectrum\\
+%    \TPL{SCIENCE} & \CODE{DPR.CATG==SCIENCE} & \REC{metis_n_lss_sci} & Object name &  \EXTCALIB{PERSISTENCE_MAP} & Science grade spectrum\\
 %    		& \CODE{DPR.TYPE==OBJECT}   &			   & Exposure time & \PROD{GAIN_MAP_GEO}  &\\
 %    		& \CODE{DPR.TECH==SPECTRUM}  &			&	Grism	&	\PROD{LINEARITY_GEO} & \\
 %    		& \CODE{PRO.CATG==SPECTRUM}   &  & Slit & \EXTCALIB{ATM_LINE_CAT}  & \\
@@ -240,17 +240,17 @@ In general, there are four major steps in each of the two cascades:
 %      Input   & Classification & Recipe (Level)	& FITS Keywords & static/external & Products\\
 %    data & Keywords	 & Processing steps	&		&	CalibDB  &	\\
 %    \hline
-%    Science grade spectrum & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_mf_model} & Object name & \STATCALIB{LSF_KERNEL}	 & Best-fit \\
+%    Science grade spectrum & \CODE{DPR.CATG==SCIENCE} & \REC{metis_n_lss_mf_model} & Object name & \STATCALIB{LSF_KERNEL}	 & Best-fit \\
 %    	\ac{STD} star spectrum	& \CODE{DPR.TYPE==OBJECT}   &			  & & \EXTCALIB{ATM_PROFILE}  & \texttt{molecfit} parameters\\
 %    		& \CODE{DPR.TECH==TBD}  &			&		& \EXTCALIB{ATM_LINE_CAT}	& \\
 %    		& \CODE{PRO.CATG==TBD}   &  &  & start parameter set & \\
 %    \hline
-%            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_mf_calctrans} & Object name & \EXTCALIB{ATM_LINE_CAT}	 & synthetic \\
+%            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_n_lss_mf_calctrans} & Object name & \EXTCALIB{ATM_LINE_CAT}	 & synthetic \\
 %    		& \CODE{DPR.TYPE==LSS}   &		&	   &  & Transmission curve\\
 %    		& \CODE{DPR.TECH==TBD}  &			&		&  	& \\
 %    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
 %    \hline
-%            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_N_lss_mf_correct} & Object name &  & Absorption corrected\\
+%            & \CODE{DPR.CATG==SCIENCE} & \REC{metis_n_lss_mf_correct} & Object name &  & Absorption corrected\\
 %    		& \CODE{DPR.TYPE==LSS}   &			   &  & & science spectrum\\
 %    		& \CODE{DPR.TECH==TBD}  &			&		&	& \\
 %    		& \CODE{PRO.CATG==TBD}   &  &  & & \\
