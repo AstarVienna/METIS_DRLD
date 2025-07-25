@@ -244,7 +244,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \PROD{RSRF_IFU}\\[0.3cm]
-Description: & 2D relative spectral response function \\[0.3cm]
+Description: & 1D relative spectral response function \\[0.3cm]
 \FITS{PRO.CATG}: & \CODE{RSRF_IFU}\\
 OCA keywords: & \FITS{PRO.CATG}, \FITS{DRS.IFU}\\
 \FITS{DO.CATG}: & \CODE{RSRF_IFU}\\[0.3cm]
@@ -257,7 +257,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \textbf{Corresponding \ac{CPL} structure:}
 \begin{enumerate}
     \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{PRO.CATG}, \FITS{DRS.IFU})}
-    \item \texttt{hdrl\_image * images[]: Four images with spectral response of each pixel}
+    \item \texttt{cpl\_table * tables[]: Four tables (one per detector) with 1D spectral response curve of each IFU slice}
     \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
 \end{enumerate}
 \end{datastructdef}
