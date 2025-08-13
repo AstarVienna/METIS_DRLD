@@ -111,16 +111,16 @@ This satisfies \REQ{METIS-5997}.
 \label{rec:metis_det_dark}
 
 Darks are taken in daytime for all science detectors
-\cite{METIS-calibration_plan}. The data will be classified by detector
-(e.g.~\FITS{DET.ID} and \FITS*{DET.CHIP.ID}) and integration time
-(\FITS{DET.DIT}).\footnote{The dark current is not expected to depend on the readout mode of the detectors. Should hardware tests reveal such a dependence, the recipe will be amended to classify on readout mode as well.} There will be ``METIS-dark''
+\cite{METIS-calibration_plan}.  Each dark frame contains a single frame, and calculating a master dark
+is done separately for each combination of detector (~\FITS{DET.ID}, \FITS*{DET.CHIP.ID}) and integration time
+(\FITS{DET.DIT}, \FITS{DET.NDIT}).\footnote{The dark current is not expected to depend on the readout mode of the detectors. Should hardware tests reveal such a dependence, the recipe will be amended to classify on readout mode as well.} There will be ``METIS-dark''
 (with the CLOSED position of the CFO-PP1 wheel) and ``Imager-dark''
 (with the CLOSED position in the subsystem PP1), to be distinguished
 by header keywords.
 % TODO: Use a different DO.CATG for these darks. See https://github.com/AstarVienna/METIS_DRLD/issues/170
 The former will be used for pipeline processing, the  latter for monitoring purposes.
 
-Each set of raw dark frames is processed into a master dark. For the
+For the
 IFU, both raw frames and master dark have four extensions
 corresponding to the four detectors in the focal-plane array. The
 recipe also produces bad pixel masks by identifying hot pixels whose
