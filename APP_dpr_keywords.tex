@@ -25,6 +25,7 @@
  \hline
  CALIB     & IFU      & DARK           & DARK\_IFU\_RAW         & \REC{metis_det_dark}            \\
  CALIB     & IFU      & DARK,WCUOFF    & IFU\_WCU\_OFF\_RAW      & \REC{metis_det_lingain}         \\
+ "         & "        & "              & "                      & \REC{metis_ifu_rsrf}        \\
  CALIB     & IFU      & DETLIN         & DETLIN\_IFU\_RAW       & \REC{metis_det_lingain}         \\
  CALIB     & IFU      & DISTORTION     & IFU\_DISTORTION\_RAW   & \REC{metis_ifu_distortion}      \\
  CALIB     & IFU      & PSF,OFFAXIS    & IFU\_OFF\_AXIS\_PSF\_RAW & \REC{metis_ifu_adi_cgrph}       \\
@@ -38,6 +39,9 @@
  CALIB     & IMAGE,LM & DARK,WCUOFF    & LM\_WCU\_OFF\_RAW      & \REC{metis_det_lingain}         \\
  "         & "        & "              & "                      & \REC{metis_lm_img_distortion}   \\
  "         & "        & "              & "                      & \REC{metis_lm_adc_slitloss}     \\
+ "         & "        & "              & "                      & \REC{metis_lm_lss_wave}        \\
+ "         & "        & "              & "                      & \REC{metis_lm_lss_trace}        \\
+ "         & "        & "              & "                      & \REC{metis_lm_lss_rsrf}        \\
  "         & "        & "              & "                      & \REC{metis_cal_chophome}     \\
  CALIB     & IMAGE,LM & DETLIN         & DETLIN\_2RG\_RAW       & \REC{metis_det_lingain}         \\
  CALIB     & IMAGE,LM & DISTORTION     & LM\_DISTORTION\_RAW    & \REC{metis_lm_img_distortion}   \\
@@ -45,15 +49,19 @@
  CALIB     & IMAGE,LM & FLAT,TWILIGHT  & LM\_FLAT\_TWILIGHT\_RAW & \REC{metis_lm_img_flat}         \\
  CALIB     & IMAGE,LM & PSF,OFFAXIS    & LM\_OFF\_AXIS\_PSF\_RAW  & \REC{metis_img_adi_cgrph}       \\
  "         & "        & "              & "                    & \REC{metis_lm_adi_app}          \\
+ CALIB     & IMAGE,LM & STD            & LM\_IMAGE\_STD\_RAW    & \REC{metis_lm_img_basic_reduce} \\
  CALIB     & IMAGE,N  & DARK           & DARK\_GEO\_RAW         & \REC{metis_det_dark}            \\
  CALIB     & IMAGE,N  & DARK,WCUOFF    & N\_WCU\_OFF\_RAW        & \REC{metis_det_lingain}         \\
  "         & "        & "              & "                    & \REC{metis_n_img_distortion}    \\
  "         & "        & "              & "                    & \REC{metis_n_adc_slitloss}      \\
+ "         & "        & "              & "                      & \REC{metis_n_lss_trace}        \\
+ "         & "        & "              & "                      & \REC{metis_n_lss_rsrf}        \\
  CALIB     & IMAGE,N  & DETLIN         & DETLIN\_GEO\_RAW       & \REC{metis_det_lingain}         \\
  CALIB     & IMAGE,N  & DISTORTION     & N\_DISTORTION\_RAW     & \REC{metis_n_img_distortion}    \\
  CALIB     & IMAGE,N  & FLAT,LAMP      & N\_FLAT\_LAMP\_RAW      & \REC{metis_n_img_flat}          \\
  CALIB     & IMAGE,N  & FLAT,TWILIGHT  & N\_FLAT\_TWILIGHT\_RAW  & \REC{metis_n_img_flat}          \\
  CALIB     & IMAGE,N  & PSF,OFFAXIS    & N\_OFF\_AXIS\_PSF\_RAW   & \REC{metis_img_adi_cgrph}       \\
+ CALIB     & IMAGE,N  & STD            & N\_IMAGE\_STD\_RAW      & \REC{metis_n_img_chopnod}       \\
  CALIB     & LSS,LM   & FLAT,LAMP      & LM\_LSS\_RSRF\_RAW      & \REC{metis_lm_lss_rsrf}         \\
  CALIB     & LSS,LM   & FLAT,LAMP,PINH & LM\_LSS\_RSRF\_PINH\_RAW & \REC{metis_lm_lss_trace}        \\
  CALIB     & LSS,LM   & SLITLOSS       & LM\_SLITLOSSES\_RAW    & \REC{metis_lm_adc_slitloss}     \\
@@ -66,7 +74,7 @@
  SCIENCE   & IFU      & OBJECT         & IFU\_SCI\_RAW          & \REC{metis_ifu_reduce}          \\
  SCIENCE   & IMAGE,LM & OBJECT         & LM\_IMAGE\_SCI\_RAW     & \REC{metis_lm_img_basic_reduce} \\
  SCIENCE   & IMAGE,N  & OBJECT         & N\_IMAGE\_SCI\_RAW      & \REC{metis_n_img_chopnod}       \\
- SCIENCE   & LSS,LM   & OBJECT         & LM\_LSS\_SCI\_RAW       & \REC{metis_n_lss_sci}          \\
+ SCIENCE   & LSS,LM   & OBJECT         & LM\_LSS\_SCI\_RAW       & \REC{metis_lm_lss_sci}          \\
  SCIENCE   & LSS,N    & OBJECT         & N\_LSS\_SCI\_RAW        & \REC{metis_n_lss_sci}           \\
  TECHNICAL & PUP,LM    & PUPIL          & LM\_PUPIL\_RAW         & \REC{metis_pupil_imaging}       \\
  TECHNICAL & PUP,N    & PUPIL          & N\_PUPIL\_RAW          & \REC{metis_pupil_imaging}       \\
