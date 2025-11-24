@@ -42,10 +42,11 @@
   %% input box
   \node (input) [below=0.75cm of start-m, input] {%
     \textsl{N} \RAW{LM_IMAGE_SCI_RAW} or\\
-    \textsl{N} \RAW{LM_IMAGE_STD_RAW}};
+    \textsl{N} \RAW{LM_IMAGE_STD_RAW} or\\
+    \textsl{N} \RAW{LM_IMAGE_SKY_RAW}};
 
   %% algorithm steps
-  \node (step_linearity) [below=3.0cm of input, redstep]{%
+  \node (step_linearity) [below=3.8cm of input, redstep]{%
     Correct non-linearity};
 
   \node (step_persistence) [below of=step_linearity, redstep]{%

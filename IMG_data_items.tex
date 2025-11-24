@@ -604,7 +604,46 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 
 
 
-
+% #####################################################################################
+\paragraph{\RAW{LM_IMAGE_SKY_RAW}}\label{dataitem:lm_image_sky_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \RAW{LM_IMAGE_SKY_RAW}\\[0.3cm]
+Description: & Blank sky exposure, optional. \\[0.3cm]
+\FITS{DPR.CATG}: & \CODE{CALIB}\\
+\FITS{DPR.TECH}: & \CODE{LM,IMAGE} \\
+\FITS{DPR.TYPE}: & \CODE{SKY} \\[0.3cm]
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER}\\
+\FITS{DO.CATG}: & \CODE{LM_IMAGE_SKY_RAW}\\[0.3cm]
+% TODO: Verify that all these templates produce LM_IMAGE_SKY_RAW.
+Template: & \TPL{METIS_img_lm_obs_AutoJitter} \\
+          & \TPL{METIS_img_lm_obs_GenericOffset} \\
+          & \TPL{METIS_img_lmn_obs_AutoChopNod} \\
+          & \TPL{METIS_img_lmn_obs_GenericChopNod} \\
+          & \TPL{METIS_ifu_obs_GenericOffset}                                                        \\
+          & \TPL{METIS_ifu_ext_obs_GenericOffset}                                                    \\
+          & \TPL{METIS_ifu_app_obs_Stare}                                                            \\
+          & \TPL{METIS_ifu_ext_app_obs_Stare}                                                        \\
+          & \TPL{METIS_img_lm_cal_psf} \\
+          & \TPL{METIS_ifu_cal_psf} \\
+          & \TPL{METIS_ifu_vc_obs_FixedSkyOffset}                                                    \\
+          & \TPL{METIS_ifu_ext_vc_obs_FixedSkyOffset}                                                \\
+          & \TPL{METIS_img_lm_obs_FixedSkyOffset} \\
+          & \TPL{METIS_img_lm_app_obs_FixedOffset} \\
+          & \TPL{METIS_img_lm_vc_obs_FixedSkyOffset} \\
+          & \TPL{METIS_ifu_obs_FixedSkyOffset}                                                       \\
+          & \TPL{METIS_ifu_ext_obs_FixedSkyOffset}                                                   \\
+Input for recipe: & \REC{metis_lm_img_basic_reduce}\\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{DRS.FILTER})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
 
 
 
