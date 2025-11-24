@@ -5,10 +5,11 @@ import glob
 import hashlib
 import itertools
 import os
-from pprint import pprint
+# noinspection PyUnusedImports
+from pprint import pprint  # useful for debugging
 from pathlib import Path
 import re
-from typing import List
+from typing import List, Optional
 
 from codes.drld_parser.hacks import (
     HACK_BAD_NAMES,
@@ -325,7 +326,7 @@ class DataItemReference:
     name: str = None
     dtype: str = "PROD"
     hyperref: str = None
-    description: str = None
+    description: Optional[str] = None
 
     def fake_hash(self):
         """Create a reproducible hash.
@@ -711,10 +712,6 @@ class AssociationMatrixCell:
             return f"({sdataitems})"
         else:
             raise ValueError
-            return "ERROR"
-
-    # def __repr__(self):
-    #     return str(self)
 
 
 class AssociationMatrix:
@@ -1022,7 +1019,7 @@ class DataReductionLibraryDesign:
                 continue
 
             name = dataitem.name
-            dataitem_existing = dataitems3.get(name, None)
+            dataitem_existing : Optional[DataItem] = dataitems3.get(name, None)
             # E.g. MASTER_DARK_2RG can be added while MASTER_DARK_det is there
             assert dataitem_existing is None or "det" in dataitem_existing.name, f"{dataitem_existing} is a duplicate"
             dataitems3[dataitem.name] = dataitem
@@ -1115,7 +1112,6 @@ class DataReductionLibraryDesign:
         ]
         recipe_names_u = [
             recname.replace("\\", "")
-            for fn in self.filenames_tex
             for recname in re.findall(r"\\REC\*?{(.*?)}", "\n".join(all_lines))
             if recname not in not_recipes
         ]
