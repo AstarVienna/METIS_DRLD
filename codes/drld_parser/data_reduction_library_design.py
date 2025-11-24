@@ -5,10 +5,11 @@ import glob
 import hashlib
 import itertools
 import os
-from pprint import pprint
+# noinspection PyUnusedImports
+from pprint import pprint  # useful for debugging
 from pathlib import Path
 import re
-from typing import List
+from typing import List, Optional
 
 from codes.drld_parser.hacks import (
     HACK_BAD_NAMES,
@@ -325,7 +326,7 @@ class DataItemReference:
     name: str = None
     dtype: str = "PROD"
     hyperref: str = None
-    description: str = None
+    description: Optional[str] = None
 
     def fake_hash(self):
         """Create a reproducible hash.
@@ -711,10 +712,6 @@ class AssociationMatrixCell:
             return f"({sdataitems})"
         else:
             raise ValueError
-            return "ERROR"
-
-    # def __repr__(self):
-    #     return str(self)
 
 
 class AssociationMatrix:
@@ -856,6 +853,8 @@ class DataReductionLibraryDesign:
             self.template_names_used_normal,
             self.template_names_used_tikz,
         ) = self.get_template_names_used()
+
+        self.dpr_keywords_table = DprKeywordsTable()
 
     def get_recipes(self):
         """"""
@@ -1022,7 +1021,7 @@ class DataReductionLibraryDesign:
                 continue
 
             name = dataitem.name
-            dataitem_existing = dataitems3.get(name, None)
+            dataitem_existing : Optional[DataItem] = dataitems3.get(name, None)
             # E.g. MASTER_DARK_2RG can be added while MASTER_DARK_det is there
             assert dataitem_existing is None or "det" in dataitem_existing.name, f"{dataitem_existing} is a duplicate"
             dataitems3[dataitem.name] = dataitem
@@ -1115,7 +1114,6 @@ class DataReductionLibraryDesign:
         ]
         recipe_names_u = [
             recname.replace("\\", "")
-            for fn in self.filenames_tex
             for recname in re.findall(r"\\REC\*?{(.*?)}", "\n".join(all_lines))
             if recname not in not_recipes
         ]
@@ -1172,6 +1170,47 @@ class DataReductionLibraryDesign:
                 for postfix in guess_postfixes(name_dataitem)
             )
         ]
+
+
+class DprKeywordsTable:
+    """The DPR keywords table from the appendix.
+
+    Lines are like
+     CALIB     & IMAGE,N  & DARK,WCUOFF    & N\_WCU\_OFF\_RAW        & \REC{metis_det_lingain}         \\
+     "         & "        & "              & "                    & \REC{metis_n_img_distortion}    \\
+
+    """
+    def __init__(self):
+        path_appendix = Path(__file__).parent.parent.parent / "APP_dpr_keywords.tex"
+        lines1 = open(path_appendix, encoding="utf8").readlines()
+        # Dumb way to get all lines from the table
+        lines2 = [ll for ll in lines1 if "REC" in ll]
+        lines3 = [ll.strip().strip("\\").replace("\\_", "_").split("&") for ll in lines2]
+        lines4 = [[cc.strip() for cc in ll] for ll in lines3]
+        lines = lines4
+        dpr_catg_old = ""
+        dpr_tech_old = ""
+        dpr_type_old = ""
+        do_catg_old = ""
+        self.dataitems = []
+        for dpr_catg, dpr_tech, dpr_type, do_catg, recipe1 in lines:
+            recipe = recipe1.split("{")[1].split("}")[0]
+            if dpr_catg == '"':
+                dpr_catg = dpr_catg_old
+            if dpr_tech == '"':
+                dpr_tech = dpr_tech_old
+            if dpr_type == '"':
+                dpr_type = dpr_type_old
+            if do_catg == '"':
+                do_catg = do_catg_old
+
+            dataitem = (dpr_catg, dpr_tech, dpr_type, do_catg, recipe)
+            self.dataitems.append(dataitem)
+
+            dpr_catg_old = dpr_catg
+            dpr_tech_old = dpr_tech
+            dpr_type_old = dpr_type
+            do_catg_old = do_catg
 
 
 METIS_DataReductionLibraryDesign = DataReductionLibraryDesign()

@@ -1290,3 +1290,27 @@ def test_badpixinput():
 # TODO: Order of input in recipes, primary input should go first!
 # TODO: the raw dark was an EXTCALIB, should not happen!
 # TODO: Check whether LM data is created with LM templates and processed with LM recipes, similar for N
+
+
+def test_dpr_keywords_table():
+    """Test the DPR keywords table in the appendix."""
+    recs = {}
+    for dpr_catg, dpr_tech, dpr_type, do_catg, recipe in METIS_DataReductionLibraryDesign.dpr_keywords_table.dataitems:
+        di = METIS_DataReductionLibraryDesign.dataitems[do_catg]
+        dpr_key_table = (dpr_catg, dpr_tech, dpr_type)
+        dpr_key_drld =  (di.dpr_catg, di.dpr_tech, di.dpr_type)
+        assert dpr_key_table == dpr_key_drld
+        assert recipe in [r.name for r in di.input_for]
+
+        # Stash the recipe names so we can check the other way around.
+        if do_catg not in recs:
+            recs[do_catg] = []
+        recs[do_catg].append(recipe)
+
+    for di in METIS_DataReductionLibraryDesign.dataitems.values():
+        if di.dtype != "RAW":
+            continue
+        recipes_drld = set(METIS_DataReductionLibraryDesign.get_recipes_for_dataitem(di.name))
+        # Some DataItems do not have a recipe associated with it, like N_LSS_WAVE_RAW
+        recipes_table = set(recs.get(di.name, set()))
+        assert recipes_drld == recipes_table
