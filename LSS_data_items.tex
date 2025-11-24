@@ -332,6 +332,60 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \end{enumerate}
 \end{datastructdef}
 
+% #####################################################################################
+\paragraph{\RAW{LM_LSS_SKY_RAW}}\label{dataitem:lm_lss_sky_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \RAW{LM_LSS_SKY_RAW}\\[0.3cm]
+Description: & Blank sky exposure, optional. \\[0.3cm]
+\FITS{DPR.CATG}: & \CODE{CALIB}\\
+\FITS{DPR.TECH}: & \CODE{LM,LSS} \\
+\FITS{DPR.TYPE}: & \CODE{SKY} \\[0.3cm]
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME}, \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT}\\
+\FITS{DO.CATG}: & \CODE{LM_LSS_SKY_RAW}\\[0.3cm]
+Templates:   & \TPL{METIS_spec_lm_obs_AutoNodOnSlit}\\
+             & \TPL{METIS_spec_lmn_obs_AutoChopNodOnSlit}\\
+             & \TPL{METIS_spec_lm_obs_GenericOffset}\\
+% TODO: Decide whether we indeed need LM_LSS_SKY_RAW.
+Input for recipe: & \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI3.NAME},  \FITS{INS.OPTI9.NAME},  \FITS{INS.OPTI10.NAME}, \FITS{INS.OPTI11.NAME}, \FITS{DRS.SLIT})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
+% #####################################################################################
+\paragraph{\RAW{N_LSS_SKY_RAW}}\label{dataitem:n_lss_sky_raw}
+\begin{recipedef}
+\textbf{\ac{FITS} file structure:}\\
+Name: & \RAW{N_LSS_SKY_RAW}\\[0.3cm]
+Description: & Blank sky exposure, optional. \\[0.3cm]
+\FITS{DPR.CATG}: & \CODE{CALIB}\\
+\FITS{DPR.TECH}: & \CODE{N,LSS} \\
+\FITS{DPR.TYPE}: & \CODE{SKY} \\[0.3cm]
+OCA keywords: & \FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI11.NAME}, \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME} , \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT}\\
+\FITS{DO.CATG}: & \CODE{N_LSS_SKY_RAW}\\[0.3cm]
+Templates:   & \TPL{METIS_spec_lm_obs_AutoNodOnSlit}\\
+             & \TPL{METIS_spec_lmn_obs_AutoChopNodOnSlit}\\
+             & \TPL{METIS_spec_lm_obs_GenericOffset}\\
+% TODO: Decide whether we indeed need N_LSS_SKY_RAW.
+Input for recipe: & \\
+Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
+\end{recipedef}
+\begin{datastructdef}
+\textbf{Corresponding \ac{CPL} structure:}
+\begin{enumerate}
+    \item \texttt{cpl\_propertylist * keywords: Primary keywords (\FITS{DPR.CATG},  \FITS{DPR.TECH},  \FITS{DPR.TYPE},  \FITS{INS.OPTI11.NAME}, \FITS{INS.OPTI12.NAME}, \FITS{INS.OPTI13.NAME} , \FITS{INS.OPTI14.NAME}, \FITS{DRS.SLIT})}
+    \item \texttt{hdrl\_image * image: Single image}
+    \item \texttt{cpl\_propertylist * plistarray[]: Extension keywords}
+\end{enumerate}
+\end{datastructdef}
+
 
 \clearpage
 \subsubsection{Master calibration / intermediate data item structures}\label{sssec:lssprocdatastructs}
