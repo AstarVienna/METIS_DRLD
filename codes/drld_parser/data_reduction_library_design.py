@@ -854,6 +854,8 @@ class DataReductionLibraryDesign:
             self.template_names_used_tikz,
         ) = self.get_template_names_used()
 
+        self.dpr_keywords_table = DprKeywordsTable()
+
     def get_recipes(self):
         """"""
         # TODO: Verify that there are no recipes defined in other tex files.
@@ -1168,6 +1170,47 @@ class DataReductionLibraryDesign:
                 for postfix in guess_postfixes(name_dataitem)
             )
         ]
+
+
+class DprKeywordsTable:
+    """The DPR keywords table from the appendix.
+
+    Lines are like
+     CALIB     & IMAGE,N  & DARK,WCUOFF    & N\_WCU\_OFF\_RAW        & \REC{metis_det_lingain}         \\
+     "         & "        & "              & "                    & \REC{metis_n_img_distortion}    \\
+
+    """
+    def __init__(self):
+        path_appendix = Path(__file__).parent.parent.parent / "APP_dpr_keywords.tex"
+        lines1 = open(path_appendix, encoding="utf8").readlines()
+        # Dumb way to get all lines from the table
+        lines2 = [ll for ll in lines1 if "REC" in ll]
+        lines3 = [ll.strip().strip("\\").replace("\\_", "_").split("&") for ll in lines2]
+        lines4 = [[cc.strip() for cc in ll] for ll in lines3]
+        lines = lines4
+        dpr_catg_old = ""
+        dpr_tech_old = ""
+        dpr_type_old = ""
+        do_catg_old = ""
+        self.dataitems = []
+        for dpr_catg, dpr_tech, dpr_type, do_catg, recipe1 in lines:
+            recipe = recipe1.split("{")[1].split("}")[0]
+            if dpr_catg == '"':
+                dpr_catg = dpr_catg_old
+            if dpr_tech == '"':
+                dpr_tech = dpr_tech_old
+            if dpr_type == '"':
+                dpr_type = dpr_type_old
+            if do_catg == '"':
+                do_catg = do_catg_old
+
+            dataitem = (dpr_catg, dpr_tech, dpr_type, do_catg, recipe)
+            self.dataitems.append(dataitem)
+
+            dpr_catg_old = dpr_catg
+            dpr_tech_old = dpr_tech
+            dpr_type_old = dpr_type
+            do_catg_old = do_catg
 
 
 METIS_DataReductionLibraryDesign = DataReductionLibraryDesign()
