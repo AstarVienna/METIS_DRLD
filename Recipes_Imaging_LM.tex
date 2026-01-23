@@ -107,8 +107,8 @@ otherwise a new one is created.
 %\TODO{New recipe -- this may be too basic and could be joined with the background subtraction.}
 
 This recipe performs the basic reduction of raw exposures from the
-LM-band imager, i.e.\ dark subtraction, flat fielding and other removing
-instrumental signals. It is used for both standard and science exposures.
+LM-band imager, i.e.\ dark subtraction, flat fielding and removing
+other instrumental signals. It is used for both standard and science exposures.
 
 This recipe analyses the masked detector regions for channel offset correction, crosstalk (Section~\ref{ssec:criticaldetetctormasks}) and removal of detector artefacts (electronic ghosts).
 In the horizontal dimension, the masked pixels are used to correct for each channel offset.
@@ -155,7 +155,6 @@ Basic statistics of the images can be used to screen for saturation.
                     & \EXTCALIB{PERSISTENCE_MAP} \\
                     & \PROD{MASTER_DARK_2RG} \\
                     & \PROD{MASTER_IMG_FLAT_LAMP_LM} \\
-                        & \STATCALIB{GAIN_MAP_2RG}\\
                    & or \PROD{MASTER_IMG_FLAT_TWILIGHT_LM} \\
     Matched keywords:    & \FITS{DET.DIT}                                                   \\
                        & \FITS{DET.NDIT}                                                   \\
