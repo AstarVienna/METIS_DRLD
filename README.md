@@ -46,4 +46,132 @@ tikzlibraryfill.image.code.tex
 
 These files can be removed once overleaf has a texlive version that has tcolorbox 6.0.2+ included.
 
+# Automatic Consistency Checks
+
+The METIS_DRLD repository contains various consistency checks, both internal and with external documents.
+
+## Run the tests locally
+
+First install the dependencies
+```bash
+pip install -r codes/requirements.github_actions.txt
+```
+
+Then run the consistency tests
+```bash
+python -m pytest
+```
+
+This will output something like
+```
+================================= test session starts =================================
+platform linux -- Python 3.11.5, pytest-8.2.1, pluggy-1.5.0
+rootdir: /mnt/bulk/hugo/repos/METIS_DRLD
+configfile: pyproject.toml
+plugins: anyio-3.7.1, cov-4.1.0
+collected 35 items                                                                    
+
+codes/tests/test_datareductionlibrarydesign.py .....xx.........x..............s [ 91%]
+                                                                                [ 91%]
+codes/tests/test_templatemanual.py ...                                          [100%]
+
+====================== 31 passed, 1 skipped, 3 xfailed in 0.70s =======================
+```
+
+No test should be marked as failed.
+However, some tests are expected to fail, marked as `xfailed`.
+These xfailed tests mean that there are still some consistency problems with the DRLD that should be fixed, but we know about them and find them acceptable for now.
+
+## Run the tests on github.
+
+There is a [github workflow](https://github.com/AstarVienna/METIS_DRLD/blob/master/.github/workflows/tests.yml) to run the tests automatically or manually on github.
+
+## Syncing with the Template Manual
+
+The tests compares the DRLD with the Template Manual; in particular it tests whether the data from all templates is processed by the pipeline.
+The Template Manual is constructed from the [METIS wiki](https://metis.strw.leidenuniv.nl/wiki/doku.php?id=operations:metis_templates).
+The tests compare against these wiki files instead of comparing to the Template Manual itself.
+There is a [copy of the relevant wiki pages](https://github.com/AstarVienna/METIS_DRLD/tree/master/codes/drld_parser/operations) in the DRLD repository.
+
+This copy of the templates is automatically downloaded from the same [wiki export](https://home.strw.leidenuniv.nl/~burtscher/metis_operations/) that is also used by the operations group to generate the template manual.
+In particular, there is a [github workflow](https://github.com/AstarVienna/METIS_DRLD/blob/master/.github/workflows/update_operations.yml) that downloads the latest wiki export and that generates a Pull Request to update the local copy.
+
+The full process to verify a change in the Template Manual is consistent with the DRLD:
+
+- Make a change to a template on the [METIS wiki](https://metis.strw.leidenuniv.nl/wiki/doku.php?id=operations:metis_templates).
+- Wait till a [new export is generated](https://home.strw.leidenuniv.nl/~burtscher/metis_operations/), currently once an hour.
+- Wait till the [`update_operations` github action runs](https://github.com/AstarVienna/METIS_DRLD/blob/master/.github/workflows/update_operations.yml), or [run it matually](https://github.com/AstarVienna/METIS_DRLD/actions/workflows/update_operations.yml).
+- That workflow runs the [`download_operations_wiki.py` script](https://github.com/AstarVienna/METIS_DRLD/blob/master/codes/drld_parser/download_operations_wiki.py),  which you can also run locally.
+- The github workflow subsequently creates a Pull Request (if necessary) to update the [local template files](https://github.com/AstarVienna/METIS_DRLD/tree/master/codes/drld_parser/operations), which should be merged, or after running the 
+- Finally, run the [`tests`](https://github.com/AstarVienna/METIS_DRLD/actions/workflows/tests.yml) workflow.
+
+# Synchronization between Overleaf and Gitlab
+
+The METIS DRLD can be accessed both through [overleaf](https://www.overleaf.com/project/5f1abb4137d7690001f8aeb1) and [github](https://github.com/AstarVienna/METIS_DRLD).
+It is relatively straightforward to synchronize both repositories because overleaf supports git.
+The synchronization is currently (as of 2024/09/05) done through a cron-job ran by @hugobuddel on astro08 at the university of Vienna.
+The process is as follows.
+
+Create a dedicated directory for the synchronization, e.g.
+```bash
+export MY_SYNC_DIR="${HOME}/my_drld_sync"
+mkdir -p "${MY_SYNC_DIR}"
+cd "${MY_SYNC_DIR}"
+```
+
+Download the git remote sync script.
+```bash
+cd "${MY_SYNC_DIR}"
+git clone https://gitlab.astro-wise.org/buddel/gitremotesync.git
+```
+
+Clone the github repository and then also add overleaf as a git remote.
+E.g.
+```bash
+cd "${MY_SYNC_DIR}"
+git clone git@github.com:AstarVienna/METIS_DRLD.git
+cd "${MY_SYNC_DIR}/METIS_DRLD"
+git remote add overleaf https://git.overleaf.com/5f1abb4137d7690001f8aeb1
+```
+
+Then create a [create a git authentication token for overleaf](https://www.overleaf.com/learn/how-to/Git_integration_authentication_tokens).
+Run the following to use the token:
+```bash
+cd "${MY_SYNC_DIR}/METIS_DRLD"
+git config credential.helper store
+git fetch overleaf
+```
+Use `git` as your username, and the token as password.
+
+Run the git remote sync script manually to test whether it works.
+```bash
+cd "${MY_SYNC_DIR}/METIS_DRLD"
+bash "${MY_SYNC_DIR}/gitremotesync/synchronize.sh
+```
+There should be no output, unless someone has edited the DRLD since the previous step.
+
+Finally add the synchronization job to cron:
+```bash
+(crontab -l ; echo "*/5 * * * * cd ${MY_SYNC_DIR}/METIS_DRLD && bash ${MY_SYNC_DIR}/gitremotesync/synchronize.sh") | crontab -
+```
+
+Now make a change to the DRLD on either github or overleaf.
+Wait about ten minutes and the change should have propagated.
+You should also get an email about the propagation if you setup cron correctly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
