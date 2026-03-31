@@ -223,6 +223,10 @@ HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING = {
     "metis_det_persistence",
     # Some of the section headers refer to two recipes
     "metis_lm/n_adc_slitloss",
+    # Algorithms_SPECTRO.tex
+    "*_mf_calctrans",
+    "*_mf_correct",
+    "*_mf_model",
 }
 
 HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS = {
