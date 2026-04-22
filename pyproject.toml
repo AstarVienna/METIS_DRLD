@@ -21,5 +21,9 @@ dependencies = []
 [project.urls]
 "Source" = "https://github.com/AstarVienna/METIS_DRLD"
 
-[tool.setuptools.packages]
-find = {}
+[tool.setuptools]
+package-dir = {"" = "codes"}
+packages = ["metis_drld"]
+
+[tool.setuptools.package-data]
+metis_drld = ["tex/*", "operations/*"]
