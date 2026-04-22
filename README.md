@@ -58,7 +58,12 @@ Steps:
 
 1. Update version in `pyproject.toml`.
 
-2. Copy the TeX files:
+2. Clean the repository with (add `-f`)
+   ```
+   git clean -xd
+   ```
+
+3. Copy the TeX files:
    ```
    mkdir -p codes/metis_drld/tex
    cp -av *tex codes/metis_drld/tex
@@ -66,9 +71,9 @@ Steps:
    cp -av tikz codes/metis_drld/tex
    ```
 
-3. Build the package
+4. Build the package
    ```
    python3 -m build
    ```
 
-4. Upload `dist/metis_drld-*.tar.gz` to https://pip.entropynaut.com/packages/metis_drld/
+5. Upload `dist/metis_drld-*.tar.gz` to https://pip.entropynaut.com/packages/metis_drld/
