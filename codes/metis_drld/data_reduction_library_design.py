@@ -11,7 +11,7 @@ from pathlib import Path
 import re
 from typing import List, Optional
 
-from codes.drld_parser.hacks import (
+from metis_drld.hacks import (
     HACK_BAD_NAMES,
     HACK_INCORRECT_INPUT_DATA,
     HACK_RECIPE_TEMPLATES,
