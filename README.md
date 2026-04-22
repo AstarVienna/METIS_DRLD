@@ -46,4 +46,13 @@ tikzlibraryfill.image.code.tex
 
 These files can be removed once overleaf has a texlive version that has tcolorbox 6.0.2+ included.
 
+## Creating python package
 
+```
+mkdir -p codes/drld_parser/tex
+cp -av *tex codes/drld_parser/tex
+cp -av figures codes/drld_parser/tex
+cp -av tikz codes/drld_parser/tex
+
+python3 -m build
+```
