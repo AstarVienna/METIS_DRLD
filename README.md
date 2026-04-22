@@ -49,10 +49,10 @@ These files can be removed once overleaf has a texlive version that has tcolorbo
 ## Creating python package
 
 ```
-mkdir -p codes/drld_parser/tex
-cp -av *tex codes/drld_parser/tex
-cp -av figures codes/drld_parser/tex
-cp -av tikz codes/drld_parser/tex
+mkdir -p codes/metis_drld/tex
+cp -av *tex codes/metis_drld/tex
+cp -av figures codes/metis_drld/tex
+cp -av tikz codes/metis_drld/tex
 
 python3 -m build
 ```
