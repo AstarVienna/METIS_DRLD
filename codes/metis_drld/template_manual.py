@@ -4,8 +4,8 @@ from pathlib import Path
 import re
 from typing import Dict, Set
 
-from codes.drld_parser.fits_header import FitsHeader
-from codes.drld_parser.hacks import (
+from metis_drld.fits_header import FitsHeader
+from metis_drld.hacks import (
     hack_rename_template_header,
     HACK_TEMPLATE_NAMES_ONLY_IN_WIKI_SUMMARY_BUT_NOT_ACTUALLY_ON_WIKI,
 )

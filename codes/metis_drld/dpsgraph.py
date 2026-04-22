@@ -10,11 +10,11 @@ Colors based on association maps:
 (leg_calfile)    [extcalfile]    {FLUXSTD_CATALOG} {external calib. file} externalcolor   {183,255,255}
 """
 
-from codes.drld_parser.data_reduction_library_design import (
+from metis_drld.data_reduction_library_design import (
     METIS_DataReductionLibraryDesign,
     guess_dataitem_type,
 )
-from codes.drld_parser.template_manual import METIS_TemplateManual
+from metis_drld.template_manual import METIS_TemplateManual
 
 # TODO: Apparently MASTER_DARK_GEO and MASTER_FLAT_GEO should be a QC product?
 colors = {
