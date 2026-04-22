@@ -76,4 +76,4 @@ Steps:
    python3 -m build
    ```
 
-5. Upload `dist/metis_drld-*.tar.gz` to https://pip.entropynaut.com/packages/metis_drld/
+5. Upload `dist/metis_drld-*.tar.gz` to https://pip.entropynaut.com/packages/metis-drld/
