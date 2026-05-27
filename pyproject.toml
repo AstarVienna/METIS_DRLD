@@ -1,6 +1,6 @@
 [project]
-name = "METIS_DRLD"
-version = "0.0.2"
+name = "metis_drld"
+version = "0.0.3"
 description = "METIS Data Reduction Library Design."
 readme = "README.md"
 requires-python = ">=3.9"
