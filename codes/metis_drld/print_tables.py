@@ -7,21 +7,21 @@ from pprint import pprint
 import numpy
 import pytest
 
-from codes.drld_parser.data_reduction_library_design import (
+from metis_drld.data_reduction_library_design import (
     METIS_DataReductionLibraryDesign,
     find_latex_inputs,
     DataItemReference,
     guess_dataitem_type,
     DataItem, Recipe,
 )
-from codes.drld_parser.hacks import (
+from metis_drld.hacks import (
     TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI,
     HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT,
     HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING,
     HACK_DATAITEMS_ALLOWED_TO_HAVE_BROKEN_USERS,
     HACK_TEMPLATES_ALLOWED_TO_TRIGGER_RECIPES_WITHOUT_RAW_DATA,
 )
-from codes.drld_parser.template_manual import METIS_TemplateManual
+from metis_drld.template_manual import METIS_TemplateManual
 
 
 def print_table(header, columns, rowline=False):

@@ -11,7 +11,7 @@ from pathlib import Path
 import re
 from typing import List, Optional
 
-from codes.drld_parser.hacks import (
+from metis_drld.hacks import (
     HACK_BAD_NAMES,
     HACK_INCORRECT_INPUT_DATA,
     HACK_RECIPE_TEMPLATES,
@@ -20,6 +20,11 @@ from codes.drld_parser.hacks import (
 PATTERN_TEX_COMMENT = re.compile(r"(?<!\\)%[^\n]*")
 # Anything that is: not a backslash, then a percent, then anything not a newline
 
+PATH_HERE = Path(__file__).parent
+PATH_DRLD = PATH_HERE.parent.parent
+if not (PATH_DRLD / "METIS_DRLD.tex").exists():
+    # For the pip packages; see README.md.
+    PATH_DRLD = PATH_HERE / "tex"
 
 def guess_postfixes(name):
     """Try to guess what _det_ means in name."""
@@ -818,9 +823,8 @@ class DataReductionLibraryDesign:
     # TODO: Check all tex files
 
     def __init__(self):
-        path_here = Path(__file__).parent
 
-        self.path_drld = path_here.parent.parent
+        self.path_drld = PATH_DRLD
         # The path of the DRLD
 
         self.templates_acquisition_used = {
@@ -1181,7 +1185,7 @@ class DprKeywordsTable:
 
     """
     def __init__(self):
-        path_appendix = Path(__file__).parent.parent.parent / "APP_dpr_keywords.tex"
+        path_appendix = PATH_DRLD / "APP_dpr_keywords.tex"
         lines1 = open(path_appendix, encoding="utf8").readlines()
         # Dumb way to get all lines from the table
         lines2 = [ll for ll in lines1 if "REC" in ll]

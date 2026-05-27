@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from ..drld_parser.template_manual import METIS_TemplateManual
+from ..metis_drld.template_manual import METIS_TemplateManual
 
 PATH_ROOT = Path(__file__).parent.parent.parent
 

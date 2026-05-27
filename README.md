@@ -46,4 +46,34 @@ tikzlibraryfill.image.code.tex
 
 These files can be removed once overleaf has a texlive version that has tcolorbox 6.0.2+ included.
 
+## Creating python package
 
+The METIS DRLD can be used as a Python package.
+It is necessary to first copy all the TeX files into the package
+so it can be packaged as well.
+The pip package is used by MetisWISE to determine which Raw classes
+exist.
+
+Steps:
+
+1. Update version in `pyproject.toml`.
+
+2. Clean the repository with (add `-f`)
+   ```
+   git clean -xd
+   ```
+
+3. Copy the TeX files:
+   ```
+   mkdir -p codes/metis_drld/tex
+   cp -av *tex codes/metis_drld/tex
+   cp -av figures codes/metis_drld/tex
+   cp -av tikz codes/metis_drld/tex
+   ```
+
+4. Build the package
+   ```
+   python3 -m build
+   ```
+
+5. Upload `dist/metis_drld-*.tar.gz` to https://pip.entropynaut.com/packages/metis-drld/

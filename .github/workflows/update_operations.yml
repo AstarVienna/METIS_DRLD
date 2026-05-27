@@ -24,7 +24,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Download operations wiki export on top of checkout
-        run: python codes/drld_parser/download_operations_wiki.py
+        run: python codes/metis_drld/download_operations_wiki.py
 
       # Create a PR with the changes from the above script, if any.
       - name: Create Pull Request

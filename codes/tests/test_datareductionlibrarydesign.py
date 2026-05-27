@@ -7,7 +7,7 @@ from pprint import pprint
 import numpy
 import pytest
 
-from ..drld_parser.data_reduction_library_design import (
+from ..metis_drld.data_reduction_library_design import (
     METIS_DataReductionLibraryDesign,
     find_latex_inputs,
     DataItemReference,
@@ -15,7 +15,7 @@ from ..drld_parser.data_reduction_library_design import (
     DataItem,
     AssociationMatrix,
 )
-from ..drld_parser.hacks import (
+from ..metis_drld.hacks import (
     TEMPLATE_IN_DRLD_BUT_NOT_IN_OPERATIONS_WIKI,
     HACK_RECIPES_THAT_ARE_ALLOWED_TO_HAVE_BAD_OUTPUT,
     HACK_RECIPES_THAT_ARE_ALLOWED_TO_BE_MISSING,
@@ -24,7 +24,7 @@ from ..drld_parser.hacks import (
     HACK_RECIPES_THAT_DO_NOT_NEED_A_FIGURE,
     HACK_RECIPES_THAT_WERE_NOT_GOING_TO_CHECK_TIKZ_FOR,
 )
-from ..drld_parser.template_manual import METIS_TemplateManual
+from ..metis_drld.template_manual import METIS_TemplateManual
 
 
 class TestDataReductionLibraryDesign:
