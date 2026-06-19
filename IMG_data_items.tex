@@ -323,7 +323,7 @@ An \RAW{det_WCU_OFF_RAW} can be one of
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \RAW{LM_WCU_OFF_RAW}\\[0.3cm]
-Description: & Raw data for dark subtraction in other recipes.\\[0.3cm]
+Description: & Raw data for thermal background subtraction. \RAW{det_WCU_OFF_RAW} frames should not be confused with dark frames. They measure the thermal background radiation from the WCU and therefore are full of photons. A better comparison is blank-sky exposures used for background subtraction in on-sky observations. \CODE{WCU_OFF} means that the black-body source is closed but the warm WCU mirrors, the integrating sphere and possibly the focal-plane mask are still visible.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,LM}\\
 \FITS{DPR.TYPE}: & \CODE{DARK,WCUOFF}\\
@@ -353,7 +353,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \RAW{N_WCU_OFF_RAW}\\[0.3cm]
-Description: & Raw data for dark subtraction in other recipes.\\[0.3cm]
+Description: & Raw data for thermal background subtraction. \RAW{det_WCU_OFF_RAW} frames should not be confused with dark frames. They measure the thermal background radiation from the WCU and therefore are full of photons. A better comparison is blank-sky exposures used for background subtraction in on-sky observations. \CODE{WCU_OFF} means that the black-body source is closed but the warm WCU mirrors, the integrating sphere and possibly the focal-plane mask are still visible.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IMAGE,N}\\
 \FITS{DPR.TYPE}: & \CODE{DARK,WCUOFF}\\
@@ -382,7 +382,7 @@ Processing \ac{FITS} Keywords: & provided at \ac{PAE}\\
 \begin{recipedef}
 \textbf{\ac{FITS} file structure:}\\
 Name: & \RAW{IFU_WCU_OFF_RAW}\\[0.3cm]
-Description: & Raw data for dark subtraction in other recipes.\\[0.3cm]
+Description: & Raw data for thermal background subtraction. \RAW{det_WCU_OFF_RAW} frames should not be confused with dark frames. They measure the thermal background radiation from the WCU and therefore are full of photons. A better comparison is blank-sky exposures used for background subtraction in on-sky observations. \CODE{WCU_OFF} means that the black-body source is closed but the warm WCU mirrors, the integrating sphere and possibly the focal-plane mask are still visible.\\[0.3cm]
 \FITS{DPR.CATG}: & \CODE{CALIB}\\
 \FITS{DPR.TECH}: & \CODE{IFU}\\
 \FITS{DPR.TYPE}: & \CODE{DARK,WCUOFF}\\
