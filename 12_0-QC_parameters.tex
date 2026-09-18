@@ -98,7 +98,7 @@ Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_det_dark}\\
-Description & Number of bad pixels in the image maxk \tabularnewline
+Description & Number of bad pixels in the image mask \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
@@ -117,7 +117,7 @@ Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_det_dark}\\
-Description & Number of cold pixels in the image maxk \tabularnewline
+Description & Number of cold pixels in the image mask \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
@@ -136,7 +136,7 @@ Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_det_dark}\\
-Description & Number of hot pixels in the image maxk \tabularnewline
+Description & Number of hot pixels in the image mask \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
@@ -152,7 +152,7 @@ Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_det_dark}\\
-Description & Median of the median values individual dark frames \tabularnewline
+Description & Median of the median values of individual dark frames \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
@@ -168,7 +168,7 @@ Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_det_dark}\\
-Description & Mean of the median values individual dark frames \tabularnewline
+Description & Mean of the median values of individual dark frames \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
@@ -184,7 +184,7 @@ Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_det_dark}\\
-Description & Median of the median values individual dark frames \tabularnewline
+Description & RMS of the median values of individual dark frames \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
@@ -200,7 +200,7 @@ Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_det_dark}\\
-Description & Minimum of the median values individual dark frames \tabularnewline
+Description & Minimum of the median values of individual dark frames \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
@@ -216,7 +216,7 @@ Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_det_dark}\\
-Description & Maxiumum of the median values individual dark frames \tabularnewline
+Description & Maximum of the median values of individual dark frames \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
@@ -1199,7 +1199,7 @@ Unit & Jy/Pixel \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_img_std_process}\\
-Description & Sensitivity extended source detections \tabularnewline
+Description & Sensitivity of extended source detections \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
@@ -1383,7 +1383,7 @@ Unit & Jy/Pixel \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_img_std_process}\\
-Description & Sensitivity extended source detections \tabularnewline
+Description & Sensitivity of extended source detections \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
@@ -1626,7 +1626,7 @@ Unit & Pixels \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_ifu_distortion}\\
-Description & Measure FWHM of spots \tabularnewline
+Description & Measured FWHM of the spots \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
@@ -1930,11 +1930,11 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
 Value & \%.3f \tabularnewline
-Unit & Counts \tabularnewline
+Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_rsrf}\\
-escription & \ac{SNR} of the normalised \ac{RSRF} \tabularnewline
+Description & \ac{SNR} of the normalised \ac{RSRF} \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
@@ -2223,7 +2223,7 @@ Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_std}\\
-Description &  \tabularnewline
+Description & Average level of the standard star flux \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
@@ -2235,7 +2235,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
 Value & \%.3f \tabularnewline
-Unit & Jy \tabularnewline
+Unit & \AA \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_std}\\
@@ -2287,8 +2287,7 @@ Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_std}\\
-Description &Number of lines matched between
-                    catalogue and spectrum  \tabularnewline
+Description & Number of lines matched between catalogue and spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
@@ -2355,7 +2354,7 @@ Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_sci}\\
-Description & Signal-to-noise ration of science spectrum \tabularnewline
+Description & Signal-to-noise ratio of science spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2366,7 +2365,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
 Value & \%.3f \tabularnewline
-Unit & Jy \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_sci}\\
@@ -2385,7 +2384,7 @@ Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_sci}\\
-Description & Signal-to-noise ration of flux calibrated science spectrum \tabularnewline
+Description & Signal-to-noise ratio of flux calibrated science spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2411,7 +2410,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
 Value & \%.3f \tabularnewline
-Unit & Jy \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_sci}\\
@@ -2587,7 +2586,7 @@ Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_lss_rsrf}\\
-escription & \ac{SNR} of the normalised \ac{RSRF} \tabularnewline
+Description & \ac{SNR} of the normalised \ac{RSRF} \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
@@ -2731,7 +2730,7 @@ Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_lss_std}\\
-Description & Signal-to-noise ration of flux standard star spectrum \tabularnewline
+Description & Signal-to-noise ratio of flux standard star spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
@@ -2795,7 +2794,7 @@ Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_lss_std}\\
-Description &  \tabularnewline
+Description & Average level of the standard star flux \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
@@ -2859,8 +2858,7 @@ Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_lss_std}\\
-Description &Number of lines matched between
-                    catalogue and spectrum  \tabularnewline
+Description & Number of lines matched between catalogue and spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 
@@ -2925,7 +2923,7 @@ Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_lss_sci}\\
-Description & Signal-to-noise ration of science spectrum \tabularnewline
+Description & Signal-to-noise ratio of science spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2936,7 +2934,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
 Value & \%.3f \tabularnewline
-Unit & Jy \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_lss_sci}\\
@@ -2955,7 +2953,7 @@ Unit & None \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_lss_sci}\\
-Description & Signal-to-noise ration of flux calibrated science spectrum \tabularnewline
+Description & Signal-to-noise ratio of flux calibrated science spectrum \tabularnewline
 Comment & None \tabularnewline
 \end{recipedef}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2981,7 +2979,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
 Value & \%.3f \tabularnewline
-Unit & Jy \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_lss_sci}\\
