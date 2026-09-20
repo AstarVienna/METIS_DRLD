@@ -21,7 +21,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \DRL{metis_apply_persistence_correction}\\
@@ -94,7 +94,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_det_dark}\\
@@ -113,7 +113,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_det_dark}\\
@@ -132,7 +132,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_det_dark}\\
@@ -263,7 +263,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_img_flat}\\
@@ -271,7 +271,9 @@ Description & Number of bad pixels in the master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ToDo (decision 2026-09-18, "MFLAT only"): the master-flat QC is written once per product under the
+% MFLAT family; the product tag says whether the flat is LAMP or TWILIGHT. This per-source card is
+% kept for reference and is not produced by the pipeline; drop it or reinstate it deliberately.
 \subsubsection{QC LM MLFLAT RMS}\label{qc:qc_lm_mlflat_rms}
 \begin{recipedef}
 Name & \QC{QC LM MLFLAT RMS} \tabularnewline
@@ -287,7 +289,9 @@ Description & RMS of the lamp master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ToDo (decision 2026-09-18, "MFLAT only"): the master-flat QC is written once per product under the
+% MFLAT family; the product tag says whether the flat is LAMP or TWILIGHT. This per-source card is
+% kept for reference and is not produced by the pipeline; drop it or reinstate it deliberately.
 \subsubsection{QC LM MLFLAT MEDIAN}\label{qc:qc_lm_mlflat_median}
 \begin{recipedef}
 Name & \QC{QC LM MLFLAT MEDIAN} \tabularnewline
@@ -303,7 +307,9 @@ Description & Median of the lamp master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ToDo (decision 2026-09-18, "MFLAT only"): the master-flat QC is written once per product under the
+% MFLAT family; the product tag says whether the flat is LAMP or TWILIGHT. This per-source card is
+% kept for reference and is not produced by the pipeline; drop it or reinstate it deliberately.
 \subsubsection{QC LM MLFLAT NBADPIX}\label{qc:qc_lm_mlflat_nbadpix}
 \begin{recipedef}
 Name & \QC{QC LM MLFLAT NBADPIX} \tabularnewline
@@ -319,7 +325,9 @@ Description & Number of bad pixels in the lamp master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ToDo (decision 2026-09-18, "MFLAT only"): the master-flat QC is written once per product under the
+% MFLAT family; the product tag says whether the flat is LAMP or TWILIGHT. This per-source card is
+% kept for reference and is not produced by the pipeline; drop it or reinstate it deliberately.
 \subsubsection{QC LM MTFLAT RMS}\label{qc:qc_lm_mtflat_rms}
 \begin{recipedef}
 Name & \QC{QC LM MTFLAT RMS} \tabularnewline
@@ -335,7 +343,9 @@ Description & RMS of the twilight master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ToDo (decision 2026-09-18, "MFLAT only"): the master-flat QC is written once per product under the
+% MFLAT family; the product tag says whether the flat is LAMP or TWILIGHT. This per-source card is
+% kept for reference and is not produced by the pipeline; drop it or reinstate it deliberately.
 \subsubsection{QC LM MTFLAT MEDIAN}\label{qc:qc_lm_mtflat_median}
 \begin{recipedef}
 Name & \QC{QC LM MTFLAT MEDIAN} \tabularnewline
@@ -351,7 +361,9 @@ Description & Median of the twilight master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ToDo (decision 2026-09-18, "MFLAT only"): the master-flat QC is written once per product under the
+% MFLAT family; the product tag says whether the flat is LAMP or TWILIGHT. This per-source card is
+% kept for reference and is not produced by the pipeline; drop it or reinstate it deliberately.
 \subsubsection{QC LM MTFLAT NBADPIX}\label{qc:qc_lm_mtflat_nbadpix}
 \begin{recipedef}
 Name & \QC{QC LM MFLAT NBADPIX} \tabularnewline
@@ -375,7 +387,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
 Value & \%.3f \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & Counts  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_img_flat}\\
@@ -509,7 +521,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_img_flat}\\
@@ -517,7 +529,9 @@ Description & Number of bad pixels in the image mask \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ToDo (decision 2026-09-18, "MFLAT only"): the master-flat QC is written once per product under the
+% MFLAT family; the product tag says whether the flat is LAMP or TWILIGHT. This per-source card is
+% kept for reference and is not produced by the pipeline; drop it or reinstate it deliberately.
 \subsubsection{QC N MLFLAT RMS}\label{qc:qc_n_mlflat_rms}
 \begin{recipedef}
 Name & \QC{QC N MLFLAT RMS} \tabularnewline
@@ -533,7 +547,9 @@ Description & RMS of the lamp master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ToDo (decision 2026-09-18, "MFLAT only"): the master-flat QC is written once per product under the
+% MFLAT family; the product tag says whether the flat is LAMP or TWILIGHT. This per-source card is
+% kept for reference and is not produced by the pipeline; drop it or reinstate it deliberately.
 \subsubsection{QC N MLFLAT MEDIAN}\label{qc:qc_n_mlflat_median}
 \begin{recipedef}
 Name & \QC{QC N MLFLAT MEDIAN} \tabularnewline
@@ -549,7 +565,9 @@ Description & Median of the lamp master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ToDo (decision 2026-09-18, "MFLAT only"): the master-flat QC is written once per product under the
+% MFLAT family; the product tag says whether the flat is LAMP or TWILIGHT. This per-source card is
+% kept for reference and is not produced by the pipeline; drop it or reinstate it deliberately.
 \subsubsection{QC N MLFLAT NBADPIX}\label{qc:qc_n_mlflat_nbadpix}
 \begin{recipedef}
 Name & \QC{QC N MLFLAT NBADPIX} \tabularnewline
@@ -565,7 +583,9 @@ Description & Number of bad pixels in the lamp master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ToDo (decision 2026-09-18, "MFLAT only"): the master-flat QC is written once per product under the
+% MFLAT family; the product tag says whether the flat is LAMP or TWILIGHT. This per-source card is
+% kept for reference and is not produced by the pipeline; drop it or reinstate it deliberately.
 \subsubsection{QC N MTFLAT RMS}\label{qc:qc_n_mtflat_rms}
 \begin{recipedef}
 Name & \QC{QC N MTFLAT RMS} \tabularnewline
@@ -581,7 +601,9 @@ Description & RMS of the twilight master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ToDo (decision 2026-09-18, "MFLAT only"): the master-flat QC is written once per product under the
+% MFLAT family; the product tag says whether the flat is LAMP or TWILIGHT. This per-source card is
+% kept for reference and is not produced by the pipeline; drop it or reinstate it deliberately.
 \subsubsection{QC N MTFLAT MEDIAN}\label{qc:qc_n_mtflat_median}
 \begin{recipedef}
 Name & \QC{QC N MTFLAT MEDIAN} \tabularnewline
@@ -597,7 +619,9 @@ Description & Median of the twilight master flat \tabularnewline
 Comment & \tabularnewline
 \end{recipedef}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ToDo (decision 2026-09-18, "MFLAT only"): the master-flat QC is written once per product under the
+% MFLAT family; the product tag says whether the flat is LAMP or TWILIGHT. This per-source card is
+% kept for reference and is not produced by the pipeline; drop it or reinstate it deliberately.
 \subsubsection{QC N MTFLAT NBADPIX}\label{qc:qc_n_mtflat_nbadpix}
 \begin{recipedef}
 Name & \QC{QC N MFLAT NBADPIX} \tabularnewline
@@ -969,7 +993,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_img_sci_postprocess}\\
@@ -1172,7 +1196,7 @@ Comment & \tabularnewline
 
 \subsubsection{QC LM SENS}\label{qc:qc_lm_sens}
 \begin{recipedef}
-Name & \QC{QC LM sens} \tabularnewline
+Name & \QC{QC LM SENS} \tabularnewline
 Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & double \tabularnewline
@@ -1480,7 +1504,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_det_lingain}\\
@@ -1499,7 +1523,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_ifu_rsrf}\\
@@ -1544,7 +1568,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_ifu_wavecal}\\
@@ -1637,7 +1661,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_ifu_distortion}\\
@@ -1653,7 +1677,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_ifu_reduce}\\
@@ -1717,7 +1741,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & float \tabularnewline
 Value & \%.3f \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_ifu_telluric}\\
@@ -2058,7 +2082,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_wave}\\
@@ -2267,7 +2291,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_std}\\
@@ -2283,7 +2307,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_std}\\
@@ -2455,7 +2479,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_sci}\\
@@ -2470,7 +2494,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_lm_lss_sci}\\
@@ -2838,7 +2862,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_lss_std}\\
@@ -2854,7 +2878,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_lss_std}\\
@@ -3024,7 +3048,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_lss_sci}\\
@@ -3039,7 +3063,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & None \tabularnewline
 Created by & \REC{metis_n_lss_sci}\\
@@ -3119,7 +3143,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & 0 to number of pinholes \tabularnewline
 Created by & \REC{metis_lm_img_distortion}\\
@@ -3137,7 +3161,7 @@ Class & header \tabularnewline
 Context & QC \tabularnewline
 Type & int \tabularnewline
 Value & \%i \tabularnewline
-Unit & None \tabularnewline
+Unit & Counts \tabularnewline
 Default & None  \tabularnewline
 Range & 0 to number of pinholes \tabularnewline
 Created by & \REC{metis_n_img_distortion}\\
